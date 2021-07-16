@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Provider } from "react-redux";
+import { useStore } from "../src/store";
+import authRouter from "routes/auth";
+import Layout from "components/common/Layout";
 
 function App() {
+  const { store } = useStore();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <Router>
+        <Layout>
+          {authRouter.map((item) => (
+            <Route
+              key={item.path}
+              path={item.path}
+              component={item.component}
+            />
+          ))}
+        </Layout>
+      </Router>
+    </Provider>
   );
 }
 
