@@ -5,12 +5,12 @@ import authRouter from "routes/auth";
 import './index.css'
 import Layout from "components/common/Layout";
 import SearchBar from "components/app/searchbar/SearchBar";
+import Button from "components/app/buttons/Button";
 function App() {
   const { store } = useStore();
   return (
     <div>
-      <p className="">Rizwan</p>
-      <SearchBar classes='flex flex-row' />
+      <Button className="w-251 h-42" type="outlined" color='primary-light'>Live</Button>
     </div>
 
 

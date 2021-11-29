@@ -4,6 +4,39 @@ module.exports = {
   theme: {
     extend: {
 
+      borderColor: theme => ({
+        DEFAULT: theme('#e3342f', 'currentColor'),
+        'primary': '#3490dc',
+        'secondary': '#ffed4a',
+        'danger': '#e3342f',
+      }),
+
+      borderWidth: {
+        DEFAULT: '1px',
+        '0': '0',
+        '2': '2px',
+        '3': '3px',
+        '4': '4px',
+        '6': '6px',
+        '8': '8px',
+      },
+
+      fontFamily: {
+        'nunito-light': 'nunito-light',
+        'nunito-reg': 'nunito-regular',
+        'nunito-semibold': 'nunito-semibold',
+        'nunito-bold': 'nunito-bold'
+      },
+      width: {
+        '116': "116px",
+        '251': "251px",
+        '': "",
+        '': "",
+        '': "",
+        '': "",
+        '': "",
+        '': "",
+      },
       height: {
         '33': "33px",
         '42': "42px",
@@ -32,24 +65,29 @@ module.exports = {
       },
 
       colors: {
+        black: "#000000",
+        white: "#FFFFFF",
         green: "green",
-        blue: {
-          light: '#85d7ff',
-          DEFAULT: '#1fb6ff',
-          dark: '#009eeb',
+        green: "green",
+        green: "green",
+
+        primary: {
+          light: '#D4B2B3',
+          default: '#D26E72',
+          dark: '#C71118',
         },
         pink: {
           light: '#ff7ce5',
-          DEFAULT: '#ff49db',
-          dark: '#ff16d1',
+          default: '#EEECEC',
+          dark: '#D6D6D6',
         },
-        gray: {
-          darkest: '#1f2d3d',
-          dark: '#3c4858',
-          DEFAULT: '#c0ccda',
-          light: '#e0e6ed',
-          lightest: '#f9fafc',
-        }
+        default: {
+          light: '#FBFBFB',
+          normal: '#EEECEC',
+          dark: '#D6D6D6',
+        },
+        secondary: "#4A4949"
+
       }
     },
   },
