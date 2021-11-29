@@ -21,11 +21,11 @@ function FormField({
   return (
     <div>
       <Input
-        className="input-form"
+        className={`${classes}`}
         name={name}
         onBlur={handleBlur}
         onChange={handleChange}
-        placeholder="Enter you name here"
+        placeholder={placeholder}
         value={values[name]}
         {...otherProps}
       />
