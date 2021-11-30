@@ -9,26 +9,20 @@ function Button({
   onClick,
   style,
   type = "contained",
-  color = 'default',
+  color = 'primary',
   ...otherProps
 }) {
 
   const btnClasses = useMemo(() => {
-    let classes = '';
+    let classes = 'font-nunito-bold';
     if (type == 'contained') {
       if (color.includes('primary')) {
-        classes = 'text-white font-nunito-bold';
-        classes = `${classes} bg-${color}`
-        return classes
+        return `${classes} bg-${color} text-white shadow`;
       } else {
-        classes = 'text-secondary font-nunito-bold';
-        classes = `${classes} bg-${color}`
-        return classes;
+        return `${classes} bg-${color} text-secondary tracking shadow`;
       }
     } else {
-      classes = `text-primary-dark border borderColor-primary-dark  font-nunito-bold`;
-      return classes;
-
+      return `${classes} text-${color} border border-${color}`;
     }
   }, [color, type])
 
