@@ -1,9 +1,16 @@
+const spacing = {};
+
+for (let i = 1; i < 101; i++) {
+  spacing[i] = `${i}px`;
+  spacing[`${i}%`] = `${i}%`;
+}
+
 module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
-
+      spacing: { ...spacing, ...{} },
       boxShadow: {
         sm: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
         DEFAULT: '0px 4px 20px rgba(0, 0, 0, 0.1), 0px 4px 20px rgba(0, 0, 0, 0.1)',
@@ -25,14 +32,14 @@ module.exports = {
       }),
 
       fontSize: {
-        'xs': '.75rem',
-        'sm': '.875rem',
-        'tiny': '.875rem',
-        'base': '1rem',
-        'lg': '1.125rem',
-        'xl': '1.25rem',
-        '2xl': '1.5rem',
-        '3xl': '1.875rem',
+        'tiny': '10px',
+        'xsm': '12px',
+        'sm': '13px',
+        'base': '14px',
+        'lg': '16px',
+        'xl': '18px',
+        '2xl': '24px',
+        'heading': '33px',
         '4xl': '2.25rem',
         '5xl': '3rem',
         '13': '13px',
@@ -44,7 +51,7 @@ module.exports = {
         DEFAULT: '0.13em',
         tighter: '-.05em',
         normal: '0',
-        wider: '.05em',
+        wider: '0.18em',
         widest: '.25em',
       },
 
@@ -140,9 +147,9 @@ module.exports = {
         green: "green",
 
         primary: {
-          DEFAULT: '#D26E72',
+          dim: '#D26E72',
           light: '#D4B2B3',
-          dark: '#C71118',
+          DEFAULT: '#C71118',
         },
         pink: {
           DEFAULT: '#EEECEC',
@@ -154,7 +161,10 @@ module.exports = {
           light: '#FBFBFB',
           dark: '#D6D6D6',
         },
-        secondary: "#4A4949"
+        secondary: {
+          DEFAULT: "#4A4949",
+          dark: "#1A1A1A"
+        }
 
       }
     },
