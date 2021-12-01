@@ -10,20 +10,21 @@ function Button({
   style,
   type = "contained",
   color = 'primary',
-  transform = "",
+  transform = "lowercase",
   ...otherProps
 }) {
+
 
   const btnClasses = useMemo(() => {
     let classes = 'font-bold';
     if (type == 'contained') {
       if (color.includes('primary')) {
-        return `${classes} bg-${color} text-white shadow`;
+        return `${classes} bg-${color} text-white tracking shadow text-sm`;
       } else {
-        return `${classes} bg-${color} text-secondary tracking shadow`;
+        return `${classes} ${color} tracking shadow text-sm`;
       }
     } else {
-      return `${classes} text-${color} border border-${color}`;
+      return `${classes} text-${color} border border-${color} text-base`;
     }
   }, [color, type])
 

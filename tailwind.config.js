@@ -10,7 +10,6 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
-      spacing: { ...spacing, ...{} },
       boxShadow: {
         sm: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
         DEFAULT: '0px 4px 20px rgba(0, 0, 0, 0.1), 0px 4px 20px rgba(0, 0, 0, 0.1)',
@@ -25,35 +24,10 @@ module.exports = {
 
       borderColor: theme => ({
         DEFAULT: theme('#C71118', 'currentColor'),
-        'primary': '#3490dc',
         'secondary': '#ffed4a',
         'danger': '#e3342f',
         'gray': '#D6D6D6'
       }),
-
-      fontSize: {
-        'tiny': '10px',
-        'xsm': '12px',
-        'sm': '13px',
-        'base': '14px',
-        'lg': '16px',
-        'xl': '18px',
-        '2xl': '24px',
-        'heading': '33px',
-        '4xl': '2.25rem',
-        '5xl': '3rem',
-        '13': '13px',
-        '6xl': '4rem',
-        '7xl': '5rem',
-      },
-
-      letterSpacing: {
-        DEFAULT: '0.13em',
-        tighter: '-.05em',
-        normal: '0',
-        wider: '0.18em',
-        widest: '.25em',
-      },
 
       borderWidth: {
         DEFAULT: '1px',
@@ -72,12 +46,104 @@ module.exports = {
         'full': '100%',
       },
 
+      colors: {
+        black: "#000000",
+        white: "#FFFFFF",
+        green: "green",
+        green: "green",
+        green: "green",
+
+        primary: {
+          dim: '#D26E72',
+          light: '#D4B2B3',
+          DEFAULT: '#C71118',
+        },
+        pink: {
+          DEFAULT: '#EEECEC',
+          light: '#ff7ce5',
+          dark: '#D6D6D6',
+        },
+        gray: {
+          dim: '#EEECEC',
+          light: '#FBFBFB',
+          DEFAULT: '#D6D6D6',
+        },
+        secondary: {
+          DEFAULT: "#4A4949",
+          dark: "#1A1A1A",
+          dim: "#999999",
+          light: "#E4E4E4"
+        }
+
+      },
+      fontSize: {
+        'tiny': '10px',
+        'xsm': '12px',
+        'sm': '13px',
+        'base': '14px',
+        'lg': '16px',
+        'xl': '18px',
+        '2xl': '24px',
+        'heading': '33px',
+        '4xl': '2.25rem',
+        '5xl': '3rem',
+        '13': '13px',
+        '6xl': '4rem',
+        '7xl': '5rem',
+      },
       fontFamily: {
         'light': 'nunito-light',
         'reg': 'nunito-regular',
         'medium': 'nunito-semibold',
         'bold': 'nunito-bold'
       },
+
+      height: {
+        '10': "10px",
+        '12': "12px",
+        '14': "14px",
+        '18': "18px",
+        '20': "20px",
+        '32': "32px",
+        '33': "33px",
+        '42': "42px",
+        '': "",
+        '': "",
+        '': "",
+        '': "",
+      },
+
+      letterSpacing: {
+        DEFAULT: '0.13em',
+        tighter: '-.05em',
+        normal: '0',
+        wider: '0.18em',
+        widest: '.25em',
+      },
+
+      margin: {
+        '2': "2px",
+        '10': "10px",
+        '15': "15px",
+        '': "",
+        '': "",
+        '': "",
+        '': "",
+        '': "",
+      },
+
+      padding: {
+        '2': "2px",
+        '10': "10px",
+        '15': "15px",
+        '': "",
+        '': "",
+        '': "",
+        '': "",
+        '': "",
+      },
+
+      spacing: { ...spacing, ...{} },
       width: {
         '10': "10px",
         '12': "12px",
@@ -102,71 +168,7 @@ module.exports = {
         '': "",
         '': "",
       },
-      height: {
-        '10': "10px",
-        '12': "12px",
-        '14': "14px",
-        '18': "18px",
-        '20': "20px",
-        '32': "32px",
-        '33': "33px",
-        '42': "42px",
-        '': "",
-        '': "",
-        '': "",
-        '': "",
-      },
 
-      padding: {
-        '2': "2px",
-        '10': "10px",
-        '15': "15px",
-        '': "",
-        '': "",
-        '': "",
-        '': "",
-        '': "",
-      },
-
-      margin: {
-        '2': "2px",
-        '10': "10px",
-        '15': "15px",
-        '': "",
-        '': "",
-        '': "",
-        '': "",
-        '': "",
-      },
-
-      colors: {
-        black: "#000000",
-        white: "#FFFFFF",
-        green: "green",
-        green: "green",
-        green: "green",
-
-        primary: {
-          dim: '#D26E72',
-          light: '#D4B2B3',
-          DEFAULT: '#C71118',
-        },
-        pink: {
-          DEFAULT: '#EEECEC',
-          light: '#ff7ce5',
-          dark: '#D6D6D6',
-        },
-        default: {
-          DEFAULT: '#EEECEC',
-          light: '#FBFBFB',
-          dark: '#D6D6D6',
-        },
-        secondary: {
-          DEFAULT: "#4A4949",
-          dark: "#1A1A1A"
-        }
-
-      }
     },
   },
   variants: {
