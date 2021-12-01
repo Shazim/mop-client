@@ -4,13 +4,25 @@ import { useStore } from "../src/store";
 import authRouter from "routes/auth";
 import './index.css'
 import Layout from "components/common/Layout";
-import SearchBar from "components/app/searchbar/SearchBar";
+import SearchBar from "components/atoms/searchbar/SearchBar";
+import Button from "components/atoms/buttons/Button";
+import SwitchButton from "components/atoms/buttons/SwitchButton";
+import RadioButton from "components/atoms/buttons/RadioButton";
+import CheckBox from "components/atoms/checkbox/CheckBox";
+import { useState } from "react";
 function App() {
   const { store } = useStore();
+  const [checked, setChecked] = useState(false);
+
+  const handleClick = () => {
+    setChecked(!checked);
+  }
   return (
     <div>
-      <p className="">Rizwan</p>
-      <SearchBar classes='flex flex-row' />
+      <Button className="w-251 h-42" color='primary-dark'>Live</Button>
+      <SwitchButton />
+      <SearchBar placeholder="search for an artist" transform="uppercase" bgColor='bg-default-dark' />
+      <CheckBox value="Female" checked={checked} onChange={handleClick} />
     </div>
 
 

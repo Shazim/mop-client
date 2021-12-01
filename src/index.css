@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.max-screen {
+}
+
+@layer base {
+  @font-face {
+    font-family: "nunito-light";
+    src: local("Nunito-Light"),
+      url("../src/fonts/Nunito-Light.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "nunito-regular";
+    src: local("Nunito-Regular"),
+      url("../src/fonts/Nunito-Regular.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "nunito-semibold";
+    src: local("Nunito-SemiBold"),
+      url("../src/fonts/Nunito-SemiBold.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "nunito-bold";
+    src: local("Nunito-Bold"),
+      url("../src/fonts/Nunito-Bold.ttf") format("truetype");
+  }
+}

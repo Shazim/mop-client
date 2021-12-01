@@ -12,7 +12,7 @@ function Input({
 }) {
   return (
     <input
-      className={`input ${classes}`}
+      className={`${classes} input`}
       defaultValue={defaultValue}
       name={name}
       onBlur={onBlur}
