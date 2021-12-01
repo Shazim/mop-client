@@ -10,7 +10,7 @@ function CheckBox({ value, checked, onChange }) {
             <div className="w-20 h-20 border-2 border-gray  flex justify-center items-center">
                 <RedMark className={`w-12 h-10 ${(checked) ? "" : "invisible"}`} />
             </div>
-            <div className="text-secondary font-bold ml-10">{value}</div>
+            <div className="text-secondary mt-2 text-sm font-bold ml-10">{value}</div>
         </div>
     )
 }

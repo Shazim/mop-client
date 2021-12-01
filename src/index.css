@@ -5,6 +5,16 @@
 .max-screen {
 }
 
+.gray {
+  @apply bg-gray text-secondary;
+}
+.gray-dim {
+  @apply bg-gray-dim text-secondary-dim;
+}
+.gray-light {
+  @apply bg-gray-light text-secondary-light;
+}
+
 @layer base {
   @font-face {
     font-family: "nunito-light";
