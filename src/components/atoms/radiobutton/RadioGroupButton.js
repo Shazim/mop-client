@@ -1,15 +1,14 @@
 import React, { useState } from 'react'
-import RadioButton from './RadioButton'
+import RadioButton from '../buttons/RadioButton'
 
-function RadioGroupButton() {
+function RadioGroupButton({ text, value }) {
     const [checked, setChecked] = useState(false)
-    const handleClick = () => {
-        setChecked(!checked)
+    const handleClick = (checked) => {
+        setChecked(checked)
     }
     return (
         <>
-            <RadioButton text="Male" onChange={handleClick} isClick={checked} />
-            <RadioButton text="Female" isClick={!checked} onChange={handleClick} />
+            <RadioButton value="Male" onChange={() => handleClick(true)} checked={checked} />
         </>
     )
 }

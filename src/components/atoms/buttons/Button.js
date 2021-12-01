@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useMemo } from "react";
 
-import "../config/styles/style.scss";
+import "../../app/config/styles/style.scss";
 
 function Button({
   children,
@@ -10,11 +10,12 @@ function Button({
   style,
   type = "contained",
   color = 'primary',
+  transform = "",
   ...otherProps
 }) {
 
   const btnClasses = useMemo(() => {
-    let classes = 'font-nunito-bold';
+    let classes = 'font-bold';
     if (type == 'contained') {
       if (color.includes('primary')) {
         return `${classes} bg-${color} text-white shadow`;
@@ -41,7 +42,9 @@ function Button({
 }
 
 Button.propTypes = {
-  type: PropTypes.oneOf(["primary", "secondary"]),
+  type: PropTypes.oneOf(["outline", "contained"]),
+  color: PropTypes.oneOf(["primary", "primary-light", "primary-dark", "default", "default-light", "default-dark"]),
+  transform: PropTypes.oneOf(["uppercase", "capitalize"]),
 };
 
 export default Button;

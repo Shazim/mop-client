@@ -21,7 +21,7 @@ function FormField({
   return (
     <div>
       <Input
-        className={`${classes}`}
+        className={classes}
         name={name}
         onBlur={handleBlur}
         onChange={handleChange}

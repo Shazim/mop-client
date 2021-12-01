@@ -24,6 +24,22 @@ module.exports = {
         'gray': '#D6D6D6'
       }),
 
+      fontSize: {
+        'xs': '.75rem',
+        'sm': '.875rem',
+        'tiny': '.875rem',
+        'base': '1rem',
+        'lg': '1.125rem',
+        'xl': '1.25rem',
+        '2xl': '1.5rem',
+        '3xl': '1.875rem',
+        '4xl': '2.25rem',
+        '5xl': '3rem',
+        '13': '13px',
+        '6xl': '4rem',
+        '7xl': '5rem',
+      },
+
       letterSpacing: {
         DEFAULT: '0.13em',
         tighter: '-.05em',
@@ -50,15 +66,16 @@ module.exports = {
       },
 
       fontFamily: {
-        'nunito-light': 'nunito-light',
-        'nunito-reg': 'nunito-regular',
-        'nunito-semibold': 'nunito-semibold',
-        'nunito-bold': 'nunito-bold'
+        'light': 'nunito-light',
+        'reg': 'nunito-regular',
+        'medium': 'nunito-semibold',
+        'bold': 'nunito-bold'
       },
       width: {
         '10': "10px",
         '12': "12px",
         '14': "14px",
+        '16': "16px",
         '18': "18px",
         '20': "20px",
         '35': "35px",
@@ -66,6 +83,10 @@ module.exports = {
         '80': "80px",
         '100': "100px",
         '116': "116px",
+        '140': "140px",
+        '160': "160px",
+        '180': "180px",
+        '243': "243px",
         '251': "251px",
         '': "",
         '': "",
@@ -80,6 +101,7 @@ module.exports = {
         '14': "14px",
         '18': "18px",
         '20': "20px",
+        '32': "32px",
         '33': "33px",
         '42': "42px",
         '': "",
@@ -90,6 +112,7 @@ module.exports = {
 
       padding: {
         '2': "2px",
+        '10': "10px",
         '15': "15px",
         '': "",
         '': "",
@@ -99,6 +122,7 @@ module.exports = {
       },
 
       margin: {
+        '2': "2px",
         '10': "10px",
         '15': "15px",
         '': "",
