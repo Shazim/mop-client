@@ -8,6 +8,11 @@
 .footer-links {
   @apply font-light text-secondary text-lg capitalize leading-9;
 }
+
+.link {
+  @apply cursor-pointer;
+}
+
 .gray {
   @apply bg-gray text-secondary;
 }
@@ -63,7 +68,7 @@
 
 /* Create the checkmark/indicator (hidden when not checked) */
 .checkbox-checkmark:after {
-  content: "";
+  content: '';
   position: absolute;
   display: none;
 }
@@ -132,7 +137,7 @@
 
 /* Create the indicator (the dot/circle - hidden when not checked) */
 .radio-checkmark:after {
-  content: "";
+  content: '';
   position: absolute;
   display: none;
 }
@@ -154,38 +159,38 @@
 
 @layer base {
   @font-face {
-    font-family: "nunito-light";
-    src: local("Nunito-Light"),
-      url("../src/fonts/Nunito-Light.ttf") format("truetype");
+    font-family: 'nunito-light';
+    src: local('Nunito-Light'),
+      url('../src/fonts/Nunito-Light.ttf') format('truetype');
   }
   @font-face {
-    font-family: "nunito-regular";
-    src: local("Nunito-Regular"),
-      url("../src/fonts/Nunito-Regular.ttf") format("truetype");
+    font-family: 'nunito-regular';
+    src: local('Nunito-Regular'),
+      url('../src/fonts/Nunito-Regular.ttf') format('truetype');
   }
   @font-face {
-    font-family: "nunito-semibold";
-    src: local("Nunito-SemiBold"),
-      url("../src/fonts/Nunito-SemiBold.ttf") format("truetype");
+    font-family: 'nunito-semibold';
+    src: local('Nunito-SemiBold'),
+      url('../src/fonts/Nunito-SemiBold.ttf') format('truetype');
   }
   @font-face {
-    font-family: "nunito-bold";
-    src: local("Nunito-Bold"),
-      url("../src/fonts/Nunito-Bold.ttf") format("truetype");
+    font-family: 'nunito-bold';
+    src: local('Nunito-Bold'),
+      url('../src/fonts/Nunito-Bold.ttf') format('truetype');
   }
   @font-face {
-    font-family: "avenir-black";
-    src: local("Avenir-Black"),
-      url("../src/fonts/Avenir-Black.otf") format("truetype");
+    font-family: 'avenir-black';
+    src: local('Avenir-Black'),
+      url('../src/fonts/Avenir-Black.otf') format('truetype');
   }
   @font-face {
-    font-family: "avenir-book";
-    src: local("Avenir-Book"),
-      url("../src/fonts/Avenir-Book.otf") format("truetype");
+    font-family: 'avenir-book';
+    src: local('Avenir-Book'),
+      url('../src/fonts/Avenir-Book.otf') format('truetype');
   }
   @font-face {
-    font-family: "avenir-roman";
-    src: local("Avenir-Roman"),
-      url("../src/fonts/Avenir-Roman.otf") format("truetype");
+    font-family: 'avenir-roman';
+    src: local('Avenir-Roman'),
+      url('../src/fonts/Avenir-Roman.otf') format('truetype');
   }
 }
