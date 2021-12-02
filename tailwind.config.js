@@ -1,7 +1,10 @@
 const spacing = {};
 
-for (let i = 1; i < 101; i++) {
+for (let i = 1; i < 300; i++) {
   spacing[i] = `${i}px`;
+}
+
+for (let i = 1; i < 101; i++) {
   spacing[`${i}%`] = `${i}%`;
 }
 
@@ -25,35 +28,10 @@ module.exports = {
 
       borderColor: (theme) => ({
         DEFAULT: theme('#C71118', 'currentColor'),
-        primary: '#3490dc',
         secondary: '#ffed4a',
         danger: '#e3342f',
         gray: '#D6D6D6',
       }),
-
-      fontSize: {
-        xs: '.75rem',
-        sm: '.875rem',
-        tiny: '.875rem',
-        base: '1rem',
-        lg: '1.125rem',
-        xl: '1.25rem',
-        '2xl': '1.5rem',
-        '3xl': '1.875rem',
-        '4xl': '2.25rem',
-        '5xl': '3rem',
-        13: '13px',
-        '6xl': '4rem',
-        '7xl': '5rem',
-      },
-
-      letterSpacing: {
-        DEFAULT: '0.13em',
-        tighter: '-.05em',
-        normal: '0',
-        wider: '.05em',
-        widest: '.25em',
-      },
 
       borderWidth: {
         DEFAULT: '1px',
@@ -77,7 +55,10 @@ module.exports = {
         white: '#FFFFFF',
         green: 'green',
         green: 'green',
-        green: 'green',
+        card: '#EFECEC;;',
+        border: {
+          DEFAULT: '#CCCCCC',
+        },
 
         primary: {
           dim: '#D26E72',
@@ -122,6 +103,80 @@ module.exports = {
         medium: 'nunito-semibold',
         bold: 'nunito-bold',
       },
+
+      height: {
+        10: '10px',
+        12: '12px',
+        14: '14px',
+        18: '18px',
+        20: '20px',
+        32: '32px',
+        33: '33px',
+        42: '42px',
+        '': '',
+        '': '',
+        '': '',
+        '': '',
+      },
+
+      letterSpacing: {
+        DEFAULT: '0.13em',
+        tighter: '-.05em',
+        normal: '0',
+        wider: '0.18em',
+        widest: '.25em',
+      },
+
+      margin: {
+        2: '2px',
+        10: '10px',
+        15: '15px',
+        '': '',
+        '': '',
+        '': '',
+        '': '',
+        '': '',
+      },
+      maxWidth: (theme, { breakpoints }) => ({
+        none: 'none',
+        0: '0rem',
+        187: '187px',
+        370: '370px',
+        312: '312px',
+        270: '270px',
+        420: '420px',
+        484: '484px',
+        548: '548px',
+        sm: '500px',
+        md: '400px',
+        700: '700px',
+        lg: '1440px',
+        xl: '100px',
+        '2xl': '42rem',
+        '3xl': '48rem',
+        '4xl': '56rem',
+        '5xl': '64rem',
+        '6xl': '72rem',
+        '7xl': '80rem',
+        full: '100%',
+        min: 'min-content',
+        max: 'max-content',
+        prose: '65ch',
+        ...breakpoints(theme('screens')),
+      }),
+
+      padding: {
+        2: '2px',
+        10: '10px',
+        15: '15px',
+        '': '',
+        '': '',
+        '': '',
+        '': '',
+        '': '',
+      },
+
+      spacing: { ...spacing, ...{} },
       width: {
         10: '10px',
         12: '12px',
@@ -145,92 +200,6 @@ module.exports = {
         '': '',
         '': '',
         '': '',
-      },
-      height: {
-        10: '10px',
-        12: '12px',
-        14: '14px',
-        18: '18px',
-        20: '20px',
-        32: '32px',
-        33: '33px',
-        42: '42px',
-        '': '',
-        '': '',
-        '': '',
-        '': '',
-      },
-
-      padding: {
-        2: '2px',
-        10: '10px',
-        15: '15px',
-        '': '',
-        '': '',
-        '': '',
-        '': '',
-        '': '',
-      },
-
-      margin: {
-        2: '2px',
-        10: '10px',
-        15: '15px',
-        '': '',
-        '': '',
-        '': '',
-        '': '',
-        '': '',
-      },
-
-      colors: {
-        black: '#000000',
-        white: '#FFFFFF',
-        green: 'green',
-        green: 'green',
-        green: 'green',
-
-        primary: {
-          DEFAULT: ' #C71118;',
-          light: '#D4B2B3',
-          dark: '#D26E72',
-          blur: '#D26E72',
-        },
-        pink: {
-          DEFAULT: '#EEECEC',
-          light: '#ff7ce5',
-          dark: '#D6D6D6',
-        },
-        default: {
-          DEFAULT: '#EEECEC',
-          light: '#FBFBFB',
-          dark: '#D6D6D6',
-        },
-        secondary: '#4A4949',
-      },
-
-      fontSize: {
-        xs: ['8px'],
-        10: ['10px'],
-        sm: ['12px', { lineHeight: '180%' }],
-        base: ['14px', { lineHeight: '180%' }],
-        lg: ['33px'],
-        16: ['16px', { lineHeight: '200%' }],
-        18: ['18px', { lineHeight: '200%' }],
-        36: ['36px'],
-        38: ['38px'],
-        47: ['47px'],
-        56: ['56px'],
-        xl: ['28px', { lineHeight: '140%' }],
-        '2xl': ['36px', { lineHeight: '150%' }],
-        heading: ['42px'],
-        '3xl': ['52px'],
-        '4xl': ['2.25rem', { lineHeight: '2.5rem' }],
-        '5xl': ['3rem', { lineHeight: '1' }],
-        '6xl': ['3.75rem', { lineHeight: '1' }],
-        '7xl': ['4.5rem', { lineHeight: '1' }],
-        '8xl': ['6rem', { lineHeight: '1' }],
-        '9xl': ['8rem', { lineHeight: '1' }],
       },
     },
   },
