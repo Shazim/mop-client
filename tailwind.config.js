@@ -5,6 +5,10 @@ for (let i = 1; i < 300; i++) {
 }
 
 for (let i = 1; i < 101; i++) {
+<<<<<<< HEAD
+=======
+
+>>>>>>> create header component (login,withoutLogin), footer component and add some chage in checkbox and radiobutton
   spacing[`${i}%`] = `${i}%`;
 }
 
@@ -175,6 +179,12 @@ module.exports = {
         prose: '65ch',
         ...breakpoints(theme('screens')),
       }),
+
+      maxWidth: {
+        '1440': '1440px',
+        '460': '460px',
+        '3/4': '75%',
+      },
 
       padding: {
         2: '2px',
