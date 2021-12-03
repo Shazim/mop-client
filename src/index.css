@@ -13,6 +13,18 @@
   @apply cursor-pointer;
 }
 
+.transform-x {
+  transform: translate(-50%, 0);
+}
+
+.transform-y {
+  transform: translate(0, -50%);
+}
+
+.transform-xy {
+  transform: translate(-50%, -50%);
+}
+
 .gray {
   @apply bg-gray text-secondary;
 }
