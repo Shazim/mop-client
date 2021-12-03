@@ -10,7 +10,7 @@ function Button({
   style,
   type = 'contained',
   color = 'primary',
-  transform = '',
+  transform = "capitalize",
   ...otherProps
 }) {
   const btnClasses = useMemo(() => {

@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 .max-screen {
+  @apply max-w-1440 mx-auto;
+}
+.footer-links {
+  @apply font-light text-secondary text-lg capitalize leading-9;
 }
 
 .link {
@@ -31,6 +35,140 @@
   @apply bg-gray-light text-secondary-light;
 }
 
+.checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 1px;
+  cursor: pointer;
+  font-size: 13px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkbox-checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  border: 2px solid #d6d6d6;
+  background-color: white;
+}
+
+/* On mouse-over, add a grey background color */
+.checkbox-container:hover input ~ .checkmark {
+  background-color: white;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-container input:checked ~ .checkbox-checkmark {
+  background-color: white;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkbox-checkmark:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox-container input:checked ~ .checkbox-checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-container .checkbox-checkmark:after {
+  left: 3px;
+  top: -1px;
+  width: 6px;
+  height: 14px;
+  border: solid #c71118;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/* Radio Button Styles */
+
+.radio-container {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.radio-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.radio-checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #fff;
+  border: 2px solid #d6d6d6;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.radio-container:hover input ~ .radio-checkmark {
+  background-color: #fff;
+}
+
+/* When the radio button is checked, add a blue background */
+.radio-container input:checked ~ .radio-checkmark {
+  background-color: wihte;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.radio-checkmark:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radio-container input:checked ~ .radio-checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.radio-container .radio-checkmark:after {
+  top: 3px;
+  left: 3px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #4a4949;
+}
+
 @layer base {
   @font-face {
     font-family: 'nunito-light';
@@ -51,5 +189,20 @@
     font-family: 'nunito-bold';
     src: local('Nunito-Bold'),
       url('../src/fonts/Nunito-Bold.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'avenir-black';
+    src: local('Avenir-Black'),
+      url('../src/fonts/Avenir-Black.otf') format('truetype');
+  }
+  @font-face {
+    font-family: 'avenir-book';
+    src: local('Avenir-Book'),
+      url('../src/fonts/Avenir-Book.otf') format('truetype');
+  }
+  @font-face {
+    font-family: 'avenir-roman';
+    src: local('Avenir-Roman'),
+      url('../src/fonts/Avenir-Roman.otf') format('truetype');
   }
 }
