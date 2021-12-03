@@ -5,6 +5,22 @@
 .max-screen {
 }
 
+.link {
+  @apply cursor-pointer;
+}
+
+.transform-x {
+  transform: translate(-50%, 0);
+}
+
+.transform-y {
+  transform: translate(0, -50%);
+}
+
+.transform-xy {
+  transform: translate(-50%, -50%);
+}
+
 .gray {
   @apply bg-gray text-secondary;
 }
@@ -17,23 +33,23 @@
 
 @layer base {
   @font-face {
-    font-family: "nunito-light";
-    src: local("Nunito-Light"),
-      url("../src/fonts/Nunito-Light.ttf") format("truetype");
+    font-family: 'nunito-light';
+    src: local('Nunito-Light'),
+      url('../src/fonts/Nunito-Light.ttf') format('truetype');
   }
   @font-face {
-    font-family: "nunito-regular";
-    src: local("Nunito-Regular"),
-      url("../src/fonts/Nunito-Regular.ttf") format("truetype");
+    font-family: 'nunito-regular';
+    src: local('Nunito-Regular'),
+      url('../src/fonts/Nunito-Regular.ttf') format('truetype');
   }
   @font-face {
-    font-family: "nunito-semibold";
-    src: local("Nunito-SemiBold"),
-      url("../src/fonts/Nunito-SemiBold.ttf") format("truetype");
+    font-family: 'nunito-semibold';
+    src: local('Nunito-SemiBold'),
+      url('../src/fonts/Nunito-SemiBold.ttf') format('truetype');
   }
   @font-face {
-    font-family: "nunito-bold";
-    src: local("Nunito-Bold"),
-      url("../src/fonts/Nunito-Bold.ttf") format("truetype");
+    font-family: 'nunito-bold';
+    src: local('Nunito-Bold'),
+      url('../src/fonts/Nunito-Bold.ttf') format('truetype');
   }
 }
