@@ -1,17 +1,39 @@
 import Button from 'components/atoms/buttons/Button';
-import { Package } from 'components/Package';
+import { DescriptiveIcon } from 'components/DescriptiveIcon';
+import { DiscoverMore } from 'components/DiscoveMore';
 import React from 'react';
 
 function Home() {
   return (
     <>
-      <Package />
-      {/* <div>
-        <div className="text-primary uppercase font-lg">
+      {/* <div className="flex justify-center my-50">
+        <DescriptiveIcon
+          title="Carefully Packaged 
+Artwork"
+          source="/images/services/world.svg"
+        />
+      </div> */}
+      {/* <div className="flex">
+        <div>
+          <div className="text-secondary tracking-wider uppercase text-2xl">
+            Receive insights and news from the worlds leading voices
+          </div>
+          <div>input field</div>
+          <div>input field</div>
+          <Button className="w-184 h-42">Subscribe</Button>
+          <div className="text-primary font-light text-base capitalize">
+            See Terms & Conditions
+          </div>
+        </div>
+        <img src="/images/girl.png" alt="" />
+      </div> */}
+
+      <div className="bg-featured-gallery">
+        <div className="text-primary uppercase text-lg">
           Access <span className="text-secondary">100’s of galleries</span> from
           artists and photographers from all over the world
         </div>
-        <div className="">
+        <div className="text-xl text-secondary-dark text-secondary-darkest">
           An immersive experience which is curated and configured by the artist
           to suit the work that is on virtual display. Purchase pieces of work
           you fall in love with directly and have them shipped to you within
@@ -67,7 +89,7 @@ function Home() {
           <div>See Terms & Conditions</div>
         </div>
         <img src="" alt="" />
-      </div> */}
+      </div>
     </>
   );
 }

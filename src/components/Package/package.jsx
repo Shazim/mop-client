@@ -1,7 +1,12 @@
 import Button from 'components/atoms/buttons/Button';
 import React from 'react';
 
-function Package() {
+function Package({
+  popular = false,
+  title = 'starter',
+  amount = '8',
+  description = 'A beginners package to get your work seen and sell your work.',
+}) {
   const packages = [
     '10 galleries, 25GB storage',
     'Create a store. 5% fee to the Red dot gallery',
@@ -12,12 +17,22 @@ function Package() {
   ];
 
   return (
-    <div className="bg-card px-31 pt-22 max-w-312 m-auto">
+    <div
+      className={`relative bg-card px-31 pt-22 max-w-312 m-auto ${
+        popular && 'mt-_20'
+      }`}
+    >
+      {popular && (
+        <div className="uppercase absolute top-_16 w-66% transform-x left-50% text-secondary font-bold text-sm tracking bg-gray text-center px-38 py-8">
+          most popular
+        </div>
+      )}
+
       <div className="text-primary uppercase font-medium text-2xl tracking-wider text-center">
-        starter
+        {title}
       </div>
       <div className="uppercase text-secondary tracking-wider text-sm font-medium text-center">
-        <span className="text-2xl ">$8</span> per month
+        <span className="text-2xl ">${amount}</span> per month
       </div>
       <div className="text-secondary font-light pb-20  mt-17">
         A <span className=" font-bold">beginners package</span> to get your work

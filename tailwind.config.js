@@ -13,6 +13,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      backgroundImage: (theme) => ({
+        'featured-gallery': "url('/src/assets/images/background/gallary.png')",
+      }),
       boxShadow: {
         sm: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
         DEFAULT:
@@ -54,8 +57,6 @@ module.exports = {
         black: '#000000',
         white: '#FFFFFF',
         green: 'green',
-        green: 'green',
-        card: '#EFECEC;;',
         border: {
           DEFAULT: '#CCCCCC',
         },
@@ -77,6 +78,7 @@ module.exports = {
         },
         secondary: {
           DEFAULT: '#4A4949',
+          darkest: '#262626',
           dark: '#1A1A1A',
           dim: '#999999',
           light: '#E4E4E4',
@@ -176,7 +178,7 @@ module.exports = {
         '': '',
       },
 
-      spacing: { ...spacing, ...{} },
+      spacing: { ...spacing, ...{ _16: '-16px', _20: '-20px' } },
       width: {
         10: '10px',
         12: '12px',
