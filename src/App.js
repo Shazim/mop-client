@@ -18,10 +18,11 @@ function App() {
 
   const handleClick = () => {
     setChecked(!checked);
-  }
+  };
   return (
-    <div>
-      <Button className="w-251 h-42" type='outline' color="primary" >View More</Button>
+    <>
+      {/* <div>
+      <Button className="w-251 h-42" type='outline' color="primary" >LIVE</Button>
       <Button className="w-251 h-42" type='outline' color="primary-dim" >LIVE</Button>
       <Button className="w-251 h-42" type='outline' color="primary-light" >LIVE</Button>
       <Button className="w-251 h-42" color="primary" >LIVE</Button>
@@ -34,24 +35,22 @@ function App() {
       <RadioButton />
       <SearchBar placeholder="search for an artist" transform="uppercase" bgColor='bg-default-dark' />
       <CheckBox value="My Gallery" checked={checked} onChange={handleClick} />
-      <Footer />
-      <Header />
-    </div>
+    </div> */}
 
-
-    // <Provider store={store}>
-    //   <Router>
-    //     <Layout>
-    //       {authRouter.map((item) => (
-    //         <Route
-    //           key={item.path}
-    //           path={item.path}
-    //           component={item.component}
-    //         />
-    //       ))}
-    //     </Layout>
-    //   </Router>
-    // </Provider>
+      <Provider store={store}>
+        <Router>
+          {/* <Layout> */}
+          {authRouter.map((item) => (
+            <Route
+              key={item.path}
+              path={item.path}
+              component={item.component}
+            />
+          ))}
+          {/* </Layout> */}
+        </Router>
+      </Provider>
+    </>
   );
 }
 

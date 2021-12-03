@@ -5,7 +5,10 @@ for (let i = 1; i < 300; i++) {
 }
 
 for (let i = 1; i < 101; i++) {
+<<<<<<< HEAD
+=======
 
+>>>>>>> create header component (login,withoutLogin), footer component and add some chage in checkbox and radiobutton
   spacing[`${i}%`] = `${i}%`;
 }
 
@@ -14,9 +17,13 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      backgroundImage: (theme) => ({
+        'featured-gallery': "url('/src/assets/images/background/gallary.png')",
+      }),
       boxShadow: {
         sm: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
-        DEFAULT: '0px 4px 20px rgba(0, 0, 0, 0.1), 0px 4px 20px rgba(0, 0, 0, 0.1)',
+        DEFAULT:
+          '0px 4px 20px rgba(0, 0, 0, 0.1), 0px 4px 20px rgba(0, 0, 0, 0.1)',
         md: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
         lg: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
         xl: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
@@ -26,36 +33,37 @@ module.exports = {
         none: 'none',
       },
 
-      borderColor: theme => ({
+      borderColor: (theme) => ({
         DEFAULT: theme('#C71118', 'currentColor'),
-        'secondary': '#ffed4a',
-        'danger': '#e3342f',
-        'gray': '#D6D6D6'
+        secondary: '#ffed4a',
+        danger: '#e3342f',
+        gray: '#D6D6D6',
       }),
 
       borderWidth: {
         DEFAULT: '1px',
-        '0': '0',
-        '2': '2px',
-        '3': '3px',
-        '4': '4px',
-        '6': '6px',
-        '8': '8px',
+        0: '0',
+        2: '2px',
+        3: '3px',
+        4: '4px',
+        6: '6px',
+        8: '8px',
       },
 
       borderRadius: {
-        'none': '0',
+        none: '0',
         DEFAULT: '4px',
-        'large': '30px',
-        'full': '100%',
+        large: '30px',
+        full: '100%',
       },
 
       colors: {
-        black: "#000000",
-        white: "#FFFFFF",
-        green: "green",
-        green: "green",
-        green: "green",
+        black: '#000000',
+        white: '#FFFFFF',
+        green: 'green',
+        border: {
+          DEFAULT: '#CCCCCC',
+        },
 
         primary: {
           dim: '#D26E72',
@@ -73,13 +81,12 @@ module.exports = {
           DEFAULT: '#D6D6D6',
         },
         secondary: {
-          DEFAULT: "#4A4949",
-          dark: "#1A1A1A",
-          dim: "#999999",
-          light: "#E4E4E4",
-          black: "#262626"
-        }
-
+          DEFAULT: '#4A4949',
+          darkest: '#262626',
+          dark: '#1A1A1A',
+          dim: '#999999',
+          light: '#E4E4E4',
+        },
       },
 
       fill: theme => ({
@@ -89,17 +96,17 @@ module.exports = {
         'gray': '#D6D6D6'
       }),
       fontSize: {
-        'tiny': '10px',
-        'xsm': '12px',
-        'sm': '13px',
-        'base': '14px',
-        'lg': '16px',
-        'xl': '18px',
+        tiny: '10px',
+        xsm: '12px',
+        sm: '13px',
+        base: '14px',
+        lg: '16px',
+        xl: '18px',
         '2xl': '24px',
-        'heading': '33px',
+        heading: '33px',
         '4xl': '2.25rem',
         '5xl': '3rem',
-        '13': '13px',
+        13: '13px',
         '6xl': '4rem',
         '7xl': '5rem',
       },
@@ -112,20 +119,19 @@ module.exports = {
         'avenir-800': 'avenir-black',
         'avenir-300': 'avenir-book',
       },
-
       height: {
-        '10': "10px",
-        '12': "12px",
-        '14': "14px",
-        '18': "18px",
-        '20': "20px",
-        '32': "32px",
-        '33': "33px",
-        '42': "42px",
-        '': "",
-        '': "",
-        '': "",
-        '': "",
+        10: '10px',
+        12: '12px',
+        14: '14px',
+        18: '18px',
+        20: '20px',
+        32: '32px',
+        33: '33px',
+        42: '42px',
+        '': '',
+        '': '',
+        '': '',
+        '': '',
       },
 
       letterSpacing: {
@@ -137,15 +143,42 @@ module.exports = {
       },
 
       margin: {
-        '2': "2px",
-        '10': "10px",
-        '15': "15px",
-        '': "",
-        '': "",
-        '': "",
-        '': "",
-        '': "",
+        2: '2px',
+        10: '10px',
+        15: '15px',
+        '': '',
+        '': '',
+        '': '',
+        '': '',
+        '': '',
       },
+      maxWidth: (theme, { breakpoints }) => ({
+        none: 'none',
+        0: '0rem',
+        187: '187px',
+        370: '370px',
+        312: '312px',
+        270: '270px',
+        420: '420px',
+        484: '484px',
+        548: '548px',
+        sm: '500px',
+        md: '400px',
+        700: '700px',
+        lg: '1440px',
+        xl: '100px',
+        '2xl': '42rem',
+        '3xl': '48rem',
+        '4xl': '56rem',
+        '5xl': '64rem',
+        '6xl': '72rem',
+        '7xl': '80rem',
+        full: '100%',
+        min: 'min-content',
+        max: 'max-content',
+        prose: '65ch',
+        ...breakpoints(theme('screens')),
+      }),
 
       maxWidth: {
         '1440': '1440px',
@@ -154,46 +187,45 @@ module.exports = {
       },
 
       padding: {
-        '2': "2px",
-        '10': "10px",
-        '15': "15px",
-        '': "",
-        '': "",
-        '': "",
-        '': "",
-        '': "",
+        2: '2px',
+        10: '10px',
+        15: '15px',
+        '': '',
+        '': '',
+        '': '',
+        '': '',
+        '': '',
       },
 
-      spacing: { ...spacing, ...{} },
+      spacing: { ...spacing, ...{ _16: '-16px', _20: '-20px' } },
       width: {
-        '10': "10px",
-        '12': "12px",
-        '14': "14px",
-        '16': "16px",
-        '18': "18px",
-        '20': "20px",
-        '35': "35px",
-        '50': "50px",
-        '80': "80px",
-        '100': "100px",
-        '116': "116px",
-        '140': "140px",
-        '160': "160px",
-        '180': "180px",
-        '243': "243px",
-        '251': "251px",
-        '1440': "1440px",
-        '': "",
-        '': "",
-        '': "",
-        '': "",
-        '': "",
+        10: '10px',
+        12: '12px',
+        14: '14px',
+        16: '16px',
+        18: '18px',
+        20: '20px',
+        35: '35px',
+        50: '50px',
+        80: '80px',
+        100: '100px',
+        116: '116px',
+        140: '140px',
+        160: '160px',
+        180: '180px',
+        243: '243px',
+        251: '251px',
+        '': '',
+        '': '',
+        '': '',
+        '': '',
+        '': '',
+        '': '',
       },
-
     },
   },
   variants: {
     extend: {},
   },
   plugins: [],
-}
+};
