@@ -10,6 +10,8 @@ import SwitchButton from "components/atoms/buttons/SwitchButton";
 import RadioButton from "components/atoms/buttons/RadioButton";
 import CheckBox from "components/atoms/checkbox/CheckBox";
 import { useState } from "react";
+import Footer from "components/molecules/footer/Footer";
+import Header from "components/molecules/header/Header";
 function App() {
   const { store } = useStore();
   const [checked, setChecked] = useState(false);
@@ -19,7 +21,7 @@ function App() {
   }
   return (
     <div>
-      <Button className="w-251 h-42" type='outline' color="primary" >LIVE</Button>
+      <Button className="w-251 h-42" type='outline' color="primary" >View More</Button>
       <Button className="w-251 h-42" type='outline' color="primary-dim" >LIVE</Button>
       <Button className="w-251 h-42" type='outline' color="primary-light" >LIVE</Button>
       <Button className="w-251 h-42" color="primary" >LIVE</Button>
@@ -29,8 +31,11 @@ function App() {
       <Button className="w-251 h-42" color="gray-dim" >LIVE</Button>
       <Button className="w-251 h-42" color="gray-light" >LIVE</Button>
       <SwitchButton />
+      <RadioButton />
       <SearchBar placeholder="search for an artist" transform="uppercase" bgColor='bg-default-dark' />
       <CheckBox value="My Gallery" checked={checked} onChange={handleClick} />
+      <Footer />
+      <Header />
     </div>
 
 

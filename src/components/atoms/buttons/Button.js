@@ -10,7 +10,7 @@ function Button({
   style,
   type = "contained",
   color = 'primary',
-  transform = "lowercase",
+  transform = "capitalize",
   ...otherProps
 }) {
 

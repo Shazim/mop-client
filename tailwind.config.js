@@ -1,7 +1,11 @@
 const spacing = {};
 
-for (let i = 1; i < 101; i++) {
+for (let i = 1; i < 300; i++) {
   spacing[i] = `${i}px`;
+}
+
+for (let i = 1; i < 101; i++) {
+
   spacing[`${i}%`] = `${i}%`;
 }
 
@@ -72,10 +76,18 @@ module.exports = {
           DEFAULT: "#4A4949",
           dark: "#1A1A1A",
           dim: "#999999",
-          light: "#E4E4E4"
+          light: "#E4E4E4",
+          black: "#262626"
         }
 
       },
+
+      fill: theme => ({
+        DEFAULT: theme('#ffff', 'currentColor'),
+        'secondary': '#ffed4a',
+        'danger': '#e3342f',
+        'gray': '#D6D6D6'
+      }),
       fontSize: {
         'tiny': '10px',
         'xsm': '12px',
@@ -95,7 +107,10 @@ module.exports = {
         'light': 'nunito-light',
         'reg': 'nunito-regular',
         'medium': 'nunito-semibold',
-        'bold': 'nunito-bold'
+        'bold': 'nunito-bold',
+        'avenir-reg': 'avenir-roman',
+        'avenir-800': 'avenir-black',
+        'avenir-300': 'avenir-book',
       },
 
       height: {
@@ -132,6 +147,12 @@ module.exports = {
         '': "",
       },
 
+      maxWidth: {
+        '1440': '1440px',
+        '460': '460px',
+        '3/4': '75%',
+      },
+
       padding: {
         '2': "2px",
         '10': "10px",
@@ -161,7 +182,7 @@ module.exports = {
         '180': "180px",
         '243': "243px",
         '251': "251px",
-        '': "",
+        '1440': "1440px",
         '': "",
         '': "",
         '': "",
