@@ -84,6 +84,13 @@ module.exports = {
           light: '#E4E4E4',
         },
       },
+
+      fill: theme => ({
+        DEFAULT: theme('#ffff', 'currentColor'),
+        'secondary': '#ffed4a',
+        'danger': '#e3342f',
+        'gray': '#D6D6D6'
+      }),
       fontSize: {
         tiny: '10px',
         xsm: '12px',
@@ -100,10 +107,13 @@ module.exports = {
         '7xl': '5rem',
       },
       fontFamily: {
-        light: 'nunito-light',
-        reg: 'nunito-regular',
-        medium: 'nunito-semibold',
-        bold: 'nunito-bold',
+        'light': 'nunito-light',
+        'reg': 'nunito-regular',
+        'medium': 'nunito-semibold',
+        'bold': 'nunito-bold',
+        'avenir-reg': 'avenir-roman',
+        'avenir-800': 'avenir-black',
+        'avenir-300': 'avenir-book',
       },
 
       height: {
@@ -166,6 +176,12 @@ module.exports = {
         prose: '65ch',
         ...breakpoints(theme('screens')),
       }),
+
+      maxWidth: {
+        '1440': '1440px',
+        '460': '460px',
+        '3/4': '75%',
+      },
 
       padding: {
         2: '2px',
