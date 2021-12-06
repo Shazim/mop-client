@@ -1,6 +1,8 @@
 import Button from 'components/atoms/buttons/Button';
 import { DescriptiveIcon } from 'components/DescriptiveIcon';
 import { DiscoverMore } from 'components/DiscoveMore';
+import Footer from 'components/molecules/footer/Footer';
+import Header from 'components/molecules/header/Header';
 import React from 'react';
 
 function Home() {
@@ -29,19 +31,24 @@ Artwork"
       </div> */}
 
       <div className="bg-featured-gallery">
-        <div className="text-primary uppercase text-lg">
-          Access <span className="text-secondary">100’s of galleries</span> from
-          artists and photographers from all over the world
-        </div>
-        <div className="text-xl text-secondary-dark text-secondary-darkest">
-          An immersive experience which is curated and configured by the artist
-          to suit the work that is on virtual display. Purchase pieces of work
-          you fall in love with directly and have them shipped to you within
-          days of purchase.
-        </div>
-        <div className="flex">
-          <img src="/images/Home/blocks.svg" />
-          <div>View Featured Galleries</div>
+        <Header />
+        <div className="max-screen pb-237 pt-158">
+          <div className="ml-50 text-primary font-avenir-300 uppercase text-3xl">
+            Access <span className="text-secondary">100’s of galleries</span>{' '}
+            from artists and photographers from all over the world
+          </div>
+          <div className="ml-50 font-avenir-reg text-xl text-secondary-dark text-secondary-darkest pt-16  pb-45">
+            An immersive experience which is curated and configured by the
+            artist to suit the work that is on virtual display. Purchase pieces
+            of work you fall in love with directly and have them shipped to you
+            within days of purchase.
+          </div>
+          <div className="ml-50 flex">
+            <img src="/images/Home/blocks.svg" />
+            <div className="pl-14 text-primary text-xl tracking uppercase font-avenir-800">
+              View Featured Galleries
+            </div>
+          </div>
         </div>
       </div>
       <div>
@@ -90,6 +97,7 @@ Artwork"
         </div>
         <img src="" alt="" />
       </div>
+      <Footer />
     </>
   );
 }
