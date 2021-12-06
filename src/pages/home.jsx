@@ -6,54 +6,55 @@ import Header from 'components/molecules/header/Header';
 import React from 'react';
 
 function Home() {
+  const descriptiveIcons = [
+    { source: '/images/services/satisfaction.svg', title: 'Return Policy' },
+    { source: '/images/services/return.svg', title: 'Satisfaction Guarantee' },
+    {
+      source: '/images/services/carefully-package.svg',
+      title: 'Carefully Packaged Artwork',
+    },
+    {
+      source: '/images/services/mesuem.svg',
+      title: 'Museum Grade Archival Prints',
+    },
+    { source: '/images/services/world.svg', title: 'Worldwide Delivery' },
+  ];
+
   return (
     <>
-      {/* <div className="flex justify-center my-50">
-        <DescriptiveIcon
-          title="Carefully Packaged 
-Artwork"
-          source="/images/services/world.svg"
-        />
-      </div> */}
-      {/* <div className="flex">
-        <div>
-          <div className="text-secondary tracking-wider uppercase text-2xl">
-            Receive insights and news from the worlds leading voices
-          </div>
-          <div>input field</div>
-          <div>input field</div>
-          <Button className="w-184 h-42">Subscribe</Button>
-          <div className="text-primary font-light text-base capitalize">
-            See Terms & Conditions
-          </div>
-        </div>
-        <img src="/images/girl.png" alt="" />
-      </div> */}
-
-      <div className="bg-featured-gallery">
+      <div className="bg-featured-gallery bg-no-repeat bg-cover">
         <Header />
-        <div className="max-screen pb-237 pt-158">
-          <div className="ml-50 text-primary font-avenir-300 uppercase text-3xl">
-            Access <span className="text-secondary">100’s of galleries</span>{' '}
-            from artists and photographers from all over the world
-          </div>
-          <div className="ml-50 font-avenir-reg text-xl text-secondary-dark text-secondary-darkest pt-16  pb-45">
-            An immersive experience which is curated and configured by the
-            artist to suit the work that is on virtual display. Purchase pieces
-            of work you fall in love with directly and have them shipped to you
-            within days of purchase.
-          </div>
-          <div className="ml-50 flex">
-            <img src="/images/Home/blocks.svg" />
-            <div className="pl-14 text-primary text-xl tracking uppercase font-avenir-800">
-              View Featured Galleries
+        <div className="bg-cubes bg-no-repeat bg-right-bottom">
+          <div className="max-screen pb-237 pt-158">
+            <div className="ml-50 text-primary tracking-wider font-avenir-300 uppercase text-3xl leading-55 w-55%">
+              Access <span className="text-secondary">100’s of galleries</span>{' '}
+              from artists and photographers from all over the world
+            </div>
+            <div className="ml-50 leading-32 font-avenir-reg text-xl  text-secondary-darkest pt-16  pb-45 w-55%">
+              An immersive experience which is curated and configured by the
+              artist to suit the work that is on virtual display. Purchase
+              pieces of work you fall in love with directly and have them
+              shipped to you within days of purchase.
+            </div>
+            <div className="ml-50  ">
+              <img src="/images/Home/blocks.svg" />
+              <div className="pl-14  text-primary text-xl tracking uppercase font-avenir-800">
+                View Featured Galleries
+                <div className="border-b-2 border-secondary w-111 pt-6"></div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div>
-        <div>Featured</div>
-        <div className="flex">
+      <div className="max-screen">
+        <div className="text-2xl font-avenir-reg uppercase text-secondary-dark tracking-wider">
+          Featured
+          <div className="flex">
+            <div className="text-primary text-57 ml-_4 mt-_39">.</div>
+            <div className="border-t w-69 border-border mt-14"></div>
+          </div>
+        </div>
+        <div className="flex mt-100">
           <Button className="w-184 mr-18">View More</Button>
           <Button type="outline" className="w-184 h-48">
             Browse
@@ -69,33 +70,29 @@ Artwork"
         </div>
         <Button className="w-251 mr-18">start your free trial</Button>
       </div>
-      <div>
-        <div>
-          If you are a photographer looking to exhibit we have the tools and
-          support to help you reach more clients.
-        </div>
-        <div>
-          Using our suite of tools and mentorship program we can help you grow
-          in terms of skills and reach. Click below to find out how much we
-          offer and the different ways we can help you.
-        </div>
-        <Button className="w-251 mr-18">Discover More Today</Button>
+      <div className="max-screen border-border border-b">
+        <DiscoverMore />
       </div>
-      <div>
-        <div>
-          <img src="" alt="" />
-          <div>Satisfaction Guarantee</div>
-        </div>
+      <div className="flex justify-between max-screen pt-130 pb-122">
+        {descriptiveIcons.map(({ source, title }) => (
+          <DescriptiveIcon source={source} title={title} />
+        ))}
       </div>
-      <div>
-        <div>
-          <div>Receive insights and news from the worlds leading voices</div>
-          <div>input</div>
-          <div>input</div>
-          <Button className="w-251 mr-18">Subscribe</Button>
-          <div>See Terms & Conditions</div>
+      <div className="flex border-border border-t ">
+        <div className=" max-screen pt-101 w-40% ">
+          <div>
+            <div className="tracking-wider text-2xl uppercase font-avenir-reg pb-34">
+              Receive insights and news from the worlds leading voices
+            </div>
+            <div>input</div>
+            <div>input</div>
+            <Button className="w-251 mr-18 h-42 mt-44 mb-14">Subscribe</Button>
+            <div className="text-primary capitalize font-light text-base link">
+              See Terms & Conditions
+            </div>
+          </div>
         </div>
-        <img src="" alt="" />
+        <img src="/images/girl.png" alt="" />
       </div>
       <Footer />
     </>
