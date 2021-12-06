@@ -10,6 +10,7 @@ import SwitchButton from 'components/atoms/buttons/SwitchButton';
 import RadioButton from 'components/atoms/buttons/RadioButton';
 import CheckBox from 'components/atoms/checkbox/CheckBox';
 import { useState } from 'react';
+import VideoCard from 'components/atoms/cards/VideoCard';
 function App() {
   const { store } = useStore();
   const [checked, setChecked] = useState(false);
@@ -57,9 +58,10 @@ function App() {
         <CheckBox value="My Gallery" checked={checked} onChange={handleClick} />
       </div> */}
 
-      <Provider store={store}>
+      <VideoCard />
+
+      {/* <Provider store={store}>
         <Router>
-          {/* <Layout> */}
           {authRouter.map((item) => (
             <Route
               key={item.path}
@@ -67,9 +69,9 @@ function App() {
               component={item.component}
             />
           ))}
-          {/* </Layout> */}
+     
         </Router>
-      </Provider>
+      </Provider> */}
     </>
   );
 }

@@ -133,6 +133,7 @@ module.exports = {
 
       letterSpacing: {
         DEFAULT: '0.13em',
+        tight: '0.09em',
         tighter: '-.05em',
         normal: '0',
         wider: '0.18em',
@@ -149,8 +150,12 @@ module.exports = {
         '': '',
         '': '',
       },
+
       maxWidth: (theme, { breakpoints }) => ({
         none: 'none',
+        '1440': '1440px',
+        '460': '460px',
+        '3/4': '75%',
         0: '0rem',
         187: '187px',
         370: '370px',
@@ -176,12 +181,6 @@ module.exports = {
         prose: '65ch',
         ...breakpoints(theme('screens')),
       }),
-
-      maxWidth: {
-        '1440': '1440px',
-        '460': '460px',
-        '3/4': '75%',
-      },
 
       padding: {
         2: '2px',
