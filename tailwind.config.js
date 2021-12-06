@@ -15,6 +15,8 @@ module.exports = {
     extend: {
       backgroundImage: (theme) => ({
         'featured-gallery': "url('/src/assets/images/background/gallary.png')",
+        cubes: "url('/src/assets/images/background/cubes.png')",
+        photography: "url('/src/assets/images/background/photography.png')",
       }),
       boxShadow: {
         sm: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
@@ -31,9 +33,9 @@ module.exports = {
 
       borderColor: (theme) => ({
         DEFAULT: theme('#C71118', 'currentColor'),
-        secondary: '#ffed4a',
-        danger: '#e3342f',
-        gray: '#D6D6D6',
+        // secondary: '#ffed4a',
+        // danger: '#e3342f',
+        // gray: '#D6D6D6',
       }),
 
       borderWidth: {
@@ -85,11 +87,11 @@ module.exports = {
         },
       },
 
-      fill: theme => ({
+      fill: (theme) => ({
         DEFAULT: theme('#ffff', 'currentColor'),
-        'secondary': '#ffed4a',
-        'danger': '#e3342f',
-        'gray': '#D6D6D6'
+        secondary: '#ffed4a',
+        danger: '#e3342f',
+        gray: '#D6D6D6',
       }),
       fontSize: {
         tiny: '10px',
@@ -103,14 +105,15 @@ module.exports = {
         '4xl': '2.25rem',
         '5xl': '3rem',
         13: '13px',
+        57: '57px',
         '6xl': '4rem',
         '7xl': '5rem',
       },
       fontFamily: {
-        'light': 'nunito-light',
-        'reg': 'nunito-regular',
-        'medium': 'nunito-semibold',
-        'bold': 'nunito-bold',
+        light: 'nunito-light',
+        reg: 'nunito-regular',
+        medium: 'nunito-semibold',
+        bold: 'nunito-bold',
         'avenir-reg': 'avenir-roman',
         'avenir-800': 'avenir-black',
         'avenir-300': 'avenir-book',
@@ -129,6 +132,26 @@ module.exports = {
         '': '',
         '': '',
         '': '',
+      },
+
+      lineHeight: {
+        none: '1',
+        tight: '1.25',
+        snug: '1.375',
+        normal: '1.5',
+        relaxed: '1.625',
+        loose: '2',
+        3: '.75rem',
+        4: '1rem',
+        5: '1.25rem',
+        6: '1.5rem',
+        7: '1.75rem',
+        8: '2rem',
+        9: '2.25rem',
+        10: '2.5rem',
+        32: '32px',
+        38: '38px',
+        55: '55px',
       },
 
       letterSpacing: {
@@ -153,8 +176,8 @@ module.exports = {
 
       maxWidth: (theme, { breakpoints }) => ({
         none: 'none',
-        '1440': '1440px',
-        '460': '460px',
+        1440: '1440px',
+        460: '460px',
         '3/4': '75%',
         0: '0rem',
         187: '187px',
@@ -193,7 +216,16 @@ module.exports = {
         '': '',
       },
 
-      spacing: { ...spacing, ...{ _16: '-16px', _20: '-20px' } },
+      spacing: {
+        ...spacing,
+        ...{
+          _16: '-16px',
+          _20: '-20px',
+          _4: '-4px',
+          _39: '-39px',
+          370: '370px',
+        },
+      },
       width: {
         10: '10px',
         12: '12px',

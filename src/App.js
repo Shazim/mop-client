@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { useStore } from '../src/store';
 import authRouter from 'routes/auth';
@@ -58,20 +58,22 @@ function App() {
         <CheckBox value="My Gallery" checked={checked} onChange={handleClick} />
       </div> */}
 
-      <VideoCard />
+      {/* <VideoCard /> */}
 
-      {/* <Provider store={store}>
+      <Provider store={store}>
         <Router>
-          {authRouter.map((item) => (
-            <Route
-              key={item.path}
-              path={item.path}
-              component={item.component}
-            />
-          ))}
-     
+          <Switch>
+            {authRouter.map((item) => (
+              <Route
+                exact
+                key={item.path}
+                path={item.path}
+                component={item.component}
+              />
+            ))}
+          </Switch>
         </Router>
-      </Provider> */}
+      </Provider>
     </>
   );
 }
