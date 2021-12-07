@@ -28,10 +28,10 @@ function Package({
         </div>
       )}
 
-      <div className="text-primary uppercase font-medium text-2xl tracking-wider text-center">
+      <div className="text-primary uppercase nunito-semibold text-2xl tracking-wider text-center">
         {title}
       </div>
-      <div className="uppercase text-secondary tracking-wider text-sm font-medium text-center">
+      <div className="uppercase text-secondary tracking-wider text-sm nunito-semibold text-center">
         <span className="text-2xl ">${amount}</span> per month
       </div>
       <div className="text-secondary font-light pb-20  mt-17">

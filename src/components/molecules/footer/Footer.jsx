@@ -62,7 +62,7 @@ function Footer() {
       <div className="bg-secondary">
         <div className="max-screen flex flex-row text-white pl-147 pr-175 pt-38 pb-38">
           <div className="w-1/2">
-            <div className="mb-8 text-base font-medium font-semibold ">
+            <div className="mb-8 text-base font-nunito-semibold font-semibold ">
               &copy; Masters Of Photography 2021
             </div>
             <div className="flex flex-row items-center">

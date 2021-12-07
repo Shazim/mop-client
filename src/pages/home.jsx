@@ -3,6 +3,7 @@ import { DescriptiveIcon } from 'components/DescriptiveIcon';
 import { DiscoverMore } from 'components/DiscoveMore';
 import Footer from 'components/molecules/footer/Footer';
 import Header from 'components/molecules/header/Header';
+import { ReceiveInsight } from 'components/ReceiveInsight';
 import React from 'react';
 
 function Home() {
@@ -78,22 +79,7 @@ function Home() {
           <DescriptiveIcon source={source} title={title} />
         ))}
       </div>
-      <div className="flex border-border border-t ">
-        <div className=" max-screen pt-101 w-40% ">
-          <div>
-            <div className="tracking-wider text-2xl uppercase font-avenir-reg pb-34">
-              Receive insights and news from the worlds leading voices
-            </div>
-            <div>input</div>
-            <div>input</div>
-            <Button className="w-251 mr-18 h-42 mt-44 mb-14">Subscribe</Button>
-            <div className="text-primary capitalize font-light text-base link">
-              See Terms & Conditions
-            </div>
-          </div>
-        </div>
-        <img src="/images/girl.png" alt="" />
-      </div>
+      <ReceiveInsight />
       <Footer />
     </>
   );
