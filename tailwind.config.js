@@ -19,7 +19,7 @@ module.exports = {
         photography: "url('/src/assets/images/background/photography.png')",
       }),
       boxShadow: {
-        sm: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+        sm: '0 4px 4px rgba(0, 0, 0, 0.04)',
         DEFAULT:
           '0px 4px 20px rgba(0, 0, 0, 0.1), 0px 4px 20px rgba(0, 0, 0, 0.1)',
         md: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
@@ -59,6 +59,7 @@ module.exports = {
         black: '#000000',
         white: '#FFFFFF',
         green: 'green',
+        backgroundColor: '#F2F1F1',
         border: {
           DEFAULT: '#CCCCCC',
         },
@@ -77,9 +78,9 @@ module.exports = {
           dim: '#EEECEC',
           light: '#FBFBFB',
           lightest: '#E3E3E3',
-          lighter: "#EFECEC",
+          lighter: '#EFECEC',
           DEFAULT: '#D6D6D6',
-          darkest: "#E5DDDD",
+          darkest: '#E5DDDD',
         },
         secondary: {
           DEFAULT: '#4A4949',
@@ -115,7 +116,7 @@ module.exports = {
       fontFamily: {
         light: 'nunito-light',
         reg: 'nunito-regular',
-        medium: 'nunito-semibold',
+        'nunito-semibold': 'nunito-semibold',
         bold: 'nunito-bold',
         'avenir-reg': 'avenir-roman',
         'avenir-800': 'avenir-black',
