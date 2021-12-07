@@ -169,6 +169,31 @@
   background: #4a4949;
 }
 
+/* select options style */
+
+/*style the arrow inside the select element:*/
+.custom-arrow:after {
+  position: absolute;
+  content: '';
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 8px solid transparent;
+  border-color: #000 transparent transparent transparent;
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #000 transparent;
+  top: 7px;
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+
 @layer base {
   @font-face {
     font-family: 'nunito-light';

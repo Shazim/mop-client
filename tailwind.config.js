@@ -76,8 +76,10 @@ module.exports = {
         gray: {
           dim: '#EEECEC',
           light: '#FBFBFB',
+          lightest: '#E3E3E3',
           lighter: "#EFECEC",
           DEFAULT: '#D6D6D6',
+          darkest: "#E5DDDD",
         },
         secondary: {
           DEFAULT: '#4A4949',
@@ -244,7 +246,7 @@ module.exports = {
         180: '180px',
         243: '243px',
         251: '251px',
-        '': '',
+        534: '534px',
         '': '',
         '': '',
         '': '',
