@@ -76,6 +76,7 @@ module.exports = {
         gray: {
           dim: '#EEECEC',
           light: '#FBFBFB',
+          lighter: "#EFECEC",
           DEFAULT: '#D6D6D6',
         },
         secondary: {

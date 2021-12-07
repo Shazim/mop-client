@@ -6,7 +6,6 @@ import Input from "../common/Input";
 function FormField({
   className: classes = "",
   name,
-  placeholder,
   style,
   type,
   ...otherProps
@@ -25,11 +24,11 @@ function FormField({
         name={name}
         onBlur={handleBlur}
         onChange={handleChange}
-        placeholder={placeholder}
+
         value={values[name]}
         {...otherProps}
       />
-      <ErrorMessage error={errors[name]} visible={touched[name]} />
+      <ErrorMessage error="{errors[name]}" visible={touched[name]} />
     </div>
   );
 }

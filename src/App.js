@@ -11,6 +11,9 @@ import RadioButton from 'components/atoms/buttons/RadioButton';
 import CheckBox from 'components/atoms/checkbox/CheckBox';
 import { useState } from 'react';
 import VideoCard from 'components/atoms/cards/VideoCard';
+import { FormField } from 'components/app/forms';
+import TextField from 'components/atoms/form/TextField';
+import MultipleOptions from 'components/atoms/form/MultipleOptions';
 function App() {
   const { store } = useStore();
   const [checked, setChecked] = useState(false);
@@ -57,6 +60,16 @@ function App() {
         />
         <CheckBox value="My Gallery" checked={checked} onChange={handleClick} />
       </div> */}
+      {/* <div className="flex-col bg-gray h-100 items-center">
+        <div className={`font-bold text-secondary text-sm uppercase mb-${25} tracking`}>Base item price</div>
+        <FormField className="outline-none uppercase text-secondary placeholder-gray font-bold text-sm pl-8 py-5 tracking" placeholder="Enter price" />
+      </div> */}
+      {/* <div className="bg-blue pb-20 mx-auto pt-40 pl-100">
+        <TextField label="base item price" placeholder="Enter Price" mb='25' />
+      </div>
+      <TextField placeholder="Enter Price" />
+      <MultipleOptions /> */}
+      {/* <VideoCard /> */}
 
       {/* <VideoCard /> */}
 
