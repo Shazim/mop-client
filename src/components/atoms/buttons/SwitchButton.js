@@ -13,7 +13,7 @@ function SwitchButton({ isOn, onChange }) {
 
     }
     return (
-        <div className={`w-35 h-18 rounded-large bg-${(isOn || on) ? "primary-dark" : "secondary"} p-2 cursor-pointer`} onClick={handleClick}>
+        <div className={`w-35 h-18 rounded-large bg-${(isOn || on) ? "primary" : "secondary"} p-2 cursor-pointer`} onClick={handleClick}>
             <div className={`w-14 h-14 bg-white rounded-full ${(isOn || on) ? "float-right" : ""}`}></div>
         </div>
     )
