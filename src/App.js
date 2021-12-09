@@ -3,7 +3,6 @@ import { Provider } from 'react-redux';
 import { useStore } from '../src/store';
 import authRouter from 'routes/auth';
 import './index.css';
-
 function App() {
   const { store } = useStore();
 
