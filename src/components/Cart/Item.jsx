@@ -33,7 +33,7 @@ function Item({ artistName = 'Artist Name', artworkName = 'artwork Name' }) {
             className="link"
             onClick={subtractQuantity}
           />
-          <div className="tracking text-sm text-secondary font-light flex items-center px-6 pt-3">
+          <div className="tracking text-sm text-secondary font-nunito-light flex items-center px-6 pt-3">
             {quantity}
           </div>
           <img

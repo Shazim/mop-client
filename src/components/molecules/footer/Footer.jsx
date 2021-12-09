@@ -66,17 +66,17 @@ function Footer() {
               &copy; Masters Of Photography 2021
             </div>
             <div className="flex flex-row items-center">
-              <div className="mr-45 text-sm font-bold uppercase tracking">
+              <div className="mr-45 text-sm font-bold uppercase tracking link">
                 Privacy Policy
               </div>
-              <div className="text-sm font-bold uppercase tracking">
+              <div className="text-sm font-bold uppercase tracking link">
                 Terms & Conditions
               </div>
             </div>
           </div>
           <div className="w-1/2 flex flex-row justify-end items-center">
             {socialIcons.map((item) => (
-              <img src={item} alt="" className="w-22 h-22 mr-22" />
+              <img src={item} alt="" className="w-22 h-22 mr-22 link" />
             ))}
           </div>
         </div>

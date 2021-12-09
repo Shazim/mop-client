@@ -3,6 +3,7 @@ import { DescriptiveIcon } from 'components/DescriptiveIcon';
 import { DiscoverMore } from 'components/DiscoveMore';
 import Footer from 'components/molecules/footer/Footer';
 import Header from 'components/molecules/header/Header';
+import { LinkLabel } from 'components/LinkLabel';
 import { ReceiveInsight } from 'components/ReceiveInsight';
 import React from 'react';
 
@@ -38,11 +39,7 @@ function Home() {
               shipped to you within days of purchase.
             </div>
             <div className="ml-50  ">
-              <img src="/images/Home/blocks.svg" />
-              <div className="pl-14  text-primary text-xl tracking uppercase font-avenir-800">
-                View Featured Galleries
-                <div className="border-b-2 border-secondary w-111 pt-6"></div>
-              </div>
+              <LinkLabel label=" View Featured Galleries" />
             </div>
           </div>
         </div>

@@ -27,14 +27,14 @@ function About() {
             “Great Art in 2021 requires a different type of showcase”
             <span className="text-primary">.</span>
           </div>
-          <div className=" font-light text-lg text-dark leading-32 pt-31">
+          <div className=" font-nunito-light text-lg text-dark leading-32 pt-31">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt
             viverra pharetra ultricies elementum. Tellus ullamcorper sit in
             scelerisque maecenas elit, viverra eu. Suspendisse ut netus mauris
             gravida viverra vel nunc facilisis scelerisque. Ultrices lobortis
             donec volutpat viverra.{' '}
           </div>
-          <div className="pt-30 font-light text-lg text-dark leading-32">
+          <div className="pt-30 font-nunito-light text-lg text-dark leading-32">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt
             viverra pharetra ultricies elementum. Tellus ullamcorper sit in
             scelerisque maecenas elit,

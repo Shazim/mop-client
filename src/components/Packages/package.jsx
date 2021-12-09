@@ -4,8 +4,8 @@ import React from 'react';
 function Package({
   popular = false,
   title = 'starter',
-  amount = '8',
-  description = 'A beginners package to get your work seen and sell your work.',
+  price = '8',
+  description = 'beginners package',
 }) {
   const packages = [
     '10 galleries, 25GB storage',
@@ -18,7 +18,7 @@ function Package({
 
   return (
     <div
-      className={`relative bg-card px-31 pt-22 max-w-312 m-auto ${
+      className={`relative bg-gray-lighter px-31 pt-22 max-w-312 m-auto ${
         popular && 'mt-_20'
       }`}
     >
@@ -32,17 +32,17 @@ function Package({
         {title}
       </div>
       <div className="uppercase text-secondary tracking-wider text-sm nunito-semibold text-center">
-        <span className="text-2xl ">${amount}</span> per month
+        <span className="text-2xl ">${price}</span> per month
       </div>
-      <div className="text-secondary font-light pb-20  mt-17">
-        A <span className=" font-bold">beginners package</span> to get your work
+      <div className="text-secondary font-nunito-light pb-20  mt-17">
+        A <span className=" font-bold">{description}</span> to get your work
         seen and sell your work.
       </div>
       <div className="ml-14 ">
         {packages.map((item) => (
           <div className="flex pb-20">
             <img src="/images/tick.svg" alt="" />
-            <div className="ml-13 text-xsm font-light text-secondary">
+            <div className="ml-13 text-xsm font-nunito-light text-secondary">
               {item}
             </div>
           </div>
