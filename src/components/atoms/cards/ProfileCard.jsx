@@ -14,12 +14,12 @@ function ProfileCard({ obj = { title: "excellent", image_url: "/images/card/prof
                     <div className=" font-avenir-reg text-20 text-primary tracking-tight uppercase mr-13">{obj.title}</div>
                     <div className="flex pt-4">{[...Array(5)].map((item, index) => <img className="w-17 h-17 mr-2" src="/images/card/star_image.svg" />)}</div>
                 </div>
-                <div className="w-35% font-light text-sm text-secondary-dark leading-9 mb-15">Lorem ipsum dolor sit amet, consectetur adipihg elit. Tincidunt viverra pharetra ultricies elaentum. </div>
+                <div className="w-299 font-light text-sm text-secondary-dark leading-9 mb-15">Lorem ipsum dolor sit amet, consectetur adipihg elit. Tincidunt viverra pharetra ultricies elaentum. </div>
                 <div className="flex text-xsm">
                     <div className="flex justify-center items-center text-secondary">
-                        <img className="w-28 h-29" src="/images/card/userprofile_image.svg" />
-                        <div className="font-avenir-reg text-base  tracking-tight uppercase ml-10">kate smith</div>
-                        <div><span className="font-bold ml-10">{obj.incImages}</span> Gallery views</div>
+                        <img className="w-28 h-29 rounded-full" src="/images/card/userprofile_image.svg" />
+                        <div className="font-avenir-reg text-base  tracking-tight font-medium uppercase ml-10">kate smith</div>
+                        <div><span className="font-bold ml-10 capitalize">{obj.incImages}</span> Gallery views</div>
                     </div>
                 </div>
             </div>
