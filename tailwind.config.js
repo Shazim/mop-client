@@ -59,6 +59,7 @@ module.exports = {
         black: '#000000',
         white: '#FFFFFF',
         green: 'green',
+
         backgroundColor: '#F2F1F1',
         border: {
           DEFAULT: '#CCCCCC',
@@ -113,7 +114,7 @@ module.exports = {
         '7xl': '5rem',
       },
       fontFamily: {
-        light: 'nunito-light',
+        'nunito-light': 'nunito-light',
         reg: 'nunito-regular',
         'nunito-semibold': 'nunito-semibold',
         bold: 'nunito-bold',

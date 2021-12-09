@@ -9,7 +9,7 @@ function Cart() {
   ];
 
   return (
-    <div className="bg-card max-w-312 m-auto pt-31 pb-27 pl-27 pr-33">
+    <div className="bg-gray-lighter max-w-312 m-auto pt-31 pb-27 pl-27 pr-33">
       {[...Array(3)].map(() => (
         <Item />
       ))}

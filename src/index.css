@@ -6,7 +6,7 @@
   @apply max-w-1440 mx-auto px-100;
 }
 .footer-links {
-  @apply font-light text-secondary text-lg capitalize leading-9;
+  @apply font-nunito-light text-secondary text-lg capitalize leading-9;
 }
 
 .link {

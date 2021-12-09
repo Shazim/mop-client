@@ -33,7 +33,7 @@ function ReceiveInsight({ image = '/images/girl.png' }) {
             />
           </div>
           <Button className="w-251 mr-18 h-42 mt-44 mb-14">Subscribe</Button>
-          <div className="text-primary capitalize font-light text-base link">
+          <div className="text-primary capitalize font-nunito-light text-base link">
             See Terms & Conditions
           </div>
         </div>
