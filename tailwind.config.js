@@ -90,6 +90,7 @@ module.exports = {
           dim: '#999999',
           light: '#E4E4E4',
         },
+        'pale-gray': '#E5E5E5',
       },
 
       fill: (theme) => ({
@@ -105,7 +106,7 @@ module.exports = {
         base: '14px',
         lg: '16px',
         xl: '18px',
-        20: "20px",
+        20: '20px',
         '2xl': '24px',
         heading: '33px',
         '4xl': '2.25rem',
@@ -145,6 +146,7 @@ module.exports = {
         normal: '1.5',
         relaxed: '1.625',
         loose: '2',
+        small: '0.01em',
         3: '.75rem',
         4: '1rem',
         5: '1.25rem',

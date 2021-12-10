@@ -86,7 +86,9 @@ function CreateGallary() {
           <Button className="w-251 h-51 mr-18">Start Your Free Trial</Button>
         </div>
       </div>
-      <Packages />
+      <div className="pt-166 pb-123">
+        <Packages />
+      </div>
       <div className="flex max-screen">
         <div>
           <div className="uppercase text-2xl tracking-wider font-avenir-reg text-secondary-dark">
