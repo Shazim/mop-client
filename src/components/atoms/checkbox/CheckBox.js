@@ -6,7 +6,7 @@ function CheckBox({ value, checked, onChange }) {
     return (
 
         <div className="flex flex-row w-100 cursor-pointer" onClick={onChange} >
-            <label className="checkbox-container ">One
+            <label className="checkbox-container font-bold tracking uppercase">One
                 <input type="checkbox" />
                 <span className="checkbox-checkmark"></span>
             </label>
