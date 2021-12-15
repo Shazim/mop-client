@@ -3,7 +3,7 @@ import { useState } from 'react'
 import RadioButton from '../buttons/RadioButton'
 import CheckBox from '../checkbox/CheckBox'
 
-function Menu({ data, title, setData }) {
+function RadioMenu({ data, title, setData }) {
 
     const [isOpen, setIsOpne] = useState(false)
     const clickHandler = () => setIsOpne(!isOpen)
@@ -15,11 +15,11 @@ function Menu({ data, title, setData }) {
             </div>
             <div className={`pt-10 px-36 ${isOpen ? "" : "hidden"}`} >
                 {data.map((item, index) => <div className="mb-12">
-                    <CheckBox onChange={() => setData(title, index)} value={item.name} checked={item.select} />
+                    <RadioButton value={item.name} checked={item.select} onChange={() => setData(title, index)} />
                 </div>)}
             </div>
         </div>
     )
 }
 
-export default Menu
+export default RadioMenu

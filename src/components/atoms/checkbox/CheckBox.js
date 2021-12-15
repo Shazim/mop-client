@@ -5,9 +5,9 @@ import { ReactComponent as RedMark } from '../../../assets/images/redtick.svg';
 function CheckBox({ value, checked, onChange }) {
     return (
 
-        <div className="flex flex-row w-100 cursor-pointer" onClick={onChange} >
+        <div className="flex flex-row w-100 cursor-pointer"  >
             <label className="checkbox-container font-bold tracking uppercase">{value}
-                <input type="checkbox" checked={checked} />
+                <input type="checkbox" checked={checked} onChange={onChange} />
                 <span className="checkbox-checkmark"></span>
             </label>
 
