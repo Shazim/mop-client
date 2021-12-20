@@ -16,7 +16,8 @@ function Menu({ data, title, setData }) {
             <div className={`pt-10 px-36 ${isOpen ? "" : "hidden"}`} >
                 {data.map((item, index) => <div className="mb-12">
                     <CheckBox onChange={() => setData(title, index)} value={item.name} checked={item.select} />
-                </div>)}
+                </div>
+                )}
             </div>
         </div>
     )

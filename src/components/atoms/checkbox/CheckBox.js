@@ -6,15 +6,10 @@ function CheckBox({ value, checked, onChange }) {
     return (
 
         <div className="flex flex-row w-100 cursor-pointer"  >
-            <label className="checkbox-container font-bold text-secondary tracking uppercase">{value}
+            <label className="checkbox-container font-bold text-secondary tracking uppercase pt-3">{value}
                 <input type="checkbox" checked={checked} onChange={onChange} />
                 <span className="checkbox-checkmark"></span>
             </label>
-
-            {/* <div className="w-20 h-20 border-2 border-gray  flex justify-center items-center">
-                <RedMark className={`w-12 h-10 ${(checked) ? "" : "invisible"}`} />
-            </div>
-            <div className="text-secondary mt-2 text-sm font-bold ml-10">{value}</div> */}
         </div>
     )
 }

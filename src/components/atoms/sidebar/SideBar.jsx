@@ -12,60 +12,81 @@ const obj = [
             link: "/exhibition"
         },
         {
+            redIcon: "/images/sidebar/stockroom_red.svg",
             icon: "/images/sidebar/stockroom.svg",
-            name: "Stockrooms"
-
+            name: "Stockrooms",
+            link: "/stockrooms"
         },
         {
-            icon: "/images/sidebar/stockroom.svg",
+            redIcon: "/images/sidebar/gallery_red.svg",
+            icon: "/images/sidebar/gallery.svg",
+            link: "/gallery",
             name: "gallery"
         },
         {
-            icon: "/images/sidebar/stockroom.svg",
-            name: "Analytic"
+            redIcon: "/images/sidebar/analytics_red.svg",
+            icon: "/images/sidebar/analytics.svg",
+            link: "/Analytic",
+            name: "Analytic",
         },
         {
-            icon: "/images/sidebar/stockroom.svg",
-            name: "settings"
+            redIcon: "/images/sidebar/settings_red.svg",
+            icon: "/images/sidebar/settings.svg",
+            name: "settings",
+            link: "/settings"
+
         }]
     },
     {
         key: "store",
         item: [{
-            icon: "/images/sidebar/stockroom.svg",
-            name: "pricing and products"
+            redIcon: "/images/sidebar/price_red.svg",
+            icon: "/images/sidebar/price.svg",
+            name: "pricing and products",
+            link: "/coupon"
         },
         {
-            icon: "/images/sidebar/stockroom.svg",
-            name: "orders"
+            redIcon: "/images/sidebar/order_red.svg",
+            icon: "/images/sidebar/order.svg",
+            name: "orders",
+            link: "/orders"
         },
         {
-            icon: "/images/sidebar/stockroom.svg",
-            name: "customers"
+            redIcon: "/images/sidebar/profile_red.svg",
+            icon: "/images/sidebar/profile.svg",
+            name: "customers",
+            link: "/customers"
         },
         {
-            icon: "/images/sidebar/stockroom.svg",
-            name: "tax rates"
+            redIcon: "/images/sidebar/tax_red.svg",
+            icon: "/images/sidebar/tax.svg",
+            name: "tax rates",
+            link: "/tax"
         },
         {
-            icon: "/images/sidebar/stockroom.svg",
-            name: "Coupons and offers"
+            redIcon: "/images/sidebar/coupon_red.svg",
+            icon: "/images/sidebar/coupon.svg",
+            name: "Coupons and offers",
+            link: "/coupon"
         }]
     },]
 function SideBar() {
+    const handleClick = (index, subIndex) => {
+        console.log("CLICKED", index, subIndex)
+    }
     return (
         <div className="h-screen w-294 bg-gray-lighter pt-40">
             {obj.map((item, index) => {
-                return <div className="">
+                return <div>
                     <div className="font-bold text-sm text-secondary tracking uppercase mt-15 mb-18 ml-37">{item.key}</div>
                     <>{
                         item.item.map((subItem, subIndex) =>
-                            <Link to={subItem.link}>
+                            <a href={`${subItem.link}`}>
                                 <span className="flex w-275 h-55 bg-gray rounded-r-lg pl-62 link" onClick={() => handleClick(index, subIndex)}>
                                     <img className="w-19 h-19 my-auto text-primary" src={(subItem.link == window.location.pathname) ? subItem.redIcon : subItem.icon} />
                                     <div className={`my-auto font-nunito-semibold capitalize text-base leading-5 ml-28 ${(subItem.link == window.location.pathname) ? "text-primary" : "text-secondary"} `}>{subItem.name}</div>
                                 </span>
-                            </Link>
+                            </a>
                         )
                     }</>
                 </div>

@@ -25,14 +25,17 @@ function SideBarWithLogin() {
             { name: "item2", select: false },
             { name: "item3", select: false }
         ],
+        "Menu 1": [
+            { name: "item1", select: false },
+            { name: "item2", select: false },
+            { name: "item3", select: false }
+        ],
         "minPrice": "",
         "search": "",
         "maxPrice": ""
     })
 
-    useEffect(() => {
-        handlePrice()
-    }, [minPrice, maxPrice, search])
+
 
     const clickHandler = () => setIsOpne(!isOpen)
 
@@ -57,32 +60,37 @@ function SideBarWithLogin() {
                 setMinPrice("")
                 setMaxPrice("")
                 setSearch("")
-                // console.log("ITEMMM  ", filter.minPrice)
                 setFilter(filter)
 
             }
         })
     }
 
-    const handlePrice = () => {
-        filter["minPrice"] = minPrice
-        filter["maxPrice"] = maxPrice
-        filter["search"] = search
-        console.log("FILTER ", filter)
-        setFilter(filter)
+    const handlefield = (e) => {
+        if (e.target.name == "search") {
+            const fils = { ...filter }
+            fils[e.target.name] = e.target.value
+            setFilter(fils)
+        } else if (e.target.name == "minPrice") {
+            const fils = { ...filter }
+            fils[e.target.name] = e.target.value
+            setFilter(fils)
+        } else if (e.target.name == "maxPrice") {
+            const fils = { ...filter }
+            fils[e.target.name] = e.target.value
+            setFilter(fils)
+        }
     }
 
     return (
         <div className="h-screen w-294 bg-gray-lighter pt-40 overflow-auto">
-            <SearchBar className="w-220 h-32 mx-auto mb-25" placeholder="search" transform="uppercase" onChange={(e) => setSearch(e.target.value)} value={search} />
-            {/* <Menu data={object} setData={setItem} />
-            <div className=" h-1 bg-gray mx-36 my-16"></div>
-            <Menu data={object} setData={handler} />
-            <div className=" h-1 bg-gray mx-36 my-16"></div>
-            <Menu data={object} setData={handler} />
-            <div className=" h-1 bg-gray mx-36 my-16"></div>
-            <Menu data={object} setData={handler} />
-            <div className=" h-1 bg-gray mx-36 my-16"></div> */}
+            <SearchBar
+                name="search"
+                className="w-220 h-32 mx-auto mb-25"
+                placeholder="search"
+                transform="uppercase"
+                onChange={(e) => handlefield(e)}
+                value={filter.search} />
             {Object.entries(filter).map(([key, value]) => {
                 if (typeof value !== "string") {
                     return (key !== "Radio Menu") ? <>
@@ -105,18 +113,18 @@ function SideBarWithLogin() {
                         name="minPrice"
                         type="number"
                         placeholder="enter price"
-                        className="textfield focus:outline-none uppercase w-220 h-32 font-bold text-sm pl-10 text-secondary"
-                        onChange={(text) => setMaxPrice(text.target.value)}
-                        value={maxPrice} />
+                        className="textfield focus:outline-none uppercase w-220 tracking h-32 font-bold text-sm pl-10 text-secondary"
+                        onChange={(e) => handlefield(e)}
+                        value={filter.minPrice} />
 
                     <div className="font-bold text-sm tracking uppercase text-secondary mt-10 leading-8">MAXIMUM</div>
                     <Input
                         name="maxPrice"
                         type="number"
-                        className="textfield focus:outline-none uppercase w-220 h-32 font-bold text-sm pl-10 text-secondary bg-white"
+                        className="textfield focus:outline-none uppercase tracking w-220 h-32 font-bold text-sm pl-10 text-secondary bg-white"
                         placeholder="enter price"
-                        onChange={(text) => setMinPrice(text.target.value)}
-                        value={minPrice}
+                        onChange={(e) => handlefield(e)}
+                        value={filter.maxPrice}
                     />
                 </div>
             </div>

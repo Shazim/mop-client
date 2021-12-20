@@ -4,11 +4,16 @@ import { ReactComponent as Searchicon } from '../../../assets/images/searchIcon.
 import { FormField } from '../../app/forms';
 import PropTypes from 'prop-types';
 
-function SearchBar({ className: classes = "w-243 h-32", textSize = "text-xsm", transform = "", placeholder, bgColor = 'bg-white' }) {
+function SearchBar({ name, className: classes = "w-243 h-32", textSize = "text-xsm", transform = "", value = "", placeholder, bgColor = 'bg-white', onChange }) {
   return (
     <div className={`${classes} ${bgColor} pl-10 flex flex-row items-center`}>
       <Searchicon className=" w-16 h-16 mr-10 mt-2" />
-      <FormField placeholder={placeholder} className={`${bgColor} ${transform} ${textSize} w-full tracking font-bold placeholder-secondary focus:outline-none`} />
+      <Input
+        name={name}
+        placeholder={placeholder}
+        onChange={onChange}
+        value={value}
+        className={`${bgColor} ${transform} ${textSize} w-full tracking font-bold placeholder-secondary focus:outline-none`} />
     </div>
   )
 }
