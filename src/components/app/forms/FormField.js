@@ -15,7 +15,7 @@ function FormField({
     handleChange,
     errors = {},
     touched = {},
-    values = {},
+    values = { search: "" },
   } = useFormikContext() || {};
   return (
     <div>

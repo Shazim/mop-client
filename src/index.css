@@ -103,6 +103,14 @@
   transform: rotate(45deg);
 }
 
+.textfield input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button,
+input[type='number'] {
+  -webkit-appearance: none;
+  margin: 0;
+  -moz-appearance: textfield;
+}
+
 /* Radio Button Styles */
 
 .radio-container {

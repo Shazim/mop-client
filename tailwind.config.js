@@ -85,6 +85,7 @@ module.exports = {
         },
         secondary: {
           DEFAULT: '#4A4949',
+          dim: '#F7F7F7',
           darkest: '#262626',
           dark: '#1A1A1A',
           dim: '#999999',
