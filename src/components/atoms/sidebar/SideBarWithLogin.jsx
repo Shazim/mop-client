@@ -10,63 +10,53 @@ import Input from 'components/app/common/Input'
 
 
 function SideBarWithLogin() {
+
     const [isOpen, setIsOpne] = useState(false)
-    const [minPrice, setMinPrice] = useState("")
-    const [maxPrice, setMaxPrice] = useState("")
-    const [search, setSearch] = useState("")
-    const [filter, setFilter] = useState({
-        "menu": [
-            { name: "item1", select: false },
-            { name: "item2", select: false },
-            { name: "item3", select: false }
-        ],
-        "Radio Menu": [
-            { name: "item1", select: false },
-            { name: "item2", select: false },
-            { name: "item3", select: false }
-        ],
-        "Menu 1": [
-            { name: "item1", select: false },
-            { name: "item2", select: false },
-            { name: "item3", select: false }
-        ],
+    let initialObj = {
+        "menu": {
+            type: "checkbox",
+            values: [
+                { name: "item1", select: false },
+                { name: "item2", select: false },
+                { name: "item3", select: false }
+            ]
+        },
+        "Radio Menu": {
+            type: 'radio',
+            values: [
+                { name: "item1", select: false },
+                { name: "item2", select: false },
+                { name: "item3", select: false }
+            ]
+        },
+        "menu 1": {
+            type: "checkbox",
+            values: [
+                { name: "item1", select: false },
+                { name: "item2", select: false },
+                { name: "item3", select: false }
+            ]
+        },
         "minPrice": "",
         "search": "",
         "maxPrice": ""
-    })
-
-
+    }
+    const [filter, setFilter] = useState(initialObj)
 
     const clickHandler = () => setIsOpne(!isOpen)
 
     const handler = (item, index) => {
         const filters = { ...filter }
-        const items = [...filters[item]]
+        const items = [...filters[item].values]
         items[index].select = !items[index].select;
         setFilter(filters)
     }
 
     const clearFilter = () => {
-        Object.entries(filter).map(([key, value]) => {
-            if (typeof value !== "string") {
-                value.map((item, index) => {
-                    const filters = { ...filter }
-                    const filterItem = [...filter[key]]
-                    filterItem[index].select = false
-                    setFilter(filters)
-                })
-            } else {
-                filter[key] = ""
-                setMinPrice("")
-                setMaxPrice("")
-                setSearch("")
-                setFilter(filter)
-
-            }
-        })
+        setFilter(initialObj)
     }
 
-    const handlefield = (e) => {
+    const handle_field = (e) => {
         if (e.target.name == "search") {
             const fils = { ...filter }
             fils[e.target.name] = e.target.value
@@ -89,15 +79,15 @@ function SideBarWithLogin() {
                 className="w-220 h-32 mx-auto mb-25"
                 placeholder="search"
                 transform="uppercase"
-                onChange={(e) => handlefield(e)}
+                onChange={(e) => handle_field(e)}
                 value={filter.search} />
             {Object.entries(filter).map(([key, value]) => {
                 if (typeof value !== "string") {
-                    return (key !== "Radio Menu") ? <>
-                        <Menu data={value} title={key} setData={handler} />
+                    return (value.type !== "radio") ? <>
+                        <Menu data={value.values} title={key} setData={handler} />
                         <div className=" h-1 bg-gray mx-36 my-16"></div>
                     </> : <>
-                        <RadioMenu data={value} title={key} setData={handler} />
+                        <RadioMenu data={value.values} title={key} setData={handler} />
                         <div className=" h-1 bg-gray mx-36 my-16"></div>
                     </>
                 }
@@ -114,7 +104,7 @@ function SideBarWithLogin() {
                         type="number"
                         placeholder="enter price"
                         className="textfield focus:outline-none uppercase w-220 tracking h-32 font-bold text-sm pl-10 text-secondary"
-                        onChange={(e) => handlefield(e)}
+                        onChange={(e) => handle_field(e)}
                         value={filter.minPrice} />
 
                     <div className="font-bold text-sm tracking uppercase text-secondary mt-10 leading-8">MAXIMUM</div>
@@ -123,7 +113,7 @@ function SideBarWithLogin() {
                         type="number"
                         className="textfield focus:outline-none uppercase tracking w-220 h-32 font-bold text-sm pl-10 text-secondary bg-white"
                         placeholder="enter price"
-                        onChange={(e) => handlefield(e)}
+                        onChange={(e) => handle_field(e)}
                         value={filter.maxPrice}
                     />
                 </div>
