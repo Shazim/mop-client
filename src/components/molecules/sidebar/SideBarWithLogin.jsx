@@ -6,7 +6,6 @@ import Button from '../../atoms/buttons/Button'
 
 
 function SideBarWithLogin() {
-
     let initialObj = {
         "menu": {
             type: "checkbox",
@@ -92,7 +91,7 @@ function SideBarWithLogin() {
 
             <Button
                 className="flex w-220 h-33 text-secondary justify-center items-center mt-28 m-auto"
-                color="bg-gray" onClick={clearFilter}>CLEAR FILTER</Button>
+                color="bg-gray" onClick={clearFilter}>CLEAR FILTERS</Button>
 
         </div>
     )
