@@ -177,7 +177,16 @@ input[type='number'] {
   background: #4a4949;
 }
 
-/* select options style */
+/* Popover style */
+.message:before {
+  content: '';
+  border-left: 18px solid transparent;
+  border-right: 18px solid transparent;
+  border-bottom: 20px solid #fff;
+  position: absolute;
+  top: -15px;
+  left: 10px;
+}
 
 /*style the arrow inside the select element:*/
 .custom-arrow:after {

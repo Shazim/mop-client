@@ -51,6 +51,7 @@ module.exports = {
       borderRadius: {
         none: '0',
         DEFAULT: '4px',
+        lg: "9px",
         large: '30px',
         full: '100%',
       },
@@ -101,6 +102,7 @@ module.exports = {
       }),
       fontSize: {
         tiny: '10px',
+        11: "11px",
         xsm: '12px',
         sm: '13px',
         base: '14px',
@@ -161,6 +163,7 @@ module.exports = {
 
       letterSpacing: {
         DEFAULT: '0.13em',
+        tightest: '0.03em',
         tight: '0.09em',
         tighter: '-.05em',
         normal: '0',

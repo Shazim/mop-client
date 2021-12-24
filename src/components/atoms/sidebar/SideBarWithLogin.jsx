@@ -1,17 +1,13 @@
 import { FormField } from 'components/app/forms'
 import React from 'react'
 import { useState, useEffect } from 'react'
-import CheckBox from '../checkbox/CheckBox'
 import Menu from '../menu/Menu'
 import SearchBar from '../searchbar/SearchBar'
 import Button from '../buttons/Button'
-import RadioMenu from '../menu/RadioMenu '
-import Input from 'components/app/common/Input'
 
 
 function SideBarWithLogin() {
 
-    const [isOpen, setIsOpne] = useState(false)
     let initialObj = {
         "menu": {
             type: "checkbox",
@@ -43,9 +39,7 @@ function SideBarWithLogin() {
     }
     const [filter, setFilter] = useState(initialObj)
 
-    const clickHandler = () => setIsOpne(!isOpen)
-
-    const handler = (item, index) => {
+    const handler = (item, index, value) => {
         const filters = { ...filter }
         const items = [...filters[item].values]
         items[index].select = !items[index].select;
