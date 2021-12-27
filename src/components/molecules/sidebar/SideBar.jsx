@@ -72,7 +72,6 @@ const obj = [
     },]
 function SideBar() {
     const handleClick = (index, subIndex) => {
-        console.log("CLICKED", index, subIndex)
     }
     return (
         <div className="h-screen w-294 bg-gray-lighter pt-40">

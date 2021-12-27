@@ -60,6 +60,8 @@ module.exports = {
         black: '#000000',
         white: '#FFFFFF',
         green: 'green',
+        instagram: "#C32AA3",
+        facebook: "#3B5998",
 
         backgroundColor: '#F2F1F1',
         border: {
@@ -137,8 +139,8 @@ module.exports = {
         38: '38px',
         42: '42px',
         330: '330px',
-        '': '',
-        '': '',
+        661: '661px',
+        1015: '1015px',
         '': '',
       },
 

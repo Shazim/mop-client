@@ -32,7 +32,7 @@ function ForgotPassword({ userEmail, resetHandler, loginHandler, signUpHandler }
             <Modal
                 isOpen={isOpen} style={customStyles}
                 onRequestClose={closeModal}>
-                <div className='bg-gray w-568 h-330 pl-56 pr-57 py-40'>
+                <div className='bg-gray-lighter w-568 pl-56 pr-57 py-40'>
                     <div className='font-avenir-reg text-2xl text-secondary tracking-wider leading-38 uppercase'>forgot password</div>
                     <div className='font-bold text-sm tracking text-secondary leading-32 uppercase mt-13'>email address</div>
                     <FormField

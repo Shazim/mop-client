@@ -18,6 +18,10 @@ function Button({
     if (type == 'contained') {
       if (color.includes('primary')) {
         return `${classes} bg-${color} text-white tracking shadow text-sm`;
+      } else if (color.includes("instagram")) {
+        return `${classes} bg-${color} text-white tracking shadow text-sm`;
+      } else if (color.includes("facebook")) {
+        return `${classes} bg-${color} text-white tracking shadow text-sm`;
       } else {
         return `${classes} ${color} tracking shadow text-sm`;
       }
