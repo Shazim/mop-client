@@ -1,9 +1,8 @@
-import { FormField } from 'components/app/forms'
 import React from 'react'
 import { useState, useEffect } from 'react'
-import Menu from '../menu/Menu'
-import SearchBar from '../searchbar/SearchBar'
-import Button from '../buttons/Button'
+import Menu from '../../atoms/menu/Menu'
+import SearchBar from '../../atoms/searchbar/SearchBar'
+import Button from '../../atoms/buttons/Button'
 
 
 function SideBarWithLogin() {
