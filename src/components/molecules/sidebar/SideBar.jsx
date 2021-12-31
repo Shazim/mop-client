@@ -70,27 +70,37 @@ const obj = [
             link: "/coupon"
         }]
     },]
-function SideBar() {
+function SideBar({ routBack = true }) {
     const handleClick = (index, subIndex) => {
     }
     return (
-        <div className="h-screen w-294 bg-gray-lighter pt-40">
-            {obj.map((item, index) => {
-                return <div>
-                    <div className="font-bold text-sm text-secondary tracking uppercase mt-15 mb-18 ml-37">{item.key}</div>
-                    <>{
-                        item.item.map((subItem, subIndex) =>
-                            <a href={`${subItem.link}`}>
-                                <span className="flex w-275 h-55 bg-gray rounded-r-lg pl-62 link" onClick={() => handleClick(index, subIndex)}>
-                                    <img className="w-19 h-19 my-auto text-primary" src={(subItem.link == window.location.pathname) ? subItem.redIcon : subItem.icon} />
-                                    <div className={`my-auto font-nunito-semibold capitalize text-base leading-5 ml-28 ${(subItem.link == window.location.pathname) ? "text-primary" : "text-secondary"} `}>{subItem.name}</div>
-                                </span>
-                            </a>
-                        )
-                    }</>
-                </div>
+        <div className="h-screen w-294 bg-gray-lighter pt-40 pr-19">
+            {routBack ?
+                <>
+                    {obj.map((item, index) => {
+                        return <div>
+                            <div className="font-bold text-sm text-secondary tracking uppercase mt-15 mb-18 ml-37">{item.key}</div>
+                            <>{
+                                item.item.map((subItem, subIndex) =>
+                                    <a href={`${subItem.link}`}>
+                                        <span className="flex w-275 h-55 bg-secondary-dim rounded-r-lg pl-62 link" onClick={() => handleClick(index, subIndex)}>
+                                            <img className="w-19 h-19 my-auto text-primary" src={(subItem.link == window.location.pathname) ? subItem.redIcon : subItem.icon} />
+                                            <div className={`my-auto font-nunito-semibold capitalize text-base leading-5 ml-28 ${(subItem.link == window.location.pathname) ? "text-primary" : "text-secondary"} `}>{subItem.name}</div>
+                                        </span>
+                                    </a>
+                                )
+                            }</>
+                        </div>
 
-            })}
+                    })}
+                </> :
+                <a >
+                    <span className="flex w-275 h-55 bg-secondary-dim justify-between rounded-r-lg pl-37 link pr-15" >
+                        <div className={`my-auto font-bold uppercase text-base leading-5 text-secondary `}>Back</div>
+                        <img className="w-14 h-13 my-auto text-primary" src='images/sidebar/leftArrow.svg' />
+                    </span>
+                </a>
+            }
         </div>
     )
 }

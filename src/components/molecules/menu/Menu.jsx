@@ -1,10 +1,12 @@
+import Input from 'components/app/common/Input'
 import React from 'react'
 import { useState } from 'react'
-import RadioButton from '../buttons/RadioButton'
-import CheckBox from '../checkbox/CheckBox'
+import RadioButton from '../../atoms/buttons/RadioButton'
+import CheckBox from '../../atoms/checkbox/CheckBox'
 
-function Menu({ data, title, setData }) {
 
+function Menu({ data, title, setData, filter }) {
+    console.log({ data })
     const [isOpen, setIsOpne] = useState(false)
     const clickHandler = () => setIsOpne(!isOpen)
     return (
@@ -21,7 +23,7 @@ function Menu({ data, title, setData }) {
                         </div>
                     } else if (data.type == "radio") {
                         return <div className="mb-12">
-                            <RadioButton value={item.name} checked={item.select} onChange={() => setData(title, index, "")} />
+                            <RadioButton className='text-sm' value={item.name} checked={item.select} onChange={() => setData(title, index, "")} />
                         </div>
                     } else {
                         return <>

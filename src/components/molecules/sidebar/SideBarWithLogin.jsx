@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import Menu from '../../atoms/menu/Menu'
+import Menu from '../menu/Menu'
 import SearchBar from '../../atoms/searchbar/SearchBar'
 import Button from '../../atoms/buttons/Button'
 
@@ -32,18 +32,41 @@ function SideBarWithLogin() {
                 { name: "item3", select: false }
             ]
         },
+        "price": {
+            type: "input",
+            values: [
+                { name: "Minimum", value: "" },
+                { name: "Maximum", value: "" },
+            ]
+        },
         "minPrice": "",
         "search": "",
         "maxPrice": ""
     }
     const [filter, setFilter] = useState(initialObj)
+    const [isOpen, setIsOpne] = useState(false)
+
 
     const handler = (item, index, value) => {
         const filters = { ...filter }
-        const items = [...filters[item].values]
-        items[index].select = !items[index].select;
-        setFilter(filters)
+        if (filters[item].type == "checkbox") {
+            const items = [...filters[item].values]
+            items[index].select = !items[index].select;
+            setFilter(filters)
+        } else if (filters[item].type == "radio") {
+            const items = [...filters[item].values]
+            items.map((item, i) => {
+                item.select = (index == i) ? true : false
+            })
+            filters[item].values = [...items]
+            setFilter(filters)
+        } else {
+            filters[item].values[index].value = value
+            setFilter(filters)
+        }
     }
+
+
 
     const clearFilter = () => {
         setFilter(initialObj)
@@ -51,17 +74,9 @@ function SideBarWithLogin() {
 
     const handle_field = (e) => {
         if (e.target.name == "search") {
-            const fils = { ...filter }
-            fils[e.target.name] = e.target.value
-            setFilter(fils)
-        } else if (e.target.name == "minPrice") {
-            const fils = { ...filter }
-            fils[e.target.name] = e.target.value
-            setFilter(fils)
-        } else if (e.target.name == "maxPrice") {
-            const fils = { ...filter }
-            fils[e.target.name] = e.target.value
-            setFilter(fils)
+            const copyFilter = { ...filter }
+            copyFilter[e.target.name] = e.target.value
+            setFilter(copyFilter)
         }
     }
 
@@ -76,41 +91,10 @@ function SideBarWithLogin() {
                 value={filter.search} />
             {Object.entries(filter).map(([key, value]) => {
                 if (typeof value !== "string") {
-                    return (value.type !== "radio") ? <>
-                        <Menu data={value.values} title={key} setData={handler} />
-                        <div className=" h-1 bg-gray mx-36 my-16"></div>
-                    </> : <>
-                        <RadioMenu data={value.values} title={key} setData={handler} />
-                        <div className=" h-1 bg-gray mx-36 my-16"></div>
-                    </>
+                    return <Menu data={value} filter={filter} title={key} setData={handler} />
                 }
             })}
-            <div className="relative">
-                <div className="flex justify-between px-36">
-                    <div className="uppercase text-sm text-primary tracking font-bold">price</div>
-                    <img className={`link ${isOpen ? "" : "transform rotate-45"}`} src="images/sidebar/cross.svg" onClick={clickHandler} />
-                </div>
-                <div className={`pt-10 px-36 ${isOpen ? "" : "hidden"}`} >
-                    <div className="font-bold text-sm tracking uppercase text-secondary leading-8">MINIMUM</div>
-                    <Input
-                        name="minPrice"
-                        type="number"
-                        placeholder="enter price"
-                        className="textfield focus:outline-none uppercase w-220 tracking h-32 font-bold text-sm pl-10 text-secondary"
-                        onChange={(e) => handle_field(e)}
-                        value={filter.minPrice} />
 
-                    <div className="font-bold text-sm tracking uppercase text-secondary mt-10 leading-8">MAXIMUM</div>
-                    <Input
-                        name="maxPrice"
-                        type="number"
-                        className="textfield focus:outline-none uppercase tracking w-220 h-32 font-bold text-sm pl-10 text-secondary bg-white"
-                        placeholder="enter price"
-                        onChange={(e) => handle_field(e)}
-                        value={filter.maxPrice}
-                    />
-                </div>
-            </div>
             <Button
                 className="flex w-220 h-33 text-secondary justify-center items-center mt-28 m-auto"
                 color="bg-gray" onClick={clearFilter}>CLEAR FILTER</Button>

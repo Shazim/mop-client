@@ -12,6 +12,8 @@ const customStyles = {
         bottom: 'auto',
         marginRight: '-50%',
         transform: 'translate(-50%, -50%)',
+        padding: "0px",
+        border: 'none'
     },
 };
 
@@ -36,9 +38,9 @@ function ForgotPassword({ userEmail, resetHandler, loginHandler, signUpHandler }
                     <div className='font-avenir-reg text-2xl text-secondary tracking-wider leading-38 uppercase'>forgot password</div>
                     <div className='font-bold text-sm tracking text-secondary leading-32 uppercase mt-13'>email address</div>
                     <FormField
-                        className='w-455 h-38 pl-16 font-bold tracking font-bold text-sm outline-none leading-32 mt-11 text-gray uppercase '
+                        className='w-100% h-38 pl-16 font-bold tracking font-bold text-sm outline-none leading-32 mt-11 text-gray uppercase '
                         placeholder="enter email here" />
-                    <Button className='w-170 h-41 flex tracking text-sm justify-center items-center mx-auto mt-27'>SEND RESET</Button>
+                    <Button className='w-38% h-41 flex tracking text-sm justify-center items-center mx-auto mt-27'>SEND RESET</Button>
                     <div className='flex justify-between pr-20 mt-34'>
                         <div className='font-bold text-primary text-sm uppercase tracking leading-32'>login</div>
                         <div className='font-bold text-primary text-sm uppercase tracking leading-32'>sign up</div>

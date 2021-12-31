@@ -7,8 +7,8 @@ import PropTypes from 'prop-types';
 
 function SearchBar({ name, className: classes = "w-243 h-32", textSize = "text-xsm", transform = "", value = "", placeholder, bgColor = 'bg-white', onChange }) {
   return (
-    <div className={`${classes} ${bgColor} pl-10 flex flex-row items-center`}>
-      <img src='../../../assets/images/searchIcon.svg' className=" w-16 h-16 mr-10 mt-2" />
+    <div className={`${classes} ${bgColor} pl-10 flex items-center`}>
+      <img src="images/searchbar/searchIcon.svg" className=" w-16 h-16 mr-10 mt-2" />
       <Input
         name={name}
         placeholder={placeholder}

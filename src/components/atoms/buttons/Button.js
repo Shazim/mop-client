@@ -13,21 +13,11 @@ function Button({
   transform = "capitalize",
   ...otherProps
 }) {
+
+  const gray = color.includes('gray');
+
   const btnClasses = useMemo(() => {
-    let classes = 'font-bold';
-    if (type == 'contained') {
-      if (color.includes('primary')) {
-        return `${classes} bg-${color} text-white tracking shadow text-sm`;
-      } else if (color.includes("instagram")) {
-        return `${classes} bg-${color} text-white tracking shadow text-sm`;
-      } else if (color.includes("facebook")) {
-        return `${classes} bg-${color} text-white tracking shadow text-sm`;
-      } else {
-        return `${classes} ${color} tracking shadow text-sm`;
-      }
-    } else {
-      return `${classes} text-${color} border border-${color} text-base`;
-    }
+    return (type == 'contained') ? `bg-${color} ${gray ? "gray-btn" : "primary-btn"}` : `font-bold text-${color} border border-${color} text-base`;
   }, [color, type]);
 
   return (
@@ -47,10 +37,10 @@ Button.propTypes = {
   color: PropTypes.oneOf([
     'primary',
     'primary-light',
-    'primary-dark',
+    'primary-dim',
     'default',
     'default-light',
-    'default-dark',
+    'default-dim',
   ]),
   transform: PropTypes.oneOf(['uppercase', 'capitalize']),
 };
