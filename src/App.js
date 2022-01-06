@@ -12,11 +12,8 @@ function App() {
 
   return (
     <>
-      <ForgotPassword />
-      <SignupModal />
-      <LoginModal />
 
-      {/* <Provider store={store}>
+      <Provider store={store}>
         <Router>
           <Switch>
             {authRouter.map((item) => (
@@ -29,7 +26,7 @@ function App() {
             ))}
           </Switch>
         </Router>
-      </Provider> */}
+      </Provider>
 
     </>
   );

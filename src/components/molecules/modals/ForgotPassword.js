@@ -5,18 +5,18 @@ import React from 'react'
 import { useState } from 'react';
 import Modal from 'react-modal'
 
-const customStyles = {
-    content: {
-        top: '50%',
-        left: '50%',
-        right: 'auto',
-        bottom: 'auto',
-        marginRight: '-50%',
-        transform: 'translate(-50%, -50%)',
-        padding: "0px",
-        border: 'none'
-    },
-};
+// const customStyles = {
+//     content: {
+//         top: '50%',
+//         left: '50%',
+//         right: 'auto',
+//         bottom: 'auto',
+//         marginRight: '-50%',
+//         transform: 'translate(-50%, -50%)',
+//         padding: "0px",
+//         border: 'none'
+//     },
+// };
 
 function ForgotPassword({ userEmail, resetHandler, loginHandler, signUpHandler }) {
     const [isOpen, setIsOpen] = useState(false)
@@ -33,7 +33,8 @@ function ForgotPassword({ userEmail, resetHandler, loginHandler, signUpHandler }
         <div>
             <div className='link' onClick={openModal}>Forgot Password</div>
             <Modal
-                isOpen={isOpen} style={customStyles}
+                isOpen={isOpen}
+                className="absolute border-0 top-50% left-50% transform-xy"
                 onRequestClose={closeModal}>
                 <div className='bg-gray-lighter w-568 pl-56 pr-57 py-40'>
                     <div className='font-avenir-reg text-2xl mb-15 text-secondary tracking-wider leading-38 uppercase'>forgot password</div>

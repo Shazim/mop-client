@@ -36,8 +36,9 @@ function LoginModal() {
             <div className='link' onClick={openModal}>Login</div>
             <Modal
                 isOpen={isOpen}
-                style={customStyles}
+                className="absolute border-0 top-50% left-50% transform-xy"
                 onRequestClose={closeModal}
+                overlayClassName="fixed inset-0 overflow-auto"
             >
                 <div className='bg-gray-lighter w-100% pl-56 pr-57 py-40'>
                     <div className='font-avenir-reg text-2xl text-secondary tracking-wider leading-38 uppercase'>login</div>
