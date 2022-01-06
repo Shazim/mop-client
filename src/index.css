@@ -13,6 +13,10 @@
   @apply cursor-pointer;
 }
 
+.vh-96 {
+  height: 96vh;
+}
+
 .transform-x {
   transform: translate(-50%, 0);
 }

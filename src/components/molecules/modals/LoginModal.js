@@ -1,8 +1,8 @@
 import { FormField } from 'components/app/forms';
 import Button from 'components/atoms/buttons/Button';
+import TextField from 'components/atoms/form/TextField';
 import React, { useState } from 'react'
 import Modal from 'react-modal'
-
 
 
 const customStyles = {
@@ -50,15 +50,11 @@ function LoginModal() {
                         <div className='font-bold text-sm text-secondary tracking uppercase mx-10'>or</div>
                         <div className='w-100% border-b border-border opacity-1'></div>
                     </div>
-                    <div className='font-bold text-sm tracking text-secondary leading-32 uppercase mt-10'>email address</div>
-                    <FormField
-                        className='w-100% h-38 pl-16 font-bold tracking font-bold text-sm outline-none leading-32 mt-11 text-gray uppercase '
-                        placeholder="enter email here" />
-                    <div className='font-bold text-sm tracking text-secondary leading-32 uppercase mt-10'>password</div>
-                    <FormField
-                        className='w-100% h-38 pl-16 font-bold tracking font-bold text-sm outline-none leading-32 mt-11 text-gray uppercase '
-                        placeholder="enter password here" />
-                    <Button className='w-37% h-41 flex tracking text-sm justify-center items-center mx-auto mt-27'>LOGIN</Button>
+                    <div className='mt-12'>
+                        <TextField placeholder="Enter email here" mb="6" height="38" label="Email Address" />
+                        <TextField placeholder="enter password here" mb="6" height="38" label="password" />
+                        <Button className='w-37% h-41 flex tracking text-sm justify-center items-center mx-auto mt-27'>LOGIN</Button>
+                    </div>
                     <div className='flex justify-between pr-20 mt-34'>
                         <div className='font-bold text-primary text-sm uppercase tracking leading-32'>login</div>
                         <div className='font-bold text-primary text-sm uppercase tracking leading-32'>forgot password</div>

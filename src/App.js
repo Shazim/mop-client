@@ -3,16 +3,20 @@ import { Provider } from 'react-redux';
 import { useStore } from '../src/store';
 import authRouter from 'routes/auth';
 import './index.css';
-import SideBarWithLogin from 'components/atoms/sidebar/SideBarWithLogin';
-import SideBar from 'components/atoms/sidebar/SideBar';
+import SignupModal from 'components/molecules/modals/SignupModal';
+import LoginModal from 'components/molecules/modals/LoginModal';
+import ForgotPassword from 'components/molecules/modals/ForgotPassword';
 
 function App() {
   const { store } = useStore();
 
   return (
     <>
+      <ForgotPassword />
+      <SignupModal />
+      <LoginModal />
 
-      <Provider store={store}>
+      {/* <Provider store={store}>
         <Router>
           <Switch>
             {authRouter.map((item) => (
@@ -25,7 +29,7 @@ function App() {
             ))}
           </Switch>
         </Router>
-      </Provider>
+      </Provider> */}
 
     </>
   );

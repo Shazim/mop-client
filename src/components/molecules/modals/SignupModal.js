@@ -1,6 +1,7 @@
 import { FormField } from 'components/app/forms';
 import Button from 'components/atoms/buttons/Button';
 import CheckBox from 'components/atoms/checkbox/CheckBox';
+import TextField from 'components/atoms/form/TextField';
 import React, { useState } from 'react'
 import Modal from 'react-modal'
 
@@ -14,7 +15,6 @@ const customStyles = {
         bottom: 'auto',
         marginRight: '50%',
         transform: 'translate(-50%, -50%)',
-        padding: "0px",
         border: 'none',
         height: '96vh',
     },
@@ -45,9 +45,9 @@ function SignupModal() {
             <div className='link' onClick={openModal}>Sign Up</div>
             <Modal
                 isOpen={isOpen}
-                style={customStyles}
+                className="top-50% left-50% right-auto bottom-auto transform-xy mr-50% absolute vh-96 border-0"
                 onRequestClose={closeModal}
-                overlayClassName="fixed inset-0 overflow-auto"
+                overlayClassName="fixed inset-0 overflow-auto "
             >
                 <div className='bg-gray-lighter w-568 pl-56 pr-57 py-40'>
                     <div className='font-avenir-reg text-2xl text-secondary tracking-wider leading-38 uppercase'>sign up</div>
@@ -61,19 +61,11 @@ function SignupModal() {
                         <div className='w-100% border-b border-border opacity-1'></div>
                     </div>
 
-                    <div className='w-100% border-b border-border opacity-1 pb-33 mb-33'>
-                        <div className='font-bold text-sm tracking text-secondary leading-32 uppercase mt-10'>email address</div>
-                        <FormField
-                            className='w-100% h-38 pl-16 font-bold tracking font-bold text-sm outline-none leading-32 mt-5 text-gray uppercase '
-                            placeholder="enter email here" />
-                        <div className='font-bold text-sm tracking text-secondary leading-32 uppercase mt-10'>password</div>
-                        <FormField
-                            className='w-100% h-38 pl-16 font-bold tracking font-bold text-sm outline-none leading-32 mt-5 text-gray uppercase '
-                            placeholder="enter password here" />
-                        <div className='font-bold text-sm tracking text-secondary leading-32 uppercase mt-10'>confirm password</div>
-                        <FormField
-                            className='w-100% h-38 pl-16 font-bold tracking font-bold text-sm outline-none leading-32 mt-5 text-gray uppercase '
-                            placeholder="confirm password here" />
+                    <div className='w-100% border-b border-border opacity-1 pb-33 pt-10 mb-33'>
+
+                        <TextField placeholder="Enter email here" mb="6" height="38" label="Email Address" />
+                        <TextField placeholder="enter password here" mb="6" height="38" label="password" />
+                        <TextField placeholder="confirm password here" mb="6" height="38" label="confirm password" />
 
                     </div>
                     <div className='w-100% border-b border-border opacity-1 pb-30 mb-20'>

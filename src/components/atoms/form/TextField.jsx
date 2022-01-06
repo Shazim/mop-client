@@ -14,9 +14,9 @@ function TextField({
   textTransform = 'uppercase',
 }) {
   return (
-    <div>
+    <div className='mb-10'>
       <div
-        className={`font-bold ${color} text-sm ${textTransform} ${tracking} mb-${mb} `}
+        className={`font-bold ${color} text-secondary text-sm ${textTransform} ${tracking} leading-8 mb-${mb} `}
       >
         {label}
       </div>
