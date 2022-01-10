@@ -4,20 +4,6 @@ import TextField from 'components/atoms/form/TextField';
 import React, { useState } from 'react'
 import Modal from 'react-modal'
 
-
-const customStyles = {
-    content: {
-        top: '50%',
-        left: '50%',
-        right: 'auto',
-        bottom: 'auto',
-        marginRight: '-50%',
-        transform: 'translate(-50%, -50%)',
-        padding: "0px",
-        border: 'none'
-    },
-};
-
 function LoginModal() {
 
     const [isOpen, setIsOpen] = useState(false)

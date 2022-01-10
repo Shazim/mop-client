@@ -44,29 +44,24 @@ function SideBarWithLogin() {
         "maxPrice": ""
     }
     const [filter, setFilter] = useState(initialObj)
-    const [isOpen, setIsOpne] = useState(false)
-
 
     const handler = (item, index, value) => {
-        const filters = { ...filter }
-        if (filters[item].type == "checkbox") {
-            const items = [...filters[item].values]
+        const copyFilters = { ...filter }
+        const items = [...copyFilters[item].values]
+        if (copyFilters[item].type == "checkbox") {
             items[index].select = !items[index].select;
-            setFilter(filters)
-        } else if (filters[item].type == "radio") {
-            const items = [...filters[item].values]
+            setFilter(copyFilters)
+        } else if (copyFilters[item].type == "radio") {
             items.map((item, i) => {
                 item.select = (index == i) ? true : false
             })
-            filters[item].values = [...items]
-            setFilter(filters)
+            copyFilters[item].values = [...items]
+            setFilter(copyFilters)
         } else {
-            filters[item].values[index].value = value
-            setFilter(filters)
+            copyFilters[item].values[index].value = value
+            setFilter(copyFilters)
         }
     }
-
-
 
     const clearFilter = () => {
         setFilter(initialObj)
