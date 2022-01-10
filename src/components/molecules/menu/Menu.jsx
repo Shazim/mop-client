@@ -6,7 +6,30 @@ import CheckBox from '../../atoms/checkbox/CheckBox'
 
 
 function Menu({ data, title, setData, filter }) {
-    console.log({ data })
+
+
+    const Menus = (item, index, type, title) => {
+        console.log("TYPE", type)
+        const components = {
+            'radio': <RadioButton className='text-sm' name={title} value={item.name} checked={item.select} onChange={() => setData(title, index, "")} />,
+            'checkbox': <CheckBox onChange={() => setData(title, index, "")} value={item.name} checked={item.select} />,
+            'input': <>
+                <div className="font-bold text-sm tracking uppercase text-secondary leading-8">{item.name}</div>
+                <Input
+                    name={item.name}
+                    type="number"
+                    placeholder="enter price"
+                    className="textfield focus:outline-none uppercase w-220 tracking h-32 font-bold text-sm pl-10 text-secondary"
+                    onChange={(e) => setData(title, index, e.target.value)}
+                    value={filter[title].values[index].value} />
+            </>
+        }
+
+
+        return components[type]
+
+    }
+
     const [isOpen, setIsOpne] = useState(false)
     const clickHandler = () => setIsOpne(!isOpen)
     return (
@@ -17,26 +40,7 @@ function Menu({ data, title, setData, filter }) {
             </div>
             <div className={`pt-10 ${isOpen ? "" : "hidden"}`} >
                 {data.values.map((item, index) => {
-                    if (data.type == "checkbox") {
-                        return <div className="mb-12">
-                            <CheckBox onChange={() => setData(title, index, "")} value={item.name} checked={item.select} />
-                        </div>
-                    } else if (data.type == "radio") {
-                        return <div className="mb-12">
-                            <RadioButton className='text-sm' value={item.name} checked={item.select} onChange={() => setData(title, index, "")} />
-                        </div>
-                    } else {
-                        return <>
-                            <div className="font-bold text-sm tracking uppercase text-secondary leading-8">{item.name}</div>
-                            <Input
-                                name={item.name}
-                                type="number"
-                                placeholder="enter price"
-                                className="textfield focus:outline-none uppercase w-220 tracking h-32 font-bold text-sm pl-10 text-secondary"
-                                onChange={(e) => setData(title, index, e.target.value)}
-                                value={filter[title].values[index].value} />
-                        </>
-                    }
+                    return <>{Menus(item, index, data.type, title)}</>
                 }
                 )}
             </div>

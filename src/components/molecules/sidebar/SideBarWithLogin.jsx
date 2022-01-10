@@ -18,15 +18,15 @@ function SideBarWithLogin() {
         "Radio Menu": {
             type: 'radio',
             values: [
-                { name: "item1", select: false },
-                { name: "item2", select: false },
-                { name: "item3", select: false }
+                { name: "item9", select: false },
+                { name: "item5", select: false },
+                { name: "item8", select: false }
             ]
         },
         "menu 1": {
-            type: "checkbox",
+            type: "radio",
             values: [
-                { name: "item1", select: false },
+                { name: "item2", select: false },
                 { name: "item2", select: false },
                 { name: "item3", select: false }
             ]
