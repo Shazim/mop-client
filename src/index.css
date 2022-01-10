@@ -13,6 +13,10 @@
   @apply cursor-pointer;
 }
 
+.vh-96 {
+  height: 96vh;
+}
+
 .transform-x {
   transform: translate(-50%, 0);
 }
@@ -35,13 +39,15 @@
   @apply bg-gray-light text-secondary-light;
 }
 
+.primary-btn {
+  @apply font-bold text-white tracking shadow text-sm;
+}
+
+.gray-btn {
+  @apply font-bold text-secondary tracking shadow text-sm;
+}
+
 .checkbox-container {
-  display: block;
-  position: relative;
-  padding-left: 30px;
-  margin-bottom: 1px;
-  cursor: pointer;
-  font-size: 13px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -49,24 +55,8 @@
 }
 
 /* Hide the browser's default checkbox */
-.checkbox-container input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-}
 
 /* Create a custom checkbox */
-.checkbox-checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 20px;
-  width: 20px;
-  border: 2px solid #d6d6d6;
-  background-color: white;
-}
 
 /* On mouse-over, add a grey background color */
 .checkbox-container:hover input ~ .checkmark {
@@ -114,12 +104,6 @@ input[type='number'] {
 /* Radio Button Styles */
 
 .radio-container {
-  display: block;
-  position: relative;
-  padding-left: 30px;
-  margin-bottom: 4px;
-  cursor: pointer;
-  font-size: 13px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -127,23 +111,8 @@ input[type='number'] {
 }
 
 /* Hide the browser's default radio button */
-.radio-container input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-}
 
 /* Create a custom radio button */
-.radio-checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 20px;
-  width: 20px;
-  background-color: #fff;
-  border: 2px solid #d6d6d6;
-  border-radius: 50%;
-}
 
 /* On mouse-over, add a grey background color */
 .radio-container:hover input ~ .radio-checkmark {
@@ -177,7 +146,16 @@ input[type='number'] {
   background: #4a4949;
 }
 
-/* select options style */
+/* Popover style */
+.message:before {
+  content: '';
+  border-left: 18px solid transparent;
+  border-right: 18px solid transparent;
+  border-bottom: 20px solid #fff;
+  position: absolute;
+  top: -15px;
+  left: 10px;
+}
 
 /*style the arrow inside the select element:*/
 .custom-arrow:after {

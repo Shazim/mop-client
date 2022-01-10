@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import RadioButton from '../buttons/RadioButton'
-import CheckBox from '../checkbox/CheckBox'
+import RadioButton from '../../atoms/buttons/RadioButton'
 
 function RadioMenu({ data, title, setData }) {
 
