@@ -14,10 +14,10 @@ function Button({
   ...otherProps
 }) {
 
-  const gray = color.includes('gray');
+  const grayBtn = color.includes('gray');
 
   const btnClasses = useMemo(() => {
-    return (type == 'contained') ? `bg-${color} ${gray ? "gray-btn" : "primary-btn"}` : `font-bold text-${color} border border-${color} text-base`;
+    return (type == 'contained') ? `bg-${color} ${grayBtn ? "gray-btn" : "primary-btn"}` : `font-bold text-${color} border border-${color} text-base`;
   }, [color, type]);
 
   return (
