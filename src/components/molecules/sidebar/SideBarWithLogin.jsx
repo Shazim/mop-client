@@ -6,7 +6,6 @@ import Button from '../../atoms/buttons/Button'
 
 
 function SideBarWithLogin() {
-
     let initialObj = {
         "menu": {
             type: "checkbox",
@@ -19,15 +18,15 @@ function SideBarWithLogin() {
         "Radio Menu": {
             type: 'radio',
             values: [
-                { name: "item1", select: false },
-                { name: "item2", select: false },
-                { name: "item3", select: false }
+                { name: "item9", select: false },
+                { name: "item5", select: false },
+                { name: "item8", select: false }
             ]
         },
         "menu 1": {
-            type: "checkbox",
+            type: "radio",
             values: [
-                { name: "item1", select: false },
+                { name: "item2", select: false },
                 { name: "item2", select: false },
                 { name: "item3", select: false }
             ]
@@ -79,7 +78,7 @@ function SideBarWithLogin() {
         <div className="h-screen w-294 bg-gray-lighter pt-40 overflow-auto">
             <SearchBar
                 name="search"
-                className="w-220 h-32 mx-auto mb-25"
+                className="w-220 h-32 mx-auto mb-25 placeholder-secondary"
                 placeholder="search"
                 transform="uppercase"
                 onChange={(e) => handle_field(e)}
@@ -92,7 +91,7 @@ function SideBarWithLogin() {
 
             <Button
                 className="flex w-220 h-33 text-secondary justify-center items-center mt-28 m-auto"
-                color="bg-gray" onClick={clearFilter}>CLEAR FILTER</Button>
+                color="bg-gray" onClick={clearFilter}>CLEAR FILTERS</Button>
 
         </div>
     )
