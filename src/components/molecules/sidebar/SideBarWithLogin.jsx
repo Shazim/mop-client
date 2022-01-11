@@ -78,7 +78,7 @@ function SideBarWithLogin() {
         <div className="h-screen w-294 bg-gray-lighter pt-40 overflow-auto">
             <SearchBar
                 name="search"
-                className="w-220 h-32 mx-auto mb-25"
+                className="w-220 h-32 mx-auto mb-25 placeholder-secondary"
                 placeholder="search"
                 transform="uppercase"
                 onChange={(e) => handle_field(e)}
