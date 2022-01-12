@@ -9,6 +9,7 @@ function Button({
   onClick,
   style,
   type = 'contained',
+  rounded = false,
   color = 'primary',
   transform = "capitalize",
   ...otherProps
@@ -16,9 +17,20 @@ function Button({
 
   const grayBtn = color.includes('gray');
 
+  const btnClass = (type) => {
+    const btnType = {
+      "contained": `bg-${color} ${grayBtn ? "gray-btn" : "primary-btn"}`,
+      "outline": `font-bold text-${color} border border-${color} text-base`,
+      "edit": `bg-white gray-btn rounded-sm`
+    }
+    return btnType[type]
+  }
+
   const btnClasses = useMemo(() => {
-    return (type == 'contained') ? `bg-${color} ${grayBtn ? "gray-btn" : "primary-btn"}` : `font-bold text-${color} border border-${color} text-base`;
+    return btnClass(type);
   }, [color, type]);
+
+
 
   return (
     <button
@@ -38,9 +50,9 @@ Button.propTypes = {
     'primary',
     'primary-light',
     'primary-dim',
-    'default',
-    'default-light',
-    'default-dim',
+    'gray',
+    'gray-light',
+    'gray-dim',
   ]),
   transform: PropTypes.oneOf(['uppercase', 'capitalize']),
 };
