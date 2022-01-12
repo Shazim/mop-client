@@ -16,6 +16,13 @@
 .vh-96 {
   height: 96vh;
 }
+.vw-90 {
+  width: 90vw;
+}
+
+.slider-arrow .slick-arrow {
+  display: none !important;
+}
 
 .transform-x {
   transform: translate(-50%, 0);
@@ -45,6 +52,12 @@
 
 .gray-btn {
   @apply font-bold text-secondary tracking shadow text-sm;
+}
+
+/* Slider Styles */
+
+.slider-dots .slick-dots li button:before {
+  font-size: 10px;
 }
 
 .checkbox-container {
