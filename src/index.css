@@ -13,8 +13,8 @@
   @apply cursor-pointer;
 }
 
-.vh-96 {
-  height: 96vh;
+.slider-arrow .slick-arrow {
+  @apply sm:hidden !important;
 }
 
 .transform-x {
@@ -45,6 +45,12 @@
 
 .gray-btn {
   @apply font-bold text-secondary tracking shadow text-sm;
+}
+
+/* Slider Styles */
+
+.slider-dots .slick-dots li button:before {
+  font-size: 10px;
 }
 
 .checkbox-container {
