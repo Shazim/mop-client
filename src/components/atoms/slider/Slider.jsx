@@ -2,6 +2,8 @@ import React from 'react'
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Arrow from '../arrow/Arrow';
+
 function Sliders() {
 
     const settings = {
@@ -9,8 +11,8 @@ function Sliders() {
         infinite: true,
         slidesToShow: 1,
         slidesToScroll: 1,
-        nextArrow: <div className='hidden'><img className='' src='/images/slider/rightArrow.svg' /></div>,
-        prevArrow: <div className='hidden'><img className='' src='/images/slider/leftArrow.svg' /> </div>,
+        nextArrow: <Arrow dir='right' type="next" />,
+        prevArrow: <Arrow dir='left' type="prev" />,
         centerMode: true,
         centerPadding: '0%',
         responsive: [
@@ -26,30 +28,15 @@ function Sliders() {
         ],
     };
     return (
-        <div className='vw-90 mx-auto slider-dots sm:slider-arrow'>
+        <div className='w-90vw mx-auto slider-dots'>
             <Slider  {...settings}>
-
-                <div>
-                    <img className='w-80% m-auto' src='/images/slider/image.png' />
-                </div>
-                <div>
-                    <img className='w-80% m-auto' src='/images/slider/image.png' />
-                </div>
-                <div>
-                    <img className='w-80% m-auto' src='/images/slider/image.png' />
-                </div>
-                <div>
-                    <img className='w-80% m-auto' src='/images/slider/image.png' />
-                </div>
-                <div>
-                    <img className='w-80% m-auto' src='/images/slider/image.png' />
-                </div>
-                <div>
-                    <img className='w-80% m-auto' src='/images/slider/image.png' />
-                </div>
-                <div>
-                    <img className='w-80% m-auto' src='/images/slider/image.png' />
-                </div>
+                <img className='w-80% m-auto' src='/images/slider/image.png' />
+                <img className='w-80% m-auto' src='/images/slider/image.png' />
+                <img className='w-80% m-auto' src='/images/slider/image.png' />
+                <img className='w-80% m-auto' src='/images/slider/image.png' />
+                <img className='w-80% m-auto' src='/images/slider/image.png' />
+                <img className='w-80% m-auto' src='/images/slider/image.png' />
+                <img className='w-80% m-auto' src='/images/slider/image.png' />
             </Slider>
         </div>
     )

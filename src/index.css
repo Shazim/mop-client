@@ -13,15 +13,8 @@
   @apply cursor-pointer;
 }
 
-.vh-96 {
-  height: 96vh;
-}
-.vw-90 {
-  width: 90vw;
-}
-
 .slider-arrow .slick-arrow {
-  display: none !important;
+  @apply sm:hidden !important;
 }
 
 .transform-x {
