@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function RadioButton({ value, checked = true, onChange }) {
+function RadioButton({ value, checked = true, onChange, label = 'Label' }) {
   const imageClass = {};
 
   return (
-    <div className="flex flex-row w-116 cursor-pointer" onClick={onChange}>
-      <label class="radio-container">
-        One
+    <div className="flex w-100% cursor-pointer" onClick={onChange}>
+      <label class="radio-container tracking font-bold uppercase text-sm text-secondary pt-2">
+        {label}
         <input type="radio" name="radio" />
         <span class="radio-checkmark"></span>
       </label>

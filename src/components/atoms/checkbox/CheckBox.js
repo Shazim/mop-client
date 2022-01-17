@@ -1,27 +1,27 @@
-import PropTypes from "prop-types";
-import React from 'react'
+import PropTypes from 'prop-types';
+import React from 'react';
 import { ReactComponent as RedMark } from '../../../assets/images/redtick.svg';
 
-function CheckBox({ value, checked, onChange }) {
-    return (
-
-        <div className="flex flex-row w-100 cursor-pointer" onClick={onChange} >
-            <label className="checkbox-container ">One
-                <input type="checkbox" />
-                <span className="checkbox-checkmark"></span>
-            </label>
-
-            {/* <div className="w-20 h-20 border-2 border-gray  flex justify-center items-center">
-                <RedMark className={`w-12 h-10 ${(checked) ? "" : "invisible"}`} />
-            </div>
-            <div className="text-secondary mt-2 text-sm font-bold ml-10">{value}</div> */}
-        </div>
-    )
+function CheckBox({
+  value,
+  checked,
+  onChange,
+  label = 'I would like to receive insightful updates and emails. ',
+}) {
+  return (
+    <div className="flex w-100% cursor-pointer" onClick={onChange}>
+      <label className="pt-2 checkbox-container font-bold text-xsm tracking uppercase text-secondary">
+        {label}
+        <input type="checkbox" />
+        <span className="checkbox-checkmark"></span>
+      </label>
+    </div>
+  );
 }
 
 CheckBox.propTypes = {
-    value: PropTypes.oneOf(["some text"]),
-    onChange: PropTypes.oneOf(["handler"]),
-    checked: PropTypes.oneOf(["true", "false"]),
+  value: PropTypes.oneOf(['some text']),
+  onChange: PropTypes.oneOf(['handler']),
+  checked: PropTypes.oneOf(['true', 'false']),
 };
-export default CheckBox
+export default CheckBox;

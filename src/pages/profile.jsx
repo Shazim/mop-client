@@ -1,65 +1,84 @@
-import React from 'react';
 import Button from 'components/atoms/buttons/Button';
-import { TitleBar } from 'components/Menu';
-import { Package } from 'components/Packages';
+import CheckBox from 'components/atoms/checkbox/CheckBox';
 import { TextField } from 'components/atoms/form';
+import React from 'react';
 
 function Profile() {
+  const styles = [
+    { id: 1, title: 'abstract' },
+    { id: 2, title: 'Architectural' },
+    { id: 3, title: 'Astro' },
+    { id: 4, title: 'B&W' },
+    { id: 5, title: 'Cityscape' },
+    { id: 6, title: 'Composite' },
+    { id: 7, title: 'Drone' },
+    { id: 8, title: 'Double Exposure' },
+    { id: 9, title: 'fashion' },
+    { id: 10, title: 'FINE ART' },
+    { id: 11, title: 'Infrared' },
+    { id: 12, title: 'Landscape' },
+    { id: 13, title: 'long Exposure' },
+    { id: 14, title: 'Macro' },
+    { id: 15, title: 'journalism' },
+    { id: 16, title: 'Portraiture' },
+    { id: 17, title: 'Seascape' },
+    { id: 18, title: 'Sports' },
+    { id: 19, title: 'Still Life' },
+    { id: 20, title: 'Street' },
+    { id: 21, title: 'Underwater' },
+    { id: 22, title: 'Wildlife' },
+  ];
   return (
     <div>
-      <TitleBar title="Subscribe to this plan" />
-      <div className="bg-pale-gray ">
-        <div className="flex justify-between max-screen">
-          <div className>
-            <div className="pb-8 text-secondary font-avenir-300 tracking-wider uppercase text-2xl">
-              Login
-            </div>
-            <div className="underline uppercase text-sm font-bold pb-17 text-primary">
-              Don’t have an account? Sign Up
-            </div>
-            <div className>
-              <Button className="w-245 h-42 mr-18">LOGIN WITH FACEBOOK</Button>
-              <Button className="w-245 h-42 mr-18">LOGIN WITH INSTAGRAM</Button>
-              <Button className="w-245 h-42 mr-18">lOGIN WITH PINTREST</Button>
-            </div>
-            <div className="w-100% text-center border-b border-border leading-small mt-80 mr-0 mb-40">
-              <span className="px-14 bg-pale-gray uppercase font-bold text-sm text-secondary tracking ">
-                or
-              </span>
-            </div>
-            <div>
-              <TextField label="Email Address" />
-            </div>
-            <div className="flex mt-10">
-              <div>
-                <TextField label="Password" />
-              </div>
-              <div className="ml-21">
-                <TextField label="Confirm Password" />
-              </div>
-            </div>
-            <Button className="w-184 mr-18">Login</Button>
-          </div>
-          <div>
-            <Package />
-          </div>
-        </div>
+      <div>Profile</div>
+      <div>Click to edit your profile picture.</div>
+      <div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div className="flex">
+        <TextField label="First Name" />
+        <TextField label="surname" />
+        <TextField label="company name" />
       </div>
       <div>
-        <div>You are logged in</div>
-        <div>Your Payment Details</div>
-        <div>pay for subcription via</div>
         <div>
-          <div>radio button</div>
-          <div>radio button</div>
+          <TextField label="phone number" />
+          <TextField label="email address" />
         </div>
-        <div>
-          <div>input</div>
-          <div>input</div>
-          <div>input</div>
-        </div>
-        <div>checkbox</div>
-        <Button></Button>
+        <Button>save</Button>
+      </div>
+      <div>change password</div>
+      <div className="flex">
+        <TextField label="old password" />
+        <TextField label="new password" />
+        <TextField label="confirm new password" />
+      </div>
+      <div>
+        <Button>Save</Button>
+      </div>
+      <div>tell people about yourself</div>
+      <div>
+        <TextField label="edit your bio." />
+        <Button>Save</Button>
+      </div>
+      <div>what styles best describe your work?</div>
+      <div className="grid grid-cols-3 gap-y-10">
+        {styles.map(({ title }) => (
+          <CheckBox label={title} />
+        ))}
+      </div>
+      <div>link up your social media</div>
+      <div>Click to edit your profile picture.</div>
+      <div>
+        <TextField label="Facebook" />
+      </div>
+      <div>
+        <TextField label="instagram" />
+      </div>
+      <div>
+        <TextField label="twitter" />
       </div>
     </div>
   );

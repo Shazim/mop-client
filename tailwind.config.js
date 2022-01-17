@@ -90,7 +90,9 @@ module.exports = {
           dim: '#999999',
           light: '#E4E4E4',
         },
+
         'pale-gray': '#E5E5E5',
+        'light-gray': '#E2E2E2',
       },
 
       fill: (theme) => ({
@@ -193,6 +195,7 @@ module.exports = {
         420: '420px',
         484: '484px',
         548: '548px',
+        565: '565px',
         sm: '500px',
         md: '400px',
         700: '700px',
@@ -230,6 +233,9 @@ module.exports = {
           _4: '-4px',
           _39: '-39px',
           370: '370px',
+          312: '312px',
+          534: '534px',
+          565: '565px',
         },
       },
       width: {
