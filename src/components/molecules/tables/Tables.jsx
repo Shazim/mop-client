@@ -35,23 +35,26 @@ function Tables({
         <div className='w-full bg-backgroundColor'>
             <table className='w-full'>
                 <tr className='h-42 tracking-wider font-avenir-reg text-base uppercase border-b-2 border-gray bg-white'>
-                    {tableHeading.map((heading, i) => {
-                        return <td className='pl-18 font-medium'><div className='flex leading-5 text-secondary'>{heading} {filter ? <img className='-mt-6 link' src={`${i == 0 ? '/images/table/nameFilter.svg' : "/images/table/filterIcon.svg"}`} /> : ""}</div></td>
-                    })}
+                    {tableHeading.map((heading, i) => <td className='pl-18 font-medium'><div className='flex leading-5 text-secondary'>{heading} {filter ? <img className='-mt-6 link' src={`${i == 0 ? '/images/table/nameFilter.svg' : "/images/table/filterIcon.svg"}`} /> : ""}</div></td>)}
                     <th></th>
                 </tr>
                 {obj.map((keys) => (
-                    <tr className='h-60 border-b capitalize text-base font-reg text-black border-gray '>{
-                        Object.values(keys).map((value, index) => (
-                            <td className="pl-18">{value}</td>
-                        ))
-                    }
-                        {
-                            filter
-                                ? <td className='link'><img src='/images/table/downArrow.svg' /></td>
-                                : <td className='tracking text-xl link'>...</td>
+                    <>
+                        <tr className='h-60 border-b capitalize text-base font-reg text-black border-gray '>{
+                            Object.values(keys).map((value, index) => (
+                                <td className="pl-18">{value}</td>
+                            ))
                         }
-                    </tr>
+                            {
+                                filter
+                                    ? <td className='link' onClick={() => alert("ALLAH ho Akbar")}><img src='/images/table/downArrow.svg' /></td>
+                                    : <td className='tracking text-xl link'>...</td>
+                            }
+                        </tr>
+                        <div>
+
+                        </div>
+                    </>
                 ))
                 }
             </table>
