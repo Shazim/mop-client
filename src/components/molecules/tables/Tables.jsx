@@ -51,9 +51,6 @@ function Tables({
                                     : <td className='tracking text-xl link'>...</td>
                             }
                         </tr>
-                        <div>
-
-                        </div>
                     </>
                 ))
                 }
