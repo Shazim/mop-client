@@ -6,17 +6,17 @@ import './index.css';
 import SignupModal from 'components/molecules/modals/SignupModal';
 import LoginModal from 'components/molecules/modals/LoginModal';
 import ForgotPassword from 'components/molecules/modals/ForgotPassword';
-import FilterTable from 'components/atoms/tables/FilterTable';
-import Table from 'components/atoms/tables/Table';
+import Tables from 'components/molecules/tables/Tables';
+import RangeSlider from 'components/atoms/rangeslider/RangeSlider';
 
 function App() {
   const { store } = useStore();
 
   return (
     <>
-
-      <FilterTable />
-      <Table />
+      <Tables filter={true} />
+      <RangeSlider />
+      {/* <Table /> */}
       {/* <Provider store={store}>
         <Router>
           <Switch>

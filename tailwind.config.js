@@ -51,6 +51,7 @@ module.exports = {
         DEFAULT: '4px',
         sm: "5px",
         lg: "9px",
+        xl: '15px',
         large: '30px',
         full: '100%',
       },

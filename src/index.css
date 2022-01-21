@@ -186,6 +186,18 @@ input[type='number'] {
   display: none;
 }
 
+/* range slider styles */
+
+.range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 25px;
+  height: 30px;
+  border-radius: 50%;
+  background: #c71118;
+  cursor: pointer;
+  box-shadow: -407px 0 0 400px #c71118;
+}
+
 @layer base {
   @font-face {
     font-family: 'nunito-light';
