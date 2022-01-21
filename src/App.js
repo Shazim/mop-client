@@ -14,10 +14,8 @@ function App() {
 
   return (
     <>
-      <Tables filter={true} />
-      <RangeSlider />
-      {/* <Table /> */}
-      {/* <Provider store={store}>
+
+      <Provider store={store}>
         <Router>
           <Switch>
             {authRouter.map((item) => (
@@ -30,7 +28,7 @@ function App() {
             ))}
           </Switch>
         </Router>
-      </Provider> */}
+      </Provider>
 
     </>
   );

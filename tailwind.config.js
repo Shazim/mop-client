@@ -53,6 +53,7 @@ module.exports = {
         lg: "9px",
         xl: '15px',
         large: '30px',
+        '50%': '50%',
         full: '100%',
       },
 

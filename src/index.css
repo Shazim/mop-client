@@ -190,12 +190,8 @@ input[type='number'] {
 
 .range::-webkit-slider-thumb {
   -webkit-appearance: none;
-  width: 25px;
-  height: 30px;
-  border-radius: 50%;
-  background: #c71118;
-  cursor: pointer;
-  box-shadow: -407px 0 0 400px #c71118;
+  box-shadow: -477px 0 0 470px #c71118;
+  @apply w-25 h-30 rounded-50% bg-primary link;
 }
 
 @layer base {
