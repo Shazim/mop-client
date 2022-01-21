@@ -190,9 +190,7 @@ input[type='number'] {
 
 .range::-webkit-slider-thumb {
   -webkit-appearance: none;
-  box-shadow: -477px 0 0 470px #c71118;
-  cursor: pointer;
-  @apply w-25 h-30 rounded-50% bg-primary;
+  @apply w-25 h-30 rounded-50% bg-primary cursor-pointer shadow-4xl;
 }
 
 @layer base {
