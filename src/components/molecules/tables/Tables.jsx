@@ -83,6 +83,11 @@ function Tables({
         },
     ] }) {
 
+    const [id, setId] = useState()
+    const handleId = (i) => {
+        setId(prev => prev == i ? null : i)
+    }
+
     const orderDetail = (details) => {
         const textClass = "font-reg text-base leading-6 text-black capitalize"
         return <>
@@ -133,11 +138,6 @@ function Tables({
         </>
     }
 
-    const [id, setId] = useState()
-    const getId = (i) => {
-        (i != id) ? setId(i) : setId()
-    }
-
     return (
         <div className='w-full bg-backgroundColor'>
             <table className='w-full'>
@@ -146,8 +146,6 @@ function Tables({
                     <th></th>
                 </tr>
                 {obj.map((keys, index) => (
-
-                    console.log("LOG", keys, index),
                     <>
                         <tr className='h-60 border-b capitalize text-base font-reg text-black border-gray '>{
                             Object.values(keys).map((value, i) => (
@@ -156,10 +154,8 @@ function Tables({
                         }
                             {
                                 filter
-                                    ? <td className='link' onClick={() => {
-                                        // handler(!isOpen)
-                                        getId(index)
-                                    }} ><img src='/images/table/downArrow.svg' /></td>
+                                    ? <td className='link' onClick={() => handleId(index)}
+                                    ><img src='/images/table/downArrow.svg' /></td>
                                     : <td className='tracking text-xl link'>...</td>
                             }
 

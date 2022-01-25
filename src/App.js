@@ -15,7 +15,9 @@ function App() {
   return (
     <>
 
-      <Provider store={store}>
+      <Tables filter={true} />
+
+      {/* <Provider store={store}>
         <Router>
           <Switch>
             {authRouter.map((item) => (
@@ -28,7 +30,7 @@ function App() {
             ))}
           </Switch>
         </Router>
-      </Provider>
+      </Provider> */}
 
     </>
   );
