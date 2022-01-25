@@ -155,7 +155,7 @@ function Tables({
                             {
                                 filter
                                     ? <td className='link' onClick={() => handleId(index)}
-                                    ><img src='/images/table/downArrow.svg' /></td>
+                                    ><img className={`${(id == index) ? "transform rotate-180" : ""}`} src='/images/table/downArrow.svg' /></td>
                                     : <td className='tracking text-xl link'>...</td>
                             }
 
