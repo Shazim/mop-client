@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 function TextField({
   placeholder = '',
   mb = '0',
+  icon = true,
   label = 'Name',
   shadow = '',
   height = '32',
@@ -20,10 +21,13 @@ function TextField({
       >
         {label}
       </div>
-      <FormField
-        className={`bg-white ${shadow} h-${height} w-${width} outline-none uppercase text-secondary placeholder-gray font-bold text-sm pl-8 py-5 tracking`}
-        placeholder={placeholder}
-      />
+      <div className='relative'>
+        <FormField
+          className={`bg-white ${shadow} h-${height} w-${width} outline-none uppercase text-secondary placeholder-gray font-bold text-sm pl-8 py-5 tracking`}
+          placeholder={placeholder}
+        />
+        {icon && <img src="images/textinput/dateIcon.svg" className=" w-20 h-20 pointer-events-none absolute right-10 top-50% transform-y" />}
+      </div>
     </div>
   );
 }
