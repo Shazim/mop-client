@@ -91,31 +91,31 @@ function Tables({
     const orderDetail = (details) => {
         const textClass = "font-reg text-base leading-6 text-black capitalize"
         return <>
-            <tr className='border-b border-gray bg-white lea'>
-                <td className='pl-18'>
+            <div className='border-b flex border-gray bg-white'>
+                <div className='w-40% pl-18'>
                     <p className='heading mt-17'>Customer name</p>
                     <p className={`${textClass} mb-17`}>{details["customer name"]}</p>
-                </td>
-                <td className='pl-18 w-25%'>
+                </div>
+                <div className='pl-18 w-40%'>
                     <p className='heading mt-17'>shipping address</p>
                     <p className={`${textClass} mb-17`}>{details["shipping address"]}</p>
-                </td>
-                <td className='pl-18'>
+                </div>
+                <div className='pl-18 w-40%'>
                     <p className='heading mt-17'>order date</p>
                     <p className={`${textClass} mb-17`}>{details["order date"]}</p>
-                </td>
-                <td className='pl-18'>
+                </div>
+                <div className='pl-18 w-40%'>
                     <p className='heading mt-17'>shipping date</p>
                     <p className={`${textClass} mb-17`}>{details["shipping date"]}</p>
-                </td>
-                <td></td>
+                </div>
+                <div className='w-60'></div>
 
-            </tr>
-            <tr className='border-b-2 border-gray bg-white'>
-                <td className='pl-18 w-299'>
-                    <img className='mt-38 mb-38' src={details['image'].url} />
-                </td>
-                <td className='pl-18 align-top pt-23'>
+            </div>
+            <div className='border-b-2 flex border-gray bg-white'>
+                <div className='pl-18 w-40%'>
+                    <img className='w-100% mt-38 mb-38' src={details['image'].url} />
+                </div>
+                <div className='pl-18 w-40% align-top pt-23'>
                     <p className='heading'>size</p>
                     <p className={textClass}>{details['image'].size}</p>
                     <p className='heading'>paper</p>
@@ -123,49 +123,49 @@ function Tables({
                     <p className='heading'>frame</p>
                     <p className={textClass}>{details['image'].frame}</p>
 
-                </td>
-                <td>
+                </div>
+                <div className='w-40%'>
 
-                </td>
-                <td className='pl-18 align-top pt-23'>
+                </div>
+                <div className='pl-18 w-40% align-top pt-23'>
                     <p className='heading'>order total</p>
                     <p className={textClass}>190.00</p>
-                </td>
-                <td></td>
+                </div>
+                <div className='w-60'></div>
 
-            </tr>
+            </div>
 
         </>
     }
 
     return (
         <div className='w-full bg-backgroundColor'>
-            <table className='w-full'>
-                <tr className='h-42 tracking-wider font-avenir-reg text-base uppercase border-b-2 border-gray bg-white'>
-                    {tableHeading.map((heading, i) => <td className='pl-18 font-medium'><div className='flex leading-5 text-secondary'>{heading} {filter ? <img className='-mt-6 link' src={`${i == 0 ? '/images/table/nameFilter.svg' : "/images/table/filterIcon.svg"}`} /> : ""}</div></td>)}
-                    <th></th>
-                </tr>
+            <div className='w-full'>
+                <div className='h-42 w-full flex items-center tracking-wider font-avenir-reg text-base uppercase border-b-2 border-gray bg-white'>
+                    {tableHeading.map((heading, i) => <div className='w-40% pl-18 flex-1 font-medium'><div className='flex leading-5 text-secondary'>{heading} {filter ? <img className='-mt-6 link' src={`${i == 0 ? '/images/table/nameFilter.svg' : "/images/table/filterIcon.svg"}`} /> : ""}</div></div>)}
+                    <div className='w-40'></div>
+                </div>
                 {obj.map((keys, index) => (
                     <>
-                        <tr className='h-60 border-b capitalize text-base font-reg text-black border-gray '>{
+                        <div className='h-60 flex items-center border-b capitalize text-base pr-20 font-reg text-black border-gray '>{
                             Object.values(keys).map((value, i) => (
-                                (typeof value != "object") && <td className="pl-18">{value}</td>
+                                (typeof value != "object") && <div className="w-30% pl-18">{value}</div>
                             ))
                         }
                             {
                                 filter
-                                    ? <td className='link' onClick={() => handleId(index)}
-                                    ><img className={`${(id == index) ? "transform rotate-180" : ""}`} src='/images/table/downArrow.svg' /></td>
-                                    : <td className='tracking text-xl link'>...</td>
+                                    ? <div className='link' onClick={() => handleId(index)}
+                                    ><img className={`${(id == index) ? "transform rotate-180" : ""}`} src='/images/table/downArrow.svg' /></div>
+                                    : <div className='tracking text-xl link'>...</div>
                             }
 
-                        </tr>
+                        </div>
                         {id == index && orderDetail(keys.details)}
 
                     </>
                 ))
                 }
-            </table>
+            </div>
         </div>
     )
 }

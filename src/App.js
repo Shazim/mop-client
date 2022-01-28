@@ -8,31 +8,28 @@ import LoginModal from 'components/molecules/modals/LoginModal';
 import ForgotPassword from 'components/molecules/modals/ForgotPassword';
 import Tables from 'components/molecules/tables/Tables';
 import RangeSlider from 'components/atoms/rangeslider/RangeSlider';
+import OrderDetail from 'pages/order-detail';
 
 function App() {
   const { store } = useStore();
 
   return (
-    <>
 
-      <Tables filter={true} />
+    <Provider store={store}>
+      <Router>
+        <Switch>
+          {authRouter.map((item) => (
+            <Route
+              exact
+              key={item.path}
+              path={item.path}
+              component={item.component}
+            />
+          ))}
+        </Switch>
+      </Router>
+    </Provider>
 
-      {/* <Provider store={store}>
-        <Router>
-          <Switch>
-            {authRouter.map((item) => (
-              <Route
-                exact
-                key={item.path}
-                path={item.path}
-                component={item.component}
-              />
-            ))}
-          </Switch>
-        </Router>
-      </Provider> */}
-
-    </>
   );
 }
 
