@@ -12,7 +12,7 @@ function OrderDetail() {
         <Header login={false} />
         <div className='flex bg-backgroundColor'>
             <SideBar />
-            <div className='w-84%'>
+            <div className='w-84% sm:w-100%'>
                 <div className='flex justify-between bg-white pl-43 pr-45'>
                     <div>
                         <p className='font-avenir-reg font-medium text-2xl uppercase text-primary tracking-wider leading-55'>orders</p>
@@ -20,12 +20,18 @@ function OrderDetail() {
                     </div>
                     <img src='/images/menu/sub-menu.svg' />
                 </div>
-                <div className='p-45'>
-                    <div className='flex justify-between mb-45 items-center'>
-                        <TextField height="37" width="262" label="start date" placeholder="select a start date" />
-                        <TextField height="37" width="262" label="end date" placeholder="select a start date" />
-                        <Button className='w-237 h-37 mt-22' color='gray'>UPDATE VIEW</Button>
-                        <Button className='w-237 h-37 mt-22' color='gray'>RESET FILTER</Button>
+                <div className='p-45 sm:p-18'>
+                    <div className='flex justify-between mb-45 items-center sm:flex-col sm:p-30'>
+                        <div className='w-3/12 sm:w-100%'>
+                            <TextField height="37" width="100%" label="start date" placeholder="select a start date" />
+                        </div>
+                        <div className='w-3/12 sm:w-100%'>
+                            <TextField height="37" width="100%" label="end date" placeholder="select a start date" />
+                        </div>
+                        <div className='w-5/12 flex justify-between sm:w-100%'>
+                            <Button className='w-45% h-37 mt-22' color='gray'>UPDATE VIEW</Button>
+                            <Button className='w-45% h-37 mt-22' color='gray'>RESET FILTER</Button>
+                        </div>
                     </div>
                     <Tables filter={true} />
                 </div>

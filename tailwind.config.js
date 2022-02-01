@@ -199,6 +199,16 @@ module.exports = {
         ...breakpoints(theme('screens')),
       }),
 
+      screens: {
+        sm: [{ min: '0px', max: '540px' }],
+        tab: [{ min: '801px', max: '959px' }],
+        md: [{ min: '960px', max: '1023px' }],
+        lg: [{ min: '1024px', max: '1080px' }],
+        xl: [{ min: '1081px', max: '1280px' }],
+        '2xl': [{ min: '960px' }],
+        '3xl': [{ max: '1440px' }],
+      },
+
 
       spacing: {
         ...spacing,
