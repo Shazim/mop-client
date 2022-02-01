@@ -74,7 +74,7 @@ function SideBar({ routBack = true }) {
     const handleClick = (index, subIndex) => {
     }
     return (
-        <div className="h-screen w-299 bg-gray-lighter pt-40 pr-19 overflow-auto">
+        <div className="h-screen w-299 bg-gray-lighter pt-40 pr-19 overflow-auto sm:hidden">
             {routBack ?
                 <>
                     {obj.map((item, index) => {
