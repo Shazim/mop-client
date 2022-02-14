@@ -200,7 +200,7 @@ module.exports = {
       }),
 
       screens: {
-        sm: [{ min: '0px', max: '540px' }],
+        sm: [{ min: '0px', max: '959px' }],
         tab: [{ min: '801px', max: '959px' }],
         md: [{ min: '960px', max: '1023px' }],
         lg: [{ min: '1024px', max: '1080px' }],

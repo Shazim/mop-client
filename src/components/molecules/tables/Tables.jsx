@@ -91,7 +91,7 @@ function Tables({
     const orderDetail = (details) => {
         const textClass = "font-reg text-base leading-6 text-black capitalize"
         return <>
-            <div className='border-b flex pl-18 border-gray justify-between bg-white sm:flex-col sm:pr-18'>
+            <div className='border-b flex pl-18 sm:pl-10 border-gray justify-between bg-white sm:flex-col sm:pr-18 sm:border-b-0 sm:bg-backgroundColor'>
                 <div className='w-50% flex justify-between sm:w-100%'>
                     <div className='w-50% sm:w-50%'>
                         <p className='heading mt-17'>name</p>
@@ -115,11 +115,11 @@ function Tables({
                 </div>
 
             </div>
-            <div className='border-b-2 flex border-gray bg-white sm:flex-col-reverse'>
-                <div className='w-25% pl-18 sm:w-100% sm:px-18'>
+            <div className='border-b-2 flex border-gray bg-white sm:flex-col-reverse sm:bg-backgroundColor'>
+                <div className='w-25% pl-18 sm:pl-10 sm:w-100% sm:px-18'>
                     <img className='w-100% mt-38 mb-38' src={details['image'].url} />
                 </div>
-                <div className='flex w-75% pl-18 sm:w-100%'>
+                <div className='flex w-75% pl-18 sm:pl-10 sm:w-100%'>
                     <div className='w-33% align-top pt-23 sm:w-50%'>
                         <p className='heading'>size</p>
                         <p className={textClass}>{details['image'].size}</p>
@@ -153,21 +153,21 @@ function Tables({
     return (
         <div className='w-full bg-backgroundColor'>
             <div className='w-full'>
-                <div className='h-42 w-full flex items-center pl-18 tracking-wider font-avenir-reg text-base uppercase border-b-2 border-gray bg-white'>
+                <div className='h-42 w-full flex items-center pl-18 sm:pl-10 tracking-wider font-avenir-reg text-base uppercase border-b-2 border-gray bg-white'>
                     {tableHeading.map((heading, i) => <div className={`w-${divider(tableHeading.length)} sm:${(i == 2) ? "hidden" : ""} font-medium`}><div className='flex leading-5 text-secondary'>{heading} {filter ? <img className='-mt-6 link' src={`${i == 0 ? '/images/table/nameFilter.svg' : "/images/table/filterIcon.svg"}`} /> : ""}</div></div>)}
                 </div>
                 {obj.map((keys, index) => (
                     <>
-                        <div className='h-60 relative flex items-center border-b capitalize text-base pl-18 pr-0 font-reg text-black border-gray '>{
+                        <div className='h-60 relative flex items-center border-b capitalize text-base pl-18 sm:pl-10 pr-0 font-reg text-black border-gray '>{
                             Object.values(keys).map((value, i) => (
                                 (typeof value != "object") && <div className={`w-${divider(tableHeading.length)} sm:${(i == 2) ? "hidden" : ""}`}>{value}</div>
                             ))
                         }
                             {
                                 filter
-                                    ? <div className='link absolute right-20' onClick={() => handleId(index)}
+                                    ? <div className='link absolute right-20 sm:right-10' onClick={() => handleId(index)}
                                     ><img className={`${(id == index) ? "transform rotate-180" : ""}`} src='/images/table/downArrow.svg' /></div>
-                                    : <div className='tracking text-xl link absolute right-20'>...</div>
+                                    : <div className='tracking text-xl link absolute sm:right-10 right-20'>...</div>
                             }
 
                         </div>
