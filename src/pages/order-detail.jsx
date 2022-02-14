@@ -11,26 +11,31 @@ function OrderDetail() {
     return (<>
         <Header login={false} />
         <div className='flex bg-backgroundColor'>
-            <SideBar />
-            <div className='w-84% sm:w-100%'>
+            <div className='sm:hidden'>
+                <SideBar />
+            </div>
+            <div className='w-84% md:w-89% sm:w-100%'>
                 <div className='flex justify-between bg-white pl-43 pr-45'>
-                    <div>
+                    <div className='sm:w-100% sm:flex sm:justify-between'>
                         <p className='font-avenir-reg font-medium text-2xl uppercase text-primary tracking-wider leading-55'>orders</p>
-                        <p className='font-avenir-reg font-medium text-xl uppercase text-secondary tracking-wider leading-55'>order detailed</p>
+                        <p className='font-avenir-reg font-medium text-xl uppercase text-secondary tracking-wider leading-55 sm:hidden'>order detailed</p>
+                        <p className='font-avenir-reg font-medium text-xl uppercase text-secondary tracking-wider leading-55 hidden sm:block'>reports</p>
                     </div>
-                    <img src='/images/menu/sub-menu.svg' />
+                    <img className='sm:hidden' src='/images/menu/sub-menu.svg' />
                 </div>
-                <div className='p-45 sm:p-18'>
-                    <div className='flex justify-between mb-45 items-center sm:flex-col sm:p-30'>
-                        <div className='w-3/12 sm:w-100%'>
-                            <TextField height="37" width="100%" label="start date" placeholder="select a start date" />
+                <div className='p-45 md:p-25 sm:p-18'>
+                    <div className='flex justify-between mb-45 items-center xl:flex-col lg:flex-col md:flex-col sm:flex-col sm:p-30'>
+                        <div className='w-55% flex justify-between xl:w-100% lg:w-100% md:w-100% sm:flex-col sm:w-100% '>
+                            <div className='w-48% sm:w-100%'>
+                                <TextField classes="h-37 w-100%" label="start date" placeholder="select a start date" />
+                            </div>
+                            <div className='w-48% sm:w-100%'>
+                                <TextField classes="h-37 w-100%" label="end date" placeholder="select a start date" />
+                            </div>
                         </div>
-                        <div className='w-3/12 sm:w-100%'>
-                            <TextField height="37" width="100%" label="end date" placeholder="select a start date" />
-                        </div>
-                        <div className='w-5/12 flex justify-between sm:w-100%'>
-                            <Button className='w-45% h-37 mt-22' color='gray'>UPDATE VIEW</Button>
-                            <Button className='w-45% h-37 mt-22' color='gray'>RESET FILTER</Button>
+                        <div className='w-40% flex justify-between xl:w-100% xl:justify-between lg:w-100% lg:justify-between md:w-100% md:justify-between sm:w-100%'>
+                            <Button className='w-45% h-37 mt-22 xl:w-48% lg:w-48% md:w-48% sm:w-45%' color='gray'>UPDATE VIEW</Button>
+                            <Button className='w-45% h-37 mt-22 xl:w-48% lg:w-48% md:w-48% sm:w-45%' color='gray'>RESET FILTER</Button>
                         </div>
                     </div>
                     <Tables filter={true} />
