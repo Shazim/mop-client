@@ -146,7 +146,6 @@ function Tables({
     const divider = (i) => {
         const index = (window.screen.width < "540") ? i - 1 : i;
         const percentage = 100 / index
-        console.log("return", Math.floor(percentage) + "%")
         return Math.floor(percentage) + "%"
     }
 

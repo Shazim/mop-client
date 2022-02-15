@@ -5,16 +5,15 @@ import React, { useState, useEffect } from 'react';
 import { ReactComponent as Cart } from '../../../assets/images/cartIcon.svg';
 import { slide as Menu } from 'react-burger-menu'
 import SideBar from '../sidebar/SideBar';
-function Header({ login = false }) {
+function Header({ login = false, menu, isOpen }) {
   const [active, setActive] = useState(0);
   const tabs = ['about', 'galleries', 'browse artwork'];
   const loginTabs = ['my gallery', 'store', 'get started', 'profile'];
   const handleClick = (index) => setActive(index);
   const [open, setOpen] = useState(false);
 
-  // useEffect(() => {
-  // open ? document.body.scroll = false : true
-  // }, [open])
+  useEffect(() => {
+  }, [])
 
   return (
     <>
@@ -24,9 +23,10 @@ function Header({ login = false }) {
             <img src="/images/Logo/logo.svg" alt="" className="mr-25 w-132 h-32" />
             <div className='hidden sm:block'>
 
-              <img className={`w-27 ${open ? "hidden" : ""}`} src='/images/header/cross.svg' onClick={() => setOpen(false)} />
-              <img className={`w-27 ${open ? "hidden" : ""}`} src='/images/header/muneIcon.svg' onClick={() => setOpen(true)} />
-
+              {(menu) ?
+                <img className={`w-20`} src='/images/header/cross.svg' onClick={() => isOpen(!menu)} />
+                : <img className={`w-27`} src='/images/header/muneIcon.svg' onClick={() => isOpen(!menu)} />
+              }
             </div>
             <div className='flex w-65% justify-between sm:hidden'>{tabs.map((item, i) => (
               <div
@@ -109,11 +109,11 @@ function Header({ login = false }) {
           </div>
         )}
       </div> */}
-      <Menu pageWrapId='page-wrap' noTransition right isOpen={open} width="100%" >
+      {/* <Menu pageWrapId='page-wrap' noTransition right isOpen={open} width="100%" >
         <div className='w-100%'>
           <SideBar />
         </div>
-      </Menu>
+      </Menu> */}
     </>
   );
 }

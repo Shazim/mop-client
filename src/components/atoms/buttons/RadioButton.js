@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 function RadioButton({ className: classes = "", name, value, checked, onChange }) {
   const imageClass = {};
-  console.log("NAME", name)
 
 
   return (
