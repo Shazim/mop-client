@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 import { ReactComponent as Cart } from '../../../assets/images/cartIcon.svg';
 import { slide as Menu } from 'react-burger-menu'
 import SideBar from '../sidebar/SideBar';
-function Header({ login = false, menu, isOpen }) {
+function Header({ login = false , signUpHandler, menu, isOpen }) {
   const [active, setActive] = useState(0);
   const tabs = ['about', 'galleries', 'browse artwork'];
   const loginTabs = ['my gallery', 'store', 'get started', 'profile'];
@@ -45,7 +45,7 @@ function Header({ login = false, menu, isOpen }) {
               placeholder="Search For An Artist"
               bgColor="bg-transparent"
             />
-            <Button className="w-87 h-33 ">Create</Button>
+            <Button onClick={() => signUpHandler(prv => !prv) } className="w-87 h-33 ">Create</Button>
             <div className="text-secondary-black font-reg text-base link">
               Sign in
             </div>

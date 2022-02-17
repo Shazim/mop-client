@@ -6,18 +6,18 @@ import React, { useState } from 'react'
 import Modal from 'react-modal'
 
 
-function SignupModal() {
+function SignupModal({isOpen , openHandler}) {
     const [customer, setCustomer] = useState(true)
     const [artist, setArtist] = useState(false)
 
-    const [isOpen, setIsOpen] = useState(false)
+    // const [isOpen, setIsOpen] = useState(false)
 
-    function openModal() {
-        setIsOpen(true);
-    }
+    // function openModal() {
+    //     setIsOpen(true);
+    // }
 
     function closeModal() {
-        setIsOpen(false);
+        openHandler(prv => !prv);
     }
 
     const tabHandler = () => {
@@ -27,8 +27,8 @@ function SignupModal() {
 
 
     return (
-        <div>
-            <div className='link' onClick={openModal}>Sign Up</div>
+        <div className={`w-100% h-100% ${isOpen ? "absolute top-0 bg-white bg-opacity-70": ""} `}>
+            {/* <div className='link' onClick={openModal}>Sign Up</div> */}
             <Modal
                 isOpen={isOpen}
                 className="top-50% left-50% right-auto bottom-auto transform-xy mr-50% absolute vh-96 border-0"
