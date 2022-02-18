@@ -1,3 +1,4 @@
+import { usePost } from 'hooks';
 import React, { useState } from 'react';
 
 function UsePost(query) {

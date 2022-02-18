@@ -70,20 +70,21 @@ const obj = [
             link: "/coupon"
         }]
     },]
+
 function SideBar({ routBack = true }) {
     const handleClick = (index, subIndex) => {
     }
     return (
-        <div className="h-screen w-299 bg-gray-lighter pt-40 pr-19 overflow-auto">
+        <div className="h-screen w-299 sm:w-100% bg-gray-lighter pt-40 pr-19 overflow-auto ">
             {routBack ?
                 <>
                     {obj.map((item, index) => {
                         return <div>
-                            <div className="font-bold text-sm text-secondary tracking uppercase mt-15 mb-18 ml-37">{item.key}</div>
+                            <div className="font-bold text-sm text-secondary tracking uppercase mt-15 mb-18 ml-37 xl:ml-35 lg:ml-30 md:ml-26">{item.key}</div>
                             <>{
                                 item.item.map((subItem, subIndex) =>
                                     <a href={`${subItem.link}`}>
-                                        <span className="flex w-275 h-55 bg-secondary-dim rounded-r-lg pl-62 link" onClick={() => handleClick(index, subIndex)}>
+                                        <span className="flex w-100% h-55 bg-secondary-dim sm:bg-gray-lighter rounded-r-lg pl-62 xl:pl-50 lg:pl-40 md:pl-35 link" onClick={() => handleClick(index, subIndex)}>
                                             <img className="w-19 h-19 my-auto text-primary" src={(subItem.link == window.location.pathname) ? subItem.redIcon : subItem.icon} />
                                             <div className={`my-auto font-nunito-semibold capitalize text-base leading-5 ml-28 ${(subItem.link == window.location.pathname) ? "text-primary" : "text-secondary"} `}>{subItem.name}</div>
                                         </span>

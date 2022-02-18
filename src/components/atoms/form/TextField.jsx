@@ -8,8 +8,8 @@ function TextField({
   icon = true,
   label = 'Name',
   shadow = '',
-  height = '32',
-  width = '100%',
+  classes = "w-100% h-32",
+  titleClasses = 'text-secondary uppercase tracking mb-0',
   color = 'text-secondary',
   tracking = 'tracking',
   textTransform = 'uppercase',
@@ -17,13 +17,13 @@ function TextField({
   return (
     <div className='mb-10'>
       <div
-        className={`font-bold ${color} text-secondary text-sm ${textTransform} ${tracking} leading-8 mb-${mb} `}
+        className={`font-bold text-secondary text-sm leading-8 ${titleClasses} `}
       >
         {label}
       </div>
       <div className='relative'>
         <FormField
-          className={`bg-white ${shadow} h-${height} w-${width} outline-none uppercase text-secondary placeholder-gray font-bold text-sm pl-8 py-5 tracking`}
+          className={`${classes} bg-white outline-none uppercase text-secondary placeholder-gray font-bold text-sm pl-8 py-5 tracking`}
           placeholder={placeholder}
         />
         {icon && <img src="images/textinput/dateIcon.svg" className=" w-20 h-20 pointer-events-none absolute right-10 top-50% transform-y" />}

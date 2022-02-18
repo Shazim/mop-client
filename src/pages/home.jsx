@@ -6,8 +6,12 @@ import Header from 'components/molecules/header/Header';
 import { LinkLabel } from 'components/LinkLabel';
 import { ReceiveInsight } from 'components/ReceiveInsight';
 import React from 'react';
+import { useState } from 'react';
+import LoginModal from 'components/molecules/modals/LoginModal';
+import SignupModal from 'components/molecules/modals/SignupModal';
 
 function Home() {
+  const [signUp, setSignUp] = useState()
   const descriptiveIcons = [
     { source: '/images/services/satisfaction.svg', title: 'Return Policy' },
     { source: '/images/services/return.svg', title: 'Satisfaction Guarantee' },
@@ -25,7 +29,7 @@ function Home() {
   return (
     <>
       <div className="bg-featured-gallery bg-no-repeat bg-cover">
-        <Header />
+        <Header signUpHandler={setSignUp} />
         <div className="bg-cubes bg-no-repeat bg-right-bottom">
           <div className="max-screen pb-237 pt-158">
             <div className="ml-50 text-primary tracking-wider font-avenir-300 uppercase text-3xl leading-55 w-55%">
@@ -76,6 +80,8 @@ function Home() {
           <DescriptiveIcon source={source} title={title} />
         ))}
       </div>
+      <LoginModal />
+      <SignupModal isOpen={signUp} openHandler={setSignUp}/>
       <ReceiveInsight />
       <Footer />
     </>
