@@ -16,7 +16,9 @@
 .link {
   @apply cursor-pointer;
 }
-
+.vh-96{
+ height: 97vh; 
+}
 .slider-arrow .slick-arrow {
   @apply sm:hidden !important;
 }

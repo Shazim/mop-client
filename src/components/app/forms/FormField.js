@@ -15,8 +15,9 @@ function FormField({
     handleChange,
     errors = {},
     touched = {},
-    values = { search: "" },
+    values = {  },
   } = useFormikContext() || {};
+ 
   return (
     <div>
       <Input
@@ -24,11 +25,11 @@ function FormField({
         name={name}
         onBlur={handleBlur}
         onChange={handleChange}
-
         value={values[name]}
+        type={type}
         {...otherProps}
       />
-      <ErrorMessage error="{errors[name]}" visible={touched[name]} />
+      <ErrorMessage error={errors[name]} visible={touched[name]} />
     </div>
   );
 }

@@ -1,8 +1,8 @@
 import * as Yup from 'yup';
 import { camelCasetoNormal } from 'utils';
 
-export const genrateSchema = (param) => {
-  const labels = Object.keys(param);
+export const generateSchema = (param) => {
+  const labels = Object.keys(param)||[];
   const schema = {};
   labels.map((label) => {
     if (label.indexOf('email') !== -1)

@@ -9,9 +9,15 @@ import React from 'react';
 import { useState } from 'react';
 import LoginModal from 'components/molecules/modals/LoginModal';
 import SignupModal from 'components/molecules/modals/SignupModal';
+import { useEffect } from 'react';
+import ForgotPassword from 'components/molecules/modals/ForgotPassword';
+import { Link, useHistory } from 'react-router-dom';
 
 function Home() {
   const [signUp, setSignUp] = useState()
+  const [signIn, setSignIn] = useState()
+  const [forgot, setForgot] = useState()
+  const history = useHistory()
   const descriptiveIcons = [
     { source: '/images/services/satisfaction.svg', title: 'Return Policy' },
     { source: '/images/services/return.svg', title: 'Satisfaction Guarantee' },
@@ -26,10 +32,19 @@ function Home() {
     { source: '/images/services/world.svg', title: 'Worldwide Delivery' },
   ];
 
+  useEffect(() => {
+    scrollOff()
+  },[signUp, signIn, forgot])
+
+  const scrollOff = () => {
+    (signUp || signIn || forgot) 
+    ? window.document.body.style.overflow = "hidden" 
+    : window.document.body.style.overflow = "scroll"
+  } 
   return (
     <>
       <div className="bg-featured-gallery bg-no-repeat bg-cover">
-        <Header signUpHandler={setSignUp} />
+        <Header signUpHandler={setSignUp} signInHandler={setSignIn} />
         <div className="bg-cubes bg-no-repeat bg-right-bottom">
           <div className="max-screen pb-237 pt-158">
             <div className="ml-50 text-primary tracking-wider font-avenir-300 uppercase text-3xl leading-55 w-55%">
@@ -42,7 +57,7 @@ function Home() {
               pieces of work you fall in love with directly and have them
               shipped to you within days of purchase.
             </div>
-            <div className="ml-50  ">
+            <div className="ml-50">
               <LinkLabel label=" View Featured Galleries" />
             </div>
           </div>
@@ -57,7 +72,7 @@ function Home() {
           </div>
         </div>
         <div className="flex mt-100">
-          <Button className="w-184 mr-18">View More</Button>
+          <Button onClick={() => history.push("/order-detail")} className="w-184 mr-18">View More</Button>
           <Button type="outline" className="w-184 h-48">
             Browse
           </Button>
@@ -80,8 +95,9 @@ function Home() {
           <DescriptiveIcon source={source} title={title} />
         ))}
       </div>
-      <LoginModal />
-      <SignupModal isOpen={signUp} openHandler={setSignUp}/>
+      <LoginModal isOpen={signIn} openHandler={setSignIn} signUpHandler={setSignUp} forgotHandler={setForgot} />
+      <SignupModal isOpen={signUp} openHandler={setSignUp} signInHandler={setSignIn} forgotHandler={setForgot}/>
+      <ForgotPassword isOpen={forgot} openHandler={setForgot} signInHandler={setSignIn} signUpHandler={setSignUp} />
       <ReceiveInsight />
       <Footer />
     </>

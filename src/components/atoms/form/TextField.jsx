@@ -5,9 +5,11 @@ import PropTypes from 'prop-types';
 function TextField({
   placeholder = '',
   mb = '0',
-  icon = true,
+  icon = false,
   label = 'Name',
+  name = '',
   shadow = '',
+  type = "text",
   classes = "w-100% h-32",
   titleClasses = 'text-secondary uppercase tracking mb-0',
   color = 'text-secondary',
@@ -23,6 +25,8 @@ function TextField({
       </div>
       <div className='relative'>
         <FormField
+          type={type}
+          name={name}
           className={`${classes} bg-white outline-none uppercase text-secondary placeholder-gray font-bold text-sm pl-8 py-5 tracking`}
           placeholder={placeholder}
         />
@@ -36,6 +40,7 @@ TextField.propTypes = {
   placeholder: PropTypes.oneOf(['some text']),
   mb: PropTypes.oneOf(['7', '25']),
   label: PropTypes.oneOf(['some text']),
+  name: PropTypes.oneOf(['some text']),
 };
 
 export default TextField;
