@@ -3,13 +3,14 @@ import { Form, FormField } from 'components/app/forms';
 import Button from 'components/atoms/buttons/Button';
 import SubmitButton from 'components/atoms/buttons/SubmitButton';
 import TextField from 'components/atoms/form/TextField';
+import { setCookie } from 'cookies/Cookies';
 import React, { useState } from 'react'
 import Modal from 'react-modal'
+import { useHistory } from 'react-router-dom';
 import { generateSchema } from 'validation';
 
-
 function LoginModal({isOpen , openHandler, signUpHandler, forgotHandler}) {
-
+    const history = useHistory()
     const closeModal = () => {
         openHandler(prv => !prv);
     }
@@ -25,9 +26,12 @@ function LoginModal({isOpen , openHandler, signUpHandler, forgotHandler}) {
     }
 
     const login = (values) => {
-        console.log("VALUES ", values)
         signIn({...values, grant_type : 'password'}).then(response => {
-            console.log("LOGIN ", response)
+            if(response?.status == 200){
+                setCookie("user", response?.data)
+                closeModal()
+                history.push("/order-detail")
+            }
         } ).catch(error => console.log("ERROR ", error))        
     }
 

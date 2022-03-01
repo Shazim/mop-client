@@ -1,28 +1,27 @@
 import Button from 'components/atoms/buttons/Button';
 import SearchBar from 'components/atoms/searchbar/SearchBar';
 import React, { useState, useEffect } from 'react';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 
 import { ReactComponent as Cart } from '../../../assets/images/cartIcon.svg';
 // import { slide as Menu } from 'react-burger-menu'
 import SideBar from '../sidebar/SideBar';
 function Header({ login = false , signUpHandler,signInHandler, menu, isOpen }) {
   const [active, setActive] = useState(0);
-  const tabs = ['about', 'galleries', 'browse artwork'];
+  const tabs = [{title:'about', link : '/about'}, {title:'galleries', link: '/gallery'}, {title:'browse artwork', link: '/browse-artwork'}];
   const loginTabs = ['my gallery', 'store', 'get started', 'profile'];
-  const handleClick = (index) => setActive(index);
-  const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-  }, [])
-
+  const location = useLocation()
+  const history = useHistory()
+  
   return (
     <>
       <div className="max-screen lg:px-60 md:px-50 py-32 sm:px-23">
         <div className="flex justify-between">
           <div className="flex justify-between w-50% xl:w-57% lg:w-57% md:w-57% items-center sm:w-100%">
-            <img src="/images/Logo/logo.svg" alt="" className="mr-25 w-132 h-32" />
+            <Link to={"/"}>
+              <img src="/images/Logo/logo.svg" alt="" className="mr-25 w-132 h-32" />
+            </Link>
             <div className='hidden sm:block'>
-
               {(menu) ?
                 <img className={`w-20`} src='/images/header/cross.svg' onClick={() => isOpen(!menu)} />
                 : <img className={`w-27`} src='/images/header/muneIcon.svg' onClick={() => isOpen(!menu)} />
@@ -30,11 +29,12 @@ function Header({ login = false , signUpHandler,signInHandler, menu, isOpen }) {
             </div>
             <div className='flex w-65% justify-between sm:hidden'>{tabs.map((item, i) => (
               <div
-                className={`font-bold mt-6 ${active == i ? 'text-primary' : 'text-secondary'
-                  } text-sm uppercase hover:text-primary link tracking`}
-                onClick={() => handleClick(i)}
+                className={`font-bold mt-6 ${location.pathname == item.link ? 'text-primary' : 'text-secondary'} text-sm uppercase hover:text-primary link tracking`}
+                
               >
-                {item}
+                <Link to={`${item.link}`}>
+                  {item.title}
+                </Link>
               </div>
             ))}
             </div>
@@ -45,7 +45,8 @@ function Header({ login = false , signUpHandler,signInHandler, menu, isOpen }) {
               placeholder="Search For An Artist"
               bgColor="bg-transparent"
             />
-            <Button onClick={() => signUpHandler(prv => !prv) } className="w-87 h-33 ">Create</Button>
+            {/* <Button onClick={() => signUpHandler(prv => !prv) } className="w-87 h-33 ">Create</Button> */}
+            <Button onClick={() => history.push('/create-gallery') } className="w-87 h-33 ">Create</Button>
             <div
               onClick={() => signInHandler(prv => !prv) }
               className="text-secondary-black font-reg text-base link">

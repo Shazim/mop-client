@@ -7,6 +7,7 @@ import SubHeader from 'components/molecules/header/SubHeader'
 import MobileMenu from 'components/molecules/mobilemenu/MobileMenu'
 import SideBar from 'components/molecules/sidebar/SideBar'
 import Tables from 'components/molecules/tables/Tables'
+import WithPrivateRoute from 'hoc/WithPrivateRoute'
 import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
@@ -48,4 +49,4 @@ function OrderDetail() {
     )
 }
 
-export default OrderDetail
+export default WithPrivateRoute(OrderDetail)

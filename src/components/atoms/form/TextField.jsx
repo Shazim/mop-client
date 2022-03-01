@@ -27,7 +27,7 @@ function TextField({
         <FormField
           type={type}
           name={name}
-          className={`${classes} bg-white outline-none uppercase text-secondary placeholder-gray font-bold text-sm pl-8 py-5 tracking`}
+          className={`${classes} ${shadow} bg-white outline-none uppercase text-secondary placeholder-gray font-bold text-sm pl-8 py-5 tracking`}
           placeholder={placeholder}
         />
         {icon && <img src="images/textinput/dateIcon.svg" className=" w-20 h-20 pointer-events-none absolute right-10 top-50% transform-y" />}

@@ -1,5 +1,6 @@
 import VideoCard from 'components/atoms/cards/VideoCard';
 import GalleryBar from 'components/GalleryBar/GalleryBar';
+import Footer from 'components/molecules/footer/Footer';
 import Header from 'components/molecules/header/Header';
 import React from 'react';
 
@@ -19,8 +20,9 @@ function GallaryDetail() {
           <VideoCard />
           <VideoCard />
         </div>
+        <div className='ml-80 mt-15 mb-63 text-primary text-base'>1</div>
       </div>
-      <div>pagination</div>
+      <Footer/>
     </>
   );
 }

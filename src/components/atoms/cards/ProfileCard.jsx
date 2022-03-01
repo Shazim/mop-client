@@ -4,10 +4,10 @@ import Button from "../buttons/Button"
 function ProfileCard({ obj = { title: "excellent", image_url: "/images/card/profilecard_image.svg", views: 1302, incImages: 1302, } }) {
 
     return (
-        <div className="flex justify-center items-center">
-            <div className="w-191 h-171 relative link">
+        <div className="flex justify-center items-center bg-white p-22 mr-24">
+            <div className="w-191 h-146 relative link">
                 <img src={obj.image_url} />
-                <Button className="w-100% h-33 uppercase absolute bottom-0 tracking text-secondary" color="bg-gray"> View Gallery</Button>
+                <Button className="w-100% h-33 uppercase absolute bottom-0 tracking text-secondary" color="gray"> View Gallery</Button>
             </div>
             <div className="w-100% text-dark ml-26">
                 <div className="flex ">

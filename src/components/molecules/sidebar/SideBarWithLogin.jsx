@@ -75,7 +75,7 @@ function SideBarWithLogin() {
     }
 
     return (
-        <div className="h-screen bg-gray-lighter pt-40 overflow-auto">
+        <div className="h-auto w-299 bg-gray-lighter pt-40 overflow-auto">
             <SearchBar
                 name="search"
                 className="w-220 h-32 mx-auto mb-25 placeholder-secondary"
@@ -91,7 +91,7 @@ function SideBarWithLogin() {
 
             <Button
                 className="flex w-220 h-33 text-secondary justify-center items-center mt-28 m-auto"
-                color="bg-gray" onClick={clearFilter}>CLEAR FILTERS</Button>
+                color="gray" onClick={clearFilter}>CLEAR FILTERS</Button>
 
         </div>
     )

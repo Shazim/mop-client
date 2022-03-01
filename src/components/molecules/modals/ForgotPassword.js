@@ -33,7 +33,6 @@ function ForgotPassword({ isOpen, openHandler, signInHandler, signUpHandler }) {
 
     return (
         <div className={`w-100% h-100% ${isOpen ? "absolute top-0 bg-white bg-opacity-70": ""} `}>
-            {/* <div className='link' onClick={openModal}>Forgot Password</div> */}
             <Modal
                 isOpen={isOpen}
                 className="absolute border-0 top-50% left-50% transform-xy"
