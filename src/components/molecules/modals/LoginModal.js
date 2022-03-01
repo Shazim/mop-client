@@ -1,25 +1,43 @@
-import { FormField } from 'components/app/forms';
+import { signIn } from 'api';
+import { Form, FormField } from 'components/app/forms';
 import Button from 'components/atoms/buttons/Button';
+import SubmitButton from 'components/atoms/buttons/SubmitButton';
 import TextField from 'components/atoms/form/TextField';
+import { setCookie } from 'cookies/Cookies';
 import React, { useState } from 'react'
 import Modal from 'react-modal'
+import { useHistory } from 'react-router-dom';
+import { generateSchema } from 'validation';
 
-function LoginModal() {
-
-    const [isOpen, setIsOpen] = useState(false)
-
-    function openModal() {
-        setIsOpen(true);
+function LoginModal({isOpen , openHandler, signUpHandler, forgotHandler}) {
+    const history = useHistory()
+    const closeModal = () => {
+        openHandler(prv => !prv);
     }
 
-    function closeModal() {
-        setIsOpen(false);
+    const signUpModal = () => {
+        openHandler(prv => !prv);
+        signUpHandler(prv => !prv);
+    }
+
+    const forgotModal = () => {
+        openHandler(prv => !prv);
+        forgotHandler(prv => !prv);
+    }
+
+    const login = (values) => {
+        signIn({...values, grant_type : 'password'}).then(response => {
+            if(response?.status == 200){
+                setCookie("user", response?.data)
+                closeModal()
+                history.push("/order-detail")
+            }
+        } ).catch(error => console.log("ERROR ", error))        
     }
 
 
     return (
-        <div className='w-100%'>
-            <div className='link' onClick={openModal}>Login</div>
+        <div className={`w-100% h-100% ${isOpen ? "absolute top-0 bg-white bg-opacity-70": ""} `}>
             <Modal
                 isOpen={isOpen}
                 className="absolute border-0 top-50% left-50% transform-xy"
@@ -38,13 +56,24 @@ function LoginModal() {
                         <div className='w-100% border-b border-border opacity-1'></div>
                     </div>
                     <div className='mt-12'>
-                        <TextField placeholder="Enter email here" mb="6" height="38" label="Email Address" />
-                        <TextField placeholder="enter password here" mb="6" height="38" label="password" />
-                        <Button className='w-37% h-41 flex tracking text-sm justify-center items-center mx-auto mt-27'>LOGIN</Button>
+                        <Form
+                            onSubmit={login} 
+                            initialValues={{email: '', password: ''}}
+                            validationSchema={generateSchema({email: "" , password: ""})}>
+
+                            <TextField name="email" placeholder="Enter email here" mb="6" height="38" label="Email Address" />
+                            <TextField type="password" name="password" placeholder="enter password here" mb="6" height="38" label="password" />
+                            <SubmitButton className='w-37% h-41 flex tracking text-sm justify-center items-center mx-auto mt-27'>LOGIN</SubmitButton>
+                        
+                        </Form>
                     </div>
                     <div className='flex justify-between pr-20 mt-34'>
-                        <div className='font-bold text-primary text-sm uppercase tracking leading-32'>login</div>
-                        <div className='font-bold text-primary text-sm uppercase tracking leading-32'>forgot password</div>
+                        <div
+                            onClick={signUpModal} 
+                            className='font-bold text-primary text-sm uppercase tracking leading-32 underline link'>sign up</div>
+                        <div
+                            onClick={forgotModal} 
+                            className='font-bold text-primary text-sm uppercase tracking leading-32 underline link'>forgot password</div>
                     </div>
                 </div>
             </Modal>

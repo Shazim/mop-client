@@ -15,9 +15,36 @@ module.exports = {
     extend: {
       backgroundImage: (theme) => ({
         'featured-gallery': "url('/src/assets/images/background/gallary.png')",
+        'bg-gallery': "url('/src/assets/images/background/galleryBackground.png')",
+        'background-gallery': "url('/src/assets/images/background/bgGallery.png')",
         cubes: "url('/src/assets/images/background/cubes.png')",
         photography: "url('/src/assets/images/background/photography.png')",
       }),
+
+      backgroundPosition: {
+        bottom: 'bottom',
+        center: 'center',
+        left: 'left',
+        'left-top-50': 'left top 50%',
+        'left-top-80': 'left top 80%',
+        'left-bottom': 'left bottom',
+        'left-bottom': 'left bottom',
+        'left-top': 'left top',
+        right: 'right',
+        'right-4': 'right top 40px',
+        'right-80': 'right top 80%',
+        'right-50': 'right top 50%',
+        'right-40': 'right top 40%',
+        'right-45': 'right top 45%',
+        'right-47': 'right top 47%',
+        'right-30': 'right top 30%',
+        'right-35': 'right top 35%',
+        'right-bottom': 'right bottom',
+        'right-top': 'right top',
+        top: 'top',
+        'top-4': 'center top 1rem',
+      },
+
       boxShadow: {
         sm: '0 4px 4px rgba(0, 0, 0, 0.04)',
         DEFAULT:
@@ -154,6 +181,7 @@ module.exports = {
         9: '2.25rem',
         10: '2.5rem',
         32: '32px',
+        35: '35px',
         38: '38px',
         55: '55px',
       },

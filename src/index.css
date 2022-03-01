@@ -16,7 +16,9 @@
 .link {
   @apply cursor-pointer;
 }
-
+.vh-96{
+ height: 97vh; 
+}
 .slider-arrow .slick-arrow {
   @apply sm:hidden !important;
 }
@@ -166,7 +168,12 @@ input[type='number'] {
   top: -15px;
   left: 10px;
 }
-
+.image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
 /*style the arrow inside the select element:*/
 .custom-arrow:after {
   position: absolute;

@@ -6,20 +6,33 @@ import { useState } from 'react';
 import Modal from 'react-modal'
 
 
-function ForgotPassword({ userEmail, resetHandler, loginHandler, signUpHandler }) {
-    const [isOpen, setIsOpen] = useState(false)
+function ForgotPassword({ isOpen, openHandler, signInHandler, signUpHandler }) {
+    // const [isOpen, setIsOpen] = useState(false)
 
-    function openModal() {
-        setIsOpen(true);
+    // function openModal() {
+    //     setIsOpen(true);
+    // }
+
+    // function closeModal() {
+    //     setIsOpen(false);
+    // }
+
+    const closeModal = () => {
+        openHandler(prv => !prv);
     }
 
-    function closeModal() {
-        setIsOpen(false);
+    const sinIn = () => {
+        openHandler(prv =>  !prv)
+        signInHandler(prv =>  !prv)
+    }
+
+    const signUp = () => {
+        openHandler(prv =>  !prv)
+        signUpHandler(prv =>  !prv)
     }
 
     return (
-        <div>
-            <div className='link' onClick={openModal}>Forgot Password</div>
+        <div className={`w-100% h-100% ${isOpen ? "absolute top-0 bg-white bg-opacity-70": ""} `}>
             <Modal
                 isOpen={isOpen}
                 className="absolute border-0 top-50% left-50% transform-xy"
@@ -29,8 +42,12 @@ function ForgotPassword({ userEmail, resetHandler, loginHandler, signUpHandler }
                     <TextField placeholder="Enter email here" mb="6" height="38" label="Email Address" />
                     <Button className='w-38% h-41 flex tracking text-sm justify-center items-center mx-auto mt-27'>SEND RESET</Button>
                     <div className='flex justify-between pr-20 mt-34'>
-                        <div className='font-bold text-primary text-sm uppercase tracking leading-32'>login</div>
-                        <div className='font-bold text-primary text-sm uppercase tracking leading-32'>sign up</div>
+                        <div
+                            onClick={sinIn} 
+                            className='font-bold text-primary text-sm uppercase tracking leading-32 underline link'>login</div>
+                        <div
+                            onClick={signUp} 
+                            className='font-bold text-primary text-sm uppercase tracking leading-32 underline link'>sign up</div>
                     </div>
                 </div>
             </Modal>
