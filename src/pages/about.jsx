@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState, useEffect} from 'react';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
@@ -8,9 +8,36 @@ import { DiscoverMore } from 'components/DiscoveMore';
 import { ReceiveInsight } from 'components/ReceiveInsight';
 import Footer from 'components/molecules/footer/Footer';
 import Button from 'components/atoms/buttons/Button';
-
+import { useLocation, useHistory } from 'react-router-dom';
+import LoginModal from 'components/molecules/modals/LoginModal';
+import SignupModal from 'components/molecules/modals/SignupModal';
+import ForgotPassword from 'components/molecules/modals/ForgotPassword';
 
 function About() {
+  
+  
+  const [signUp, setSignUp] = useState()
+  const search = useLocation().search
+  const [signIn, setSignIn] = useState()
+  const [forgot, setForgot] = useState()
+  const history = useHistory()
+  
+  useEffect(() => {
+    if(!signIn){
+      const login = new URLSearchParams(search).get('login');
+      (login) && setSignIn(prv => !prv)
+    }
+    scrollOff()
+  },[signUp, signIn, forgot])
+
+  
+
+  const scrollOff = () => {
+    (signUp || signIn || forgot) 
+    ? window.document.body.style.overflow = "hidden" 
+    : window.document.body.style.overflow = "scroll"
+  }
+
   const settings = {
     dots: true,
     infinite: true,
@@ -18,6 +45,9 @@ function About() {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
+
+
+
   return (
     <>
       <div className="bg-photography bg-no-repeat bg-cover ">
@@ -79,6 +109,9 @@ function About() {
       <div>
         <ReceiveInsight image="/images/desert.png" />
       </div>
+      <LoginModal isOpen={signIn} openHandler={setSignIn} signUpHandler={setSignUp} forgotHandler={setForgot} />
+      <SignupModal isOpen={signUp} openHandler={setSignUp} signInHandler={setSignIn} forgotHandler={setForgot}/>
+      <ForgotPassword isOpen={forgot} openHandler={setForgot} signInHandler={setSignIn} signUpHandler={setSignUp} />
       <Footer />
     </>
   );
