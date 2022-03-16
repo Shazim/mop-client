@@ -27,7 +27,7 @@ export default function SubHeader({
       </div>
       <div className="flex sm:w-100% justify-end">
         <Button
-          onClick={() => handler(1)}
+          onClick={() => handler()}
           className={`h-42 w-251 sm:w-100% my-35 ${button ? '' : 'hidden'}`}
           color="primary"
         >

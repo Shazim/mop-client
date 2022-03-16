@@ -2,7 +2,7 @@ import * as Yup from 'yup';
 import { camelCasetoNormal } from 'utils';
 
 export const generateSchema = (param) => {
-  const labels = Object.keys(param)||[];
+  const labels = Object.keys(param) || [];
   const schema = {};
   labels.map((label) => {
     if (label.indexOf('email') !== -1)
@@ -45,3 +45,9 @@ export const generateSchema = (param) => {
   });
   return Yup.object().shape(schema);
 };
+
+export const artworkSchema = Yup.object().shape({
+  name: Yup.string().required('Name is required'),
+  note: Yup.string().required('Note is required'),
+  images: Yup.array().min(1).required('At least one image is required'),
+});
