@@ -7,6 +7,7 @@ import CreateGallary from 'pages/create-gallary';
 import Pricing from 'pages/pricing';
 import OrderDetail from 'pages/order-detail';
 import BrowseArtwork from 'pages/browse-artwork';
+import StockRoom from 'pages/stock-room';
 
 // List of Routes name using for links and route
 export const authRoutes = Object.freeze({
@@ -21,6 +22,8 @@ export const authRoutes = Object.freeze({
   ROUTE_CREATE_GALLERY: '/create-gallery',
   ROUTE_PRICE: '/price',
   ROUTE_ORDER_DETAIL: '/order-detail',
+  ROUTE_STOCK_ROOM: '/stock-room',
+
 });
 
 // List of route object which will be rendered under Router component
@@ -32,6 +35,7 @@ export default Object.freeze([
   { path: authRoutes.ROUTE_GALLERY, component: Gallery },
   { path: authRoutes.ROUTE_ORDER_DETAIL, component: OrderDetail },
   { path: authRoutes.ROUTE_BROWSE_ARTWORK, component: BrowseArtwork },
+  { path: authRoutes.ROUTE_STOCK_ROOM, component: StockRoom },
   { path: authRoutes.ROUTE_ABOUT, component: About },
   { path: authRoutes.ROUTE_LOGIN, component: Login },
   { path: authRoutes.ROUTE_SIGNUP, component: Login },

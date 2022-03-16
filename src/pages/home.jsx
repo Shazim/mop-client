@@ -9,17 +9,12 @@ import React from 'react';
 import { useState } from 'react';
 import LoginModal from 'components/molecules/modals/LoginModal';
 import SignupModal from 'components/molecules/modals/SignupModal';
-import { useEffect } from 'react';
 import ForgotPassword from 'components/molecules/modals/ForgotPassword';
+import { useEffect } from 'react';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import GridLayout from 'components/atoms/cards/GridLayout';
 
 function Home() {
-  const search = useLocation().search
-  const [signUp, setSignUp] = useState()
-  const [signIn, setSignIn] = useState()
-  const [forgot, setForgot] = useState()
-  const history = useHistory()
   const descriptiveIcons = [
     { source: '/images/services/satisfaction.svg', title: 'Return Policy' },
     { source: '/images/services/return.svg', title: 'Satisfaction Guarantee' },
@@ -33,7 +28,12 @@ function Home() {
     },
     { source: '/images/services/world.svg', title: 'Worldwide Delivery' },
   ];
-
+  
+  const [signUp, setSignUp] = useState()
+  const search = useLocation().search
+  const [signIn, setSignIn] = useState()
+  const [forgot, setForgot] = useState()
+  const history = useHistory()
   
   useEffect(() => {
     if(!signIn){

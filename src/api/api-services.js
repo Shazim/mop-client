@@ -1,5 +1,5 @@
 import { BASE_URL, API_PATH } from './config';
-import { SIGN_UP, SIGN_IN } from './http';
+import { SIGN_UP, SIGN_IN, STYLES, COLORS } from './http';
 import { doGet, doPost } from './httpRequests';
 
 // import { BASE_URL, STATIC_DATA_URL } from 'configure';
@@ -38,4 +38,12 @@ export const signIn = (data) => {
 
 export const signUp = (data) => {
   return doPost(`${BASE_URL}${API_PATH}${SIGN_UP}`, data);
+};
+
+export const getStyles = () => {
+  return doGet(`${BASE_URL}${API_PATH}${STYLES}`);
+};
+
+export const getColors = () => {
+  return doGet(`${BASE_URL}${API_PATH}${COLORS}`);
 };

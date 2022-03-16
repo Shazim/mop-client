@@ -1,8 +1,8 @@
-import { FormField } from 'components/app/forms';
+import { FormTextArea } from 'components/app/forms';
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function TextField({
+function TextArea({
   placeholder = '',
   mb = '0',
   icon = false,
@@ -24,7 +24,7 @@ function TextField({
         {label}
       </div>
       <div className="relative">
-        <FormField
+        <FormTextArea
           type={type}
           name={name}
           className={`${classes} ${shadow} bg-white outline-none uppercase text-secondary placeholder-gray font-bold text-sm pl-8 py-5 tracking`}
@@ -41,11 +41,11 @@ function TextField({
   );
 }
 
-TextField.propTypes = {
+TextArea.propTypes = {
   placeholder: PropTypes.oneOf(['some text']),
   mb: PropTypes.oneOf(['7', '25']),
   label: PropTypes.oneOf(['some text']),
   name: PropTypes.oneOf(['some text']),
 };
 
-export default TextField;
+export default TextArea;

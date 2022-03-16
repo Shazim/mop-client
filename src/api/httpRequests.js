@@ -1,9 +1,11 @@
 import axios from 'axios';
+import { getCookie } from 'cookies/Cookies';
 
 const getHeader = () => {
   const headers = {
     'Content-Type': 'application/json',
     Accept: 'application/json',
+    Authorization: `Bearer ${getCookie('user')?.access_token}`,
   };
   return headers;
 };

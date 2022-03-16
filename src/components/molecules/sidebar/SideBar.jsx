@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useHistory } from 'react-router-dom'
 
 
 const obj = [
@@ -15,7 +15,7 @@ const obj = [
             redIcon: "/images/sidebar/stockroom_red.svg",
             icon: "/images/sidebar/stockroom.svg",
             name: "Stockrooms",
-            link: "/stockrooms"
+            link: "/stock-room"
         },
         {
             redIcon: "/images/sidebar/gallery_red.svg",
@@ -68,39 +68,41 @@ const obj = [
             icon: "/images/sidebar/coupon.svg",
             name: "Coupons and offers",
             link: "/coupon"
-        }]
-    },]
+        }],
+        
+    },
+    ]
 
-function SideBar({ routBack = true }) {
-    const handleClick = (index, subIndex) => {
-    }
+function SideBar({ routBack = false }) {
+    const location = useLocation();
+    const history = useHistory()
+    
     return (
-        <div className="h-screen w-299 sm:w-100% bg-gray-lighter pt-40 pr-19 overflow-auto ">
-            {routBack ?
+        <div className="h-100% sm:w-100% bg-gray-lighter pt-40 pr-19 overflow-auto ">
+            {!routBack ?
                 <>
                     {obj.map((item, index) => {
                         return <div>
                             <div className="font-bold text-sm text-secondary tracking uppercase mt-15 mb-18 ml-37 xl:ml-35 lg:ml-30 md:ml-26">{item.key}</div>
                             <>{
                                 item.item.map((subItem, subIndex) =>
-                                    <a href={`${subItem.link}`}>
-                                        <span className="flex w-100% h-55 bg-secondary-dim sm:bg-gray-lighter rounded-r-lg pl-62 xl:pl-50 lg:pl-40 md:pl-35 link" onClick={() => handleClick(index, subIndex)}>
-                                            <img className="w-19 h-19 my-auto text-primary" src={(subItem.link == window.location.pathname) ? subItem.redIcon : subItem.icon} />
-                                            <div className={`my-auto font-nunito-semibold capitalize text-base leading-5 ml-28 ${(subItem.link == window.location.pathname) ? "text-primary" : "text-secondary"} `}>{subItem.name}</div>
+                                    <Link to={`${subItem.link}`}>
+                                        <span className={`flex w-100% h-55  sm:bg-gray-lighter rounded-r-lg pl-62 xl:pl-50 lg:pl-40 md:pl-35 link ${(subItem.link == location.pathname) ? "bg-secondary-dim" : ""}`}>
+                                            <img className="w-19 h-19 my-auto text-primary" src={(subItem.link == location.pathname) ? subItem.redIcon : subItem.icon} />
+                                            <div className={`my-auto font-nunito-semibold capitalize text-base leading-5 ml-28 ${(subItem.link == location.pathname) ? "text-primary" : "text-secondary"} `}>{subItem.name}</div>
                                         </span>
-                                    </a>
+                                    </Link>
                                 )
                             }</>
                         </div>
-
                     })}
                 </> :
-                <a >
-                    <span className="flex w-275 h-55 bg-secondary-dim justify-between rounded-r-lg pl-37 link pr-15" >
+                <div className='link' onClick={() => history.goBack()}>
+                    <span className="flex h-55 bg-secondary-dim justify-between rounded-r-lg pl-37 link pr-15" >
                         <div className={`my-auto font-bold uppercase text-base leading-5 text-secondary `}>Back</div>
                         <img className="w-14 h-13 my-auto text-primary" src='images/sidebar/leftArrow.svg' />
                     </span>
-                </a>
+                </div>
             }
         </div>
     )

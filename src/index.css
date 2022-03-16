@@ -16,8 +16,8 @@
 .link {
   @apply cursor-pointer;
 }
-.vh-96{
- height: 97vh; 
+.vh-96 {
+  height: 97vh;
 }
 .slider-arrow .slick-arrow {
   @apply sm:hidden !important;
@@ -51,6 +51,19 @@
 
 .gray-btn {
   @apply font-bold text-secondary tracking shadow text-sm;
+}
+
+/* STEP BAR STYLES */
+.progress__container:before {
+  content: '';
+  width: 100%;
+  height: 4px;
+  background-color: #d6d6d6;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: 1;
 }
 
 /* Slider Styles */
