@@ -6,15 +6,11 @@ import './index.css';
 import SignupModal from 'components/molecules/modals/SignupModal';
 import LoginModal from 'components/molecules/modals/LoginModal';
 import ForgotPassword from 'components/molecules/modals/ForgotPassword';
-import Tables from 'components/molecules/tables/Tables';
-import RangeSlider from 'components/atoms/rangeslider/RangeSlider';
-import OrderDetail from 'pages/order-detail';
 
 function App() {
   const { store } = useStore();
 
   return (
-
     <Provider store={store}>
       <Router>
         <Switch>
@@ -28,8 +24,25 @@ function App() {
           ))}
         </Switch>
       </Router>
+      <LoginModal
+      // isOpen={signIn}
+      // openHandler={setSignIn}
+      // signUpHandler={setSignUp}
+      // forgotHandler={setForgot}
+      />
+      <SignupModal
+      // isOpen={signUp}
+      // openHandler={setSignUp}
+      // signInHandler={setSignIn}
+      // forgotHandler={setForgot}
+      />
+      <ForgotPassword
+      // isOpen={forgot}
+      // openHandler={setForgot}
+      // signInHandler={setSignIn}
+      // signUpHandler={setSignUp}
+      />
     </Provider>
-
   );
 }
 
