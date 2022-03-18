@@ -23,7 +23,6 @@ export const authRoutes = Object.freeze({
   ROUTE_PRICE: '/price',
   ROUTE_ORDER_DETAIL: '/order-detail',
   ROUTE_STOCK_ROOM: '/stock-room',
-
 });
 
 // List of route object which will be rendered under Router component
