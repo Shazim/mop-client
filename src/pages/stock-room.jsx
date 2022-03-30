@@ -1,31 +1,18 @@
+import React, { useState, useEffect } from 'react';
 import { getColors, getStyles } from 'api';
-import * as Yup from 'yup';
 import { Form } from 'components/app/forms';
-import SelectOptions from 'components/atoms/form/SelectOptions';
-import SearchBar from 'components/atoms/searchbar/SearchBar';
 import Footer from 'components/molecules/footer/Footer';
 import Header from 'components/molecules/header/Header';
-import SubHeader from 'components/molecules/header/SubHeader';
 import SideBar from 'components/molecules/sidebar/SideBar';
-import StepBar from 'components/stepbar/StepBar';
 import Categories from 'components/StockItem/Categories';
 import Detail from 'components/StockItem/Detail';
 import Exhibition from 'components/StockItem/Exhibition';
 import Price from 'components/StockItem/Price';
-import WithPrivateRoute from 'hoc/WithPrivateRoute';
-import React from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import { artworkSchema, generateSchema } from 'validation';
+import { artworkSchema } from 'validation';
 import StockItem from '../components/StockItem';
+import { useFetch, usePost } from 'hooks';
+import { createWork } from 'api/api-services';
 
-// let flow = [
-//   { title: 'item details', status: true },
-//   { title: 'categories', status: false },
-//   { title: 'pricing', status: false },
-//   { title: 'exhibition', status: false },
-// ];
 function StockRoom() {
   const [steps, setSteps] = useState([
     'item details',
@@ -34,22 +21,14 @@ function StockRoom() {
     'exhibition',
   ]);
   const [step, setStep] = useState('stock room');
-  const [edition, setEdition] = useState(0);
   const [colors, setColors] = useState([]);
   const [styles, setStyles] = useState([]);
-  const [openEdition, setOpenEdition] = useState(false);
-  const [artwork, setArtwork] = useState({
-    name: '',
-    note: '',
-    styles: [],
-  });
 
   useEffect(() => {
     getStyles()
       .then((response) => {
         if (response?.status == 200) {
           setStyles(response?.data?.styles);
-          console.log('STYLES ', response?.data?.styles);
         }
       })
       .catch((error) => console.log('ERROR ', error));
@@ -58,7 +37,6 @@ function StockRoom() {
       .then((response) => {
         if (response?.status == 200) {
           setColors(response?.data?.colours);
-          console.log('COLOURS ', response?.data?.colours);
         }
       })
       .catch((error) => console.log('ERROR ', error));
@@ -66,49 +44,76 @@ function StockRoom() {
 
   const next = (num) => {
     window.scrollTo(0, 0);
-    console.log('steps[num] : ', steps[num]);
     setStep(steps[num]);
   };
 
   const previous = (num) => {
     window.scrollTo(0, 0);
-    console.log('steps[num] : ', steps[num]);
     setStep(steps[num]);
   };
 
   const addItem = () => {
     setStep(steps[0]);
   };
-  // const componentState = {
-  //   'stock room': <StockItem addItem={addItem} />,
-  //   'item details': (
-  //     <Detail steps={steps} step={step} next={next} addItem={addItem} />
-  //   ),
-  //   categories: (
-  //     <Categories
-  //       steps={steps}
-  //       addItem={addItem}
-  //       step={step}
-  //       next={next}
-  //       previous={previous}
-  //       styles={styles}
-  //       colors={colors}
-  //     />
-  //   ),
-  //   pricing: (
-  //     <Price
-  //       steps={steps}
-  //       addItem={addItem}
-  //       step={step}
-  //       next={next}
-  //       previous={previous}
-  //     />
-  //   ),
-  //   exhibition: <Exhibition steps={steps} addItem={addItem} step={step} />,
-  // };
+
+  const [post, { data: dataPost, status: statusPost }] = usePost(createWork);
+
+  useEffect(() => {
+    if (dataPost) {
+      setStep('stock room');
+    }
+  }, [dataPost]);
 
   const data = (data) => {
-    console.log('DATA : ', data);
+    let copyData = { ...data };
+
+    let colour_ids = [];
+    let style_ids = [];
+    const colourIdsLength = Object.entries(data?.colour_ids).length;
+    const styleIdsLength = Object.entries(data?.style_ids).length;
+
+    if (data?.colour_ids && colourIdsLength != 0) {
+      Object.entries(data.colour_ids).map(([key, value]) => {
+        colour_ids.push(value);
+      });
+    }
+
+    if (data?.style_ids && styleIdsLength != 0) {
+      Object.entries(data.style_ids).map(([key, value]) => {
+        style_ids.push(value);
+      });
+    }
+
+    copyData.colour_ids = colour_ids;
+    copyData.style_ids = style_ids;
+
+    const formData = new FormData();
+    const formDataHandler = (mainKey, key, value, formData1) => {
+      if (Array.isArray(value)) {
+        value.map((item, index) => {
+          if (typeof item == 'object') {
+            Object.entries(item).map(([key1, value1]) => {
+              formData1.append(`${mainKey}[${key}][${index}][${key1}]`, value1);
+            });
+          } else {
+            formData1.append(`${mainKey}[${key}][]`, item);
+          }
+        });
+      } else if (typeof value == 'object') {
+        Object.entries(value).map(([key2, value]) => {
+          formData1.append(`${mainKey}[${key}][]`, value);
+        });
+      } else {
+        formData1.append(`${mainKey}[${key}]`, value);
+      }
+    };
+
+    Object.entries(data).map(([key, value]) => {
+      formDataHandler('artwork', key, value, formData);
+    });
+    post({
+      variables: formData,
+    });
   };
 
   return (
@@ -120,31 +125,31 @@ function StockRoom() {
         </div>
         {step == 'stock room' && <StockItem addItem={addItem} />}
         <Form
-          initialValues={{ name: '', note: '', images: [] }}
+          initialValues={{
+            name: '',
+            note: '',
+            artwork_images_attributes: [],
+            edition_type: 'open',
+            sell_via: 'with_us',
+            sellable: false,
+            exhibitionable: false,
+            colour_ids: {},
+            style_ids: {},
+            status: true,
+          }}
           onSubmit={data}
           validationSchema={artworkSchema}
         >
           {step == 'item details' && (
-            <Detail
-              steps={steps}
-              step={step}
-              yup
-              next={next}
-              addItem={addItem}
-              artwork={artwork}
-              artworkHandler={setArtwork}
-            />
+            <Detail steps={steps} step={step} next={next} addItem={addItem} />
           )}
 
           {step == 'categories' && (
             <Categories
               steps={steps}
-              artwork={artwork}
-              stylesId={artwork.styles}
               addItem={addItem}
               step={step}
               next={next}
-              handler={setArtwork}
               previous={previous}
               styles={styles}
               colors={colors}
@@ -176,5 +181,4 @@ function StockRoom() {
   );
 }
 
-// export default WithPrivateRoute(StockRoom)
 export default StockRoom;

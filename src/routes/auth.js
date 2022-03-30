@@ -32,6 +32,7 @@ export default Object.freeze([
   { path: authRoutes.ROUTE_PRICE, component: Pricing },
   { path: authRoutes.ROUTE_GALLERY_DETAIL, component: GalleryDetail },
   { path: authRoutes.ROUTE_GALLERY, component: Gallery },
+  // { path: authRoutes.ROUTE_GALLERY, component: Pr },
   { path: authRoutes.ROUTE_ORDER_DETAIL, component: OrderDetail },
   { path: authRoutes.ROUTE_BROWSE_ARTWORK, component: BrowseArtwork },
   { path: authRoutes.ROUTE_STOCK_ROOM, component: StockRoom },

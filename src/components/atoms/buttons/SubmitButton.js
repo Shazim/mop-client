@@ -1,32 +1,16 @@
-import { useFormikContext } from "formik";
+import { useFormikContext } from 'formik';
 import { useMemo } from 'react';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
-import "../../app/config/styles/style.scss";
-
-
-/*
-children,
-  className: classes = '',
-  onClick,
-  style,
-  type = 'contained',
-  rounded = false,
-  color = 'primary',
-  transform = "capitalize",
-  ...otherProps
-
-*/
-
-
+import '../../app/config/styles/style.scss';
 
 const SubmitButton = ({
   children,
-  className: classes = "",
+  className: classes = '',
   type = 'contained',
   rounded = false,
   color = 'primary',
-  transform = "capitalize",
+  transform = 'capitalize',
   style,
   ...otherProps
 }) => {
@@ -36,12 +20,12 @@ const SubmitButton = ({
 
   const btnClass = (type) => {
     const btnType = {
-      "contained": `bg-${color} ${grayBtn ? "gray-btn" : "primary-btn"}`,
-      "outline": `font-bold text-${color} border border-${color} text-base`,
-      "edit": `bg-white gray-btn rounded-sm`
-    }
-    return btnType[type]
-  }
+      contained: `bg-${color} ${grayBtn ? 'gray-btn' : 'primary-btn'}`,
+      outline: `font-bold text-${color} border border-${color} text-base`,
+      edit: `bg-white gray-btn rounded-sm`,
+    };
+    return btnType[type];
+  };
 
   const btnClasses = useMemo(() => {
     return btnClass(type);

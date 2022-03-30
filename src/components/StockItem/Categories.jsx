@@ -1,14 +1,11 @@
-import React, { useCallback } from 'react';
-
+import React from 'react';
 import SubHeader from 'components/molecules/header/SubHeader';
 import StepBar from 'components/stepbar/StepBar';
-import { useState } from 'react';
-import { useEffect } from 'react';
 import Button from 'components/atoms/buttons/Button';
-import { getColors, getStyles } from 'api';
 import CheckBox from 'components/atoms/checkbox/CheckBox';
 import Counter from 'components/atoms/counter/Counter';
 import ToggleButton from 'components/atoms/togglebutton/ToggleButton';
+import { useFormikContext } from 'formik';
 
 export default function Categories({
   addItem,
@@ -18,26 +15,32 @@ export default function Categories({
   previous,
   styles,
   colors,
-  handler,
-  edition,
-  openEdition,
-  stylesId,
-  artwork,
-  openEditionHandler,
-  editionHandler,
 }) {
-  const setStyleIds = (id) => {
-    let copyStyles = [...artwork.styles];
+  const {
+    setFieldValue,
+    values: { edition_type, colour_ids, style_ids },
+  } = useFormikContext() || {};
 
-    if (copyStyles.includes(id)) {
-      let index = copyStyles.indexOf(id);
-      copyStyles.splice(index, 1);
-      handler(copyStyles);
+  const handleColors = (id) => {
+    let copyColorIds = { ...colour_ids };
+    if (copyColorIds[id]) {
+      delete copyColorIds.id;
     } else {
-      handler((prv) => [...prv.styles, id]);
+      copyColorIds[id] = id;
     }
-    console.log('STYLES IDSSS : ', stylesId);
+    setFieldValue('colour_ids', copyColorIds);
   };
+
+  const handleStyles = (id) => {
+    let copyStyleIds = { ...style_ids };
+    if (copyStyleIds[id]) {
+      delete copyStyleIds.id;
+    } else {
+      copyStyleIds[id] = id;
+    }
+    setFieldValue('style_ids', copyStyleIds);
+  };
+
   return (
     <div className="w-80% pb-172">
       <SubHeader
@@ -57,12 +60,14 @@ export default function Categories({
           </div>
           <div className="grid grid-cols-3 gap-20">
             {styles.map((style, index) => (
-              <CheckBox
-                className=""
-                value={style.name}
-                onChange={() => setStyleIds(style.id)}
-                // checked={}
-              />
+              <>
+                <CheckBox
+                  className=""
+                  value={style.name}
+                  onChange={() => handleStyles(style.id)}
+                  defaultChecked={style.id == style_ids[style.id]}
+                />
+              </>
             ))}
           </div>
           <div className="border-border border-t-2 my-25"></div>
@@ -71,7 +76,12 @@ export default function Categories({
           </div>
           <div className="grid grid-cols-3 gap-20 pr-30%">
             {colors.map((color, index) => (
-              <CheckBox className="" value={color.name} checked={true} />
+              <CheckBox
+                className=""
+                value={color.name}
+                onChange={() => handleColors(color.id)}
+                defaultChecked={color.id == colour_ids[color.id]}
+              />
             ))}
           </div>
           <div className="border-border border-t-2 my-25"></div>
@@ -81,15 +91,15 @@ export default function Categories({
           </div>
           <div className="flex items-center">
             <ToggleButton
-              bg={openEdition ? 'bg-gray' : 'bg-white'}
-              handler={openEditionHandler}
+              bg={edition_type == 'open' ? 'bg-gray' : 'bg-white'}
+              onClick={() => setFieldValue('edition_type', 'open')}
             >
               OPEN EDITION
             </ToggleButton>
             <Counter
               width="w-263 ml-32"
-              edition={edition}
-              editionHandler={editionHandler}
+              active={edition_type == 'limited'}
+              onClick={() => setFieldValue('edition_type', 'limited')}
             />
           </div>
 

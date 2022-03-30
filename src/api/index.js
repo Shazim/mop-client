@@ -1,12 +1,1 @@
-export {
-  getQuestionsService,
-  getCategoriesService,
-  signInService,
-  signIn,
-  signUp,
-  attemptService,
-  contactFormService,
-  getStyles,
-  getColors,
-  staticDataService,
-} from './api-services';
+export { signIn, signUp, getStyles, getColors } from './api-services';

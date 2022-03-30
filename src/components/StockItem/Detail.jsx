@@ -1,28 +1,19 @@
-import React, { useCallback } from 'react';
-import SelectOptions from 'components/atoms/form/SelectOptions';
+import React from 'react';
 import TextArea from 'components/atoms/form/TextArea';
 import TextField from 'components/atoms/form/TextField';
-import SearchBar from 'components/atoms/searchbar/SearchBar';
 import SubHeader from 'components/molecules/header/SubHeader';
 import StepBar from 'components/stepbar/StepBar';
-import { useState } from 'react';
-import { useEffect } from 'react';
 import Button from 'components/atoms/buttons/Button';
-import { Form } from 'components/app/forms';
-import { generateSchema } from 'validation';
 import ImagePicker from 'components/atoms/imagepicker/ImagePicker';
+import ErrorMessage from 'components/app/forms/ErrorMessage';
 
-export default function Detail({
-  addItem,
-  steps,
-  step,
-  next,
-  artwork,
-  artworkHanler,
-}) {
-  // useEffect(() => {
-  //   console.log('IMAGES ', images);
-  // }, [images]);
+import { useFormikContext } from 'formik';
+
+export default function Detail({ addItem, steps, step, next }) {
+  const {
+    handleSubmit,
+    values: { name, note, artwork_images_attributes },
+  } = useFormikContext() || {};
 
   return (
     <div className="w-80% pb-172">
@@ -38,14 +29,6 @@ export default function Detail({
           <StepBar steps={steps} step={step} />
         </div>
         <div className="w-65% mx-auto mt-87 items-center">
-          {/* <Form
-            initialValues={{ name: '', note: '', images: '' }}
-            validationSchema={generateSchema({
-              name: '',
-              note: '',
-              images: '',
-            })}
-          > */}
           <TextField
             classes="w-100%"
             label="artwork name"
@@ -61,16 +44,37 @@ export default function Detail({
           />
           <div className="border-border border-t-2 my-25"></div>
           <ImagePicker name="images" label="artwork images" />
+          <ErrorMessage
+            error={
+              artwork_images_attributes.length == 0
+                ? 'upload at least one picture'
+                : false
+            }
+            visible={
+              artwork_images_attributes.length == 0
+                ? 'upload at least one picture'
+                : false
+            }
+          />
           <div className="w-100% justify-end flex">
             <Button
-              onClick={() => next(1)}
+              onClick={() => {
+                if (
+                  name != '' &&
+                  note != '' &&
+                  artwork_images_attributes.length != 0
+                ) {
+                  next(1);
+                } else {
+                  handleSubmit();
+                }
+              }}
               className={`h-33 w-153 mt-34`}
               color="primary"
             >
               NEXT
             </Button>
           </div>
-          {/* </Form> */}
         </div>
       </div>
     </div>

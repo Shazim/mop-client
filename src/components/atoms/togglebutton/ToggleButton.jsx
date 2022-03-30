@@ -4,11 +4,11 @@ function ToggleButton({
   className: classes = 'w-211 h-32',
   bg,
   children,
-  handler,
+  ...props
 }) {
   return (
     <button
-      onClick={() => handler((prv) => !prv)}
+      {...props}
       className={`font-bold text-sm text-secondary tracking leading-32 ${classes} ${bg}`}
     >
       {children}

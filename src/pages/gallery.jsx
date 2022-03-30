@@ -8,10 +8,8 @@ import Footer from 'components/molecules/footer/Footer';
 import GalleryCard from 'components/atoms/cards/GalleryCard';
 import { Link } from 'react-router-dom';
 
-
 function Gallary() {
-  const counter = [1,2,2,2,2,2,2,2,3,3,3,3]
-  const [tab, setTab] = useState('Galleries')
+  const [tab, setTab] = useState('Galleries');
   return (
     <div>
       <Header />
@@ -20,20 +18,23 @@ function Gallary() {
         <div className="max-screen flex justify-end pt-31">
           <div className="mr-25">
             <SearchBar
-              transform='uppercase'
-              placeholder={`search for ${tab == "Galleries" ? "Gallery" : tab}`}
+              transform="uppercase"
+              placeholder={`search for ${tab == 'Galleries' ? 'Gallery' : tab}`}
               bgColor="bg-gray-lighter"
             />
           </div>
           <SelectOptions label="sort: Most popular" />
         </div>
       </div>
-      <div className='max-screen pt-30 pb-43'> 
-      <div className='grid grid-cols-4 gap-36 justify-between'>{
-        counter.map(() => <Link to={"/gallery-detail"}><GalleryCard/></Link> )
-      }    
-      </div>    
-      <div className='text-primary link mt-25 text-base'>1</div>
+      <div className="max-screen pt-30 pb-43">
+        <div className="grid grid-cols-4 gap-36 justify-between">
+          {[...Array(12)].map(() => (
+            <Link to={'/gallery-detail'}>
+              <GalleryCard />
+            </Link>
+          ))}
+        </div>
+        <div className="text-primary link mt-25 text-base">1</div>
       </div>
       <DiscoverMore background="bg-gray-lighter" />
       <Footer />

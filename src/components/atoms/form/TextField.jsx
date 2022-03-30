@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 function TextField({
   placeholder = '',
-  mb = '0',
   icon = false,
   label = 'Name',
   name = '',
@@ -12,9 +11,6 @@ function TextField({
   type = 'text',
   classes = 'w-100% h-32',
   titleClasses = 'text-secondary uppercase tracking mb-11',
-  color = 'text-secondary',
-  tracking = 'tracking',
-  textTransform = 'uppercase',
 }) {
   return (
     <div className="mb-10">

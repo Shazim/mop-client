@@ -1,31 +1,17 @@
 import React, { useCallback } from 'react';
-
 import SubHeader from 'components/molecules/header/SubHeader';
 import StepBar from 'components/stepbar/StepBar';
-import { useState } from 'react';
-import { useEffect } from 'react';
 import Button from 'components/atoms/buttons/Button';
-import { getColors, getStyles } from 'api';
-import CheckBox from 'components/atoms/checkbox/CheckBox';
-import Counter from 'components/atoms/counter/Counter';
 import ToggleButton from 'components/atoms/togglebutton/ToggleButton';
 import SwitchButton from 'components/atoms/buttons/SwitchButton';
+import { useFormikContext } from 'formik';
 
-export default function Price({
-  addItem,
-  steps,
-  step,
-  next,
-  previous,
-  handler,
-  styles,
-  colors,
-  edition,
-  openEdition,
+export default function Price({ addItem, steps, step, next, previous }) {
+  const {
+    setFieldValue,
+    values: { sell_via, sellable },
+  } = useFormikContext() || {};
 
-  openEditionHandler,
-  editionHandler,
-}) {
   return (
     <div className="w-80% pb-172">
       <SubHeader
@@ -44,7 +30,10 @@ export default function Price({
             <p className="font-bold tracking leading-32 text-sm text-secondary uppercase">
               Would you like to sell this item?
             </p>
-            <SwitchButton />
+            <SwitchButton
+              active={sellable}
+              onChange={() => setFieldValue('sellable', !sellable)}
+            />
           </div>
           <div className="border-border border-t-2 my-25"></div>
           <div className="mb-20">
@@ -65,15 +54,15 @@ export default function Price({
 
           <div className="flex items-center">
             <ToggleButton
-              bg={!openEdition ? 'bg-gray' : 'bg-white'}
-              handler={openEditionHandler}
+              bg={sell_via == 'with_us' ? 'bg-gray' : 'bg-white'}
+              onClick={() => setFieldValue('sell_via', 'with_us')}
             >
               SELL WITH US
             </ToggleButton>
             <ToggleButton
               className="ml-32 w-211 h-32"
-              bg={openEdition ? 'bg-gray' : 'bg-white'}
-              handler={openEditionHandler}
+              bg={sell_via == 'self_fulfil' ? 'bg-gray' : 'bg-white'}
+              onClick={() => setFieldValue('sell_via', 'self_fulfil')}
             >
               SELF FULFIL
             </ToggleButton>

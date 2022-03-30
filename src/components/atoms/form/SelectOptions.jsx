@@ -13,7 +13,7 @@ function SelectOptions({
   ],
   label = 'choose an option',
   width = '266',
-  handler,
+  onChange,
 }) {
   const [text, setText] = useState(label);
   const [hide, setHide] = useState(true);
@@ -43,7 +43,12 @@ function SelectOptions({
         } font-bold uppercase select-items w-100% absolute top-100% text-secondary text-sm pl-22 left-0 tracking right-0 z-50 bg-gray-lightest leading-7`}
       >
         {option.map((item) => (
-          <div onClick={() => displayItems(item.label, item.value)}>
+          <div
+            onClick={() => {
+              onChange && onChange(item.value);
+              displayItems(item.label, item.value);
+            }}
+          >
             {item.label}
           </div>
         ))}

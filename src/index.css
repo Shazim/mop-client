@@ -9,6 +9,10 @@
   @apply font-nunito-light text-secondary text-lg capitalize leading-9;
 }
 
+.w-fit {
+  width: fit-content;
+}
+
 .heading {
   @apply font-avenir-reg font-medium text-base uppercase tracking-wider leading-55 text-secondary mb-4;
 }

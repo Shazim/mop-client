@@ -15,8 +15,10 @@ module.exports = {
     extend: {
       backgroundImage: (theme) => ({
         'featured-gallery': "url('/src/assets/images/background/gallary.png')",
-        'bg-gallery': "url('/src/assets/images/background/galleryBackground.png')",
-        'background-gallery': "url('/src/assets/images/background/bgGallery.png')",
+        'bg-gallery':
+          "url('/src/assets/images/background/galleryBackground.png')",
+        'background-gallery':
+          "url('/src/assets/images/background/bgGallery.png')",
         cubes: "url('/src/assets/images/background/cubes.png')",
         photography: "url('/src/assets/images/background/photography.png')",
       }),
@@ -61,7 +63,6 @@ module.exports = {
 
       borderColor: (theme) => ({
         DEFAULT: theme('#C71118', 'currentColor'),
-
       }),
 
       borderWidth: {
@@ -77,8 +78,8 @@ module.exports = {
       borderRadius: {
         none: '0',
         DEFAULT: '4px',
-        sm: "5px",
-        lg: "9px",
+        sm: '5px',
+        lg: '9px',
         xl: '15px',
         large: '30px',
         '50%': '50%',
@@ -89,10 +90,10 @@ module.exports = {
         black: '#000000',
         white: '#FFFFFF',
         green: 'green',
-        backgroundColor: "#E5E5E5",
+        backgroundColor: '#E5E5E5',
 
-        instagram: "#C32AA3",
-        facebook: "#3B5998",
+        instagram: '#C32AA3',
+        facebook: '#3B5998',
 
         backgroundColor: '#F2F1F1',
         border: {
@@ -133,15 +134,16 @@ module.exports = {
         danger: '#e3342f',
         gray: '#D6D6D6',
       }),
+
       fontSize: {
         tiny: '10px',
-        11: "11px",
+        11: '11px',
         xsm: '12px',
         sm: '13px',
         base: '14px',
         lg: '16px',
         xl: '18px',
-        20: "20px",
+        20: '20px',
         '2xl': '24px',
         heading: '33px',
         '3xl': '2.25rem',
@@ -150,6 +152,7 @@ module.exports = {
         '6xl': '4rem',
         '7xl': '5rem',
       },
+
       fontFamily: {
         'nunito-light': 'nunito-light',
         reg: 'nunito-regular',
@@ -238,7 +241,6 @@ module.exports = {
         '3xl': [{ max: '1440px' }],
       },
 
-
       spacing: {
         ...spacing,
         ...{
@@ -248,8 +250,8 @@ module.exports = {
           _39: '-39px',
           370: '370px',
           491: '491px',
-          '96vh': "96vh",
-          '90vw': "90vw",
+          '96vh': '96vh',
+          '90vw': '90vw',
         },
       },
       width: {

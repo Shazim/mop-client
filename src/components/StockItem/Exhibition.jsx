@@ -1,32 +1,20 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 
 import SubHeader from 'components/molecules/header/SubHeader';
 import StepBar from 'components/stepbar/StepBar';
-import { useState } from 'react';
-import { useEffect } from 'react';
 import Button from 'components/atoms/buttons/Button';
-import { getColors, getStyles } from 'api';
-import CheckBox from 'components/atoms/checkbox/CheckBox';
-import Counter from 'components/atoms/counter/Counter';
-import ToggleButton from 'components/atoms/togglebutton/ToggleButton';
 import SwitchButton from 'components/atoms/buttons/SwitchButton';
-import SelectOptions from 'components/atoms/form/SelectOptions';
 import SubmitButton from 'components/atoms/buttons/SubmitButton';
 
-export default function Exhibition({
-  addItem,
-  steps,
-  step,
-  handler,
-  styles,
-  colors,
-  edition,
-  next,
-  previous,
-  openEdition,
-  openEditionHandler,
-  editionHandler,
-}) {
+import { useFormikContext } from 'formik';
+
+export default function Exhibition({ addItem, steps, step, previous }) {
+  const {
+    setFieldValue,
+    values: { exhibitionable },
+    errors,
+  } = useFormikContext() || {};
+
   return (
     <div className="w-80% pb-172">
       <SubHeader
@@ -45,19 +33,12 @@ export default function Exhibition({
             <p className="font-bold tracking leading-32 text-sm text-secondary uppercase">
               Would you like to EXHIBIT this item?
             </p>
-            <SwitchButton />
+            <SwitchButton
+              active={exhibitionable}
+              onChange={() => setFieldValue('exhibitionable', !exhibitionable)}
+            />
           </div>
           <div className="border-border border-t-2 my-25"></div>
-          {/* <div className="font-bold items-center tracking leading-32 text-sm text-secondary uppercase mb-20 flex gap-3">
-            Choose the EXHIBITION:
-            <img src="/images/questionMark.svg" />
-          </div>
-          <div className="mb-20">
-            <SelectOptions width="100%" />
-          </div>
-
-          <div className="border-border border-t-2 my-40"></div> */}
-
           <div className="w-100% justify-between flex">
             <Button
               onClick={() => previous(2)}
@@ -66,18 +47,7 @@ export default function Exhibition({
             >
               PREVIOUS
             </Button>
-            <SubmitButton
-              // onClick={() => next()}
-              // onClick={() => {
-              //   window.scrollTo(0, 0);
-              //   const step = [...steps];
-              //   step[1].status = true;
-              //   handler(step);
-              //   addItem((prv) => prv + 1);
-              // }}
-              className={`h-33 w-153 mt-28`}
-              color="primary"
-            >
+            <SubmitButton className={`h-33 w-153 mt-28`} color="primary">
               FINISH
             </SubmitButton>
           </div>

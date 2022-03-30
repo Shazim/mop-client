@@ -19,14 +19,14 @@ export const generateSchema = (param) => {
           'Username is not valid'
         )
         .required(`${camelCasetoNormal(label)} is required`);
-    else if (label.indexOf('password') >= 0 || label.indexOf('Password') >= 0)
-      schema[label] = Yup.string()
-        .min(8)
-        .matches(
-          /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/,
-          'Must Contain 8 Characters, One Uppercase, One Lowercase and One Number.'
-        )
-        .required(`${camelCasetoNormal(label)} is required`);
+    // else if (label.indexOf('password') >= 0 || label.indexOf('Password') >= 0)
+    //   schema[label] = Yup.string()
+    //     .min(6)
+    //     .matches(
+    //       /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{6,})/,
+    //       'Must Contain 6 Characters, One Uppercase, One Lowercase and One Number.'
+    //     )
+    //     .required(`${camelCasetoNormal(label)} is required`);
     else if (label.indexOf('confirm') >= 0)
       schema[label] = Yup.string()
         .oneOf(
@@ -49,5 +49,5 @@ export const generateSchema = (param) => {
 export const artworkSchema = Yup.object().shape({
   name: Yup.string().required('Name is required'),
   note: Yup.string().required('Note is required'),
-  images: Yup.array().min(1).required('At least one image is required'),
+  // images: Yup.array().min(1).required('At least one image is required'),
 });

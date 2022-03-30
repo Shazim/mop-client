@@ -1,49 +1,5 @@
 import { Link } from 'react-router-dom';
 
-export const bubblesCircle = ({
-  parentClass,
-  noOfBubbles,
-  childClass,
-  childHeight,
-  questionType,
-  value,
-}) => {
-  let div = 360 / noOfBubbles;
-  let radius1 = (childHeight * (noOfBubbles / 2)) / 2 - 5;
-  let parentdiv = document.getElementById(parentClass);
-  parentdiv.style.height = childHeight * (noOfBubbles / 2 + 1) + 'px';
-  parentdiv.style.width = childHeight * (noOfBubbles / 2 + 1) + 'px';
-
-  var currentValue = value % 10;
-  var parts = Math.floor(value / 10);
-
-  var circleToBeFilled =
-    questionType === 'dna'
-      ? dnaCircle(value)
-      : parts * 4 + partCount(currentValue);
-  if (parentdiv) {
-    for (var i = 1; i <= noOfBubbles; ++i) {
-      var childdiv = document.createElement('div');
-      var positionToBe = i - 11;
-      if (i <= circleToBeFilled) {
-        childdiv.className = `bg-${colorLoader(i * 5)} ${childClass}`;
-      } else {
-        childdiv.className = childClass;
-      }
-      childdiv.style.position = 'absolute';
-      var y =
-        Math.cos(div * positionToBe * (Math.PI / 180)) * radius1 + radius1;
-      var x =
-        Math.sin(div * positionToBe * (Math.PI / 180)) * radius1 + radius1;
-      childdiv.style.top = y.toString() + 'px';
-      childdiv.style.left = x.toString() + 'px';
-      childdiv.style.height = childHeight + 'px';
-      childdiv.style.width = childHeight + 'px';
-      parentdiv.appendChild(childdiv);
-    }
-  }
-};
-
 export const camelCasetoNormal = (word) => {
   return word
     .split(/(?=[A-Z])/)

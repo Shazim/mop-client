@@ -3,6 +3,7 @@ import { useFormikContext } from 'formik';
 import ErrorMessage from './ErrorMessage';
 import Input from '../common/Input';
 import React, { useState } from 'react';
+
 function FormField({
   className: classes = '',
   name,
@@ -15,70 +16,50 @@ function FormField({
     handleBlur,
     handleChange,
     setFieldValue,
-    setValues,
     errors = {},
     touched = {},
-    values = {},
+    values: { artwork_images_attributes } = {},
   } = useFormikContext() || {};
-  const [images, setImages] = useState([]);
 
   const handleChangeCustom = (e) => {
     const { name, type, files } = e.target;
 
     if (type === 'file') {
+      let copyFiles = [...artwork_images_attributes];
       Object.entries(files).map(([key, value]) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(value);
-        reader.onload = () => {
-          const imgs = new Image();
-          imgs.src = reader.result;
-          imgs.onload = () => {
-            if (imgs.height > imgs.width) {
-              setImages((prv) => [
-                ...prv,
-                {
-                  name: value.name,
-                  path: reader.result,
-                  orientaion: 'portrait',
-                  size: value.size,
-                },
-              ]);
-              // setHandler((prv) => [
-              //   ...prv,
-              //   {
-              //     name: value.name,
-              //     path: reader.result,
-              //     orientaion: 'portrait',
-              //     size: value.size,
-              //   },
-              // ]);
-            } else {
-              setImages((prv) => [
-                ...prv,
-                {
-                  name: value.name,
-                  path: reader.result,
-                  orientaion: 'landscape',
-                  size: value.size,
-                },
-              ]);
+        let img = new Image();
+        let _URL = window.URL || window.webkitURL;
 
-              // setHandler((prv) => [
-              //   ...prv,
-              //   {
-              //     name: value.name,
-              //     path: reader.result,
-              //     orientaion: 'landscape',
-              //     size: value.size,
-              //   },
-              // ]);
-            }
+        let imageLink = _URL.createObjectURL(value);
+
+        img.onload = async function () {
+          const imageWidth = img.width;
+          const imageHeight = img.height;
+          let imageFile = {
+            image: value,
+            imageLink,
+            featured_image: false,
           };
+
+          if (imageWidth > imageHeight) {
+            imageFile.orientaion = 'landscape';
+            await copyFiles.push(imageFile);
+            setFieldValue('artwork_images_attributes', copyFiles);
+          } else if (imageWidth < imageHeight) {
+            imageFile.orientaion = 'portrait';
+            await copyFiles.push(imageFile);
+            setFieldValue('artwork_images_attributes', copyFiles);
+          } else if (imageHeight == imageWidth) {
+            imageFile.orientaion = 'square';
+            await copyFiles.push(imageFile);
+            setFieldValue('artwork_images_attributes', copyFiles);
+          }
         };
+        img.src = _URL.createObjectURL(value);
       });
-      // return setFieldValue(name, images);
+    } else {
+      handleChange(e);
     }
-    handleChange(e);
   };
 
   return (
@@ -88,7 +69,6 @@ function FormField({
         name={name}
         onBlur={handleBlur}
         onChange={handleChangeCustom}
-        value={values[name]}
         type={type}
         {...otherProps}
       />
