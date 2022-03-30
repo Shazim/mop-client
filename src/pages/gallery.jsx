@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import GalleryBar from 'components/GalleryBar/GalleryBar';
 import Header from 'components/molecules/header/Header';
 import SearchBar from 'components/atoms/searchbar/SearchBar';
@@ -7,9 +7,19 @@ import DiscoverMore from 'components/DiscoveMore/DiscoverMore';
 import Footer from 'components/molecules/footer/Footer';
 import GalleryCard from 'components/atoms/cards/GalleryCard';
 import { Link } from 'react-router-dom';
+import { useLazyFetch } from 'hooks';
+import { getGalleries } from 'api/api-services';
 
 function Gallary() {
   const [tab, setTab] = useState('Galleries');
+  const [handleGetGalleries, { data, status }] = useLazyFetch(getGalleries);
+
+  console.log('galleries', data);
+
+  useEffect(() => {
+    handleGetGalleries();
+  }, []);
+
   return (
     <div>
       <Header />
@@ -28,7 +38,7 @@ function Gallary() {
       </div>
       <div className="max-screen pt-30 pb-43">
         <div className="grid grid-cols-4 gap-36 justify-between">
-          {[...Array(12)].map(() => (
+          {data?.galleries.map(() => (
             <Link to={'/gallery-detail'}>
               <GalleryCard />
             </Link>

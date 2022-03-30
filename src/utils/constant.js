@@ -4,6 +4,7 @@ export const END_POINTS = {
   STYLES: '/styles',
   COLORS: '/colours',
   ARTWORKS: '/artworks',
+  GALLERIES: '/galleries',
 };
 
 export const LINKS = {
