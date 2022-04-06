@@ -95,7 +95,6 @@ module.exports = {
         instagram: '#C32AA3',
         facebook: '#3B5998',
 
-        backgroundColor: '#F2F1F1',
         border: {
           DEFAULT: '#CCCCCC',
         },
