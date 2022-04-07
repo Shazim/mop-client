@@ -7,11 +7,13 @@ import { LinkLabel } from 'components/LinkLabel';
 import { ReceiveInsight } from 'components/ReceiveInsight';
 import React from 'react';
 import { useState } from 'react';
+
 import LoginModal from 'components/molecules/modals/LoginModal';
 import SignupModal from 'components/molecules/modals/SignupModal';
 import ForgotPassword from 'components/molecules/modals/ForgotPassword';
+import { getCookie } from 'cookies/Cookies';
 import { useEffect } from 'react';
-import { Link, useHistory, useLocation } from 'react-router-dom';
+import { Link, useHistory, useLocation, Redirect } from 'react-router-dom';
 import GridLayout from 'components/atoms/cards/GridLayout';
 
 function Home() {
@@ -30,29 +32,13 @@ function Home() {
   ];
 
   const [signUp, setSignUp] = useState();
-  const search = useLocation().search;
-  const [signIn, setSignIn] = useState();
-  const [forgot, setForgot] = useState();
+
   const history = useHistory();
-
-  useEffect(() => {
-    if (!signIn) {
-      const login = new URLSearchParams(search).get('login');
-      login && setSignIn((prv) => !prv);
-    }
-    scrollOff();
-  }, [signUp, signIn, forgot]);
-
-  const scrollOff = () => {
-    signUp || signIn || forgot
-      ? (window.document.body.style.overflow = 'hidden')
-      : (window.document.body.style.overflow = 'scroll');
-  };
 
   return (
     <>
       <div className="bg-featured-gallery bg-no-repeat bg-cover">
-        <Header signUpHandler={setSignUp} signInHandler={setSignIn} />
+        <Header />
         <div className="relative">
           <img
             className="absolute -bottom-38 right-0"
@@ -132,24 +118,7 @@ function Home() {
         ))}
       </div>
       <ReceiveInsight />
-      <LoginModal
-        isOpen={signIn}
-        openHandler={setSignIn}
-        signUpHandler={setSignUp}
-        forgotHandler={setForgot}
-      />
-      <SignupModal
-        isOpen={signUp}
-        openHandler={setSignUp}
-        signInHandler={setSignIn}
-        forgotHandler={setForgot}
-      />
-      <ForgotPassword
-        isOpen={forgot}
-        openHandler={setForgot}
-        signInHandler={setSignIn}
-        signUpHandler={setSignUp}
-      />
+
       <Footer />
     </>
   );

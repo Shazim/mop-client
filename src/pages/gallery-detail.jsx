@@ -2,27 +2,50 @@ import VideoCard from 'components/atoms/cards/VideoCard';
 import GalleryBar from 'components/GalleryBar/GalleryBar';
 import Footer from 'components/molecules/footer/Footer';
 import Header from 'components/molecules/header/Header';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useLazyFetch } from 'hooks';
+import { getGalleryDetails } from 'api/api-services';
+import Pagination from 'components/Pagination/Pagination';
 
-function GallaryDetail() {
+function GallaryDetail(props) {
+  const [handleGetGalleries, { data, status }] =
+    useLazyFetch(getGalleryDetails);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const search = props.location.search;
+  const params = new URLSearchParams(search);
+  const id = params.get('id');
+
+  console.log('data', data);
+  useEffect(() => {
+    if (id) {
+      handleGetGalleries({ variables: 1 });
+    }
+  }, [id]);
+
   return (
     <>
       <Header />
       <GalleryBar />
       <div className="flex pb-30 flex-col items-center pt-34 tracking-wider font-avenir-reg font-medium uppercase ">
-        <div className="text-primary text-2xl">Gallery Name</div>
-        <div className="text-secondary text-lg">Artist Name</div>
+        <div className="text-primary text-2xl">{data?.gallery_name}</div>
+        <div className="text-secondary text-lg">{data?.artist_name}</div>
       </div>
       <div className="max-screen ">
         <div className="mx-80 grid grid-cols-2 gap-22">
-          <VideoCard />
-          <VideoCard />
-          <VideoCard />
-          <VideoCard />
+          {data?.exhibitions?.map(({ room_name, views }) => (
+            <VideoCard title={room_name} views={views} />
+          ))}
         </div>
-        <div className='ml-80 mt-15 mb-63 text-primary text-base'>1</div>
+        <Pagination
+          pageDetails={data?.pagination}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          className="mt-15 mb-63"
+        />
+        {/* <div className="ml-80 mt-15 mb-63 text-primary text-base">1</div> */}
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 }

@@ -6,22 +6,40 @@ import './index.css';
 import SignupModal from 'components/molecules/modals/SignupModal';
 import LoginModal from 'components/molecules/modals/LoginModal';
 import ForgotPassword from 'components/molecules/modals/ForgotPassword';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import PrivateRoute from 'routes/PrivateRoute';
 
 function App() {
   const { store } = useStore();
 
   return (
     <Provider store={store}>
+      <ToastContainer />
       <Router>
         <Switch>
-          {authRouter.map((item) => (
-            <Route
-              exact
-              key={item.path}
-              path={item.path}
-              component={item.component}
-            />
-          ))}
+          {authRouter.map((item) => {
+            if (item.privateRoute) {
+              return (
+                <PrivateRoute
+                  key={item.path}
+                  path={item.path}
+                  component={item.component}
+                  exact
+                  privateRoute={item.privateRoute}
+                />
+              );
+            } else {
+              return (
+                <Route
+                  exact
+                  key={item.path}
+                  path={item.path}
+                  component={item.component}
+                />
+              );
+            }
+          })}
         </Switch>
       </Router>
       <LoginModal

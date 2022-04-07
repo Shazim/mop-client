@@ -29,7 +29,8 @@ function LoginModal({ isOpen, openHandler, signUpHandler, forgotHandler }) {
     signIn({ ...values, grant_type: 'password' })
       .then((response) => {
         if (response?.status == 200) {
-          setCookie('user', response?.data);
+          console.log('hello', response);
+          setCookie('user', JSON.stringify(response?.data));
           closeModal();
           history.push('/stock-room');
         }

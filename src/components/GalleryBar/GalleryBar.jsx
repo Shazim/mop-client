@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 
-function GalleryBar({setHandler, menus = ['Galleries', 'Exhibition', 'Artists'] }) {
+function GalleryBar({
+  setHandler,
+  menus = ['galleries', 'exhibitions', 'artists'],
+}) {
   const [id, setId] = useState(0);
 
   return (
@@ -13,9 +16,9 @@ function GalleryBar({setHandler, menus = ['Galleries', 'Exhibition', 'Artists'] 
                 index == id ? 'text-primary' : 'text-secondary'
               } tracking  text-sm font-bold link`}
               onClick={() => {
-                setId(index) 
-                setHandler(menus[index])
-                }}
+                setId(index);
+                setHandler(menus[index]);
+              }}
             >
               {item}
             </div>

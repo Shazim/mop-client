@@ -8,17 +8,71 @@ import Footer from 'components/molecules/footer/Footer';
 import GalleryCard from 'components/atoms/cards/GalleryCard';
 import { Link } from 'react-router-dom';
 import { useLazyFetch } from 'hooks';
-import { getGalleries } from 'api/api-services';
+import { getGalleries, getArtists, getExhibitions } from 'api/api-services';
+import Pagination from 'components/Pagination/Pagination';
 
 function Gallary() {
-  const [tab, setTab] = useState('Galleries');
+  const [tab, setTab] = useState('galleries');
   const [handleGetGalleries, { data, status }] = useLazyFetch(getGalleries);
+  const [handleGetArtists, { data: dataArtists }] = useLazyFetch(getArtists);
+  const [handleGetExhibitions, { data: dataExhibitions }] =
+    useLazyFetch(getExhibitions);
 
-  console.log('galleries', data);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [search, setSearch] = useState('');
+
+  const tabHandler = {
+    galleries: () =>
+      handleGetGalleries({
+        variables: `?q[name_cont]=${search != '' ? `${search}` : ''}`,
+      }),
+    exhibitions: () =>
+      handleGetExhibitions({
+        variables: `?q[name_cont]=${search != '' ? `${search}` : ''}`,
+      }),
+    artists: () =>
+      handleGetArtists({
+        variables: `?q[name_cont]=${search != '' ? `${search}` : ''}`,
+      }),
+  };
+
+  // useEffect(()=>{
+  //   if(dataGalleries){
+  //     set
+
+  //   }
+
+  // },[dataGalleries,dataArtists,dataExhibitions])
 
   useEffect(() => {
-    handleGetGalleries();
-  }, []);
+    if (search || currentPage > 0) {
+      // handleGetGalleries({
+      //   variables: `?q[name_cont]=${search != '' ? `${search}` : ''}`,
+      // });
+      tabHandler[tab]();
+    }
+    // handleGetGalleries();
+  }, [search, tab]);
+
+  const steps = {
+    galleries: data?.galleries.map(({ gallery_name, views, id }) => (
+      <Link to={`/gallery-detail?id=${id}`}>
+        <GalleryCard title={gallery_name} views={views} />
+      </Link>
+    )),
+    exhibitions: dataExhibitions?.exhibitions.map(
+      ({ gallery_name, views, id }) => (
+        <Link to={`/gallery-detail?id=${id}`}>
+          <GalleryCard title={gallery_name} views={views} />
+        </Link>
+      )
+    ),
+    artists: dataArtists?.artists.map(({ artist_name, id }) => (
+      <Link to={`/gallery-detail?id=${id}`}>
+        <GalleryCard title={artist_name} views={4} />
+      </Link>
+    )),
+  };
 
   return (
     <div>
@@ -31,6 +85,8 @@ function Gallary() {
               transform="uppercase"
               placeholder={`search for ${tab == 'Galleries' ? 'Gallery' : tab}`}
               bgColor="bg-gray-lighter"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
             />
           </div>
           <SelectOptions label="sort: Most popular" />
@@ -38,13 +94,15 @@ function Gallary() {
       </div>
       <div className="max-screen pt-30 pb-43">
         <div className="grid grid-cols-4 gap-36 justify-between">
-          {data?.galleries.map(() => (
-            <Link to={'/gallery-detail'}>
-              <GalleryCard />
-            </Link>
-          ))}
+          {steps[tab]}
         </div>
-        <div className="text-primary link mt-25 text-base">1</div>
+        {/* <div className="text-primary link mt-25 text-base">1</div> */}
+        <Pagination
+          pageDetails={data?.pagination}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          className="mt-25"
+        />
       </div>
       <DiscoverMore background="bg-gray-lighter" />
       <Footer />

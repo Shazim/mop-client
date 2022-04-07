@@ -5,6 +5,9 @@ export const END_POINTS = {
   COLORS: '/colours',
   ARTWORKS: '/artworks',
   GALLERIES: '/galleries',
+  ARTISTS: '/artists',
+  EXHIBITIONS: '/exhibitions',
+  INSIGHTS: '/insights',
 };
 
 export const LINKS = {

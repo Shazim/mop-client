@@ -1,11 +1,16 @@
 import React from 'react';
 
-function Pagination({ pageDetails = {}, currentPage = 1, setCurrentPage }) {
+function Pagination({
+  pageDetails = {},
+  currentPage = 1,
+  setCurrentPage,
+  className,
+}) {
   const active = 'text-primary';
   return (
     <>
-      {pageDetails?.total_pages ? (
-        <div className="flex">
+      {pageDetails?.total_pages != 1 ? (
+        <div className={`flex ${className}`}>
           {Array.from(Array(pageDetails.total_pages).keys()).map((index) => (
             <div
               className={`mr-8 cursor-pointer ${

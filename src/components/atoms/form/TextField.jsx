@@ -23,7 +23,7 @@ function TextField({
         <FormField
           type={type}
           name={name}
-          className={`${classes} ${shadow} bg-white outline-none uppercase text-secondary placeholder-gray font-bold text-sm pl-8 py-5 tracking`}
+          className={`${classes} ${shadow} bg-white outline-none  text-secondary placeholder-gray font-bold text-sm pl-8 py-5 tracking`}
           placeholder={placeholder}
         />
         {icon && (

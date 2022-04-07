@@ -90,7 +90,7 @@ module.exports = {
         black: '#000000',
         white: '#FFFFFF',
         green: 'green',
-        backgroundColor: '#E5E5E5',
+        // backgroundColor: '#E5E5E5',
 
         instagram: '#C32AA3',
         facebook: '#3B5998',

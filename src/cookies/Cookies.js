@@ -1,26 +1,24 @@
-import Cookies from "universal-cookie";
+import cookie from 'js-cookie';
 
-const cookies = new Cookies()
-export const setCookie = (name, data) => {
-    const value = cookies.set(name, data, { path: '/' });
-    return value
-}
+export const setCookie = (key, value, time = 1) => {
+  cookie.set(key, value, { expires: time });
+};
 
-export const getCookie = (name) => {
-    const value = cookies.get(name)
-    return value
-}
+export const getCookie = (key) => {
+  const value = cookie.get(key);
+  return value;
+};
 
-export const getAllCookies = () => {
-    const value = cookies.getAll()
-    return value;
-}
+// export const getAllCookie = () => {
+//   const value = cookie.getAll();
+//   return value;
+// };
 
-export const removeCookie = (name) => {
-    cookies.remove(name)
-}
+export const removeCookie = (key) => {
+  cookie.remove(key);
+};
 
-export const removeAllCookies = () => {
-    const cookies = getAllCookies()
-    Object.keys(cookies).forEach((cookie) => removeCookie(cookie))
-}
+// export const removeAllCookies = () => {
+//   const cookies = getAllCookies();
+//   Object.keys(cookies).forEach((cookie) => removeCookie(cookie));
+// };

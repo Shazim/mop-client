@@ -3,28 +3,29 @@ import React from 'react';
 
 function GalleryCard({
   className: classes = '',
-  obj = {
-    title: 'Gallery Name',
-    image_url: '/images/card/bg_image2.svg',
-    views: 1302,
-    incImages: 28,
-  },
+  title = 'Gallery Name',
+  imageUrl = '/images/card/bg_image2.svg',
+  views = 1302,
+  incImages = 28,
+  onClick,
+  buttonText = 'Add Info',
+  handleButton,
 }) {
   return (
-    <div className={`relative w-fit ${classes}`}>
-      <img className="rounded-lg h-100%" src={obj.image_url} />
+    <div className={`relative w-fit ${classes}`} onClick={onClick}>
+      <img className="rounded-lg  w-280 h-280" src={imageUrl} />
       <div className="absolute bottom-0 w-100%">
         <div className="flex w-100%">
           <div className="w-100% ml-18 mb-7 text-white">
             <div className=" font-avenir-reg font-medium text-base tracking-tight uppercase">
-              {obj.title}
+              {title}
             </div>
             <div className="flex text-xsm">
               <div>
-                <span className="font-bold">{obj.views}</span> Views
+                <span className="font-bold">{views}</span> Views
               </div>
               {/* <div>
-            <span className="font-bold ml-10">{obj.incImages}</span> Images
+            <span className="font-bold ml-10">{incImages}</span> Images
             Included
           </div> */}
             </div>
