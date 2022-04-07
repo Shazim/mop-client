@@ -13,10 +13,6 @@
   width: fit-content;
 }
 
-.bg-primary {
-  background: #c71118 !important;
-}
-
 .bg-instagram {
   background: #c32aa3 !important;
 }
@@ -62,7 +58,7 @@
 }
 
 .primary-btn {
-  @apply font-bold text-white tracking shadow text-sm;
+  @apply font-bold bg-primary text-white tracking shadow text-sm;
 }
 
 .gray-btn {
