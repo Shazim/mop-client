@@ -10,7 +10,7 @@ import Exhibition from 'components/StockItem/Exhibition';
 import Price from 'components/StockItem/Price';
 import { artworkSchema } from 'validation';
 import StockItem from '../components/StockItem';
-import { useFetch, usePost } from 'hooks';
+import { usePost } from 'hooks';
 import { createWork } from 'api/api-services';
 
 function StockRoom() {
@@ -119,7 +119,7 @@ function StockRoom() {
   return (
     <>
       <Header />
-      <div className="flex w-100% bg-backgroundColor">
+      <div className="flex w-100% bg-gray-dark">
         <div className="w-20%">
           <SideBar routBack={step == 'stock room' ? false : true} />
         </div>

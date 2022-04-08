@@ -5,7 +5,7 @@ function Pricing() {
   return (
     <div>
       <div></div>
-      <div className="bg-backgroundColor">
+      <div className="bg-gray-dark">
         <Packages />
       </div>
     </div>

@@ -26,6 +26,41 @@ function ImagePicker({ name, label }) {
     setFieldValue(setFieldValue('artwork_images_attributes', copyArtWork));
   };
 
+  const customChange = (name, files) => {
+    let copyFiles = [...artwork_images_attributes];
+    Object.entries(files).map(([key, value]) => {
+      let img = new Image();
+      let _URL = window.URL || window.webkitURL;
+
+      let imageLink = _URL.createObjectURL(value);
+
+      img.onload = async function () {
+        const imageWidth = img.width;
+        const imageHeight = img.height;
+        let imageFile = {
+          image: value,
+          imageLink,
+          featured_image: false,
+        };
+
+        if (imageWidth > imageHeight) {
+          imageFile.orientaion = 'landscape';
+          await copyFiles.push(imageFile);
+          setFieldValue('artwork_images_attributes', copyFiles);
+        } else if (imageWidth < imageHeight) {
+          imageFile.orientaion = 'portrait';
+          await copyFiles.push(imageFile);
+          setFieldValue('artwork_images_attributes', copyFiles);
+        } else if (imageHeight == imageWidth) {
+          imageFile.orientaion = 'square';
+          await copyFiles.push(imageFile);
+          setFieldValue('artwork_images_attributes', copyFiles);
+        }
+      };
+      img.src = _URL.createObjectURL(value);
+    });
+  };
+
   return (
     <div>
       <div className="font-bold text-secondary text-sm leading-8 uppercase tracking mb-11">
@@ -52,6 +87,7 @@ function ImagePicker({ name, label }) {
           className="z-10 opacity-0 w-100% h-137 absolute top-0"
           multiple="multiple"
           name={name}
+          customChange={customChange}
           // onChange={fileReader}
           // onBlur={handleBlur}
           type="file"

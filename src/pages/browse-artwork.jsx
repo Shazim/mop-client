@@ -35,7 +35,7 @@ function BrowseArtwork() {
 
         <SideBarWithLogin />
         {/* </div> */}
-        <div className="w-91% bg-backgroundColor">
+        <div className="w-91% bg-gray-dark">
           <div className="flex justify-end pt-31 px-57">
             <div className="mr-25">
               <SelectOptions width="180" label="SOHW 50" />

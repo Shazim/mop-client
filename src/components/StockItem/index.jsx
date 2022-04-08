@@ -40,7 +40,7 @@ export default function StockItem({ addItem }) {
         <div className="flex justify-between">
           <SearchBar
             placeholder="Search For An Artist"
-            bgColor="bg-backgroundColor"
+            bgColor="bg-gray-dark"
             onChange={(e) => {
               handleGetArtWorks({
                 variables: `?q[name_cont]=${e.target.value}`,

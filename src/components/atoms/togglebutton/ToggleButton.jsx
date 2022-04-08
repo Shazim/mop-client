@@ -9,7 +9,7 @@ function ToggleButton({
   return (
     <button
       {...props}
-      className={`font-bold text-sm text-secondary tracking leading-32 ${classes} ${bg}`}
+      className={`font-bold text-sm text-secondary tracking leading-32 cursor-pointer ${classes} ${bg}`}
     >
       {children}
     </button>

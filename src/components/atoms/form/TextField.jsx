@@ -9,13 +9,15 @@ function TextField({
   name = '',
   shadow = '',
   type = 'text',
-  classes = 'w-100% h-32',
-  titleClasses = 'text-secondary uppercase tracking mb-11',
+  className = 'w-100% h-32',
+  mb = 11,
+  titleClasses = 'text-secondary uppercase tracking ',
+  customChange,
 }) {
   return (
     <div className="mb-10">
       <div
-        className={`font-bold text-secondary text-sm leading-8 ${titleClasses} `}
+        className={`font-bold text-secondary text-sm leading-8 ${titleClasses} ${mb}`}
       >
         {label}
       </div>
@@ -23,8 +25,9 @@ function TextField({
         <FormField
           type={type}
           name={name}
-          className={`${classes} ${shadow} bg-white outline-none  text-secondary placeholder-gray font-bold text-sm pl-8 py-5 tracking`}
+          className={`${className} ${shadow} bg-white outline-none  text-secondary placeholder-gray font-bold text-sm pl-8 py-5 tracking`}
           placeholder={placeholder}
+          customChange={customChange}
         />
         {icon && (
           <img

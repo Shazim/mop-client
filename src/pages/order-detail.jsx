@@ -15,7 +15,7 @@ function OrderDetail() {
   return (
     <>
       <Header login={true} menu={isMenuOpen} isOpen={setIsMenuOpen} />
-      <div className="flex bg-backgroundColor">
+      <div className="flex bg-gray-dark">
         <div className="sm:hidden">
           <SideBar />
         </div>

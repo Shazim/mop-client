@@ -33,7 +33,7 @@ const SubmitButton = ({
 
   return (
     <button
-      className={`${classes} ${btnClasses}`}
+      className={`${classes} ${btnClasses} cursor-pointer`}
       onClick={handleSubmit}
       style={style}
       {...otherProps}

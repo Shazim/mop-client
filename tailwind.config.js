@@ -107,7 +107,6 @@ module.exports = {
         pink: {
           DEFAULT: '#EEECEC',
           light: '#ff7ce5',
-          dark: '#D6D6D6',
         },
         gray: {
           dim: '#EEECEC',
@@ -115,6 +114,7 @@ module.exports = {
           lightest: '#E3E3E3',
           lighter: '#EFECEC',
           DEFAULT: '#D6D6D6',
+          dark: '#E5E5E5',
           darkest: '#E5DDDD',
         },
         secondary: {
@@ -156,6 +156,7 @@ module.exports = {
         'nunito-light': 'nunito-light',
         reg: 'nunito-regular',
         'nunito-semibold': 'nunito-semibold',
+        'nunito-bold': 'nunito-bold',
         bold: 'nunito-bold',
         'avenir-reg': 'avenir-roman',
         'avenir-800': 'avenir-black',

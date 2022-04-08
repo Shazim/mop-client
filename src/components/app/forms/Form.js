@@ -1,6 +1,12 @@
 import { Formik } from 'formik';
 
-function Form({ initialValues, onSubmit, validationSchema, children }) {
+function Form({
+  initialValues,
+  onSubmit,
+  validationSchema,
+  setFieldValue,
+  children,
+}) {
   return (
     <Formik
       initialValues={initialValues}

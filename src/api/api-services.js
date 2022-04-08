@@ -18,6 +18,10 @@ export const createWork = (data) => {
   return doPost(`${BASE_URL}${API_PATH}${ARTWORKS}`, data);
 };
 
+export const createGallery = (data, id) => {
+  return doPost(`${BASE_URL}${API_PATH}${GALLERIES}`, data);
+};
+
 export const getArtWorks = (data) => {
   return doGet(`${BASE_URL}${API_PATH}${ARTWORKS}${data ? data : ''}`);
 };

@@ -5,6 +5,19 @@
 .max-screen {
   @apply max-w-1440 mx-auto px-100;
 }
+
+.hr-b {
+  @apply border-b border-gray border-solid;
+}
+
+.admin-h2 {
+  @apply text-xl text-secondary tracking-wider font-avenir-reg font-medium uppercase;
+}
+
+.admin-label {
+  @apply text-sm text-secondary tracking font-nunito-bold  uppercase;
+}
+
 .footer-links {
   @apply font-nunito-light text-secondary text-lg capitalize leading-9;
 }
@@ -50,6 +63,7 @@
 .gray {
   @apply bg-gray text-secondary;
 }
+
 .gray-dim {
   @apply bg-gray-dim text-secondary-dim;
 }
