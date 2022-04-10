@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .max-screen {
-  @apply max-w-1440 mx-auto px-100;
+  @apply max-w-1440 mx-auto px-100 sm:px-50;
 }
 
 .hr-b {
@@ -241,6 +241,24 @@ input[type='number'] {
 .range::-webkit-slider-thumb {
   -webkit-appearance: none;
   @apply w-25 h-30 rounded-50% bg-primary cursor-pointer shadow-4xl;
+}
+
+svg.fill-primary {
+  fill: #c71118 !important;
+}
+
+svg.stroke-primary {
+  stroke: #c71118 !important;
+  fill: transparent !important;
+}
+
+svg.fill-white {
+  fill: #fff !important;
+}
+
+svg.stroke-white {
+  stroke: #fff !important;
+  fill: transparent !important;
 }
 
 @layer base {
