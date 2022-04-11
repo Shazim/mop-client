@@ -41,7 +41,7 @@ function ReceiveInsight({ image = '/images/girl.png' }) {
             <div className="mb-32 sm:px-9 sm:w-100%">
               <TextField
                 shadow="shadow"
-                height="40"
+                height="48"
                 mb="10"
                 label="First Name"
                 name="name"
@@ -53,7 +53,7 @@ function ReceiveInsight({ image = '/images/girl.png' }) {
             <div className="sm:px-9 sm:w-100%">
               <TextField
                 shadow="shadow"
-                height="40"
+                height="48"
                 name="email"
                 label="Email Address"
                 tracking="none"

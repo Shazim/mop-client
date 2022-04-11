@@ -67,7 +67,7 @@ function Footer() {
       {/* Dark section of Footer */}
       <div className="bg-secondary">
         <div className="max-screen sm:px-23  flex flex-row text-white pl-147 pr-175 pt-38 pb-38">
-          <div className="w-1/2 sm:w-100% text-center sm:flex sm:flex-col-reverse">
+          <div className="w-1/2 sm:w-100% sm:text-center sm:flex sm:flex-col-reverse">
             <div className="mb-8 text-base sm:text-tiny sm:leading-22 font-nunito-semibold font-semibold ">
               &copy; Masters Of Photography 2021
             </div>
@@ -85,9 +85,6 @@ function Footer() {
             <Facebook className="w-22 h-22 mr-22 link stroke-white" />
             <Instagram className="w-22 h-22 mr-22 link stroke-white" />
             <Youtube className="w-22 h-22 mr-22 link fill-white" />
-            {/* {socialIcons.map((item) => (
-              <img src={item} alt="" className="w-22 h-22 mr-22 link" />
-            ))} */}
           </div>
         </div>
       </div>

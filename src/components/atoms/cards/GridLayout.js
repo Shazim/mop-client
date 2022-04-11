@@ -46,7 +46,7 @@ export default function GridLayout({
   return (
     <div style={{ columns: column, columnGap: 12 }}>
       {obj.map((item, i) => (
-        <div className="relative">
+        <div className="relative sm:min-h-100 sm:rounded-8 sm:overflow-hidden">
           <img
             src={item.imageUrl}
             key={i}
@@ -56,7 +56,7 @@ export default function GridLayout({
           <div className="absolute bottom-20 sm:bottom-15 left-21">
             <div className="flex items-center mb-8 sm:mb-5">
               <img
-                className="w-30 sm:rounded-8 h-32 sm:w-24 sm:h-23 rounded-50%"
+                className="w-30 h-32 sm:w-24 sm:h-23 rounded-50%"
                 src={item.userImage}
               />
               <p className="text-white text-base font-avenir-reg leading-22 tracking-tight font-bold ml-10 sm:text-tiny">
