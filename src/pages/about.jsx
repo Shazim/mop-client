@@ -60,18 +60,18 @@ function About() {
       </div>
       <div className="flex max-screen justify-between pt-126 pb-156 sm:flex-col-reverse sm:py-80 sm:px-23">
         <div className="ml-50 w-40% lg:w-50% lg:ml-40 md:ml-30 md:w-50% sm:mt-43 sm:w-100% sm:ml-0">
-          <div className="tracking-wider uppercase text-2xl font-avenir-reg text-dark leading-38">
+          <div className="tracking-wider uppercase text-2xl sm:text-center font-avenir-reg text-dark leading-38">
             “Great Art in 2021 requires a different type of showcase”
             <span className="text-primary">.</span>
           </div>
-          <div className=" font-nunito-light text-lg text-dark leading-32 pt-31">
+          <div className=" font-nunito-light text-lg text-dark leading-32 pt-31 sm:text-center">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt
             viverra pharetra ultricies elementum. Tellus ullamcorper sit in
             scelerisque maecenas elit, viverra eu. Suspendisse ut netus mauris
             gravida viverra vel nunc facilisis scelerisque. Ultrices lobortis
             donec volutpat viverra.{' '}
           </div>
-          <div className="pt-30 font-nunito-light text-lg text-dark leading-32">
+          <div className="pt-30 font-nunito-light text-lg text-dark leading-32 sm:text-center">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt
             viverra pharetra ultricies elementum. Tellus ullamcorper sit in
             scelerisque maecenas elit,
