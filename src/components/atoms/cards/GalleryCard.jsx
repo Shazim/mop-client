@@ -1,7 +1,9 @@
+import EnterIcon from 'assets/images/svgs/EnterIcon';
 import Button from 'components/atoms/buttons/Button';
 import React from 'react';
 
 function GalleryCard({
+  info = false,
   className: classes = '',
   title = 'Gallery Name',
   imageUrl = '/images/card/bg_image2.svg',
@@ -13,10 +15,10 @@ function GalleryCard({
 }) {
   return (
     <div className={`relative w-fit ${classes}`} onClick={onClick}>
-      <img className="rounded-lg  w-280 h-280" src={imageUrl} />
+      <img className="rounded-lg  w-100% h-100%" src={imageUrl} />
       <div className="absolute bottom-0 w-100%">
         <div className="flex w-100%">
-          <div className="w-100% ml-18 mb-7 text-white">
+          <div className="w-100% ml-18 h-70 text-white">
             <div className=" font-avenir-reg font-medium text-base tracking-tight uppercase">
               {title}
             </div>
@@ -25,18 +27,24 @@ function GalleryCard({
                 <span className="font-bold">{views}</span> Views
               </div>
               {/* <div>
-            <span className="font-bold ml-10">{incImages}</span> Images
-            Included
-          </div> */}
+                <span className="font-bold ml-10">{incImages}</span> Images
+                Included
+              </div> */}
+            </div>
+            <div className="flex items-center link">
+              <EnterIcon className="w-13 h-11 mr-5 stroke-white" />
+              <p className="font-reg text-xsm capitalize text-white leading-22">
+                enter exibition room
+              </p>
             </div>
           </div>
-          <Button
-            type="edit"
-            className=" right-18 absolute b-10 w-100 h-33 "
-            transform="uppercase"
-          >
-            Add Info
-          </Button>
+          {info ? (
+            <Button type="edit" className="w-100 h-33" transform="uppercase">
+              Add Info
+            </Button>
+          ) : (
+            <></>
+          )}
         </div>
       </div>
     </div>

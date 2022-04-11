@@ -17,6 +17,10 @@ module.exports = {
         'featured-gallery': "url('/src/assets/images/background/gallary.png')",
         'bg-gallery':
           "url('/src/assets/images/background/galleryBackground.png')",
+        'home-mobile':
+          "url('/src/assets/images/background/home-mobile-bg.png')",
+        'gallery-mobile':
+          "url('/src/assets/images/background/gallery-mobile-bg.png')",
         'background-gallery':
           "url('/src/assets/images/background/bgGallery.png')",
         cubes: "url('/src/assets/images/background/cubes.png')",
@@ -80,6 +84,7 @@ module.exports = {
         DEFAULT: '4px',
         sm: '5px',
         lg: '9px',
+        8: '8px',
         xl: '15px',
         large: '30px',
         '50%': '50%',
@@ -89,6 +94,7 @@ module.exports = {
       colors: {
         black: '#000000',
         white: '#FFFFFF',
+        'off-white': '#F2F1F1',
         green: 'green',
         // backgroundColor: '#E5E5E5',
 
@@ -143,6 +149,7 @@ module.exports = {
         lg: '16px',
         xl: '18px',
         20: '20px',
+        22: '22px',
         '2xl': '24px',
         heading: '33px',
         '3xl': '2.25rem',
@@ -184,9 +191,13 @@ module.exports = {
         8: '2rem',
         9: '2.25rem',
         10: '2.5rem',
+        15: '15px',
+        22: '22px',
+        30: '30px',
         32: '32px',
         35: '35px',
         38: '38px',
+        50: '50px',
         55: '55px',
       },
 

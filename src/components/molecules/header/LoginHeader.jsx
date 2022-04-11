@@ -14,7 +14,7 @@ function LoginHeader() {
           />
         </Link>
       </div>
-      <div className="flex w-70% justify-between">
+      <div className="flex w-70% md:w-80% justify-between">
         {/* <div> */}
         <SearchBar
           className="flex items-center"

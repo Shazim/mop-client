@@ -21,10 +21,10 @@ function ReceiveInsight({ image = '/images/girl.png' }) {
   };
 
   return (
-    <div className="flex border-border border-t ">
-      <div className=" max-screen pt-101 w-40% ">
-        <div>
-          <div className="tracking-wider text-2xl uppercase font-avenir-reg pb-34">
+    <div className="flex border-border border-t sm:border-t-0 sm:bg-off-white ">
+      <div className=" max-screen sm:px-23 sm:w-100% pt-101 w-40% xl:w-45% lg:w-50% md:w-50% xl:pb-50 lg:pb-50 md:pb-50">
+        <div className="sm:w-100% sm:flex-col sm:flex sm:items-center sm:justify-center sm:pb-50">
+          <div className="tracking-wider text-2xl sm:text-center uppercase font-avenir-reg pb-34">
             Receive insights and news from the worlds leading voices
           </div>
           <Form
@@ -38,10 +38,10 @@ function ReceiveInsight({ image = '/images/girl.png' }) {
               email: '',
             })}
           >
-            <div className="mb-32">
+            <div className="mb-32 sm:px-9 sm:w-100%">
               <TextField
                 shadow="shadow"
-                height="40"
+                height="48"
                 mb="10"
                 label="First Name"
                 name="name"
@@ -50,10 +50,10 @@ function ReceiveInsight({ image = '/images/girl.png' }) {
                 color="text-secondary-dark"
               />
             </div>
-            <div>
+            <div className="sm:px-9 sm:w-100%">
               <TextField
                 shadow="shadow"
-                height="40"
+                height="48"
                 name="email"
                 label="Email Address"
                 tracking="none"
@@ -71,7 +71,11 @@ function ReceiveInsight({ image = '/images/girl.png' }) {
           </div>
         </div>
       </div>
-      <img src={image} alt="" />
+      <img
+        className="sm:hidden flex xl:w-55% lg:w-50% md:w-50% object-fill"
+        src={image}
+        alt=""
+      />
     </div>
   );
 }
