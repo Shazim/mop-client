@@ -57,19 +57,19 @@ function Gallary() {
   const steps = {
     galleries: data?.galleries.map(({ gallery_name, views, id }) => (
       <Link to={`/gallery-detail?id=${id}`}>
-        <GalleryCard title={gallery_name} views={views} />
+        <GalleryCard info={false} title={gallery_name} views={views} />
       </Link>
     )),
     exhibitions: dataExhibitions?.exhibitions.map(
       ({ gallery_name, views, id }) => (
         <Link to={`/gallery-detail?id=${id}`}>
-          <GalleryCard title={gallery_name} views={views} />
+          <GalleryCard info={false} title={gallery_name} views={views} />
         </Link>
       )
     ),
     artists: dataArtists?.artists.map(({ artist_name, id }) => (
       <Link to={`/gallery-detail?id=${id}`}>
-        <GalleryCard title={artist_name} views={4} />
+        <GalleryCard info={false} title={artist_name} views={4} />
       </Link>
     )),
   };

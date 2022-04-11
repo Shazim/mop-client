@@ -46,8 +46,8 @@ function About() {
     <>
       <div className="bg-photography bg-no-repeat bg-cover ">
         <Header />
-        <div className="max-screen pt-370 pb-116">
-          <div className="ml-50 text-primary tracking-wider font-avenir-300 uppercase text-3xl leading-55 w-55% xl:w-60% lg:w-65% md:w-70%">
+        <div className="max-screen pt-370 pb-116 sm:px-23 sm:py-80">
+          <div className="ml-50 sm:ml-0 sm:text-center text-primary tracking-wider font-avenir-300 uppercase text-3xl sm:text-2xl leading-55 w-55% xl:w-60% lg:w-65% md:w-70% sm:w-100%">
             <span className="text-secondary">from the creators of online </span>
             photography classes{' '}
             <span className="text-secondary">that works with the</span> best
@@ -58,8 +58,8 @@ function About() {
           </div>
         </div>
       </div>
-      <div className="flex max-screen justify-between pt-126 pb-156">
-        <div className="ml-50 w-40%">
+      <div className="flex max-screen justify-between pt-126 pb-156 sm:flex-col-reverse sm:py-80 sm:px-23">
+        <div className="ml-50 w-40% lg:w-50% lg:ml-40 md:ml-30 md:w-50% sm:mt-43 sm:w-100% sm:ml-0">
           <div className="tracking-wider uppercase text-2xl font-avenir-reg text-dark leading-38">
             “Great Art in 2021 requires a different type of showcase”
             <span className="text-primary">.</span>
@@ -77,7 +77,7 @@ function About() {
             scelerisque maecenas elit,
           </div>
         </div>
-        <div className="w-40%">
+        <div className="w-40% sm:w-100%">
           <Slider {...settings}>
             <img src="/images/girl.png" alt="" />
             <img src="/images/girl.png" alt="" />
@@ -86,9 +86,9 @@ function About() {
         </div>
       </div>
       <div className="bg-background-gallery bg-cover bg-no-repeat">
-        <div className="max-screen">
-          <div className="py-131 px-250">
-            <p className="uppercase font-avenir-reg font-black text-center text-2xl leading-38 tracking-wider text-secondary-dark">
+        <div className="max-screen sm:px-23">
+          <div className="py-131 px-250 xl:px-200 lg:px-170 md:px-130 sm:px-0 sm:py-80">
+            <p className="uppercase font-avenir-reg font-black text-center text-2xl sm:text-xl leading-38 tracking-wider text-secondary-dark">
               using the latest technology to drive artist growth and art
               exploration
               <span className="text-primary">
@@ -96,7 +96,7 @@ function About() {
                 view, browse, buy, enjoy, love and own.
               </span>
             </p>
-            <p className="font-reg text-center text-lg leading-38 mt-10 mb-28 text-secondary-dark">
+            <p className="font-reg text-center text-lg sm:text-base leading-38 mt-10 mb-28 text-secondary-dark">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt
               viverra pharetra ultricies elementum. Tellus ullamcorper sit in
               scelerisque maecenas elit,
@@ -107,7 +107,7 @@ function About() {
           </div>
         </div>
       </div>
-      <div className="max-screen border-border border-b">
+      <div className="max-screen sm:px-23 border-border border-b">
         <DiscoverMore />
       </div>
       <div>
