@@ -29,7 +29,6 @@ function LoginModal({ isOpen, openHandler, signUpHandler, forgotHandler }) {
     signIn({ ...values, grant_type: 'password' })
       .then((response) => {
         if (response?.status == 200) {
-          console.log('hello', response);
           setCookie('user', JSON.stringify(response?.data));
           closeModal();
           history.push('/stock-room');
@@ -83,24 +82,28 @@ function LoginModal({ isOpen, openHandler, signUpHandler, forgotHandler }) {
               initialValues={{ email: '', password: '' }}
               validationSchema={generateSchema({ email: '', password: '' })}
             >
-              <TextField
-                name="email"
-                placeholder="Enter email here"
-                mb="6"
-                height="38"
-                label="Email Address"
-              />
-              <TextField
-                type="password"
-                name="password"
-                placeholder="enter password here"
-                mb="6"
-                height="38"
-                label="password"
-              />
-              <SubmitButton className="w-37% h-41 flex tracking text-sm justify-center items-center mx-auto mt-27">
-                LOGIN
-              </SubmitButton>
+              {() => (
+                <>
+                  <TextField
+                    name="email"
+                    placeholder="Enter email here"
+                    mb="6"
+                    height="38"
+                    label="Email Address"
+                  />
+                  <TextField
+                    type="password"
+                    name="password"
+                    placeholder="enter password here"
+                    mb="6"
+                    height="38"
+                    label="password"
+                  />
+                  <SubmitButton className="w-37% h-41 flex tracking text-sm justify-center items-center mx-auto mt-27">
+                    LOGIN
+                  </SubmitButton>
+                </>
+              )}
             </Form>
           </div>
           <div className="flex justify-between pr-20 mt-34">

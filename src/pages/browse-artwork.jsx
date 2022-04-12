@@ -24,8 +24,6 @@ function BrowseArtwork() {
     });
   }, []);
 
-  console.log('hello', dataArtworks);
-
   return (
     <>
       <Header />

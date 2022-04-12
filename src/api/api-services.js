@@ -1,6 +1,6 @@
 import { BASE_URL, API_PATH } from './config';
 import { END_POINTS } from 'utils';
-import { doGet, doPost } from './httpRequests';
+import { doGet, doPost, doPut } from './httpRequests';
 
 const {
   COLORS,
@@ -11,6 +11,7 @@ const {
   GALLERIES,
   INSIGHTS,
   ARTISTS,
+  GALLERY,
   EXHIBITIONS,
 } = END_POINTS;
 
@@ -18,8 +19,12 @@ export const createWork = (data) => {
   return doPost(`${BASE_URL}${API_PATH}${ARTWORKS}`, data);
 };
 
-export const createGallery = (data, id) => {
-  return doPost(`${BASE_URL}${API_PATH}${GALLERIES}`, data);
+export const createGallery = (data) => {
+  return doPut(`${BASE_URL}${API_PATH}${GALLERY}`, data);
+};
+
+export const getGallery = () => {
+  return doGet(`${BASE_URL}${API_PATH}${GALLERY}`);
 };
 
 export const getArtWorks = (data) => {

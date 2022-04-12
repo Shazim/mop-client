@@ -5,6 +5,7 @@ function Form({
   onSubmit,
   validationSchema,
   setFieldValue,
+  enableReinitialize,
   children,
 }) {
   return (
@@ -12,8 +13,9 @@ function Form({
       initialValues={initialValues}
       onSubmit={onSubmit}
       validationSchema={validationSchema}
+      enableReinitialize={enableReinitialize}
     >
-      {() => <>{children}</>}
+      {children}
     </Formik>
   );
 }

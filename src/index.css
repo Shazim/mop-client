@@ -10,8 +10,24 @@
   @apply border-b border-gray border-solid;
 }
 
+.hr-form-t {
+  @apply border-t border-gray-lighter border-solid;
+}
+
+.admin-h1 {
+  @apply text-2xl text-secondary tracking-wider font-avenir-reg font-medium uppercase;
+}
+
 .admin-h2 {
   @apply text-xl text-secondary tracking-wider font-avenir-reg font-medium uppercase;
+}
+
+.admin-label--light {
+  @apply text-sm text-secondary tracking font-nunito-light;
+}
+
+.admin-des {
+  @apply text-sm text-secondary font-nunito-light;
 }
 
 .admin-label {
@@ -24,6 +40,10 @@
 
 .w-fit {
   width: fit-content;
+}
+
+.h-fit {
+  height: fit-content;
 }
 
 .bg-instagram {

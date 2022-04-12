@@ -5,7 +5,9 @@ const getHeader = () => {
   const headers = {
     'Content-Type': 'application/json',
     Accept: 'application/json',
-    Authorization: `Bearer ${getCookie('user')?.access_token}`,
+    Authorization: `Bearer ${
+      getCookie('user') && JSON.parse(getCookie('user'))?.access_token
+    }`,
   };
   return headers;
 };

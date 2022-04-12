@@ -69,3 +69,23 @@ export const dnaCircle = (value) => {
 
 export const ConditionalLink = ({ children, to, condition }) =>
   !!condition && to ? <Link to={to}>{children}</Link> : <>{children}</>;
+
+export const formDataHandler = (mainKey, key, value, formData1) => {
+  if (Array.isArray(value)) {
+    value.map((item, index) => {
+      if (typeof item == 'object') {
+        Object.entries(item).map(([key1, value1]) => {
+          formData1.append(`${mainKey}[${key}][${index}][${key1}]`, value1);
+        });
+      } else {
+        formData1.append(`${mainKey}[${key}][]`, item);
+      }
+    });
+  } else if (typeof value == 'object' && value?.webkitRelativePath != '') {
+    Object.entries(value).map(([key2, value]) => {
+      formData1.append(`${mainKey}[${key}][]`, value);
+    });
+  } else {
+    formData1.append(`${mainKey}[${key}]`, value);
+  }
+};

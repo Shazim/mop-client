@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getColors, getStyles } from 'api';
 import { Form } from 'components/app/forms';
-import Footer from 'components/molecules/footer/Footer';
-import Header from 'components/molecules/header/Header';
-import SideBar from 'components/molecules/sidebar/SideBar';
+import SubHeader from 'components/molecules/header/SubHeader';
 import Categories from 'components/StockItem/Categories';
 import Detail from 'components/StockItem/Detail';
 import Exhibition from 'components/StockItem/Exhibition';
@@ -12,6 +10,8 @@ import { artworkSchema } from 'validation';
 import StockItem from '../components/StockItem';
 import { usePost } from 'hooks';
 import { createWork } from 'api/api-services';
+import { formDataHandler } from 'utils';
+import { AdminLayout } from 'Layout';
 
 function StockRoom() {
   const [steps, setSteps] = useState([
@@ -88,26 +88,6 @@ function StockRoom() {
     copyData.style_ids = style_ids;
 
     const formData = new FormData();
-    const formDataHandler = (mainKey, key, value, formData1) => {
-      if (Array.isArray(value)) {
-        value.map((item, index) => {
-          if (typeof item == 'object') {
-            Object.entries(item).map(([key1, value1]) => {
-              formData1.append(`${mainKey}[${key}][${index}][${key1}]`, value1);
-            });
-          } else {
-            formData1.append(`${mainKey}[${key}][]`, item);
-          }
-        });
-      } else if (typeof value == 'object') {
-        Object.entries(value).map(([key2, value]) => {
-          formData1.append(`${mainKey}[${key}][]`, value);
-        });
-      } else {
-        formData1.append(`${mainKey}[${key}]`, value);
-      }
-    };
-
     Object.entries(data).map(([key, value]) => {
       formDataHandler('artwork', key, value, formData);
     });
@@ -118,11 +98,16 @@ function StockRoom() {
 
   return (
     <>
-      <Header />
-      <div className="flex w-100% bg-gray-dark">
-        <div className="w-20%">
-          <SideBar routBack={step == 'stock room' ? false : true} />
-        </div>
+      <AdminLayout>
+        <SubHeader
+          title="StockRoom"
+          subtitle=""
+          handler={addItem}
+          title="stockroom"
+          subtitle="up for sale"
+          buttonText="ADD NEW ITEM"
+          button={true}
+        />
         {step == 'stock room' && <StockItem addItem={addItem} />}
         <Form
           initialValues={{
@@ -140,43 +125,50 @@ function StockRoom() {
           onSubmit={data}
           validationSchema={artworkSchema}
         >
-          {step == 'item details' && (
-            <Detail steps={steps} step={step} next={next} addItem={addItem} />
-          )}
+          {() => (
+            <>
+              {step == 'item details' && (
+                <Detail
+                  steps={steps}
+                  step={step}
+                  next={next}
+                  addItem={addItem}
+                />
+              )}
 
-          {step == 'categories' && (
-            <Categories
-              steps={steps}
-              addItem={addItem}
-              step={step}
-              next={next}
-              previous={previous}
-              styles={styles}
-              colors={colors}
-            />
-          )}
-          {step == 'pricing' && (
-            <Price
-              steps={steps}
-              addItem={addItem}
-              step={step}
-              next={next}
-              previous={previous}
-            />
-          )}
-          {step == 'exhibition' && (
-            <Exhibition
-              steps={steps}
-              addItem={addItem}
-              step={step}
-              next={next}
-              previous={previous}
-            />
+              {step == 'categories' && (
+                <Categories
+                  steps={steps}
+                  addItem={addItem}
+                  step={step}
+                  next={next}
+                  previous={previous}
+                  styles={styles}
+                  colors={colors}
+                />
+              )}
+              {step == 'pricing' && (
+                <Price
+                  steps={steps}
+                  addItem={addItem}
+                  step={step}
+                  next={next}
+                  previous={previous}
+                />
+              )}
+              {step == 'exhibition' && (
+                <Exhibition
+                  steps={steps}
+                  addItem={addItem}
+                  step={step}
+                  next={next}
+                  previous={previous}
+                />
+              )}
+            </>
           )}
         </Form>
-      </div>
-
-      <Footer />
+      </AdminLayout>
     </>
   );
 }

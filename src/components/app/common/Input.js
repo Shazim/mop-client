@@ -6,6 +6,7 @@ function Input({
   onChange,
   placeholder,
   style,
+  values,
   ...otherProps
 }) {
   return (

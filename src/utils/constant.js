@@ -5,6 +5,7 @@ export const END_POINTS = {
   COLORS: '/colours',
   ARTWORKS: '/artworks',
   GALLERIES: '/galleries',
+  GALLERY: '/gallery',
   ARTISTS: '/artists',
   EXHIBITIONS: '/exhibitions',
   INSIGHTS: '/insights',

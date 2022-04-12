@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { MobileHeader, DesktopHeader } from 'components/Header';
-import { MobileFooter, DesktopFooter } from 'components/Footer';
 
 function Container({ children, questionaire = false }) {
   const [width, setWidth] = useState();
@@ -9,7 +7,7 @@ function Container({ children, questionaire = false }) {
 
   return (
     <>
-      {window.innerWidth > 1150 ? (
+      {/* {window.innerWidth > 1150 ? (
         <div className=" sm:hidden ">
           <DesktopHeader questionaire={questionaire} />
           <div className="">{children}</div>
@@ -21,7 +19,7 @@ function Container({ children, questionaire = false }) {
           {children}
           <MobileFooter />
         </div>
-      )}
+      )} */}
     </>
   );
 }

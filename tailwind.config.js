@@ -53,8 +53,7 @@ module.exports = {
 
       boxShadow: {
         sm: '0 4px 4px rgba(0, 0, 0, 0.04)',
-        DEFAULT:
-          '0px 4px 20px rgba(0, 0, 0, 0.1), 0px 4px 20px rgba(0, 0, 0, 0.1)',
+        DEFAULT: '0px 4px 20px rgba(0, 0, 0, 0.1)',
         md: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
         lg: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
         xl: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
@@ -103,11 +102,13 @@ module.exports = {
 
         border: {
           DEFAULT: '#CCCCCC',
+          light: '#DEDEDE',
         },
 
         primary: {
           dim: '#D26E72',
           light: '#D4B2B3',
+          lighter: '#F2F1F1',
           DEFAULT: '#C71118',
         },
         pink: {
@@ -121,6 +122,7 @@ module.exports = {
           lighter: '#EFECEC',
           DEFAULT: '#D6D6D6',
           dark: '#E5E5E5',
+          darker: '#c4c4c4',
           darkest: '#E5DDDD',
         },
         secondary: {
@@ -146,6 +148,7 @@ module.exports = {
         xsm: '12px',
         sm: '13px',
         base: '14px',
+        15: '15px',
         lg: '16px',
         xl: '18px',
         20: '20px',
@@ -260,15 +263,20 @@ module.exports = {
           _4: '-4px',
           _39: '-39px',
           370: '370px',
+          318: '318px',
           491: '491px',
           '96vh': '96vh',
           '90vw': '90vw',
+          '100vh': '100vh',
         },
       },
       width: {
         455: '455px',
         534: '534px',
         568: '568px',
+      },
+      zIndex: {
+        1: '1',
       },
     },
   },
