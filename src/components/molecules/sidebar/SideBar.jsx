@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useHistory } from 'react-router-dom';
+import { removeCookie } from 'cookies/Cookies';
 
 const obj = [
   {
@@ -102,7 +103,7 @@ const obj = [
         redIcon: '/images/sidebar/price_red.svg',
         icon: '/images/sidebar/price.svg',
         name: 'Logout',
-        link: '/coupon',
+        link: '/',
       },
     ],
   },
@@ -111,6 +112,11 @@ const obj = [
 function SideBar({ routBack = false }) {
   const location = useLocation();
   const history = useHistory();
+
+  const logout = () => {
+    removeCookie('user');
+    history.push('/');
+  };
 
   return (
     <div className="h-100% sm:w-100% bg-gray-lighter pt-40 pr-19 overflow-auto ">
@@ -124,33 +130,64 @@ function SideBar({ routBack = false }) {
                 </div>
                 <>
                   {item.item.map((subItem, subIndex) => (
-                    <Link to={`${subItem.link}`}>
-                      <span
-                        className={`flex w-100% h-55  sm:bg-gray-lighter rounded-r-lg pl-62 xl:pl-50 lg:pl-40 md:pl-35 link ${
-                          subItem.link == location.pathname
-                            ? 'bg-secondary-dim'
-                            : ''
-                        }`}
-                      >
-                        <img
-                          className="w-19 h-19 my-auto text-primary"
-                          src={
+                    <>
+                      {subItem.name == 'Logout' ? (
+                        <span
+                          className={`flex w-100% h-55  sm:bg-gray-lighter rounded-r-lg pl-62 xl:pl-50 lg:pl-40 md:pl-35 link ${
                             subItem.link == location.pathname
-                              ? subItem.redIcon
-                              : subItem.icon
-                          }
-                        />
-                        <div
-                          className={`my-auto font-nunito-semibold capitalize text-base leading-5 ml-28 ${
-                            subItem.link == location.pathname
-                              ? 'text-primary'
-                              : 'text-secondary'
-                          } `}
+                              ? 'bg-secondary-dim'
+                              : ''
+                          }`}
+                          onClick={logout}
                         >
-                          {subItem.name}
-                        </div>
-                      </span>
-                    </Link>
+                          <img
+                            className="w-19 h-19 my-auto text-primary"
+                            src={
+                              subItem.link == location.pathname
+                                ? subItem.redIcon
+                                : subItem.icon
+                            }
+                          />
+                          <div
+                            className={`my-auto font-nunito-semibold capitalize text-base leading-5 ml-28 ${
+                              subItem.link == location.pathname
+                                ? 'text-primary'
+                                : 'text-secondary'
+                            } `}
+                          >
+                            {subItem.name}
+                          </div>
+                        </span>
+                      ) : (
+                        <Link to={`${subItem.link}`}>
+                          <span
+                            className={`flex w-100% h-55  sm:bg-gray-lighter rounded-r-lg pl-62 xl:pl-50 lg:pl-40 md:pl-35 link ${
+                              subItem.link == location.pathname
+                                ? 'bg-secondary-dim'
+                                : ''
+                            }`}
+                          >
+                            <img
+                              className="w-19 h-19 my-auto text-primary"
+                              src={
+                                subItem.link == location.pathname
+                                  ? subItem.redIcon
+                                  : subItem.icon
+                              }
+                            />
+                            <div
+                              className={`my-auto font-nunito-semibold capitalize text-base leading-5 ml-28 ${
+                                subItem.link == location.pathname
+                                  ? 'text-primary'
+                                  : 'text-secondary'
+                              } `}
+                            >
+                              {subItem.name}
+                            </div>
+                          </span>
+                        </Link>
+                      )}
+                    </>
                   ))}
                 </>
               </div>
