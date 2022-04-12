@@ -30,10 +30,10 @@ function GalleryCard({
               <div>
                 <span className="font-bold">{views}</span> Views
               </div>
-              {/* <div>
+              <div>
                 <span className="font-bold ml-10">{incImages}</span> Images
                 Included
-              </div> */}
+              </div>
             </div>
             <div className="flex items-center link">
               <EnterIcon className="w-13 h-11 mr-5 stroke-white" />

@@ -6,10 +6,10 @@ function Step({
 }) {
   return (
     <div>
-      <div className="uppercase text-primary tracking-wider font-avenir-reg text-2xl pb-7">
+      <div className="uppercase text-primary tracking-wider font-avenir-reg text-2xl pb-7 sm:text-xl">
         {title}
       </div>
-      <div className="font-nunito-light text-lg text-secondary-dark w-60%">
+      <div className="font-nunito-light text-lg text-secondary-dark w-60% sm:text-base">
         {description}
       </div>
     </div>

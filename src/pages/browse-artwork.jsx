@@ -45,7 +45,7 @@ function BrowseArtwork() {
               <div className="gridView">
                 {dataArtworks?.artworks?.map(
                   ({ name, artist_name, featured_image, views }) => (
-                    <Link to={'/gallery-detail'}>
+                    <Link to={'/single-photo'}>
                       <GalleryCard
                         imageClass="image"
                         className="mb-12"

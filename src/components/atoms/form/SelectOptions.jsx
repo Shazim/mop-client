@@ -13,6 +13,8 @@ function SelectOptions({
   ],
   label = 'choose an option',
   width = '266',
+  color = 'gray-lighter',
+  textColor = 'secondary',
   onChange,
 }) {
   const [text, setText] = useState(label);
@@ -34,7 +36,9 @@ function SelectOptions({
         ))}
       </select>
       <div class="custom-arrow w-42 h-32 relative bg-gray-darkest"></div>
-      <div class="select-selected text-secondary py-8 px-22 w-100% tracking leading-4 font-bold text-sm bg-gray-lighter select-arrow-active uppercase">
+      <div
+        class={`select-selected text-${textColor} py-8 px-22 w-100% tracking bg-${color} leading-4 font-bold text-sm select-arrow-active uppercase`}
+      >
         {text}
       </div>
       <div

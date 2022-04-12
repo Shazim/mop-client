@@ -21,6 +21,8 @@ module.exports = {
           "url('/src/assets/images/background/home-mobile-bg.png')",
         'gallery-mobile':
           "url('/src/assets/images/background/gallery-mobile-bg.png')",
+        'gofree-mobile':
+          "url('/src/assets/images/background/gofree-mobile-bg.png')",
         'background-gallery':
           "url('/src/assets/images/background/bgGallery.png')",
         cubes: "url('/src/assets/images/background/cubes.png')",
@@ -66,6 +68,7 @@ module.exports = {
 
       borderColor: (theme) => ({
         DEFAULT: theme('#C71118', 'currentColor'),
+        black: '#cccccc',
       }),
 
       borderWidth: {
@@ -175,6 +178,7 @@ module.exports = {
 
       height: {
         330: '330px',
+        578: '578px',
         661: '661px',
         1015: '1015px',
       },
@@ -202,6 +206,7 @@ module.exports = {
         38: '38px',
         50: '50px',
         55: '55px',
+        60: '60px',
       },
 
       letterSpacing: {

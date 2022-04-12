@@ -58,31 +58,37 @@ function CreateGallary() {
     <>
       <div className="bg-featured-gallery bg-no-repeat bg-cover">
         <Header />
-        <div className="max-screen pb-237 pt-158 sm:px-23 sm:py-80">
-          <div className="ml-50 text-primary tracking-wider font-avenir-300 uppercase text-3xl sm:text-2xl leading-55 w-55% xl:w-60% lg:w-65% md:w-70% sm:w-100% sm:ml-0">
-            showcase your work <span className="text-secondary">online </span>
-            through your very own custom gallery{' '}
-          </div>
-          <div className="ml-50 leading-32 sm:leading-35 font-avenir-reg text-xl  text-secondary-darkest pt-16  pb-45 w-55% xl:w-60% lg:w-65% md:w-70% sm:w-100% sm:ml-0">
-            An immersive experience which is curated and configured by the
-            artist to suit the work that is on virtual display. Purchase pieces
-            of work you fall in love with directly and have them shipped to you
-            within days of purchase.
-          </div>
-          <div className="ml-50 sm:hidden ">
-            <LinkLabel label="create a gallery" />
-          </div>
-          <div className="hidden sm:block">
-            <Button className="w-275 h-44" transform="uppercase">
-              create a gallary
-            </Button>
+        <div className="relative">
+          <img
+            className="hidden w-230 sm:block absolute -bottom-18 right-0"
+            src="/images/cubes.png"
+          />
+          <div className="max-screen relative pb-237 pt-158 sm:px-23 sm:pt-80 sm:pb-130">
+            <div className="ml-50 text-primary tracking-wider font-avenir-300 uppercase text-3xl sm:text-2xl leading-55 w-55% xl:w-60% lg:w-65% md:w-70% sm:w-100% sm:ml-0">
+              showcase your work <span className="text-secondary">online </span>
+              through your very own custom gallery{' '}
+            </div>
+            <div className="ml-50 leading-32 sm:leading-35 font-avenir-reg text-xl  text-secondary-darkest pt-16  pb-45 w-55% xl:w-60% lg:w-65% md:w-70% sm:w-100% sm:ml-0">
+              An immersive experience which is curated and configured by the
+              artist to suit the work that is on virtual display. Purchase
+              pieces of work you fall in love with directly and have them
+              shipped to you within days of purchase.
+            </div>
+            <div className="ml-50 sm:hidden">
+              <LinkLabel label="create a gallery" />
+            </div>
+            <div className="hidden sm:block">
+              <Button className="w-275 h-44" transform="uppercase">
+                create a gallary
+              </Button>
+            </div>
           </div>
         </div>
       </div>
-      <div className="max-screen pt-72 pb-42 justify-center items-center">
-        <div className="text-2xl font-avenir-reg uppercase text-secondary-dark tracking-wider">
+      <div className="max-screen pt-72 pb-42 justify-center items-center sm:py-49 sm:px-23">
+        <div className="text-2xl sm:mb-18 leading-38 font-avenir-reg uppercase text-secondary-dark tracking-wider sm:text-center">
           view demo
-          <div className="flex mb-42">
+          <div className="flex sm:hidden mb-42">
             <div className="text-primary text-57 ml-_4">.</div>
             <div className="border-b w-69 border-border mb-13"></div>
           </div>
@@ -94,19 +100,19 @@ function CreateGallary() {
             />
             <img
               src="/images/gallery/play.svg"
-              className="absolute top-50% left-50% transform-xy link"
+              className="absolute top-50% left-50% sm:w-22 sm:h-27 transform-xy link"
               alt=""
             />
           </div>
         </div>
       </div>
-      <div className="bg-gray-lighter py-118">
-        <div className="max-screen text-center">
-          <div className="font-avenir-reg uppercase text-secondary text-2xl tracking-wider">
+      <div className="bg-gray-lighter py-118 sm:pb-71 sm:pt-56 sm:bg-gofree-mobile sm:bg-no-repeat sm:bg-cover">
+        <div className="max-screen text-center sm:px-23">
+          <div className="font-avenir-reg uppercase text-secondary text-2xl sm:text-xl tracking-wider">
             beginners go free<span className="text-primary text-3xl">.</span>
           </div>
           <div className="flex justify-center">
-            <div className="font-nunito-light text-lg leading-32 text-center text-secondary-dark pb-26 pt-22 w-41%">
+            <div className="font-nunito-light text-lg leading-32 text-center text-secondary-dark pb-26 pt-22 w-41% sm:w-100%">
               Create your gallery with your{' '}
               <span className="font-bold">free trial</span> and upload up to{' '}
               <span className="font-bold">5 images.</span>
@@ -118,7 +124,7 @@ function CreateGallary() {
           <Button className="w-251 h-51 mr-18">Start Your Free Trial</Button>
         </div>
       </div>
-      <div className="bg-bg-gallery bg-no-repeat bg-cover">
+      <div className="bg-bg-gallery bg-no-repeat bg-cover sm:bg-none">
         <div className="max-screen pt-130 pb-122">
           <div className="text-center mb-53">
             <p className="font-avenir-reg text-2xl text-secondary-dark uppercase mb-47 leading-38 tracking-wider">
@@ -129,16 +135,16 @@ function CreateGallary() {
               Start Your Free Trial
             </Button>
           </div>
-          <div className="flex justify-between">
+          <div className="flex sm:flex-col justify-between">
             {descriptiveIcons.map(({ source, title }) => (
               <DescriptiveIcon source={source} title={title} />
             ))}
           </div>
         </div>
       </div>
-      <div className="flex max-screen py-115">
+      <div className="flex max-screen py-115 sm:px-23 sm:pt-42 sm:pb-67 sm:bg-off-white">
         <div>
-          <div className="uppercase text-2xl tracking-wider font-avenir-reg text-secondary-dark">
+          <div className="uppercase text-2xl sm:leading-38 sm:text-xl tracking-wider font-avenir-reg text-secondary-dark">
             create an <span className="text-primary">online presence</span> for
             your work in a few simple steps
           </div>
@@ -147,7 +153,7 @@ function CreateGallary() {
             <div className="relative pl-20">
               {steps.map(({ title, description }, index) => (
                 <>
-                  <div className="flex w-41 h-41 text-avenir-reg text-2xl font-medium bg-secondary items-center absolute -left-0 text-center justify-center rounded-full text-white">
+                  <div className="flex w-41 h-41 sm:w-34 sm:h-34 text-avenir-reg text-2xl sm:text-20 font-medium bg-secondary items-center absolute -left-0 text-center justify-center rounded-full text-white">
                     {index + 1}
                   </div>
                   <div
@@ -162,7 +168,7 @@ function CreateGallary() {
             </div>
           </div>
         </div>
-        <img src="/images/gallery.png" alt="" />
+        <img className="sm:hidden" src="/images/gallery.png" alt="" />
       </div>
       <div className="bg-gray-lighter">
         <div className="max-screen pt-135 pb-157">
@@ -173,8 +179,8 @@ function CreateGallary() {
           <Button className="w-251 h-51 m-auto block">
             Start Your Free Trial
           </Button>
-          <div className="flex justify-around mt-60">
-            <div className="w-15% text-center">
+          <div className="flex sm:flex-col justify-around mt-60">
+            <div className="w-15% sm:flex text-center sm:w-100%">
               <img
                 className="m-auto mb-30 font-reg text-base leading-10 text-secondary-dark"
                 src="/images/clock.svg"
