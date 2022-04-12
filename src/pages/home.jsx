@@ -101,12 +101,7 @@ function Home() {
           <GridLayout column={2} gap={5} />
         </div>
         <div className="flex sm:hidden mt-43 justify-center mb-121">
-          <Button
-            onClick={() => history.push('/order-detail')}
-            className="w-184 mr-18 "
-          >
-            View More
-          </Button>
+          <Button className="w-184 mr-18 ">View More</Button>
           <Button type="outline" className="w-184 h-48">
             Browse
           </Button>

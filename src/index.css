@@ -262,6 +262,11 @@ svg.stroke-white {
   fill: transparent !important;
 }
 
+.gridView {
+  columns: 2;
+  column-gap: 12px;
+}
+
 @layer base {
   @font-face {
     font-family: 'nunito-light';

@@ -4,6 +4,7 @@ import React from 'react';
 
 function GalleryCard({
   info = false,
+  imageClass = '',
   className: classes = '',
   title = 'Gallery Name',
   imageUrl = '/images/card/bg_image2.svg',
@@ -14,8 +15,11 @@ function GalleryCard({
   handleButton,
 }) {
   return (
-    <div className={`relative w-fit ${classes}`} onClick={onClick}>
-      <img className="rounded-lg  w-100% h-100%" src={imageUrl} />
+    <div className={`relative ${classes}`} onClick={onClick}>
+      <img
+        className={`${imageClass} rounded-lg  w-100% h-100%`}
+        src={imageUrl}
+      />
       <div className="absolute bottom-0 w-100%">
         <div className="flex w-100%">
           <div className="w-100% ml-18 h-70 text-white">

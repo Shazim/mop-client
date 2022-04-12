@@ -7,8 +7,8 @@ import Header from 'components/molecules/header/Header';
 import { Packages } from 'components/Packages';
 import { FAQ } from 'components/FAQ';
 import Footer from 'components/molecules/footer/Footer';
-import "slick-carousel/slick/slick.css"; 
-import "slick-carousel/slick/slick-theme.css";
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
 import { DescriptiveIcon } from 'components/DescriptiveIcon';
 import GalleryCard from 'components/atoms/cards/GalleryCard';
@@ -58,19 +58,24 @@ function CreateGallary() {
     <>
       <div className="bg-featured-gallery bg-no-repeat bg-cover">
         <Header />
-        <div className="max-screen pb-237 pt-158">
-          <div className="ml-50 text-primary tracking-wider font-avenir-300 uppercase text-3xl leading-55 w-55%">
+        <div className="max-screen pb-237 pt-158 sm:px-23 sm:py-80">
+          <div className="ml-50 text-primary tracking-wider font-avenir-300 uppercase text-3xl sm:text-2xl leading-55 w-55% xl:w-60% lg:w-65% md:w-70% sm:w-100% sm:ml-0">
             showcase your work <span className="text-secondary">online </span>
             through your very own custom gallery{' '}
           </div>
-          <div className="ml-50 leading-32 font-avenir-reg text-xl  text-secondary-darkest pt-16  pb-45 w-55%">
+          <div className="ml-50 leading-32 sm:leading-35 font-avenir-reg text-xl  text-secondary-darkest pt-16  pb-45 w-55% xl:w-60% lg:w-65% md:w-70% sm:w-100% sm:ml-0">
             An immersive experience which is curated and configured by the
             artist to suit the work that is on virtual display. Purchase pieces
             of work you fall in love with directly and have them shipped to you
             within days of purchase.
           </div>
-          <div className="ml-50  ">
+          <div className="ml-50 sm:hidden ">
             <LinkLabel label="create a gallery" />
+          </div>
+          <div className="hidden sm:block">
+            <Button className="w-275 h-44" transform="uppercase">
+              create a gallary
+            </Button>
           </div>
         </div>
       </div>
@@ -113,19 +118,22 @@ function CreateGallary() {
           <Button className="w-251 h-51 mr-18">Start Your Free Trial</Button>
         </div>
       </div>
-      <div className='bg-bg-gallery bg-no-repeat bg-cover'>
+      <div className="bg-bg-gallery bg-no-repeat bg-cover">
         <div className="max-screen pt-130 pb-122">
-          <div className='text-center mb-53'>
-            <p className='font-avenir-reg text-2xl text-secondary-dark uppercase mb-47 leading-38 tracking-wider'>giving you the tools to create <br/> galleries, earn extra income and more<span className='text-primary'>.</span></p>
+          <div className="text-center mb-53">
+            <p className="font-avenir-reg text-2xl text-secondary-dark uppercase mb-47 leading-38 tracking-wider">
+              giving you the tools to create <br /> galleries, earn extra income
+              and more<span className="text-primary">.</span>
+            </p>
             <Button className="w-251 h-51 m-auto block">
               Start Your Free Trial
             </Button>
           </div>
-            <div className='flex justify-between'>
+          <div className="flex justify-between">
             {descriptiveIcons.map(({ source, title }) => (
               <DescriptiveIcon source={source} title={title} />
             ))}
-            </div>
+          </div>
         </div>
       </div>
       <div className="flex max-screen py-115">
@@ -136,47 +144,63 @@ function CreateGallary() {
           </div>
           <div className="flex mt-56">
             {/* <img src="/images/gallery/steps.png" className='h-299' alt="" /> */}
-            <div className='relative pl-20'>
+            <div className="relative pl-20">
               {steps.map(({ title, description }, index) => (
-                <><div className='flex w-41 h-41 text-avenir-reg text-2xl font-medium bg-secondary items-center absolute -left-0 text-center justify-center rounded-full text-white'>{index +1}</div>
-                <div className={`pb-43 pt-5 pl-30 ${index != 2 ? "border-l-3 border-border" : ""}`}>
-                  <Step title={title} description={description} />
-                </div></>
+                <>
+                  <div className="flex w-41 h-41 text-avenir-reg text-2xl font-medium bg-secondary items-center absolute -left-0 text-center justify-center rounded-full text-white">
+                    {index + 1}
+                  </div>
+                  <div
+                    className={`pb-43 pt-5 pl-30 ${
+                      index != 2 ? 'border-l-3 border-border' : ''
+                    }`}
+                  >
+                    <Step title={title} description={description} />
+                  </div>
+                </>
               ))}
             </div>
           </div>
         </div>
         <img src="/images/gallery.png" alt="" />
       </div>
-      <div className='bg-gray-lighter'>
-      <div className="max-screen pt-135 pb-157">
-        <div className="text-2xl mb-47 text-center font-avenir-reg text-secondary uppercase tracking-wider">
-          Sell your photos with our 24 hour <br/>printing service
+      <div className="bg-gray-lighter">
+        <div className="max-screen pt-135 pb-157">
+          <div className="text-2xl mb-47 text-center font-avenir-reg text-secondary uppercase tracking-wider">
+            Sell your photos with our 24 hour <br />
+            printing service
+          </div>
+          <Button className="w-251 h-51 m-auto block">
+            Start Your Free Trial
+          </Button>
+          <div className="flex justify-around mt-60">
+            <div className="w-15% text-center">
+              <img
+                className="m-auto mb-30 font-reg text-base leading-10 text-secondary-dark"
+                src="/images/clock.svg"
+              />
+              <p>24 hour Printing Service to manage your orders</p>
+            </div>
+            <div className="w-15% text-center">
+              <img
+                className="m-auto mb-30 font-reg text-base leading-10 text-secondary-dark"
+                src="/images/pound.svg"
+              />
+              <p>Sell your photos through your gallery</p>
+            </div>
+            <div className="w-15% text-center">
+              <img
+                className="m-auto mb-30 font-reg text-base leading-10 text-secondary-dark"
+                src="/images/sms.svg"
+              />
+              <p>Print & send automatically or use your own print lab</p>
+            </div>
+          </div>
         </div>
-        <Button className="w-251 h-51 m-auto block">
-          Start Your Free Trial
-        </Button>
-        <div className='flex justify-around mt-60'>
-          <div className='w-15% text-center' >
-            <img className='m-auto mb-30 font-reg text-base leading-10 text-secondary-dark' src='/images/clock.svg'/>
-            <p>24 hour Printing Service to manage your orders</p>
-          </div>
-          <div className='w-15% text-center'>
-            <img className='m-auto mb-30 font-reg text-base leading-10 text-secondary-dark' src='/images/pound.svg'/>
-            <p>Sell your photos through your gallery</p>
-          </div>
-          <div className='w-15% text-center'>
-            <img className='m-auto mb-30 font-reg text-base leading-10 text-secondary-dark' src='/images/sms.svg'/>
-            <p>Print & send automatically or use 
-your own print lab</p>
-          </div>
-        </div>
-      </div>
-
       </div>
       <Packages />
-      
-      <div className='bg-gray-lighter'>
+
+      <div className="bg-gray-lighter">
         <div className="max-screen items-center py-136">
           <div className="text-2xl tracking-wider font-avenir-reg uppercase text-center mb-2 ">
             photographer reviews<span className="text-primary">.</span>
@@ -184,14 +208,16 @@ your own print lab</p>
           <div className="text-lg text-center font-nunito-light leading-35 mb-48">
             See what the world’s artists think of our platform.
           </div>
-            <div className='w-100% mx-auto'>
-              <Slider {...settings}>
-                <ProfileCard/>
-                <ProfileCard/>
-                <ProfileCard/>
-              </Slider>
-            </div>
-          <Button className="w-251 h-51 m-auto block mt-50">Get Your Free Trial</Button>
+          <div className="w-100% mx-auto">
+            <Slider {...settings}>
+              <ProfileCard />
+              <ProfileCard />
+              <ProfileCard />
+            </Slider>
+          </div>
+          <Button className="w-251 h-51 m-auto block mt-50">
+            Get Your Free Trial
+          </Button>
         </div>
       </div>
       <div className="max-screen py-67">

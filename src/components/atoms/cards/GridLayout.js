@@ -50,8 +50,7 @@ export default function GridLayout({
           <img
             src={item.imageUrl}
             key={i}
-            className="image"
-            style={{ paddingBottom: 12 }}
+            className="image sm:rounded-8 mb-12"
           />
           <div className="absolute bottom-20 sm:bottom-15 left-21">
             <div className="flex items-center mb-8 sm:mb-5">

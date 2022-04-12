@@ -33,7 +33,7 @@ export default function SubHeader({
         >
           {buttonText}
         </Button>
-        <img className="w-6 ml-23" src="/images/menu/sub-menu.svg" />
+        <img className="w-6 ml-23 sm:hidden" src="/images/menu/sub-menu.svg" />
       </div>
     </div>
   );
