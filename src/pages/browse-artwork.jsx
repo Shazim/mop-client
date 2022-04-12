@@ -42,20 +42,23 @@ function BrowseArtwork() {
             </div>
             <SelectOptions label="sort: Most popular" />
           </div>
-          <div className="pt-30 pl-57 pb-43">
+          <div className="pt-30 pl-57 pb-43 pr-60">
             <div className="flex flex-wrap gap-36">
-              {dataArtworks?.artworks?.map(
-                ({ name, artist_name, featured_image, views }) => (
-                  <Link to={'/gallery-detail'}>
-                    <GalleryCard
-                      className="w-100% h-100%"
-                      imageUrl={featured_image}
-                      views={views}
-                      title={name}
-                    />
-                  </Link>
-                )
-              )}
+              <div style={{ columns: 2, columnGap: 12 }}>
+                {dataArtworks?.artworks?.map(
+                  ({ name, artist_name, featured_image, views }) => (
+                    <Link to={'/gallery-detail'}>
+                      <GalleryCard
+                        imageClass="image"
+                        className="mb-12"
+                        imageUrl={featured_image}
+                        views={views}
+                        title={name}
+                      />
+                    </Link>
+                  )
+                )}
+              </div>
             </div>
             <Pagination
               pageDetails={dataArtworks?.pagination}
