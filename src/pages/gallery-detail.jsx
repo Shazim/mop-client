@@ -8,15 +8,12 @@ import { getGalleryDetails } from 'api/api-services';
 import Pagination from 'components/Pagination/Pagination';
 
 function GallaryDetail(props) {
-  const [handleGetGalleries, { data, status }] =
-    useLazyFetch(getGalleryDetails);
-
+  const [handleGetGalleries, { data }] = useLazyFetch(getGalleryDetails);
   const [currentPage, setCurrentPage] = useState(1);
   const search = props.location.search;
   const params = new URLSearchParams(search);
   const id = params.get('id');
 
-  console.log('data', data);
   useEffect(() => {
     if (id) {
       handleGetGalleries({ variables: 1 });
@@ -43,7 +40,6 @@ function GallaryDetail(props) {
           setCurrentPage={setCurrentPage}
           className="mt-15 mb-63"
         />
-        {/* <div className="ml-80 mt-15 mb-63 text-primary text-base">1</div> */}
       </div>
       <Footer />
     </>

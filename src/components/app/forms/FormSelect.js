@@ -1,11 +1,11 @@
-import { useFormikContext } from "formik";
+import { useFormikContext } from 'formik';
 
-import ErrorMessage from "./ErrorMessage";
-import Input from "../common/Input";
-import Select from "../common/Select";
+import ErrorMessage from './ErrorMessage';
+import Input from '../common/Input';
+import Select from '../common/Select';
 
 function FormSelect({
-  className: classes = "",
+  className: classes = '',
   children,
   name,
   placeholder,
@@ -20,6 +20,7 @@ function FormSelect({
     touched = {},
     values = {},
   } = useFormikContext() || {};
+
   return (
     <div>
       <Select

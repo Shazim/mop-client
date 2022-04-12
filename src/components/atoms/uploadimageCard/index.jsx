@@ -1,7 +1,8 @@
 import React from 'react';
+import { FormField } from 'components/app/forms';
 import { useFormikContext } from 'formik';
 
-function UploadImageCard(id, name, label) {
+function UploadImageCard({ id, label }) {
   const {
     handleBlur,
     handleChange,
@@ -12,46 +13,25 @@ function UploadImageCard(id, name, label) {
   } = useFormikContext() || {};
 
   const customChange = (name, files) => {
-    let copyFiles = [];
-    // setFieldValue(name, files);
-    // Object.entries(files).map(([key, value]) => {
-    //   let img = new Image();
-    //   let _URL = window.URL || window.webkitURL;
+    let _URL = window.URL || window.webkitURL;
 
-    //   let imageLink = _URL.createObjectURL(value);
-
-    //   img.onload = async function () {
-    //     const imageWidth = img.width;
-    //     const imageHeight = img.height;
-    //     let imageFile = {
-    //       image: value,
-    //       imageLink,
-    //       featured_image: false,
-    //     };
-
-    //     if (imageWidth > imageHeight) {
-    //       imageFile.orientaion = 'landscape';
-    //       await copyFiles.push(imageFile);
-    //       setFieldValue('artwork_images_attributes', copyFiles);
-    //     } else if (imageWidth < imageHeight) {
-    //       imageFile.orientaion = 'portrait';
-    //       await copyFiles.push(imageFile);
-    //       setFieldValue('artwork_images_attributes', copyFiles);
-    //     } else if (imageHeight == imageWidth) {
-    //       imageFile.orientaion = 'square';
-    //       await copyFiles.push(imageFile);
-    //       setFieldValue('artwork_images_attributes', copyFiles);
-    //     }
-    //   };
-    //   img.src = _URL.createObjectURL(value);
-    // });
+    let imageLink = _URL.createObjectURL(files[0]);
+    let imageFile = {
+      image: files[0],
+      imageLink,
+    };
+    setFieldValue(id, imageFile);
   };
 
   return (
-    <div className="w-220 bg-white h-220 flex items-center ">
+    <div className="w-220 relative bg-white h-220 flex items-center ">
+      {values[id]?.imageLink ? (
+        <img src={values[id].imageLink} className="absolute w-220 h-220 " />
+      ) : null}
+
       <label
-        for="1"
-        className="font-bold text-sm text-secondary tracking leading-32 cursor-pointer text-center w-122 h-33 mx-auto bg-gray"
+        for={id}
+        className="z-1 font-bold text-sm uppercase text-secondary tracking leading-32 cursor-pointer text-center w-122 h-33 mx-auto bg-gray"
       >
         {label}
       </label>
@@ -59,12 +39,9 @@ function UploadImageCard(id, name, label) {
       <FormField
         accept="image/*"
         className="hidden"
-        multiple="multiple"
         id={id}
-        name={name}
+        name={id}
         customChange={customChange}
-        // onChange={fileReader}
-        // onBlur={handleBlur}
         type="file"
       />
     </div>

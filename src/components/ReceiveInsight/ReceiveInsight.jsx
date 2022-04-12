@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Form } from 'components/app/forms';
-import { generateSchema, artworkSchema } from 'validation';
+import { generateSchema } from 'validation';
 import { TextField } from 'components/atoms/form';
 import { usePost } from 'hooks';
 import SubmitButton from 'components/atoms/buttons/SubmitButton';
@@ -16,8 +16,9 @@ function ReceiveInsight({ image = '/images/girl.png' }) {
     }
   }, [dataPost]);
 
-  const data = (data) => {
+  const submit = (data, { resetForm }) => {
     post({ variables: { insight: data } });
+    resetForm();
   };
 
   return (
@@ -27,45 +28,47 @@ function ReceiveInsight({ image = '/images/girl.png' }) {
           <div className="tracking-wider text-2xl sm:text-center uppercase font-avenir-reg pb-34">
             Receive insights and news from the worlds leading voices
           </div>
-          <Form
-            initialValues={{
-              name: '',
-              email: '',
-            }}
-            onSubmit={data}
-            validationSchema={generateSchema({
-              name: '',
-              email: '',
-            })}
-          >
-            <div className="mb-32 sm:px-9 sm:w-100%">
-              <TextField
-                shadow="shadow"
-                className="w-100% h-48"
-                mb="10"
-                label="First Name"
-                name="name"
-                tracking="none"
-                textTransform="capitalize"
-                color="text-secondary-dark"
-              />
-            </div>
-            <div className="sm:px-9 sm:w-100%">
-              <TextField
-                shadow="shadow"
-                className="w-100% h-48"
-                name="email"
-                label="Email Address"
-                tracking="none"
-                mb="10"
-                textTransform="capitalize"
-                color="text-secondary-dark"
-              />
-            </div>
-            <SubmitButton className="w-251 mr-18 h-42 mt-44 mb-14">
-              Subscribe
-            </SubmitButton>
-          </Form>
+          {() => (
+            <Form
+              initialValues={{
+                name: '',
+                email: '',
+              }}
+              onSubmit={submit}
+              validationSchema={generateSchema({
+                name: '',
+                email: '',
+              })}
+            >
+              <div className="mb-32 sm:px-9 sm:w-100%">
+                <TextField
+                  shadow="shadow"
+                  className="w-100% h-48"
+                  mb="10"
+                  label="First Name"
+                  name="name"
+                  tracking="none"
+                  textTransform="capitalize"
+                  color="text-secondary-dark"
+                />
+              </div>
+              <div className="sm:px-9 sm:w-100%">
+                <TextField
+                  shadow="shadow"
+                  className="w-100% h-48"
+                  name="email"
+                  label="Email Address"
+                  tracking="none"
+                  mb="10"
+                  textTransform="capitalize"
+                  color="text-secondary-dark"
+                />
+              </div>
+              <SubmitButton className="w-251 mr-18 h-42 mt-44 mb-14">
+                Subscribe
+              </SubmitButton>
+            </Form>
+          )}
           <div className="text-primary capitalize font-nunito-light text-base link">
             See Terms & Conditions
           </div>

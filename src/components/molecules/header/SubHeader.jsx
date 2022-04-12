@@ -3,15 +3,15 @@ import React from 'react';
 
 export default function SubHeader({
   handler,
-  title,
-  subtitle = 'order detailed',
+  title = 'title',
+  subtitle,
   buttonText = 'button',
   button = false,
 }) {
   return (
-    <div className="w-100% flex shadow-sm justify-between sm:flex-col bg-white px-43 sm:px-16">
+    <div className="w-100% flex shadow-sm justify-between sm:flex-col bg-white px-43 h-112 sm:px-16">
       <div className="my-auto sm:w-100% sm:flex sm:justify-between">
-        <p className="font-avenir-reg font-medium text-2xl uppercase text-primary tracking-wider leading-55">
+        <p className="font-avenir-reg font-medium text-2xl uppercase text-primary tracking-wider ">
           {title}
         </p>
         <p

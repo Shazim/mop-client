@@ -49,5 +49,11 @@ export const generateSchema = (param) => {
 export const artworkSchema = Yup.object().shape({
   name: Yup.string().required('Name is required'),
   note: Yup.string().required('Note is required'),
-  // images: Yup.array().min(1).required('At least one image is required'),
+});
+
+export const gallerySchema = Yup.object().shape({
+  name: Yup.string().required('Name is required'),
+  artist_name: Yup.string().required('Note is required'),
+  welcome_video: Yup.string().required('Welcome video is required'),
+  domain: Yup.string().required('Domain is required'),
 });
