@@ -15,7 +15,7 @@ function GalleryCard({
   handleButton,
 }) {
   return (
-    <div className={`relative w-fit ${classes}`} onClick={onClick}>
+    <div className={`relative ${classes}`} onClick={onClick}>
       <img
         className={`${imageClass} rounded-lg  w-100% h-100%`}
         src={imageUrl}

@@ -57,19 +57,37 @@ function Gallary() {
   const steps = {
     galleries: data?.galleries.map(({ gallery_name, views, id }) => (
       <Link to={`/gallery-detail?id=${id}`}>
-        <GalleryCard info={false} title={gallery_name} views={views} />
+        <GalleryCard
+          className="w-100% h-100% mb-12"
+          imageClass="image"
+          info={false}
+          title={gallery_name}
+          views={views}
+        />
       </Link>
     )),
     exhibitions: dataExhibitions?.exhibitions.map(
       ({ gallery_name, views, id }) => (
         <Link to={`/gallery-detail?id=${id}`}>
-          <GalleryCard info={false} title={gallery_name} views={views} />
+          <GalleryCard
+            className="w-100% h-100%"
+            imageClass="image"
+            info={false}
+            title={gallery_name}
+            views={views}
+          />
         </Link>
       )
     ),
     artists: dataArtists?.artists.map(({ artist_name, id }) => (
       <Link to={`/gallery-detail?id=${id}`}>
-        <GalleryCard info={false} title={artist_name} views={4} />
+        <GalleryCard
+          className="w-100% h-100%"
+          imageClass="image"
+          info={false}
+          title={artist_name}
+          views={4}
+        />
       </Link>
     )),
   };
@@ -93,9 +111,8 @@ function Gallary() {
         </div>
       </div>
       <div className="max-screen pt-30 pb-43">
-        <div className="grid grid-cols-4 gap-36 justify-between">
-          {steps[tab]}
-        </div>
+        {/* <div className="grid grid-cols-4 gap-36 justify-between"> */}
+        <div className="gridView">{steps[tab]}</div>
         {/* <div className="text-primary link mt-25 text-base">1</div> */}
         <Pagination
           pageDetails={data?.pagination}

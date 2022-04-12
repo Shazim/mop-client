@@ -33,9 +33,9 @@ function BrowseArtwork() {
       <div className="flex">
         {/* <div className='w-21% '> */}
 
-        <SideBarWithLogin />
+        <SideBarWithLogin className="sm:hidden" />
         {/* </div> */}
-        <div className="w-91% bg-gray-dark">
+        <div className="w-91% sm:w-100% bg-gray-dark">
           <div className="flex justify-end pt-31 px-57">
             <div className="mr-25">
               <SelectOptions width="180" label="SOHW 50" />
@@ -44,7 +44,7 @@ function BrowseArtwork() {
           </div>
           <div className="pt-30 pl-57 pb-43 pr-60">
             <div className="flex flex-wrap gap-36">
-              <div style={{ columns: 2, columnGap: 12 }}>
+              <div className="gridView">
                 {dataArtworks?.artworks?.map(
                   ({ name, artist_name, featured_image, views }) => (
                     <Link to={'/gallery-detail'}>
