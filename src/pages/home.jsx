@@ -7,13 +7,7 @@ import { LinkLabel } from 'components/LinkLabel';
 import { ReceiveInsight } from 'components/ReceiveInsight';
 import React from 'react';
 import { useState } from 'react';
-
-import LoginModal from 'components/molecules/modals/LoginModal';
-import SignupModal from 'components/molecules/modals/SignupModal';
-import ForgotPassword from 'components/molecules/modals/ForgotPassword';
-import { getCookie } from 'cookies/Cookies';
-import { useEffect } from 'react';
-import { Link, useHistory, useLocation, Redirect } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import GridLayout from 'components/atoms/cards/GridLayout';
 
 function Home() {
@@ -108,7 +102,11 @@ function Home() {
         </div>
         <div className="flex sm:hidden mt-43 justify-center mb-121">
           <Button className="w-184 mr-18 ">View More</Button>
-          <Button type="outline" className="w-184 h-48">
+          <Button
+            type="outline"
+            className="w-184 h-48"
+            onClick={() => history.push('/browse-artwork')}
+          >
             Browse
           </Button>
         </div>

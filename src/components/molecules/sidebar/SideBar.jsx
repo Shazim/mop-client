@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useHistory } from 'react-router-dom';
 import { removeCookie } from 'cookies/Cookies';
+import { useDispatch, useSelector } from 'react-redux';
+import * as types from 'store/actions/actionTypes';
 
 const obj = [
   {
@@ -10,7 +12,7 @@ const obj = [
         icon: '/images/sidebar/exhibitionroom.svg',
         redIcon: '/images/sidebar/exhibitionroom_red.svg',
         name: 'Exhibition Rooms',
-        link: '/exhibition',
+        link: '/exhibition-room',
       },
       {
         redIcon: '/images/sidebar/stockroom_red.svg',
@@ -109,7 +111,7 @@ const obj = [
   },
 ];
 
-function SideBar({ routBack = false }) {
+function SideBar() {
   const location = useLocation();
   const history = useHistory();
 
@@ -118,9 +120,12 @@ function SideBar({ routBack = false }) {
     history.push('/');
   };
 
+  const backbtn = useSelector((state) => state?.admin?.backButton);
+  const dispatch = useDispatch();
+
   return (
     <div className="h-100% sm:w-100% bg-gray-lighter pt-40 pr-19 overflow-auto ">
-      {!routBack ? (
+      {!backbtn ? (
         <>
           {obj.map((item, index) => {
             return (
@@ -195,7 +200,10 @@ function SideBar({ routBack = false }) {
           })}
         </>
       ) : (
-        <div className="link" onClick={() => history.goBack()}>
+        <div
+          className="link"
+          onClick={() => dispatch({ type: types.BACK_BUTTON, payload: false })}
+        >
           <span className="flex h-55 bg-secondary-dim justify-between rounded-r-lg pl-37 link pr-15">
             <div
               className={`my-auto font-bold uppercase text-base leading-5 text-secondary `}

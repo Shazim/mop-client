@@ -2,7 +2,7 @@ export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
 export const SIGNUP_FAILURE = 'SIGNUP_FAILURE';
 export const SIGNIN_SUCCESS = 'SIGNIN_SUCCESS';
 export const SIGNIN_FAILURE = 'SIGNIN_FAILURE';
-
+export const BACK_BUTTON = 'BACK_BUTTON';
 export const LOGIN_MODAL = 'LOGIN_MODAL';
 export const SIGNUP_MODAL = 'SIGNUP_MODAL';
 export const FORGET_MODAL = 'FORGET_MODAL';

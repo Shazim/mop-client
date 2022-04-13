@@ -17,13 +17,6 @@ export default function Exhibition({ addItem, steps, step, previous }) {
 
   return (
     <div className="w-80% pb-172">
-      <SubHeader
-        handler={addItem}
-        title="add new artwork"
-        subtitle="exhibition"
-        buttonText="ADD NEW ITEM"
-        button={true}
-      />
       <div className="px-43 pt-32">
         <div className="w-57% m-auto">
           <StepBar steps={steps} step={step} />
