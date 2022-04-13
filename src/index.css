@@ -35,7 +35,7 @@
 }
 
 .footer-links {
-  @apply font-nunito-light text-secondary text-lg capitalize leading-9;
+  @apply font-nunito-light text-secondary text-lg capitalize leading-9 sm:text-sm;
 }
 
 .w-fit {

@@ -172,36 +172,42 @@ function CreateGallary() {
         </div>
         <img className="sm:hidden" src="/images/gallery.png" alt="" />
       </div>
-      <div className="bg-gray-lighter">
-        <div className="max-screen pt-135 pb-157">
+      <div className="bg-gray-lighter sm:bg-white">
+        <div className="max-screen pt-135 sm:pt-49 pb-157 sm:px-23">
           <div className="text-2xl mb-47 text-center font-avenir-reg text-secondary uppercase tracking-wider">
             Sell your photos with our 24 hour <br />
             printing service
           </div>
-          <Button className="w-251 h-51 m-auto block">
+          <Button className="w-251 sm:w-275 h-51 m-auto block">
             Start Your Free Trial
           </Button>
           <div className="flex sm:flex-col justify-around mt-60">
-            <div className="w-15% sm:flex text-center sm:w-100%">
+            <div className="w-15% sm:flex text-center sm:text-left sm:mt-80  sm:w-100% sm:px-38">
               <img
-                className="m-auto mb-30 font-reg text-base leading-10 text-secondary-dark"
+                className="m-auto sm:my-auto mb-30 font-reg text-base leading-10 text-secondary-dark"
                 src="/images/clock.svg"
               />
-              <p>24 hour Printing Service to manage your orders</p>
+              <p className="font-avenir-reg w-70% text-xl text-secondary sm:ml-33">
+                24 hour Printing Service to manage your orders
+              </p>
             </div>
-            <div className="w-15% text-center">
+            <div className="w-15% sm:flex text-center sm:text-left sm:mt-80  sm:w-100% sm:px-38">
               <img
-                className="m-auto mb-30 font-reg text-base leading-10 text-secondary-dark"
+                className="m-auto sm:my-auto mb-30 font-reg text-base leading-10 text-secondary-dark"
                 src="/images/pound.svg"
               />
-              <p>Sell your photos through your gallery</p>
+              <p className="font-avenir-reg w-70% text-xl text-secondary sm:ml-33">
+                Sell your photos through your gallery
+              </p>
             </div>
-            <div className="w-15% text-center">
+            <div className="w-15% sm:flex text-center sm:text-left sm:mt-80  sm:w-100% sm:px-38">
               <img
-                className="m-auto mb-30 font-reg text-base leading-10 text-secondary-dark"
+                className="m-auto sm:my-auto mb-30 font-reg text-base leading-10 text-secondary-dark"
                 src="/images/sms.svg"
               />
-              <p>Print & send automatically or use your own print lab</p>
+              <p className="font-avenir-reg w-70% text-xl text-secondary sm:ml-33">
+                Print & send automatically or use your own print lab
+              </p>
             </div>
           </div>
         </div>
