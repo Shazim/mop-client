@@ -4,8 +4,8 @@ import React from 'react';
 
 function AddCart() {
   return (
-    <div className="h-578 w-80% xl:w-90% lg:w-93% md:w-93% bg-gray-lighter flex flex-col px-42 pt-20 pb-40 shadow">
-      <p className="font-avenir-reg text-secondary-dark text-2xl tracking-wider leading-60 uppercase">
+    <div className="h-578 w-80% xl:w-90% lg:w-93% md:w-93% sm:w-100% bg-gray-lighter flex flex-col px-42 sm:px-20 pt-20 pb-40 shadow">
+      <p className="font-avenir-reg text-secondary-dark text-2xl sm:text-xl tracking-wider sm:text-center leading-60 sm:leading-38 uppercase">
         buy this artwork
       </p>
       <p className="font-bold text-sm text-black tracking leading-32 uppercase mt-14">

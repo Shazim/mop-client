@@ -142,7 +142,7 @@ function CreateGallary() {
           </div>
         </div>
       </div>
-      <div className="flex max-screen py-115 sm:px-23 sm:pt-42 sm:pb-67 sm:bg-off-white">
+      <div className="flex max-screen py-115 sm:px-23 sm:pt-42 sm:pb-67 sm:bg-offwhite">
         <div>
           <div className="uppercase text-2xl sm:leading-38 sm:text-xl tracking-wider font-avenir-reg text-secondary-dark">
             create an <span className="text-primary">online presence</span> for
