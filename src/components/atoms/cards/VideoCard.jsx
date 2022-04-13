@@ -2,7 +2,7 @@ import React from 'react';
 
 function VideoCard({
   title = 'Prospect 4',
-  image_url = '/images/card/bg_image.png',
+  imageUrl = '/images/card/bg_image.png',
   views = 1302,
   incImages = 28,
   comments = 6,
@@ -11,7 +11,7 @@ function VideoCard({
 }) {
   return (
     <div className="relative max-w-sm" onClick={onClick}>
-      <img className="w-100%" src={image_url} />
+      <img className="w-100%" src={imageUrl} />
       <img
         className="absolute link left-50% top-50% transform-xy"
         src="/images/card/play-button.svg"

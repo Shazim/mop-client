@@ -6,10 +6,12 @@ import Arrow from '../arrow/Arrow';
 
 function Sliders({
   images = [
-    '/images/slider/image.png',
-    '/images/slider/image.png',
-    '/images/slider/image.png',
-    '/images/slider/image.png',
+    { image: '/images/slider/image.png' },
+    { image: '/images/slider/image.png' },
+    { image: '/images/slider/image.png' },
+    { image: '/images/slider/image.png' },
+    { image: '/images/slider/image.png' },
+    { image: '/images/slider/image.png' },
   ],
   column,
   dots = false,
@@ -41,7 +43,7 @@ function Sliders({
     <div className="w-100% mx-auto slider-dots">
       <Slider {...settings}>
         {images.map((url) => (
-          <img className="w-80% sm:w-100% m-auto sm:h-100%" src={url} />
+          <img className="w-80% sm:w-100% m-auto sm:h-100%" src={url.image} />
         ))}
       </Slider>
     </div>

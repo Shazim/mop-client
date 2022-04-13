@@ -27,12 +27,9 @@ function BrowseArtwork() {
   return (
     <>
       <Header />
-      {/* <GalleryBar />d */}
-      <div className="flex">
-        {/* <div className='w-21% '> */}
 
+      <div className="flex">
         <SideBarWithLogin className="sm:hidden" />
-        {/* </div> */}
         <div className="w-91% sm:w-100% bg-gray-dark">
           <div className="flex justify-end pt-31 px-57">
             <div className="mr-25">
@@ -46,12 +43,13 @@ function BrowseArtwork() {
                 {dataArtworks?.artworks?.map(
                   ({
                     name,
+                    id,
                     artist_name,
                     featured_image,
                     images_included,
                     views,
                   }) => (
-                    <Link to={'/single-photo'}>
+                    <Link to={`/single-photo?id=${id}`}>
                       <GalleryCard
                         imageClass="image"
                         className="mb-12"

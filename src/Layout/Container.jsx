@@ -1,25 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
+import Footer from 'components/molecules/footer/Footer';
+import Header from 'components/molecules/header/Header';
 
-function Container({ children, questionaire = false }) {
-  const [width, setWidth] = useState();
-  const handleWindowResize = () => setWidth(window.innerWidth);
-  window.addEventListener('resize', handleWindowResize);
-
+function Container({ children }) {
   return (
     <>
-      {/* {window.innerWidth > 1150 ? (
-        <div className=" sm:hidden ">
-          <DesktopHeader questionaire={questionaire} />
-          <div className="">{children}</div>
-          <DesktopFooter />
-        </div>
-      ) : (
-        <div className="">
-          <MobileHeader questionaire={questionaire} />
-          {children}
-          <MobileFooter />
-        </div>
-      )} */}
+      <Header />
+      {children}
+      <Footer />
     </>
   );
 }
