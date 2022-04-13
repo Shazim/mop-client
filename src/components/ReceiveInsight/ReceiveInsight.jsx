@@ -28,7 +28,6 @@ function ReceiveInsight({ image = '/images/girl.png' }) {
           <div className="tracking-wider text-2xl sm:text-center uppercase font-avenir-reg pb-34">
             Receive insights and news from the worlds leading voices
           </div>
-
           <Form
             initialValues={{
               name: '',
@@ -40,7 +39,8 @@ function ReceiveInsight({ image = '/images/girl.png' }) {
               email: '',
             })}
           >
-            {() => (
+
+            {({ setFieldValue, values }) => (
               <>
                 <div className="mb-32 sm:px-9 sm:w-100%">
                   <TextField

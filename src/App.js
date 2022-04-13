@@ -9,6 +9,7 @@ import ForgotPassword from 'components/molecules/modals/ForgotPassword';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import PrivateRoute from 'routes/PrivateRoute';
+import { removeCookie } from 'cookies/Cookies';
 
 function App() {
   const { store } = useStore();

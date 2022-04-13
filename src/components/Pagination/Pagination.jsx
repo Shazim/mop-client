@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Pagination({
-  pageDetails = {},
+  pageDetails = { total_pages: 1 },
   currentPage = 1,
   setCurrentPage,
   className,

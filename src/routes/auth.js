@@ -28,7 +28,10 @@ export const authRoutes = Object.freeze({
   ROUTE_STOCK_ROOM: '/stock-room',
   ROUTE_GALLERY_SETTING: '/gallery-setting',
   ROUTE_EXHIBITION_ROOM: '/exhibition-room',
+
   ROUTE_SINGLE_PHOTO: '/single-photo',
+  ROUTE_LOGOUT: '/logout',
+
 });
 // List of route object which will be rendered under Router component
 export default Object.freeze([
@@ -39,6 +42,7 @@ export default Object.freeze([
   { path: authRoutes.ROUTE_GALLERY, component: Gallery },
   { path: authRoutes.ROUTE_ORDER_DETAIL, component: OrderDetail },
   { path: authRoutes.ROUTE_BROWSE_ARTWORK, component: BrowseArtwork },
+
   {
     path: authRoutes.ROUTE_STOCK_ROOM,
     component: StockRoom,
