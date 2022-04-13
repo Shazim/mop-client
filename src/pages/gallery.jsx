@@ -84,7 +84,7 @@ function Gallary() {
     artists: dataArtists?.artists.map(({ artist_name, id, image }) => (
       // <Link to={`/gallery-detail?id=${id}`}>
       <GalleryCard
-        className="w-100% h-100%"
+        className="w-100% h-100% mb-20"
         imageClass="image"
         info={false}
         title={artist_name}
