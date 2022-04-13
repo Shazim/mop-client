@@ -40,11 +40,4 @@ function TextField({
   );
 }
 
-TextField.propTypes = {
-  placeholder: PropTypes.oneOf(['some text']),
-  mb: PropTypes.oneOf(['7', '25']),
-  label: PropTypes.oneOf(['some text']),
-  name: PropTypes.oneOf(['some text']),
-};
-
 export default TextField;

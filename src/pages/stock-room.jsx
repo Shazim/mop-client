@@ -12,6 +12,8 @@ import { usePost } from 'hooks';
 import { createWork } from 'api/api-services';
 import { formDataHandler } from 'utils';
 import { AdminLayout } from 'Layout';
+import { useDispatch, useSelector } from 'react-redux';
+import * as types from 'store/actions/actionTypes';
 
 function StockRoom() {
   const [steps, setSteps] = useState([
@@ -20,9 +22,10 @@ function StockRoom() {
     'pricing',
     'exhibition',
   ]);
-  const [step, setStep] = useState('stock room');
+  const [step, setStep] = useState();
   const [colors, setColors] = useState([]);
   const [styles, setStyles] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     getStyles()
@@ -54,6 +57,7 @@ function StockRoom() {
 
   const addItem = () => {
     setStep(steps[0]);
+    dispatch({ type: types.BACK_BUTTON, payload: true });
   };
 
   const [post, { data: dataPost, status: statusPost }] = usePost(createWork);
@@ -96,78 +100,81 @@ function StockRoom() {
     });
   };
 
+  const backbtn = useSelector((state) => state?.admin?.backButton);
+
   return (
     <>
       <AdminLayout>
         <SubHeader
-          title="StockRoom"
-          subtitle=""
           handler={addItem}
           title="stockroom"
           subtitle="up for sale"
           buttonText="ADD NEW ITEM"
           button={true}
         />
-        {step == 'stock room' && <StockItem addItem={addItem} />}
-        <Form
-          initialValues={{
-            name: '',
-            note: '',
-            artwork_images_attributes: [],
-            edition_type: 'open',
-            sell_via: 'with_us',
-            sellable: false,
-            exhibitionable: false,
-            colour_ids: {},
-            style_ids: {},
-            status: true,
-          }}
-          onSubmit={data}
-          validationSchema={artworkSchema}
-        >
-          {() => (
-            <>
-              {step == 'item details' && (
-                <Detail
-                  steps={steps}
-                  step={step}
-                  next={next}
-                  addItem={addItem}
-                />
-              )}
+        {!backbtn ? (
+          <StockItem addItem={addItem} />
+        ) : (
+          <Form
+            initialValues={{
+              name: '',
+              note: '',
+              artwork_images_attributes: [],
+              edition_type: 'open',
+              sell_via: 'with_us',
+              sellable: false,
+              exhibitionable: false,
+              colour_ids: {},
+              style_ids: {},
+              status: true,
+            }}
+            onSubmit={data}
+            validationSchema={artworkSchema}
+          >
+            {() => (
+              <>
+                {step == 'item details' && (
+                  <Detail
+                    steps={steps}
+                    step={step}
+                    next={next}
+                    addItem={addItem}
+                  />
+                )}
 
-              {step == 'categories' && (
-                <Categories
-                  steps={steps}
-                  addItem={addItem}
-                  step={step}
-                  next={next}
-                  previous={previous}
-                  styles={styles}
-                  colors={colors}
-                />
-              )}
-              {step == 'pricing' && (
-                <Price
-                  steps={steps}
-                  addItem={addItem}
-                  step={step}
-                  next={next}
-                  previous={previous}
-                />
-              )}
-              {step == 'exhibition' && (
-                <Exhibition
-                  steps={steps}
-                  addItem={addItem}
-                  step={step}
-                  next={next}
-                  previous={previous}
-                />
-              )}
-            </>
-          )}
-        </Form>
+                {step == 'categories' && (
+                  <Categories
+                    steps={steps}
+                    addItem={addItem}
+                    step={step}
+                    next={next}
+                    previous={previous}
+                    styles={styles}
+                    colors={colors}
+                  />
+                )}
+                {step == 'pricing' && (
+                  <Price
+                    steps={steps}
+                    addItem={addItem}
+                    step={step}
+                    next={next}
+                    previous={previous}
+                  />
+                )}
+                {step == 'exhibition' && (
+                  <Exhibition
+                    steps={steps}
+                    addItem={addItem}
+                    step={step}
+                    next={next}
+                    previous={previous}
+                  />
+                )}
+              </>
+            )}
+          </Form>
+        )}
       </AdminLayout>
     </>
   );

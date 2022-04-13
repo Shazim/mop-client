@@ -13,7 +13,12 @@ const {
   ARTISTS,
   GALLERY,
   EXHIBITIONS,
+  FEATURES,
 } = END_POINTS;
+
+export const featureArtwork = (data) => {
+  return doGet(`${BASE_URL}${API_PATH}/items${FEATURES}`);
+};
 
 export const createWork = (data) => {
   return doPost(`${BASE_URL}${API_PATH}${ARTWORKS}`, data);

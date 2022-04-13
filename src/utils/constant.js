@@ -8,6 +8,7 @@ export const END_POINTS = {
   GALLERY: '/gallery',
   ARTISTS: '/artists',
   EXHIBITIONS: '/exhibitions',
+  FEATURES: '/artworks/featured',
   INSIGHTS: '/insights',
 };
 

@@ -11,7 +11,7 @@ function AdminLayout({ children }) {
       <Header />
       <div className="flex w-100% bg-primary-lighter">
         <div className="w-20%">
-          <SideBar routBack={step == 'stock room' ? false : true} />
+          <SideBar />
         </div>
         <div className="w-80%">{children}</div>
       </div>
