@@ -35,7 +35,7 @@ function Footer() {
           </div>
           <div className="w-3/4 flex sm:mb-63 flex-row sm:grid sm:pl-43 sm:grid-cols-2 sm:justify-center sm:items-center sm:flex sm:w-100%">
             <div className="w-1/4 pl-40 xl:pl-13 lg:pl-0 md:pl-0 md:w-27% sm:w-100% sm:pl-0 sm:mb-30 sm:h-50%">
-              <div className="text-primary font-bold text-sm tracking uppercase mb-14">
+              <div className="text-primary font-bold text-sm tracking uppercase mb-40 sm:mb-14">
                 create a gallery
               </div>
               <div className="footer-links">my gallery</div>

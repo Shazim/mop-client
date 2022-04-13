@@ -36,7 +36,7 @@ function BrowseArtwork() {
         <div className="w-91% sm:w-100% bg-gray-dark">
           <div className="flex justify-end pt-31 px-57">
             <div className="mr-25">
-              <SelectOptions width="180" label="SOHW 50" />
+              <SelectOptions width="180" label="SHOW 50" />
             </div>
             <SelectOptions label="sort: Most popular" />
           </div>
@@ -44,11 +44,18 @@ function BrowseArtwork() {
             <div className="flex flex-wrap gap-36">
               <div className="gridView">
                 {dataArtworks?.artworks?.map(
-                  ({ name, artist_name, featured_image, views }) => (
+                  ({
+                    name,
+                    artist_name,
+                    featured_image,
+                    images_included,
+                    views,
+                  }) => (
                     <Link to={'/single-photo'}>
                       <GalleryCard
                         imageClass="image"
                         className="mb-12"
+                        incImages={images_included}
                         imageUrl={featured_image}
                         views={views}
                         title={name}
