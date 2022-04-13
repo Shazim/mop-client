@@ -10,6 +10,7 @@ import BrowseArtwork from 'pages/browse-artwork';
 import StockRoom from 'pages/stock-room';
 import GallerySetting from 'pages/gallery-setting';
 import ExhibitionRoom from 'pages/exhibition-room';
+import SinglePhoto from 'pages/single-photo';
 
 // List of Routes name using for links and route
 export const authRoutes = Object.freeze({
@@ -27,7 +28,10 @@ export const authRoutes = Object.freeze({
   ROUTE_STOCK_ROOM: '/stock-room',
   ROUTE_GALLERY_SETTING: '/gallery-setting',
   ROUTE_EXHIBITION_ROOM: '/exhibition-room',
+
+  ROUTE_SINGLE_PHOTO: '/single-photo',
   ROUTE_LOGOUT: '/logout',
+
 });
 // List of route object which will be rendered under Router component
 export default Object.freeze([
@@ -54,6 +58,7 @@ export default Object.freeze([
     component: GallerySetting,
     privateRoute: true,
   },
+  { path: authRoutes.ROUTE_SINGLE_PHOTO, component: SinglePhoto },
   { path: authRoutes.ROUTE_ABOUT, component: About },
   { path: authRoutes.ROUTE_LOGIN, component: Login },
   { path: authRoutes.ROUTE_SIGNUP, component: Login },

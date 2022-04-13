@@ -21,6 +21,8 @@ module.exports = {
           "url('/src/assets/images/background/home-mobile-bg.png')",
         'gallery-mobile':
           "url('/src/assets/images/background/gallery-mobile-bg.png')",
+        'gofree-mobile':
+          "url('/src/assets/images/background/gofree-mobile-bg.png')",
         'background-gallery':
           "url('/src/assets/images/background/bgGallery.png')",
         cubes: "url('/src/assets/images/background/cubes.png')",
@@ -58,7 +60,7 @@ module.exports = {
         lg: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
         xl: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
         '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
-        '3xl': '0 35px 60px -15px rgba(0, 0, 0, 0.3)',
+        '3xl': '0 7px 0px 0px rgba(0, 0, 0, 0.3)',
         '4xl': '-477px 0 0 470px #c71118',
         inner: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
         none: 'none',
@@ -66,6 +68,8 @@ module.exports = {
 
       borderColor: (theme) => ({
         DEFAULT: theme('#C71118', 'currentColor'),
+        black: '#cccccc',
+        brown: '#473326',
       }),
 
       borderWidth: {
@@ -92,8 +96,9 @@ module.exports = {
 
       colors: {
         black: '#000000',
+        gradient: '#989998',
         white: '#FFFFFF',
-        'off-white': '#F2F1F1',
+        offwhite: '#F2F1F1',
         green: 'green',
         // backgroundColor: '#E5E5E5',
 
@@ -175,6 +180,7 @@ module.exports = {
 
       height: {
         330: '330px',
+        578: '578px',
         661: '661px',
         1015: '1015px',
       },
@@ -202,6 +208,7 @@ module.exports = {
         38: '38px',
         50: '50px',
         55: '55px',
+        60: '60px',
       },
 
       letterSpacing: {

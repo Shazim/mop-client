@@ -3,6 +3,8 @@ import Instagram from 'assets/images/svgs/Instagram';
 import Twitter from 'assets/images/svgs/Twitter';
 import Youtube from 'assets/images/svgs/Youtube';
 import React from 'react';
+import { useState } from 'react';
+import { useEffect } from 'react';
 import { ReactComponent as Logo } from '../../../assets/images/logo.svg';
 
 function Footer() {
@@ -12,6 +14,15 @@ function Footer() {
     '/images/social/insta-icon.svg',
     '/images/social/youtube-icon.svg',
   ];
+  const [year, setYear] = useState('');
+  useEffect(() => {
+    getYear();
+  }, []);
+
+  const getYear = () => {
+    const y = new Date();
+    setYear(y.getFullYear());
+  };
 
   return (
     <div>
@@ -24,7 +35,7 @@ function Footer() {
           </div>
           <div className="w-3/4 flex sm:mb-63 flex-row sm:grid sm:pl-43 sm:grid-cols-2 sm:justify-center sm:items-center sm:flex sm:w-100%">
             <div className="w-1/4 pl-40 xl:pl-13 lg:pl-0 md:pl-0 md:w-27% sm:w-100% sm:pl-0 sm:mb-30 sm:h-50%">
-              <div className="text-primary font-bold text-sm tracking uppercase mb-14">
+              <div className="text-primary font-bold text-sm tracking uppercase mb-40 sm:mb-14">
                 create a gallery
               </div>
               <div className="footer-links">my gallery</div>
@@ -69,7 +80,7 @@ function Footer() {
         <div className="max-screen sm:px-23  flex flex-row text-white pl-147 pr-175 pt-38 pb-38">
           <div className="w-1/2 sm:w-100% sm:text-center sm:flex sm:flex-col-reverse">
             <div className="mb-8 text-base sm:text-tiny sm:leading-22 font-nunito-semibold font-semibold ">
-              &copy; Masters Of Photography 2021
+              &copy; Masters Of Photography {year}
             </div>
             <div className="flex flex-row items-center sm:justify-between sm:mb-17">
               <div className="mr-45 text-sm sm:text-tiny sm:leading-32 font-bold sm:font-reg uppercase tracking link">

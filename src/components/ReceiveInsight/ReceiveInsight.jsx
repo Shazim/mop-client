@@ -22,7 +22,7 @@ function ReceiveInsight({ image = '/images/girl.png' }) {
   };
 
   return (
-    <div className="flex border-border border-t sm:border-t-0 sm:bg-off-white ">
+    <div className="flex border-border border-t sm:border-t-0 sm:bg-offwhite ">
       <div className=" max-screen sm:px-23 sm:w-100% pt-101 w-40% xl:w-45% lg:w-50% md:w-50% xl:pb-50 lg:pb-50 md:pb-50">
         <div className="sm:w-100% sm:flex-col sm:flex sm:items-center sm:justify-center sm:pb-50">
           <div className="tracking-wider text-2xl sm:text-center uppercase font-avenir-reg pb-34">
@@ -39,6 +39,7 @@ function ReceiveInsight({ image = '/images/girl.png' }) {
               email: '',
             })}
           >
+
             {({ setFieldValue, values }) => (
               <>
                 <div className="mb-32 sm:px-9 sm:w-100%">

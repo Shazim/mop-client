@@ -11,6 +11,7 @@ function GalleryCard({
   views = 1302,
   incImages = 28,
   onClick,
+  enterExibit = false,
   buttonText = 'Add Info',
   handleButton,
 }) {
@@ -30,17 +31,21 @@ function GalleryCard({
               <div>
                 <span className="font-bold">{views}</span> Views
               </div>
-              {/* <div>
+              <div>
                 <span className="font-bold ml-10">{incImages}</span> Images
                 Included
-              </div> */}
+              </div>
             </div>
-            <div className="flex items-center link">
-              <EnterIcon className="w-13 h-11 mr-5 stroke-white" />
-              <p className="font-reg text-xsm capitalize text-white leading-22">
-                enter exibition room
-              </p>
-            </div>
+            {enterExibit ? (
+              <div className="flex items-center link">
+                <EnterIcon className="w-13 h-11 mr-5 stroke-white" />
+                <p className="font-reg text-xsm capitalize text-white leading-22">
+                  enter exibition room
+                </p>
+              </div>
+            ) : (
+              <></>
+            )}
           </div>
           {info ? (
             <Button type="edit" className="w-100 h-33" transform="uppercase">
