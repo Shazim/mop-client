@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react';
 import { useLazyFetch } from 'hooks';
 import { getGalleryDetails } from 'api/api-services';
 import Pagination from 'components/Pagination/Pagination';
+import Container from 'Layout/Container';
 
 function GallaryDetail(props) {
   const [handleGetGalleries, { data }] = useLazyFetch(getGalleryDetails);
@@ -21,9 +22,7 @@ function GallaryDetail(props) {
   }, [id]);
 
   return (
-    <>
-      <Header />
-      <GalleryBar />
+    <Container>
       <div className="flex pb-30 flex-col items-center pt-34 tracking-wider font-avenir-reg font-medium uppercase ">
         <div className="text-primary text-2xl">{data?.gallery_name}</div>
         <div className="text-secondary text-lg">{data?.artist_name}</div>
@@ -41,8 +40,7 @@ function GallaryDetail(props) {
           className="mt-15 mb-63"
         />
       </div>
-      <Footer />
-    </>
+    </Container>
   );
 }
 
