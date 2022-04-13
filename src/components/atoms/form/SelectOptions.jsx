@@ -27,7 +27,7 @@ function SelectOptions({
   };
   return (
     <div
-      class={`relative w-${width} flex flex-row-reverse  h-32 cursor-pointer`}
+      class={`relative w-${width} flex flex-row-reverse  h-32  cursor-pointer`}
       onClick={() => setHide(!hide)}
     >
       <select className="hidden">
@@ -37,7 +37,7 @@ function SelectOptions({
       </select>
       <div class="custom-arrow w-42 h-32 relative bg-gray-darkest"></div>
       <div
-        class={`select-selected text-${textColor} py-8 px-22 w-100% tracking bg-${color} leading-4 font-bold text-sm select-arrow-active uppercase`}
+        class={`select-selected text-${textColor} py-8 px-22 w-100% tracking bg-${color} leading-4 font-bold text-sm sm:text-11 select-arrow-active uppercase`}
       >
         {text}
       </div>

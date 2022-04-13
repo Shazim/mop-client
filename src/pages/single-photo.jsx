@@ -4,10 +4,16 @@ import AddCart from 'components/molecules/addcart/AddCart';
 import React from 'react';
 
 function SinglePhoto() {
+  const images = [
+    '/images/image1.png',
+    '/images/image2.png',
+    '/images/image3.png',
+    '/images/image4.png',
+  ];
   return (
     <>
-      <div className="max-screen sm:bg-gray-dark">
-        <Sliders />
+      <div className="max-screen sm:w-100% sm:px-23 sm:h-100% sm:bg-gray-dark">
+        <Sliders column={1} />
       </div>
       <div className="max-screen flex w-100% pt-115 sm:bg-gray-dark sm:flex-col sm:px-0">
         <div className="w-50% md:w-45% sm:w-100% sm:px-23 sm:pb-62">
@@ -46,11 +52,18 @@ function SinglePhoto() {
           <div className="hidden sm:block mt-24 w-100% border-border border-b"></div>
         </div>
       </div>
-      <div className="max-screen w-100% mt-60 pt-90">
-        <p className="font-avenir-reg text-2xl text-secondary-dark tracking-wider leading-60 uppercase mb-19">
+      <div className="max-screen w-100% mt-60 sm:mt-24 pt-90 sm:pt-0 sm:px-23">
+        <p className="font-avenir-reg text-2xl sm:text-xl text-secondary-dark tracking-wider leading-60 sm:leading-38 uppercase mb-19">
           More by this artist
         </p>
-        <div>IMAGES HERE</div>
+        <div className="sm:hidden flex grid grid-cols-4 w-100% h-100%">
+          {images.map((url) => (
+            <img className="w-100% h-100%" src={url} />
+          ))}
+        </div>
+        <div className="hidden sm:block">
+          <Sliders column={1.2} dots={true} />
+        </div>
       </div>
     </>
   );

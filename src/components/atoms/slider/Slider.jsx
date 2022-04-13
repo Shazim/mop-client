@@ -4,7 +4,16 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Arrow from '../arrow/Arrow';
 
-function Sliders() {
+function Sliders({
+  images = [
+    '/images/slider/image.png',
+    '/images/slider/image.png',
+    '/images/slider/image.png',
+    '/images/slider/image.png',
+  ],
+  column,
+  dots = false,
+}) {
   const settings = {
     dots: true,
     infinite: true,
@@ -19,9 +28,9 @@ function Sliders() {
         breakpoint: 959,
         settings: {
           arrows: false,
-          slidesToShow: 1.15,
+          slidesToShow: column,
           centerMode: true,
-          dots: false,
+          dots: dots,
           centerPadding: '0%',
           transformEnabled: true,
         },
@@ -31,34 +40,9 @@ function Sliders() {
   return (
     <div className="w-100% mx-auto slider-dots">
       <Slider {...settings}>
-        <img
-          className="w-80% sm:w-100% m-auto"
-          src="/images/slider/image.png"
-        />
-        <img
-          className="w-80% sm:w-100% m-auto"
-          src="/images/slider/image.png"
-        />
-        <img
-          className="w-80% sm:w-100% m-auto"
-          src="/images/slider/image.png"
-        />
-        <img
-          className="w-80% sm:w-100% m-auto"
-          src="/images/slider/image.png"
-        />
-        <img
-          className="w-80% sm:w-100% m-auto"
-          src="/images/slider/image.png"
-        />
-        <img
-          className="w-80% sm:w-100% m-auto"
-          src="/images/slider/image.png"
-        />
-        <img
-          className="w-80% sm:w-100% m-auto sm:m-0"
-          src="/images/slider/image.png"
-        />
+        {images.map((url) => (
+          <img className="w-80% sm:w-100% m-auto sm:h-100%" src={url} />
+        ))}
       </Slider>
     </div>
   );
