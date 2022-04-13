@@ -12,7 +12,7 @@ const obj = [
         icon: '/images/sidebar/exhibitionroom.svg',
         redIcon: '/images/sidebar/exhibitionroom_red.svg',
         name: 'Exhibition Rooms',
-        link: '/exhibition-room',
+        link: '/stock-room',
       },
       {
         redIcon: '/images/sidebar/stockroom_red.svg',
@@ -23,7 +23,7 @@ const obj = [
       {
         redIcon: '/images/sidebar/gallery_red.svg',
         icon: '/images/sidebar/gallery.svg',
-        link: '/gallery',
+        link: '/gallery-setting',
         name: 'gallery',
       },
       {

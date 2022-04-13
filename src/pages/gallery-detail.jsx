@@ -29,9 +29,9 @@ function GallaryDetail(props) {
         <div className="text-secondary text-lg">{data?.artist_name}</div>
       </div>
       <div className="max-screen ">
-        <div className="mx-80 grid grid-cols-2 gap-22">
-          {data?.exhibitions?.map(({ room_name, views }) => (
-            <VideoCard title={room_name} views={views} />
+        <div className="mx-80 pb-30 grid grid-cols-2 gap-22">
+          {data?.exhibitions?.map(({ room_name, views, image }) => (
+            <VideoCard title={room_name} views={views} imageUrl={image} />
           ))}
         </div>
         <Pagination

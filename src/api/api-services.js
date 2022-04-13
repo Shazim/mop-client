@@ -36,6 +36,10 @@ export const getArtWorks = (data) => {
   return doGet(`${BASE_URL}${API_PATH}${ARTWORKS}${data ? data : ''}`);
 };
 
+export const getPublicArtWork = (data) => {
+  return doGet(`${BASE_URL}${API_PATH}/items${ARTWORKS}/${data}`);
+};
+
 export const getBrowseArtworks = (data) => {
   return doGet(`${BASE_URL}${API_PATH}/items${ARTWORKS}${data ? data : ''}`);
 };

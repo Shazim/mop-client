@@ -104,7 +104,7 @@ function Header({ login = false, signUpHandler, signInHandler, menu, isOpen }) {
             </div>
             <div className="flex items-center justify-between w-40% xl:w-42% md:w-42% sm:hidden">
               <SearchBar
-                className=""
+                className="w-243 h-32 w-39%"
                 placeholder="Search For An Artist"
                 bgColor="bg-transparent"
               />

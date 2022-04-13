@@ -44,8 +44,6 @@ export default function GridLayout({
   const { data: getData } = useFetch(featureArtwork);
   const { featured_artworks } = getData || [];
 
-  console.log('getData', featured_artworks);
-
   return (
     <div style={{ columns: column, columnGap: 12 }}>
       {featured_artworks &&

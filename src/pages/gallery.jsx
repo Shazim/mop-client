@@ -55,40 +55,43 @@ function Gallary() {
   }, [search, tab]);
 
   const steps = {
-    galleries: data?.galleries.map(({ gallery_name, views, id }) => (
+    galleries: data?.galleries.map(({ gallery_name, views, id, image }) => (
       <Link to={`/gallery-detail?id=${id}`}>
         <GalleryCard
           className="w-100% h-100% mb-12"
           imageClass="image"
           info={false}
           title={gallery_name}
+          imageUrl={image ? image : '/images/card/bg_image2.svg'}
           views={views}
         />
       </Link>
     )),
     exhibitions: dataExhibitions?.exhibitions.map(
-      ({ gallery_name, views, id }) => (
-        <Link to={`/gallery-detail?id=${id}`}>
-          <GalleryCard
-            className="w-100% h-100%"
-            imageClass="image"
-            info={false}
-            title={gallery_name}
-            views={views}
-          />
-        </Link>
-      )
-    ),
-    artists: dataArtists?.artists.map(({ artist_name, id }) => (
-      <Link to={`/gallery-detail?id=${id}`}>
+      ({ room_name, views, id, image }) => (
+        // <Link to={`/gallery-detail?id=${id}`}>
         <GalleryCard
           className="w-100% h-100%"
           imageClass="image"
           info={false}
-          title={artist_name}
-          views={4}
+          title={room_name}
+          views={views}
+          imageUrl={image ? image : '/images/card/bg_image2.svg'}
         />
-      </Link>
+        // </Link>
+      )
+    ),
+    artists: dataArtists?.artists.map(({ artist_name, id, image }) => (
+      // <Link to={`/gallery-detail?id=${id}`}>
+      <GalleryCard
+        className="w-100% h-100%"
+        imageClass="image"
+        info={false}
+        title={artist_name}
+        imageUrl={image ? image : '/images/card/bg_image2.svg'}
+        views={4}
+      />
+      // </Link>
     )),
   };
 
