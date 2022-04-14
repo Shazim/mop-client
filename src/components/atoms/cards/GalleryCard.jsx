@@ -18,7 +18,7 @@ function GalleryCard({
   return (
     <div className={`relative ${classes}`} onClick={onClick}>
       <img
-        className={`${imageClass} rounded-lg  w-100% h-100%`}
+        className={`${imageClass} sm:rounded-lg  w-100% h-100%`}
         src={imageUrl}
       />
       <div className="absolute bottom-0 w-100%">

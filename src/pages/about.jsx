@@ -54,7 +54,9 @@ function About() {
             photographers <span className="text-secondary">in the world.</span>
           </div>
           <div className="ml-50  mt-25">
-            <LinkLabel label="discover our offers" />
+            <Button className="w-275 h-33" transform="uppercase">
+              discover our offers
+            </Button>
           </div>
         </div>
       </div>
@@ -78,11 +80,7 @@ function About() {
           </div>
         </div>
         <div className="w-40% sm:w-100%">
-          <Slider {...settings}>
-            <img src="/images/girl.png" alt="" />
-            <img src="/images/girl.png" alt="" />
-            <img src="/images/girl.png" alt="" />
-          </Slider>
+          <img className="sm:w-100%" src="/images/girl.png" alt="" />
         </div>
       </div>
       <div className="bg-background-gallery bg-cover bg-no-repeat">
