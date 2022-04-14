@@ -49,23 +49,23 @@ function LoginModal({ isOpen, openHandler, signUpHandler, forgotHandler }) {
         onRequestClose={closeModal}
         overlayClassName="fixed inset-0 overflow-auto"
       >
-        <div className="bg-gray-lighter w-100% pl-56 pr-57 py-40">
+        <div className="bg-gray-lighter w-568 pl-56 pr-57 py-40">
           <div className="font-avenir-reg text-2xl text-secondary tracking-wider leading-38 uppercase">
             login
           </div>
           <Button
             color="facebook"
-            className="w-100% h-42 font-bold text-white tracking text-sm mt-20"
+            className="w-455 h-42 font-bold text-white tracking text-sm mt-20"
           >
             LOGIN WITH FACEBOOK
           </Button>
           <Button
             color="instagram"
-            className="w-100% h-42 tracking font-bold text-white text-sm  mt-20"
+            className="w-455 h-42 tracking font-bold text-white text-sm  mt-20"
           >
             LOGIN WITH INSTAGRAM
           </Button>
-          <Button className="w-100% h-42 tracking text-sm mt-20">
+          <Button className="w-455 h-42 tracking text-sm mt-20">
             LOGIN WITH PINTEREST
           </Button>
 
@@ -99,7 +99,7 @@ function LoginModal({ isOpen, openHandler, signUpHandler, forgotHandler }) {
                     height="38"
                     label="password"
                   />
-                  <SubmitButton className="w-37% h-41 flex tracking text-sm justify-center items-center mx-auto mt-27">
+                  <SubmitButton className="w-134 h-41 flex tracking text-sm justify-center items-center mx-auto mt-27">
                     LOGIN
                   </SubmitButton>
                 </>

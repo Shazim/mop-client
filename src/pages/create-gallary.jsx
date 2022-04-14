@@ -75,7 +75,9 @@ function CreateGallary() {
               shipped to you within days of purchase.
             </div>
             <div className="ml-50 sm:hidden">
-              <LinkLabel label="create a gallery" />
+              <Button className="w-275 h-44" transform="uppercase">
+                create a gallary
+              </Button>
             </div>
             <div className="hidden sm:block">
               <Button className="w-275 h-44" transform="uppercase">

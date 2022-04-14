@@ -68,7 +68,7 @@ function Home() {
               </span>
               <span className="sm:hidden">
                 virtual display. Purchase pieces of work you fall in love with
-                directly and have them shipped to you
+                directly and have them shipped to you{' '}
               </span>
               <span className="hidden sm:inline">
                 that you fall in love with and receive them

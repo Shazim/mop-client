@@ -93,17 +93,17 @@ function SignupModal({ isOpen, openHandler, signInHandler, forgotHandler }) {
                 </div>
                 <Button
                   color="facebook"
-                  className="w-100% h-42 tracking font-bold text-white text-sm mt-20"
+                  className="w-455 h-42 tracking font-bold text-white text-sm mt-20"
                 >
                   LOGIN WITH FACEBOOK
                 </Button>
                 <Button
                   color="instagram"
-                  className="w-100% h-42 tracking font-bold text-white text-sm  mt-20"
+                  className="w-455 h-42 tracking font-bold text-white text-sm  mt-20"
                 >
                   LOGIN WITH INSTAGRAM
                 </Button>
-                <Button className="w-100% h-42 tracking font-bold text-sm mt-20">
+                <Button className="w-455 h-42 tracking font-bold text-sm mt-20">
                   LOGIN WITH PINTEREST
                 </Button>
 
@@ -115,7 +115,7 @@ function SignupModal({ isOpen, openHandler, signInHandler, forgotHandler }) {
                   <div className="w-100% border-b border-border opacity-1"></div>
                 </div>
 
-                <div className="w-100% border-b border-border opacity-1 pb-33 pt-10 mb-33">
+                <div className="w-455 border-b border-border opacity-1 pb-33 pt-10 mb-33">
                   <TextField
                     name="email"
                     type="email"
@@ -184,7 +184,7 @@ function SignupModal({ isOpen, openHandler, signInHandler, forgotHandler }) {
                   value="I would like to receive insightful updates and emails. "
                 />
 
-                <SubmitButton className="w-42% h-41 flex tracking font-bold text-sm justify-center items-center mx-auto mt-12">
+                <SubmitButton className="w-134 h-41 flex tracking font-bold text-sm justify-center items-center mx-auto mt-12">
                   SIGN UP
                 </SubmitButton>
                 <div className="flex justify-between pr-20 mt-14">
