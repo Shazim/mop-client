@@ -9,11 +9,12 @@ function TextArea({
   name = '',
   shadow = '',
   type = 'text',
-  classes = 'w-100% h-32',
+  width = '100%',
+  className = 'h-32',
   titleClasses = 'text-secondary uppercase tracking mb-11',
 }) {
   return (
-    <div className="mb-10">
+    <div className={`w-${width}`}>
       <div
         className={`font-bold text-secondary text-sm leading-8 ${titleClasses} `}
       >
@@ -23,7 +24,7 @@ function TextArea({
         <FormTextArea
           type={type}
           name={name}
-          className={`${classes} ${shadow} bg-white outline-none text-secondary placeholder-gray font-bold text-sm pl-8 py-5 tracking`}
+          className={`${className} ${shadow} w-100% bg-white outline-none text-secondary placeholder-gray font-bold text-sm pl-8 py-5 tracking`}
           placeholder={placeholder}
         />
         {icon && (

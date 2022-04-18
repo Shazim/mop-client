@@ -1,21 +1,37 @@
 import React from 'react';
 import CheckBox from 'components/atoms/checkbox/CheckBox';
+import { useFormikContext } from 'formik';
 
-function FeatureCard() {
+function FeatureCard({ name, image, id }) {
+  const {
+    setFieldValue,
+    values: { artwork_ids },
+  } = useFormikContext() || {};
+
+  const handleFeature = (id) => {
+    let copyArtworkIds = { ...artwork_ids };
+    if (copyArtworkIds[id]) {
+      delete copyArtworkIds.id;
+    } else {
+      copyArtworkIds[id] = id;
+    }
+    setFieldValue('artwork_ids', copyArtworkIds);
+  };
+
   return (
     <div className="card-featured w-292 relative">
-      <div className="bg-gray-darker relative rounded-sm h-183">
-        <img src="" alt="" />
-        <div className="flex mt-11 ml-13">
-          <CheckBox />
-          <div className="ml-9 mt-3 admin-label--light uppercase">
-            My Featured Photo
-          </div>
+      <div className="bg-gray-darker relative rounded-sm w-292 h-183">
+        <img src={image} alt="" className="absolute w-100% h-100% rounded-sm" />
+        <div className="flex top-11 left-13 absolute">
+          <CheckBox
+            onChange={() => handleFeature(id)}
+            defaultChecked={artwork_ids[id] == id}
+          />
         </div>
       </div>
       <div className="flex justify-between mt-10 mb-5">
         <div className="text-15 font-nunito-light font-normal tracking-tightest text-secondary">
-          Artwork name
+          {name}
         </div>
         <div className="flex">
           <img src="/images/edit.svg" className="mr-14" />

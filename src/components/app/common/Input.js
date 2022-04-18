@@ -7,6 +7,7 @@ function Input({
   placeholder,
   style,
   values,
+  readOnly,
   ...otherProps
 }) {
   return (
@@ -18,6 +19,7 @@ function Input({
       onChange={onChange}
       placeholder={placeholder}
       style={style}
+      readOnly={readOnly}
       {...otherProps}
     />
   );

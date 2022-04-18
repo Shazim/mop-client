@@ -10,7 +10,10 @@ import BrowseArtwork from 'pages/browse-artwork';
 import StockRoom from 'pages/stock-room';
 import GallerySetting from 'pages/gallery-setting';
 import ExhibitionRoom from 'pages/exhibition-room';
+import Exhibitions from 'pages/exhibitions';
 import SinglePhoto from 'pages/single-photo';
+import MyProfile from 'pages/my-profile';
+import Stocks from 'pages/stocks';
 
 // List of Routes name using for links and route
 export const authRoutes = Object.freeze({
@@ -24,14 +27,15 @@ export const authRoutes = Object.freeze({
   ROUTE_BROWSE_ARTWORK: '/browse-artwork',
   ROUTE_CREATE_GALLERY: '/create-gallery',
   ROUTE_PRICE: '/price',
+  ROUTE_MY_PROFILE: '/my-profile',
   ROUTE_ORDER_DETAIL: '/order-detail',
   ROUTE_STOCK_ROOM: '/stock-room',
+  ROUTE_STOCKS: '/stocks',
   ROUTE_GALLERY_SETTING: '/gallery-setting',
+  ROUTE_EXHIBITIONS: '/exhibitions',
   ROUTE_EXHIBITION_ROOM: '/exhibition-room',
-
   ROUTE_SINGLE_PHOTO: '/single-photo',
   ROUTE_LOGOUT: '/logout',
-
 });
 // List of route object which will be rendered under Router component
 export default Object.freeze([
@@ -42,7 +46,21 @@ export default Object.freeze([
   { path: authRoutes.ROUTE_GALLERY, component: Gallery },
   { path: authRoutes.ROUTE_ORDER_DETAIL, component: OrderDetail },
   { path: authRoutes.ROUTE_BROWSE_ARTWORK, component: BrowseArtwork },
-
+  {
+    path: authRoutes.ROUTE_EXHIBITIONS,
+    component: Exhibitions,
+    privateRoute: true,
+  },
+  {
+    path: authRoutes.ROUTE_MY_PROFILE,
+    component: MyProfile,
+    privateRoute: true,
+  },
+  {
+    path: authRoutes.ROUTE_STOCKS,
+    component: Stocks,
+    privateRoute: true,
+  },
   {
     path: authRoutes.ROUTE_STOCK_ROOM,
     component: StockRoom,

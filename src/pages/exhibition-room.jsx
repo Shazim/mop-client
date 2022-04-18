@@ -34,51 +34,54 @@ function ExhibitionRoom() {
         buttonText="ADD NEW ITEM"
         button={true}
       />
-      <div className="bg-primary-lighter h-100vh flex flex-col items-center">
-        <div className="bg-white w-50% h-fit px-30 pt-36 pb-28 mt-41 shadow-sm">
-          <Form
-            initialValues={{
-              name: '',
-              note: '',
-              artwork_images_attributes: [],
-              edition_type: 'open',
-              sell_via: 'with_us',
-              sellable: false,
-              exhibitionable: false,
-              colour_ids: {},
-              style_ids: {},
-              status: true,
-            }}
-            // onSubmit={data}
-            // validationSchema={artworkSchema}
-          >
-            {() => <>{steps[step]}</>}
-          </Form>
-          {lengthOfSteps != step && (
-            <div className="hr-form-t flex justify-end pt-28 mt-39">
-              <Button
-                className="w-153 h-33"
-                onClick={() => setStep((prev) => prev + 1)}
-              >
-                NEXT
-              </Button>
-            </div>
-          )}
-        </div>
-        <div className="mt-36">
-          {step > 1 && (
-            <button
-              onClick={() => setStep((prev) => prev - 1)}
-              className="w-153 h-33  bg-gray uppercase tracking text-secondary font-nunito-bold text-sm"
+      {step == 0 ? null : (
+        <div className="bg-primary-lighter h-auto pb-130 flex flex-col items-center">
+          <div className="bg-white w-60% h-fit px-30 pt-36 pb-28 mt-41 shadow-sm">
+            <Form
+              initialValues={{
+                room_name: '',
+                artist_name: '',
+                artwork_ids: {},
+                status: 'open',
+                draft: false,
+                exhibition_style_id: '',
+                image: false,
+              }}
+              // onSubmit={data}
+              // validationSchema={artworkSchema}
             >
-              Back
-            </button>
-          )}
-          {lengthOfSteps == step && (
-            <Button className="ml-22 w-153 h-33">FINISH</Button>
-          )}
+              {() => <>{steps[step]}</>}
+            </Form>
+            {lengthOfSteps != step && (
+              <div className="hr-form-t flex justify-end pt-28 mt-39">
+                <Button
+                  className="w-153 h-33"
+                  onClick={() => setStep((prev) => prev + 1)}
+                >
+                  NEXT
+                </Button>
+              </div>
+            )}
+          </div>
+          <div className="mt-36">
+            {step > 1 && (
+              <Button
+                onClick={() => setStep((prev) => prev - 1)}
+                color="gray"
+                className="ml-22 w-153 h-33"
+              >
+                BACK
+              </Button>
+            )}
+            <Button color="gray" className="ml-22 w-203 h-33">
+              SAVE AS DRAFT
+            </Button>
+            {lengthOfSteps == step && (
+              <Button className="ml-22 w-153 h-33">FINISH</Button>
+            )}
+          </div>
         </div>
-      </div>
+      )}
     </AdminLayout>
   );
 }

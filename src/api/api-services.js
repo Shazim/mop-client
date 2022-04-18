@@ -14,6 +14,8 @@ const {
   GALLERY,
   EXHIBITIONS,
   FEATURES,
+  PROFILE,
+  EXHIBITION_STYLES,
 } = END_POINTS;
 
 export const featureArtwork = (data) => {
@@ -36,6 +38,10 @@ export const getArtWorks = (data) => {
   return doGet(`${BASE_URL}${API_PATH}${ARTWORKS}${data ? data : ''}`);
 };
 
+export const getExhibitionStyles = () => {
+  return doGet(`${BASE_URL}${API_PATH}${EXHIBITION_STYLES}`);
+};
+
 export const getPublicArtWork = (data) => {
   return doGet(`${BASE_URL}${API_PATH}/items${ARTWORKS}/${data}`);
 };
@@ -48,8 +54,8 @@ export const getGalleries = (data) => {
   return doGet(`${BASE_URL}${API_PATH}/items${GALLERIES}${data}`);
 };
 
-export const getExhibitions = (data) => {
-  return doGet(`${BASE_URL}${API_PATH}/items${EXHIBITIONS}${data}`);
+export const getExhibitions = () => {
+  return doGet(`${BASE_URL}${API_PATH}/${EXHIBITIONS}`);
 };
 
 export const getArtists = (data) => {
@@ -70,6 +76,14 @@ export const signIn = (data) => {
 
 export const signUp = (data) => {
   return doPost(`${BASE_URL}${API_PATH}${SIGN_UP}`, data);
+};
+
+export const getProfile = () => {
+  return doGet(`${BASE_URL}${API_PATH}${PROFILE}`);
+};
+
+export const updateProfile = (data) => {
+  return doPut(`${BASE_URL}${API_PATH}${PROFILE}`, data);
 };
 
 export const getStyles = () => {

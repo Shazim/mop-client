@@ -13,7 +13,7 @@ function AdminLayout({ children }) {
         <div className="w-20%">
           <SideBar />
         </div>
-        <div className="w-80%">{children}</div>
+        <div className=" w-80%">{children}</div>
       </div>
       <Footer />
     </>

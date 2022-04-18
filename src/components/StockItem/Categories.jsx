@@ -92,7 +92,10 @@ export default function Categories({
             <Counter
               width="w-263 ml-32"
               active={edition_type == 'limited'}
-              onClick={() => setFieldValue('edition_type', 'limited')}
+              onClick={(count) => {
+                setFieldValue('edition_type', 'limited');
+                setFieldValue('edition_quantity', count);
+              }}
             />
           </div>
 

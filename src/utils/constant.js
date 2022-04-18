@@ -10,6 +10,8 @@ export const END_POINTS = {
   EXHIBITIONS: '/exhibitions',
   FEATURES: '/artworks/featured',
   INSIGHTS: '/insights',
+  PROFILE: '/profile',
+  EXHIBITION_STYLES: '/exhibition_styles',
 };
 
 export const LINKS = {

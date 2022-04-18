@@ -19,7 +19,7 @@ function FormField({
   } = useFormikContext() || {};
 
   return (
-    <div>
+    <>
       <Textarea
         className={classes}
         name={name}
@@ -30,7 +30,7 @@ function FormField({
         {...otherProps}
       />
       <ErrorMessage error={errors[name]} visible={touched[name]} />
-    </div>
+    </>
   );
 }
 

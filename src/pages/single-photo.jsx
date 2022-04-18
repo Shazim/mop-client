@@ -17,9 +17,15 @@ function SinglePhoto(props) {
   const params = new URLSearchParams(search);
   const id = params.get('id');
   const { data: dataArtwork } = useFetch(getPublicArtWork, { variables: 1 });
-  const { images: sliderImages, artist_name, name, notes } = dataArtwork || [];
+  const {
+    images: sliderImages,
+    artist_name,
+    name,
+    notes,
+    more_by_this_artist,
+  } = dataArtwork || [];
 
-  console.log('ggdgdg', dataArtwork);
+  console.log('hello', dataArtwork);
 
   return (
     <Container>
@@ -42,15 +48,6 @@ function SinglePhoto(props) {
           <p className="mt-33 font-avenir-reg text-secondary leading-32 text-xl">
             {notes}
           </p>
-          {/* <p className="mt-33 font-avenir-reg text-secondary leading-32 text-xl">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lobortis
-            metus sed facilisis sit lacus. Eget natoque fermentum netus faucibus
-            mi. Dictum pellentesque viverra mattis in orci. Euismod aliquam
-            metus venenatis, nunc interdum fermentum nunc. Interdum aliquet
-            varius nunc phasellus. Et amet nunc elit tellus diam enim nunc nisi,
-            dapibus. Habitant nunc proin eget faucibus. Urna, at elementum
-            commodo, dolor. Vel erat enim sit nisl.
-          </p> */}
         </div>
         <div className="w-50% md:w-55% flex sm:flex-col justify-end sm:p-23 sm:w-100% sm:bg-white">
           <AddCart />
@@ -62,9 +59,19 @@ function SinglePhoto(props) {
           More by this artist
         </p>
         <div className="sm:hidden flex grid grid-cols-4 w-100% h-100%">
-          {images.map((url) => (
-            <img className="w-100% h-100%" src={url} />
-          ))}
+          {more_by_this_artist &&
+            more_by_this_artist.slice(0, 4).map(({ images, orientation }) => (
+              <>
+                {images &&
+                  images.map(({ image, featured_image }) => {
+                    return featured_image ? (
+                      <img className="w-100% h-100%" src={image} />
+                    ) : (
+                      false
+                    );
+                  })}
+              </>
+            ))}
         </div>
         <div className="hidden sm:block">
           <Sliders column={1.2} dots={true} images={sliderImages} />
