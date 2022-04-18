@@ -148,6 +148,8 @@ module.exports = {
       }),
 
       fontSize: {
+        7: '7px',
+        8: '8px',
         tiny: '10px',
         11: '11px',
         xsm: '12px',
@@ -280,6 +282,8 @@ module.exports = {
         },
       },
       width: {
+        340: '340px',
+        379: '379px',
         455: '455px',
         534: '534px',
         568: '568px',

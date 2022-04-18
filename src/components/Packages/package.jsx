@@ -18,12 +18,12 @@ function Package({
 
   return (
     <div
-      className={`relative bg-gray-lighter px-31 pt-22 max-w-312 m-auto ${
-        popular && 'mt-_20'
+      className={`relative bg-gray-lighter px-31 pt-22 max-w-312 lg:w-299 lg:px-25 md:w-290 md:px-25 ${
+        popular && 'mt-_20 sm:mt-0'
       }`}
     >
       {popular && (
-        <div className="uppercase absolute top-_16 w-66% transform-x left-50% text-secondary font-bold text-sm tracking bg-gray text-center px-38 py-8">
+        <div className="uppercase absolute top-_16 w-66% md:w-70% transform-x left-50% text-secondary font-bold text-sm tracking bg-gray text-center px-38 py-8">
           most popular
         </div>
       )}

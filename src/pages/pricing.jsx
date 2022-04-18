@@ -1,14 +1,18 @@
+import Layout from 'components/common/Layout';
+import Header from 'components/molecules/header/Header';
+import SubHeader from 'components/molecules/header/SubHeader';
 import { Packages } from 'components/Packages';
 import React from 'react';
 
 function Pricing() {
   return (
-    <div>
-      <div></div>
+    <>
+      <SubHeader title="pricing" subtitle="REPORT" />
+
       <div className="bg-gray-dark">
         <Packages />
       </div>
-    </div>
+    </>
   );
 }
 

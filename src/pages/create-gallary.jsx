@@ -13,6 +13,7 @@ import Slider from 'react-slick';
 import { DescriptiveIcon } from 'components/DescriptiveIcon';
 import GalleryCard from 'components/atoms/cards/GalleryCard';
 import ProfileCard from 'components/atoms/cards/ProfileCard';
+import Signup from './signup';
 
 function CreateGallary() {
   const settings = {
@@ -22,6 +23,55 @@ function CreateGallary() {
     slidesToShow: 2,
     arrows: false,
     slidesToScroll: 2,
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToScroll: 1,
+          arrows: false,
+          slidesToShow: 1.7,
+          centerMode: false,
+          dots: true,
+          centerPadding: '0%',
+          transformEnabled: true,
+        },
+      },
+      {
+        breakpoint: 1079,
+        settings: {
+          slidesToScroll: 1,
+          arrows: false,
+          slidesToShow: 1.5,
+          centerMode: false,
+          dots: true,
+          centerPadding: '0%',
+          transformEnabled: true,
+        },
+      },
+      {
+        breakpoint: 1023,
+        settings: {
+          slidesToScroll: 1,
+          arrows: false,
+          slidesToShow: 1.5,
+          centerMode: false,
+          dots: true,
+          centerPadding: '0%',
+          transformEnabled: true,
+        },
+      },
+      {
+        breakpoint: 959,
+        settings: {
+          arrows: false,
+          slidesToShow: 1.03,
+          centerMode: true,
+          dots: true,
+          centerPadding: '0%',
+          transformEnabled: true,
+        },
+      },
+    ],
   };
   const descriptiveIcons = [
     { source: '/images/services/satisfaction.svg', title: 'Return Policy' },
@@ -214,32 +264,58 @@ function CreateGallary() {
       </div>
       <Packages />
 
-      <div className="bg-gray-lighter">
-        <div className="max-screen items-center py-136">
-          <div className="text-2xl tracking-wider font-avenir-reg uppercase text-center mb-2 ">
-            photographer reviews<span className="text-primary">.</span>
-          </div>
-          <div className="text-lg text-center font-nunito-light leading-35 mb-48">
-            See what the world’s artists think of our platform.
-          </div>
-          <div className="w-100% mx-auto">
-            <Slider {...settings}>
-              <ProfileCard />
-              <ProfileCard />
-              <ProfileCard />
-            </Slider>
-          </div>
-          <Button className="w-251 h-51 m-auto block mt-50">
-            Get Your Free Trial
-          </Button>
-        </div>
-      </div>
-      <div className="max-screen py-67">
-        <FAQ />
-      </div>
-      <div>
-        <Footer />
-      </div>
+      {/* //   <div className="bg-gray-lighter">
+    //     <div className="max-screen items-center py-136 sm:py-36 sm:px-0">
+    //       <div className="text-2xl tracking-wider font-avenir-reg uppercase text-center mb-2 sm:text-xl sm:px-23">
+    //         photographer reviews<span className="text-primary">.</span>
+    //       </div>
+    //       <div className="text-lg sm:text-xsm text-center font-nunito-light leading-35 mb-48 sm:mb-17 sm:px-23">
+    //         See what the world’s artists think of our platform.
+    //       </div><div className="bg-gray-lighter">
+    //     <div className="max-screen items-center py-136 sm:py-36 sm:px-0">
+    //       <div className="text-2xl tracking-wider font-avenir-reg uppercase text-center mb-2 sm:text-xl sm:px-23">
+    //         photographer reviews<span className="text-primary">.</span>
+    //       </div>
+    //       <div className="text-lg sm:text-xsm text-center font-nunito-light leading-35 mb-48 sm:mb-17 sm:px-23">
+    //         See what the world’s artists think of our platform.
+    //       </div>
+    //       <div className="w-100% mx-auto sm:pl-23">
+    //         <Slider {...settings}>
+    //           <ProfileCard />
+    //           <ProfileCard />
+    //           <ProfileCard />
+    //         </Slider>
+    //       </div>
+    //       <Button className="w-251 h-51 sm:w-275 m-auto block mt-50">
+    //         Get Your Free Trial
+    //       </Button>
+    //     </div>
+    //   </div>
+    //   <div className="max-screen py-67 sm:px-23 sm:py-50">
+    //     <FAQ />
+    //   </div>
+    //   <div>
+    //     <Footer />
+    //   </div>
+    // </>
+    //       <div className="w-100% mx-auto sm:pl-23">
+    //         <Slider {...settings}>
+    //           <ProfileCard />
+    //           <ProfileCard />
+    //           <ProfileCard />
+    //         </Slider>
+    //       </div>
+    //       <Button className="w-251 h-51 sm:w-275 m-auto block mt-50">
+    //         Get Your Free Trial
+    //       </Button>
+    //     </div>
+    //   </div>
+    //   <div className="max-screen py-67 sm:px-23 sm:py-50">
+    //     <FAQ />
+    //   </div>
+    //   <div>
+    //     <Footer />
+    //   </div> */}
     </>
   );
 }

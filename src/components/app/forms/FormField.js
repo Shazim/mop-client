@@ -31,7 +31,6 @@ function FormField({
       handleChange(e);
     }
   };
-
   return (
     <div className={classes}>
       <Input

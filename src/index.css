@@ -118,6 +118,14 @@
   font-size: 10px;
 }
 
+.packages-slider .slick-slider .slick-list .slick-track .slick-active {
+  transition: all ease 0.4ms !important;
+}
+
+.packages-slider .slick-slider .slick-list .slick-track .slick-active {
+  margin-top: -20px !important;
+}
+
 .checkbox-container {
   -webkit-user-select: none;
   -moz-user-select: none;
