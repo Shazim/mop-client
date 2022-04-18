@@ -6,7 +6,8 @@ function Launch() {
       <div className="pt-38 pb-39 flex flex-col items-center">
         <div className="admin-h1">Congratulations!</div>
         <div className="admin-label--light pb-47">
-          Your exhibition is now <span>live.</span> Get sharing!
+          Your exhibition is now{' '}
+          <span className="text-secondary font-bold">live.</span> Get sharing!
         </div>
         <div className="flex w-100% ">
           <input

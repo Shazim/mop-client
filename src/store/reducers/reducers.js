@@ -5,6 +5,7 @@ import userReducer, {
   userReducerInititalState,
 } from 'store/reducers/userReducer';
 import adminReducer from 'store/reducers/adminReducer';
+import publicReducer from 'store/reducers/publicReducer';
 
 export const initialState = {
   user: userReducerInititalState,
@@ -23,4 +24,5 @@ const adminReducerConfig = {
 export default combineReducers({
   user: persistReducer(userReducerConfig, userReducer),
   admin: adminReducer,
+  public: publicReducer,
 });

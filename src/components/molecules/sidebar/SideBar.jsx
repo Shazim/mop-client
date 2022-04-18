@@ -12,13 +12,13 @@ const obj = [
         icon: '/images/sidebar/exhibitionroom.svg',
         redIcon: '/images/sidebar/exhibitionroom_red.svg',
         name: 'Exhibition Rooms',
-        link: 'stock-room',
+        link: '/exhibitions',
       },
       {
         redIcon: '/images/sidebar/stockroom_red.svg',
         icon: '/images/sidebar/stockroom.svg',
         name: 'Stockrooms',
-        link: '/stock-room',
+        link: '/stocks',
       },
       {
         redIcon: '/images/sidebar/gallery_red.svg',
@@ -29,7 +29,7 @@ const obj = [
       {
         redIcon: '/images/sidebar/analytics_red.svg',
         icon: '/images/sidebar/analytics.svg',
-        link: 'stock-room',
+        link: 'stocks',
         name: 'Analytic',
       },
       {
@@ -93,7 +93,7 @@ const obj = [
         redIcon: '/images/sidebar/price_red.svg',
         icon: '/images/sidebar/price.svg',
         name: 'My Profile',
-        link: 'stock-room',
+        link: '/my-profile',
       },
       {
         redIcon: '/images/sidebar/price_red.svg',
@@ -123,9 +123,11 @@ function SideBar() {
   const backbtn = useSelector((state) => state?.admin?.backButton);
   const dispatch = useDispatch();
 
+  const links = ['/stock-room', '/exhibition-room'];
+
   return (
     <div className="h-100% sm:w-100% bg-gray-lighter pt-40 pr-19 overflow-auto ">
-      {!backbtn ? (
+      {!links.includes(window.location.pathname) ? (
         <>
           {obj.map((item, index) => {
             return (
@@ -200,10 +202,7 @@ function SideBar() {
           })}
         </>
       ) : (
-        <div
-          className="link"
-          onClick={() => dispatch({ type: types.BACK_BUTTON, payload: false })}
-        >
+        <div className="link" onClick={() => history.goBack()}>
           <span className="flex h-55 bg-secondary-dim justify-between rounded-r-lg pl-37 link pr-15">
             <div
               className={`my-auto font-bold uppercase text-base leading-5 text-secondary `}

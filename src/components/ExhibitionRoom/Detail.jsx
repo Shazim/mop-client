@@ -6,7 +6,7 @@ function Detail() {
     <>
       <div className="admin-h1 mb-13">Exhibition room details</div>
       <TextField
-        name="h"
+        name="room_name"
         placeholder="max 100 characters"
         mb="11"
         height="38"
@@ -17,7 +17,7 @@ function Detail() {
         ** You can add more exhibition rooms later on.
       </div>
       <TextField
-        name="domain"
+        name="artist_name"
         placeholder="max 100 characters"
         mb="11"
         height="38"

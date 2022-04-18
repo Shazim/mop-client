@@ -1,8 +1,10 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Menu from '../menu/Menu';
 import SearchBar from '../../atoms/searchbar/SearchBar';
 import Button from '../../atoms/buttons/Button';
+import * as types from 'store/actions/actionTypes';
+import { useDispatch, useSelector } from 'react-redux';
 
 function SideBarWithLogin({ className: classes = '' }) {
   let initialObj = {
@@ -53,6 +55,8 @@ function SideBarWithLogin({ className: classes = '' }) {
     search: '',
     maxPrice: '',
   };
+
+  const dispatch = useDispatch();
   const [filter, setFilter] = useState(initialObj);
 
   const handler = (item, index, value) => {
@@ -82,8 +86,11 @@ function SideBarWithLogin({ className: classes = '' }) {
       const copyFilter = { ...filter };
       copyFilter[e.target.name] = e.target.value;
       setFilter(copyFilter);
+      dispatch({ type: types.SIDEBAR_SEARCH, payload: e.target.value });
     }
   };
+
+  const search = useSelector((state) => state?.public?.searchSideBar);
 
   return (
     <div
@@ -95,7 +102,7 @@ function SideBarWithLogin({ className: classes = '' }) {
         placeholder="search"
         transform="uppercase"
         onChange={(e) => handle_field(e)}
-        value={filter.search}
+        value={search}
       />
       {Object.entries(filter).map(([key, value]) => {
         if (typeof value !== 'string') {

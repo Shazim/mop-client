@@ -9,20 +9,20 @@ import { useLazyFetch } from 'hooks';
 import { useEffect } from 'react';
 import Pagination from 'components/Pagination/Pagination';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 function BrowseArtwork() {
-  const counter = [1, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3];
-  const [search, setSearch] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-
   const [handleGetArtworks, { data: dataArtworks }] =
     useLazyFetch(getBrowseArtworks);
+
+  const search = useSelector((state) => state?.public?.searchSideBar);
 
   useEffect(() => {
     handleGetArtworks({
       variables: `?q[name_cont]=${search != '' ? `${search}` : ''}`,
     });
-  }, []);
+  }, [search]);
 
   return (
     <>

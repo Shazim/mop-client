@@ -6,16 +6,18 @@ import DiscoverMore from 'components/DiscoveMore/DiscoverMore';
 import GalleryCard from 'components/atoms/cards/GalleryCard';
 import { Link } from 'react-router-dom';
 import { useLazyFetch } from 'hooks';
-import { getGalleries, getArtists, getExhibitions } from 'api/api-services';
+import { getGalleries, getArtists } from 'api/api-services';
+
 import Pagination from 'components/Pagination/Pagination';
 import Container from 'Layout/Container';
+import { getPublicExhibitions } from 'api';
 
 function Gallary() {
   const [tab, setTab] = useState('galleries');
   const [handleGetGalleries, { data, status }] = useLazyFetch(getGalleries);
   const [handleGetArtists, { data: dataArtists }] = useLazyFetch(getArtists);
   const [handleGetExhibitions, { data: dataExhibitions }] =
-    useLazyFetch(getExhibitions);
+    useLazyFetch(getPublicExhibitions);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [search, setSearch] = useState('');

@@ -11,26 +11,23 @@ function Button({
   type = 'contained',
   rounded = false,
   color = 'primary',
-  transform = "capitalize",
+  transform = 'capitalize',
   ...otherProps
 }) {
-
   const grayBtn = color.includes('gray');
 
   const btnClass = (type) => {
     const btnType = {
-      "contained": `bg-${color} ${grayBtn ? "gray-btn" : "primary-btn"}`,
-      "outline": `font-bold text-${color} border border-${color} text-base`,
-      "edit": `bg-white gray-btn rounded-sm`
-    }
-    return btnType[type]
-  }
+      contained: `bg-${color} ${grayBtn ? 'gray-btn' : 'primary-btn'}`,
+      outline: `font-bold text-${color} border border-${color} text-base`,
+      edit: `bg-white gray-btn rounded-sm`,
+    };
+    return btnType[type];
+  };
 
   const btnClasses = useMemo(() => {
     return btnClass(type);
   }, [color, type]);
-
-
 
   return (
     <button

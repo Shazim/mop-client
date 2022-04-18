@@ -13,9 +13,11 @@ function TextField({
   mb = 11,
   titleClasses = 'text-secondary uppercase tracking ',
   customChange,
+  readOnly = false,
+  otherProps,
 }) {
   return (
-    <div className="mb-10">
+    <div className="w-100%">
       <div
         className={`font-bold text-secondary text-sm leading-8 ${titleClasses} ${mb}`}
       >
@@ -25,9 +27,11 @@ function TextField({
         <FormField
           type={type}
           name={name}
-          className={`${className} ${shadow} bg-white outline-none  text-secondary placeholder-gray font-bold text-sm pl-8 py-5 tracking`}
+          className={`${className} ${shadow} `}
           placeholder={placeholder}
           customChange={customChange}
+          readOnly={readOnly}
+          {...otherProps}
         />
         {icon && (
           <img

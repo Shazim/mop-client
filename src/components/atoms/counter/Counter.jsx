@@ -7,13 +7,14 @@ function Counter({ active, width, onClick }) {
 
   const countHandler = (index, type) => {
     setCount((prev) => (type == 'add' ? prev + index : prev - index));
+    onClick(type == 'add' ? count + index : count - index);
   };
 
   return (
     <div className={`${width} flex items-center`}>
       <ToggleButton
         bg={active ? 'bg-gray' : 'bg-white'}
-        onClick={onClick}
+        onClick={() => onClick(count)}
         className="h-32 font-bold w-90% text-sm text-secondary tracking leading-32 uppercase"
       >
         limited edition of

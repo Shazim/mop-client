@@ -14,6 +14,7 @@ import { formDataHandler } from 'utils';
 import { AdminLayout } from 'Layout';
 import { useDispatch, useSelector } from 'react-redux';
 import * as types from 'store/actions/actionTypes';
+import { useHistory } from 'react-router-dom';
 
 function StockRoom() {
   const [steps, setSteps] = useState([
@@ -22,11 +23,12 @@ function StockRoom() {
     'pricing',
     'exhibition',
   ]);
-  const [step, setStep] = useState();
+  const [step, setStep] = useState('item details');
   const [colors, setColors] = useState([]);
   const [styles, setStyles] = useState([]);
   const dispatch = useDispatch();
 
+  const history = useHistory();
   useEffect(() => {
     getStyles()
       .then((response) => {
@@ -64,7 +66,7 @@ function StockRoom() {
 
   useEffect(() => {
     if (dataPost) {
-      setStep('stock room');
+      history.push('/stock');
     }
   }, [dataPost]);
 
@@ -91,6 +93,10 @@ function StockRoom() {
     copyData.colour_ids = colour_ids;
     copyData.style_ids = style_ids;
 
+    copyData.edition_type == 'open' && copyData.edition_quantity
+      ? delete copyData.edition_quantity
+      : (copyData.edition_quantity = copyData.edition_quantity);
+
     const formData = new FormData();
     Object.entries(data).map(([key, value]) => {
       formDataHandler('artwork', key, value, formData);
@@ -112,69 +118,65 @@ function StockRoom() {
           buttonText="ADD NEW ITEM"
           button={true}
         />
-        {!backbtn ? (
-          <StockItem addItem={addItem} />
-        ) : (
-          <Form
-            initialValues={{
-              name: '',
-              note: '',
-              artwork_images_attributes: [],
-              edition_type: 'open',
-              sell_via: 'with_us',
-              sellable: false,
-              exhibitionable: false,
-              colour_ids: {},
-              style_ids: {},
-              status: true,
-            }}
-            onSubmit={data}
-            validationSchema={artworkSchema}
-          >
-            {() => (
-              <>
-                {step == 'item details' && (
-                  <Detail
-                    steps={steps}
-                    step={step}
-                    next={next}
-                    addItem={addItem}
-                  />
-                )}
+        <Form
+          initialValues={{
+            name: '',
+            note: '',
+            artwork_images_attributes: [],
+            edition_type: 'open',
+            sell_via: 'with_us',
+            sellable: false,
+            exhibitionable: false,
+            colour_ids: {},
+            style_ids: {},
+            status: true,
+          }}
+          onSubmit={data}
+          validationSchema={artworkSchema}
+        >
+          {() => (
+            <>
+              {step == 'item details' && (
+                <Detail
+                  steps={steps}
+                  step={step}
+                  next={next}
+                  addItem={addItem}
+                />
+              )}
 
-                {step == 'categories' && (
-                  <Categories
-                    steps={steps}
-                    addItem={addItem}
-                    step={step}
-                    next={next}
-                    previous={previous}
-                    styles={styles}
-                    colors={colors}
-                  />
-                )}
-                {step == 'pricing' && (
-                  <Price
-                    steps={steps}
-                    addItem={addItem}
-                    step={step}
-                    next={next}
-                    previous={previous}
-                  />
-                )}
-                {step == 'exhibition' && (
-                  <Exhibition
-                    steps={steps}
-                    addItem={addItem}
-                    step={step}
-                    next={next}
-                    previous={previous}
-                  />
-                )}
-              </>
-            )}
-          </Form>
-        )}
+              {step == 'categories' && (
+                <Categories
+                  steps={steps}
+                  addItem={addItem}
+                  step={step}
+                  next={next}
+                  previous={previous}
+                  styles={styles}
+                  colors={colors}
+                />
+              )}
+              {step == 'pricing' && (
+                <Price
+                  steps={steps}
+                  addItem={addItem}
+                  step={step}
+                  next={next}
+                  previous={previous}
+                />
+              )}
+              {step == 'exhibition' && (
+                <Exhibition
+                  steps={steps}
+                  addItem={addItem}
+                  step={step}
+                  next={next}
+                  previous={previous}
+                />
+              )}
+            </>
+          )}
+        </Form>
       </AdminLayout>
     </>
   );

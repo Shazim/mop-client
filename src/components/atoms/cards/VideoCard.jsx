@@ -11,7 +11,7 @@ function VideoCard({
 }) {
   return (
     <div className="relative max-w-sm" onClick={onClick}>
-      <img className="w-100%" src={imageUrl} />
+      <img className="w-100% rounded-8" src={imageUrl} />
       <img
         className="absolute link left-50% top-50% transform-xy"
         src="/images/card/play-button.svg"

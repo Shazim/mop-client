@@ -37,11 +37,13 @@ function LoginHeader() {
         >
           get started
         </div>
-        <div
-          className={`font-bold mt-6 ${'text-secondary'} text-sm uppercase hover:text-primary link tracking`}
-        >
-          profile
-        </div>
+        <Link to="/my-profile">
+          <div
+            className={`font-bold mt-6 ${'text-secondary'} text-sm uppercase hover:text-primary link tracking`}
+          >
+            profile
+          </div>
+        </Link>
       </div>
     </div>
   );
