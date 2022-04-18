@@ -1,7 +1,9 @@
 import React from 'react';
 import { Package } from 'components/Packages';
 import SwitchButton from 'components/atoms/buttons/SwitchButton';
-
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 function Packages({
   packages = [
     {
@@ -24,9 +26,43 @@ function Packages({
     },
   ],
 }) {
+  const settings = {
+    dots: true,
+    infinite: true,
+    slidesToShow: 1,
+    // slidesToScroll: 1,
+    initialSlide: 1,
+    centerMode: true,
+    centerPadding: '0%',
+    responsive: [
+      {
+        breakpoint: 959,
+        settings: {
+          arrows: false,
+          slidesToShow: 1,
+          centerMode: true,
+          dots: true,
+          centerPadding: '0%',
+          transformEnabled: true,
+        },
+      },
+      {
+        breakpoint: 459,
+        settings: {
+          arrows: false,
+          slidesToShow: 1,
+          centerMode: false,
+          dots: true,
+          centerPadding: '0%',
+          transformEnabled: true,
+        },
+      },
+    ],
+  };
+
   return (
-    <div className="max-screen pt-166 pb-123 flex flex-col items-center">
-      <div className="w-50% uppercase text-2xl text-center tracking-wider text-secondary font-avenir-reg ">
+    <div className="max-screen pt-166 pb-123 sm:pt-30 ms:pb-48 flex flex-col sm:px-23 items-center">
+      <div className="w-50% sm:w-100% uppercase text-2xl sm:text-xl text-center tracking-wider text-secondary font-avenir-reg ">
         subscription options to suit every level of photographer, from
         <span className="text-primary"> hobbyist</span> to a{' '}
         <span className="text-primary">professional</span>
@@ -38,9 +74,9 @@ function Packages({
         </div>
         <div>Yearly</div>
       </div>
-      <div className="flex justify-between">
+      <div className="flex sm:hidden justify-between">
         {packages.map(({ popular, title, price, description }) => (
-          <div className="mr-41">
+          <div className="mr-41 md:mr-20 lg:mr-20 xl:mr-20">
             <Package
               popular={popular}
               description={description}
@@ -49,6 +85,20 @@ function Packages({
             />
           </div>
         ))}
+      </div>
+      <div className="packages-slider w-100% sm:block hidden">
+        <Slider {...settings}>
+          {packages.map(({ popular, title, price, description }) => (
+            <div className="pt-40">
+              <Package
+                popular={popular}
+                description={description}
+                price={price}
+                title={title}
+              />
+            </div>
+          ))}
+        </Slider>
       </div>
     </div>
   );

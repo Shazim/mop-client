@@ -35,7 +35,7 @@
 }
 
 .footer-links {
-  @apply font-nunito-light text-secondary text-lg capitalize leading-9;
+  @apply font-nunito-light text-secondary text-lg capitalize leading-9 sm:text-sm;
 }
 
 .w-fit {
@@ -116,6 +116,14 @@
 
 .slider-dots .slick-dots li button:before {
   font-size: 10px;
+}
+
+.packages-slider .slick-slider .slick-list .slick-track .slick-active {
+  transition: all ease 0.4ms !important;
+}
+
+.packages-slider .slick-slider .slick-list .slick-track .slick-active {
+  margin-top: -20px !important;
 }
 
 .checkbox-container {
