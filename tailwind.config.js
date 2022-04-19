@@ -115,6 +115,7 @@ module.exports = {
           light: '#D4B2B3',
           lighter: '#F2F1F1',
           DEFAULT: '#C71118',
+          'layout-background': 'rgb(242, 241, 241,0.75)',
         },
         pink: {
           DEFAULT: '#EEECEC',

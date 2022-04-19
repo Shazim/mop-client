@@ -163,7 +163,7 @@ function MyProfile() {
         enableReinitialize={true}
       >
         {({ values, handleSubmit, setFieldValue }) => (
-          <div className="ml-43">
+          <div className="mx-43">
             <div className="admin-h2 mt-28 mb-19">profile setup</div>
             <div className="admin-des pb-24">
               Click to edit your profile picture.
