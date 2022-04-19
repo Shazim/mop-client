@@ -9,7 +9,7 @@ function AdminLayout({ children }) {
   return (
     <>
       <Header />
-      <div className="flex w-100% bg-primary-lighter">
+      <div className="flex w-100% bg-primary-layout-background">
         <div className="w-20%">
           <SideBar />
         </div>

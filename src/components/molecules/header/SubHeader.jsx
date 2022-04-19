@@ -9,7 +9,7 @@ export default function SubHeader({
   button = false,
 }) {
   return (
-    <div className="w-100% max-screen flex shadow-sm justify-between sm:flex-col bg-white px-43 h-112 sm:px-16">
+    <div className="w-100% flex shadow-sm justify-between sm:flex-col bg-white px-43 h-112 sm:px-16">
       <div className="my-auto sm:w-100% sm:flex sm:justify-between">
         <p className="font-avenir-reg font-medium text-2xl uppercase text-primary tracking-wider ">
           {title}
