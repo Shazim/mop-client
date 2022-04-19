@@ -66,7 +66,7 @@ function StockRoom() {
 
   useEffect(() => {
     if (dataPost) {
-      history.push('/stock');
+      history.push('/stocks');
     }
   }, [dataPost]);
 

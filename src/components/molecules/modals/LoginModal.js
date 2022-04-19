@@ -31,7 +31,7 @@ function LoginModal({ isOpen, openHandler, signUpHandler, forgotHandler }) {
         if (response?.status == 200) {
           setCookie('user', JSON.stringify(response?.data));
           closeModal();
-          history.push('/stock-room');
+          history.push('/stocks');
         }
       })
       .catch((error) => console.log('ERROR ', error));
