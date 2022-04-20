@@ -12,7 +12,7 @@ function SelectOptions({
     { value: 4, label: 'item5' },
   ],
   label = 'choose an option',
-  width = '266',
+  className: classes = 'w-266',
   color = 'gray-lighter',
   textColor = 'secondary',
   onChange,
@@ -27,7 +27,7 @@ function SelectOptions({
   };
   return (
     <div
-      class={`relative w-${width} flex flex-row-reverse  h-32  cursor-pointer`}
+      class={`relative ${classes} flex flex-row-reverse  h-32  cursor-pointer`}
       onClick={() => setHide(!hide)}
     >
       <select className="hidden">

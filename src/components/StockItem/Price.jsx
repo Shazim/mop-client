@@ -13,7 +13,7 @@ export default function Price({ addItem, steps, step, next, previous }) {
   } = useFormikContext() || {};
 
   return (
-    <div className="w-80% pb-172">
+    <div className="w-100% pb-172">
       <div className="px-43 pt-32">
         <div className="w-57% m-auto">
           <StepBar steps={steps} step={step} />
