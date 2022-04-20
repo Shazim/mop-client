@@ -7,6 +7,8 @@ function ImagePicker({ name, label }) {
   const {
     values: { artwork_images_attributes },
     setFieldValue,
+    handleBlur,
+    setTouched,
   } = useFormikContext();
 
   const byte_To_MB = (size) => {
@@ -20,10 +22,18 @@ function ImagePicker({ name, label }) {
     setFieldValue('artwork_images_attributes', copyArtWorkImages);
   };
 
-  const handleFeature = (index) => {
+  const handleFeature = (index, value) => {
     let copyArtWork = [...artwork_images_attributes];
-    copyArtWork[index]['featured_image'] = true;
-    setFieldValue(setFieldValue('artwork_images_attributes', copyArtWork));
+
+    copyArtWork.map((item, i) => {
+      if (index == i && !item.featured_image) {
+        item['featured_image'] = value;
+      } else {
+        item['featured_image'] = false;
+      }
+    });
+
+    setFieldValue('artwork_images_attributes', copyArtWork);
   };
 
   const customChange = (name, files) => {
@@ -114,8 +124,9 @@ function ImagePicker({ name, label }) {
             <CheckBox
               className="ml-25 h-17"
               value=""
-              onChange={() => handleFeature(index)}
-              defaultChecked={item.featured_image}
+              onBlur={handleBlur}
+              onChange={(e) => handleFeature(index, e.target.checked)}
+              checked={item.featured_image}
             />
           </div>
         </div>

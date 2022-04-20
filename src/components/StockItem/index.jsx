@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import SelectOptions from 'components/atoms/form/SelectOptions';
 import SearchBar from 'components/atoms/searchbar/SearchBar';
-import SubHeader from 'components/molecules/header/SubHeader';
-import { useLazyFetch } from 'hooks';
+import { useFetch } from 'hooks';
 import { getArtWorks } from 'api/api-services';
 import GalleryCard from 'components/atoms/cards/GalleryCard';
 import Pagination from 'components/Pagination/Pagination';
 
 export default function StockItem({ addItem }) {
   const [search, setSearch] = useState('');
-  const [handleGetArtWorks, { data, status }] = useLazyFetch(getArtWorks);
+  const { data, status, refetch } = useFetch(getArtWorks);
   const [currentPage, setCurrentPage] = useState(1);
   const [perPage, setPerPage] = useState(10);
 
@@ -19,13 +18,15 @@ export default function StockItem({ addItem }) {
 
   useEffect(() => {
     if (perPage > 10 || search || currentPage > 1) {
-      handleGetArtWorks({
+      refetch({
         variables: `${search != '' ? `q[name_cont]=${search}&` : ''}${
           perPage ? `per_page=${perPage}` : ''
         }${currentPage ? `page=${currentPage}` : ''}`,
       });
     }
   }, [perPage, currentPage, search]);
+
+  console.log('hiddde', data);
 
   return (
     <div className="px-43 pt-32">
@@ -34,7 +35,7 @@ export default function StockItem({ addItem }) {
           placeholder="Search For An Artist"
           bgColor="bg-gray-dark"
           onChange={(e) => {
-            handleGetArtWorks({
+            refetch({
               variables: `?q[name_cont]=${e.target.value}`,
             });
             setSearch(e.target.value);
@@ -76,10 +77,18 @@ export default function StockItem({ addItem }) {
             </div>
           </div>
           <div className="flex flex-wrap justify-between mt-22">
-            {data.artworks.map(() => (
-              <div className="mb-25">
-                <GalleryCard />
-              </div>
+            {data.artworks.map(({ name, images }) => (
+              <>
+                {images.map(({ image, featured_image }) => (
+                  <>
+                    {featured_image ? (
+                      <div className="mb-25">
+                        <GalleryCard imageUrl={image} />
+                      </div>
+                    ) : null}
+                  </>
+                ))}
+              </>
             ))}
           </div>
           <div className="mb-44">

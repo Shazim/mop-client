@@ -106,8 +106,6 @@ function StockRoom() {
     });
   };
 
-  const backbtn = useSelector((state) => state?.admin?.backButton);
-
   return (
     <>
       <AdminLayout>
