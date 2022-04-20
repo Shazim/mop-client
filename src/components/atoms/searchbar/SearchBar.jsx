@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 function SearchBar({
   name,
-  className: classes = 'w-243 h-32',
+  className: classes = 'w-243 h-32 sm:w-200',
   textSize = 'text-xsm',
   transform = '',
   value = '',
@@ -24,7 +24,7 @@ function SearchBar({
         placeholder={placeholder}
         onChange={onChange}
         value={value}
-        className={`${bgColor} ${transform} ${textSize} w-full tracking font-bold placeholder-secondary focus:outline-none`}
+        className={`${bgColor} ${transform} ${textSize} sm:text-tiny w-full tracking font-bold placeholder-secondary focus:outline-none`}
       />
     </div>
   );

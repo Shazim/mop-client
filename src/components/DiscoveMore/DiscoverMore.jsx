@@ -5,7 +5,7 @@ function DiscoverMore({ background = 'bg-white' }) {
   return (
     <div className={`${background}`}>
       <div
-        className={`py-136 sm:py-80  m-auto w-40% xl:w-50% lg:w-60% md:w-70% sm:w-100%`}
+        className={`py-136 sm:py-80 sm:px-23 m-auto w-40% xl:w-50% lg:w-60% md:w-70% sm:w-100%`}
       >
         <div className="text-2xl sm:text-lg text-secondary-dark tracking-wider font-avenir-reg uppercase text-center">
           If you are a photographer looking to exhibit we have the tools and

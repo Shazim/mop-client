@@ -151,6 +151,7 @@ module.exports = {
       }),
 
       fontSize: {
+        6: '6px',
         7: '7px',
         8: '8px',
         tiny: '10px',
@@ -257,6 +258,10 @@ module.exports = {
         prose: '65ch',
         ...breakpoints(theme('screens')),
       }),
+
+      minWidth: {
+        36: '36px',
+      },
 
       screens: {
         sm: [{ min: '0px', max: '959px' }],
