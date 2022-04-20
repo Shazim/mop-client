@@ -18,7 +18,7 @@ function LoginHeader() {
         {/* <div> */}
         <SearchBar
           className="flex items-center"
-          placeholder="Search For An Artist"
+          placeholder="Search Artist"
           bgColor="bg-transparent"
         />
         {/* </div> */}

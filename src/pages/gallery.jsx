@@ -122,7 +122,7 @@ function Gallery() {
           </div>
         </div>
         <div className="max-screen pt-30 pb-43 sm:px-23">
-          <div className="gridView">{steps[tab]}</div>
+          <div className="gridView-4">{steps[tab]}</div>
           <Pagination
             pageDetails={data?.pagination}
             currentPage={currentPage}

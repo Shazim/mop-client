@@ -33,8 +33,8 @@ function Footer() {
           <div className="w-1/4 sm:w-100% sm:h-32 sm:flex sm:justify-center">
             <img src="/images/Logo/logo.svg" alt="" />
           </div>
-          <div className="w-3/4 flex sm:mb-63 flex-row sm:grid sm:pl-43 sm:grid-cols-2 sm:justify-center sm:items-center sm:flex sm:w-100%">
-            <div className="w-1/4 pl-40 xl:pl-13 lg:pl-0 md:pl-0 md:w-27% sm:w-100% sm:pl-0 sm:mb-30 sm:h-50%">
+          <div className="w-3/4 flex justify-between sm:mb-63 flex-row sm:grid sm:pl-43 sm:grid-cols-2 sm:justify-center sm:items-center sm:flex sm:w-100%">
+            <div className="w-auto pl-40 xl:pl-13 lg:pl-0 md:pl-0 md:w-auto sm:w-100% sm:pl-0 sm:mb-30 sm:h-50%">
               <div className="text-primary font-bold sm:text-tiny text-sm tracking uppercase mb-40 sm:mb-14">
                 create a gallery
               </div>
@@ -42,7 +42,7 @@ function Footer() {
               <div className="footer-links">my exhibitions</div>
               <div className="footer-links">analytics</div>
             </div>
-            <div className="w-1/4 pl-40 xl:pl-30 lg:pl-20 md:pl-15 md:w-27% sm:w-100% sm:mb-30 sm:pl-0 sm:h-50%">
+            <div className="w-auto pl-40 xl:pl-30 lg:pl-20 md:pl-15 md:w-auto sm:w-100% sm:mb-30 sm:pl-0 sm:h-50%">
               <div className="text-primary font-bold text-sm sm:text-tiny tracking uppercase mb-40 sm:mb-14">
                 browser
               </div>
@@ -50,7 +50,7 @@ function Footer() {
               <div className="footer-links">View by Artist</div>
               <div className="footer-links">View by Galleries</div>
             </div>
-            <div className="w-1/4 pl-40 md:w-23% sm:w-100% sm:pl-0 sm:h-50%">
+            <div className="w-auto pl-40 xl:pl-30 lg:pl-20 md:pl-15 md:w-auto sm:w-100% sm:pl-0 sm:h-50%">
               <div className="text-primary font-bold text-sm sm:text-tiny tracking uppercase mb-40 sm:mb-14">
                 Store
               </div>
@@ -58,7 +58,7 @@ function Footer() {
               <div className="footer-links">Orders</div>
               <div className="footer-links">Checkout</div>
             </div>
-            <div className="w-1/4 pl-40 md:w-23% sm:w-100% sm:pl-0 sm:h-50%">
+            <div className="w-auto pl-40 xl:pl-30 lg:pl-20 md:pl-15 md:w-auto sm:w-100% sm:pl-0 sm:h-50%">
               <div className="text-primary font-bold text-sm sm:text-tiny tracking uppercase mb-40 sm:mb-14">
                 contact
               </div>

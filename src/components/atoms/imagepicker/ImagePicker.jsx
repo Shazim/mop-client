@@ -63,7 +63,7 @@ function ImagePicker({ name, label }) {
 
   return (
     <div>
-      <div className="font-bold text-secondary text-sm leading-8 uppercase tracking mb-11">
+      <div className="font-bold text-secondary text-sm leading-22 uppercase tracking mb-11">
         {label}
       </div>
       <div className="w-100% h-137 bg-white relative">

@@ -233,30 +233,30 @@ function CreateGallary() {
             Start Your Free Trial
           </Button>
           <div className="flex sm:flex-col justify-around mt-60">
-            <div className="w-15% sm:flex text-center sm:text-left sm:mt-80  sm:w-100% sm:px-38">
+            <div className="w-15% xl:w-18% lg:w-20% md:w-20% sm:flex text-center sm:text-left sm:mt-80  sm:w-100% sm:px-38">
               <img
                 className="m-auto sm:my-auto mb-30 font-reg text-base leading-10 text-secondary-dark"
                 src="/images/clock.svg"
               />
-              <p className="font-avenir-reg w-70% text-xl text-secondary sm:ml-33">
+              <p className="font-avenir-reg w-100% text-xl text-secondary sm:ml-33">
                 24 hour Printing Service to manage your orders
               </p>
             </div>
-            <div className="w-15% sm:flex text-center sm:text-left sm:mt-80  sm:w-100% sm:px-38">
+            <div className="w-15% xl:w-18% lg:w-20% md:w-20% sm:flex text-center sm:text-left sm:mt-80  sm:w-100% sm:px-38">
               <img
                 className="m-auto sm:my-auto mb-30 font-reg text-base leading-10 text-secondary-dark"
                 src="/images/pound.svg"
               />
-              <p className="font-avenir-reg w-70% text-xl text-secondary sm:ml-33">
+              <p className="font-avenir-reg w-100% text-xl text-secondary sm:ml-33">
                 Sell your photos through your gallery
               </p>
             </div>
-            <div className="w-15% sm:flex text-center sm:text-left sm:mt-80  sm:w-100% sm:px-38">
+            <div className="w-15% xl:w-18% lg:w-20% md:w-20% sm:flex text-center sm:text-left sm:mt-80  sm:w-100% sm:px-38">
               <img
                 className="m-auto sm:my-auto mb-30 font-reg text-base leading-10 text-secondary-dark"
                 src="/images/sms.svg"
               />
-              <p className="font-avenir-reg w-70% text-xl text-secondary sm:ml-33">
+              <p className="font-avenir-reg w-100% text-xl text-secondary sm:ml-33">
                 Print & send automatically or use your own print lab
               </p>
             </div>

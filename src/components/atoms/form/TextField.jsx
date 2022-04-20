@@ -11,7 +11,7 @@ function TextField({
   type = 'text',
   className = 'w-100% h-32',
   mb = 11,
-  titleClasses = 'text-secondary uppercase tracking ',
+  titleClasses = 'text-secondary uppercase tracking mb-11',
   customChange,
   readOnly = false,
   otherProps,
@@ -19,7 +19,7 @@ function TextField({
   return (
     <div className="w-100%">
       <div
-        className={`font-bold text-secondary text-sm leading-8 ${titleClasses} ${mb}`}
+        className={`font-bold text-secondary text-sm leading-22 ${titleClasses} ${mb}`}
       >
         {label}
       </div>
