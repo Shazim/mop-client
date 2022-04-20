@@ -100,6 +100,7 @@ module.exports = {
         white: '#FFFFFF',
         offwhite: '#F2F1F1',
         green: 'green',
+
         // backgroundColor: '#E5E5E5',
 
         instagram: '#C32AA3',
@@ -130,6 +131,7 @@ module.exports = {
           dark: '#E5E5E5',
           darker: '#c4c4c4',
           darkest: '#E5DDDD',
+          800: '#E2E2E2',
         },
         secondary: {
           DEFAULT: '#4A4949',
@@ -204,6 +206,7 @@ module.exports = {
         9: '2.25rem',
         10: '2.5rem',
         15: '15px',
+        20: '20px',
         22: '22px',
         30: '30px',
         32: '32px',

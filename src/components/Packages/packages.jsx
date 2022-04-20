@@ -78,6 +78,7 @@ function Packages({
         {packages.map(({ popular, title, price, description }) => (
           <div className="mr-41 md:mr-20 lg:mr-20 xl:mr-20">
             <Package
+              className="sm:mx-auto"
               popular={popular}
               description={description}
               price={price}

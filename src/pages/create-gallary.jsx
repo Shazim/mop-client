@@ -13,7 +13,7 @@ import Slider from 'react-slick';
 import { DescriptiveIcon } from 'components/DescriptiveIcon';
 import GalleryCard from 'components/atoms/cards/GalleryCard';
 import ProfileCard from 'components/atoms/cards/ProfileCard';
-import Signup from './signup';
+import Signup from './subscribe';
 
 function CreateGallary() {
   const settings = {
@@ -73,6 +73,7 @@ function CreateGallary() {
       },
     ],
   };
+
   const descriptiveIcons = [
     { source: '/images/services/satisfaction.svg', title: 'Return Policy' },
     { source: '/images/services/return.svg', title: 'Satisfaction Guarantee' },
@@ -264,58 +265,33 @@ function CreateGallary() {
       </div>
       <Packages />
 
-      {/* //   <div className="bg-gray-lighter">
-    //     <div className="max-screen items-center py-136 sm:py-36 sm:px-0">
-    //       <div className="text-2xl tracking-wider font-avenir-reg uppercase text-center mb-2 sm:text-xl sm:px-23">
-    //         photographer reviews<span className="text-primary">.</span>
-    //       </div>
-    //       <div className="text-lg sm:text-xsm text-center font-nunito-light leading-35 mb-48 sm:mb-17 sm:px-23">
-    //         See what the world’s artists think of our platform.
-    //       </div><div className="bg-gray-lighter">
-    //     <div className="max-screen items-center py-136 sm:py-36 sm:px-0">
-    //       <div className="text-2xl tracking-wider font-avenir-reg uppercase text-center mb-2 sm:text-xl sm:px-23">
-    //         photographer reviews<span className="text-primary">.</span>
-    //       </div>
-    //       <div className="text-lg sm:text-xsm text-center font-nunito-light leading-35 mb-48 sm:mb-17 sm:px-23">
-    //         See what the world’s artists think of our platform.
-    //       </div>
-    //       <div className="w-100% mx-auto sm:pl-23">
-    //         <Slider {...settings}>
-    //           <ProfileCard />
-    //           <ProfileCard />
-    //           <ProfileCard />
-    //         </Slider>
-    //       </div>
-    //       <Button className="w-251 h-51 sm:w-275 m-auto block mt-50">
-    //         Get Your Free Trial
-    //       </Button>
-    //     </div>
-    //   </div>
-    //   <div className="max-screen py-67 sm:px-23 sm:py-50">
-    //     <FAQ />
-    //   </div>
-    //   <div>
-    //     <Footer />
-    //   </div>
-    // </>
-    //       <div className="w-100% mx-auto sm:pl-23">
-    //         <Slider {...settings}>
-    //           <ProfileCard />
-    //           <ProfileCard />
-    //           <ProfileCard />
-    //         </Slider>
-    //       </div>
-    //       <Button className="w-251 h-51 sm:w-275 m-auto block mt-50">
-    //         Get Your Free Trial
-    //       </Button>
-    //     </div>
-    //   </div>
-    //   <div className="max-screen py-67 sm:px-23 sm:py-50">
-    //     <FAQ />
-    //   </div>
-    //   <div>
-    //     <Footer />
-    //   </div> */}
+      <div className="bg-gray-lighter">
+        <div className="max-screen items-center py-136 sm:py-36 sm:px-0">
+          <div className="text-2xl tracking-wider font-avenir-reg uppercase text-center mb-2 sm:text-xl sm:px-23">
+            photographer reviews<span className="text-primary">.</span>
+          </div>
+          <div className="text-lg sm:text-xsm text-center font-nunito-light leading-35 mb-48 sm:mb-17 sm:px-23">
+            See what the world’s artists think of our platform.
+          </div>
+
+          <div className="w-100% mx-auto sm:pl-23">
+            <Slider {...settings}>
+              <ProfileCard />
+              <ProfileCard />
+              <ProfileCard />
+            </Slider>
+          </div>
+          <Button className="w-251 h-51 sm:w-275 m-auto block mt-50">
+            Get Your Free Trial
+          </Button>
+        </div>
+      </div>
+      <div className="max-screen py-67 sm:px-23 sm:py-50">
+        <FAQ />
+      </div>
+      <div>
+        <Footer />
+      </div>
     </>
   );
 }
