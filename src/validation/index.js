@@ -45,10 +45,37 @@ export const generateSchema = (param) => {
   });
   return Yup.object().shape(schema);
 };
+function answersSchema(rules) {
+  const { QUIZ_ANSWER_MAX_LENGTH, QUIZ_ANSWER_MIN_LENGTH } = rules;
+  return Yup.object().shape({
+    text: Yup.string()
+      .min(QUIZ_ANSWER_MIN_LENGTH, 'Too Short!')
+      .max(QUIZ_ANSWER_MAX_LENGTH, 'Too Long!')
+      .required('Text of answer is required'),
+    is_correct: Yup.boolean().required(),
+  });
+}
 
 export const artworkSchema = Yup.object().shape({
   name: Yup.string().required('Name is required'),
   note: Yup.string().required('Note is required'),
+  artwork_images_attributes: Yup.array()
+    .of(
+      Yup.object().shape({
+        featured_image: Yup.boolean().required(),
+      })
+    )
+    .min(1, 'please add at least one image')
+    .test(
+      'artwork_images_attributes',
+      'please checked the one checkbox ',
+      (artwork_images_attributes) => {
+        return artwork_images_attributes.some(
+          (artwork_images_attributes) =>
+            artwork_images_attributes.featured_image
+        );
+      }
+    ),
 });
 
 export const gallerySchema = Yup.object().shape({

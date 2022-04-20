@@ -9,13 +9,18 @@ import ErrorMessage from 'components/app/forms/ErrorMessage';
 
 import { useFormikContext } from 'formik';
 import AddItemButton from 'components/atoms/additembutton/AddItemButton';
+import { useEffect } from 'react';
 
 export default function Detail({ addItem, steps, step, next }) {
   const {
     handleSubmit,
     values: { name, note, artwork_images_attributes },
+    errors,
+    touched,
+    setFieldError,
   } = useFormikContext() || {};
 
+  console.log(artwork_images_attributes, 'erroorss', errors);
   return (
     <div className="w-100% pb-172">
       <div className="px-43 sm:px-23 pt-32">
@@ -42,16 +47,8 @@ export default function Detail({ addItem, steps, step, next }) {
           <div className="border-border border-t-2 my-25"></div>
           <ImagePicker name="images" label="artwork images" />
           <ErrorMessage
-            error={
-              artwork_images_attributes.length == 0
-                ? 'upload at least one picture'
-                : false
-            }
-            visible={
-              artwork_images_attributes.length == 0
-                ? 'upload at least one picture'
-                : false
-            }
+            error={errors['artwork_images_attributes']}
+            visible={touched['artwork_images_attributes']}
           />
           <div className="w-100% justify-end flex">
             <Button
