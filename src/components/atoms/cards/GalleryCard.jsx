@@ -23,11 +23,11 @@ function GalleryCard({
       />
       <div className="absolute bottom-0 w-100%">
         <div className="flex w-100%">
-          <div className="w-100% ml-18 h-70 text-white">
-            <div className=" font-avenir-reg font-medium text-base tracking-tight uppercase">
+          <div className="w-100% ml-18 sm:ml-7 h-70 sm:h-40 text-white">
+            <div className=" font-avenir-reg font-medium text-base tracking-tight sm:text-8 sm:font-medium leading-22 uppercase">
               {title}
             </div>
-            <div className="flex text-xsm">
+            <div className="flex text-xsm sm:text-6">
               <div>
                 <span className="font-bold">{views}</span> Views
               </div>

@@ -12,7 +12,7 @@ import Pagination from 'components/Pagination/Pagination';
 import Container from 'Layout/Container';
 import { getPublicExhibitions } from 'api';
 
-function Gallary() {
+function Gallery() {
   const [tab, setTab] = useState('galleries');
   const [handleGetGalleries, { data, status }] = useLazyFetch(getGalleries);
   const [handleGetArtists, { data: dataArtists }] = useLazyFetch(getArtists);
@@ -101,8 +101,8 @@ function Gallary() {
       <Container>
         <GalleryBar setHandler={setTab} />
         <div>
-          <div className="max-screen flex justify-end pt-31">
-            <div className="mr-25">
+          <div className="max-screen flex justify-end sm:justify-between pt-31 sm:px-23">
+            <div className="mr-25 sm:mr-0">
               <SearchBar
                 transform="uppercase"
                 placeholder={`search for ${
@@ -113,13 +113,16 @@ function Gallary() {
                 onChange={(e) => setSearch(e.target.value)}
               />
             </div>
-            <SelectOptions label="sort: Most popular" />
+            <div className="sm:hidden">
+              <SelectOptions label="sort: Most popular" />
+            </div>
+            <div className="hidden sm:block">
+              <SelectOptions label="sort" width="88" />
+            </div>
           </div>
         </div>
-        <div className="max-screen pt-30 pb-43">
-          {/* <div className="grid grid-cols-4 gap-36 justify-between"> */}
+        <div className="max-screen pt-30 pb-43 sm:px-23">
           <div className="gridView">{steps[tab]}</div>
-          {/* <div className="text-primary link mt-25 text-base">1</div> */}
           <Pagination
             pageDetails={data?.pagination}
             currentPage={currentPage}
@@ -133,4 +136,4 @@ function Gallary() {
   );
 }
 
-export default Gallary;
+export default Gallery;
