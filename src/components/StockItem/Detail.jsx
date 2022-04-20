@@ -8,6 +8,7 @@ import ImagePicker from 'components/atoms/imagepicker/ImagePicker';
 import ErrorMessage from 'components/app/forms/ErrorMessage';
 
 import { useFormikContext } from 'formik';
+import AddItemButton from 'components/atoms/additembutton/AddItemButton';
 
 export default function Detail({ addItem, steps, step, next }) {
   const {
@@ -16,8 +17,11 @@ export default function Detail({ addItem, steps, step, next }) {
   } = useFormikContext() || {};
 
   return (
-    <div className="w-80% pb-172">
-      <div className="px-43 pt-32">
+    <div className="w-100% pb-172">
+      <div className="px-43 sm:px-23 pt-32">
+        <div className="w-100% hidden sm:block">
+          <AddItemButton btnText="Add new item" />
+        </div>
         <div className="w-57% m-auto">
           <StepBar steps={steps} step={step} />
         </div>

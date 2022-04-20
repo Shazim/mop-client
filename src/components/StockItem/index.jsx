@@ -29,7 +29,7 @@ export default function StockItem({ addItem }) {
 
   return (
     <div className="px-43 pt-32">
-      <div className="flex justify-between">
+      <div className="flex xl:flex-col lg:flex-col md:flex-col justify-between">
         <SearchBar
           placeholder="Search For An Artist"
           bgColor="bg-gray-dark"
@@ -41,11 +41,17 @@ export default function StockItem({ addItem }) {
           }}
           value={search}
         />
-        <div className="w-60% flex justify-between">
-          <SelectOptions width="30%" label="up for sale" />
-          <SelectOptions width="35%" label="sort low - high" />
+        <div className="w-65% xl:w-100% lg:w-100% md:w-100% flex xl:mt-30 lg:mt-30 md:mt-30 justify-between">
           <SelectOptions
-            width="30%"
+            className="w-30% xl:w-30% lg:w-30% md:w-30%"
+            label="up for sale"
+          />
+          <SelectOptions
+            className="w-37% xl:w-35% lg:w-35% md:w-35%"
+            label="sort low - high"
+          />
+          <SelectOptions
+            className="w-30% xl:w-30% lg:w-30% md:w-30%"
             label="show 10"
             option={[
               { value: 20, label: 'show 20' },

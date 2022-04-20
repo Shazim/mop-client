@@ -10,10 +10,10 @@ function AdminLayout({ children }) {
     <>
       <Header />
       <div className="flex w-100% bg-primary-layout-background">
-        <div className="w-20%">
+        <div className="w-20% sm:hidden">
           <SideBar />
         </div>
-        <div className=" w-80%">{children}</div>
+        <div className=" w-80% sm:w-100%">{children}</div>
       </div>
       <Footer />
     </>
