@@ -17,7 +17,7 @@ const obj = [
       {
         redIcon: '/images/sidebar/stockroom_red.svg',
         icon: '/images/sidebar/stockroom.svg',
-        name: 'Stockrooms',
+        name: 'Stockroom',
         link: '/stocks',
       },
       {
@@ -30,7 +30,7 @@ const obj = [
         redIcon: '/images/sidebar/analytics_red.svg',
         icon: '/images/sidebar/analytics.svg',
         link: 'stocks',
-        name: 'Analytic',
+        name: 'Analytics',
       },
       {
         redIcon: '/images/sidebar/settings_red.svg',

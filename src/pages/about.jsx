@@ -54,7 +54,7 @@ function About() {
             photographers <span className="text-secondary">in the world.</span>
           </div>
           <div className="ml-50  mt-25">
-            <Button className="w-275 h-33" transform="uppercase">
+            <Button className="w-275 h-48" transform="uppercase">
               discover our offers
             </Button>
           </div>

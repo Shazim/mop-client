@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 function GalleryBar({
   setHandler,
-  menus = ['galleries', 'exhibitions', 'artists'],
+  menus = ['galleries', 'exhibition rooms', 'artists'],
 }) {
   const [id, setId] = useState(0);
 

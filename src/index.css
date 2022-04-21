@@ -298,6 +298,16 @@ svg.stroke-white {
   column-gap: 12px;
 }
 
+.gridView-3 {
+  columns: 3;
+  column-gap: 12px;
+}
+
+.gridView-4 {
+  columns: 4;
+  column-gap: 12px;
+}
+
 .scroll-bar::-webkit-scrollbar {
   width: 4px;
 }

@@ -41,8 +41,8 @@ function Home() {
           <div className="max-screen pb-237 sm:pb-80 pt-158 sm:pt-60 sm:px-30 sm:flex sm:flex-col sm:items-center sm:justify-center">
             <div className="w-100% sm:border-border sm:border-brown sm:shadow-3xl sm:flex sm:items-center sm:justify-center sm:border-6 pt-0 pb-0">
               <div className="w-100% h-100% sm:flex sm:items-center sm:justify-center sm:p-30">
-                <div className="ml-50 sm:ml-0 sm:text-center text-primary sm:px-40 tracking-wider font-avenir-300 uppercase text-3xl leading-55 w-61% xl:w-70% lg:w-80% md:w-86% sm:w-100% sm:leading-50 sm:text-22 sm:tracking-wider sm:bg-gradient-to-t from-transparent to-offwhite ">
-                  Access
+                <div className="ml-50 sm:ml-0 sm:text-center text-primary sm:px-40 tracking-wider font-nunito-light uppercase text-3xl leading-55 w-61% xl:w-70% lg:w-80% md:w-86% sm:w-100% sm:leading-50 sm:text-22 sm:tracking-wider sm:bg-gradient-to-t from-transparent to-offwhite ">
+                  Access{' '}
                   <span className="text-secondary sm:hidden">
                     100’s of galleries{' '}
                   </span>
@@ -58,8 +58,8 @@ function Home() {
                 </div>
               </div>
             </div>
-            <div className="ml-50 sm:ml-0 leading-32 font-avenir-reg text-xl text-secondary-darkest pt-0 pb-45 sm:pb-15 w-55% xl:w-65% lg:w-75% md:w-80% sm:w-100% sm:text-center sm:leading-30 sm:text-lg sm:mt-20 sm:mb-20 sm:px-20">
-              An <span className="sm:font-bold">immersive experience</span>
+            <div className="ml-50 sm:ml-0 leading-32 font-avenir-300 text-xl text-secondary-darkest pt-0 pb-45 sm:pb-15 w-55% xl:w-65% lg:w-75% md:w-80% sm:w-100% sm:text-center sm:leading-30 sm:text-lg sm:mt-20 sm:mb-20 sm:px-20">
+              An <span className="sm:font-bold">immersive experience </span>
               <span className="sm:hidden">which is curated and configured</span>
               <span className="hidden sm:inline"> curated</span> by the artist
               to suit the work that is on{' '}
@@ -77,7 +77,7 @@ function Home() {
             </div>
             <Button
               transform="uppercase"
-              className="w-275 h-33 ml-50 sm:hidden"
+              className="w-275 h-48 ml-50 sm:hidden"
             >
               create a gallery
             </Button>
@@ -98,7 +98,7 @@ function Home() {
           </div>
         </div>
         <div className="block">
-          <GridLayout column={2} gap={5} />
+          <GridLayout column={3} gap={5} />
         </div>
         <div className="flex sm:hidden mt-43 justify-center mb-121">
           <Button className="w-184 mr-18 ">View More</Button>

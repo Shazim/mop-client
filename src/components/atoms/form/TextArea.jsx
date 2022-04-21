@@ -16,7 +16,7 @@ function TextArea({
   return (
     <div className={`w-${width}`}>
       <div
-        className={`font-bold text-secondary text-sm leading-8 ${titleClasses} `}
+        className={`font-bold text-secondary text-sm leading-22 ${titleClasses} `}
       >
         {label}
       </div>
