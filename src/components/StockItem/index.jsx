@@ -26,8 +26,6 @@ export default function StockItem({ addItem }) {
     }
   }, [perPage, currentPage, search]);
 
-  console.log('hiddde', data);
-
   return (
     <div className="px-43 pt-32">
       <div className="flex xl:flex-col lg:flex-col md:flex-col justify-between">

@@ -3,7 +3,7 @@ import { useState } from 'react';
 import ToggleButton from '../togglebutton/ToggleButton';
 
 function Counter({ active, width, onClick }) {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
 
   const countHandler = (index, type) => {
     setCount((prev) => (type == 'add' ? prev + index : prev - index));
@@ -28,7 +28,7 @@ function Counter({ active, width, onClick }) {
         />
         <p>{count}</p>
         <img
-          onClick={() => (active ? countHandler(count > 0 ? 1 : 0) : null)}
+          onClick={() => (active ? countHandler(count > 1 ? 1 : 0) : null)}
           src="/images/downArrow.svg"
           className="w-12 h-7 m-auto mt-4 link"
         />

@@ -20,7 +20,7 @@ export default function Detail({ addItem, steps, step, next }) {
     setFieldError,
   } = useFormikContext() || {};
 
-  console.log(artwork_images_attributes, 'erroorss', errors);
+  const errorLength = Object.keys(errors).length;
   return (
     <div className="w-100% pb-172">
       <div className="px-43 sm:px-23 pt-32">
@@ -53,11 +53,7 @@ export default function Detail({ addItem, steps, step, next }) {
           <div className="w-100% justify-end flex">
             <Button
               onClick={() => {
-                if (
-                  name != '' &&
-                  note != '' &&
-                  artwork_images_attributes.length != 0
-                ) {
+                if (errorLength == 0) {
                   next(1);
                 } else {
                   handleSubmit();
