@@ -50,7 +50,7 @@ function MyProfile() {
       console.log('social accounts', styles);
       const { facebook, linkedin, instagram } = social_account || {};
       let styleIds = {};
-      styles.map((item) => (styleIds[item.id] = item));
+      styles.map((item) => (styleIds[item.id] = item.id));
 
       setInitial({
         ...initial,
@@ -78,6 +78,7 @@ function MyProfile() {
     } else {
       copyStyleIds[id] = id;
     }
+
     setFieldValue('styleIds', copyStyleIds);
   };
 
@@ -317,9 +318,7 @@ function MyProfile() {
                       onChange={() =>
                         handleStyles(values, setFieldValue, style?.id)
                       }
-                      defaultChecked={
-                        values.styleIds[style?.id]?.id == style?.id
-                      }
+                      checked={values.styleIds[style?.id] == style?.id}
                     />
                   </>
                 ))}

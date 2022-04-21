@@ -67,14 +67,14 @@ export default function StockItem({ addItem }) {
 
       {data ? (
         <>
-          <div className="flex mt-21">
+          <div className="flex mt-21  mb-22">
             <img src="/images/icons/info-icon.svg" alt="" className="mr-7" />
             <div className="text-primary font-bold tracking uppercase mt-3">
               Click ‘add info’ to add tags to your images to help customers find
               them.
             </div>
           </div>
-          <div className="flex flex-wrap justify-between mt-22">
+          <div className="gridView">
             {data.artworks.map(({ name, images }) => (
               <>
                 {images.map(({ image, featured_image }) => (
