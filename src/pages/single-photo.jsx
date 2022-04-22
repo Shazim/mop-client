@@ -25,8 +25,6 @@ function SinglePhoto(props) {
     more_by_this_artist,
   } = dataArtwork || [];
 
-  console.log('hello', dataArtwork);
-
   return (
     <Container>
       <div className="max-screen pt-50  sm:w-100% sm:px-23 sm:h-100% sm:bg-gray-dark">
