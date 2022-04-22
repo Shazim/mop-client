@@ -32,8 +32,6 @@ function MyProfile() {
   const { data: profileData } = useFetch(getProfile);
   const [submitProfile, { data: profileResponse }] = usePost(updateProfile);
 
-  console.log('data', profileResponse);
-
   useEffect(() => {
     if (profileData) {
       const {
@@ -47,7 +45,7 @@ function MyProfile() {
         styles,
         social_account,
       } = profileData;
-      console.log('social accounts', styles);
+
       const { facebook, linkedin, instagram } = social_account || {};
       let styleIds = {};
       styles.map((item) => (styleIds[item.id] = item.id));
@@ -74,11 +72,10 @@ function MyProfile() {
     const { styleIds } = copyValues;
     let copyStyleIds = { ...styleIds };
     if (copyStyleIds[id]) {
-      delete copyStyleIds.id;
+      delete copyStyleIds[id];
     } else {
       copyStyleIds[id] = id;
     }
-
     setFieldValue('styleIds', copyStyleIds);
   };
 
@@ -135,7 +132,7 @@ function MyProfile() {
       Object.entries(styleIds).map(([key, value]) => {
         copyStyleIds.push(value);
       });
-      console.log(copyStyleIds, 'array');
+
       const copySubmitData = {
         profile: { style_ids: copyStyleIds },
       };

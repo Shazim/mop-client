@@ -6,17 +6,20 @@ function FeatureCard({ name, image, id }) {
   const {
     setFieldValue,
     values: { artwork_ids },
+    errors,
   } = useFormikContext() || {};
 
   const handleFeature = (id) => {
     let copyArtworkIds = { ...artwork_ids };
     if (copyArtworkIds[id]) {
-      delete copyArtworkIds.id;
+      delete copyArtworkIds[id];
     } else {
       copyArtworkIds[id] = id;
     }
     setFieldValue('artwork_ids', copyArtworkIds);
   };
+
+  console.log(artwork_ids, 'errors', errors);
 
   return (
     <div className="card-featured w-292 relative">
@@ -25,7 +28,7 @@ function FeatureCard({ name, image, id }) {
         <div className="flex top-11 left-13 absolute">
           <CheckBox
             onChange={() => handleFeature(id)}
-            defaultChecked={artwork_ids[id] == id}
+            checked={artwork_ids[id] == id}
           />
         </div>
       </div>

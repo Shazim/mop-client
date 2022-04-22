@@ -53,7 +53,7 @@ export default function Detail({ addItem, steps, step, next }) {
           <div className="w-100% justify-end flex">
             <Button
               onClick={() => {
-                if (errorLength == 0) {
+                if (errorLength == 0 && name != '') {
                   next(1);
                 } else {
                   handleSubmit();

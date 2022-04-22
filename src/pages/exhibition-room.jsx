@@ -12,6 +12,8 @@ import { Form } from 'components/app/forms';
 import { AdminLayout } from 'Layout';
 import Button from 'components/atoms/buttons/Button';
 import SubHeader from 'components/molecules/header/SubHeader';
+import { exhibitionSchema } from 'validation';
+import { useFormikContext } from 'formik';
 
 function ExhibitionRoom() {
   const steps = {
@@ -25,6 +27,10 @@ function ExhibitionRoom() {
 
   const lengthOfSteps = Object.keys(steps).length;
   const [step, setStep] = useState(1);
+
+  const data = () => {
+    console.log('data');
+  };
 
   return (
     <AdminLayout>
@@ -47,38 +53,43 @@ function ExhibitionRoom() {
                 exhibition_style_id: '',
                 image: false,
               }}
-              // onSubmit={data}
-              // validationSchema={artworkSchema}
+              onSubmit={data}
+              validationSchema={exhibitionSchema}
             >
-              {() => <>{steps[step]}</>}
+              {({ handleSubmit }) => (
+                <>
+                  {steps[step]}
+                  {lengthOfSteps != step && (
+                    <div className="hr-form-t flex justify-end pt-28 mt-39">
+                      <Button
+                        className="w-153 h-33"
+                        onClick={() => setStep((prev) => prev + 1)}
+                      >
+                        NEXT
+                      </Button>
+                    </div>
+                  )}
+                  <div className="mt-36">
+                    {step > 1 && (
+                      <Button
+                        onClick={handleSubmit}
+                        // onClick={() => setStep((prev) => prev - 1)}
+                        color="gray"
+                        className="ml-22 w-153 h-33"
+                      >
+                        BACK
+                      </Button>
+                    )}
+                    <Button color="gray" className="ml-22 w-203 h-33">
+                      SAVE AS DRAFT
+                    </Button>
+                    {lengthOfSteps == step && (
+                      <Button className="ml-22 w-153 h-33">FINISH</Button>
+                    )}
+                  </div>
+                </>
+              )}
             </Form>
-            {lengthOfSteps != step && (
-              <div className="hr-form-t flex justify-end pt-28 mt-39">
-                <Button
-                  className="w-153 h-33"
-                  onClick={() => setStep((prev) => prev + 1)}
-                >
-                  NEXT
-                </Button>
-              </div>
-            )}
-          </div>
-          <div className="mt-36">
-            {step > 1 && (
-              <Button
-                onClick={() => setStep((prev) => prev - 1)}
-                color="gray"
-                className="ml-22 w-153 h-33"
-              >
-                BACK
-              </Button>
-            )}
-            <Button color="gray" className="ml-22 w-203 h-33">
-              SAVE AS DRAFT
-            </Button>
-            {lengthOfSteps == step && (
-              <Button className="ml-22 w-153 h-33">FINISH</Button>
-            )}
           </div>
         </div>
       )}

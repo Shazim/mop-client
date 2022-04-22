@@ -45,16 +45,6 @@ export const generateSchema = (param) => {
   });
   return Yup.object().shape(schema);
 };
-function answersSchema(rules) {
-  const { QUIZ_ANSWER_MAX_LENGTH, QUIZ_ANSWER_MIN_LENGTH } = rules;
-  return Yup.object().shape({
-    text: Yup.string()
-      .min(QUIZ_ANSWER_MIN_LENGTH, 'Too Short!')
-      .max(QUIZ_ANSWER_MAX_LENGTH, 'Too Long!')
-      .required('Text of answer is required'),
-    is_correct: Yup.boolean().required(),
-  });
-}
 
 export const artworkSchema = Yup.object().shape({
   name: Yup.string().required('Name is required'),
@@ -74,6 +64,18 @@ export const artworkSchema = Yup.object().shape({
           (artwork_images_attributes) =>
             artwork_images_attributes.featured_image
         );
+      }
+    ),
+});
+
+export const exhibitionSchema = Yup.object().shape({
+  artwork_ids: Yup.object()
+    .shape()
+    .test(
+      'artwork_images_attributes',
+      'please Select at least Artwork ',
+      (artwork_images_attributes) => {
+        return Object.keys(artwork_images_attributes).length != 0;
       }
     ),
 });

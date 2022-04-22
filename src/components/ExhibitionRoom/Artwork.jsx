@@ -20,8 +20,6 @@ function Artwork() {
     }
   }, [perPage, currentPage, search]);
 
-  console.log(dataArtworks, 'hello');
-
   return (
     <div>
       <div className="admin-h1 pb-17">Add artwork to exhibition room</div>
