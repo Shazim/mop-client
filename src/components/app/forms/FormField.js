@@ -34,7 +34,7 @@ function FormField({
   return (
     <div className={classes}>
       <Input
-        className="w-100% h-100% bg-white outline-none  text-secondary placeholder-gray font-bold text-sm pl-8 py-5 tracking"
+        className="w-100% h-38 bg-white outline-none  text-secondary placeholder-gray font-bold text-sm pl-8 py-5 tracking"
         name={name}
         onBlur={handleBlur}
         onChange={handleChangeCustom}

@@ -9,7 +9,7 @@ function TextField({
   name = '',
   shadow = '',
   type = 'text',
-  className = 'w-100% h-32',
+  className = 'w-100%',
   mb = 11,
   titleClasses = 'text-secondary uppercase tracking mb-11',
   customChange,

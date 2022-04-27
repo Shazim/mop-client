@@ -10,7 +10,7 @@ function TextArea({
   shadow = '',
   type = 'text',
   width = '100%',
-  className = 'h-32',
+  className = 'h-114',
   titleClasses = 'text-secondary uppercase tracking mb-11',
 }) {
   return (

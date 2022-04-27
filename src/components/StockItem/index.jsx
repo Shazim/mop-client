@@ -4,6 +4,7 @@ import SearchBar from 'components/atoms/searchbar/SearchBar';
 import { useFetch } from 'hooks';
 import { getArtWorks } from 'api/api-services';
 import GalleryCard from 'components/atoms/cards/GalleryCard';
+import OutsideAlerter from 'utils/outsidelayer';
 import Pagination from 'components/Pagination/Pagination';
 
 export default function StockItem({ addItem }) {
@@ -45,6 +46,7 @@ export default function StockItem({ addItem }) {
             className="w-30% xl:w-30% lg:w-30% md:w-30%"
             label="up for sale"
           />
+
           <SelectOptions
             className="w-37% xl:w-35% lg:w-35% md:w-35%"
             label="sort low - high"
@@ -81,7 +83,7 @@ export default function StockItem({ addItem }) {
                   <>
                     {featured_image ? (
                       <div className="mb-25">
-                        <GalleryCard imageUrl={image} />
+                        <GalleryCard imageUrl={image} title={name} />
                       </div>
                     ) : null}
                   </>

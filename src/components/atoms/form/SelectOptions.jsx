@@ -1,6 +1,5 @@
-import { FormField } from 'components/app/forms';
 import React, { useState } from 'react';
-import { useStore } from 'store';
+import OutsideAlerter from 'utils/outsidelayer';
 import '../../../index.css';
 
 function SelectOptions({
