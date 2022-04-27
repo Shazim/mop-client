@@ -45,7 +45,7 @@ function LoginModal({ isOpen, openHandler, signUpHandler, forgotHandler }) {
     >
       <Modal
         isOpen={isOpen}
-        className="absolute border-0 top-50% left-50% transform-xy"
+        className="absolute border-0 top-50% left-50% transform-xy outline-none"
         onRequestClose={closeModal}
         overlayClassName="fixed inset-0 overflow-auto"
       >
@@ -88,15 +88,13 @@ function LoginModal({ isOpen, openHandler, signUpHandler, forgotHandler }) {
                     name="email"
                     placeholder="Enter email here"
                     mb="6"
-                    height="38"
                     label="Email Address"
                   />
                   <TextField
                     type="password"
                     name="password"
-                    placeholder="enter password here"
+                    placeholder="Enter password here"
                     mb="6"
-                    height="38"
                     label="password"
                   />
                   <SubmitButton className="w-134 h-41 flex tracking text-sm justify-center items-center mx-auto mt-27">

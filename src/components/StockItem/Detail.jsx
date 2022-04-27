@@ -42,7 +42,7 @@ export default function Detail({ addItem, steps, step, next }) {
             label="artwork notes"
             name="note"
             classes="h-113 w-100% pl-16 pt-10 resize-none"
-            placeholder="max 500 characters"
+            placeholder="MAX 500 CHARACTERS"
           />
           <div className="border-border border-t-2 my-25"></div>
           <ImagePicker name="images" label="artwork images" />

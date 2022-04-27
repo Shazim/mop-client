@@ -1,8 +1,7 @@
+import React, { useState } from 'react';
 import { Form } from 'components/app/forms';
 import { TextField } from 'components/atoms/form';
 import TextArea from 'components/atoms/form/TextArea';
-import React, { useState } from 'react';
-import { gallerySchema } from 'validation';
 import { AdminLayout } from 'Layout';
 import SubHeader from 'components/molecules/header/SubHeader';
 import Button from 'components/atoms/buttons/Button';
