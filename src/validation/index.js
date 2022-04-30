@@ -69,11 +69,15 @@ export const artworkSchema = Yup.object().shape({
 });
 
 export const exhibitionSchema = Yup.object().shape({
+  room_name: Yup.string().required('Room Name is required'),
+  exhibition_style_id: Yup.string().required(
+    'Please select at least one style'
+  ),
   artwork_ids: Yup.object()
     .shape()
     .test(
       'artwork_images_attributes',
-      'please Select at least Artwork ',
+      'please Select at least one Artwork ',
       (artwork_images_attributes) => {
         return Object.keys(artwork_images_attributes).length != 0;
       }

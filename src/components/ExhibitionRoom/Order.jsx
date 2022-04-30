@@ -1,4 +1,5 @@
 import React from 'react';
+import ImageList from 'components/ImageList';
 
 function Order() {
   return (
@@ -13,7 +14,13 @@ function Order() {
           them to be viewed. Please note that images at the top of the list will
           be viewed first.
         </div>
-        <div className="pb-37 "></div>
+        <div className="pb-37 ">
+          {Array.from(Array(5).keys())
+            .slice(1)
+            .map(() => (
+              <ImageList name="image.jpeg" size="4mb" bg="gray-lighter" />
+            ))}
+        </div>
       </div>
     </div>
   );

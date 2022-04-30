@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import FeatureCard from './FeatureCard';
 import { getArtWorks } from 'api';
 import { useLazyFetch, useFetch } from 'hooks';
+import ErrorMessage from 'components/app/forms/ErrorMessage';
+import { useFormikContext } from 'formik';
 
 function Artwork() {
   const [search, setSearch] = useState('');
@@ -19,6 +21,8 @@ function Artwork() {
       });
     }
   }, [perPage, currentPage, search]);
+
+  const { setFieldValue, errors, touched } = useFormikContext() || {};
 
   return (
     <div>
@@ -50,6 +54,10 @@ function Artwork() {
             </>
           ))}
       </div>
+      <ErrorMessage
+        error={errors['artwork_ids']}
+        visible={touched['artwork_ids']}
+      />
     </div>
   );
 }

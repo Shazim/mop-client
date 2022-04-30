@@ -1,14 +1,12 @@
 import { FormField } from 'components/app/forms';
 import { useFormikContext } from 'formik';
 import React, { useState } from 'react';
-import CheckBox from '../checkbox/CheckBox';
+import ImageList from 'components/ImageList';
 
 function ImagePicker({ name, label }) {
   const {
     values: { artwork_images_attributes },
     setFieldValue,
-    handleBlur,
-    setTouched,
   } = useFormikContext();
 
   const byte_To_MB = (size) => {
@@ -77,7 +75,11 @@ function ImagePicker({ name, label }) {
         {label}
       </div>
       <div className="w-100% h-137 bg-white relative">
-        <label className="w-100% h-137 bg-white relative" htmlFor="dropzone">
+        <label
+          for="1"
+          className="w-100% h-137 bg-white relative"
+          // htmlFor="dropzone"
+        >
           <span className="w-100% h-137 bg-white flex items-center justify-center">
             <div className="text-center">
               <p className="font-bold tracking text-2xl text-gray uppercase mb-10">
@@ -91,45 +93,27 @@ function ImagePicker({ name, label }) {
               </p>
             </div>
           </span>
+          <FormField
+            accept="image/*"
+            id="1"
+            className="z-10 opacity-0 w-100% h-137 absolute top-0"
+            multiple="multiple"
+            name={name}
+            customChange={customChange}
+            type="file"
+          />
         </label>
-        <FormField
-          accept="image/*"
-          className="z-10 opacity-0 w-100% h-137 absolute top-0"
-          multiple="multiple"
-          name={name}
-          customChange={customChange}
-          // onChange={fileReader}
-          // onBlur={handleBlur}
-          type="file"
-        />
       </div>
       {artwork_images_attributes.map((item, index) => (
-        <div className="flex w-100% h-47 bg-white justify-between items-center mt-18 px-12">
-          <div className="flex items-center">
-            <img className="w-29 h-29 rounded-sm mr-15" src={item?.imageLink} />
-            <p className="font-bold tracking leading-32 text-secondary uppercase text-sm">
-              {item?.image?.name}
-            </p>
-          </div>
-          <div className="flex items-center">
-            <p className="font-bold tracking leading-32 text-secondary uppercase text-sm">
-              {byte_To_MB(item?.image?.size) + 'mb'}
-            </p>
-            <img
-              onClick={() => removeItem(index)}
-              className="w-15 h-19 rounded-sm ml-28 link"
-              src="/images/dustbin.svg"
-            />
-
-            <CheckBox
-              className="ml-25 h-17"
-              value=""
-              onBlur={handleBlur}
-              onChange={(e) => handleFeature(index, e.target.checked)}
-              checked={item.featured_image}
-            />
-          </div>
-        </div>
+        <ImageList
+          name={item?.image?.name}
+          imageUrl={item?.imageLink}
+          size={byte_To_MB(item?.image?.size) + 'mb'}
+          iconClick={removeItem}
+          handleCheckbox={handleFeature}
+          checked={item.featured_image}
+          id={index}
+        />
       ))}
     </div>
   );

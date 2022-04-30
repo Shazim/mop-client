@@ -1,6 +1,13 @@
 import React from 'react';
+import { useFormikContext } from 'formik';
 
 function Launch() {
+  const {
+    values: { key },
+    errors,
+    touched,
+  } = useFormikContext() || {};
+
   return (
     <div>
       <div className="pt-38 pb-39 flex flex-col items-center">
@@ -13,8 +20,12 @@ function Launch() {
           <input
             className="bg-gray-lighter h-33 w-100% outline-none text-center"
             placeholder="exhibit.vip/gal/123456"
+            value={key}
           />
-          <button className="w-116 h-33 bg-gray admin-label shadow uppercase">
+          <button
+            onClick={() => navigator.clipboard.writeText(key)}
+            className="w-116 h-33 bg-gray admin-label shadow uppercase"
+          >
             Copy
           </button>
         </div>
