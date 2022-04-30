@@ -1,6 +1,5 @@
 import { FormField } from 'components/app/forms';
 import React from 'react';
-import PropTypes from 'prop-types';
 
 function TextField({
   placeholder = '',

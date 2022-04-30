@@ -32,19 +32,21 @@ function FormField({
     }
   };
   return (
-    <div className={classes}>
-      <Input
-        className="w-100% h-38 bg-white outline-none  text-secondary placeholder-gray font-bold text-sm pl-8 py-5 tracking"
-        name={name}
-        onBlur={handleBlur}
-        onChange={handleChangeCustom}
-        type={type}
-        value={type == 'file' ? '' : values[name]}
-        readOnly={readOnly}
-        {...otherProps}
-      />
+    <>
+      <div className={classes}>
+        <Input
+          className="w-100% h-38 bg-white outline-none  text-secondary placeholder-gray font-bold text-sm pl-8 py-5 tracking"
+          name={name}
+          onBlur={handleBlur}
+          onChange={handleChangeCustom}
+          type={type}
+          value={type == 'file' ? '' : values[name]}
+          readOnly={readOnly}
+          {...otherProps}
+        />
+      </div>
       <ErrorMessage error={errors[name]} visible={touched[name]} />
-    </div>
+    </>
   );
 }
 

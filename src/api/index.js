@@ -4,6 +4,7 @@ export {
   getStyles,
   getColors,
   getExhibitions,
+  createExhibitions,
   getArtWorks,
   getExhibitionStyles,
 } from './api-services';

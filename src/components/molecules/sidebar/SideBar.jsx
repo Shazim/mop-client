@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link, useLocation, useHistory } from 'react-router-dom';
 import { removeCookie } from 'cookies/Cookies';
 import { useDispatch, useSelector } from 'react-redux';
-import * as types from 'store/actions/actionTypes';
 
 const obj = [
   {
