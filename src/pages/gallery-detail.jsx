@@ -67,7 +67,11 @@ function GallaryDetail(props) {
       <div className="max-screen sm:px-23 sm:pb-70">
         <div className="mx-80 pb-30 grid grid-cols-2 gap-22 sm:hidden">
           {data?.exhibitions?.map(({ room_name, views, image }) => (
-            <VideoCard title={room_name} views={views} imageUrl={image} />
+            <VideoCard
+              title={room_name}
+              views={views}
+              imageUrl={image ? image : undefined}
+            />
           ))}
         </div>
         <div className="hidden sm:block">

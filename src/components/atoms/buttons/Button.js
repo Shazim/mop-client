@@ -15,10 +15,13 @@ function Button({
   ...otherProps
 }) {
   const grayBtn = color.includes('gray');
+  const secondaryBtn = color.includes('secondary');
 
   const btnClass = (type) => {
     const btnType = {
-      contained: `bg-${color} ${grayBtn ? 'gray-btn' : 'primary-btn'}`,
+      contained: `bg-${color} ${
+        grayBtn ? 'gray-btn' : secondaryBtn ? 'secondary-btn' : 'primary-btn'
+      }`,
       outline: `font-bold text-${color} border border-${color} text-base`,
       edit: `bg-white gray-btn rounded-sm`,
     };
@@ -50,6 +53,7 @@ Button.propTypes = {
     'gray',
     'gray-light',
     'gray-dim',
+    'secondary',
   ]),
   transform: PropTypes.oneOf(['uppercase', 'capitalize']),
 };
