@@ -20,7 +20,7 @@ function MySubscription() {
         <RadioButton />
       </div>
       <div>
-        <div>Add card</div>
+        <div className="">Add card</div>
         <button>Save</button>
       </div>
       <div>Review your Subscription</div>

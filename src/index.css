@@ -10,6 +10,10 @@
   @apply border-b border-gray border-solid;
 }
 
+.card-link {
+  @apply text-primary font-nunito-bold tracking uppercase text-sm underline;
+}
+
 .hr-form-t {
   @apply border-t border-gray-lighter border-solid;
 }

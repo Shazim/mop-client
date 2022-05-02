@@ -19,8 +19,6 @@ function FeatureCard({ name, image, id }) {
     setFieldValue('artwork_ids', copyArtworkIds);
   };
 
-  console.log(artwork_ids, 'errors', errors);
-
   return (
     <div className="card-featured w-292 relative">
       <div className="bg-gray-darker relative rounded-sm w-292 h-183">

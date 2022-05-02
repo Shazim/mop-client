@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from 'components/atoms/buttons/Button';
+import RadioButton from 'components/atoms/buttons/RadioButton';
 
 function Profile() {
   return (
@@ -32,8 +33,20 @@ function Profile() {
         <div>Your Payment Details</div>
         <div>pay for subcription via</div>
         <div>
-          <div>radio button</div>
-          <div>radio button</div>
+          <RadioButton
+            className="text-sm mt-12"
+            // name={title}
+            // value={item.name}
+            // checked={item.select}
+            // onChange={() => setData(title, index, '')}
+          />
+          <RadioButton
+            className="text-sm mt-12"
+            // name={title}
+            // value={item.name}
+            // checked={item.select}
+            // onChange={() => setData(title, index, '')}
+          />
         </div>
         <div>
           <div>input</div>

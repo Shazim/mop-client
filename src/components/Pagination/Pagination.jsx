@@ -11,15 +11,20 @@ function Pagination({
     <>
       {pageDetails?.total_pages != 1 ? (
         <div className={`flex ${className}`}>
-          {Array.from(Array(pageDetails.total_pages).keys()).map((index) => (
-            <div
-              className={`mr-8 cursor-pointer ${
-                index + 1 == currentPage ? active : ''
-              }`}
-            >
-              {index + 1}
-            </div>
-          ))}
+          {Array.from(Array(pageDetails.total_pages + 1).keys())
+            .slice(1)
+            .map((index) => (
+              <div
+                className={`mr-8 cursor-pointer ${
+                  index == currentPage ? active : ''
+                }`}
+                onClick={() => {
+                  setCurrentPage(index);
+                }}
+              >
+                {index}
+              </div>
+            ))}
         </div>
       ) : null}
     </>
