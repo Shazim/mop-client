@@ -7,10 +7,13 @@ function useFetch(query, params) {
   let [error, setError] = useState();
   let [status, setStatus] = useState();
 
-  let refetch = async () => {
+  let refetch = async (params1) => {
     let result;
     if (params) {
       result = await query(params.variables);
+    }
+    if (params1) {
+      result = await query(params1.variables);
     } else {
       result = await query();
     }

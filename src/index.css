@@ -95,6 +95,10 @@
   @apply font-bold bg-primary text-white tracking shadow text-sm;
 }
 
+.secondary-btn {
+  @apply bg-secondary text-white font-bold tracking shadow text-sm;
+}
+
 .gray-btn {
   @apply font-bold text-secondary tracking shadow text-sm;
 }

@@ -21,6 +21,7 @@ function Launch() {
             className="bg-gray-lighter h-33 w-100% outline-none text-center"
             placeholder="exhibit.vip/gal/123456"
             value={key}
+            readOnly={true}
           />
           <button
             onClick={() => navigator.clipboard.writeText(key)}
