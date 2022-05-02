@@ -3,7 +3,8 @@ import { Form } from 'components/app/forms';
 import Button from 'components/atoms/buttons/Button';
 import CheckBox from 'components/atoms/checkbox/CheckBox';
 import { TextField } from 'components/atoms/form';
-function Login() {
+
+function SubscribeAuth() {
   return (
     <div className="w-100%">
       <p className="font-avenir-reg text-2xl text-secondary leading-38 tracking-wider uppercase">
@@ -91,4 +92,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default SubscribeAuth;

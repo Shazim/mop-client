@@ -10,7 +10,7 @@ export default function SubHeader({
   className,
 }) {
   return (
-    <div className="bg-white">
+    <div className="bg-white hr-form-t">
       <div
         className={`${className} w-100% flex shadow-sm justify-between sm:flex-col px-43 h-112 sm:h-48 sm:px-16`}
       >

@@ -15,6 +15,7 @@ import SinglePhoto from 'pages/single-photo';
 import MyProfile from 'pages/my-profile';
 import Stocks from 'pages/stocks';
 import Checkout from 'pages/checkout';
+import Subscribe from 'pages/subscribe';
 
 // List of Routes name using for links and route
 export const authRoutes = Object.freeze({
@@ -38,6 +39,7 @@ export const authRoutes = Object.freeze({
   ROUTE_EXHIBITION_ROOM: '/exhibition-room',
   ROUTE_SINGLE_PHOTO: '/single-photo',
   ROUTE_LOGOUT: '/logout',
+  ROUTE_SUBSCRIBE: '/subscribe',
 });
 // List of route object which will be rendered under Router component
 export default Object.freeze([
@@ -49,6 +51,7 @@ export default Object.freeze([
   { path: authRoutes.ROUTE_ORDER_DETAIL, component: OrderDetail },
   { path: authRoutes.ROUTE_BROWSE_ARTWORK, component: BrowseArtwork },
   { path: authRoutes.ROUTE_CHECKOUT, component: Checkout },
+  { path: authRoutes.ROUTE_SUBSCRIBE, component: Subscribe },
   {
     path: authRoutes.ROUTE_EXHIBITIONS,
     component: Exhibitions,
