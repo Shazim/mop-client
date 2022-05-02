@@ -1,11 +1,11 @@
 import Button from 'components/atoms/buttons/Button';
 import Cart from 'components/Cart/Cart';
 import React, { useState } from 'react';
-import SubHeader from 'components/molecules/header/SubHeader';
 import { TextField } from 'components/atoms/form';
 import { Form } from 'components/app/forms';
 import RadioButton from 'components/atoms/buttons/RadioButton';
 import CheckBox from 'components/atoms/checkbox/CheckBox';
+import { SubHeaderLayout } from 'Layout';
 
 function Checkout() {
   const [initial, setInitial] = useState({
@@ -25,9 +25,8 @@ function Checkout() {
     const { firstName } = values;
   };
   return (
-    <div className="bg-primary-layout-background pb-182 ">
-      <SubHeader title="My cart" className="max-screen" />
-      <div className="max-screen pt-50 flex">
+    <SubHeaderLayout title="My cart">
+      <div className="pt50 flex pb-182">
         <div className="w-100% mr-33">
           <div className="admin-h2  pb-33">Your Details</div>
           <div className="flex">
@@ -180,7 +179,7 @@ function Checkout() {
         </div>
         <Cart />
       </div>
-    </div>
+    </SubHeaderLayout>
   );
 }
 

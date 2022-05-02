@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import Slider from 'react-slick';
 import Header from 'components/molecules/header/Header';
-import { LinkLabel } from 'components/LinkLabel';
 import { DiscoverMore } from 'components/DiscoveMore';
 import { ReceiveInsight } from 'components/ReceiveInsight';
 import Footer from 'components/molecules/footer/Footer';

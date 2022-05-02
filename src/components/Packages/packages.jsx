@@ -61,7 +61,7 @@ function Packages({
   };
 
   return (
-    <div className="max-screen pt-166 pb-123 sm:pt-30 ms:pb-48 flex flex-col sm:px-23 items-center">
+    <div className="pt-85 pb-114 sm:pt-30 ms:pb-48 flex flex-col sm:px-23 items-center">
       <div className="w-50% sm:w-100% uppercase text-2xl sm:text-xl text-center tracking-wider text-secondary font-avenir-reg ">
         subscription options to suit every level of photographer, from
         <span className="text-primary"> hobbyist</span> to a{' '}

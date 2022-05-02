@@ -20,7 +20,7 @@ function Package({
   ];
 
   return (
-    <div className={`max-w-312 lg:w-299 md:w-290 ${classes}`}>
+    <div className={`w-312 lg:w-299 md:w-290 ${classes}`}>
       <div
         className={`relative bg-gray-lighter px-31 pt-22 lg:px-25 md:px-25 ${
           popular && 'mt-_20 sm:mt-0'
