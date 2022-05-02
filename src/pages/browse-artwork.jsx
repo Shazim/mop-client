@@ -5,24 +5,35 @@ import Footer from 'components/molecules/footer/Footer';
 import Header from 'components/molecules/header/Header';
 import SideBarWithLogin from 'components/molecules/sidebar/SideBarWithLogin';
 import { Link } from 'react-router-dom';
-import { useLazyFetch } from 'hooks';
+import { useFetch } from 'hooks';
 import { useEffect } from 'react';
 import Pagination from 'components/Pagination/Pagination';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 function BrowseArtwork() {
-  const [currentPage, setCurrentPage] = useState(1);
-  const [handleGetArtworks, { data: dataArtworks }] =
-    useLazyFetch(getBrowseArtworks);
+  const [currentPage, setCurrentPage] = useState(0);
+  const { data: dataArtworks, refetch } = useFetch(getBrowseArtworks, {
+    variables: `page=${currentPage + 1}`,
+  });
 
   const search = useSelector((state) => state?.public?.searchSideBar);
 
   useEffect(() => {
-    handleGetArtworks({
-      variables: `?q[name_cont]=${search != '' ? `${search}` : ''}`,
-    });
+    if (search != '') {
+      refetch({
+        variables: `q[name_cont]=${search != '' ? `${search}` : ''}`,
+      });
+    }
   }, [search]);
+
+  useEffect(() => {
+    if (currentPage > 0) {
+      refetch({
+        variables: `page=${currentPage}`,
+      });
+    }
+  }, [currentPage]);
 
   return (
     <>
@@ -54,7 +65,7 @@ function BrowseArtwork() {
                         imageClass="image"
                         className="mb-12"
                         incImages={images_included}
-                        imageUrl={featured_image}
+                        imageUrl={featured_image ? featured_image : undefined}
                         views={views}
                         title={name}
                       />

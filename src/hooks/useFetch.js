@@ -9,11 +9,10 @@ function useFetch(query, params) {
 
   let refetch = async (params1) => {
     let result;
-    if (params) {
-      result = await query(params.variables);
-    }
     if (params1) {
       result = await query(params1.variables);
+    } else if (params) {
+      result = await query(params.variables);
     } else {
       result = await query();
     }

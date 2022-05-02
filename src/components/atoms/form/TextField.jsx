@@ -7,18 +7,19 @@ function TextField({
   label = 'Name',
   name = '',
   shadow = '',
+  width = '100%',
   type = 'text',
   className = 'w-100%',
   mb = 11,
-  titleClasses = 'text-secondary uppercase tracking mb-11',
+  titleClasses = 'text-secondary uppercase tracking',
   customChange,
   readOnly = false,
   otherProps,
 }) {
   return (
-    <div className="w-100%">
+    <div className={`w-${width}`}>
       <div
-        className={`font-bold text-secondary text-sm leading-22 ${titleClasses} ${mb}`}
+        className={`font-bold text-secondary text-sm leading-22 ${titleClasses} mb-${mb}`}
       >
         {label}
       </div>
