@@ -19,15 +19,12 @@ export default function SubHeader({
             {title}
           </p>
           <p
-            className={`font-avenir-reg font-medium text-xl uppercase text-secondary tracking-wider leading-55 sm:hidden ${
+            className={`font-avenir-reg font-medium text-xl uppercase text-secondary tracking-wider mt-5  sm:hidden ${
               subtitle == '' && 'hidden'
             }`}
           >
             {subtitle}
           </p>
-          {/* <p className="font-avenir-reg font-medium text-xl uppercase text-secondary tracking-wider leading-55 hidden sm:block">
-          reports
-        </p> */}
         </div>
         <div className="flex sm:w-100% justify-end">
           <Button

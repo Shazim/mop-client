@@ -12,7 +12,7 @@ function RadioButton({
 
   return (
     <div className={`${classes} flex w-100% cursor-pointer`} onClick={onChange}>
-      <label class="radio-container block relative pl-30 link font-bold text-secondary tracking uppercase pt-3 ">
+      <label class="radio-container block relative pl-30 link font-bold text-secondary tracking uppercase pt-2">
         {value}
         <input
           checked={checked}

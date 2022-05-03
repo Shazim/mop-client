@@ -7,7 +7,8 @@ function Package({
   price = '8',
   className: classes = 'sm:m-auto',
   description = 'beginners package',
-  subsbutton = false,
+  subscribeBtn = true,
+  packageTotal = false,
   priceDetail = { sub_total: 15, total: 15, vat: 1.8 },
 }) {
   const packages = [
@@ -52,15 +53,11 @@ function Package({
             </div>
           ))}
         </div>
-        {subsbutton ? (
+        {subscribeBtn && (
           <Button className="w-251 h-33 mb-20 m-auto">SUBSCRIBE</Button>
-        ) : (
-          <></>
         )}
       </div>
-      {subsbutton ? (
-        <></>
-      ) : (
+      {packageTotal && (
         <div className="w-100% bg-gray-800 text-secondary text-base font-bold px-19 leading-22 py-19">
           <div className="flex justify-between capitalize">
             <p>sub total</p>

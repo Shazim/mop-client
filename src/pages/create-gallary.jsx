@@ -13,7 +13,7 @@ import Slider from 'react-slick';
 import { DescriptiveIcon } from 'components/DescriptiveIcon';
 import GalleryCard from 'components/atoms/cards/GalleryCard';
 import ProfileCard from 'components/atoms/cards/ProfileCard';
-import Signup from './subscribe';
+import Signup from './subscribe-login';
 
 function CreateGallary() {
   const settings = {

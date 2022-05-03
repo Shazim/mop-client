@@ -7,7 +7,6 @@ import Detail from 'components/StockItem/Detail';
 import Exhibition from 'components/StockItem/Exhibition';
 import Price from 'components/StockItem/Price';
 import { artworkSchema } from 'validation';
-import StockItem from '../components/StockItem';
 import { usePost } from 'hooks';
 import { createWork } from 'api/api-services';
 import { formDataHandler } from 'utils';
