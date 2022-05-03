@@ -148,68 +148,66 @@ function Tables({
   };
 
   return (
-    <div className="w-full bg-gray-dark">
-      <div className="w-full">
-        <div className="h-42 w-full flex items-center pl-18 sm:pl-10 tracking-wider font-avenir-reg text-base uppercase border-b-2 border-gray bg-white">
-          {tableHeading.map((heading, i) => (
-            <div
-              className={`w-${divider(tableHeading.length)} sm:${
-                i == 2 ? 'hidden' : ''
-              } font-medium`}
-            >
-              <div className="flex leading-5 text-secondary">
-                {heading}{' '}
-                {filter ? (
-                  <img
-                    className="-mt-6 link"
-                    src={`${
-                      i == 0
-                        ? '/images/table/nameFilter.svg'
-                        : '/images/table/filterIcon.svg'
-                    }`}
-                  />
-                ) : (
-                  ''
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
-        {obj.map((keys, index) => (
-          <>
-            <div className="h-60 relative flex items-center border-b capitalize text-base pl-18 sm:pl-10 pr-0 font-reg text-black border-gray ">
-              {Object.values(keys).map(
-                (value, i) =>
-                  typeof value != 'object' && (
-                    <div
-                      className={`w-${divider(tableHeading.length)} sm:${
-                        i == 2 ? 'hidden' : ''
-                      }`}
-                    >
-                      {value}
-                    </div>
-                  )
-              )}
+    <div className="w-full">
+      <div className="h-42 w-full flex pl-18 sm:pl-10 tracking-wider font-avenir-reg text-base uppercase border-b-2 border-gray bg-white">
+        {tableHeading.map((heading, i) => (
+          <div
+            className={`w-${divider(tableHeading.length)} sm:${
+              i == 2 ? 'hidden' : ''
+            } font-medium`}
+          >
+            <div className="flex leading-5 text-secondary">
+              {heading}{' '}
               {filter ? (
-                <div
-                  className="link absolute right-20 sm:right-10"
-                  onClick={() => handleId(index)}
-                >
-                  <img
-                    className={`${id == index ? 'transform rotate-180' : ''}`}
-                    src="/images/table/downArrow.svg"
-                  />
-                </div>
+                <img
+                  className="-mt-6 link"
+                  src={`${
+                    i == 0
+                      ? '/images/table/nameFilter.svg'
+                      : '/images/table/filterIcon.svg'
+                  }`}
+                />
               ) : (
-                <div className="tracking text-xl link absolute sm:right-10 right-20">
-                  ...
-                </div>
+                ''
               )}
             </div>
-            {id == index && orderDetail(keys.details)}
-          </>
+          </div>
         ))}
       </div>
+      {obj.map((keys, index) => (
+        <>
+          <div className="h-60 relative flex items-center border-b capitalize text-base pl-18 sm:pl-10 pr-0 font-reg text-black border-gray ">
+            {Object.values(keys).map(
+              (value, i) =>
+                typeof value != 'object' && (
+                  <div
+                    className={`w-${divider(tableHeading.length)} sm:${
+                      i == 2 ? 'hidden' : ''
+                    }`}
+                  >
+                    {value}
+                  </div>
+                )
+            )}
+            {filter ? (
+              <div
+                className="link absolute right-20 sm:right-10"
+                onClick={() => handleId(index)}
+              >
+                <img
+                  className={`${id == index ? 'transform rotate-180' : ''}`}
+                  src="/images/table/downArrow.svg"
+                />
+              </div>
+            ) : (
+              <div className="tracking text-xl link absolute sm:right-10 right-20">
+                ...
+              </div>
+            )}
+          </div>
+          {id == index && orderDetail(keys.details)}
+        </>
+      ))}
     </div>
   );
 }

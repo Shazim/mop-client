@@ -11,7 +11,7 @@ function SelectOptions({
     { value: 4, label: 'item5' },
   ],
   label = 'choose an option',
-  className: classes = 'w-266',
+  className: classes = 'w-100%',
   color = 'gray-lighter',
   textColor = 'secondary',
   onChange,

@@ -4,8 +4,6 @@ import Header from 'components/molecules/header/Header';
 import SideBar from 'components/molecules/sidebar/SideBar';
 
 function AdminLayout({ children }) {
-  const [step, setStep] = useState('stock room');
-
   return (
     <>
       <Header />

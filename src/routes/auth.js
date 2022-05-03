@@ -15,7 +15,15 @@ import SinglePhoto from 'pages/single-photo';
 import MyProfile from 'pages/my-profile';
 import Stocks from 'pages/stocks';
 import Checkout from 'pages/checkout';
-import Subscribe from 'pages/subscribe';
+import ProfileSubscription from 'pages/profile-subscription';
+import SubscribeLogin from 'pages/subscribe-login';
+import SubscribeSignup from 'pages/subscribe-signup';
+import SubscribeSigned from 'pages/subscribe-signed';
+import SubscribeLogged from 'pages/subscribe-logged';
+import Settings from 'pages/settings';
+import OrderSettings from 'pages/orders-settings';
+import Customers from 'pages/customers';
+import CouponsOffers from 'pages/coupons-offers';
 
 // List of Routes name using for links and route
 export const authRoutes = Object.freeze({
@@ -39,7 +47,15 @@ export const authRoutes = Object.freeze({
   ROUTE_EXHIBITION_ROOM: '/exhibition-room',
   ROUTE_SINGLE_PHOTO: '/single-photo',
   ROUTE_LOGOUT: '/logout',
-  ROUTE_SUBSCRIBE: '/subscribe',
+  ROUTE_PROFILE_SUBSCRIPTION: '/profile-subscription',
+  ROUTE_SETTINGS: '/settings',
+  ROUTE_SUBSCRIBE_LOGIN: '/subscribe-login',
+  ROUTE_SUBSCRIBE_SIGNUP: '/subscribe-signup',
+  ROUTE_SUBSCRIBE_LOGGED: '/subscribe-logged',
+  ROUTE_SUBSCRIBE_SIGNED: '/subscribe-signed',
+  ROUTE_ORDER_SETTINGS: '/order-settings',
+  ROUTE_CUSTOMER: '/customers',
+  ROUTE_COUPONS: '/coupons',
 });
 // List of route object which will be rendered under Router component
 export default Object.freeze([
@@ -51,7 +67,26 @@ export default Object.freeze([
   { path: authRoutes.ROUTE_ORDER_DETAIL, component: OrderDetail },
   { path: authRoutes.ROUTE_BROWSE_ARTWORK, component: BrowseArtwork },
   { path: authRoutes.ROUTE_CHECKOUT, component: Checkout },
-  { path: authRoutes.ROUTE_SUBSCRIBE, component: Subscribe },
+  { path: authRoutes.ROUTE_COUPONS, component: CouponsOffers },
+  { path: authRoutes.ROUTE_CUSTOMER, component: Customers },
+  { path: authRoutes.ROUTE_SUBSCRIBE_LOGIN, component: SubscribeLogin },
+  { path: authRoutes.ROUTE_SUBSCRIBE_SIGNUP, component: SubscribeSignup },
+  {
+    path: authRoutes.ROUTE_SUBSCRIBE_SIGNED,
+    component: SubscribeSigned,
+    privateRoute: true,
+  },
+  {
+    path: authRoutes.ROUTE_SUBSCRIBE_LOGGED,
+    component: SubscribeLogged,
+    privateRoute: true,
+  },
+  { path: authRoutes.ROUTE_SETTINGS, component: Settings, privateRoute: true },
+  { path: authRoutes.ROUTE_ORDER_SETTINGS, component: OrderSettings },
+  {
+    path: authRoutes.ROUTE_PROFILE_SUBSCRIPTION,
+    component: ProfileSubscription,
+  },
   {
     path: authRoutes.ROUTE_EXHIBITIONS,
     component: Exhibitions,

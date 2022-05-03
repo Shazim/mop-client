@@ -4,14 +4,16 @@ import Button from 'components/atoms/buttons/Button';
 import CheckBox from 'components/atoms/checkbox/CheckBox';
 import { TextField } from 'components/atoms/form';
 
-function SubscribeAuth() {
+function SubscribeAuth({ title }) {
   return (
     <div className="w-100%">
       <p className="font-avenir-reg text-2xl text-secondary leading-38 tracking-wider uppercase">
-        Login
+        {title}
       </p>
       <p className="font-bold link text-sm text-primary uppercase underline mt-8 leading-32 tracking">
-        DON’T HAVE AN ACCOUNT? SIGN UP
+        {title == 'Login'
+          ? 'Don’t have an account? Sign Up'
+          : 'Already have an account? Login'}
       </p>
       <div className="w-100% flex justify-between xl:flex-col lg:flex-col md:flex-col sm:flex-col sm:px-20 mt-17">
         <Button
@@ -19,20 +21,20 @@ function SubscribeAuth() {
           color="facebook"
           transform="uppercase"
         >
-          Sign up with Facebook
+          {title} with Facebook
         </Button>
         <Button
           className="w-31% xl:w-100% lg:w-100% md:w-100% sm:w-100% xl:mt-17 lg:mt-17 md:mt-17 sm:mt-17 h-42"
           color="instagram"
           transform="uppercase"
         >
-          Sign up with Instagram
+          {title} with Instagram
         </Button>
         <Button
           className="w-31% xl:w-100% lg:w-100% md:w-100% sm:w-100% xl:mt-17 lg:mt-17 md:mt-17 sm:mt-17 h-42"
           transform="uppercase"
         >
-          Sign up with pinterest
+          {title} with pinterest
         </Button>
       </div>
       <div className="w-100% flex items-center justify-between mt-29">
@@ -82,7 +84,7 @@ function SubscribeAuth() {
                 className="w-262 h-41 mt-11 sm:w-95%"
                 transform="uppercase"
               >
-                sign up
+                {title}
               </Button>
             </div>
           </>
