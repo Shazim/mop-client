@@ -24,6 +24,7 @@ import Settings from 'pages/settings';
 import OrderSettings from 'pages/orders-settings';
 import Customers from 'pages/customers';
 import CouponsOffers from 'pages/coupons-offers';
+import Orders from 'pages/orders';
 
 // List of Routes name using for links and route
 export const authRoutes = Object.freeze({
@@ -56,6 +57,7 @@ export const authRoutes = Object.freeze({
   ROUTE_ORDER_SETTINGS: '/order-settings',
   ROUTE_CUSTOMER: '/customers',
   ROUTE_COUPONS: '/coupons',
+  ROUTE_ORDERS: '/orders',
 });
 // List of route object which will be rendered under Router component
 export default Object.freeze([
@@ -68,6 +70,7 @@ export default Object.freeze([
   { path: authRoutes.ROUTE_BROWSE_ARTWORK, component: BrowseArtwork },
   { path: authRoutes.ROUTE_CHECKOUT, component: Checkout },
   { path: authRoutes.ROUTE_COUPONS, component: CouponsOffers },
+  { path: authRoutes.ROUTE_ORDERS, component: Orders },
   { path: authRoutes.ROUTE_CUSTOMER, component: Customers },
   { path: authRoutes.ROUTE_SUBSCRIBE_LOGIN, component: SubscribeLogin },
   { path: authRoutes.ROUTE_SUBSCRIBE_SIGNUP, component: SubscribeSignup },
