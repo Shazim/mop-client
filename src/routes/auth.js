@@ -26,6 +26,7 @@ import Customers from 'pages/customers';
 import CouponsOffers from 'pages/coupons-offers';
 import Orders from 'pages/orders';
 import PricingSheet from 'pages/pricing-sheet';
+import TaxRates from 'pages/tax-rates';
 
 // List of Routes name using for links and route
 export const authRoutes = Object.freeze({
@@ -60,6 +61,7 @@ export const authRoutes = Object.freeze({
   ROUTE_COUPONS: '/coupons',
   ROUTE_ORDERS: '/orders',
   ROUTE_PRICING_SHEET: '/pricing-sheet',
+  ROUTE_TAX_RATES: '/tax-rates',
 });
 // List of route object which will be rendered under Router component
 export default Object.freeze([
@@ -74,6 +76,7 @@ export default Object.freeze([
   { path: authRoutes.ROUTE_COUPONS, component: CouponsOffers },
   { path: authRoutes.ROUTE_ORDERS, component: Orders },
   { path: authRoutes.ROUTE_PRICING_SHEET, component: PricingSheet },
+  { path: authRoutes.ROUTE_TAX_RATES, component: TaxRates },
 
   { path: authRoutes.ROUTE_CUSTOMER, component: Customers },
   { path: authRoutes.ROUTE_SUBSCRIBE_LOGIN, component: SubscribeLogin },

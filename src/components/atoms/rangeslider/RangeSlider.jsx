@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-function RangeSlider(props) {
+function RangeSlider() {
   const [value, setValue] = useState(0);
   const rangeValue = (value) => {
     setValue(value.target.value);
