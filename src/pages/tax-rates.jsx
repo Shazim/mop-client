@@ -2,7 +2,35 @@ import React from 'react';
 
 const TaxRates = () => {
   return (
-    <div className="bg-gray-light p-33">
+    <div className="bg-gray-light p-33 max-screen">
+      <div className="flex  justify-center justify-evenly">
+        <div className="w-64 font-nunito-light font-bold tracking leading-18 text-sm text-secondary">
+          Details
+        </div>
+        <div className="w-79 font-nunito-light font-bold tracking leading-18 text-sm text-secondary">
+          Artwork
+        </div>
+        <div className="w-53 font-nunito-light font-bold tracking leading-18 text-sm text-secondary">
+          Order
+        </div>
+        <div className="w-46 font-nunito-light font-bold tracking leading-18 text-sm text-secondary">
+          Style
+        </div>
+        <div className="w-64 font-nunito-light font-bold tracking leading-18 text-sm text-secondary">
+          Launch
+        </div>
+      </div>
+      <div className="flex justify-center">
+        <div className="w-23 h-23 rounded-full bg-secondary"></div>
+        <input
+          class="range2 w-74% z-1  mt-10 h-3 appearance-none bg-gray outline-none  overflow-hidden"
+          type="range"
+          min="0"
+          max="5"
+          step="1"
+        />
+        <div className="w-23 h-23 rounded-full bg-gray"></div>
+      </div>
       <div className="mt-33 font-avenir-reg font-medium uppercase tracking-wider leading-54 text-secondary text-xl">
         Europe
       </div>
