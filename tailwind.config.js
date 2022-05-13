@@ -63,7 +63,7 @@ module.exports = {
         '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
         '3xl': '0 7px 0px 0px rgba(0, 0, 0, 0.3)',
         '4xl': '-477px 0 0 470px #c71118',
-        '5xl': '-477px 0 0 470px #4A4949',
+        '5xl': '-772px 0 0 772px #4A4949',
         inner: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
         none: 'none',
       },
