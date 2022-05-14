@@ -282,6 +282,10 @@ input[type='number'] {
   -webkit-appearance: none;
   @apply w-25 h-30 rounded-50% bg-primary cursor-pointer shadow-4xl;
 }
+.range2::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  @apply w-75 h-3 rounded-50% bg-secondary cursor-pointer shadow-5xl;
+}
 
 svg.fill-primary {
   fill: #c71118 !important;
