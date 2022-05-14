@@ -17,7 +17,7 @@ function ExhibitionsComp() {
   };
 
   return (
-    <div className="px-43 pb-106">
+    <div className="pb-106">
       <div className="flex mt-26 mb-18">
         <Button
           color={draft ? 'gray' : 'secondary'}

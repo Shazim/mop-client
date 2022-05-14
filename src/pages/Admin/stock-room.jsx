@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getColors, getStyles } from 'api';
 import { Form } from 'components/app/forms';
-import SubHeader from 'components/molecules/header/SubHeader';
 import Categories from 'components/StockItem/Categories';
 import Detail from 'components/StockItem/Detail';
 import Exhibition from 'components/StockItem/Exhibition';
@@ -107,14 +106,13 @@ function StockRoom() {
 
   return (
     <>
-      <AdminLayout>
-        <SubHeader
-          handler={addItem}
-          title="stockroom"
-          subtitle="up for sale"
-          buttonText="ADD NEW ITEM"
-          button={true}
-        />
+      <AdminLayout
+        handler={addItem}
+        title="stockroom"
+        subtitle="up for sale"
+        buttonText="ADD NEW ITEM"
+        button={true}
+      >
         <Form
           initialValues={{
             name: '',

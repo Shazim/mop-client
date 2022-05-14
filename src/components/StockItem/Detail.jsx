@@ -1,15 +1,12 @@
 import React from 'react';
 import TextArea from 'components/atoms/form/TextArea';
 import TextField from 'components/atoms/form/TextField';
-import SubHeader from 'components/molecules/header/SubHeader';
 import StepBar from 'components/stepbar/StepBar';
 import Button from 'components/atoms/buttons/Button';
 import ImagePicker from 'components/atoms/imagepicker/ImagePicker';
 import ErrorMessage from 'components/app/forms/ErrorMessage';
-
 import { useFormikContext } from 'formik';
 import AddItemButton from 'components/atoms/additembutton/AddItemButton';
-import { useEffect } from 'react';
 
 export default function Detail({ addItem, steps, step, next }) {
   const {
