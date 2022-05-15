@@ -9,12 +9,12 @@ const PricingSheet = () => {
         Price Sheet Name
       </div>
 
-      <div className="ml-45">
+      <div className="">
         <input type="text" placeholder="Max 100 characters" />
       </div>
       <div className="hr-b mt-25"></div>
       <div className="flex">
-        <div className="ml-45 text-base text-secondary font-avenir-reg font-medium tracking-wider leading-55 uppercase">
+        <div className=" text-base text-secondary font-avenir-reg font-medium tracking-wider leading-55 uppercase">
           Available Product
         </div>
         <div className="ml-123 text-base text-secondary font-avenir-reg font-medium tracking-wider leading-55 uppercase">
@@ -22,7 +22,7 @@ const PricingSheet = () => {
         </div>
       </div>
       <div className="flex justify-between">
-        <div className="ml-55 font-nunito font-light leading-22 text-base">
+        <div className="ml-10 font-nunito font-light leading-22 text-base">
           20
         </div>
         <div className="flex">
@@ -51,32 +51,32 @@ const PricingSheet = () => {
         </div>
       </div>
       <div className="hr-b mt-13"></div>
-      <div className="ml-45 font-avenir-reg font-medium leading-54 text-base">
+      <div className=" font-avenir-reg font-medium leading-54 text-base">
         Apply A Bulk Markup?
       </div>
-      <div className="ml-45 font-nunito-light leading-22 text-base text-black ">
+      <div className=" font-nunito-light leading-22 text-base text-black ">
         Adding a bulk markup to all products will save you lots of time. Enter a
         percent or amount below. You can then edit each specific product markup
         in each row.
       </div>
-      <div className="ml-45">
+      <div className="">
         <SelectOptions
           className="w-260 mt-22 mb-24"
           label="Percentage markup"
         />
         <RangeSlider />
       </div>
-      <div className="ml-45 w-222 h-42  font-avenir-medium text-base leading-54 uppercase text-secondary tracking-wider">
+      <div className=" w-222 h-42  font-avenir-medium text-base leading-54 uppercase text-secondary tracking-wider">
         Cost Markup
       </div>
-      <div className="ml-45 mt-16 w-145 h-52 bg-white text-center font-avenir-medium font-medium text-2xl leading-54 tracking-wider text-primary">
+      <div className=" mt-16 w-145 h-52 bg-white text-center font-avenir-medium font-medium text-2xl leading-54 tracking-wider text-primary">
         +320%
       </div>
       <div className="hr-b mt-25"></div>
-      <div className="ml-45 mt-37 font-avenir-reg font-medium text-xl text-secondary leading-54 uppercase tracking-wider">
+      <div className=" mt-37 font-avenir-reg font-medium text-xl text-secondary leading-54 uppercase tracking-wider">
         Pricing
       </div>
-      <div className="ml-45 bg-white flex justify-between h-42">
+      <div className=" bg-white flex justify-between h-42">
         <div className="flex">
           <input type="checkbox" className="ml-40 mt-20 w-20" />
           <div className=" w-103 text-center font-avenir-reg font-medium text-base text-secondary uppercase leading-54 tracking-wider ml-10 ">
@@ -96,7 +96,7 @@ const PricingSheet = () => {
           Price
         </div>
       </div>
-      <div className="ml-67 flex justify-between">
+      <div className="ml-22 flex justify-between">
         <div className="w-20 ml-22 mt-8 ">
           {/* <input type="checkbox" /> */}
         </div>
@@ -110,7 +110,7 @@ const PricingSheet = () => {
           <img src="/images/icons/open-option.svg" alt="" />
         </div>
       </div>
-      <div className="ml-67 flex justify-between">
+      <div className="ml-22 flex justify-between">
         <div className="w-22 ml-22 mt-8 h-22">
           <input type="checkbox" />
         </div>
@@ -128,7 +128,7 @@ const PricingSheet = () => {
         </div>
       </div>
 
-      <div className="ml-67 flex justify-between">
+      <div className="ml-22 flex justify-between">
         <div className="w-22 ml-22 mt-8 h-22">
           <input type="checkbox" />
         </div>
@@ -147,7 +147,7 @@ const PricingSheet = () => {
       </div>
       <div className="hr-b mt-20"></div>
 
-      <div className="ml-67 flex justify-between">
+      <div className="ml-22 flex justify-between">
         <div className="ml-22 mt-8 h-22">
           <input type="checkbox" />
         </div>
@@ -162,7 +162,7 @@ const PricingSheet = () => {
         </div>
       </div>
       <div className="hr-b mt-20"></div>
-      <div className="ml-67 flex justify-between">
+      <div className="ml-22 flex justify-between">
         <div className="ml-22 mt-8 h-22">
           <input type="checkbox" />
         </div>
@@ -177,7 +177,7 @@ const PricingSheet = () => {
         </div>
       </div>
       <div className="hr-b mt-20"></div>
-      <div className="ml-67 flex justify-between">
+      <div className="ml-22 flex justify-between">
         <div className="ml-22 mt-8 h-22">
           <input type="checkbox" />
         </div>
@@ -192,7 +192,7 @@ const PricingSheet = () => {
         </div>
       </div>
       <div className="hr-b mt-20"></div>
-      <div className="ml-67 flex justify-between">
+      <div className="ml-22 flex justify-between">
         <div className="ml-22 mt-8 h-22">
           <input type="checkbox" />
         </div>
