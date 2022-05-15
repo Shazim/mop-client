@@ -11,14 +11,14 @@ import { useState } from 'react';
 import { Form } from 'components/app/forms';
 import { AdminLayout } from 'Layout';
 import Button from 'components/atoms/buttons/Button';
-import SubHeader from 'components/molecules/header/SubHeader';
 import { exhibitionSchema } from 'validation';
-import { useFormikContext } from 'formik';
 import { createExhibitions } from 'api';
 import { usePost } from 'hooks';
 import { formDataHandler } from 'utils';
 import { useHistory } from 'react-router-dom';
 import { useEffect } from 'react';
+import Range from 'components/Range';
+import { routes } from 'routes';
 
 function ExhibitionRoom() {
   const steps = {
@@ -61,13 +61,13 @@ function ExhibitionRoom() {
   }, [dataPost]);
 
   return (
-    <AdminLayout>
-      <SubHeader
-        title="exhibition room"
-        subtitle="up for sale"
-        buttonText="ADD NEW ITEM"
-        button={true}
-      />
+    <AdminLayout
+      title="exhibition room"
+      subtitle="up for sale"
+      buttonText="ADD NEW ITEM"
+      button={true}
+    >
+      <Range />
       {step == 0 ? null : (
         <div className="bg-primary-lighter h-auto pb-130 flex flex-col items-center">
           <Form
@@ -121,7 +121,7 @@ function ExhibitionRoom() {
                   {lengthOfSteps == step && (
                     <Button
                       className="ml-22 w-153 h-33"
-                      onClick={() => history.push('/exhibitions')}
+                      onClick={() => history.push(routes.ROUTE_EXHIBITIONS)}
                     >
                       FINISH
                     </Button>

@@ -1,4 +1,4 @@
-import Package from 'components/Packages/package';
+import SelectedPackage from 'components/SelectedPackage/SelectedPackage';
 import SubHeaderLayout from 'Layout/SubHeaderLayout';
 import React from 'react';
 import SubscribedCards from 'components/SubscribeAuth/SubscribedCards';
@@ -17,7 +17,7 @@ function SubscribeSigned() {
               sign up below.
             </p>
           </div>
-          <Package className="shadow" />
+          <SelectedPackage />
         </div>
       </div>
     </SubHeaderLayout>

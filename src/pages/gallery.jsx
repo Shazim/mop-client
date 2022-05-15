@@ -70,7 +70,6 @@ function Gallery() {
     )),
     exhibitions: dataExhibitions?.exhibitions.map(
       ({ room_name, views, id, image }) => (
-        // <Link to={`/gallery-detail?id=${id}`}>
         <GalleryCard
           className="w-100% h-100%"
           imageClass="image"
@@ -79,11 +78,9 @@ function Gallery() {
           views={views}
           imageUrl={image ? image : '/images/card/bg_image2.svg'}
         />
-        // </Link>
       )
     ),
     artists: dataArtists?.artists.map(({ artist_name, id, image }) => (
-      // <Link to={`/gallery-detail?id=${id}`}>
       <GalleryCard
         className="w-100% h-100% mb-12"
         imageClass="image"
@@ -92,7 +89,6 @@ function Gallery() {
         imageUrl={image ? image : '/images/card/bg_image2.svg'}
         views={4}
       />
-      // </Link>
     )),
   };
 

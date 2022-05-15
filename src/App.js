@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { useStore } from '../src/store';
-import authRouter from 'routes/auth';
+import router from 'routes';
 import './index.css';
 import SignupModal from 'components/molecules/modals/SignupModal';
 import LoginModal from 'components/molecules/modals/LoginModal';
@@ -18,7 +18,7 @@ function App() {
       <ToastContainer />
       <Router>
         <Switch>
-          {authRouter.map((item) => {
+          {router.map((item) => {
             if (item.privateRoute) {
               return (
                 <PrivateRoute

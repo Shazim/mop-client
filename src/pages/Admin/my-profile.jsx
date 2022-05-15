@@ -3,7 +3,6 @@ import { Form } from 'components/app/forms';
 import { TextField } from 'components/atoms/form';
 import TextArea from 'components/atoms/form/TextArea';
 import { AdminLayout } from 'Layout';
-import SubHeader from 'components/molecules/header/SubHeader';
 import Button from 'components/atoms/buttons/Button';
 import { getStyles, getProfile, updateProfile } from 'api/api-services';
 import CheckBox from 'components/atoms/checkbox/CheckBox';
@@ -151,8 +150,7 @@ function MyProfile() {
   };
 
   return (
-    <AdminLayout>
-      <SubHeader title="profile" />
+    <AdminLayout title="profile">
       <Form
         initialValues={initial}
         onSubmit={onSubmit}
@@ -160,7 +158,7 @@ function MyProfile() {
         enableReinitialize={true}
       >
         {({ values, handleSubmit, setFieldValue }) => (
-          <div className="mx-43">
+          <div>
             <div className="admin-h2 mt-28 mb-19">profile setup</div>
             <div className="admin-des pb-24">
               Click to edit your profile picture.

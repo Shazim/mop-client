@@ -1,5 +1,5 @@
 import { signUp } from 'api';
-import { Form, FormField } from 'components/app/forms';
+import { Form } from 'components/app/forms';
 import Button from 'components/atoms/buttons/Button';
 import SubmitButton from 'components/atoms/buttons/SubmitButton';
 import CheckBox from 'components/atoms/checkbox/CheckBox';
@@ -7,21 +7,11 @@ import TextField from 'components/atoms/form/TextField';
 import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import { generateSchema } from 'validation';
-import Cookies from 'universal-cookie';
 
 function SignupModal({ isOpen, openHandler, signInHandler, forgotHandler }) {
   const [customer, setCustomer] = useState(true);
   const [artist, setArtist] = useState(false);
-  const [userInfo, setUserInfo] = useState({});
   const [error, setError] = useState('');
-
-  // const [isOpen, setIsOpen] = useState(false)
-
-  // function openModal() {
-  //     setIsOpen(true);
-  // }
-
-  useEffect(() => {}, []);
 
   const handleSubmit = (values) => {
     const data = {

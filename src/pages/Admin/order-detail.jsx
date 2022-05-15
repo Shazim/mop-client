@@ -10,7 +10,10 @@ import React, { useState } from 'react';
 function OrderDetail() {
   const [isMenuOpen, setIsMenuOpen] = useState();
   return (
-    <AdminLayout>
+    <AdminLayout
+      title={`${isMenuOpen ? 'Menu' : 'orders'}`}
+      subtitle="Order Detailed"
+    >
       <Form
         initialValues={{
           name: '',
@@ -29,12 +32,8 @@ function OrderDetail() {
       >
         {() => (
           <div className="w-100% md:w-89% sm:w-100%">
-            <SubHeader
-              title={`${isMenuOpen ? 'Menu' : 'orders'}`}
-              subtitle="Order Detailed"
-            />
             {!isMenuOpen ? (
-              <div className="px-45 pt-45 md:p-25 sm:p-18">
+              <div className=" md:p-25 sm:p-18">
                 <div className="flex justify-between mb-45 items-center xl:flex-col lg:flex-col md:flex-col sm:flex-col sm:p-30">
                   <div className="w-55% flex justify-between xl:w-100% lg:w-100% md:w-100% sm:flex-col sm:w-100% ">
                     <div className="w-48% sm:w-100%">

@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SearchBar from 'components/atoms/searchbar/SearchBar';
+import { routes } from 'routes';
 
 function LoginHeader() {
   return (
     <div className="py-32 flex justify-between max-screen">
       <div className="w-30%">
-        <Link to={'/'}>
+        <Link to={routes.ROUTE_HOME}>
           <img
             src="/images/Logo/logo.svg"
             alt=""
@@ -22,22 +23,26 @@ function LoginHeader() {
           bgColor="bg-transparent"
         />
         {/* </div> */}
-        <div
-          className={`font-bold mt-6 ${'text-secondary'} text-sm uppercase hover:text-primary link tracking`}
-        >
-          my gallery
-        </div>
-        <div
-          className={`font-bold mt-6 ${'text-secondary'} text-sm uppercase hover:text-primary link tracking`}
-        >
-          store
-        </div>
+        <Link to={routes.ROUTE_GALLERY_SETTING}>
+          <div
+            className={`font-bold mt-6 ${'text-secondary'} text-sm uppercase hover:text-primary link tracking`}
+          >
+            my gallery
+          </div>
+        </Link>
+        <Link to={routes.ROUTE_STORE}>
+          <div
+            className={`font-bold mt-6 ${'text-secondary'} text-sm uppercase hover:text-primary link tracking`}
+          >
+            store
+          </div>
+        </Link>
         <div
           className={`font-bold mt-6 ${'text-secondary'} text-sm uppercase hover:text-primary link tracking`}
         >
           get started
         </div>
-        <Link to="/my-profile">
+        <Link to={routes.ROUTE_MY_PROFILE}>
           <div
             className={`font-bold mt-6 ${'text-secondary'} text-sm uppercase hover:text-primary link tracking`}
           >

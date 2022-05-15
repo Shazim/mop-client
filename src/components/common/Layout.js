@@ -1,7 +1,7 @@
-import React from "react";
-import "assets/styles/header.scss";
-import { authRoutes } from "routes/auth";
-import { Link } from "react-router-dom";
+import React from 'react';
+import 'assets/styles/header.scss';
+import { routes } from 'routes';
+import { Link } from 'react-router-dom';
 
 const Layout = ({ children }) => {
   return (
@@ -13,13 +13,10 @@ const Layout = ({ children }) => {
               <h3>ORBIQON</h3>
             </div>
             <div className="container__menu">
-              <Link className="menu__item" to={authRoutes.ROUTE_LOGIN}>
+              <Link className="menu__item" to={routes.ROUTE_LOGIN}>
                 <h5>Login</h5>
               </Link>
-              <Link
-                className="menu__item"
-                to={authRoutes.ROUTE_FORGOT_PASSWORD}
-              >
+              <Link className="menu__item" to={routes.ROUTE_FORGOT_PASSWORD}>
                 <h5>Forgot Password</h5>
               </Link>
             </div>

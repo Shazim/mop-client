@@ -10,7 +10,6 @@ import UploadImageCard from 'components/atoms/uploadimageCard';
 import { formDataHandler } from 'utils';
 import { useEffect } from 'react';
 import { AdminLayout } from 'Layout';
-import SubHeader from 'components/molecules/header/SubHeader';
 
 function GallerySetting() {
   const { data: getData } = useFetch(getGallery);
@@ -98,8 +97,7 @@ function GallerySetting() {
   }, [dataPost]);
 
   return (
-    <AdminLayout>
-      <SubHeader title="gallery settings" />
+    <AdminLayout title="gallery settings">
       <Form
         initialValues={initial}
         onSubmit={onSubmit}
@@ -107,7 +105,7 @@ function GallerySetting() {
         enableReinitialize={true}
       >
         {({ setFieldValue, values }) => (
-          <div className="bg-primary-lighter pl-45 pr-51 pt-31 pb-295">
+          <div className="bg-primary-lighter pb-295">
             <div className="admin-h2 mb-10">Name Setting</div>
             <div className="flex hr-b pb-28">
               <div className="w-50% mr-50">

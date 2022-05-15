@@ -1,5 +1,5 @@
 import { signIn } from 'api';
-import { Form, FormField } from 'components/app/forms';
+import { Form } from 'components/app/forms';
 import Button from 'components/atoms/buttons/Button';
 import SubmitButton from 'components/atoms/buttons/SubmitButton';
 import TextField from 'components/atoms/form/TextField';
@@ -8,6 +8,7 @@ import React, { useState } from 'react';
 import Modal from 'react-modal';
 import { useHistory } from 'react-router-dom';
 import { generateSchema } from 'validation';
+import { routes } from 'routes';
 
 function LoginModal({ isOpen, openHandler, signUpHandler, forgotHandler }) {
   const history = useHistory();
@@ -31,7 +32,7 @@ function LoginModal({ isOpen, openHandler, signUpHandler, forgotHandler }) {
         if (response?.status == 200) {
           setCookie('user', JSON.stringify(response?.data));
           closeModal();
-          history.push('/stocks');
+          history.push(routes.ROUTE_MY_PROFILE);
         }
       })
       .catch((error) => console.log('ERROR ', error));

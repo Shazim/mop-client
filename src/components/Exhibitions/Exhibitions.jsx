@@ -4,7 +4,7 @@ function Exhibitions() {
   return (
     <div>
       <div>
-        <div className="max-screen flex justify-end pt-31">
+        <div className="max-screen flex justify-end">
           <div className="mr-25">
             <SearchBar
               transform="uppercase"
@@ -25,7 +25,6 @@ function Exhibitions() {
             </Link>
           ))}
         </div>
-        {/* <div className="text-primary link mt-25 text-base">1</div> */}
         <Pagination
           pageDetails={data?.pagination}
           currentPage={currentPage}

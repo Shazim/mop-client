@@ -9,7 +9,8 @@ function Package({
   description = 'beginners package',
   subscribeBtn = true,
   packageTotal = false,
-  priceDetail = { sub_total: 15, total: 15, vat: 1.8 },
+  onClickSubscribeBtn,
+  year,
 }) {
   const packages = [
     '10 galleries, 25GB storage',
@@ -37,10 +38,11 @@ function Package({
           {title}
         </div>
         <div className="uppercase text-secondary tracking-wider text-sm nunito-semibold text-center">
-          <span className="text-2xl ">${price}</span> per month
+          <span className="text-2xl ">${price}</span> per{' '}
+          {year ? 'year' : 'month'}
         </div>
         <div className="text-secondary font-nunito-light pb-20  mt-17">
-          A <span className=" font-bold">{description}</span> to get your work
+          <span className=" font-bold">{description}</span> to get your work
           seen and sell your work.
         </div>
         <div className="ml-14 ">
@@ -54,22 +56,27 @@ function Package({
           ))}
         </div>
         {subscribeBtn && (
-          <Button className="w-251 h-33 mb-20 m-auto">SUBSCRIBE</Button>
+          <Button
+            className="w-251 h-33 mb-20 m-auto"
+            onClick={onClickSubscribeBtn}
+          >
+            SUBSCRIBE
+          </Button>
         )}
       </div>
       {packageTotal && (
         <div className="w-100% bg-gray-800 text-secondary text-base font-bold px-19 leading-22 py-19">
           <div className="flex justify-between capitalize">
             <p>sub total</p>
-            <p>${priceDetail.sub_total}</p>
+            <p>${price}</p>
           </div>
           <div className="flex justify-between capitalize">
             <p>vat</p>
-            <p>${priceDetail.vat}</p>
+            <p>${1.5}</p>
           </div>
           <div className="flex justify-between capitalize text-primary">
             <p>total</p>
-            <p>${priceDetail.total}</p>
+            <p>${+price + 1.5}</p>
           </div>
           <p className="mt-4 font-reg font-light">
             Renews monthly, cancel any time.

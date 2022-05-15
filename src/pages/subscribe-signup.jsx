@@ -1,14 +1,22 @@
-import Package from 'components/Packages/package';
+import SelectedPackage from 'components/SelectedPackage/SelectedPackage';
 import SubHeaderLayout from 'Layout/SubHeaderLayout';
 import React from 'react';
 import SubscribeAuth from 'components/SubscribeAuth/SubscribeAuth';
+import { useHistory } from 'react-router-dom';
+import { routes } from 'routes';
 
 function SubscribeSignup() {
+  const history = useHistory();
+
+  const handleSignup = () => {
+    history.push(routes.ROUTE_SUBSCRIBE_SIGNED);
+  };
+
   return (
     <SubHeaderLayout title="subscribe to this plan">
       <div className="sm:px-0 flex pt-48 pb-299 sm:flex-col-reverse ">
         <div className="w-100% xl:w-60% lg:w-60% md:w-60% sm:w-100% sm:px-23 mr-44">
-          <SubscribeAuth title="Sign up" />
+          <SubscribeAuth title="Sign up" onClick={handleSignup} />
         </div>
         <div className=" xl:w-40% lg:w-40% md:w-40% flex sm:px-23 sm:bg-gray-dark sm:flex-col items-center justify-end sm:w-100% sm:justify-center">
           <div className="sm:block hidden w-100% text-center mb-25">
@@ -17,7 +25,7 @@ function SubscribeSignup() {
               sign up below.
             </p>
           </div>
-          <Package className="shadow" />
+          <SelectedPackage />
         </div>
       </div>
     </SubHeaderLayout>

@@ -4,7 +4,6 @@ import SearchBar from 'components/atoms/searchbar/SearchBar';
 import { useFetch } from 'hooks';
 import { getArtWorks } from 'api/api-services';
 import GalleryCard from 'components/atoms/cards/GalleryCard';
-import OutsideAlerter from 'utils/outsidelayer';
 import Pagination from 'components/Pagination/Pagination';
 
 export default function StockItem({ addItem }) {
@@ -12,10 +11,6 @@ export default function StockItem({ addItem }) {
   const { data, status, refetch } = useFetch(getArtWorks);
   const [currentPage, setCurrentPage] = useState(1);
   const [perPage, setPerPage] = useState(10);
-
-  // useEffect(() => {
-  //   handleGetArtWorks();
-  // }, []);
 
   useEffect(() => {
     if (perPage > 10 || search || currentPage > 1) {
@@ -28,7 +23,7 @@ export default function StockItem({ addItem }) {
   }, [perPage, currentPage, search]);
 
   return (
-    <div className="px-43 pt-32">
+    <>
       <div className="flex xl:flex-col lg:flex-col md:flex-col justify-between">
         <SearchBar
           placeholder="Search For An Artist"
@@ -118,6 +113,6 @@ export default function StockItem({ addItem }) {
           />
         </div>
       )}
-    </div>
+    </>
   );
 }
