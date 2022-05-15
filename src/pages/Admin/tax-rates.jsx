@@ -6,7 +6,7 @@ const TaxRates = () => {
   return (
     <AdminLayout title="tax rates">
       <div>
-        <div className="mt-33 font-avenir-reg font-medium uppercase tracking-wider leading-54 text-secondary text-xl">
+        <div className="font-avenir-reg font-medium uppercase tracking-wider leading-54 text-secondary text-xl">
           Europe
         </div>
         <SimplesTables />

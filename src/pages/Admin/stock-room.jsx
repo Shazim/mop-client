@@ -13,6 +13,7 @@ import { AdminLayout } from 'Layout';
 import { useDispatch, useSelector } from 'react-redux';
 import * as types from 'store/actions/actionTypes';
 import { useHistory } from 'react-router-dom';
+import { routes } from 'routes';
 
 function StockRoom() {
   const [steps, setSteps] = useState([
@@ -64,7 +65,7 @@ function StockRoom() {
 
   useEffect(() => {
     if (dataPost) {
-      history.push('/stocks');
+      history.push(routes.ROUTE_STOCKS);
     }
   }, [dataPost]);
 

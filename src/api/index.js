@@ -7,6 +7,7 @@ export {
   createExhibitions,
   getArtWorks,
   getExhibitionStyles,
+  subscription,
 } from './api-services';
 
-export { getPublicExhibitions } from './public-api-services';
+export { getPublicExhibitions, getPackages } from './public-api-services';

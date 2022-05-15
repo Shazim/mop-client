@@ -8,9 +8,9 @@ import ForgotPassword from 'components/molecules/modals/ForgotPassword';
 import { ReactComponent as Cart } from '../../../assets/images/cartIcon.svg';
 import LoginHeader from './LoginHeader';
 import { getCookie } from 'cookies/Cookies';
+import { routes } from 'routes';
 
 function Header({ login = false, signUpHandler, signInHandler, menu, isOpen }) {
-  const [active, setActive] = useState(0);
   const [signIn, setSignIn] = useState();
   const [forgot, setForgot] = useState();
   const [signUp, setSignUp] = useState();
@@ -24,12 +24,11 @@ function Header({ login = false, signUpHandler, signInHandler, menu, isOpen }) {
   }, [signUp, signIn, forgot]);
 
   const tabs = [
-    { title: 'about', link: '/about' },
-    { title: 'galleries', link: '/gallery' },
-    { title: 'browse artwork', link: '/browse-artwork' },
+    { title: 'about', link: routes.ROUTE_ABOUT },
+    { title: 'galleries', link: routes.ROUTE_GALLERY },
+    { title: 'browse artwork', link: routes.ROUTE_BROWSE_ARTWORK },
   ];
 
-  const loginTabs = ['my gallery', 'store', 'get started', 'profile'];
   const location = useLocation();
   const history = useHistory();
   const scrollOff = () => {
@@ -66,7 +65,7 @@ function Header({ login = false, signUpHandler, signInHandler, menu, isOpen }) {
         <div className="max-screen lg:px-60 md:px-50 py-32 sm:px-23">
           <div className="flex justify-between">
             <div className="flex justify-between w-50% xl:w-57% lg:w-57% md:w-57% items-center sm:w-100%">
-              <Link to={'/'}>
+              <Link to={routes.ROUTE_HOME}>
                 <img
                   src="/images/Logo/logo.svg"
                   alt=""
@@ -109,7 +108,7 @@ function Header({ login = false, signUpHandler, signInHandler, menu, isOpen }) {
                 bgColor="bg-transparent"
               />
               <Button
-                onClick={() => history.push('/create-gallery')}
+                onClick={() => history.push(routes.ROUTE_CREATE_GALLERY)}
                 className="w-87 h-33 "
               >
                 Create

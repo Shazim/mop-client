@@ -18,6 +18,7 @@ import { formDataHandler } from 'utils';
 import { useHistory } from 'react-router-dom';
 import { useEffect } from 'react';
 import Range from 'components/Range';
+import { routes } from 'routes';
 
 function ExhibitionRoom() {
   const steps = {
@@ -120,7 +121,7 @@ function ExhibitionRoom() {
                   {lengthOfSteps == step && (
                     <Button
                       className="ml-22 w-153 h-33"
-                      onClick={() => history.push('/exhibitions')}
+                      onClick={() => history.push(routes.ROUTE_EXHIBITIONS)}
                     >
                       FINISH
                     </Button>

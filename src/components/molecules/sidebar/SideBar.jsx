@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation, useHistory } from 'react-router-dom';
 import { removeCookie } from 'cookies/Cookies';
 import { useDispatch, useSelector } from 'react-redux';
+import { routes } from 'routes';
 
 const obj = [
   {
@@ -46,13 +47,13 @@ const obj = [
         redIcon: '/images/sidebar/price_red.svg',
         icon: '/images/sidebar/price.svg',
         name: 'pricing and products',
-        link: 'stock-room',
+        link: '/pricing-sheet',
       },
       {
         redIcon: '/images/sidebar/order_red.svg',
         icon: '/images/sidebar/order.svg',
         name: 'orders',
-        link: 'stock-room',
+        link: '/orders',
       },
       {
         redIcon: '/images/sidebar/profile_red.svg',
@@ -64,7 +65,7 @@ const obj = [
         redIcon: '/images/sidebar/tax_red.svg',
         icon: '/images/sidebar/tax.svg',
         name: 'tax rates',
-        link: 'stock-room',
+        link: '/tax-rates',
       },
       {
         redIcon: '/images/sidebar/coupon_red.svg',
@@ -78,10 +79,10 @@ const obj = [
     key: 'get started',
     item: [
       {
-        redIcon: '/images/sidebar/price_red.svg',
-        icon: '/images/sidebar/price.svg',
+        redIcon: '/images/sidebar/step_by_red.svg',
+        icon: '/images/sidebar/step_by.svg',
         name: 'Step by Step',
-        link: 'stock-room',
+        link: '/',
       },
     ],
   },
@@ -89,14 +90,14 @@ const obj = [
     key: 'account',
     item: [
       {
-        redIcon: '/images/sidebar/price_red.svg',
-        icon: '/images/sidebar/price.svg',
+        redIcon: '/images/sidebar/profile_red.svg',
+        icon: '/images/sidebar/profile.svg',
         name: 'My Profile',
         link: '/my-profile',
       },
       {
-        redIcon: '/images/sidebar/price_red.svg',
-        icon: '/images/sidebar/price.svg',
+        redIcon: '/images/sidebar/subscription_red.svg',
+        icon: '/images/sidebar/subscription.svg',
         name: 'subscription',
         link: '/profile-subscription',
       },
@@ -116,7 +117,7 @@ function SideBar() {
 
   const logout = () => {
     removeCookie('user');
-    history.push('/');
+    history.push(routes.ROUTE_HOME);
   };
 
   const backbtn = useSelector((state) => state?.admin?.backButton);

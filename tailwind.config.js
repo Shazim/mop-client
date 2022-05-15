@@ -91,7 +91,7 @@ module.exports = {
         lg: '9px',
         8: '8px',
         xl: '15px',
-
+        large: '30px',
         '50%': '50%',
         full: '100%',
       },
@@ -137,7 +137,7 @@ module.exports = {
         },
         secondary: {
           DEFAULT: '#4A4949',
-          dim: '#F7FF7',
+          dim: '#F7F7F7',
           darkest: '#262626',
           dark: '#1A1A1A',
           lighter: '#999999',

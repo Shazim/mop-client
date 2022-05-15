@@ -12,20 +12,12 @@ export const END_POINTS = {
   INSIGHTS: '/insights',
   PROFILE: '/profile',
   EXHIBITION_STYLES: '/exhibition_styles',
+  PACKAGES: '/packages',
+  SUBSCRIPTION: '/subscriptions',
 };
 
 export const LINKS = {
-  FACEBOOK: 'https://www.facebook.com/startmakingprogress',
-  INSTA: 'https://www.instagram.com/startmakingprogress/',
-  DNA_QUESTIONARE: '/dna-questionare/:id',
-  QUESTIONARE: '/health-questionare',
-  HEALTH_SCORE: '/health-score',
-  BOOKING: '/booking',
   HOME: '/',
-  PRIVATE: '/privacy-policy',
-  TERMS: '/terms-and-conditions',
-  OVERVIEW: '/overview',
-  SUPPORT: '/support',
-  LEARN_MORE: '/learn-more',
-  FAQ: '/faq',
+  STORE: '/store',
+  My_PROFILE: '/my-profile',
 };

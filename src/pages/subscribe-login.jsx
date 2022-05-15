@@ -1,9 +1,20 @@
-import Package from 'components/Packages/package';
 import SubHeaderLayout from 'Layout/SubHeaderLayout';
 import React from 'react';
 import SubscribeAuth from 'components/SubscribeAuth/SubscribeAuth';
+import { useHistory } from 'react-router-dom';
+import { getCookie } from 'cookies/Cookies';
+import SelectedPackage from 'components/SelectedPackage/SelectedPackage';
+import { routes } from 'routes';
 
 function SubscribeLogin() {
+  const history = useHistory();
+
+  const loggedin = getCookie('user') && JSON.parse(getCookie('user'));
+
+  if (loggedin) {
+    history.push(routes.ROUTE_SUBSCRIBE_LOGGED);
+  }
+
   return (
     <SubHeaderLayout title="subscribe to this plan">
       <div className="sm:px-0 flex pt-48 pb-299 sm:flex-col-reverse ">
@@ -17,7 +28,7 @@ function SubscribeLogin() {
               sign up below.
             </p>
           </div>
-          <Package className="shadow" />
+          <SelectedPackage />
         </div>
       </div>
     </SubHeaderLayout>

@@ -2,6 +2,7 @@ import React from 'react';
 import { AdminLayout } from 'Layout';
 import { ExhibitionsComp } from 'components/ExhibitionRoom/index';
 import { useHistory } from 'react-router-dom';
+import { routes } from 'routes';
 
 function Exhibitions() {
   const history = useHistory();
@@ -12,7 +13,7 @@ function Exhibitions() {
       subtitle="up for sale"
       buttonText="ADD NEW ITEM"
       button={true}
-      handler={() => history.push('/exhibition-room')}
+      handler={() => history.push(routes.ROUTE_EXHIBITION_ROOM)}
     >
       <ExhibitionsComp />
     </AdminLayout>

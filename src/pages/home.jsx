@@ -9,6 +9,7 @@ import React from 'react';
 import { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import GridLayout from 'components/atoms/cards/GridLayout';
+import { routes } from 'routes';
 
 function Home() {
   const descriptiveIcons = [
@@ -105,7 +106,7 @@ function Home() {
           <Button
             type="outline"
             className="w-184 h-48"
-            onClick={() => history.push('/browse-artwork')}
+            onClick={() => history.push(routes.ROUTE_BROWSE_ARTWORK)}
           >
             Browse
           </Button>

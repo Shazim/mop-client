@@ -3,14 +3,50 @@ import { Form } from 'components/app/forms';
 import Button from 'components/atoms/buttons/Button';
 import CheckBox from 'components/atoms/checkbox/CheckBox';
 import { TextField } from 'components/atoms/form';
+import { useHistory } from 'react-router-dom';
+import { usePost } from 'hooks';
+import { signIn, signUp } from 'api';
+import { generateSchema } from 'validation';
+import { routes } from 'routes';
 
-function SubscribeAuth({ title }) {
+function SubscribeAuth({ title, onClick }) {
+  const history = useHistory();
+  const [login, { data: loginResponse }] = usePost(signIn);
+  const [signup, { data: signupResponse }] = usePost(signUp);
+
+  const handleLogin = () => {
+    login({ variables: {} });
+    history.push(routes.ROUTE_SUBSCRIBE_LOGGED);
+  };
+
+  const handleSignUp = () => {
+    signup({ variables: {} });
+    history.push(routes.ROUTE_SUBSCRIBE_LOGIN);
+  };
+
+  const initialValues = {
+    email: '',
+    password: '',
+    confirm: '',
+  };
+
   return (
     <div className="w-100%">
       <p className="font-avenir-reg text-2xl text-secondary leading-38 tracking-wider uppercase">
         {title}
       </p>
-      <p className="font-bold link text-sm text-primary uppercase underline mt-8 leading-32 tracking">
+      <p
+        className="font-bold link text-sm text-primary uppercase underline mt-8 leading-32 tracking"
+        onClick={() =>
+          history.push(
+            `${
+              title == 'Login'
+                ? routes.ROUTE_SUBSCRIBE_SIGNUP
+                : routes.ROUTE_SUBSCRIBE_LOGIN
+            }`
+          )
+        }
+      >
         {title == 'Login'
           ? 'Don’t have an account? Sign Up'
           : 'Already have an account? Login'}
@@ -45,7 +81,10 @@ function SubscribeAuth({ title }) {
         <div className="w-100% border-b border-border opacity-1"></div>
       </div>
       <div className="mt-17 h-100%">
-        <Form initialValues={{ email: '', password: '', confirm: '' }}>
+        <Form
+          initialValues={initialValues}
+          validationSchema={generateSchema(initialValues)}
+        >
           <>
             <TextField
               className="w-455 lg:w-100% sm:w-100%"
@@ -83,6 +122,7 @@ function SubscribeAuth({ title }) {
               <Button
                 className="w-262 h-41 mt-11 sm:w-95%"
                 transform="uppercase"
+                onClick={onClick}
               >
                 {title}
               </Button>

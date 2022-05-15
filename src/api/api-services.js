@@ -16,6 +16,7 @@ const {
   FEATURES,
   PROFILE,
   EXHIBITION_STYLES,
+  SUBSCRIPTION,
 } = END_POINTS;
 
 export const featureArtwork = (data) => {
@@ -80,6 +81,10 @@ export const signIn = (data) => {
 
 export const signUp = (data) => {
   return doPost(`${BASE_URL}${API_PATH}${SIGN_UP}`, data);
+};
+
+export const subscription = (data) => {
+  return doPost(`${BASE_URL}${API_PATH}${SUBSCRIPTION}`, data);
 };
 
 export const getProfile = () => {
