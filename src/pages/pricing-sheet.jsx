@@ -5,7 +5,7 @@ import React from 'react';
 const PricingSheet = () => {
   return (
     <div className="bg-gray-dark p-35">
-      <div className="text-secondary mt-35 uppercase font-nunito-reg font-bold leading-8 text-sm tracking ml-45">
+      <div className="text-secondary mt-35 uppercase font-nunito-reg font-bold leading-8 text-sm tracking">
         Price Sheet Name
       </div>
 
@@ -25,7 +25,7 @@ const PricingSheet = () => {
         <div className="ml-10 font-nunito font-light leading-22 text-base">
           20
         </div>
-        <div className="flex">
+        <div className="flex ml-53">
           <input type="checkbox" />
           <div className="ml-9 font-bold font-nunito-reg tracking uppercase text-secondary">
             Lustre
