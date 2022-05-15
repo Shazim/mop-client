@@ -43,9 +43,7 @@ function StripeElements() {
   const { id } = selectedPackage || {};
 
   useEffect(() => {
-    // toast.success("")
     if (dataSubscription) {
-      console.log('dataToken', dataSubscription);
     }
   }, [dataSubscription]);
 
@@ -62,7 +60,6 @@ function StripeElements() {
             token: result?.token?.id,
           },
         });
-        console.log('result: ', result.token);
       }
     });
   };
