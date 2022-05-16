@@ -50,10 +50,10 @@ function Orders() {
             <div className="flex-grow font-nunito-reg text-black font-light leading-5 text-base w-180 h-22 ml-18">
               {d.date}
             </div>
-            <div className=" font-nunito-reg font-light text-black leading-5 text-base w-180 h-22">
+            <div className="flex justify-start mr-42 font-nunito-reg font-light text-black leading-5 text-base w-180 h-22">
               {d.num}
             </div>
-            <Button className="w-116 h-33" color="gray">
+            <Button className="w-116 h-33 " color="gray">
               Export
             </Button>
             <div className="hr-b"></div>

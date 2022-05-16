@@ -39,7 +39,7 @@ function Range() {
       <div className="flex justify-center">
         <div className="w-23 h-23 rounded-full bg-secondary"></div>
         <input
-          class="range2 w-74% z-1  mt-10 h-3 appearance-none bg-gray outline-none  overflow-hidden"
+          class="range2 w-72% md:w-78% lg:w-77% xl:w-74% sm:w-83% z-1  mt-10 h-3 appearance-none bg-gray outline-none  overflow-hidden"
           type="range"
           min="0"
           value={rangeValue}

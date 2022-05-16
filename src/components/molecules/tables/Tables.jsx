@@ -93,7 +93,7 @@ function Tables({
     const textClass = 'font-reg text-base leading-6 text-black capitalize';
     return (
       <>
-        <div className="border-b flex pl-18 sm:pl-10 border-gray justify-between bg-white sm:flex-col sm:pr-18 sm:border-b-0 sm:bg-gray-dark">
+        <div className="border-b  flex  pl-18 sm:pl-10 border-gray justify-between bg-white sm:flex-col sm:pr-18 sm:border-b-0 sm:bg-gray-dark">
           <div className="w-50% flex justify-between sm:w-100%">
             <div className="w-50% sm:w-50%">
               <p className="heading mt-17">name</p>
@@ -156,7 +156,7 @@ function Tables({
               i == 2 ? 'hidden' : ''
             } font-medium`}
           >
-            <div className="flex leading-5 text-secondary">
+            <div className="flex leading-5 mt-10 text-secondary">
               {heading}{' '}
               {filter ? (
                 <img
