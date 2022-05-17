@@ -46,7 +46,7 @@ function Settings() {
       <div className="hr-b pb-30">
         <div className="admin-h2 mt-15 mb-20">store currency</div>
         <div className="flex justify-between">
-          <SelectOptions width="180" label="SHOW 50" />
+          <SelectOptions className="w-180" label="SHOW 50" />
           <Button transform="uppercase" color="gray" className="w-141 h-33">
             Save
           </Button>

@@ -14,7 +14,7 @@ function RangeSlider() {
           {value}%
         </span>
         <input
-          class="range w-50% h-28 appearance-none bg-gray outline-none rounded-xl overflow-hidden"
+          class="range sm:w-100% w-50% h-28 appearance-none bg-gray outline-none rounded-xl overflow-hidden"
           onMouseMove={(value) => rangeValue(value)}
           onChange={(value) => rangeValue(value)}
           type="range"
