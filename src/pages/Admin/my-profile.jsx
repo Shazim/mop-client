@@ -165,7 +165,7 @@ function MyProfile() {
             <div className="admin-des pb-24 sm:text-center">
               Click to edit your profile picture.
             </div>
-            <div className="bg-gray-lighter w-244 h-244 relative mb-31 sm:w-276 sm:h-244 sm:items-center">
+            <div className="bg-gray-lighter w-244 h-244 relative mb-31 sm:w-full sm:h-244 sm:bg-offwhite ">
               <img
                 src={values['imageFile']?.imageLink}
                 alt=""
@@ -190,8 +190,9 @@ function MyProfile() {
                 />
               </div>
             </div>
-            <div className="flex justify-between">
-              <div className="grid grid-cols-3 gap-x-32 gap-y-20 mb-22 w-100%">
+            <div className="hr-b hidden sm:block"></div>
+            <div className="flex justify-between sm:grid grid-cols-1">
+              <div className="grid grid-cols-3 gap-x-32 gap-y-20 mb-22 w-100% sm:grid-cols-1">
                 <TextField
                   name="firstName"
                   placeholder="rebecca"
@@ -235,7 +236,7 @@ function MyProfile() {
               <Button
                 color="gray"
                 transform="uppercase"
-                className="w-141 h-33 self-end"
+                className="w-141 h-33 self-end sm:ml-auto sm:mr-auto"
                 onClick={() => {
                   setFieldValue('customParam', 'profile');
                   handleSubmit();
@@ -245,8 +246,8 @@ function MyProfile() {
               </Button>
             </div>
             <div className="admin-h2 mt-20 mb-13">change password</div>
-            <div className="hr-b pb-32 flex justify-between">
-              <div className="grid grid-cols-3 gap-y-20 gap-x-32 w-100%">
+            <div className="hr-b pb-32 flex justify-between sm:grid grid-cols-1">
+              <div className="grid grid-cols-3 gap-y-20 gap-x-32 w-100% sm:grid-cols-1">
                 <TextField
                   name="oldPassword"
                   placeholder="******"
@@ -272,27 +273,27 @@ function MyProfile() {
               <Button
                 color="gray"
                 transform="uppercase"
-                className="w-141 h-33 mt-90"
+                className="w-141 h-33 mt-90 sm:ml-auto sm:mr-auto sm:mt-30"
               >
                 Save
               </Button>
             </div>
-            <div className="admin-h2 mt-20 mb-10">
+            <div className="admin-h2 mt-20 mb-10 sm:text-center">
               Tell People About yourself
             </div>
-            <div className="flex hr-b justify-between pb-32">
+            <div className="flex hr-b justify-between sm:grid grid-cols-1 sm:text-center pb-32">
               <TextArea
                 placeholder="Max 500 Character"
                 label="edit your bio."
                 className=" h-113"
-                width="40%"
+                width="40% sm:w-full"
                 mb="0"
                 name="bio"
               />
               <Button
                 color="gray"
                 transform="uppercase"
-                className="w-141 h-33 self-end"
+                className="w-141 h-33 self-end  sm:ml-auto sm:mr-auto"
                 onClick={() => {
                   setFieldValue('customParam', 'bio');
                   handleSubmit();
@@ -301,11 +302,11 @@ function MyProfile() {
                 Save
               </Button>
             </div>
-            <div className="admin-h2 mt-20 mb-20">
+            <div className="admin-h2 mt-20 mb-20 sm:text-center">
               What Styles best describe your work?
             </div>
             <div className="hr-b pb-32">
-              <div className="grid grid-cols-3 gap-20 ">
+              <div className="grid grid-cols-3 gap-20  sm:grid-cols-1 ">
                 {stylesData?.styles.map((style, index) => (
                   <>
                     <CheckBox
@@ -322,7 +323,7 @@ function MyProfile() {
               <Button
                 color="gray"
                 transform="uppercase"
-                className="w-141 h-33 block ml-auto mr-0"
+                className="w-141 h-33 block ml-auto mr-0 sm:mr-auto sm:mt-15"
                 onClick={() => {
                   setFieldValue('customParam', 'styles');
                   handleSubmit();
@@ -331,10 +332,10 @@ function MyProfile() {
                 Save
               </Button>
             </div>
-            <div className="admin-h2 mt-20 mb-12">
+            <div className="admin-h2 mt-20 mb-12 text-center">
               link up your social media
             </div>
-            <div className="admin-des text-black mb-15">
+            <div className="admin-des text-black mb-15 text-center">
               Click to edit your profile picture.
             </div>
 
@@ -344,7 +345,7 @@ function MyProfile() {
               mb="6"
               height="38"
               label="facebook"
-              className="w-40%"
+              className="w-40% sm:w-full"
             />
             <div className=" my-15">
               <TextField
@@ -353,22 +354,22 @@ function MyProfile() {
                 mb="6"
                 height="38"
                 label="instagram"
-                className="w-40%"
+                className="w-40% sm:w-full"
               />
             </div>
-            <div className="flex justify-between mb-81 w-100%">
+            <div className="flex justify-between mb-81 w-100% sm:flex-col">
               <TextField
                 name="linkedin"
                 placeholder="ENTER PROFILE URL"
                 mb="6"
                 height="38"
                 label="Linkdn"
-                className="w-45%"
+                className="w-45% sm:w-full"
               />
               <Button
                 color="gray"
                 transform="uppercase"
-                className="w-141 h-33 self-end"
+                className="w-141 h-33 self-end sm:ml-auto sm:mr-auto sm:mt-30"
                 onClick={() => {
                   setFieldValue('customParam', 'socialLink');
                   handleSubmit();
