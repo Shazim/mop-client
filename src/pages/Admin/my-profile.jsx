@@ -159,15 +159,17 @@ function MyProfile() {
       >
         {({ values, handleSubmit, setFieldValue }) => (
           <div>
-            <div className="admin-h2 mt-28 mb-19">profile setup</div>
-            <div className="admin-des pb-24">
+            <div className="admin-h2 mt-28 mb-19 sm:text-center sm:font-medium">
+              profile setup
+            </div>
+            <div className="admin-des pb-24 sm:text-center">
               Click to edit your profile picture.
             </div>
-            <div className="bg-gray-lighter w-244 h-244 relative mb-31">
+            <div className="bg-gray-lighter w-244 h-244 relative mb-31 sm:w-276 sm:h-244 sm:items-center">
               <img
                 src={values['imageFile']?.imageLink}
                 alt=""
-                className="w-200 h-200 absolute transform-xy top-50% left-50%"
+                className="w-200 h-200 absolute transform-xy top-50% left-50% sm:w-276 sm:h-244 "
               />
               <div>
                 <label

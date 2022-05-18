@@ -11,13 +11,13 @@ function SimplesTables() {
           Rate
         </div>
         <div className="w-1/5 font-avenir-reg font-normal flex justify-start text-base uppercase tracking-wider leading-54">
-          Total Rate
+          <span>Total</span> <span className="sm:hidden">Rate</span>
         </div>
         <div className="w-1/5 font-avenir-reg font-normal text-base uppercase flex justify-start tracking-wider leading-54">
-          On Shipping
+          <span>On</span> <span className="sm:hidden">Shipping</span>
         </div>
         <div className="w-1/5 font-avenir-reg font-normal text-base uppercase tracking-wider flex justify-start leading-54">
-          On Digital
+          <span>On</span> <span className="sm:hidden">Digital</span>
         </div>
         <div className="w-1/7 flex justify-start"></div>
       </div>
