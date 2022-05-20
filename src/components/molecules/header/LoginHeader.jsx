@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SearchBar from 'components/atoms/searchbar/SearchBar';
 import { routes } from 'routes';
 
 function LoginHeader() {
+  const [open, setOpen] = useState(false);
+  console.log(open);
   return (
-    <div className="py-32 flex justify-between max-screen">
-      <div className="w-30%">
+    <div className="py-32 flex justify-between max-screen  sm:w-full sm:relative">
+      <div className="w-30% ">
         <Link to={routes.ROUTE_HOME}>
           <img
             src="/images/Logo/logo.svg"
@@ -15,7 +17,21 @@ function LoginHeader() {
           />
         </Link>
       </div>
-      <div className="flex w-70% md:w-80% justify-between">
+      <div
+        className="hidden sm:block absolute right-43 link space-y-2 "
+        onClick={() => setOpen(!open)}
+      >
+        <div className="w-8 h-0.5 bg-gray-600"></div>
+        <div className="w-8 h-0.5 bg-gray-600"></div>
+        <div className="w-8 h-0.5 bg-gray-600"></div>
+      </div>
+      <div
+        className={
+          open
+            ? ' overflow-hidden h-0 '
+            : ' w-70% md:w-80% flex justify-between sm:flex-col sm:w-100%  sm:mt-40 sm:text-center  '
+        }
+      >
         {/* <div> */}
         <SearchBar
           className="flex items-center"

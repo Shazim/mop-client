@@ -10,6 +10,7 @@ import { useFetch, usePost } from 'hooks';
 import { formDataHandler } from 'utils';
 import { FormField } from 'components/app/forms';
 import { useEffect } from 'react';
+import SelectOptions from 'components/atoms/form/SelectOptions';
 
 function MyProfile() {
   const [initial, setInitial] = useState({
@@ -306,7 +307,11 @@ function MyProfile() {
               What Styles best describe your work?
             </div>
             <div className="hr-b pb-32">
-              <div className="grid grid-cols-3 gap-20  sm:grid-cols-1 ">
+              <SelectOptions
+                className="hidden mt-22 mb-42 sm:w-100% sm:block"
+                label="Select category"
+              />
+              <div className="grid grid-cols-3 gap-20  sm:hidden ">
                 {stylesData?.styles.map((style, index) => (
                   <>
                     <CheckBox
