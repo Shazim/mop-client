@@ -28,7 +28,7 @@ export default function StockItem({ addItem }) {
         <SearchBar
           placeholder="Search For An Artist"
           bgColor="bg-gray-dark"
-          className="sm:w-95% sm:h-26"
+          className="sm:w-90% sm:h-26"
           onChange={(e) => {
             refetch({
               variables: `?q[name_cont]=${e.target.value}`,
@@ -37,7 +37,7 @@ export default function StockItem({ addItem }) {
           }}
           value={search}
         />
-        <div className="hidden sm:block w-5%">
+        <div className="hidden sm:block w-10%">
           <img
             src="/images/icons/filter.svg"
             alt=""
