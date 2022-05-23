@@ -10,26 +10,39 @@ function VideoCard({
   onClick,
 }) {
   return (
-    <div className="relative max-w-sm sm:mx-10" onClick={onClick}>
+    <div className="relative max-w-sm sm:mx-10 " onClick={onClick}>
       <img className="w-100% sm:rounded-8" src={imageUrl} />
       <img
-        className="absolute  link left-50% top-50% transform-xy"
+        className="absolute  link left-50% top-50% transform-xy sm:invisible sm:hover:visible"
         src="/images/card/play-button.svg"
       />
-      <div className="flex w-100% justify-between absolute left-0 bottom-0 pb-15 pl-30 pr-30 text-white">
+      <div className="hidden sm:block sm:absolute bottom-80% right-20">
+        <button className="bg-white w-75 h-33 rounded-md font-bold text-sm tracking text-secondary-darkest">
+          Edit
+        </button>
+      </div>
+      <div className="flex w-100% justify-between absolute left-0 bottom-0 pb-15 pl-30 pr-30 sm:relative sm:mt-15 text-white">
         <div>
-          <div className="font-avenir-reg font-semibold  sm:text-base tracking-tight uppercase">
+          <div className="font-avenir-reg font-semibold  sm:text-base tracking-tight uppercase sm:text-secondary-dark">
             {title}
           </div>
-          <div className="flex text-xsm sm:text-tiny font-reg">
+          <div className="flex text-xsm sm:text-tiny font-reg sm:text-secondary-dark sm:mt-8">
             <div>
-              <span className="font-bold">{views}</span> Views
+              <span className="font-bold ">{views}</span> Views
             </div>
             <div className="ml-10">
               <span className="font-bold">{incImages}</span> Images Included
             </div>
             <div className="ml-10">
               <span className="font-bold">{comments}</span> Comments
+            </div>
+          </div>
+          <div className="hidden sm:block sm:flex gap-10 mt-10">
+            <div>
+              <img src="/images/icons/open.svg" alt="" />
+            </div>
+            <div className="font-nunito-reg font-bold text-secondary-dark uppercase text-sm">
+              Enter Exhibition Room
             </div>
           </div>
         </div>

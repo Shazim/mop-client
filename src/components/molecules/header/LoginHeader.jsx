@@ -21,9 +21,9 @@ function LoginHeader() {
         className="hidden sm:block absolute right-43 link space-y-2 "
         onClick={() => setOpen(!open)}
       >
-        <div className="w-8 h-0.5 bg-gray-600"></div>
-        <div className="w-8 h-0.5 bg-gray-600"></div>
-        <div className="w-8 h-0.5 bg-gray-600"></div>
+        <div className="w-20 h-0.5 bg-gray-600"></div>
+        <div className="w-20 h-0.5 bg-gray-600"></div>
+        <div className="w-20 h-0.5 bg-gray-600"></div>
       </div>
       <div
         className={
