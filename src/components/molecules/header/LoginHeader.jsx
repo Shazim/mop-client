@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import SearchBar from 'components/atoms/searchbar/SearchBar';
 import { routes } from 'routes';
+import SearchBar from 'components/atoms/searchbar/SearchBar';
+
+import { slide as Menu } from 'react-burger-menu';
+import NavLinks from './NavLinks';
+import MobileNav from './MobileNav';
 
 function LoginHeader() {
   const [open, setOpen] = useState(false);
-  console.log(open);
+  console.log('here', open);
   return (
     <div className="py-32 flex justify-between max-screen  sm:w-full sm:relative">
       <div className="w-30% ">
@@ -13,59 +17,44 @@ function LoginHeader() {
           <img
             src="/images/Logo/logo.svg"
             alt=""
-            className="mr-25 w-132 h-32"
+            className="mr-25 w-onClick={() => setOpen(!open)}132 h-32"
           />
         </Link>
       </div>
-      <div
-        className="hidden sm:block absolute right-43 link space-y-2 "
+      {/* <div
+        className="hidden sm:block absolute right-10%  link"
         onClick={() => setOpen(!open)}
       >
-        <div className="w-20 h-0.5 bg-gray-600"></div>
-        <div className="w-20 h-0.5 bg-gray-600"></div>
-        <div className="w-20 h-0.5 bg-gray-600"></div>
-      </div>
-      <div
-        className={
-          open
-            ? ' overflow-hidden h-0 '
-            : ' w-70% md:w-80% flex justify-between sm:flex-col sm:w-100%  sm:mt-40 sm:text-center  '
+        <img src="images/icons/menu.svg" alt="" />
+      </div> */}
+
+      <NavLinks />
+      <Menu
+        right
+        width={'100%'}
+        customBurgerIcon={
+          <img src="images/icons/menu.svg" className="hidden sm:block" />
         }
+        onClick={() => setOpen(!open)}
+        customCrossIcon={<img src="images/icons/close.svg" />}
+        className="top-0"
       >
-        {/* <div> */}
-        <SearchBar
-          className="flex items-center"
-          placeholder="Search Artist"
-          bgColor="bg-transparent"
-        />
-        {/* </div> */}
-        <Link to={routes.ROUTE_GALLERY_SETTING}>
-          <div
-            className={`font-bold mt-6 ${'text-secondary'} text-sm uppercase hover:text-primary link tracking`}
-          >
-            my gallery
-          </div>
-        </Link>
-        <Link to={routes.ROUTE_STORE}>
-          <div
-            className={`font-bold mt-6 ${'text-secondary'} text-sm uppercase hover:text-primary link tracking`}
-          >
-            store
-          </div>
-        </Link>
-        <div
-          className={`font-bold mt-6 ${'text-secondary'} text-sm uppercase hover:text-primary link tracking`}
+        <MobileNav />
+      </Menu>
+      {/* <div className="hidden sm:block sm:flex flex-col">
+        <Menu
+          right
+          width={'100%'}
+          customBurgerIcon={<img src="images/icons/menu.svg" />}
+          onClick={() => setOpen(!open)}
         >
-          get started
-        </div>
-        <Link to={routes.ROUTE_MY_PROFILE}>
-          <div
-            className={`font-bold mt-6 ${'text-secondary'} text-sm uppercase hover:text-primary link tracking`}
-          >
-            profile
-          </div>
-        </Link>
-      </div>
+          <NavLinks
+            className={
+              ''
+            }
+          />
+        </Menu>
+      </div> */}
     </div>
   );
 }
