@@ -79,7 +79,7 @@ export default function StockItem({ addItem }) {
               them.
             </div>
           </div>
-          <div className="gridView sm:grid grid-cols-1">
+          <div className="gridView  sm:grid grid-cols-1">
             {data.artworks.map(({ name, images }) => (
               <>
                 {images.map(({ image, featured_image }) => (

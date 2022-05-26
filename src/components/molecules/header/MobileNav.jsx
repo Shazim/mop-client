@@ -34,33 +34,33 @@ const MobileNav = () => {
           <div className=" hidden sm:flex  sm:flex-col sm:bg-gray-lighter sm:w-100% sm:h-100% ">
             {/* <div> */}
             <SearchBar
-              className="flex items-center sm:mt-30 "
+              className="flex items-center sm:mt-30 sm:pt-50 sm:pl-30 "
               placeholder="Search Artist"
               bgColor="bg-transparent"
             />
             {/* </div> */}
             <Link to={routes.ROUTE_GALLERY_SETTING}>
               <div
-                className={`font-bold mt-6 ${'text-secondary'} text-sm uppercase hover:text-primary link tracking sm:mt-30 `}
+                className={`font-bold mt-6 ${'text-secondary'} text-sm uppercase hover:text-primary link tracking sm:mt-30 sm:pl-30 `}
               >
                 my gallery
               </div>
             </Link>
             <Link to={routes.ROUTE_STORE}>
               <div
-                className={`font-bold mt-6 ${'text-secondary'} text-sm uppercase hover:text-primary link tracking sm:mt-30 `}
+                className={`font-bold mt-6 ${'text-secondary'} text-sm uppercase hover:text-primary link tracking sm:mt-30 sm:pl-30 `}
               >
                 store
               </div>
             </Link>
             <div
-              className={`font-bold mt-6 ${'text-secondary'} text-sm uppercase hover:text-primary link tracking sm:mt-30`}
+              className={`font-bold mt-6 ${'text-secondary'} text-sm uppercase hover:text-primary link tracking sm:mt-30 sm:pl-30`}
             >
               get started
             </div>
             <Link to={routes.ROUTE_MY_PROFILE}>
               <div
-                className={`font-bold mt-6 ${'text-secondary'} text-sm uppercase hover:text-primary link tracking  sm:mt-30`}
+                className={`font-bold mt-6 ${'text-secondary'} text-sm uppercase hover:text-primary link tracking  sm:mt-30 sm:pl-30`}
               >
                 profile
               </div>
