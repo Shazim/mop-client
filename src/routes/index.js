@@ -27,6 +27,7 @@ import CouponsOffers from 'pages/Admin/coupons-offers';
 import Orders from 'pages/Admin/orders';
 import PricingSheet from 'pages/Admin/pricing-sheet';
 import TaxRates from 'pages/Admin/tax-rates';
+import SlickSlider from 'components/atoms/slider/slick-slider';
 
 // List of Routes name using for links and route
 export const routes = Object.freeze({
@@ -62,6 +63,7 @@ export const routes = Object.freeze({
   ROUTE_ORDERS: '/orders',
   ROUTE_PRICING_SHEET: '/pricing-sheet',
   ROUTE_TAX_RATES: '/tax-rates',
+  ROUTE_SLICK_SLIDER: '/slick-slider',
 });
 // List of route object which will be rendered under Router component
 export default Object.freeze([
@@ -89,6 +91,12 @@ export default Object.freeze([
   { path: routes.ROUTE_CUSTOMER, component: Customers, privateRoute: true },
   { path: routes.ROUTE_SUBSCRIBE_LOGIN, component: SubscribeLogin },
   { path: routes.ROUTE_SUBSCRIBE_SIGNUP, component: SubscribeSignup },
+  {
+    path: routes.ROUTE_SLICK_SLIDER,
+    component: SlickSlider,
+    privateRoute: true,
+  },
+
   {
     path: routes.ROUTE_SUBSCRIBE_SIGNED,
     component: SubscribeSigned,

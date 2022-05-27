@@ -3,7 +3,7 @@ import ImageList from 'components/ImageList';
 
 function Order() {
   return (
-    <div>
+    <div className="sm">
       <div>
         <div className="admin-h1 pb-20">Choose your order</div>
         <div className="admin-label mb-12">

@@ -28,6 +28,7 @@ export default function StockItem({ addItem }) {
         <SearchBar
           placeholder="Search For An Artist"
           bgColor="bg-gray-dark"
+          className="sm:w-90% sm:h-26"
           onChange={(e) => {
             refetch({
               variables: `?q[name_cont]=${e.target.value}`,
@@ -36,18 +37,25 @@ export default function StockItem({ addItem }) {
           }}
           value={search}
         />
-        <div className="w-65% xl:w-100% lg:w-100% md:w-100% flex xl:mt-30 lg:mt-30 md:mt-30 justify-between">
+        <div className="hidden sm:block w-10%">
+          <img
+            src="/images/icons/filter.svg"
+            alt=""
+            className="ml-auto mr-auto mt-5"
+          />
+        </div>
+        <div className="w-65% sm:hidden xl:w-100% lg:w-100% md:w-100% flex xl:mt-30 lg:mt-30 md:mt-30 justify-between">
           <SelectOptions
             className="w-30% xl:w-30% lg:w-30% md:w-30%"
             label="up for sale"
           />
 
           <SelectOptions
-            className="w-37% xl:w-35% lg:w-35% md:w-35%"
+            className="w-37% sm:hidden xl:w-35% lg:w-35% md:w-35%"
             label="sort low - high"
           />
           <SelectOptions
-            className="w-30% xl:w-30% lg:w-30% md:w-30%"
+            className="w-30% sm:hidden xl:w-30% lg:w-30% md:w-30%"
             label="show 10"
             option={[
               { value: 20, label: 'show 20' },
@@ -71,7 +79,7 @@ export default function StockItem({ addItem }) {
               them.
             </div>
           </div>
-          <div className="gridView">
+          <div className="gridView  sm:grid grid-cols-1">
             {data.artworks.map(({ name, images }) => (
               <>
                 {images.map(({ image, featured_image }) => (

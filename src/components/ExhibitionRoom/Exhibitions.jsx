@@ -18,10 +18,10 @@ function ExhibitionsComp() {
 
   return (
     <div className="pb-106">
-      <div className="flex mt-26 mb-18">
+      <div className="flex mt-26 mb-18 sm:justify-center">
         <Button
           color={draft ? 'gray' : 'secondary'}
-          className="w-93 h-30 mr-15"
+          className="w-93 h-30 mr-15 sm:w-150 sm:h-45"
           onClick={() => handleDraft(false)}
         >
           LIVE
@@ -29,12 +29,12 @@ function ExhibitionsComp() {
         <Button
           color={draft ? 'secondary' : 'gray'}
           onClick={() => handleDraft(true)}
-          className="w-93 h-30"
+          className="w-93 h-30 sm:w-150 sm:h-45"
         >
           DRAFTS
         </Button>
       </div>
-      <div className="mb-15 grid grid-cols-2 gap-22">
+      <div className="mb-15 grid grid-cols-2 gap-22  sm:grid-cols-1">
         {ExhibitionsData &&
           ExhibitionsData?.exhibitions?.map(({ image }) => (
             <VideoCard imageUrl={image ? image : undefined} />

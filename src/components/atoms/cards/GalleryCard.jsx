@@ -31,11 +31,21 @@ function GalleryCard({
               <div>
                 <span className="font-bold">{views}</span> Views
               </div>
-              <div>
+              <div className="flex-grow">
                 <span className="font-bold ml-10">{incImages}</span> Images
                 Included
               </div>
+              <div>
+                <Button
+                  type="edit"
+                  className=" sm:block w-100 h-33 mr-20 mt-_20 "
+                  transform="uppercase"
+                >
+                  Add Info
+                </Button>
+              </div>
             </div>
+
             {enterExibit ? (
               <div className="flex items-center link">
                 <EnterIcon className="w-13 h-11 mr-5 stroke-white" />

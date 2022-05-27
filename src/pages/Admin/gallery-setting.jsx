@@ -107,8 +107,8 @@ function GallerySetting() {
         {({ setFieldValue, values }) => (
           <div className="bg-primary-lighter pb-295">
             <div className="admin-h2 mb-10">Name Setting</div>
-            <div className="flex hr-b pb-28">
-              <div className="w-50% mr-50">
+            <div className="flex hr-b pb-28 sm:flex-col">
+              <div className="w-50% mr-50 sm:w-full">
                 <TextField
                   name="name"
                   placeholder="max 100 characters"
@@ -117,7 +117,7 @@ function GallerySetting() {
                   label="gallery name"
                 />
               </div>
-              <div className="w-50% ">
+              <div className="w-50% sm:w-full">
                 <TextField
                   name="artist_name"
                   placeholder="max 100 characters"
@@ -127,63 +127,77 @@ function GallerySetting() {
                 />
               </div>
             </div>
-            <div className="admin-h2 pt-15">Private or public</div>
-            <div className="admin-label my-17">
-              you can choose here to make your gallery private, or publicly
-              available via our search engines.
-            </div>
-            <div className="flex hr-b pb-30">
-              <ToggleButton
-                bg={
-                  values['gallery_type'] == 'private_gallery'
-                    ? 'bg-gray mr-32'
-                    : 'bg-white mr-32'
-                }
-                onClick={() => setFieldValue('gallery_type', 'private_gallery')}
-              >
-                Private Gallery
-              </ToggleButton>
-              <ToggleButton
-                bg={
-                  values['gallery_type'] == 'public_gallery'
-                    ? 'bg-gray'
-                    : 'bg-white'
-                }
-                onClick={() => setFieldValue('gallery_type', 'public_gallery')}
-              >
-                Public Gallery
-              </ToggleButton>
+            <div className="admin-h2 pt-15 sm:hidden">Private or public</div>
+            <div className="hidden admin-h2 pt-15 sm:block">Name Settings</div>
+            <div className="flex flex-col sm:flex-col-reverse">
+              <div className="admin-label my-17 ">
+                you can choose here to make your gallery private, or publicly
+                available via our search engines.
+              </div>
+              <div className="  flex  pb-30 sm:block">
+                <ToggleButton
+                  bg={
+                    values['gallery_type'] == 'private_gallery'
+                      ? 'bg-white mr-32'
+                      : 'bg-gray mr-32'
+                  }
+                  onClick={() =>
+                    setFieldValue('gallery_type', 'private_gallery')
+                  }
+                  className="w-193 h-32 sm:w-121 sm:h-49 mt-20 "
+                >
+                  Private Gallery
+                </ToggleButton>
+                <ToggleButton
+                  bg={
+                    values['gallery_type'] == 'public_gallery'
+                      ? 'bg-white'
+                      : 'bg-gray'
+                  }
+                  onClick={() =>
+                    setFieldValue('gallery_type', 'public_gallery')
+                  }
+                  className=" w-193 h-32 sm:w-121 sm:h-49 mt-20 "
+                >
+                  Public Gallery
+                </ToggleButton>
+              </div>
             </div>
             <div className="hr-b pb-30 pt-20">
-              <div className="admin-h2 pb-5">Domain</div>
+              <div className="admin-h2 pb-5 ">Domain</div>
               <TextField
                 name="domain"
                 placeholder="type in a domain name:"
                 mb="6"
                 height="38"
                 label="type in a domain name:"
-                className="w-55%"
+                className="w-55% sm:w-full"
               />
             </div>
-            <div className="flex hr-b pt-20 pb-29">
+            <div className="flex  pt-20 pb-29 sm:flex-col ">
               <div>
                 <div className="admin-h2 ">logo and branding</div>
                 <div className="admin-label my-18 leading-32 w-80%">
                   this will appear below your gallery name and artist name.
                   Please upload a png or svg that is less than 10mb.
                 </div>
-                <UploadImageCard label="Add Logo" id="logo" />
+                <div className=" sm:flex justify-center">
+                  <UploadImageCard label="Add Logo" id="logo" />
+                </div>
               </div>
+              <div className="hidden hr-b mt-48 sm:block"></div>
               <div>
-                <div className="admin-h2">watermark</div>
+                <div className="admin-h2 sm:mt-32">watermark</div>
                 <div className="admin-label my-18 leading-32 w-80%">
                   you can upload a watermark that will appear across your work.
                   Please upload a png or svg that is less than 10mb.
                 </div>
-                <UploadImageCard label="Add image" id="watermark" />
+                <div className="sm:flex justify-center">
+                  <UploadImageCard label="Add image" id="watermark" />
+                </div>
               </div>
             </div>
-            <div className="hr-b pt-25 pb-15">
+            <div className="hr-b pt-25 pb-15 sm:hidden">
               <div className="admin-h2 pb-5">Add a welcome video</div>
               <TextField
                 name="welcome_video"
@@ -194,7 +208,7 @@ function GallerySetting() {
                 className="w-55%"
               />
             </div>
-            <div>
+            <div className="sm:text-center">
               <SubmitButton className={`h-42 w-251 mt-30`} color="primary">
                 Save Changes
               </SubmitButton>
