@@ -94,7 +94,6 @@ export default Object.freeze([
   {
     path: routes.ROUTE_SLICK_SLIDER,
     component: SlickSlider,
-    privateRoute: true,
   },
 
   {

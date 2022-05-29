@@ -62,6 +62,20 @@
   @apply font-avenir-reg font-medium text-base uppercase tracking-wider leading-55 text-secondary mb-4;
 }
 
+.mockup-right-arrow {
+  right: 111px;
+  position: absolute;
+  bottom: 96px;
+}
+
+.mockup-left-arrow {
+  position: absolute;
+  left: 111px;
+  bottom: 96px;
+  z-index: 1;
+  transform: rotate(180deg);
+}
+
 .link {
   @apply cursor-pointer;
 }

@@ -2,42 +2,22 @@ import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import Arrow from '../arrow/Arrow';
+import Arrow from './Arrow/Arrow';
 
 const SlickSlider = () => {
   const images = [
-    { image: '/images/slider/image.png' },
-    { image: '/images/slider/image.png' },
-    { image: '/images/slider/image.png' },
-    { image: '/images/slider/image.png' },
-    { image: '/images/slider/image.png' },
-    { image: '/images/slider/image.png' },
-    { image: '/images/slider/image.png' },
-    { image: '/images/slider/image.png' },
-    { image: '/images/slider/image.png' },
-    { image: '/images/slider/image.png' },
-    { image: '/images/slider/image.png' },
-    { image: '/images/slider/image.png' },
+    { image: '/images/gallery-mockup/scene1-dark.png' },
+    { image: '/images/gallery-mockup/scene2-dark.png' },
   ];
 
   const settings = {
-    dots: true,
-    infinite: true,
-    speed: 3000,
-    slidesToShow: 2,
-    centerMode: true,
-    centerpadding: '70px',
-    autoplay: true,
-    autoplayspeed: 7000,
-    rows: 3,
-    pauseOnFocus: true,
-    touchMove: true,
-    swipe: true,
-    pauseOnHover: true,
-    pauseOnDotsHover: true,
+    dots: false,
+    // infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
     nextArrow: <Arrow dir="right" type="next" />,
     prevArrow: <Arrow dir="left" type="prev" />,
-    // arrows: true,
+    // arrows: false,
 
     responsive: [
       {
@@ -58,14 +38,75 @@ const SlickSlider = () => {
   };
   return (
     <>
-      <div className="w-80%  mx-auto  slider-dots">
+      <div className="w-100% h-100vh slider-dots">
         <Slider {...settings}>
-          {images.map((url) => (
+          <div className="relative">
             <img
-              className='className="w-80% h-250 mt-90 sm:w-100% m-auto sm:h-100%'
-              src={url.image}
+              className='className="w-100% h-100vh  sm:w-100% sm:h-100%'
+              src="/images/gallery-mockup/scene1-dark.png"
             />
-          ))}
+            <div className="absolute left-20% top-40%">
+              <div className="mb-16 text-heading text-white font-avenir-300 tracking-wider uppercase">
+                exhibition Title<span className="text-primary">.</span>
+              </div>
+              <div className="mb-6 text-20 text-gray-lighter font-nunito-bold tracking uppercase">
+                Artist Name
+              </div>
+              <div className="text-20 text-gray-lighter font-nunito-bold tracking uppercase">
+                Gallery Name
+              </div>
+              <div className="flex mt-299">
+                <img src="/images/arrows/arrow-mockup.svg" alt="" />
+                <div className="ml-22 text-20 text-gray-lighter font-nunito-bold tracking uppercase">
+                  Enter Gallery
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="relative">
+            <img
+              className='className="w-100% h-100vh  sm:w-100% sm:h-100%'
+              src="/images/gallery-mockup/scene2-dark.png"
+            />
+            <div className="absolute top-50% transform-y flex w-100% justify-evenly">
+              <div className="h-222 relative w-">
+                <img
+                  src="/images/gallery-mockup/portrait-frame.png"
+                  className="h-100% w-165"
+                  alt=""
+                />
+                <img
+                  src="/images/gallery-mockup/dummy.png"
+                  alt=""
+                  className="absolute object-cover top-19 h-183 left-19 w-127"
+                />
+              </div>
+              <div className="h-222 relative">
+                <img
+                  src="/images/gallery-mockup/landscape-frame.png"
+                  className="h-100% w-298 "
+                  alt=""
+                />
+                <img
+                  src="/images/gallery-mockup/dummy3.jpg"
+                  alt=""
+                  className="absolute top-27 h-169 left-27 w-245 object-cover"
+                />
+              </div>
+              <div className="h-222 relative ">
+                <img
+                  src="/images/gallery-mockup/portrait-frame.png"
+                  className="h-100% w-165"
+                  alt=""
+                />
+                <img
+                  src="/images/gallery-mockup/dummy2.jpg"
+                  alt=""
+                  className="absolute top-19 h-183 left-19 w-127 object-cover"
+                />
+              </div>
+            </div>
+          </div>
         </Slider>
       </div>
     </>
