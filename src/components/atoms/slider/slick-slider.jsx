@@ -149,7 +149,7 @@ const SlickSlider = () => {
           </Slider>
         </div>
       ) : (
-        <div className="absolute font-bold uppercase  text-secondary font-avenir-reg text-22 left-35% top-30% ">
+        <div className="absolute font-bold uppercase  text-secondary font-avenir-reg text-heading left-30% top-30% ">
           there is no slider
         </div>
       )}
