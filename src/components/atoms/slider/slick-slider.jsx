@@ -52,7 +52,7 @@ const SlickSlider = () => {
                 src="/images/gallery-mockup/scene1-dark.png"
               />
               <div className="absolute left-20% top-40%">
-                <div className="mb-16 text-heading text-white font-avenir-300 tracking-wider uppercase">
+                <div className="mb-16 text-heading text-white font-avenir-300 tracking-wider lg:text-22 xl:text-2xl md:text-22 sm:text-20 tab:text-base uppercase">
                   exhibition Title<span className="text-primary">.</span>
                 </div>
                 <div className="mb-6 text-20 text-gray-lighter font-nunito-bold tracking uppercase">
@@ -149,7 +149,9 @@ const SlickSlider = () => {
           </Slider>
         </div>
       ) : (
-        <div>there is no div</div>
+        <div className="absolute font-bold uppercase  text-secondary font-avenir-reg text-22 left-35% top-30% ">
+          there is no slider
+        </div>
       )}
     </>
   );
