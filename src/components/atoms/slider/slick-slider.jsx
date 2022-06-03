@@ -36,79 +36,121 @@ const SlickSlider = () => {
       },
     ],
   };
+  const width = window.innerWidth;
+  const height = window.innerHeight;
   return (
     <>
-      <div className="w-100% h-100vh slider-dots">
-        <Slider {...settings}>
-          <div className="relative">
-            <img
-              className='className="w-100% h-100vh  sm:w-100% sm:h-100%'
-              src="/images/gallery-mockup/scene1-dark.png"
-            />
-            <div className="absolute left-20% top-40%">
-              <div className="mb-16 text-heading text-white font-avenir-300 tracking-wider uppercase">
-                exhibition Title<span className="text-primary">.</span>
-              </div>
-              <div className="mb-6 text-20 text-gray-lighter font-nunito-bold tracking uppercase">
-                Artist Name
-              </div>
-              <div className="text-20 text-gray-lighter font-nunito-bold tracking uppercase">
-                Gallery Name
-              </div>
-              <div className="flex mt-299">
-                <img src="/images/arrows/arrow-mockup.svg" alt="" />
-                <div className="ml-22 text-20 text-gray-lighter font-nunito-bold tracking uppercase">
-                  Enter Gallery
+      {' '}
+      {width < 700 ? (
+        <></>
+      ) : width > height ? (
+        <div className="w-100% h-100vh slider-dots">
+          <Slider {...settings}>
+            <div className="relative">
+              <img
+                className='className="w-100% h-100vh  sm:w-100% sm:h-100%'
+                src="/images/gallery-mockup/scene1-dark.png"
+              />
+              <div className="absolute left-20% top-40%">
+                <div className="mb-16 text-heading text-white font-avenir-300 tracking-wider uppercase">
+                  exhibition Title<span className="text-primary">.</span>
+                </div>
+                <div className="mb-6 text-20 text-gray-lighter font-nunito-bold tracking uppercase">
+                  Artist Name
+                </div>
+                <div className="text-20 text-gray-lighter font-nunito-bold tracking uppercase">
+                  Gallery Name
+                </div>
+                <div className="flex mt-299">
+                  <img src="/images/arrows/arrow-mockup.svg" alt="" />
+                  <div className="ml-22 text-20 text-gray-lighter font-nunito-bold tracking uppercase">
+                    Enter Gallery
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div className="relative">
-            <img
-              className='className="w-100% h-100vh  sm:w-100% sm:h-100%'
-              src="/images/gallery-mockup/scene2-dark.png"
-            />
-            <div className="absolute top-50% transform-y flex w-100% justify-evenly">
-              <div className="h-222 relative w-">
-                <img
-                  src="/images/gallery-mockup/portrait-frame.png"
-                  className="h-100% w-165"
-                  alt=""
-                />
-                <img
-                  src="/images/gallery-mockup/dummy.png"
-                  alt=""
-                  className="absolute object-cover top-19 h-183 left-19 w-127"
-                />
-              </div>
-              <div className="h-222 relative">
-                <img
-                  src="/images/gallery-mockup/landscape-frame.png"
-                  className="h-100% w-298 "
-                  alt=""
-                />
-                <img
-                  src="/images/gallery-mockup/dummy3.jpg"
-                  alt=""
-                  className="absolute top-27 h-169 left-27 w-245 object-cover"
-                />
-              </div>
-              <div className="h-222 relative ">
-                <img
-                  src="/images/gallery-mockup/portrait-frame.png"
-                  className="h-100% w-165"
-                  alt=""
-                />
-                <img
-                  src="/images/gallery-mockup/dummy2.jpg"
-                  alt=""
-                  className="absolute top-19 h-183 left-19 w-127 object-cover"
-                />
+            <div className="relative">
+              <img
+                className='className="w-100% h-100vh  sm:w-100% sm:h-100%'
+                src="/images/gallery-mockup/scene2-dark.png"
+              />
+              <div className="absolute top-50% transform-y flex w-100% justify-evenly">
+                <div className="h-222 relative  sm:h-100 ">
+                  <img
+                    src="/images/gallery-mockup/portrait-frame.png"
+                    className="h-100% w-165 sm:w-93"
+                    alt=""
+                  />
+                  <img
+                    src="/images/gallery-mockup/dummy.png"
+                    alt=""
+                    className="absolute object-cover top-19 h-183 left-19 w-127 sm:w-73 sm:left-10 sm:top-8 sm:h-84 "
+                  />
+                </div>
+                <div className="h-222 relative ">
+                  <img
+                    src="/images/gallery-mockup/landscape-frame.png"
+                    className="h-100% w-298 "
+                    alt=""
+                  />
+                  <img
+                    src="/images/gallery-mockup/dummy3.jpg"
+                    alt=""
+                    className="absolute top-27 h-169 left-27 w-245 object-cover"
+                  />
+                </div>
+                <div className="h-222 relative ">
+                  <img
+                    src="/images/gallery-mockup/portrait-frame.png"
+                    className="h-100% w-165 "
+                    alt=""
+                  />
+                  <img
+                    src="/images/gallery-mockup/dummy2.jpg"
+                    alt=""
+                    className="absolute top-19 h-183 left-19 w-127 object-cover "
+                  />
+                </div>
               </div>
             </div>
-          </div>
-        </Slider>
-      </div>
+            <div className="relative">
+              <img
+                className='className="w-100% h-100vh '
+                src="/images/gallery-mockup/scene3_dark.png"
+                alt=""
+              />
+              <div className="absolute top-51%  transform-y flex w-100% justify-evenly">
+                <div className="h-222 relative mr-20 ml-30  ">
+                  <img
+                    src="/images/gallery-mockup/portrait-frame.png"
+                    className="h-100% w-165 "
+                    alt=""
+                  />
+                  <img
+                    src="/images/gallery-mockup/dummy.png"
+                    alt=""
+                    className="absolute object-cover top-19 h-183 left-19 w-127  "
+                  />
+                </div>
+                <div className="h-222 relative mr-30  ">
+                  <img
+                    src="/images/gallery-mockup/portrait-frame.png"
+                    className="h-100% w-165 "
+                    alt=""
+                  />
+                  <img
+                    src="/images/gallery-mockup/dummy2.jpg"
+                    alt=""
+                    className="absolute top-19 h-183 left-19 w-127 object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+          </Slider>
+        </div>
+      ) : (
+        <div>there is no div</div>
+      )}
     </>
   );
 };

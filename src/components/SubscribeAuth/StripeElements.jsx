@@ -26,7 +26,7 @@ function StripeElements() {
       fontSize: '13px',
       color: 'black',
 
-      letterSpacing: '0.13em',
+      letterSpacing: '0.10em',
       fontFamily: 'Nunito, sans-serif',
       '::placeholder': {
         color: '#D6D6D6',
@@ -68,7 +68,7 @@ function StripeElements() {
     <div className="mt-14 h-100%">
       <Form initialValues={{ email: '', password: '', confirm: '' }}>
         <>
-          <div className="w-100% flex mb-23">
+          <div className="w-100% flex mb-23 sm:flex-col">
             <div className="w-87 lg:w-100% md:w-100% sm:w-100% mr-18">
               <RadioButton name="card" value="Paypal" className="text-sm " />
             </div>
@@ -76,8 +76,8 @@ function StripeElements() {
               <RadioButton name="card" value="Card" className="text-sm" />
             </div>
           </div>
-          <div className="flex">
-            <div className="mr-22 w-50%">
+          <div className="flex sm:flex-col">
+            <div className="mr-22 w-50% sm:w-full">
               <div
                 className={`font-bold text-secondary text-sm leading-22 text-secondary uppercase tracking mb-11`}
               >
@@ -91,7 +91,7 @@ function StripeElements() {
                 className="w-100% h-38 bg-white outline-none  text-secondary placeholder-gray font-bold text-sm pl-8 pt-11 tracking"
               />
             </div>
-            <div className="mr-22 w-30%">
+            <div className="mr-22 w-30% sm:w-full">
               <div
                 className={`font-bold text-secondary text-sm leading-22 text-secondary uppercase tracking mb-11`}
               >
@@ -105,7 +105,7 @@ function StripeElements() {
                 className="w-100% h-38 bg-white outline-none  text-secondary placeholder-gray font-bold text-sm pl-8 pt-11 tracking"
               />
             </div>
-            <div className="w-20%">
+            <div className="w-20% sm:w-full">
               <div
                 className={`font-bold text-secondary text-sm leading-22 text-secondary uppercase tracking mb-11`}
               >
@@ -126,11 +126,12 @@ function StripeElements() {
           </div>
           <div className="w-100% sm:flex sm:justify-center">
             <Button
-              className="w-262 h-41 mt-11 sm:w-95%"
+              className="w-262 h-41 mt-11 sm:w-95% sm:bg-offwhite sm:text-secondary sm:flex justify-center sm:h-20"
               transform="uppercase"
               onClick={handleSubmit}
             >
-              Subscribe to this plan
+              <span>Subscribe to this plan</span>{' '}
+              <span className="hidden sm:block">?</span>
             </Button>
           </div>
         </>

@@ -11,6 +11,7 @@ import { getGalleries, getArtists } from 'api/api-services';
 import Pagination from 'components/Pagination/Pagination';
 import Container from 'Layout/Container';
 import { getPublicExhibitions } from 'api';
+import Slider from 'react-slick';
 
 function Gallery() {
   const [tab, setTab] = useState('galleries');
@@ -82,7 +83,7 @@ function Gallery() {
     ),
     artists: dataArtists?.artists.map(({ artist_name, id, image }) => (
       <GalleryCard
-        className="w-100% h-100% mb-12"
+        className="w-100% h-100% mb-12 sm:pt-20"
         imageClass="image"
         info={false}
         title={artist_name}
@@ -90,6 +91,33 @@ function Gallery() {
         views={4}
       />
     )),
+  };
+  const settings = {
+    dots: true,
+
+    slidesToShow: 1,
+    responsive: [
+      {
+        breakpoint: 959,
+        settings: {
+          arrows: false,
+          slidesToShow: 2,
+          rows: 2,
+
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 459,
+        settings: {
+          arrows: false,
+          slidesToShow: 2,
+          rows: 2,
+
+          dots: true,
+        },
+      },
+    ],
   };
 
   return (
@@ -118,7 +146,12 @@ function Gallery() {
           </div>
         </div>
         <div className="max-screen pt-30 pb-43 sm:px-23">
-          <div className="gridView-4">{steps[tab]}</div>
+          <div className="gridView-4 sm:hidden">{steps[tab]}</div>
+          <div className="hidden sm:block">
+            <div className="gridView-1 packages-slider-2 ">
+              <Slider {...settings}>{steps[tab]}</Slider>
+            </div>
+          </div>
           <Pagination
             pageDetails={data?.pagination}
             currentPage={currentPage}

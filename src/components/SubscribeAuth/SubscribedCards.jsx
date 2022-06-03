@@ -8,10 +8,12 @@ function SubscribedCards({ title }) {
 
   return (
     <div className="w-100%">
-      <p className="font-avenir-300 text-2xl text-secondary leading-38 tracking-wider uppercase">
+      <p className="font-avenir-300 text-2xl text-secondary leading-38 tracking-wider uppercase sm:leading-20 sm:tracking-tight sm:font-medium sm:text-base ">
         {title}
       </p>
-      <p className="admin-h2 pt-14">your payment details</p>
+      <p className="admin-h2 pt-14 sm:text-xl sm:font-normal sm:leading-20 sm:tracking-tight ">
+        your payment details
+      </p>
       <div className="admin-label  pt-19 ">pay for subcription via</div>
       <Elements
         stripe={stripePromise}

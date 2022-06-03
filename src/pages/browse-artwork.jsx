@@ -10,6 +10,8 @@ import { useEffect } from 'react';
 import Pagination from 'components/Pagination/Pagination';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
+import Slider from 'react-slick';
+import Button from 'components/atoms/buttons/Button';
 
 function BrowseArtwork() {
   const [currentPage, setCurrentPage] = useState(0);
@@ -35,6 +37,34 @@ function BrowseArtwork() {
     }
   }, [currentPage]);
 
+  const settings = {
+    dots: true,
+
+    slidesToShow: 1,
+    responsive: [
+      {
+        breakpoint: 959,
+        settings: {
+          arrows: false,
+          slidesToShow: 2,
+          rows: 4,
+
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 459,
+        settings: {
+          arrows: false,
+          slidesToShow: 2,
+          rows: 4,
+
+          dots: true,
+        },
+      },
+    ],
+  };
+
   return (
     <>
       <Header />
@@ -42,15 +72,26 @@ function BrowseArtwork() {
       <div className="flex">
         <SideBarWithLogin className="sm:hidden" />
         <div className="w-91% sm:w-100% bg-gray-dark">
-          <div className="flex justify-end pt-31 px-57">
+          <div className="flex justify-end pt-31 px-57 sm:hidden sm:bg-white">
             <div className="mr-25">
               <SelectOptions width="180" label="SHOW 50" />
             </div>
-            <SelectOptions label="sort: Most popular" />
+            <div>
+              <SelectOptions width="238" label="sort: Most popular" />
+            </div>
           </div>
+          <div className="hidden sm:flex justify-center mt-30 bg-gray-lighter text-center w-full h-26">
+            <div className="mt-13 mr-10 w-8 h-6">
+              <img src="images/icons/open-option.svg" alt="" />
+            </div>
+            <div className=" text-secondary text-tiny font-bold font-nunito-light leading-8 uppercase tracking">
+              filter & sort
+            </div>
+          </div>
+
           <div className="pt-30 pl-57 pb-43 pr-60">
             <div className="flex flex-wrap gap-36">
-              <div className="gridView">
+              <div className="gridView sm:hidden">
                 {dataArtworks?.artworks?.map(
                   ({
                     name,
@@ -73,12 +114,81 @@ function BrowseArtwork() {
                   )
                 )}
               </div>
+
+              <div className="hidden sm:w-full sm:block">
+                <div className="grid grid-cols-1 packages-slider-2 ">
+                  <Slider {...settings}>
+                    {dataArtworks?.artworks?.map(
+                      ({
+                        name,
+                        id,
+                        artist_name,
+                        featured_image,
+                        images_included,
+                        views,
+                      }) => (
+                        <Link to={`/single-photo?id=${id}`}>
+                          <GalleryCard
+                            imageClass="image"
+                            className="mb-12"
+                            incImages={images_included}
+                            imageUrl={
+                              featured_image ? featured_image : undefined
+                            }
+                            views={views}
+                            title={name}
+                            edit={false}
+                          />
+                        </Link>
+                      )
+                    )}
+
+                    {/* <div>
+                      {' '}
+                      <img src="/images/slider/image.png" alt="" />
+                    </div>
+                    <div>
+                      {' '}
+                      <img src="/images/slider/image.png" alt="" />
+                    </div>
+                    <div>
+                      {' '}
+                      <img src="/images/slider/image.png" alt="" />
+                    </div>
+                    <div>
+                      {' '}
+                      <img src="/images/slider/image.png" alt="" />
+                    </div>
+                    <div>
+                      {' '}
+                      <img src="/images/slider/image.png" alt="" />
+                    </div> */}
+                  </Slider>
+                </div>
+                <div className="bg-gray-lighter pb-60 sm:w-full">
+                  <div className="mt-48 font-avenir-reg font-normal text-secondary-dark tracking-wider leading-38 text-base text-center uppercase">
+                    If you are a photographer looking to exhibit we have the
+                    tools and support to help you reach more clients.
+                  </div>
+                  <div className="mt-27 font-nunito-light font-light leading-35 text-secondary-dark text-center text-lg">
+                    Using our suite of tools and mentorship program we can help
+                    you grow in terms of skills and reach. Click below to find
+                    out how much we offer and the different ways we can help
+                    you.
+                  </div>
+                  <div className="mt-34 text-center">
+                    <Button transform="uppercase" className="w-275 h-48 ">
+                      Discover More Today
+                    </Button>
+                  </div>
+                </div>
+              </div>
             </div>
             <Pagination
               pageDetails={dataArtworks?.pagination}
               currentPage={currentPage}
               setCurrentPage={setCurrentPage}
-              className="mt-25"
+              className="mt-25 sm:hidden"
             />
             {/* <div className="text-primary link mt-25 text-base">1</div> */}
           </div>

@@ -14,6 +14,7 @@ function GalleryCard({
   enterExibit = false,
   buttonText = 'Add Info',
   handleButton,
+  edit = true,
 }) {
   return (
     <div className={`relative ${classes}`} onClick={onClick}>
@@ -36,13 +37,15 @@ function GalleryCard({
                 Included
               </div>
               <div>
-                <Button
-                  type="edit"
-                  className=" sm:block w-100 h-33 mr-20 mt-_20 "
-                  transform="uppercase"
-                >
-                  Add Info
-                </Button>
+                {edit && (
+                  <Button
+                    type="edit"
+                    className=" sm:block w-100 h-33 mr-20 mt-_29 "
+                    transform="uppercase"
+                  >
+                    Add Info
+                  </Button>
+                )}
               </div>
             </div>
 

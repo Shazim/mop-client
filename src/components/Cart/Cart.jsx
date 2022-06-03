@@ -1,13 +1,7 @@
 import React from 'react';
 import { Item } from '../Cart';
 
-function Cart() {
-  const prices = [
-    { heading: 'subtotal', price: '£525.00' },
-    { heading: 'vet', price: '£20.00' },
-    { heading: 'total', price: '£525.00' },
-  ];
-
+function Cart({ prices }) {
   return (
     <div className="bg-gray-lighter h-fit w-312 pt-31 pb-27 pl-27 pr-33">
       {[...Array(3)].map(() => (

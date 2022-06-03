@@ -23,7 +23,7 @@ function GallaryDetail(props) {
     infinite: true,
     slidesToShow: 1,
     // slidesToScroll: 1,
-    initialSlide: 1,
+    //initialSlide: 1,
     centerMode: true,
     centerPadding: '0%',
     responsive: [
@@ -31,7 +31,7 @@ function GallaryDetail(props) {
         breakpoint: 959,
         settings: {
           arrows: false,
-          slidesToShow: 1.3,
+          slidesToShow: 1,
           centerMode: true,
           dots: true,
           centerPadding: '0%',
@@ -43,7 +43,7 @@ function GallaryDetail(props) {
         settings: {
           arrows: false,
           slidesToShow: 1,
-          centerMode: false,
+          centerMode: true,
           dots: true,
           centerPadding: '0%',
           transformEnabled: true,
@@ -77,7 +77,11 @@ function GallaryDetail(props) {
         <div className="hidden sm:block">
           <Slider {...settings}>
             {data?.exhibitions?.map(({ room_name, views, image }) => (
-              <VideoCard title={room_name} views={views} imageUrl={image} />
+              <VideoCard
+                title={room_name}
+                views={views}
+                imageUrl={image ? image : undefined}
+              />
             ))}
           </Slider>
         </div>
