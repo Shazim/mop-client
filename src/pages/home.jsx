@@ -10,6 +10,7 @@ import { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import GridLayout from 'components/atoms/cards/GridLayout';
 import { routes } from 'routes';
+import CreateGallary from './create-gallary';
 
 function Home() {
   const descriptiveIcons = [
@@ -76,12 +77,15 @@ function Home() {
               </span>
               within <span className="sm:font-bold">days of purchase.</span>
             </div>
+
             <Button
               transform="uppercase"
               className="w-275 h-48 ml-50 sm:hidden"
+              onClick={() => history.push(routes.ROUTE_CREATE_GALLERY)}
             >
               create a gallery
             </Button>
+
             <div className="hidden ml-50">
               <LinkLabel label=" View Featured Galleries" />
             </div>

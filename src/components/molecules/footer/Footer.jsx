@@ -6,6 +6,8 @@ import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { ReactComponent as Logo } from '../../../assets/images/logo.svg';
+import { useHistory } from 'react-router-dom';
+import { routes } from 'routes';
 
 function Footer() {
   const socialIcons = [
@@ -23,47 +25,106 @@ function Footer() {
     const y = new Date();
     setYear(y.getFullYear());
   };
-
+  const history = useHistory();
   return (
     <div>
       {/* Gray section of Footer */}
 
       <div className="bg-gray">
         <div className="max-screen pl-147 pr-100 sm:px-23 flex flex-row pt-75 pb-75 sm:flex-col sm:justify-center">
-          <div className="w-1/4 sm:w-100% sm:h-32 sm:flex sm:justify-center">
+          <div className="w-1/4 sm:w-100% sm:h-32 sm:flex sm:justify-center link">
             <img src="/images/Logo/logo.svg" alt="" />
           </div>
           <div className="w-3/4 flex justify-between sm:mb-63 flex-row sm:grid sm:pl-43 sm:grid-cols-2 sm:justify-center sm:items-center sm:flex sm:w-100%">
             <div className="w-auto pl-40 xl:pl-13 lg:pl-0 md:pl-0 md:w-auto sm:w-100% sm:pl-0 sm:mb-30 sm:h-50%">
-              <div className="text-primary font-bold sm:text-tiny text-sm tracking uppercase mb-40 sm:mb-14">
+              <div
+                className="text-primary font-bold sm:text-tiny text-sm tracking uppercase mb-40 sm:mb-14 link"
+                onClick={() => history.push(routes.ROUTE_CREATE_GALLERY)}
+              >
                 create a gallery
               </div>
-              <div className="footer-links">my gallery</div>
-              <div className="footer-links">my exhibitions</div>
-              <div className="footer-links">analytics</div>
+              <div
+                className="footer-links link"
+                onClick={() => history.push(routes.ROUTE_GALLERY_SETTING)}
+              >
+                my gallery
+              </div>
+              <div
+                className="footer-links link"
+                onClick={() => history.push(routes.ROUTE_EXHIBITIONS)}
+              >
+                my exhibitions
+              </div>
+              <div
+                className="footer-links link"
+                onClick={() => history.push(routes.ROUTE_STOCKS)}
+              >
+                analytics
+              </div>
             </div>
             <div className="w-auto pl-40 xl:pl-30 lg:pl-20 md:pl-15 md:w-auto sm:w-100% sm:mb-30 sm:pl-0 sm:h-50%">
-              <div className="text-primary font-bold text-sm sm:text-tiny tracking uppercase mb-40 sm:mb-14">
+              <div
+                className="text-primary font-bold text-sm sm:text-tiny tracking uppercase mb-40 sm:mb-14 link"
+                onClick={() => history.push(routes.ROUTE_BROWSE_ARTWORK)}
+              >
                 browser
               </div>
-              <div className="footer-links">view by exhibition</div>
-              <div className="footer-links">View by Artist</div>
-              <div className="footer-links">View by Galleries</div>
+              <div
+                className="footer-links link"
+                onClick={() => history.push(routes.ROUTE_GALLERY_DETAIL)}
+              >
+                view by exhibition
+              </div>
+              <div
+                className="footer-links link"
+                onClick={() => history.push(routes.ROUTE_GALLERY)}
+              >
+                View by Artist
+              </div>
+              <div
+                className="footer-links link"
+                onClick={() => history.push(routes.ROUTE_GALLERY)}
+              >
+                View by Galleries
+              </div>
             </div>
             <div className="w-auto pl-40 xl:pl-30 lg:pl-20 md:pl-15 md:w-auto sm:w-100% sm:pl-0 sm:h-50%">
-              <div className="text-primary font-bold text-sm sm:text-tiny tracking uppercase mb-40 sm:mb-14">
+              <div
+                className="text-primary font-bold text-sm sm:text-tiny tracking uppercase mb-40 sm:mb-14 link"
+                onClick={() => history.push(routes.ROUTE_STORE)}
+              >
                 Store
               </div>
-              <div className="footer-links">Stockroom</div>
-              <div className="footer-links">Orders</div>
-              <div className="footer-links">Checkout</div>
+              <div
+                className="footer-links link"
+                onClick={() => history.push(routes.ROUTE_STOCKS)}
+              >
+                Stockroom
+              </div>
+              <div
+                className="footer-links link"
+                onClick={() => history.push(routes.ROUTE_ORDERS)}
+              >
+                Orders
+              </div>
+              <div
+                className="footer-links link"
+                onClick={() => history.push(routes.ROUTE_CHECKOUT)}
+              >
+                Checkout
+              </div>
             </div>
             <div className="w-auto pl-40 xl:pl-30 lg:pl-20 md:pl-15 md:w-auto sm:w-100% sm:pl-0 sm:h-50%">
-              <div className="text-primary font-bold text-sm sm:text-tiny tracking uppercase mb-40 sm:mb-14">
+              <div className="text-primary font-bold text-sm sm:text-tiny tracking uppercase mb-40 sm:mb-14 link">
                 contact
               </div>
-              <div className="footer-links">Get in touch</div>
-              <div className="footer-links">About</div>
+              <div className="footer-links link">Get in touch</div>
+              <div
+                className="footer-links link"
+                onClick={() => history.push(routes.ROUTE_ABOUT)}
+              >
+                About
+              </div>
             </div>
           </div>
           <div className="hidden sm:pl-43 sm:pr-23 sm:flex w-100% sm:justify-between social-links sm:block">

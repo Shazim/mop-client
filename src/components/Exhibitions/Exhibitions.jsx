@@ -18,7 +18,7 @@ function Exhibitions() {
         </div>
       </div>
       <div className="max-screen pt-30 pb-43">
-        <div className="grid grid-cols-4 gap-36 justify-between">
+        <div className="grid grid-cols-4 gap-36 justify-between sm:grid grid-cols-1">
           {data?.galleries.map(({ gallery_name, views, id }) => (
             <Link to={`/gallery-detail?id=${id}`}>
               <GalleryCard title={gallery_name} views={views} />
