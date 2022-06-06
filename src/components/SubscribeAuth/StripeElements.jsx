@@ -69,7 +69,7 @@ function StripeElements() {
       <Form initialValues={{ email: '', password: '', confirm: '' }}>
         <>
           <div className="w-100% flex mb-23 sm:flex-col">
-            <div className="w-87 lg:w-100% md:w-100% sm:w-100% mr-18">
+            <div className="w-87 lg:w-100% md:w-100% sm:w-100% mr-18 sm:mb-11">
               <RadioButton name="card" value="Paypal" className="text-sm " />
             </div>
             <div className="w-100% lg:w-100% md:w-100% sm:w-100%">
@@ -93,7 +93,7 @@ function StripeElements() {
             </div>
             <div className="mr-22 w-30% sm:w-full">
               <div
-                className={`font-bold text-secondary text-sm leading-22 text-secondary uppercase tracking mb-11`}
+                className={`font-bold text-secondary text-sm leading-22 text-secondary uppercase tracking mb-11 sm:mt-11`}
               >
                 Expiry Date
               </div>
@@ -107,7 +107,7 @@ function StripeElements() {
             </div>
             <div className="w-20% sm:w-full">
               <div
-                className={`font-bold text-secondary text-sm leading-22 text-secondary uppercase tracking mb-11`}
+                className={`font-bold text-secondary text-sm leading-22 text-secondary uppercase tracking mb-11  sm:mt-11`}
               >
                 CVC
               </div>

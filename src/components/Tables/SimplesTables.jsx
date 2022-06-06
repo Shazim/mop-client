@@ -31,7 +31,7 @@ function SimplesTables() {
             <div className="w-1/5  mt-21  flex justify-start font-nunito-light text-base text-black leading-22 uppercase">
               +2%
             </div>
-            <div className="w-1/5  mt-21 pl-9 flex justify-start  font-nunito-light text-base text-black leading-22 uppercase">
+            <div className="w-1/5  mt-21 pl-13 flex justify-start  font-nunito-light text-base text-black leading-22 uppercase">
               2%
             </div>
             <div className="w-1/5  mt-21 pl-17 flex justify-start font-nunito-light text-base text-black leading-22 uppercase">

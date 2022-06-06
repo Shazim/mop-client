@@ -82,10 +82,10 @@ function ImagePicker({ name, label }) {
         >
           <span className="w-100% h-137 bg-white flex items-center justify-center">
             <div className="text-center">
-              <p className="font-bold tracking text-2xl text-gray uppercase mb-10">
+              <p className="font-bold tracking sm:tracking-normal text-2xl sm:text-sm text-gray uppercase mb-10 sm:mb-0">
                 upload your image
               </p>
-              <p className="font-bold tracking text-base m-auto text-gray uppercase mb-10">
+              <p className="font-bold tracking text-base m-auto text-gray uppercase mb-10 sm:tracking-normal sm:text-sm sm:mb-0">
                 Drop your file on here or click to browse.
               </p>
               <p className="font-bold tracking text-sm text-gray uppercase">

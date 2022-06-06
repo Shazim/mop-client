@@ -18,10 +18,13 @@ export default function Exhibition({ addItem, steps, step, previous }) {
   return (
     <div className="w-100% pb-172">
       <div className="px-43 pt-32">
-        <div className="w-57% m-auto">
+        <div className="w-57% m-auto ">
           <StepBar steps={steps} step={step} />
         </div>
-        <div className="w-65% mx-auto mt-87 items-center">
+        <div className="hidden sm:block font-reg font-bold mb-50 uppercase tracking text-sm  text-secondary  text-center">
+          Exhibition
+        </div>
+        <div className="w-65% mx-auto mt-87 items-center sm:mt-24">
           <div className="flex items-center justify-between mb-18">
             <p className="font-bold tracking leading-32 text-sm text-secondary uppercase">
               Would you like to EXHIBIT this item?
@@ -32,15 +35,18 @@ export default function Exhibition({ addItem, steps, step, previous }) {
             />
           </div>
           <div className="border-border border-t-2 my-25"></div>
-          <div className="w-100% justify-between flex">
+          <div className="w-100% justify-between flex sm:flex-col">
             <Button
               onClick={() => previous(2)}
-              className={`h-33 w-153 mt-28`}
+              className={`h-33 w-153 sm:w-275 sm:bg-secondary mt-28`}
               color="primary"
             >
               PREVIOUS
             </Button>
-            <SubmitButton className={`h-33 w-153 mt-28`} color="primary">
+            <SubmitButton
+              className={`h-33 w-153 sm:w-275 mt-28`}
+              color="primary"
+            >
               FINISH
             </SubmitButton>
           </div>

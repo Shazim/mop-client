@@ -56,13 +56,13 @@ function MenuTable() {
         <div className="w-134 sm:pl-30 sm:w-1/10 sm:ml-0 ml-150 mt-8 font-nunito-normal text-left font-light text-base leading-22 text-black">
           Lustre
         </div>
-        <div className="w-134 sm:w-1/10 sm:text-center sm:ml-0 ml-28 h-22 font-nunito-normal font-light text-base leading-22 text-black">
+        <div className="w-134 sm:w-1/10 sm:text-center sm:ml-0 ml-28 h-22 font-nunito-normal font-light text-base leading-22 text-black sm:pr-50">
           $0.67
         </div>
-        <div className=" w-124 h-27 sm:w-1/4 sm:text-center bg-white sm:bg-offwhite sm:pl-0 pl-12 font-nunito-normal font-light text-base leading-22 text-black text-left">
+        <div className=" w-124 h-27 sm:w-1/4 sm:text-center bg-white sm:bg-offwhite sm:pl-0 pl-12 font-nunito-normal font-light text-base leading-22 text-black text-left sm:pr-50">
           +320%
         </div>
-        <div className=" w-134 ml-48 sm:w-1/10 sm:mr-0 sm:text-center sm:ml-0 font-nunito-normal font-light text-base leading-22 text-black mr-50">
+        <div className=" w-134 ml-48 sm:w-1/10 sm:mr-0 sm:text-center sm:ml-0 font-nunito-normal font-light text-base leading-22 text-black mr-50 sm:pr-50">
           $3.00
         </div>
       </div>
@@ -77,13 +77,13 @@ function MenuTable() {
         <div className="w-134 sm:pl-30 sm:w-1/10 sm:ml-0 ml-150 mt-8 font-nunito-normal text-left font-light text-base leading-22 text-black">
           Lustre
         </div>
-        <div className="w-134 sm:w-1/10 sm:text-center sm:ml-0 ml-28 h-22 font-nunito-normal font-light text-base leading-22 text-black">
+        <div className="w-134 sm:w-1/10 sm:text-center sm:ml-0 ml-28 h-22 font-nunito-normal font-light text-base leading-22 text-black sm:pr-40">
           $0.67
         </div>
-        <div className=" w-124 h-27 sm:w-1/4 sm:text-center bg-white sm:bg-offwhite sm:pl-0 pl-12 font-nunito-normal font-light text-base leading-22 text-black text-left">
+        <div className=" w-124 h-27 sm:w-1/4 sm:text-center bg-white sm:bg-offwhite sm:pl-0 pl-12 font-nunito-normal font-light text-base leading-22 text-black text-left sm:pr-50">
           +320%
         </div>
-        <div className=" w-134 ml-48 sm:w-1/10 sm:mr-0 sm:text-center sm:ml-0 font-nunito-normal font-light text-base leading-22 text-black mr-50">
+        <div className=" w-134 ml-48 sm:w-1/10 sm:mr-0 sm:text-center sm:ml-0 font-nunito-normal font-light text-base leading-22 text-black mr-50 sm:pr-50">
           $3.00
         </div>
       </div>

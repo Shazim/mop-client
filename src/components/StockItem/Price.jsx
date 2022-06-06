@@ -15,8 +15,11 @@ export default function Price({ addItem, steps, step, next, previous }) {
   return (
     <div className="w-100% pb-172">
       <div className="px-43 pt-32">
-        <div className="w-57% m-auto">
+        <div className="w-57% m-auto ">
           <StepBar steps={steps} step={step} />
+        </div>
+        <div className="hidden sm:block font-reg font-bold mb-50 uppercase tracking text-sm  text-secondary  text-center">
+          Price
         </div>
         <div className="w-65% mx-auto mt-87 items-center">
           <div className="flex items-center justify-between mb-18">
@@ -45,15 +48,16 @@ export default function Price({ addItem, steps, step, next, previous }) {
             </p>
           </div>
 
-          <div className="flex items-center">
+          <div className="flex items-center sm:flex-col sm:gap-20">
             <ToggleButton
               bg={sell_via == 'with_us' ? 'bg-gray' : 'bg-white'}
               onClick={() => setFieldValue('sell_via', 'with_us')}
             >
-              SELL WITH US
+              <span>SELL WITH</span>{' '}
+              <span className=" block sm:hidden">US</span>
             </ToggleButton>
             <ToggleButton
-              className="ml-32 w-211 h-32"
+              className="ml-32 w-211 h-32 sm:ml-0"
               bg={sell_via == 'self_fulfil' ? 'bg-gray' : 'bg-white'}
               onClick={() => setFieldValue('sell_via', 'self_fulfil')}
             >
@@ -62,17 +66,17 @@ export default function Price({ addItem, steps, step, next, previous }) {
           </div>
           <div className="border-border border-t-2 my-25"></div>
 
-          <div className="w-100% justify-between flex">
+          <div className="w-100% justify-between flex sm:flex-col items-center">
             <Button
               onClick={() => previous(1)}
-              className={`h-33 w-153 mt-28`}
+              className={`h-33 w-153 sm:w-275 sm:bg-secondary mt-28`}
               color="primary"
             >
               PREVIOUS
             </Button>
             <Button
               onClick={() => next(3)}
-              className={`h-33 w-153 mt-28`}
+              className={`h-33 w-153 sm:w-275  mt-28`}
               color="primary"
             >
               NEXT

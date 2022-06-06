@@ -27,7 +27,10 @@ export default function Detail({ addItem, steps, step, next }) {
         <div className="w-57% m-auto">
           <StepBar steps={steps} step={step} />
         </div>
-        <div className="w-65% mx-auto mt-87 items-center">
+        <div className="hidden sm:block font-reg font-bold mb-50 uppercase tracking text-sm  text-secondary  text-center">
+          Items Details
+        </div>
+        <div className="w-65% mx-auto mt-87 items-center sm:mt-24">
           <TextField
             classes="w-100%"
             label="artwork name"
