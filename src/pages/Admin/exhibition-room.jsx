@@ -78,12 +78,12 @@ function ExhibitionRoom() {
           >
             {({ handleSubmit, values }) => (
               <>
-                <div className="bg-white w-60% h-fit px-30 pt-36 pb-28 mt-41 shadow-sm">
+                <div className="bg-white w-60%   h-fit px-30 pt-36 pb-28 mt-41 shadow-sm">
                   {steps[step]}
                   {lengthOfSteps != step && (
-                    <div className="hr-form-t flex justify-end pt-28 mt-39">
+                    <div className="hr-form-t flex justify-end pt-28 mt-39 sm:flex-col items-center">
                       <Button
-                        className="w-153 h-33"
+                        className="w-153 h-33 sm:w-251"
                         onClick={() =>
                           values.room_name == '' && step == 1
                             ? handleSubmit()
@@ -99,16 +99,46 @@ function ExhibitionRoom() {
                       >
                         NEXT
                       </Button>
+                      <div className="mt-36 hidden flex justify-center sm:flex flex-col">
+                        {step > 1 && step < 6 && (
+                          <Button
+                            // onClick={handleSubmit}
+                            onClick={() => setStep((prev) => prev - 1)}
+                            color="gray"
+                            className="ml-22 w-153 sm:w-251 sm:ml-0 h-33"
+                          >
+                            BACK
+                          </Button>
+                        )}
+                        {step == 5 && (
+                          <Button
+                            color="gray"
+                            className=" sm:mt-16 ml-22 w-203 h-33"
+                          >
+                            SAVE AS DRAFT
+                          </Button>
+                        )}
+                        {lengthOfSteps == step && (
+                          <Button
+                            className="ml-22 w-153 h-33"
+                            onClick={() =>
+                              history.push(routes.ROUTE_EXHIBITIONS)
+                            }
+                          >
+                            FINISH
+                          </Button>
+                        )}
+                      </div>
                     </div>
                   )}
                 </div>
-                <div className="mt-36 flex justify-center">
+                <div className="mt-36  flex justify-center sm:hidden">
                   {step > 1 && step < 6 && (
                     <Button
                       // onClick={handleSubmit}
                       onClick={() => setStep((prev) => prev - 1)}
                       color="gray"
-                      className="ml-22 w-153 h-33"
+                      className="ml-22 w-153 sm:w-251 sm:ml-0 h-33"
                     >
                       BACK
                     </Button>

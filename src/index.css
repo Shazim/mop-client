@@ -12,6 +12,9 @@
 .card-link {
   @apply text-primary font-nunito-bold tracking uppercase text-sm underline;
 }
+.card-link-2 {
+  @apply text-primary font-nunito-light tracking  text-base underline;
+}
 
 .hr-form-t {
   @apply border-t border-gray-lighter border-solid;

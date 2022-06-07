@@ -16,16 +16,16 @@ function Launch() {
           Your exhibition is now{' '}
           <span className="text-secondary font-bold">live.</span> Get sharing!
         </div>
-        <div className="flex w-100% ">
+        <div className="flex w-100% sm:flex-col">
           <input
-            className="bg-gray-lighter h-33 w-100% outline-none text-center"
+            className="bg-gray-lighter h-33 sm:h-78 w-100% outline-none text-center"
             placeholder="exhibit.vip/gal/123456"
             value={key}
             readOnly={true}
           />
           <button
             onClick={() => navigator.clipboard.writeText(key)}
-            className="w-116 h-33 bg-gray admin-label shadow uppercase"
+            className="w-116 h-33 sm:w-full bg-gray admin-label shadow uppercase"
           >
             Copy
           </button>

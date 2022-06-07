@@ -20,8 +20,8 @@ function FeatureCard({ name, image, id }) {
   };
 
   return (
-    <div className="card-featured w-292 relative">
-      <div className="bg-gray-darker relative rounded-sm w-292 h-183">
+    <div className="card-featured w-292 relative ">
+      <div className="bg-gray-darker relative rounded-sm w-292 h-183 ">
         <img src={image} alt="" className="absolute w-100% h-100% rounded-sm" />
         <div className="flex top-11 left-13 absolute">
           <CheckBox

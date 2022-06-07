@@ -30,7 +30,7 @@ export default function Detail({ addItem, steps, step, next }) {
         <div className="hidden sm:block font-reg font-bold mb-50 uppercase tracking text-sm  text-secondary  text-center">
           Items Details
         </div>
-        <div className="w-65% mx-auto mt-87 items-center sm:mt-24">
+        <div className="w-65% mx-auto mt-87 items-center sm:mt-24 sm:w-80%">
           <TextField
             classes="w-100%"
             label="artwork name"
@@ -50,7 +50,7 @@ export default function Detail({ addItem, steps, step, next }) {
             error={errors['artwork_images_attributes']}
             visible={touched['artwork_images_attributes']}
           />
-          <div className="w-100% justify-end flex">
+          <div className="w-100% justify-end flex sm:flex-col items-center">
             <Button
               onClick={() => {
                 if (errorLength == 0 && name != '') {
@@ -59,7 +59,7 @@ export default function Detail({ addItem, steps, step, next }) {
                   handleSubmit();
                 }
               }}
-              className={`h-33 w-153 mt-34`}
+              className={`h-33 w-153 sm:w-275 sm:h-44 mt-34`}
               color="primary"
             >
               NEXT

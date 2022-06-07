@@ -51,7 +51,7 @@ export default function Categories({
         <div className="hidden sm:block font-reg font-bold mb-50 uppercase tracking text-sm  text-secondary  text-center">
           Catagories
         </div>
-        <div className="w-65% mx-auto mt-87 items-center sm:mt-24">
+        <div className="w-65% mx-auto mt-87 items-center sm:mt-24 sm:w-80%">
           <div className="font-bold tracking leading-32 text-sm text-secondary uppercase mb-20">
             Which styles/subjects apply to this item?
           </div>
@@ -139,14 +139,14 @@ export default function Categories({
           <div className="w-100% justify-between flex sm:flex-col sm:items-center">
             <Button
               onClick={() => previous(0)}
-              className={`h-33 w-153 mt-28 sm:w-275 sm:bg-secondary`}
+              className={`h-33 w-153 sm:h-44 mt-28 sm:w-275 sm:bg-gray sm:text-secondary`}
               color="primary"
             >
               PREVIOUS
             </Button>
             <Button
               onClick={() => next(2)}
-              className={`h-33 w-153 sm:w-275  mt-28`}
+              className={`h-33 w-153 sm:h-44 sm:w-275  mt-28`}
               color="primary"
             >
               NEXT
