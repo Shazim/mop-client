@@ -10,4 +10,8 @@ export {
   subscription,
 } from './api-services';
 
-export { getPublicExhibitions, getPackages } from './public-api-services';
+export {
+  getPublicExhibitions,
+  getPackages,
+  galleryMock,
+} from './public-api-services';

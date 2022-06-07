@@ -14,6 +14,7 @@ export const END_POINTS = {
   EXHIBITION_STYLES: '/exhibition_styles',
   PACKAGES: '/packages',
   SUBSCRIPTION: '/subscriptions',
+  GALLERYMOCK: '/exhibitions/by_key',
 };
 
 export const LINKS = {
