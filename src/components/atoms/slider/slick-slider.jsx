@@ -5,6 +5,7 @@ import Arrow from './Arrow/Arrow';
 import { useFetch, usePost } from 'hooks';
 import { galleryMock } from 'api';
 import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 const SlickSlider = () => {
   // const images = [
@@ -12,6 +13,7 @@ const SlickSlider = () => {
   //   { image: '/images/gallery-mockup/scene2-dark.png' },
   // ];
 
+  const params = useParams();
   const settings = {
     dots: false,
     // infinite: true,
@@ -41,7 +43,9 @@ const SlickSlider = () => {
   const width = window.innerWidth;
   const height = window.innerHeight;
 
-  const { data, error } = useFetch(galleryMock, { variables: `?key=6lrruk95` });
+  const { data, error } = useFetch(galleryMock, {
+    variables: `?key=${params.id}`,
+  });
   const { exhibition_detail, artwork_images } = data || {};
   const [images, setImages] = useState([]);
 
@@ -50,7 +54,6 @@ const SlickSlider = () => {
       let copyImages = [...images];
       copyImages.length == 0 &&
         artwork_images.map(({ images }) => {
-          console.log('kju', [...copyImages, ...images]);
           copyImages = [...copyImages, ...images];
         });
       setImages(copyImages);
