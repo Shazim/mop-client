@@ -78,7 +78,7 @@ function ExhibitionRoom() {
           >
             {({ handleSubmit, values }) => (
               <>
-                <div className="bg-white w-60%   h-fit px-30 pt-36 pb-28 mt-41 shadow-sm">
+                <div className="bg-white w-60% h-fit px-30 pt-36 pb-28 mt-41 shadow-sm">
                   {steps[step]}
                   {lengthOfSteps != step && (
                     <div className="hr-form-t flex justify-end pt-28 mt-39 sm:flex-col items-center">

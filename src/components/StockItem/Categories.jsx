@@ -127,7 +127,7 @@ export default function Categories({
               OPEN EDITION
             </ToggleButton>
             <Counter
-              width="w-263 ml-32 sm:ml-0"
+              width="w-263 h-32 bg-white mt-10 ml-32 sm:ml-0"
               active={edition_type == 'limited'}
               onClick={(count) => {
                 setFieldValue('edition_type', 'limited');

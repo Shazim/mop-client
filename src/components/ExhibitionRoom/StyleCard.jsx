@@ -8,9 +8,9 @@ function StyleCard({
   onClick,
 }) {
   return (
-    <div className="flex" onClick={onClick}>
+    <div className="flex sm:flex-col" onClick={onClick}>
       <img src={image} alt="" className="w-292 h-183 rounded-l-sm" />
-      <div className="bg-gray w-318 pt-30 pl-30 pr-21 rounded-r-sm">
+      <div className="bg-gray sm:w-292 w-318 pt-30 pl-30 pr-21 rounded-r-sm">
         <div className="flex mb-11">
           <div
             className={`text-${

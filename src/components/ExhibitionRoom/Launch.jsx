@@ -1,5 +1,8 @@
 import React from 'react';
 import { useFormikContext } from 'formik';
+import Button from 'components/atoms/buttons/Button';
+import { useHistory } from 'react-router-dom';
+import { routes } from 'routes';
 
 function Launch() {
   const {
@@ -7,6 +10,7 @@ function Launch() {
     errors,
     touched,
   } = useFormikContext() || {};
+  const history = useHistory();
 
   return (
     <div>
@@ -29,6 +33,22 @@ function Launch() {
           >
             Copy
           </button>
+        </div>
+        <div className="hidden sm:flex mt-24  flex-col ">
+          <Button
+            className=" w-153 h-33 sm:w-251"
+            onClick={() => history.push(routes.ROUTE_EXHIBITIONS)}
+          >
+            FINISH
+          </Button>
+          <Button
+            // onClick={handleSubmit}
+            // onClick={() => setStep((prev) => prev - 1)}
+            color="gray"
+            className="ml-22 w-153 sm:w-251 sm:ml-0 mt-20 h-33"
+          >
+            BACK
+          </Button>
         </div>
       </div>
     </div>
