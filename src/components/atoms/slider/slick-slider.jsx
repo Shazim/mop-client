@@ -96,7 +96,7 @@ const SlickSlider = () => {
                 <div className="text-20 text-gray-lighter font-nunito-bold tracking uppercase">
                   {exhibition_detail?.gallery_name}
                 </div>
-                <div className="flex mt-299">
+                <div className="flex mt-199">
                   <img src="/images/arrows/arrow-mockup.svg" alt="" />
                   <div className="ml-22 text-20 text-gray-lighter font-nunito-bold tracking uppercase">
                     Enter Gallery
