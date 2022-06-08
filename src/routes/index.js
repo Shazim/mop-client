@@ -63,7 +63,7 @@ export const routes = Object.freeze({
   ROUTE_ORDERS: '/orders',
   ROUTE_PRICING_SHEET: '/pricing-sheet',
   ROUTE_TAX_RATES: '/tax-rates',
-  ROUTE_SLICK_SLIDER: '/slick-slider/:id',
+  ROUTE_SLICK_SLIDER: '/exhibition-demo/:id',
 });
 // List of route object which will be rendered under Router component
 export default Object.freeze([
