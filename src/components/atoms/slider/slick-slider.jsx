@@ -70,7 +70,7 @@ const SlickSlider = () => {
   const totalScene2Length = Math.floor(divide) + mod;
   const totalScene3Length = totalScene2Length - (mod > 3 ? 0 : 1);
 
-  const backgroundImage = `/images/gallery-mockup/scene1-${exhibition_detail?.style?.toLowerCase()}.png`;
+  const backgroundImage = `${exhibition_detail?.style?.toLowerCase()}.png`;
   let a = 0;
   let b = 0;
   return (
@@ -82,8 +82,8 @@ const SlickSlider = () => {
           <Slider {...settings}>
             <div className="relative">
               <img
-                className='className="w-100% h-100vh  sm:w-100% sm:h-100%'
-                src={backgroundImage}
+                className="w-100% h-100vh  sm:w-100% sm:h-100%"
+                src={`/images/gallery-mockup/scene1-${backgroundImage}`}
               />
               <div className="absolute left-20% top-40%">
                 <div className="mb-16 text-heading text-white font-avenir-300 tracking-wider lg:text-22 xl:text-2xl md:text-22 sm:text-20 tab:text-base uppercase">
@@ -116,8 +116,8 @@ const SlickSlider = () => {
                     {index % 2 != 0 ? (
                       <div className="relative">
                         <img
-                          className='className="w-100% h-100vh  sm:w-100% sm:h-100%'
-                          src={backgroundImage}
+                          className="w-100% h-100vh  sm:w-100% sm:h-100%"
+                          src={`/images/gallery-mockup/scene2-${backgroundImage}`}
                         />
                         <div className="absolute top-50% transform-y flex w-100% justify-evenly">
                           <div className="h-222 relative  sm:h-100 ">
@@ -161,8 +161,8 @@ const SlickSlider = () => {
                     ) : (
                       <div className="relative">
                         <img
-                          className='className="w-100% h-100vh '
-                          src={backgroundImage}
+                          className="w-100% h-100vh "
+                          src={`/images/gallery-mockup/scene3-${backgroundImage}`}
                           alt=""
                         />
                         <div className="absolute top-51%  transform-y flex w-100% justify-evenly">
