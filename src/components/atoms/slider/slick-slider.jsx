@@ -85,12 +85,12 @@ const SlickSlider = () => {
     <>
       {width < 700 ? (
         <></>
-      ) : width > height ? (
+      ) : width >= height ? (
         <div className="w-100% h-100vh slider-dots">
           <Slider ref={(c) => (slider.current = c)} {...settings}>
             <div className="relative">
               <img
-                className="w-100% h-100vh  sm:w-100% sm:h-100%"
+                className="w-100% h-100vh "
                 src={`/images/gallery-mockup/scene1-${backgroundImage}`}
               />
               <div className="absolute left-20% top-40%">
@@ -110,7 +110,7 @@ const SlickSlider = () => {
                     alt=""
                     onClick={next}
                   />
-                  <div className="ml-22 text-20 text-gray-lighter font-nunito-bold tracking uppercase">
+                  <div className="ml-22 sm:text-xl text-20 text-gray-lighter font-nunito-bold tracking uppercase">
                     Enter Gallery
                   </div>
                 </div>
@@ -128,20 +128,20 @@ const SlickSlider = () => {
                     {index % 2 != 0 ? (
                       <div className="relative">
                         <img
-                          className="w-100% h-100vh  sm:w-100% sm:h-100%"
+                          className="w-100% h-100vh  "
                           src={`/images/gallery-mockup/scene2-${backgroundImage}`}
                         />
                         <div className="absolute top-50% transform-y flex w-100% justify-evenly">
-                          <div className="h-222 relative  sm:h-100 ">
+                          <div className="h-222 relative  ">
                             <img
                               src="/images/gallery-mockup/portrait-frame.png"
-                              className="h-100% w-165 sm:w-93"
+                              className="h-100% w-165 "
                               alt=""
                             />
                             <img
                               src={images[imageIndexScene2 - 3]?.image}
                               alt=""
-                              className="absolute object-cover top-19 h-183 left-19 w-127 sm:w-73 sm:left-10 sm:top-8 sm:h-84 "
+                              className="absolute object-cover top-19 h-183 left-19 w-127 "
                             />
                           </div>
                           <div className="h-222 relative ">
