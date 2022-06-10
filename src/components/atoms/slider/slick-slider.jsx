@@ -21,7 +21,7 @@ const SlickSlider = () => {
     dots: false,
 
     slidesToShow: 1,
-
+    infinite: false,
     slidesToScroll: 1,
     nextArrow: <Arrow dir="right" type="next" />,
     prevArrow: <Arrow dir="left" type="prev" />,
@@ -36,7 +36,7 @@ const SlickSlider = () => {
           arrows: false,
           slidesToShow: 1,
           centerMode: true,
-          dots: true,
+          dots: false,
           centerPadding: '0%',
           //transformEnabled: true,
           // vertical: true,
@@ -84,7 +84,11 @@ const SlickSlider = () => {
   return (
     <>
       {width < 700 ? (
-        <></>
+        <>
+          <div className="absolute font-bold uppercase  text-secondary font-avenir-reg text-heading left-30% top-30% ">
+            there is no slider
+          </div>
+        </>
       ) : width >= height ? (
         <div className="w-100% h-100vh slider-dots">
           <Slider ref={(c) => (slider.current = c)} {...settings}>
@@ -93,25 +97,27 @@ const SlickSlider = () => {
                 className="w-100% h-100vh "
                 src={`/images/gallery-mockup/scene1-${backgroundImage}`}
               />
-              <div className="absolute left-20% top-40%">
-                <div className="mb-16 text-heading text-white font-avenir-300 tracking-wider lg:text-22 xl:text-2xl md:text-22 sm:text-20 tab:text-base uppercase">
-                  {exhibition_detail?.room_name}
-                  <span className="text-primary">.</span>
-                </div>
-                <div className="mb-6 text-20 text-gray-lighter font-nunito-bold tracking uppercase">
-                  {exhibition_detail?.artist_name}
-                </div>
-                <div className="text-20 text-gray-lighter font-nunito-bold tracking uppercase">
-                  {exhibition_detail?.gallery_name}
-                </div>
-                <div className="flex mt-199">
-                  <img
-                    src="/images/arrows/arrow-mockup.svg"
-                    alt=""
-                    onClick={next}
-                  />
-                  <div className="ml-22 sm:text-xl text-20 text-gray-lighter font-nunito-bold tracking uppercase">
-                    Enter Gallery
+              <div className="w-100% h-100% absolute left-0 top-0 flex flex-col items-center justify-center">
+                <div className="w-65%">
+                  <div className="mb-16 text-heading text-white  font-avenir-300 tracking-wider lg:text-22 xl:text-2xl md:text-22 sm:text-20 tab:text-base uppercase">
+                    {exhibition_detail?.room_name}
+                    <span className="text-primary">.</span>
+                  </div>
+                  <div className="mb-6 text-20 text-gray-lighter font-nunito-bold tracking uppercase">
+                    {exhibition_detail?.artist_name}
+                  </div>
+                  <div className="text-20 text-gray-lighter font-nunito-bold tracking uppercase ">
+                    {exhibition_detail?.gallery_name}
+                  </div>
+                  <div className="flex mt-25%">
+                    <img
+                      src="/images/arrows/arrow-mockup.svg"
+                      alt=""
+                      onClick={next}
+                    />
+                    <div className="ml-22 sm:text-xl text-20 text-gray-lighter font-nunito-bold tracking uppercase">
+                      Enter Gallery
+                    </div>
                   </div>
                 </div>
               </div>
