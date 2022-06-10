@@ -83,143 +83,141 @@ const SlickSlider = () => {
 
   return (
     <>
-      {width < 700 ? (
+      {width <= 700 && width <= height ? (
+        <div className="w-100% h-100vh font-bold uppercase  text-secondary font-avenir-reg text-heading flex items-center justify-center">
+          Not Available in potrait mode
+        </div>
+      ) : (
         <>
-          <div className="absolute font-bold uppercase  text-secondary font-avenir-reg text-heading left-30% top-30% ">
-            there is no slider
-          </div>
-        </>
-      ) : width >= height ? (
-        <div className="w-100% h-100vh slider-dots">
-          <Slider ref={(c) => (slider.current = c)} {...settings}>
-            <div className="relative">
-              <img
-                className="w-100% h-100vh "
-                src={`/images/gallery-mockup/scene1-${backgroundImage}`}
-              />
-              <div className="w-100% h-100% absolute left-0 top-0 flex flex-col items-center justify-center">
-                <div className="w-65%">
-                  <div className="mb-16 text-heading text-white  font-avenir-300 tracking-wider lg:text-22 xl:text-2xl md:text-22 sm:text-20 tab:text-base uppercase">
-                    {exhibition_detail?.room_name}
-                    <span className="text-primary">.</span>
-                  </div>
-                  <div className="mb-6 text-20 text-gray-lighter font-nunito-bold tracking uppercase">
-                    {exhibition_detail?.artist_name}
-                  </div>
-                  <div className="text-20 text-gray-lighter font-nunito-bold tracking uppercase ">
-                    {exhibition_detail?.gallery_name}
-                  </div>
-                  <div className="flex mt-25%">
-                    <img
-                      src="/images/arrows/arrow-mockup.svg"
-                      alt=""
-                      onClick={next}
-                    />
-                    <div className="ml-22 sm:text-xl text-20 text-gray-lighter font-nunito-bold tracking uppercase">
-                      Enter Gallery
+          <div className="w-100% h-100vh slider-dots">
+            <Slider ref={(c) => (slider.current = c)} {...settings}>
+              <div className="relative">
+                <img
+                  className="w-100% h-100vh "
+                  src={`/images/gallery-mockup/scene1-${backgroundImage}`}
+                />
+                <div className="w-100% h-100% absolute left-0 top-0 flex flex-col items-center justify-center">
+                  <div className="w-65%">
+                    <div className="mb-16 text-heading text-white  font-avenir-300 tracking-wider lg:text-22 xl:text-2xl md:text-22 sm:text-20 tab:text-base uppercase">
+                      {exhibition_detail?.room_name}
+                      <span className="text-primary">.</span>
+                    </div>
+                    <div className="mb-6 text-20 text-gray-lighter font-nunito-bold tracking uppercase">
+                      {exhibition_detail?.artist_name}
+                    </div>
+                    <div className="text-20 text-gray-lighter font-nunito-bold tracking uppercase ">
+                      {exhibition_detail?.gallery_name}
+                    </div>
+                    <div className="flex mt-25%">
+                      <img
+                        src="/images/arrows/arrow-mockup.svg"
+                        alt=""
+                        onClick={next}
+                      />
+                      <div className="ml-22 sm:text-xl text-20 text-gray-lighter font-nunito-bold tracking uppercase">
+                        Enter Gallery
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            {Array.from(Array(totalScene2Length + 1 + totalScene3Length).keys())
-              .slice(1)
-              .map((index) => {
-                if (index % 2 != 0) {
-                  a = a + 1;
-                }
-                const imageIndexScene2 = 3 * a + 2 * (a - 1);
-                return (
-                  <>
-                    {index % 2 != 0 ? (
-                      <div className="relative">
-                        <img
-                          className="w-100% h-100vh  "
-                          src={`/images/gallery-mockup/scene2-${backgroundImage}`}
-                        />
-                        <div className="absolute top-50% transform-y flex w-100% justify-evenly">
-                          <div className="h-222 relative  ">
-                            <img
-                              src="/images/gallery-mockup/portrait-frame.png"
-                              className="h-100% w-165 "
-                              alt=""
-                            />
-                            <img
-                              src={images[imageIndexScene2 - 3]?.image}
-                              alt=""
-                              className="absolute object-cover top-19 h-183 left-19 w-127 "
-                            />
-                          </div>
-                          <div className="h-222 relative ">
-                            <img
-                              src="/images/gallery-mockup/landscape-frame.png"
-                              className="h-100% w-298 "
-                              alt=""
-                            />
-                            <img
-                              src={images[imageIndexScene2 - 2]?.image}
-                              alt=""
-                              className="absolute top-27 h-169 left-27 w-245 object-cover"
-                            />
-                          </div>
-                          <div className="h-222 relative ">
-                            <img
-                              src="/images/gallery-mockup/portrait-frame.png"
-                              className="h-100% w-165 "
-                              alt=""
-                            />
-                            <img
-                              src={images[imageIndexScene2 - 1]?.image}
-                              alt=""
-                              className="absolute top-19 h-183 left-19 w-127 object-cover "
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    ) : (
-                      <div className="relative">
-                        <img
-                          className="w-100% h-100vh "
-                          src={`/images/gallery-mockup/scene3-${backgroundImage}`}
-                          alt=""
-                        />
-                        <div className="absolute top-51%  transform-y flex w-100% justify-evenly">
-                          <div className="h-222 relative mr-20 ml-30  ">
-                            <img
-                              src="/images/gallery-mockup/portrait-frame.png"
-                              className="h-100% w-165 "
-                              alt=""
-                            />
-                            <img
-                              src={images[imageIndexScene2]?.image}
-                              alt=""
-                              className="absolute object-cover top-19 h-183 left-19 w-127  "
-                            />
-                          </div>
-                          <div className="h-222 relative mr-30  ">
-                            <img
-                              src="/images/gallery-mockup/portrait-frame.png"
-                              className="h-100% w-165 "
-                              alt=""
-                            />
-                            <img
-                              src={images[imageIndexScene2 + 1]?.image}
-                              alt=""
-                              className="absolute top-19 h-183 left-19 w-127 object-cover"
-                            />
+              {Array.from(
+                Array(totalScene2Length + 1 + totalScene3Length).keys()
+              )
+                .slice(1)
+                .map((index) => {
+                  if (index % 2 != 0) {
+                    a = a + 1;
+                  }
+                  const imageIndexScene2 = 3 * a + 2 * (a - 1);
+                  return (
+                    <>
+                      {index % 2 != 0 ? (
+                        <div className="relative">
+                          <img
+                            className="w-100% h-100vh  "
+                            src={`/images/gallery-mockup/scene2-${backgroundImage}`}
+                          />
+                          <div className="absolute top-50% transform-y flex w-100% justify-evenly">
+                            <div className="h-222 relative  ">
+                              <img
+                                src="/images/gallery-mockup/portrait-frame.png"
+                                className="h-100% w-165 "
+                                alt=""
+                              />
+                              <img
+                                src={images[imageIndexScene2 - 3]?.image}
+                                alt=""
+                                className="absolute object-cover top-19 h-183 left-19 w-127 "
+                              />
+                            </div>
+                            <div className="h-222 relative ">
+                              <img
+                                src="/images/gallery-mockup/landscape-frame.png"
+                                className="h-100% w-298 "
+                                alt=""
+                              />
+                              <img
+                                src={images[imageIndexScene2 - 2]?.image}
+                                alt=""
+                                className="absolute top-27 h-169 left-27 w-245 object-cover"
+                              />
+                            </div>
+                            <div className="h-222 relative ">
+                              <img
+                                src="/images/gallery-mockup/portrait-frame.png"
+                                className="h-100% w-165 "
+                                alt=""
+                              />
+                              <img
+                                src={images[imageIndexScene2 - 1]?.image}
+                                alt=""
+                                className="absolute top-19 h-183 left-19 w-127 object-cover "
+                              />
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    )}
-                  </>
-                );
-              })}
-          </Slider>
-        </div>
-      ) : (
-        <div className="absolute font-bold uppercase  text-secondary font-avenir-reg text-heading left-30% top-30% ">
-          there is no slider
-        </div>
+                      ) : (
+                        <div className="relative">
+                          <img
+                            className="w-100% h-100vh "
+                            src={`/images/gallery-mockup/scene3-${backgroundImage}`}
+                            alt=""
+                          />
+                          <div className="absolute top-51%  transform-y flex w-100% justify-evenly">
+                            <div className="h-222 relative mr-20 ml-30  ">
+                              <img
+                                src="/images/gallery-mockup/portrait-frame.png"
+                                className="h-100% w-165 "
+                                alt=""
+                              />
+                              <img
+                                src={images[imageIndexScene2]?.image}
+                                alt=""
+                                className="absolute object-cover top-19 h-183 left-19 w-127  "
+                              />
+                            </div>
+                            <div className="h-222 relative mr-30  ">
+                              <img
+                                src="/images/gallery-mockup/portrait-frame.png"
+                                className="h-100% w-165 "
+                                alt=""
+                              />
+                              <img
+                                src={images[imageIndexScene2 + 1]?.image}
+                                alt=""
+                                className="absolute top-19 h-183 left-19 w-127 object-cover"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </>
+                  );
+                })}
+            </Slider>
+          </div>
+        </>
       )}
     </>
   );
