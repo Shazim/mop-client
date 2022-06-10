@@ -4,25 +4,31 @@ import 'slick-carousel/slick/slick-theme.css';
 import Arrow from './Arrow/Arrow';
 import { useFetch, usePost } from 'hooks';
 import { galleryMock } from 'api';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 
 const SlickSlider = () => {
-  // const images = [
-  //   { image: '/images/gallery-mockup/scene1-dark.png' },
-  //   { image: '/images/gallery-mockup/scene2-dark.png' },
-  // ];
+  const [currentSlide, setCurrentSlide] = useState(0);
 
+  const slider = useRef();
+
+  const next = () => {
+    slider.current.slickNext();
+  };
   const params = useParams();
+
   const settings = {
     dots: false,
-    // infinite: true,
+
     slidesToShow: 1,
+
     slidesToScroll: 1,
     nextArrow: <Arrow dir="right" type="next" />,
     prevArrow: <Arrow dir="left" type="prev" />,
-    // arrows: false,
-
+    arrows: currentSlide == 0 ? false : true,
+    afterChange: (indexOfCurrentSlide) => {
+      setCurrentSlide(indexOfCurrentSlide);
+    },
     responsive: [
       {
         breakpoint: 959,
@@ -32,14 +38,15 @@ const SlickSlider = () => {
           centerMode: true,
           dots: true,
           centerPadding: '0%',
-          transformEnabled: true,
-          vertical: true,
-          verticalSwaping: true,
+          //transformEnabled: true,
+          // vertical: true,
+          // verticalSwaping: true,
           swipeToSlide: true,
         },
       },
     ],
   };
+
   const width = window.innerWidth;
   const height = window.innerHeight;
 
@@ -73,16 +80,17 @@ const SlickSlider = () => {
   const backgroundImage = `${exhibition_detail?.style?.toLowerCase()}.png`;
   let a = 0;
   let b = 0;
+
   return (
     <>
       {width < 700 ? (
         <></>
-      ) : width > height ? (
+      ) : width >= height ? (
         <div className="w-100% h-100vh slider-dots">
-          <Slider {...settings}>
+          <Slider ref={(c) => (slider.current = c)} {...settings}>
             <div className="relative">
               <img
-                className="w-100% h-100vh  sm:w-100% sm:h-100%"
+                className="w-100% h-100vh "
                 src={`/images/gallery-mockup/scene1-${backgroundImage}`}
               />
               <div className="absolute left-20% top-40%">
@@ -97,8 +105,12 @@ const SlickSlider = () => {
                   {exhibition_detail?.gallery_name}
                 </div>
                 <div className="flex mt-199">
-                  <img src="/images/arrows/arrow-mockup.svg" alt="" />
-                  <div className="ml-22 text-20 text-gray-lighter font-nunito-bold tracking uppercase">
+                  <img
+                    src="/images/arrows/arrow-mockup.svg"
+                    alt=""
+                    onClick={next}
+                  />
+                  <div className="ml-22 sm:text-xl text-20 text-gray-lighter font-nunito-bold tracking uppercase">
                     Enter Gallery
                   </div>
                 </div>
@@ -116,20 +128,20 @@ const SlickSlider = () => {
                     {index % 2 != 0 ? (
                       <div className="relative">
                         <img
-                          className="w-100% h-100vh  sm:w-100% sm:h-100%"
+                          className="w-100% h-100vh  "
                           src={`/images/gallery-mockup/scene2-${backgroundImage}`}
                         />
                         <div className="absolute top-50% transform-y flex w-100% justify-evenly">
-                          <div className="h-222 relative  sm:h-100 ">
+                          <div className="h-222 relative  ">
                             <img
                               src="/images/gallery-mockup/portrait-frame.png"
-                              className="h-100% w-165 sm:w-93"
+                              className="h-100% w-165 "
                               alt=""
                             />
                             <img
                               src={images[imageIndexScene2 - 3]?.image}
                               alt=""
-                              className="absolute object-cover top-19 h-183 left-19 w-127 sm:w-73 sm:left-10 sm:top-8 sm:h-84 "
+                              className="absolute object-cover top-19 h-183 left-19 w-127 "
                             />
                           </div>
                           <div className="h-222 relative ">
@@ -196,44 +208,6 @@ const SlickSlider = () => {
                   </>
                 );
               })}
-
-            {/* {Array.from(Array(totalScene3Length + 1).keys())
-              .slice(1)
-              .map((index) => (
-                <div className="relative">
-                  <img
-                    className='className="w-100% h-100vh '
-                    src={backgroundImage}
-                    alt=""
-                  />
-                  <div className="absolute top-51%  transform-y flex w-100% justify-evenly">
-                    <div className="h-222 relative mr-20 ml-30  ">
-                      <img
-                        src="/images/gallery-mockup/portrait-frame.png"
-                        className="h-100% w-165 "
-                        alt=""
-                      />
-                      <img
-                        src="/images/gallery-mockup/dummy.png"
-                        alt=""
-                        className="absolute object-cover top-19 h-183 left-19 w-127  "
-                      />
-                    </div>
-                    <div className="h-222 relative mr-30  ">
-                      <img
-                        src="/images/gallery-mockup/portrait-frame.png"
-                        className="h-100% w-165 "
-                        alt=""
-                      />
-                      <img
-                        src="/images/gallery-mockup/dummy2.jpg"
-                        alt=""
-                        className="absolute top-19 h-183 left-19 w-127 object-cover"
-                      />
-                    </div>
-                  </div>
-                </div>
-              ))} */}
           </Slider>
         </div>
       ) : (
