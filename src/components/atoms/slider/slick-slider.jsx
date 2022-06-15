@@ -1,3 +1,4 @@
+import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -6,6 +7,9 @@ import { useFetch, usePost } from 'hooks';
 import { galleryMock } from 'api';
 import { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+import { Bars } from 'react-loader-spinner';
 
 const SlickSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -15,20 +19,29 @@ const SlickSlider = () => {
   const next = () => {
     slider.current.slickNext();
   };
+
   const params = useParams();
+  const check = () => {
+    let last_slide = document.querySelector('.slick-slide:last-child');
+    if (last_slide.classList.contains('slick-active')) {
+      document.querySelector('.mockup-right-arrow').style.display = 'none';
+    }
+  };
 
   const settings = {
     dots: false,
-
     slidesToShow: 1,
     infinite: false,
     slidesToScroll: 1,
+    lazyLoad: true,
     nextArrow: <Arrow dir="right" type="next" />,
     prevArrow: <Arrow dir="left" type="prev" />,
     arrows: currentSlide == 0 ? false : true,
     afterChange: (indexOfCurrentSlide) => {
       setCurrentSlide(indexOfCurrentSlide);
     },
+    initialSlide: 0,
+
     responsive: [
       {
         breakpoint: 959,
@@ -92,9 +105,21 @@ const SlickSlider = () => {
           <div className="w-100% h-100vh slider-dots">
             <Slider ref={(c) => (slider.current = c)} {...settings}>
               <div className="relative">
-                <img
-                  className="w-100% h-100vh "
+                <LazyLoadImage
+                  //   className="w-100% h-100vh "
+                  //   afterLoad={
+                  //     <Oval height={'100vh'} width={'100%'} ariaLabel="Loading" />
+                  //   }
                   src={`/images/gallery-mockup/scene1-${backgroundImage}`}
+                  effect="blur"
+                  width={'100%'}
+                  height={'100vh'}
+                  //   placeholderSrc={
+                  //     process.env.PUBLIC_URL +
+                  //   }
+                  placeholder={
+                    <Bars color="#000000" height={'10vh'} width={'50%'} />
+                  }
                 />
                 <div className="w-100% h-100% absolute left-0 top-0 flex flex-col items-center justify-center">
                   <div className="w-65%">
@@ -134,9 +159,13 @@ const SlickSlider = () => {
                     <>
                       {index % 2 != 0 ? (
                         <div className="relative">
-                          <img
+                          <LazyLoadImage
                             className="w-100% h-100vh  "
                             src={`/images/gallery-mockup/scene2-${backgroundImage}`}
+                            effect="blur"
+                            width={'100%'}
+                            height={'100vh'}
+                            alt={`/images/gallery-mockup/scene2-${backgroundImage}`}
                           />
                           <div className="absolute top-50% transform-y flex w-100% justify-evenly">
                             <div className="h-222 relative  ">
@@ -179,10 +208,13 @@ const SlickSlider = () => {
                         </div>
                       ) : (
                         <div className="relative">
-                          <img
+                          <LazyLoadImage
                             className="w-100% h-100vh "
                             src={`/images/gallery-mockup/scene3-${backgroundImage}`}
-                            alt=""
+                            effect="blur"
+                            width={'100%'}
+                            height={'100vh'}
+                            alt={`/images/gallery-mockup/scene3-${backgroundImage}`}
                           />
                           <div className="absolute top-51%  transform-y flex w-100% justify-evenly">
                             <div className="h-222 relative mr-20 ml-30  ">

@@ -66,6 +66,10 @@
   position: absolute;
   bottom: 96px;
 }
+.mockup-right-arrow .slick-next .slick-disabled {
+  display: none;
+  /* pointer-events:none; */
+}
 
 .mockup-left-arrow {
   position: absolute;
@@ -134,7 +138,10 @@
 }
 
 /* Slider Styles */
-
+.mockup-right-arrow .slick-arrow .slick-next .slick-disabled ::before {
+  display: none;
+  opacity: 0;
+}
 .slider-dots .slick-dots li button:before {
   font-size: 10px;
 }
