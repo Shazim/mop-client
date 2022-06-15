@@ -51,9 +51,7 @@ const SlickSlider = () => {
           centerMode: true,
           dots: false,
           centerPadding: '0%',
-          //transformEnabled: true,
-          // vertical: true,
-          // verticalSwaping: true,
+
           swipeToSlide: true,
         },
       },
@@ -106,17 +104,10 @@ const SlickSlider = () => {
             <Slider ref={(c) => (slider.current = c)} {...settings}>
               <div className="relative">
                 <LazyLoadImage
-                  //   className="w-100% h-100vh "
-                  //   afterLoad={
-                  //     <Oval height={'100vh'} width={'100%'} ariaLabel="Loading" />
-                  //   }
                   src={`/images/gallery-mockup/scene1-${backgroundImage}`}
                   effect="blur"
                   width={'100%'}
                   height={'100vh'}
-                  //   placeholderSrc={
-                  //     process.env.PUBLIC_URL +
-                  //   }
                   placeholder={
                     <Bars color="#000000" height={'10vh'} width={'50%'} />
                   }
