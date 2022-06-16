@@ -109,7 +109,14 @@ const SlickSlider = () => {
                   width={'100%'}
                   height={'100vh'}
                   placeholder={
-                    <Bars color="#000000" height={'10vh'} width={'50%'} />
+                    <div className="w-100% h-100vh flex items-center justify-center">
+                      <Bars
+                        color="#000000"
+                        height={80}
+                        width={80}
+                        ariaLabel="loading"
+                      />
+                    </div>
                   }
                 />
                 <div className="w-100% h-100% absolute left-0 top-0 flex flex-col items-center justify-center">
