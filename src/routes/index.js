@@ -28,7 +28,8 @@ import Orders from 'pages/Admin/orders';
 import PricingSheet from 'pages/Admin/pricing-sheet';
 import TaxRates from 'pages/Admin/tax-rates';
 import SlickSlider from 'components/atoms/slider/slick-slider';
-
+import PricingSheetDetails from 'pages/Admin/Pricing-sheet-details';
+import PriceSheet from 'pages/Admin/Price-sheet';
 // List of Routes name using for links and route
 export const routes = Object.freeze({
   ROUTE_FORGOT_PASSWORD: '/forgot-password',
@@ -64,6 +65,8 @@ export const routes = Object.freeze({
   ROUTE_PRICING_SHEET: '/pricing-sheet',
   ROUTE_TAX_RATES: '/tax-rates',
   ROUTE_SLICK_SLIDER: '/exhibition-demo/:id',
+  ROUTE_PRICING_SHEET_DETAILS: '/pricing-sheet-details',
+  ROUTE_PRICE_SHEET: '/price-sheet',
 });
 // List of route object which will be rendered under Router component
 export default Object.freeze([
@@ -84,6 +87,16 @@ export default Object.freeze([
   {
     path: routes.ROUTE_PRICING_SHEET,
     component: PricingSheet,
+    privateRoute: true,
+  },
+  {
+    path: routes.ROUTE_PRICING_SHEET_DETAILS,
+    component: PricingSheetDetails,
+    privateRoute: true,
+  },
+  {
+    path: routes.ROUTE_PRICE_SHEET,
+    component: PriceSheet,
     privateRoute: true,
   },
   { path: routes.ROUTE_TAX_RATES, component: TaxRates, privateRoute: true },
