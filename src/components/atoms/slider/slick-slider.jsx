@@ -105,7 +105,6 @@ const SlickSlider = () => {
               <div className="relative">
                 <LazyLoadImage
                   src={`/images/gallery-mockup/scene1-${backgroundImage}`}
-                  effect="blur"
                   width={'100%'}
                   height={'100vh'}
                   placeholder={
@@ -119,7 +118,7 @@ const SlickSlider = () => {
                     </div>
                   }
                 />
-                <div className="w-100% h-100% absolute left-0 top-0 flex flex-col items-center justify-center">
+                <div className="w-100% h-100% absolute left-50 top-0 flex flex-col items-center justify-center">
                   <div className="w-65%">
                     <div className="mb-16 text-heading text-white  font-avenir-300 tracking-wider lg:text-22 xl:text-2xl md:text-22 sm:text-20 tab:text-base uppercase">
                       {exhibition_detail?.room_name}
