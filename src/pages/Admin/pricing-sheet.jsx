@@ -32,11 +32,12 @@ const PricingSheet = () => {
             <TextField
               label="Price Sheet Name"
               name="price-name"
-              classes="h-113 w-100% pl-16 pt-10 resize-none"
+              className="h-33 w-370 pt-10 resize-none"
               placeholder="MAX 100 CHARACTERS"
             />
-            <div className="hr-b mt-25"></div>
-            <div className=" mt-37 font-avenir-reg font-medium text-xl text-secondary leading-54 uppercase tracking-wider">
+
+            <div className="hr-b mt-35 "></div>
+            <div className=" mt-12 font-avenir-reg font-medium text-xl text-secondary leading-54 uppercase tracking-wider">
               Pricing
             </div>
             <MenuTable />
