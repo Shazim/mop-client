@@ -101,10 +101,11 @@ const SlickSlider = () => {
         </div>
       ) : (
         <>
-          <div className="w-100% h-100vh slider-dots">
+          <div className="w-100% h-100vh slider-dots overflow-hidden">
             <Slider ref={(c) => (slider.current = c)} {...settings}>
               <div className="relative">
                 <LazyLoadImage
+                  className="w-100% h-100vh  "
                   src={`/images/gallery-mockup/scene1-${backgroundImage}`}
                   width={'100%'}
                   height={'100vh'}
@@ -119,25 +120,22 @@ const SlickSlider = () => {
                     </div>
                   }
                 />
-                <div className="w-100% h-100% absolute left-50 top-0 flex flex-col items-center justify-center">
+
+                <div className="w-100% h-100% absolute sm:left-30 left-50 top-0 flex flex-col items-center justify-center">
                   <div className="w-65%">
-                    <div className="mb-16 text-heading text-white  font-avenir-300 tracking-wider lg:text-22 xl:text-2xl md:text-22 sm:text-20 tab:text-base uppercase">
+                    <div className="mb-16 text-heading text-white sm:tracking font-avenir-300 tracking-wider lg:text-xl xl:text-22 md:text-xl sm:text-xl tab:text-base uppercase">
                       {exhibition_detail?.room_name}
                       <span className="text-primary">.</span>
                     </div>
-                    <div className="mb-6 text-20 text-gray-lighter font-nunito-bold tracking uppercase">
+                    <div className="mb-6 text-20 text-gray-lighter font-nunito-bold sm:font-nunito-medium sm:tracking-tight   tracking uppercase">
                       {exhibition_detail?.artist_name}
                     </div>
-                    <div className="text-20 text-gray-lighter font-nunito-bold tracking uppercase ">
+                    <div className="text-20 text-gray-lighter font-nunito-bold sm:font-nunito-medium sm:tracking-tight tracking uppercase sm:text-xl ">
                       {exhibition_detail?.gallery_name}
                     </div>
-                    <div className="flex mt-25%">
-                      <img
-                        src="/images/arrows/arrow-mockup.svg"
-                        alt=""
-                        onClick={next}
-                      />
-                      <div className="ml-22 sm:text-xl text-20 text-gray-lighter font-nunito-bold tracking uppercase">
+                    <div className="flex mt-25%" onClick={next}>
+                      <img src="/images/arrows/arrow-mockup.svg" alt="" />
+                      <div className="ml-22 sm:ml-10 sm:mt-8 sm:text-sm sm:font-nunito-medium text-20 text-gray-lighter font-nunito-bold tracking uppercase">
                         Enter Gallery
                       </div>
                     </div>
