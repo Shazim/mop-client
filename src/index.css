@@ -66,9 +66,8 @@
   position: absolute;
   bottom: 96px;
 }
-.mockup-right-arrow .slick-next .slick-disabled {
+.slick-disabled {
   display: none;
-  /* pointer-events:none; */
 }
 
 .mockup-left-arrow {
