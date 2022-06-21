@@ -91,6 +91,7 @@ const SlickSlider = () => {
   const backgroundImage = `${exhibition_detail?.style?.toLowerCase()}.png`;
   let a = 0;
   let b = 0;
+  document.body.style.overflow = 'hidden';
 
   return (
     <>
@@ -159,7 +160,6 @@ const SlickSlider = () => {
                           <LazyLoadImage
                             className="w-100% h-100vh  "
                             src={`/images/gallery-mockup/scene2-${backgroundImage}`}
-                            effect="blur"
                             width={'100%'}
                             height={'100vh'}
                             alt={`/images/gallery-mockup/scene2-${backgroundImage}`}
