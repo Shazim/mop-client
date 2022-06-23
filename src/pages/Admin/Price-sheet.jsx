@@ -2,8 +2,12 @@ import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-
+import { PriceSheetCollection } from 'api/api-services';
+import { useFetch, usePost } from 'hooks';
 const PriceSheet = () => {
+  const { data: getData } = useFetch(PriceSheetCollection);
+  const { price_sheets = [] } = getData || [];
+
   const settings = {
     dots: true,
     slidesToShow: 1,
@@ -34,35 +38,29 @@ const PriceSheet = () => {
       <div className="font-nunito-reg font-bold  text-secondary text-sm uppercase leading-32 tracking ">
         available price sheets:
       </div>
+
       <div className="hidden sm:block">
         <Slider {...settings}>
+          {price_sheets.map((price) => (
+            <div className="mr-35">
+              <div className="w-186 h-186 bg-gray "></div>
+              <div className="mt-7 font-nunito-reg font-bold  text-secondary text-sm uppercase leading-32 tracking">
+                {price.name}
+              </div>
+            </div>
+          ))}
+        </Slider>
+      </div>
+
+      <div className="mt-17 flex sm:hidden">
+        {price_sheets.map((price) => (
           <div className="mr-35">
             <div className="w-186 h-186 bg-gray "></div>
             <div className="mt-7 font-nunito-reg font-bold  text-secondary text-sm uppercase leading-32 tracking">
-              Price Sheet 1
+              {price.name}
             </div>
           </div>
-          <div>
-            <div className="w-186 h-186 bg-gray "></div>
-            <div className="mt-7 font-nunito-reg font-bold  text-secondary text-sm uppercase leading-32 tracking">
-              Price Sheet 2
-            </div>
-          </div>
-        </Slider>
-      </div>
-      <div className="mt-17 flex sm:hidden">
-        <div className="mr-35">
-          <div className="w-186 h-186 bg-gray "></div>
-          <div className="mt-7 font-nunito-reg font-bold  text-secondary text-sm uppercase leading-32 tracking">
-            Price Sheet 1
-          </div>
-        </div>
-        <div>
-          <div className="w-186 h-186 bg-gray "></div>
-          <div className="mt-7 font-nunito-reg font-bold  text-secondary text-sm uppercase leading-32 tracking">
-            Price Sheet 2
-          </div>
-        </div>
+        ))}
       </div>
       <div className=" mt-24 hr-b"></div>
       <div className=" mt-31 font-avenir-reg font-medium text-xl text-secondary uppercase tracking-wider leading-54">

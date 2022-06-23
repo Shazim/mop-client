@@ -15,6 +15,8 @@ export const END_POINTS = {
   PACKAGES: '/packages',
   SUBSCRIPTION: '/subscriptions',
   GALLERYMOCK: '/exhibitions/by_key',
+  PRICE_SHEETS: '/price_sheets/get_pricing_data',
+  PRICE_SHEETS_COLLECTION: '/price_sheets',
 };
 
 export const LINKS = {

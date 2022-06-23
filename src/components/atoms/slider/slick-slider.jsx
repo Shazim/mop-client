@@ -21,12 +21,6 @@ const SlickSlider = () => {
   };
 
   const params = useParams();
-  // const check = () => {
-  //   let last_slide = document.querySelector('.slick-slide:last-child');
-  //   if (last_slide.classList.contains('slick-active')) {
-  //     document.querySelector('.mockup-right-arrow').style.display = 'none';
-  //   }
-  // };
 
   const settings = {
     dots: false,
@@ -39,9 +33,6 @@ const SlickSlider = () => {
     arrows: currentSlide == 0 ? false : true,
     afterChange: (indexOfCurrentSlide) => {
       setCurrentSlide(indexOfCurrentSlide);
-      // console.log('here');
-      // if (currentSlide >= slideCount -options.slidesToShow) {
-      //   alert("Last slide!!!");}
     },
     initialSlide: 0,
 

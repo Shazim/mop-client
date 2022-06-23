@@ -1,11 +1,12 @@
 import MenuTable from 'components/Tables/MenuTable';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { AdminLayout } from 'Layout';
 import TextField from 'components/atoms/form/TextField';
 import { Form } from 'components/app/forms';
 import { exhibitionSchema } from 'validation';
-import CheckBox from 'components/atoms/checkbox/CheckBox';
 import Button from 'components/atoms/buttons/Button';
+import { usePost } from 'hooks';
+import { createPriceSheet } from 'api/api-services';
 
 const PricingSheet = () => {
   const [initalValues, setInitialValues] = useState({
@@ -17,7 +18,24 @@ const PricingSheet = () => {
     key: '',
   });
 
-  const onSubmit = (data) => {};
+  const [handleCreatePrice, { data: dataPost, loading }] =
+    usePost(createPriceSheet);
+
+  console.log('here', dataPost);
+  const onSubmit = (data) => {
+    const formData = new FormData();
+
+    handleCreatePrice({
+      variables: formData,
+    });
+  };
+  useEffect(() => {
+    if (dataPost) {
+      setInitialValues({ ...initalValues, key: dataPost?.key });
+    }
+  }, [dataPost]);
+
+  // console.log('ahhell', priceData);
 
   return (
     <AdminLayout title="pricing and products" subtitle="Create New Price Sheet">
@@ -41,8 +59,10 @@ const PricingSheet = () => {
               Pricing
             </div>
             <MenuTable />
-            <div className="flex justify-end mt-47">
-              <Button className="w-240 h-33">save Price sheet</Button>
+            <div className="flex justify-end mt-47 mb-20">
+              <Button className="w-240 h-33" onClick={onSubmit}>
+                save Price sheet
+              </Button>
             </div>
           </div>
         )}
