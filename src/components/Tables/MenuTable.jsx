@@ -1,28 +1,27 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import CheckBox from 'components/atoms/checkbox/CheckBox';
-import { useFetch, usePost } from 'hooks';
+import { useFetch } from 'hooks';
 import { PriceSheet } from 'api/api-services';
-import Data from './Data';
+import Items from './Items';
 
 function MenuTable() {
   const { data: getData } = useFetch(PriceSheet);
   const { sizes = [] } = getData || [];
 
-  const [clickedIndex, setClickedIndex] = useState({});
-  const [showData, setShowData] = useState(false);
+  // const [clickedIndex, setClickedIndex] = useState({});
 
-  const handleClick = (index) => () => {
-    if (clickedIndex[index] === undefined) {
-      setClickedIndex((state) => ({
-        [index]: true,
-      }));
+  // const handleClick = (index) => () => {
+  //   if (clickedIndex[index] === undefined) {
+  //     setClickedIndex((state) => ({
+  //       [index]: true,
+  //     }));
 
-      setShowData(true);
-    } else {
-      setClickedIndex((prv) => ({ ...prv, [index]: !prv[index] }));
-      setShowData(false);
-    }
-  };
+  //     setShowData(true);
+  //   } else {
+  //     setClickedIndex((prv) => ({ ...prv, [index]: !prv[index] }));
+  //     setShowData(false);
+  //   }
+  //  };
 
   return (
     <>
@@ -38,36 +37,8 @@ function MenuTable() {
           Price
         </div>
       </div>
-      {sizes.map((data, index) => (
-        <>
-          <div className=" flex ">
-            <div className="w-20 ml-22 mt-8 ">
-              {clickedIndex[index] && showData ? null : <CheckBox />}
-            </div>
-            <div className="flex-grow  w-134 ml-55 mt-8 font-nunito-normal text-left font-light text-base leading-22 text-black">
-              {data.name}
-            </div>
-            <div className=" w-101 h-27 bg-white mr-40 mt-8 pl-18 font-nunito-normal font-light text-base leading-22 text-black ">
-              {data.price}
-            </div>
-
-            <div
-              className="mt-19 mr-30 cursor-pointer"
-              onClick={handleClick(index)}
-            >
-              <img
-                src={
-                  clickedIndex[index] && showData
-                    ? '/images/icons/open-option.svg'
-                    : '/images/icons/close-option.svg'
-                }
-                alt=""
-              />
-            </div>
-          </div>
-          {clickedIndex[index] && showData && <Data papers={data.papers} />}
-          <div className="hr-b mt-20"></div>
-        </>
+      {sizes.map((data) => (
+        <Items data={data} />
       ))}
     </>
   );

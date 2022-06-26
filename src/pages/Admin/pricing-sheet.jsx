@@ -7,7 +7,7 @@ import { exhibitionSchema } from 'validation';
 import Button from 'components/atoms/buttons/Button';
 import { usePost } from 'hooks';
 import { createPriceSheet } from 'api/api-services';
-
+import { useFormikContext } from 'formik';
 const PricingSheet = () => {
   const [initalValues, setInitialValues] = useState({
     room_name: '',
@@ -21,7 +21,6 @@ const PricingSheet = () => {
   const [handleCreatePrice, { data: dataPost, loading }] =
     usePost(createPriceSheet);
 
-  console.log('here', dataPost);
   const onSubmit = (data) => {
     const formData = new FormData();
 
@@ -34,8 +33,6 @@ const PricingSheet = () => {
       setInitialValues({ ...initalValues, key: dataPost?.key });
     }
   }, [dataPost]);
-
-  // console.log('ahhell', priceData);
 
   return (
     <AdminLayout title="pricing and products" subtitle="Create New Price Sheet">
