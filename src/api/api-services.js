@@ -17,12 +17,23 @@ const {
   PROFILE,
   EXHIBITION_STYLES,
   SUBSCRIPTION,
+  PRICE_SHEETS,
+  PRICE_SHEETS_COLLECTION,
 } = END_POINTS;
 
 export const featureArtwork = (data) => {
   return doGet(`${BASE_URL}${API_PATH}/items${FEATURES}`);
 };
 
+export const createPriceSheet = (data) => {
+  return doPost(`${BASE_URL}${API_PATH}/${PRICE_SHEETS_COLLECTION}`, data);
+};
+export const PriceSheet = () => {
+  return doGet(`${BASE_URL}${API_PATH}${PRICE_SHEETS}`);
+};
+export const PriceSheetCollection = () => {
+  return doGet(`${BASE_URL}${API_PATH}${PRICE_SHEETS_COLLECTION}`);
+};
 export const createWork = (data) => {
   return doPost(`${BASE_URL}${API_PATH}${ARTWORKS}`, data);
 };
