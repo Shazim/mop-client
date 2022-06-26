@@ -1,14 +1,26 @@
+import { priceSheetDetail } from 'api/api-services';
 import Button from 'components/atoms/buttons/Button';
 import MenuTable from 'components/Tables/MenuTable';
+import { useFetch } from 'hooks';
 import { AdminLayout } from 'Layout';
 import React from 'react';
+import { useParams } from 'react-router';
+import { routes } from 'routes';
+import { useHistory } from 'react-router-dom';
 
 const PricingSheetDetails = () => {
+  const history = useHistory();
+  const params = useParams();
+  const { id } = params;
+  const { data } = useFetch(priceSheetDetail, { variables: id });
+
+  console.log('data', data);
   return (
     <AdminLayout
       title="pricing and products"
       buttonText="create new"
       button={true}
+      handler={() => history.push(routes.ROUTE_CREATE_PRICE_SHEET)}
     >
       <div className="flex justify-between ">
         <div className=" font-avenir-reg font-medium text-xl text-secondary uppercase tracking-wider leading-54">

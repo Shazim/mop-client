@@ -5,11 +5,16 @@ import 'slick-carousel/slick/slick-theme.css';
 import { PriceSheetCollection } from 'api/api-services';
 import { useFetch } from 'hooks';
 import { AdminLayout } from 'Layout';
+import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import { routes } from 'routes';
 
 const PriceSheet = () => {
+  const history = useHistory();
+
   const { data: getData } = useFetch(PriceSheetCollection);
   const { price_sheets = [] } = getData || [];
-
+  console.log('pricesheet', price_sheets);
   const settings = {
     dots: true,
     slidesToShow: 1,
@@ -37,6 +42,7 @@ const PriceSheet = () => {
       title="pricing and products"
       buttonText="create new"
       button={true}
+      handler={() => history.push(routes.ROUTE_CREATE_PRICE_SHEET)}
     >
       <div className="font-avenir-reg font-medium text-xl text-secondary uppercase tracking-wider leading-54">
         Price sheets
@@ -47,25 +53,27 @@ const PriceSheet = () => {
 
       <div className="hidden sm:block">
         <Slider {...settings}>
-          {price_sheets.map((price) => (
-            <div className="mr-35">
-              <div className="w-186 h-186 bg-gray "></div>
-              <div className="mt-7 font-nunito-reg font-bold  text-secondary text-sm uppercase leading-32 tracking">
-                {price.name}
+          {price_sheets.map(({ name, id }) => (
+            <Link to={`/price-sheet/${id}`}>
+              <div className="mr-35">
+                <div className="w-186 h-186 bg-gray "></div>
+                <div className="mt-7 font-nunito-reg font-bold  text-secondary text-sm uppercase leading-32 tracking">
+                  {name}
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </Slider>
       </div>
 
       <div className="mt-17 grid grid-cols-4 sm:hidden">
-        {price_sheets.map((price) => (
-          <div className="">
+        {price_sheets.map(({ name, id }) => (
+          <Link to={`/price-sheet/${id}`}>
             <div className="w-186 h-186 bg-gray "></div>
             <div className="mt-7 font-nunito-reg font-bold  text-secondary text-sm uppercase leading-32 tracking">
-              {price.name}
+              {name}
             </div>
-          </div>
+          </Link>
         ))}
       </div>
       <div className=" mt-24 hr-b"></div>

@@ -18,7 +18,7 @@ const {
   EXHIBITION_STYLES,
   SUBSCRIPTION,
   PRICE_SHEETS,
-  PRICE_SHEETS_COLLECTION,
+  GET_PRICING_DATA,
 } = END_POINTS;
 
 export const featureArtwork = (data) => {
@@ -26,14 +26,21 @@ export const featureArtwork = (data) => {
 };
 
 export const createPriceSheet = (data) => {
-  return doPost(`${BASE_URL}${API_PATH}/${PRICE_SHEETS_COLLECTION}`, data);
+  return doPost(`${BASE_URL}${API_PATH}/${PRICE_SHEETS}`, data);
 };
-export const PriceSheet = () => {
+
+export const priceSheet = () => {
+  return doGet(`${BASE_URL}${API_PATH}${PRICE_SHEETS}${GET_PRICING_DATA}`);
+};
+
+export const priceSheetDetail = (data) => {
+  return doGet(`${BASE_URL}${API_PATH}${PRICE_SHEETS}/${data}`);
+};
+
+export const PriceSheetCollection = () => {
   return doGet(`${BASE_URL}${API_PATH}${PRICE_SHEETS}`);
 };
-export const PriceSheetCollection = () => {
-  return doGet(`${BASE_URL}${API_PATH}${PRICE_SHEETS_COLLECTION}`);
-};
+
 export const createWork = (data) => {
   return doPost(`${BASE_URL}${API_PATH}${ARTWORKS}`, data);
 };

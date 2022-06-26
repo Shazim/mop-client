@@ -62,11 +62,11 @@ export const routes = Object.freeze({
   ROUTE_CUSTOMER: '/customers',
   ROUTE_COUPONS: '/coupons',
   ROUTE_ORDERS: '/orders',
-  ROUTE_PRICING_SHEET: '/pricing-sheet',
+  ROUTE_CREATE_PRICE_SHEET: '/create-price-sheet',
   ROUTE_TAX_RATES: '/tax-rates',
   ROUTE_SLICK_SLIDER: '/exhibition-demo/:id',
-  ROUTE_PRICING_SHEET_DETAILS: '/pricing-sheet-details',
-  ROUTE_PRICE_SHEET: '/price-sheet',
+  ROUTE_PRICING_SHEET_DETAILS: '/price-sheet/:id',
+  ROUTE_PRICE_SHEETS: '/price-sheets',
 });
 // List of route object which will be rendered under Router component
 export default Object.freeze([
@@ -85,7 +85,7 @@ export default Object.freeze([
   { path: routes.ROUTE_COUPONS, component: CouponsOffers, privateRoute: true },
   { path: routes.ROUTE_ORDERS, component: Orders, privateRoute: true },
   {
-    path: routes.ROUTE_PRICING_SHEET,
+    path: routes.ROUTE_CREATE_PRICE_SHEET,
     component: PricingSheet,
     privateRoute: true,
   },
@@ -95,7 +95,7 @@ export default Object.freeze([
     privateRoute: true,
   },
   {
-    path: routes.ROUTE_PRICE_SHEET,
+    path: routes.ROUTE_PRICE_SHEETS,
     component: PriceSheet,
     privateRoute: true,
   },

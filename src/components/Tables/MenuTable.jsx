@@ -1,27 +1,12 @@
 import React, { useState } from 'react';
 import CheckBox from 'components/atoms/checkbox/CheckBox';
 import { useFetch } from 'hooks';
-import { PriceSheet } from 'api/api-services';
+import { priceSheet } from 'api/api-services';
 import Items from './Items';
 
 function MenuTable() {
-  const { data: getData } = useFetch(PriceSheet);
+  const { data: getData } = useFetch(priceSheet);
   const { sizes = [] } = getData || [];
-
-  // const [clickedIndex, setClickedIndex] = useState({});
-
-  // const handleClick = (index) => () => {
-  //   if (clickedIndex[index] === undefined) {
-  //     setClickedIndex((state) => ({
-  //       [index]: true,
-  //     }));
-
-  //     setShowData(true);
-  //   } else {
-  //     setClickedIndex((prv) => ({ ...prv, [index]: !prv[index] }));
-  //     setShowData(false);
-  //   }
-  //  };
 
   return (
     <>

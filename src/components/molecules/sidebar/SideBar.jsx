@@ -47,7 +47,7 @@ const obj = [
         redIcon: '/images/sidebar/price_red.svg',
         icon: '/images/sidebar/price.svg',
         name: 'pricing and products',
-        link: '/pricing-sheet',
+        link: '/price-sheets',
       },
       {
         redIcon: '/images/sidebar/order_red.svg',
