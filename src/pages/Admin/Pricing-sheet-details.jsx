@@ -1,11 +1,16 @@
 import Button from 'components/atoms/buttons/Button';
 import MenuTable from 'components/Tables/MenuTable';
+import { AdminLayout } from 'Layout';
 import React from 'react';
 
 const PricingSheetDetails = () => {
   return (
-    <div className="bg-gray-light">
-      <div className="flex justify-between mt-22">
+    <AdminLayout
+      title="pricing and products"
+      buttonText="create new"
+      button={true}
+    >
+      <div className="flex justify-between ">
         <div className=" font-avenir-reg font-medium text-xl text-secondary uppercase tracking-wider leading-54">
           Print Price sheet
         </div>
@@ -47,12 +52,11 @@ const PricingSheetDetails = () => {
         </div>
       </div>
       <div className="hr-b mt-30"></div>
-
       <div className="mt-12 font-avenir-reg font-medium text-xl text-secondary uppercase tracking-wider leading-54">
         Pricing
       </div>
       <MenuTable />
-    </div>
+    </AdminLayout>
   );
 };
 

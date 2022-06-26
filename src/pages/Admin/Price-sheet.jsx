@@ -3,7 +3,9 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { PriceSheetCollection } from 'api/api-services';
-import { useFetch, usePost } from 'hooks';
+import { useFetch } from 'hooks';
+import { AdminLayout } from 'Layout';
+
 const PriceSheet = () => {
   const { data: getData } = useFetch(PriceSheetCollection);
   const { price_sheets = [] } = getData || [];
@@ -31,8 +33,12 @@ const PriceSheet = () => {
   };
 
   return (
-    <>
-      <div className=" mt-31 font-avenir-reg font-medium text-xl text-secondary uppercase tracking-wider leading-54">
+    <AdminLayout
+      title="pricing and products"
+      buttonText="create new"
+      button={true}
+    >
+      <div className="font-avenir-reg font-medium text-xl text-secondary uppercase tracking-wider leading-54">
         Price sheets
       </div>
       <div className="font-nunito-reg font-bold  text-secondary text-sm uppercase leading-32 tracking ">
@@ -63,7 +69,7 @@ const PriceSheet = () => {
         ))}
       </div>
       <div className=" mt-24 hr-b"></div>
-    </>
+    </AdminLayout>
   );
 };
 
