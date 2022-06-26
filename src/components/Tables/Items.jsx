@@ -9,11 +9,15 @@ const Items = ({ data }) => {
     setShowData(!showData);
   };
   const color = showData ? 'white' : 'light-gray';
+
+  console.log('item', data);
+  const handleSize = () => {};
+
   return (
     <>
       <div className=" flex ">
         <div className="w-20 ml-22 mt-13 ">
-          {showData ? null : <CheckBox />}
+          {showData ? null : <CheckBox onChange={handleSize} />}
         </div>
         <div className="flex-grow  w-134 ml-55 mt-13 font-nunito-normal text-left font-light text-base leading-22 text-black">
           {data.name}

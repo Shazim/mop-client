@@ -7,26 +7,21 @@ import { exhibitionSchema } from 'validation';
 import Button from 'components/atoms/buttons/Button';
 import { usePost } from 'hooks';
 import { createPriceSheet } from 'api/api-services';
-import { useFormikContext } from 'formik';
+
 const PricingSheet = () => {
   const [initalValues, setInitialValues] = useState({
-    room_name: '',
-    artwork_ids: {},
-    status: true,
-    draft: false,
-    exhibition_style_id: '',
-    key: '',
+    name: '',
+    price_sheet_entries_attributes: [],
   });
 
   const [handleCreatePrice, { data: dataPost, loading }] =
     usePost(createPriceSheet);
 
   const onSubmit = (data) => {
-    const formData = new FormData();
-
-    handleCreatePrice({
-      variables: formData,
-    });
+    console.log('data', data);
+    // handleCreatePrice({
+    //   variables: data,
+    // });
   };
   useEffect(() => {
     if (dataPost) {
@@ -39,14 +34,14 @@ const PricingSheet = () => {
       <Form
         initialValues={initalValues}
         onSubmit={onSubmit}
-        validationSchema={exhibitionSchema}
+        // validationSchema={exhibitionSchema}
         enableReinitialize={true}
       >
         {({ handleSubmit, values }) => (
           <div className="">
             <TextField
               label="Price Sheet Name"
-              name="price-name"
+              name="name"
               className="h-33 w-370 pt-10 resize-none"
               placeholder="MAX 100 CHARACTERS"
             />
@@ -57,7 +52,7 @@ const PricingSheet = () => {
             </div>
             <MenuTable />
             <div className="flex justify-end mt-47 mb-20">
-              <Button className="w-240 h-33" onClick={onSubmit}>
+              <Button className="w-240 h-33" onClick={handleSubmit}>
                 save Price sheet
               </Button>
             </div>
