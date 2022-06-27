@@ -25,11 +25,11 @@ import OrderSettings from 'pages/Admin/orders-settings';
 import Customers from 'pages/Admin/customers';
 import CouponsOffers from 'pages/Admin/coupons-offers';
 import Orders from 'pages/Admin/orders';
-import PricingSheet from 'pages/Admin/pricing-sheet';
+import PricingSheet from 'pages/Admin/create-price-sheet';
 import TaxRates from 'pages/Admin/tax-rates';
 import SlickSlider from 'pages/slick-slider';
-import PricingSheetDetails from 'pages/Admin/Pricing-sheet-details';
-import PriceSheet from 'pages/Admin/Price-sheet';
+import PricingSheetDetails from 'pages/Admin/price-sheet-detail';
+import PriceSheet from 'pages/Admin/price-sheets';
 // List of Routes name using for links and route
 export const routes = Object.freeze({
   ROUTE_FORGOT_PASSWORD: '/forgot-password',

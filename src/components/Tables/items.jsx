@@ -26,12 +26,15 @@ const Items = ({ data }) => {
           <TextField
             name="price"
             label=""
-            className="w-101 h-27  mr-50 mt-8 pl-18 font-nunito-normal font-light text-base leading-22 text-black"
+            className=" h-20 w-101  mr-50 sm:mr-10 mt-8 pl-18 font-nunito-normal font-light text-base leading-22 text-black"
           >
             {data.price}
           </TextField>
         </div>
-        <div className="mt-19 mr-30 cursor-pointer" onClick={handleClick()}>
+        <div
+          className="mt-19 mr-30 sm:mr-8 cursor-pointer"
+          onClick={handleClick()}
+        >
           <img
             src={
               showData

@@ -17,7 +17,7 @@ const PricingSheetDetails = () => {
   return (
     <AdminLayout
       title="pricing and products"
-      buttonText="create new"
+      buttonText="CREATE NEW"
       button={true}
       handler={() => history.push(routes.ROUTE_CREATE_PRICE_SHEET)}
     >

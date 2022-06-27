@@ -50,9 +50,9 @@ const PricingSheet = () => {
               Pricing
             </div>
             <MenuTable />
-            <div className="flex justify-end mt-47 mb-20">
-              <Button className="w-240 h-33" onClick={handleSubmit}>
-                save Price sheet
+            <div className="flex justify-end mt-47 mb-20 ">
+              <Button className="w-240 h-33 " onClick={handleSubmit}>
+                <span className="uppercase"> save Price sheet</span>
               </Button>
             </div>
           </div>

@@ -18,7 +18,7 @@ function MenuTable(props) {
           size
         </div>
 
-        <div className="w-51  mr-130  mt-_5 font-avenir-reg font-medium text-base text-secondary uppercase leading-54 tracking-wider">
+        <div className="w-51  mr-130 sm:mr-70  mt-_5 font-avenir-reg font-medium text-base text-secondary uppercase leading-54 tracking-wider">
           Price
         </div>
       </div>

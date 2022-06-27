@@ -14,10 +14,13 @@ const Items2 = ({ data }) => {
         <div className="flex-grow  w-134 ml-16 mt-13 font-nunito-normal text-left font-light text-base leading-22 text-black">
           {data.size}
         </div>
-        <div className="w-101 h-27  mr-50 mt-8 pl-18 font-nunito-normal font-light text-base leading-22 text-black">
+        <div className="w-101 h-27 sm:mr-0 mr-50 mt-8 pl-18 font-nunito-normal font-light text-base leading-22 text-black">
           ${data.price}
         </div>
-        <div className="mt-19 mr-30 cursor-pointer" onClick={handleClick()}>
+        <div
+          className="mt-19 sm:mr-0 mr-30 cursor-pointer"
+          onClick={handleClick()}
+        >
           <img
             src={
               showData
