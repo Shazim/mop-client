@@ -1,24 +1,23 @@
 import { priceSheetDetail } from 'api/api-services';
 import Button from 'components/atoms/buttons/Button';
-import MenuTable from 'components/Tables/MenuTable';
 import { useFetch } from 'hooks';
 import { AdminLayout } from 'Layout';
 import React from 'react';
 import { useParams } from 'react-router';
 import { routes } from 'routes';
 import { useHistory } from 'react-router-dom';
+import MenuTable2 from 'components/Tables/menuTable2';
 
 const PricingSheetDetails = () => {
   const history = useHistory();
   const params = useParams();
   const { id } = params;
-  const { data } = useFetch(priceSheetDetail, { variables: id });
+  const { data = [] } = useFetch(priceSheetDetail, { variables: id });
 
-  console.log('data', data);
   return (
     <AdminLayout
       title="pricing and products"
-      buttonText="create new"
+      buttonText="CREATE NEW"
       button={true}
       handler={() => history.push(routes.ROUTE_CREATE_PRICE_SHEET)}
     >
@@ -26,7 +25,7 @@ const PricingSheetDetails = () => {
         <div className=" font-avenir-reg font-medium text-xl text-secondary uppercase tracking-wider leading-54">
           Print Price sheet
         </div>
-        <div className="mt-51 mr-48 sm:hidden">
+        <div className=" hidden mt-51 mr-48 sm:hidden">
           <Button className="w-116 h-33 " color="gray">
             Edit
           </Button>
@@ -67,7 +66,7 @@ const PricingSheetDetails = () => {
       <div className="mt-12 font-avenir-reg font-medium text-xl text-secondary uppercase tracking-wider leading-54">
         Pricing
       </div>
-      <MenuTable />
+      <MenuTable2 data={data} />
     </AdminLayout>
   );
 };

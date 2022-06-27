@@ -126,7 +126,7 @@ function SideBar() {
   const links = ['/stock-room', '/exhibition-room'];
 
   return (
-    <div className="h-100% sm:w-100% bg-gray-lighter pt-40 pr-19 overflow-auto ">
+    <div className="h-100% sm:w-100% bg-gray-lighter pt-40 pr-19 overflow-auto pb-120">
       {!links.includes(window.location.pathname) ? (
         <>
           {obj.map((item, index) => {

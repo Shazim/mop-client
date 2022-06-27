@@ -1,9 +1,8 @@
-import MenuTable from 'components/Tables/MenuTable';
+import MenuTable from 'components/Tables/menuTable';
 import React, { useEffect, useState } from 'react';
 import { AdminLayout } from 'Layout';
 import TextField from 'components/atoms/form/TextField';
 import { Form } from 'components/app/forms';
-import { exhibitionSchema } from 'validation';
 import Button from 'components/atoms/buttons/Button';
 import { usePost } from 'hooks';
 import { createPriceSheet } from 'api/api-services';
@@ -11,7 +10,7 @@ import { createPriceSheet } from 'api/api-services';
 const PricingSheet = () => {
   const [initalValues, setInitialValues] = useState({
     name: '',
-    price_sheet_entries_attributes: [],
+    price_sheet_entries_attributes: [{ price: '' }],
   });
 
   const [handleCreatePrice, { data: dataPost, loading }] =
@@ -51,9 +50,9 @@ const PricingSheet = () => {
               Pricing
             </div>
             <MenuTable />
-            <div className="flex justify-end mt-47 mb-20">
-              <Button className="w-240 h-33" onClick={handleSubmit}>
-                save Price sheet
+            <div className="flex justify-end mt-47 mb-20 ">
+              <Button className="w-240 h-33 " onClick={handleSubmit}>
+                <span className="uppercase"> save Price sheet</span>
               </Button>
             </div>
           </div>

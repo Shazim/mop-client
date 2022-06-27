@@ -2,7 +2,7 @@ import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import Arrow from './Arrow/Arrow';
+import Arrow from 'components/atoms/slider/Arrow/Arrow';
 import { useFetch, usePost } from 'hooks';
 import { galleryMock } from 'api';
 import { useState, useEffect, useRef } from 'react';
@@ -87,8 +87,7 @@ const SlickSlider = () => {
   const divide = length / 5;
   const totalScene2Length = Math.floor(divide) + mod;
   const totalScene3Length = totalScene2Length - (mod > 3 ? 0 : 1);
-  const lastImage = images.length - 1;
-  //console.log('jhjerre', lastImage);
+
   const backgroundImage = `${exhibition_detail?.style?.toLowerCase()}.png`;
   let a = 0;
   let b = 0;

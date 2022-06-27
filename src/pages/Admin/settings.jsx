@@ -1,6 +1,5 @@
 import { AdminLayout } from 'Layout';
 import React from 'react';
-import SubHeader from 'components/molecules/header/SubHeader';
 import SelectOptions from 'components/atoms/form/SelectOptions';
 import Button from 'components/atoms/buttons/Button';
 import TextArea from 'components/atoms/form/TextArea';
