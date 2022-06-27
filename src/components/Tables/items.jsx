@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import CheckBox from 'components/atoms/checkbox/CheckBox';
-import Data from './Data';
+import Data from './data';
+import { TextField } from 'components/atoms/form';
 
 const Items = ({ data }) => {
   const [showData, setShowData] = useState(false);
@@ -8,9 +9,8 @@ const Items = ({ data }) => {
   const handleClick = () => () => {
     setShowData(!showData);
   };
-  const color = showData ? 'white' : 'light-gray';
 
-  console.log('item', data);
+  // console.log('item', data);
   const handleSize = () => {};
 
   return (
@@ -22,12 +22,15 @@ const Items = ({ data }) => {
         <div className="flex-grow  w-134 ml-55 mt-13 font-nunito-normal text-left font-light text-base leading-22 text-black">
           {data.name}
         </div>
-        <div
-          className={` w-101 h-27 bg-${color} mr-40 mt-8 pl-18 font-nunito-normal font-light text-base leading-22 text-black `}
-        >
-          {data.price}
+        <div>
+          <TextField
+            name="price"
+            label=""
+            className="w-101 h-27  mr-50 mt-8 pl-18 font-nunito-normal font-light text-base leading-22 text-black"
+          >
+            {data.price}
+          </TextField>
         </div>
-
         <div className="mt-19 mr-30 cursor-pointer" onClick={handleClick()}>
           <img
             src={

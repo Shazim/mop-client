@@ -27,7 +27,7 @@ import CouponsOffers from 'pages/Admin/coupons-offers';
 import Orders from 'pages/Admin/orders';
 import PricingSheet from 'pages/Admin/pricing-sheet';
 import TaxRates from 'pages/Admin/tax-rates';
-import SlickSlider from 'components/atoms/slider/slick-slider';
+import SlickSlider from 'pages/slick-slider';
 import PricingSheetDetails from 'pages/Admin/Pricing-sheet-details';
 import PriceSheet from 'pages/Admin/Price-sheet';
 // List of Routes name using for links and route

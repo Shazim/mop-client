@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import CheckBox from 'components/atoms/checkbox/CheckBox';
 import { useFetch } from 'hooks';
 import { priceSheet } from 'api/api-services';
-import Items from './Items';
+import Items from './items';
 
-function MenuTable() {
+function MenuTable(props) {
   const { data: getData } = useFetch(priceSheet);
   const { sizes = [] } = getData || [];
 

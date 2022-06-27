@@ -70,13 +70,12 @@ const PriceSheet = () => {
         {price_sheets.map(({ name, id }) => (
           <Link to={`/price-sheet/${id}`}>
             <div className="w-186 h-186 bg-gray "></div>
-            <div className="mt-7 font-nunito-reg font-bold  text-secondary text-sm uppercase leading-32 tracking">
+            <div className="mt-7 mb-30 font-nunito-reg font-bold  text-secondary text-sm uppercase leading-32 tracking">
               {name}
             </div>
           </Link>
         ))}
       </div>
-      <div className=" mt-24 hr-b"></div>
     </AdminLayout>
   );
 };
