@@ -6,22 +6,32 @@ import { Form } from 'components/app/forms';
 import Button from 'components/atoms/buttons/Button';
 import { usePost } from 'hooks';
 import { createPriceSheet } from 'api/api-services';
+import { priceSheetSchema } from 'validation';
 
 const PricingSheet = () => {
   const [initalValues, setInitialValues] = useState({
     name: '',
-    price_sheet_entries_attributes: [{ price: '' }],
+    priceSheetAttributes: {},
   });
-
   const [handleCreatePrice, { data: dataPost, loading }] =
     usePost(createPriceSheet);
 
+  console.log('Submission result'.dataPost);
+
   const onSubmit = (data) => {
-    console.log('data', data);
-    // handleCreatePrice({
-    //   variables: data,
-    // });
+    const name = data?.name;
+    const priceSheetAttributes = data?.priceSheetAttributes;
+    let price_sheet_entries_attributes = [];
+    if (priceSheetAttributes) {
+      Object.entries(priceSheetAttributes).map(([key, value]) => {
+        price_sheet_entries_attributes.push(value);
+      });
+    }
+    handleCreatePrice({
+      variables: { price_sheet: { name, price_sheet_entries_attributes } },
+    });
   };
+
   useEffect(() => {
     if (dataPost) {
       setInitialValues({ ...initalValues, key: dataPost?.key });
@@ -33,8 +43,7 @@ const PricingSheet = () => {
       <Form
         initialValues={initalValues}
         onSubmit={onSubmit}
-        // validationSchema={exhibitionSchema}
-        enableReinitialize={true}
+        validationSchema={priceSheetSchema}
       >
         {({ handleSubmit, values }) => (
           <div className="">

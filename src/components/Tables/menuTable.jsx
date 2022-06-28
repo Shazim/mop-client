@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import CheckBox from 'components/atoms/checkbox/CheckBox';
 import { useFetch } from 'hooks';
 import { priceSheet } from 'api/api-services';
 import Items from './items';
+import { useFormikContext } from 'formik';
+import ErrorMessage from 'components/app/forms/ErrorMessage';
 
-function MenuTable(props) {
+function MenuTable() {
   const { data: getData } = useFetch(priceSheet);
   const { sizes = [] } = getData || [];
+  const { errors, touched } = useFormikContext() || {};
 
   return (
     <>
@@ -25,6 +28,10 @@ function MenuTable(props) {
       {sizes.map((data) => (
         <Items data={data} />
       ))}
+      <ErrorMessage
+        error={errors?.priceSheetAttributes}
+        visible={touched?.['priceSheetAttributes']}
+      />
     </>
   );
 }
