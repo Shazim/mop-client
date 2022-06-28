@@ -32,8 +32,6 @@ const Data = ({ papers, size }) => {
         console.log('paper1-delete');
         delete copyPriceSheetAttributes[size]['paper_one'];
       } else if (!copyPriceSheetAttributes[size]?.paper_one && index == 0) {
-        console.log('paper1-added');
-
         copyPriceSheetAttributes[size] = {
           ...copyPriceSheetAttributes[size],
           paper_one: paperId,
@@ -41,10 +39,7 @@ const Data = ({ papers, size }) => {
         };
       } else if (copyPriceSheetAttributes[size]?.paper_two && index == 1) {
         delete copyPriceSheetAttributes[size]['paper_two'];
-        console.log('paper2-deleted');
       } else if (!copyPriceSheetAttributes[size]?.paper_two && index == 1) {
-        console.log('paper2-added');
-
         copyPriceSheetAttributes[size] = {
           ...copyPriceSheetAttributes[size],
           size,
@@ -52,7 +47,6 @@ const Data = ({ papers, size }) => {
         };
       }
     }
-    console.log('copyPriceShhet', copyPriceSheetAttributes);
     setFieldValue('priceSheetAttributes', copyPriceSheetAttributes);
   };
 

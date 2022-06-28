@@ -16,8 +16,6 @@ const PricingSheet = () => {
   const [handleCreatePrice, { data: dataPost, loading }] =
     usePost(createPriceSheet);
 
-  console.log('Submission result'.dataPost);
-
   const onSubmit = (data) => {
     const name = data?.name;
     const priceSheetAttributes = data?.priceSheetAttributes;
@@ -32,11 +30,11 @@ const PricingSheet = () => {
     });
   };
 
-  useEffect(() => {
-    if (dataPost) {
-      setInitialValues({ ...initalValues, key: dataPost?.key });
-    }
-  }, [dataPost]);
+  // useEffect(() => {
+  //   if (dataPost) {
+  //     setInitialValues({ ...initalValues, key: dataPost?.key });
+  //   }
+  // }, [dataPost]);
 
   return (
     <AdminLayout title="pricing and products" subtitle="Create New Price Sheet">
