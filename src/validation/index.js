@@ -84,6 +84,19 @@ export const exhibitionSchema = Yup.object().shape({
     ),
 });
 
+export const priceSheetSchema = Yup.object().shape({
+  name: Yup.string().required('Name is required'),
+  priceSheetAttributes: Yup.object()
+    .shape()
+    .test(
+      'priceSheetAttributes',
+      'please Select at least one size ',
+      (priceSheetAttributes) => {
+        return Object.keys(priceSheetAttributes).length != 0;
+      }
+    ),
+});
+
 export const gallerySchema = Yup.object().shape({
   name: Yup.string().required('Name is required'),
   artist_name: Yup.string().required('Note is required'),
