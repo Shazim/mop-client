@@ -37,6 +37,9 @@ export const priceSheetDetail = (data) => {
   return doGet(`${BASE_URL}${API_PATH}${PRICE_SHEETS}/${data}`);
 };
 
+export const editPriceSheet = (data) => {
+  return doPut(`${BASE_URL}${API_PATH}${PRICE_SHEETS}/${data}`);
+};
 export const PriceSheetCollection = () => {
   return doGet(`${BASE_URL}${API_PATH}${PRICE_SHEETS}`);
 };

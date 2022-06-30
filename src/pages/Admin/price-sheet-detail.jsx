@@ -1,4 +1,4 @@
-import { priceSheetDetail } from 'api/api-services';
+import { editPriceSheet, priceSheetDetail } from 'api/api-services';
 import Button from 'components/atoms/buttons/Button';
 import { useFetch } from 'hooks';
 import { AdminLayout } from 'Layout';
@@ -7,6 +7,7 @@ import { useParams } from 'react-router';
 import { routes } from 'routes';
 import { useHistory } from 'react-router-dom';
 import MenuTable2 from 'components/Tables/menuTable2';
+import { Link } from 'react-router-dom';
 
 const PricingSheetDetails = () => {
   const history = useHistory();
@@ -25,11 +26,13 @@ const PricingSheetDetails = () => {
         <div className=" font-avenir-reg font-medium text-xl text-secondary uppercase tracking-wider leading-54">
           Print Price sheet
         </div>
-        <div className=" hidden mt-51 mr-48 sm:hidden">
-          <Button className="w-116 h-33 " color="gray">
-            Edit
-          </Button>
-        </div>
+        <Link to={`/price-sheet/${id}`}>
+          <div className="  mt-51 mr-48 sm:hidden">
+            <Button className="w-116 h-33 " color="gray">
+              Edit
+            </Button>
+          </div>
+        </Link>
       </div>
       <div className=" font-avenir-reg font-medium text-xl text-secondary uppercase tracking-wider leading-54">
         info

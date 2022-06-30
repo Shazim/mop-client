@@ -1,8 +1,36 @@
 import Button from 'components/atoms/buttons/Button';
 import SelectOptions from 'components/atoms/form/SelectOptions';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useFetch } from 'hooks';
+import { getPublicArtworkPrice } from 'api/public-api-services';
 
-function AddCart() {
+function AddCart({ id, size }) {
+  const [dataArray, setDataArray] = useState([]);
+  const [option, SetOption] = useState([]);
+  useEffect(() => {
+    if (size) {
+      Object.entries(size).map(([key, value]) => {
+        if (key === 'sizes') {
+          setDataArray(value);
+        }
+      });
+    }
+  }, [size]);
+
+  let testData = [];
+  useEffect(() => {
+    dataArray.map((data) => {
+      testData.push({ value: data.id, label: data.name });
+    });
+    SetOption(testData);
+  }, [dataArray]);
+  const slectedItem = (e) => {
+    const index = e.target.label;
+    console.log('tagreted value', index);
+  };
+
+  const { data } = useFetch(getPublicArtworkPrice, { variables: id });
+
   return (
     <div className="h-578 w-80% xl:w-90% lg:w-93% md:w-93% sm:w-100% bg-gray-lighter flex flex-col px-42 sm:px-20 pt-20 pb-40 shadow">
       <p className="font-avenir-reg text-secondary-dark text-2xl sm:text-xl tracking-wider sm:text-center leading-60 sm:leading-38 uppercase">
@@ -16,6 +44,8 @@ function AddCart() {
         color="white"
         width="100%"
         label="click to select size"
+        onChange={slectedItem}
+        option={option}
       />
       <p className="font-bold text-sm text-black tracking leading-32 uppercase mt-16">
         Select frame type

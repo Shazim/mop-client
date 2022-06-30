@@ -1,6 +1,7 @@
 import Sliders from 'components/atoms/slider/Slider';
 import AddCart from 'components/molecules/addcart/AddCart';
 import { useFetch } from 'hooks';
+
 import React from 'react';
 import { getPublicArtWork } from 'api/api-services';
 import { Container } from 'Layout';
@@ -16,6 +17,7 @@ function SinglePhoto(props) {
   const search = props.location.search;
   const params = new URLSearchParams(search);
   const id = params.get('id');
+
   const { data: dataArtwork } = useFetch(getPublicArtWork, { variables: 1 });
   const {
     images: sliderImages,
@@ -23,8 +25,10 @@ function SinglePhoto(props) {
     name,
     notes,
     more_by_this_artist,
+    price_sheet,
   } = dataArtwork || [];
-
+  // console.log('here', price_sheet.sizes);
+  //const size = price_sheet.sizes;
   return (
     <Container>
       <div className="max-screen pt-50  sm:w-100% sm:px-23 sm:h-100% sm:bg-gray-dark">
@@ -48,7 +52,7 @@ function SinglePhoto(props) {
           </p>
         </div>
         <div className="w-50% md:w-55% flex sm:flex-col justify-end sm:p-23 sm:w-100% sm:bg-white">
-          <AddCart />
+          <AddCart id={id} size={price_sheet} />
           <div className="hidden sm:block mt-24 w-100% border-border border-b"></div>
         </div>
       </div>

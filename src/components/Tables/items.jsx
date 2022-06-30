@@ -16,7 +16,7 @@ const Items = ({ data }) => {
     setShowData(!showData);
   };
   const copyPriceSheetAttributes = { ...priceSheetAttributes };
-  // console.log('item', data);
+
   const handleSize = (id) => {
     if (copyPriceSheetAttributes[id]) {
       delete copyPriceSheetAttributes[id];
@@ -42,8 +42,6 @@ const Items = ({ data }) => {
     }
   };
 
-  console.log('errors', errors);
-
   return (
     <>
       <div className=" flex ">
@@ -54,14 +52,16 @@ const Items = ({ data }) => {
           {data.name}
         </div>
         <div>
-          <input
-            name="price"
-            label=""
-            className=" h-20 w-101  mr-50 sm:mr-10 mt-8 pl-18 font-nunito-normal font-light text-base leading-22 text-black"
-            onChange={handlePrice}
-            value={value}
-            type="number"
-          />
+          {showData ? (
+            <input
+              name="price"
+              label=""
+              className=" h-22 w-101 focus:outline-none  mr-30 sm:mr-10 mt-13 pl-18 font-nunito-normal font-light text-base leading-22 text-black"
+              onChange={handlePrice}
+              value={value}
+              type="number"
+            />
+          ) : null}
         </div>
         <div
           className="mt-19 mr-30 sm:mr-8 cursor-pointer"
