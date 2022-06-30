@@ -3,6 +3,7 @@ import CheckBox from 'components/atoms/checkbox/CheckBox';
 import Data from './data';
 import { useFormikContext } from 'formik';
 import { toast } from 'react-toastify';
+import { useEffect } from 'react';
 
 const Items = ({ data }) => {
   const { errors, values, setFieldValue } = useFormikContext() || {};
@@ -11,6 +12,10 @@ const Items = ({ data }) => {
   const [value, setValue] = useState('');
 
   const { priceSheetAttributes } = values;
+
+  useEffect(() => {
+    setValue(priceSheetAttributes[data?.id]?.price);
+  }, [values]);
 
   const handleClick = () => () => {
     setShowData(!showData);
@@ -46,7 +51,12 @@ const Items = ({ data }) => {
     <>
       <div className=" flex ">
         <div className="w-20 ml-22 mt-13 ">
-          {showData ? null : <CheckBox onChange={() => handleSize(data?.id)} />}
+          {showData ? null : (
+            <CheckBox
+              checked={priceSheetAttributes[data?.id]}
+              onChange={() => handleSize(data?.id)}
+            />
+          )}
         </div>
         <div className="flex-grow  w-134 ml-55 mt-13 font-nunito-normal text-left font-light text-base leading-22 text-black">
           {data.name}

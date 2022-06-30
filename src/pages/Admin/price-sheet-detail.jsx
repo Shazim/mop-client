@@ -1,4 +1,4 @@
-import { editPriceSheet, priceSheetDetail } from 'api/api-services';
+import { priceSheetDetail } from 'api/api-services';
 import Button from 'components/atoms/buttons/Button';
 import { useFetch } from 'hooks';
 import { AdminLayout } from 'Layout';
@@ -26,13 +26,15 @@ const PricingSheetDetails = () => {
         <div className=" font-avenir-reg font-medium text-xl text-secondary uppercase tracking-wider leading-54">
           Print Price sheet
         </div>
-        <Link to={`/price-sheet/${id}`}>
-          <div className="  mt-51 mr-48 sm:hidden">
-            <Button className="w-116 h-33 " color="gray">
-              Edit
-            </Button>
-          </div>
-        </Link>
+        <div className="  mt-51 mr-48 sm:hidden">
+          <Button
+            onClick={() => history.push(`/edit-price-sheet/${id}`)}
+            className="w-116 h-33 "
+            color="gray"
+          >
+            Edit
+          </Button>
+        </div>
       </div>
       <div className=" font-avenir-reg font-medium text-xl text-secondary uppercase tracking-wider leading-54">
         info

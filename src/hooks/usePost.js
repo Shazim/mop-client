@@ -7,10 +7,12 @@ function UsePost(query) {
   const [error, setError] = useState();
   const [status, setStatus] = useState();
 
-  let calling = async (params) => {
+  let calling = async (params, id) => {
     let result;
-    if (params) {
-      result = await query(params.variables);
+    if (id) {
+      result = await query(id, params?.variables);
+    } else if (params) {
+      result = await query(params?.variables);
     } else {
       result = await query();
     }

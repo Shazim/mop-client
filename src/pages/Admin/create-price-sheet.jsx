@@ -7,6 +7,7 @@ import Button from 'components/atoms/buttons/Button';
 import { usePost } from 'hooks';
 import { createPriceSheet } from 'api/api-services';
 import { priceSheetSchema } from 'validation';
+import PriceSheetForm from 'components/PriceSheet';
 
 const PricingSheet = () => {
   const [initalValues, setInitialValues] = useState({
@@ -30,15 +31,10 @@ const PricingSheet = () => {
     });
   };
 
-  // useEffect(() => {
-  //   if (dataPost) {
-  //     setInitialValues({ ...initalValues, key: dataPost?.key });
-  //   }
-  // }, [dataPost]);
-
   return (
     <AdminLayout title="pricing and products" subtitle="Create New Price Sheet">
-      <Form
+      <PriceSheetForm onSubmit={onSubmit} initalValues={initalValues} />
+      {/* <Form
         initialValues={initalValues}
         onSubmit={onSubmit}
         validationSchema={priceSheetSchema}
@@ -64,7 +60,7 @@ const PricingSheet = () => {
             </div>
           </div>
         )}
-      </Form>
+      </Form> */}
     </AdminLayout>
   );
 };
