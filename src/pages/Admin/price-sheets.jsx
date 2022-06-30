@@ -14,7 +14,7 @@ const PriceSheet = () => {
 
   const { data: getData } = useFetch(PriceSheetCollection);
   const { price_sheets = [] } = getData || [];
-  console.log('pricesheet', price_sheets);
+
   const settings = {
     dots: true,
     slidesToShow: 1,

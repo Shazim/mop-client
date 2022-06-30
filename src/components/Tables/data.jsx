@@ -25,11 +25,9 @@ const Data = ({ papers, size }) => {
         copyPriceSheetAttributes[size]?.paper_two &&
         index == 1)
     ) {
-      console.log('heavy');
       delete copyPriceSheetAttributes[size];
     } else {
       if (copyPriceSheetAttributes[size]?.paper_one && index == 0) {
-        console.log('paper1-delete');
         delete copyPriceSheetAttributes[size]['paper_one'];
       } else if (!copyPriceSheetAttributes[size]?.paper_one && index == 0) {
         copyPriceSheetAttributes[size] = {

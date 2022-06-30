@@ -17,6 +17,7 @@ export const END_POINTS = {
   GALLERYMOCK: '/exhibitions/by_key',
   GET_PRICING_DATA: '/get_pricing_data',
   PRICE_SHEETS: '/price_sheets',
+  ARTWORKS_PRICE: 'get_paper_and_price',
 };
 
 export const LINKS = {
