@@ -29,6 +29,8 @@ const Items = ({ data }) => {
       copyPriceSheetAttributes[id] = {
         ...copyPriceSheetAttributes[id],
         size: id,
+        paper_one: data?.papers[0]?.id,
+        paper_two: data?.papers[1]?.id,
       };
     }
     setFieldValue('priceSheetAttributes', copyPriceSheetAttributes);
@@ -53,7 +55,11 @@ const Items = ({ data }) => {
         <div className="w-20 ml-22 mt-13 ">
           {showData ? null : (
             <CheckBox
-              checked={priceSheetAttributes[data?.id]}
+              checked={
+                priceSheetAttributes[data?.id] &&
+                priceSheetAttributes[data?.id]?.paper_one &&
+                priceSheetAttributes[data?.id]?.paper_two
+              }
               onChange={() => handleSize(data?.id)}
             />
           )}

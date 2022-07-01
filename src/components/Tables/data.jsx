@@ -55,8 +55,8 @@ const Data = ({ papers, size }) => {
           <div className="w-22 ml-22 mt-8 h-22 ">
             <CheckBox
               checked={
-                priceSheetAttributes[size]?.paper_one == '1' ||
-                priceSheetAttributes[size]?.paper_two == '2'
+                (index == 0 && priceSheetAttributes[size]?.paper_one) ||
+                (index == 1 && priceSheetAttributes[size]?.paper_two)
               }
               onChange={() => handlePaper(id, index)}
             />

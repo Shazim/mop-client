@@ -2,15 +2,14 @@ import React, { useState } from 'react';
 import { AdminLayout } from 'Layout';
 import { useParams } from 'react-router';
 import { useFetch, usePost } from 'hooks';
-import { editPriceSheet, priceSheetDetail, priceSheet } from 'api/api-services';
+import { editPriceSheet, priceSheetDetail } from 'api/api-services';
 import PriceSheetForm from 'components/PriceSheet';
 import { useEffect } from 'react';
 
 const EditPriceSheet = () => {
   const params = useParams();
   const { id } = params;
-  const { data = {} } = useFetch(priceSheetDetail, { variables: id });
-  const { data: getData } = useFetch(priceSheet);
+  const { data } = useFetch(priceSheetDetail, { variables: id });
 
   const [editPost, { data: editResponse, loading, status }] =
     usePost(editPriceSheet);
@@ -21,25 +20,24 @@ const EditPriceSheet = () => {
   });
 
   useEffect(() => {
-    if (data && getData) {
-      const pic = {};
+    if (data) {
+      const copyData = {};
       data?.entries.map(
         ({ size, price, paper_one, paper_two }) =>
-          (pic[getData?.sizes.find((x) => x.name === size).id] = {
-            size: getData?.sizes.find((x) => x.name === size).id,
-            price: price,
-            paper_one: paper_one ? '1' : undefined,
-            paper_two: paper_two ? '2' : undefined,
+          (copyData[size] = {
+            size,
+            price,
+            paper_one,
+            paper_two,
           })
       );
-
       setInitialValues({
         ...initalValues,
         name: data?.name,
-        priceSheetAttributes: pic,
+        priceSheetAttributes: copyData,
       });
     }
-  }, [data, getData]);
+  }, [data]);
 
   const onSubmit = (data) => {
     const name = data?.name;
