@@ -49,6 +49,7 @@ const obj = [
         name: 'pricing and products',
         link: '/price-sheets',
       },
+
       {
         redIcon: '/images/sidebar/order_red.svg',
         icon: '/images/sidebar/order.svg',

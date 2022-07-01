@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import CheckBox from 'components/atoms/checkbox/CheckBox';
 import { useFetch } from 'hooks';
 import { priceSheet } from 'api/api-services';
+import { toast } from 'react-toastify';
 import Items from './items';
 import { useFormikContext } from 'formik';
 import ErrorMessage from 'components/app/forms/ErrorMessage';
@@ -9,7 +10,7 @@ import ErrorMessage from 'components/app/forms/ErrorMessage';
 function MenuTable() {
   const { data: getData } = useFetch(priceSheet);
   const { sizes = [] } = getData || [];
-  const { errors, touched } = useFormikContext() || {};
+  const { errors, touched, setFieldValue } = useFormikContext() || {};
 
   return (
     <>

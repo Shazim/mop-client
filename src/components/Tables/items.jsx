@@ -17,7 +17,7 @@ const Items = ({ data }) => {
     setValue(priceSheetAttributes[data?.id]?.price);
   }, [values]);
 
-  const handleClick = () => () => {
+  const handleClick = () => {
     setShowData(!showData);
   };
   const copyPriceSheetAttributes = { ...priceSheetAttributes };
@@ -34,6 +34,7 @@ const Items = ({ data }) => {
       };
     }
     setFieldValue('priceSheetAttributes', copyPriceSheetAttributes);
+    setShowData(!showData);
   };
 
   const handlePrice = (e) => {
@@ -51,7 +52,7 @@ const Items = ({ data }) => {
 
   return (
     <>
-      <div className=" flex ">
+      <div className=" flex link">
         <div className="w-20 ml-22 mt-13 ">
           {showData ? null : (
             <CheckBox
@@ -64,7 +65,11 @@ const Items = ({ data }) => {
             />
           )}
         </div>
-        <div className="flex-grow  w-134 ml-55 mt-13 font-nunito-normal text-left font-light text-base leading-22 text-black">
+
+        <div
+          className="flex-grow  w-134 ml-55 mt-13 font-nunito-normal text-left font-light text-base leading-22 text-black"
+          onClick={handleClick}
+        >
           {data.name}
         </div>
         <div>
@@ -81,7 +86,7 @@ const Items = ({ data }) => {
         </div>
         <div
           className="mt-19 mr-30 sm:mr-8 cursor-pointer"
-          onClick={handleClick()}
+          onClick={handleClick}
         >
           <img
             src={
@@ -93,7 +98,9 @@ const Items = ({ data }) => {
           />
         </div>
       </div>
-      {showData && <Data papers={data.papers} size={data.id} />}
+      {showData && (
+        <Data papers={data.papers} size={data.id} onClick={handleClick} />
+      )}
       <div className="hr-b mt-20"></div>
     </>
   );

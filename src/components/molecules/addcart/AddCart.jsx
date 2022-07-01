@@ -25,7 +25,7 @@ function AddCart({ id, size }) {
     SetOption(testData);
   }, [dataArray]);
   const slectedItem = (e) => {
-    const index = e.target.label;
+    const index = e;
     console.log('tagreted value', index);
   };
 
