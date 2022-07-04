@@ -47,7 +47,10 @@ const obj = [
         redIcon: '/images/sidebar/price_red.svg',
         icon: '/images/sidebar/price.svg',
         name: 'pricing and products',
-        link: '/price-sheets',
+        link: `/price-sheets`,
+        link2: '/create-price-sheet',
+        link3: '/price-sheet',
+        link4: '/edit-price-sheet',
       },
       {
         redIcon: '/images/sidebar/order_red.svg',
@@ -174,17 +177,31 @@ function SideBar() {
                                 : ''
                             }`}
                           >
+                            {console.log(
+                              subItem.link,
+                              subItem.link == location.pathname,
+                              subItem?.link2,
+                              location.pathname.includes(subItem?.link2),
+                              'pathname',
+                              location.pathname
+                            )}
                             <img
                               className="w-19 h-19 my-auto text-primary"
                               src={
-                                subItem.link == location.pathname
+                                subItem.link == location.pathname ||
+                                location.pathname.includes(subItem?.link2) ||
+                                location.pathname.includes(subItem?.link3) ||
+                                location.pathname.includes(subItem?.link4)
                                   ? subItem.redIcon
                                   : subItem.icon
                               }
                             />
                             <div
                               className={`my-auto font-nunito-semibold capitalize text-base leading-5 ml-28 ${
-                                subItem.link == location.pathname
+                                subItem.link == location.pathname ||
+                                location.pathname.includes(subItem?.link2) ||
+                                location.pathname.includes(subItem?.link3) ||
+                                location.pathname.includes(subItem?.link4)
                                   ? 'text-primary'
                                   : 'text-secondary'
                               } `}
