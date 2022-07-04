@@ -11,11 +11,12 @@ function MenuTable() {
   const { data: getData } = useFetch(priceSheet);
   const { sizes = [] } = getData || [];
   const { errors, touched, values, setFieldValue } = useFormikContext() || {};
+  const [showData, setShowData] = useState(false);
 
   const { priceSheetAttributes } = values;
-  // const copyPriceSheetAttributes = { ...priceSheetAttributes };
 
   const handleAllChecks = () => {
+    setShowData(!showData);
     let copyPriceSheetAttributes = {};
     sizes.map((data) => {
       if (sizes.length != Object.keys(priceSheetAttributes).length) {
@@ -51,7 +52,7 @@ function MenuTable() {
         </div>
       </div>
       {sizes.map((data) => (
-        <Items data={data} />
+        <Items data={data} showDataState={showData} />
       ))}
       <ErrorMessage
         error={errors?.priceSheetAttributes}

@@ -5,7 +5,7 @@ import { useFormikContext } from 'formik';
 import { toast } from 'react-toastify';
 import { useEffect } from 'react';
 
-const Items = ({ data, select }) => {
+const Items = ({ data, select, showDataState }) => {
   const { errors, values, setFieldValue } = useFormikContext() || {};
 
   const [showData, setShowData] = useState(false);
@@ -54,7 +54,7 @@ const Items = ({ data, select }) => {
     <>
       <div className=" flex link">
         <div className="w-20 ml-22 mt-13 ">
-          {showData ? null : (
+          {showData || showDataState ? null : (
             <CheckBox
               checked={
                 priceSheetAttributes[data?.id] &&
@@ -73,7 +73,7 @@ const Items = ({ data, select }) => {
           {data.name}
         </div>
         <div>
-          {showData ? (
+          {showData || showDataState ? (
             <input
               name="price"
               label=""
@@ -90,7 +90,7 @@ const Items = ({ data, select }) => {
         >
           <img
             src={
-              showData
+              showData || showDataState
                 ? '/images/icons/open-option.svg'
                 : '/images/icons/close-option.svg'
             }
@@ -98,9 +98,10 @@ const Items = ({ data, select }) => {
           />
         </div>
       </div>
-      {showData && (
-        <Data papers={data.papers} size={data.id} onClick={handleClick} />
-      )}
+      {showData ||
+        (showDataState && (
+          <Data papers={data.papers} size={data.id} onClick={handleClick} />
+        ))}
       <div className="hr-b mt-20"></div>
     </>
   );
