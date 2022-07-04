@@ -5,7 +5,7 @@ import { useFormikContext } from 'formik';
 import { toast } from 'react-toastify';
 import { useEffect } from 'react';
 
-const Items = ({ data }) => {
+const Items = ({ data, select }) => {
   const { errors, values, setFieldValue } = useFormikContext() || {};
 
   const [showData, setShowData] = useState(false);

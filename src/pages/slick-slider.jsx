@@ -10,10 +10,13 @@ import { useParams } from 'react-router-dom';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import { Bars } from 'react-loader-spinner';
+import PreloadImage from 'react-preload-image';
+import Resizer from 'react-image-file-resizer';
 
 const SlickSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
+
   const slider = useRef();
 
   const next = () => {
@@ -50,6 +53,21 @@ const SlickSlider = () => {
         },
       },
     ],
+  };
+  const resizeFile = (file) =>
+    new Promise((resolve) => {
+      Resizer.imageFileResizer(file, 300, 300, 'PNG', 100, 0, (images) => {
+        resolve(images);
+      });
+    });
+  const onChange = async (event) => {
+    try {
+      const file = event.target.files[0];
+      const image = await resizeFile(file);
+      console.log(image);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const width = window.innerWidth;
@@ -118,6 +136,7 @@ const SlickSlider = () => {
                     src={`/images/gallery-mockup/scene1-${backgroundImage}`}
                     width={'100%'}
                     height={'100vh'}
+                    alt={<Bars />}
                   />
 
                   <div className="w-100% h-100% absolute sm:left-30 left-50 top-0 flex flex-col items-center justify-center">
@@ -159,7 +178,7 @@ const SlickSlider = () => {
                               src={`/images/gallery-mockup/scene2-${backgroundImage}`}
                               width={'100%'}
                               height={'100vh'}
-                              alt={`/images/gallery-mockup/scene2-${backgroundImage}`}
+                              alt={<Bars />}
                             />
                             <div className="absolute top-50% transform-y flex w-100% justify-evenly">
                               <div className="h-222 relative  ">
@@ -168,10 +187,11 @@ const SlickSlider = () => {
                                   className="h-100% w-165 "
                                   alt=""
                                 />
-                                <img
+                                <LazyLoadImage
                                   src={images[imageIndexScene2 - 3]?.image}
-                                  alt=""
+                                  alt={<Bars />}
                                   className="absolute object-cover top-19 h-183 left-19 w-127 "
+                                  onChange={onChange}
                                 />
                               </div>
                               <div className="h-222 relative ">
@@ -184,6 +204,7 @@ const SlickSlider = () => {
                                   src={images[imageIndexScene2 - 2]?.image}
                                   alt=""
                                   className="absolute top-27 h-169 left-27 w-245 object-cover"
+                                  onChange={onChange}
                                 />
                               </div>
                               <div className="h-222 relative ">
@@ -196,6 +217,7 @@ const SlickSlider = () => {
                                   src={images[imageIndexScene2 - 1]?.image}
                                   alt=""
                                   className="absolute top-19 h-183 left-19 w-127 object-cover "
+                                  onChange={onChange}
                                 />
                               </div>
                             </div>
@@ -222,6 +244,7 @@ const SlickSlider = () => {
                                   src={images[imageIndexScene2]?.image}
                                   alt=""
                                   className="absolute object-cover top-19 h-183 left-19 w-127  "
+                                  onChange={onChange}
                                 />
                               </div>
                               <div className="h-222 relative mr-30  ">
