@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import CheckBox from 'components/atoms/checkbox/CheckBox';
 import { useFetch } from 'hooks';
 import { priceSheet } from 'api/api-services';
+import { toast } from 'react-toastify';
 import Items from './items';
 import { useFormikContext } from 'formik';
 import ErrorMessage from 'components/app/forms/ErrorMessage';
@@ -10,22 +11,24 @@ function MenuTable() {
   const { data: getData } = useFetch(priceSheet);
   const { sizes = [] } = getData || [];
   const { errors, touched, values, setFieldValue } = useFormikContext() || {};
+  const [showData, setShowData] = useState(false);
 
   const { priceSheetAttributes } = values;
-  // const copyPriceSheetAttributes = { ...priceSheetAttributes };
 
   const handleAllChecks = () => {
     let copyPriceSheetAttributes = {};
     sizes.map((data) => {
-      if (sizes.length != Object.keys(priceSheetAttributes).length) {
+      if (sizes.length == Object.keys(priceSheetAttributes).length) {
+        delete copyPriceSheetAttributes[data?.id];
+        setShowData(false);
+      } else {
         copyPriceSheetAttributes[data?.id] = {
           ...copyPriceSheetAttributes[data?.id],
           size: data?.id,
           paper_one: data?.papers[0]?.id,
           paper_two: data?.papers[1]?.id,
         };
-      } else {
-        delete copyPriceSheetAttributes[data?.id];
+        setShowData(true);
       }
     });
     setFieldValue('priceSheetAttributes', copyPriceSheetAttributes);
@@ -50,7 +53,7 @@ function MenuTable() {
         </div>
       </div>
       {sizes.map((data) => (
-        <Items data={data} />
+        <Items data={data} showDataState={showData} />
       ))}
       <ErrorMessage
         error={errors?.priceSheetAttributes}

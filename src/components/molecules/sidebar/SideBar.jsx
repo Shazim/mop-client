@@ -47,11 +47,12 @@ const obj = [
         redIcon: '/images/sidebar/price_red.svg',
         icon: '/images/sidebar/price.svg',
         name: 'pricing and products',
-        link: `/price-sheets`,
+        link: '/price-sheets',
         link2: '/create-price-sheet',
         link3: '/price-sheet',
         link4: '/edit-price-sheet',
       },
+
       {
         redIcon: '/images/sidebar/order_red.svg',
         icon: '/images/sidebar/order.svg',
@@ -123,9 +124,6 @@ function SideBar() {
     history.push(routes.ROUTE_HOME);
   };
 
-  const backbtn = useSelector((state) => state?.admin?.backButton);
-  const dispatch = useDispatch();
-
   const links = ['/stock-room', '/exhibition-room'];
 
   return (
@@ -177,14 +175,6 @@ function SideBar() {
                                 : ''
                             }`}
                           >
-                            {console.log(
-                              subItem.link,
-                              subItem.link == location.pathname,
-                              subItem?.link2,
-                              location.pathname.includes(subItem?.link2),
-                              'pathname',
-                              location.pathname
-                            )}
                             <img
                               className="w-19 h-19 my-auto text-primary"
                               src={

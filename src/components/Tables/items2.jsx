@@ -4,23 +4,20 @@ import Data2 from './data2';
 const Items2 = ({ data }) => {
   const [showData, setShowData] = useState(false);
 
-  const handleClick = () => () => {
+  const handleClick = () => {
     setShowData(!showData);
   };
 
   return (
     <>
-      <div className=" flex ">
+      <div className=" flex link " onClick={handleClick}>
         <div className="flex-grow  w-134 ml-16 mt-13 font-nunito-normal text-left font-light text-base leading-22 text-black">
-          {data.size}
+          {data.size_name}
         </div>
         <div className="w-101 h-27 sm:mr-0 mr-50 mt-8 pl-18 font-nunito-normal font-light text-base leading-22 text-black">
           ${data.price}
         </div>
-        <div
-          className="mt-19 sm:mr-0 mr-30 cursor-pointer"
-          onClick={handleClick()}
-        >
+        <div className="mt-19 sm:mr-0 mr-30 cursor-pointer">
           <img
             src={
               showData
@@ -32,7 +29,11 @@ const Items2 = ({ data }) => {
         </div>
       </div>
       {showData && (
-        <Data2 paper_one={data.paper_one} paper_two={data.paper_two} />
+        <Data2
+          paper_one={data.paper_one_name}
+          paper_two={data.paper_two_name}
+          onClick={handleClick()}
+        />
       )}
       <div className="hr-b mt-20"></div>
     </>

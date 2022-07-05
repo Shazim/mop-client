@@ -2,7 +2,7 @@ import React from 'react';
 import CheckBox from 'components/atoms/checkbox/CheckBox';
 import { useFormikContext } from 'formik';
 
-const Data = ({ papers, size }) => {
+const Data = ({ papers, size, onClick }) => {
   const {
     handleBlur,
     handleChange,
@@ -51,7 +51,7 @@ const Data = ({ papers, size }) => {
   return (
     <>
       {papers.map(({ name, id }, index) => (
-        <div className=" flex ">
+        <div className=" flex  link">
           <div className="w-22 ml-22 mt-8 h-22 ">
             <CheckBox
               checked={
@@ -61,7 +61,10 @@ const Data = ({ papers, size }) => {
               onChange={() => handlePaper(id, index)}
             />
           </div>
-          <div className="w-134 text-center pl-10 mt-8 font-nunito-normal  font-light text-base leading-22 text-black">
+          <div
+            className="w-134 flex-grow  pl-55 mt-8 font-nunito-normal  font-light text-base leading-22 text-black"
+            onClick={onClick}
+          >
             {name}
           </div>
         </div>
