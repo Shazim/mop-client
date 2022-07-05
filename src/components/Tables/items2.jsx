@@ -4,13 +4,13 @@ import Data2 from './data2';
 const Items2 = ({ data }) => {
   const [showData, setShowData] = useState(false);
 
-  const handleClick = () => () => {
+  const handleClick = () => {
     setShowData(!showData);
   };
 
   return (
     <>
-      <div className=" flex link " onClick={handleClick()}>
+      <div className=" flex link " onClick={handleClick}>
         <div className="flex-grow  w-134 ml-16 mt-13 font-nunito-normal text-left font-light text-base leading-22 text-black">
           {data.size_name}
         </div>

@@ -16,18 +16,19 @@ function MenuTable() {
   const { priceSheetAttributes } = values;
 
   const handleAllChecks = () => {
-    setShowData(!showData);
     let copyPriceSheetAttributes = {};
     sizes.map((data) => {
-      if (sizes.length != Object.keys(priceSheetAttributes).length) {
+      if (sizes.length == Object.keys(priceSheetAttributes).length) {
+        delete copyPriceSheetAttributes[data?.id];
+        setShowData(false);
+      } else {
         copyPriceSheetAttributes[data?.id] = {
           ...copyPriceSheetAttributes[data?.id],
           size: data?.id,
           paper_one: data?.papers[0]?.id,
           paper_two: data?.papers[1]?.id,
         };
-      } else {
-        delete copyPriceSheetAttributes[data?.id];
+        setShowData(true);
       }
     });
     setFieldValue('priceSheetAttributes', copyPriceSheetAttributes);

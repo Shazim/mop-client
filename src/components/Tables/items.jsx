@@ -5,8 +5,8 @@ import { useFormikContext } from 'formik';
 import { toast } from 'react-toastify';
 import { useEffect } from 'react';
 
-const Items = ({ data, select, showDataState }) => {
-  const { errors, values, setFieldValue } = useFormikContext() || {};
+const Items = ({ data, showDataState }) => {
+  const { values, setFieldValue } = useFormikContext() || {};
 
   const [showData, setShowData] = useState(false);
   const [value, setValue] = useState('');
@@ -16,6 +16,10 @@ const Items = ({ data, select, showDataState }) => {
   useEffect(() => {
     setValue(priceSheetAttributes[data?.id]?.price);
   }, [values]);
+
+  useEffect(() => {
+    setShowData(showDataState);
+  }, [showDataState]);
 
   const handleClick = () => {
     setShowData(!showData);
@@ -54,7 +58,7 @@ const Items = ({ data, select, showDataState }) => {
     <>
       <div className=" flex link">
         <div className="w-20 ml-22 mt-13 ">
-          {showData || showDataState ? null : (
+          {showData ? null : (
             <CheckBox
               checked={
                 priceSheetAttributes[data?.id] &&
@@ -73,7 +77,7 @@ const Items = ({ data, select, showDataState }) => {
           {data.name}
         </div>
         <div>
-          {showData || showDataState ? (
+          {showData ? (
             <input
               name="price"
               label=""
@@ -90,7 +94,7 @@ const Items = ({ data, select, showDataState }) => {
         >
           <img
             src={
-              showData || showDataState
+              showData
                 ? '/images/icons/open-option.svg'
                 : '/images/icons/close-option.svg'
             }
@@ -98,10 +102,9 @@ const Items = ({ data, select, showDataState }) => {
           />
         </div>
       </div>
-      {showData ||
-        (showDataState && (
-          <Data papers={data.papers} size={data.id} onClick={handleClick} />
-        ))}
+      {showData && (
+        <Data papers={data.papers} size={data.id} onClick={handleClick} />
+      )}
       <div className="hr-b mt-20"></div>
     </>
   );
