@@ -91,11 +91,6 @@ function LoginModal({ isOpen, openHandler, signUpHandler, forgotHandler }) {
               onSubmit={login}
               initialValues={{ email: '', password: '' }}
               validationSchema={generateSchema({ email: '', password: '' })}
-              // onKeyDown={(e) => {
-              //   if (e.key === 'Enter') {
-              //     login();
-              //   }
-              // }}
             >
               {() => (
                 <>
