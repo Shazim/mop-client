@@ -32,7 +32,7 @@ const Items2 = ({ data }) => {
         <Data2
           paper_one={data.paper_one_name}
           paper_two={data.paper_two_name}
-          onClick={handleClick()}
+          onClick={handleClick}
         />
       )}
       <div className="hr-b mt-20"></div>

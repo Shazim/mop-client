@@ -4,7 +4,7 @@ import Button from 'components/atoms/buttons/Button';
 import SubmitButton from 'components/atoms/buttons/SubmitButton';
 import TextField from 'components/atoms/form/TextField';
 import { setCookie } from 'cookies/Cookies';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import { useHistory } from 'react-router-dom';
 import { generateSchema } from 'validation';
@@ -15,6 +15,15 @@ function LoginModal({ isOpen, openHandler, signUpHandler, forgotHandler }) {
   const closeModal = () => {
     openHandler((prv) => !prv);
   };
+  useEffect(() => {
+    const handleKeyPress = (e) => {
+      if (e.charCode === 13) {
+        document.getElementById('login-button').click();
+      }
+    };
+    window.addEventListener('keypress', handleKeyPress);
+    return () => window.removeEventListener('keypress', handleKeyPress);
+  }, []);
 
   const signUpModal = () => {
     openHandler((prv) => !prv);
@@ -46,7 +55,7 @@ function LoginModal({ isOpen, openHandler, signUpHandler, forgotHandler }) {
     >
       <Modal
         isOpen={isOpen}
-        className="absolute border-0 top-50% left-50% transform-xy outline-none"
+        className="absolute border-0 w3-animate-top  top-50% left-50% transform-xy outline-none"
         onRequestClose={closeModal}
         overlayClassName="fixed inset-0 overflow-auto"
       >
@@ -98,7 +107,11 @@ function LoginModal({ isOpen, openHandler, signUpHandler, forgotHandler }) {
                     mb="6"
                     label="password"
                   />
-                  <SubmitButton className="w-134 h-41 flex tracking text-sm justify-center items-center mx-auto mt-27">
+
+                  <SubmitButton
+                    className="w-134 h-41 flex tracking text-sm justify-center items-center mx-auto mt-27"
+                    id="login-button"
+                  >
                     LOGIN
                   </SubmitButton>
                 </>
