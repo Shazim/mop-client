@@ -11,6 +11,8 @@
     "@testing-library/user-event": "^12.1.10",
     "@uppy/core": "^2.1.5",
     "@uppy/react": "^2.1.2",
+    "animate.css-react": "^1.1.0",
+    "aos": "^2.3.4",
     "axios": "^0.26.0",
     "bootstrap": "^4.6.0",
     "formik": "^2.2.9",

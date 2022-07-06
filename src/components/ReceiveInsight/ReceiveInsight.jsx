@@ -26,7 +26,8 @@ function ReceiveInsight({ image = '/images/girl.png' }) {
       <div className=" max-screen sm:px-23 sm:w-100% pt-101 w-40% xl:w-45% lg:w-50% md:w-50% xl:pb-50 lg:pb-50 md:pb-50">
         <div className="sm:w-100% sm:flex-col sm:flex sm:items-center sm:justify-center sm:pb-50">
           <div className="tracking-wider text-2xl sm:text-center uppercase font-avenir-reg pb-34">
-            Receive insights and news from the worlds leading voices
+            Join our mailing list Subscribe for priority access to our latest
+            collections, seasonal sales, and and product developments
           </div>
           <Form
             initialValues={{
@@ -39,7 +40,6 @@ function ReceiveInsight({ image = '/images/girl.png' }) {
               email: '',
             })}
           >
-
             {({ setFieldValue, values }) => (
               <>
                 <div className="mb-32 sm:px-9 sm:w-100%">

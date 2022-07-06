@@ -46,10 +46,14 @@ function About() {
         <Header />
         <div className="max-screen pt-370 pb-116 sm:px-23 sm:py-80">
           <div className="ml-50 sm:ml-0 sm:text-center text-primary tracking-wider font-avenir-300 uppercase text-3xl sm:text-2xl leading-55 w-55% xl:w-60% lg:w-65% md:w-70% sm:w-100%">
-            <span className="text-secondary">from the creators of online </span>
-            photography classes{' '}
-            <span className="text-secondary">that works with the</span> best
-            photographers <span className="text-secondary">in the world.</span>
+            <span className="text-secondary">from the creators of </span>
+            Masters of photography classes{' '}
+            <span className="text-secondary"> the</span> Red Dot
+            <span className="text-secondary">
+              Gallery offers photographers a new way to
+            </span>
+            exhabit and sell
+            <span className="text-secondary">their art.</span>
           </div>
           <div className="ml-50  mt-25">
             <Button className="w-275 h-48" transform="uppercase">

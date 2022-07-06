@@ -13,9 +13,9 @@ function DiscoverMore({ background = 'bg-white' }) {
           <span className="text-primary">.</span>
         </div>
         <div className="text-lg sm:text-base font-nunito-light text-center pt-28 pb-26 leading-38">
-          Using our suite of tools and mentorship program we can help you grow
-          in terms of skills and reach. Click below to find out how much we
-          offer and the different ways we can help you.
+          Using our suite of tools you can create a spectacular custom gallery.
+          You can store, organise, share and sell your photographs to clients.
+          You can also create NFTs to sell on the major marketplaces.
         </div>
         <Button className="w-251 h-51 mx-auto block">
           Discover More Today
