@@ -65,20 +65,19 @@ function About() {
       <div className="flex max-screen justify-between pt-126 pb-156 sm:flex-col-reverse sm:py-80 sm:px-23">
         <div className="ml-50 w-40% lg:w-50% lg:ml-40 md:ml-30 md:w-50% sm:mt-43 sm:w-100% sm:ml-0">
           <div className="tracking-wider uppercase text-2xl sm:text-center font-avenir-reg text-dark leading-38">
-            “Great Art in 2022 requires a different type of showcase”
-            <span className="text-primary">.</span>
+            “GREAT PHOTOGRAPHY IN….”
           </div>
           <div className=" font-nunito-light text-lg text-dark leading-32 pt-31 sm:text-center">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt
-            viverra pharetra ultricies elementum. Tellus ullamcorper sit in
-            scelerisque maecenas elit, viverra eu. Suspendisse ut netus mauris
-            gravida viverra vel nunc facilisis scelerisque. Ultrices lobortis
-            donec volutpat viverra.{' '}
+            The RED DOT GALLERY provides photographers with simple yet powerful
+            tools to exhibit and sell their work. We also provide the tools to
+            create NFT’s from your photographs to sell on most platforms.
+            Whether you want to make money from your photography or simply share
+            your photos with friends and family, we offer you easy to use tools
+            to create your own unique gallery and exhibitions.{' '}
           </div>
           <div className="pt-30 font-nunito-light text-lg text-dark leading-32 sm:text-center">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt
-            viverra pharetra ultricies elementum. Tellus ullamcorper sit in
-            scelerisque maecenas elit,
+            The Red Dot Gallery is also a global marketplace where people buy
+            and sell photographs and NFT’s.
           </div>
         </div>
         <div className="w-40% sm:w-100%">
@@ -96,10 +95,9 @@ function About() {
                 view, browse, buy, enjoy, love and own.
               </span>
             </p>
-            <p className="font-reg text-center text-lg sm:text-base leading-38 mt-10 mb-28 text-secondary-dark">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt
-              viverra pharetra ultricies elementum. Tellus ullamcorper sit in
-              scelerisque maecenas elit,
+            <p className="font-reg text-center text-lg sm:text-base leading-32 mt-10 mb-28 text-secondary-dark">
+              We have partnered with high end printers around the world to
+              deliver the photographs directly to the buyers.
             </p>
             <Button className="w-251 h-51 mx-auto block">
               Discover Galleries
@@ -108,7 +106,20 @@ function About() {
         </div>
       </div>
       <div className="max-screen sm:px-23 border-border border-b">
-        <DiscoverMore />
+        <div
+          className={`py-136 sm:py-80 sm:px-23 m-auto w-40% xl:w-50% lg:w-60% md:w-70% sm:w-100%`}
+        >
+          <div className="text-2xl sm:text-lg text-secondary-dark tracking-wider font-avenir-reg uppercase text-center">
+            NFT MINTER AND WALLET
+          </div>
+          <div className="text-lg sm:text-base font-nunito-light text-center pt-28 pb-26 leading-32">
+            We offer super easy and secure tools to mint your NFTs on your
+            preferred blockchain. You can store your NFT on our wallet that
+            support over 12 different blockchains to then sell to the main NFT
+            marketplaces. Create an account for free and get started
+          </div>
+          <Button className="w-251 h-51 mx-auto block">Let’s Go!</Button>
+        </div>
       </div>
       <div>
         <ReceiveInsight image="/images/desert.png" />
