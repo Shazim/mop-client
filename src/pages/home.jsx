@@ -44,9 +44,9 @@ function Home() {
             <div className="w-100% sm:border-border sm:border-brown sm:shadow-3xl sm:flex sm:items-center sm:justify-center sm:border-6 pt-0 pb-0">
               <div className="w-100% h-100% sm:flex sm:items-center sm:justify-center sm:p-30">
                 <div className="ml-50 sm:ml-0 sm:text-center text-primary sm:px-40 tracking-wider font-nunito-light uppercase text-3xl leading-55 w-61% xl:w-70% lg:w-80% md:w-86% sm:w-100% sm:leading-50 sm:text-22 sm:tracking-wider sm:bg-gradient-to-t from-transparent to-offwhite ">
-                  Access{' '}
+                  {' '}
                   <span className="text-secondary sm:hidden">
-                    100’s of galleries{' '}
+                    Access hundreds of independent
                   </span>
                   <span className="text-secondary hidden sm:inline">
                     {' '}
@@ -56,7 +56,8 @@ function Home() {
                   <span className="sm:hidden">
                     from artists and photographers{' '}
                   </span>
-                  from all over the world
+                  photography galleries. Discover and buy from the best
+                  photographers around the world or create your own gallery.
                 </div>
               </div>
             </div>
@@ -77,15 +78,22 @@ function Home() {
               </span>
               within <span className="sm:font-bold">days of purchase.</span>
             </div>
-
-            <Button
-              transform="uppercase"
-              className="w-275 h-48 ml-50 sm:hidden"
-              onClick={() => history.push(routes.ROUTE_CREATE_GALLERY)}
-            >
-              create a gallery
-            </Button>
-
+            <div className="flex">
+              <Button
+                type="outline"
+                className="w-275 h-48 mr-18 ml-50 sm:hidden"
+                onClick={() => history.push(routes.ROUTE_BROWSE_ARTWORK)}
+              >
+                Browse
+              </Button>
+              <Button
+                transform="uppercase"
+                className="w-275 h-48  sm:hidden"
+                onClick={() => history.push(routes.ROUTE_CREATE_GALLERY)}
+              >
+                create a gallery
+              </Button>
+            </div>
             <div className="hidden ml-50">
               <LinkLabel label=" View Featured Galleries" />
             </div>
@@ -129,35 +137,7 @@ function Home() {
           <Button className="w-275 h-51 mt-34">Discove More Today</Button>
         </div>
       </div>
-      <div className="bg-background-gallery sm:bg-gallery-mobile bg-no-repeat bg-cover">
-        <div className="max-screen items-center pb-169 pt-165 sm:py-33">
-          <div className="text-center text-2xl sm:text-xl font-avenir-reg font-black uppercase text-secondary-dark mb-22 leading-38 tracking-wider">
-            your blank canvas<span className="text-primary">.</span>
-          </div>
-          <div className="text-center text-lg font-reg text-secondary-dark mb-22 leading-32 sm:leading-35">
-            Create your gallery with your{' '}
-            <span className="font-black">free trial</span> and upload up to{' '}
-            <span className="font-black">5 images.</span>
-            <br />
-            Your free trial lasts for{' '}
-            <span className="font-black">10 days</span> and you can upgrade to
-            unlock more features.{' '}
-          </div>
-          <div className="flex justify-center mt-26">
-            <Button
-              transform="capitalize"
-              className="w-251 h-51 sm:w-275 mr-18 sm:mr-0"
-            >
-              start your free trial
-            </Button>
-          </div>
-        </div>
-      </div>
-      <div className="max-screen sm:hidden">
-        <div className="border-border border-b">
-          <DiscoverMore />
-        </div>
-      </div>
+      <div className="hr-b"></div>
       <div className="flex justify-between max-screen pt-130 pb-122 sm:pb-0 sm:pt-60 sm:w-100% sm:flex-col sm:items-center">
         <div className="text-center hidden sm:block mb-50">
           <p className="text-secondary-dark font-avenir-reg text-xl tracking-wider leading-15 uppercase">
@@ -171,6 +151,54 @@ function Home() {
           <DescriptiveIcon source={source} title={title} />
         ))}
       </div>
+      <div className="bg-background-gallery sm:bg-gallery-mobile bg-no-repeat bg-cover">
+        <div className="max-screen items-center pb-169 pt-165 sm:py-33">
+          <div className="text-center text-2xl sm:text-xl font-avenir-reg font-black uppercase text-secondary-dark mb-22 leading-38 tracking-wider">
+            CREATE YOUR OWN GALLERY
+            <span className="text-primary">.</span>
+          </div>
+          <div className="text-center text-lg font-reg text-secondary-dark mb-22 leading-32 sm:leading-35">
+            and start selling your photographs:{' '}
+            <ul>
+              <li className=" text-lg font-reg text-secondary-dark mb-10 leading-32 sm:leading-35">
+                <span className="pr-20">-</span> one exhibition room with 15
+                photographs
+              </li>
+              <li className=" text-lg font-reg text-secondary-dark mb-10 leading-32 sm:leading-35">
+                <span className="pr-45">-</span>
+                <span className="pr-35"> 10GB storage (max 500 images)</span>
+              </li>
+              <li className=" text-lg font-reg text-secondary-dark mb-10 leading-32 sm:leading-35">
+                <span className="pr-45">-</span>{' '}
+                <span className="pr-35"> Sell your work (sale fee of 12%)</span>
+              </li>
+              <li className=" text-lg font-reg text-secondary-dark mb-10 leading-32 sm:leading-35">
+                <span className="pr-50">-</span>
+                <span className="pr-55"> Personal naming, logo, video</span>
+              </li>
+              <li className=" text-lg font-reg text-secondary-dark mb-10 leading-32 sm:leading-35">
+                <span className="pr-35">-</span>
+                <span className="pr-35"> Protect photos with a watermark</span>
+              </li>
+            </ul>
+          </div>
+
+          <div className="flex justify-center mt-26">
+            <Button
+              transform="capitalize"
+              className="w-251 h-51 sm:w-275 mr-18 sm:mr-0"
+            >
+              start your free trial
+            </Button>
+          </div>
+        </div>
+      </div>
+      <div className="max-screen sm:hidden">
+        <div className="border-border border-b ">
+          <DiscoverMore />
+        </div>
+      </div>
+
       <ReceiveInsight />
 
       <Footer />
