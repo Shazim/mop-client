@@ -160,9 +160,9 @@ function Home() {
           <div className="text-center text-lg font-reg text-secondary-dark mb-22 leading-32 sm:leading-35">
             <p>and start selling your photographs:</p>{' '}
           </div>
-          <ul className="w-40% ml-37%">
+          <ul className="w-40% ml-40%">
             <li className="text-lg font-reg text-secondary-dark mb-10 leading-32 sm:leading-35">
-              - one exhibition room with 15 photographs
+              - One exhibition room with 15 photographs
             </li>
             <li className="w-300 text-lg font-reg text-secondary-dark mb-10 leading-32 sm:leading-35">
               - 10GB storage (max 500 images)
