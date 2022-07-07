@@ -14,15 +14,21 @@ import CreateGallary from './create-gallary';
 
 function Home() {
   const descriptiveIcons = [
-    { source: '/images/services/satisfaction.svg', title: 'Return Policy' },
-    { source: '/images/services/return.svg', title: 'Satisfaction Guarantee' },
+    {
+      source: '/images/services/satisfaction.svg',
+      title: 'Independent artists and original photography',
+    },
+    {
+      source: '/images/services/return.svg',
+      title: 'Buyers protection: Money back Guarantee',
+    },
     {
       source: '/images/services/carefully-package.svg',
       title: 'Carefully Packaged Artwork',
     },
     {
       source: '/images/services/mesuem.svg',
-      title: 'Museum Grade Archival Prints',
+      title: 'High-End Quality Prints',
     },
     { source: '/images/services/world.svg', title: 'Worldwide Delivery' },
   ];
@@ -155,12 +161,11 @@ function Home() {
         <div className="max-screen items-center pb-169 pt-165 sm:py-33">
           <div className="text-center text-2xl sm:text-xl font-avenir-reg font-black uppercase text-secondary-dark mb-22 leading-38 tracking-wider">
             CREATE YOUR OWN GALLERY
-            <span className="text-primary">.</span>
           </div>
           <div className="text-center text-lg font-reg text-secondary-dark mb-22 leading-32 sm:leading-35">
-            <p>and start selling your photographs:</p>{' '}
+            <p>And start selling your photographs:</p>{' '}
           </div>
-          <ul className="w-40% ml-40%">
+          <ul className="w-40% ml-40% sm:w-100% sm:ml-0">
             <li className="text-lg font-reg text-secondary-dark mb-10 leading-32 sm:leading-35">
               - One exhibition room with 15 photographs
             </li>
@@ -168,7 +173,7 @@ function Home() {
               - 10GB storage (max 500 images)
             </li>
             <li className=" text-lg font-reg text-secondary-dark mb-10 leading-32 sm:leading-35">
-              - Sell your work (sale fee of 12%
+              - Sell your work (sale fee of 12%)
             </li>
             <li className=" text-lg font-reg text-secondary-dark mb-10 leading-32 sm:leading-35">
               - Personal naming, logo, video{' '}

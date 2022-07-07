@@ -91,16 +91,22 @@
   }
 }
 .w3-animate-top {
-  animation: animatetop 1s;
+  animation: fadeInDown 1s ease-in;
 }
-@keyframes animatetop {
+@keyframes fadeInDown {
   from {
-    top: -200px;
     opacity: 0;
+    -webkit-transform: translatey(10px);
+    -moz-transform: translatey(10px);
+    -o-transform: translatey(10px);
+    transform: translatey(10px);
   }
   to {
-    top: 0;
     opacity: 1;
+    -webkit-transform: translatey(0);
+    -moz-transform: translatey(0);
+    -o-transform: translatey(0);
+    transform: translatey(0);
   }
 }
 
