@@ -170,7 +170,8 @@ function GallerySetting() {
                 placeholder="type in a domain name:"
                 mb="6"
                 height="38"
-                label="type in a domain name:"
+                label="if you don’t have domain name, we will create one automatically for you
+                "
                 className="w-55% sm:w-full"
               />
             </div>
