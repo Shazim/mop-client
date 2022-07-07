@@ -167,7 +167,7 @@ function GallerySetting() {
               <div className="admin-h2 pb-5 ">Domain</div>
               <TextField
                 name="domain"
-                placeholder="type in a domain name:"
+                placeholder="if you don’t have domain name, we will create one automatically for you"
                 mb="6"
                 height="38"
                 label="if you don’t have domain name, we will create one automatically for you
