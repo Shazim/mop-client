@@ -61,7 +61,7 @@ function Home() {
                 </div>
               </div>
             </div>
-            <div className="ml-50 sm:ml-0 leading-32 font-avenir-300 text-xl text-secondary-darkest pt-0 pb-45 sm:pb-15 w-55% xl:w-65% lg:w-75% md:w-80% sm:w-100% sm:text-center sm:leading-30 sm:text-lg sm:mt-20 sm:mb-20 sm:px-20">
+            <div className="hidden ml-50 sm:ml-0 leading-32 font-avenir-300 text-xl text-secondary-darkest pt-0 pb-45 sm:pb-15 w-55% xl:w-65% lg:w-75% md:w-80% sm:w-100% sm:text-center sm:leading-30 sm:text-lg sm:mt-20 sm:mb-20 sm:px-20">
               An <span className="sm:font-bold">immersive experience </span>
               <span className="sm:hidden">which is curated and configured</span>
               <span className="hidden sm:inline"> curated</span> by the artist
@@ -78,7 +78,7 @@ function Home() {
               </span>
               within <span className="sm:font-bold">days of purchase.</span>
             </div>
-            <div className="flex">
+            <div className="flex mt-30">
               <Button
                 type="outline"
                 className="w-275 h-48 mr-18 ml-50 sm:hidden"
@@ -158,30 +158,25 @@ function Home() {
             <span className="text-primary">.</span>
           </div>
           <div className="text-center text-lg font-reg text-secondary-dark mb-22 leading-32 sm:leading-35">
-            and start selling your photographs:{' '}
-            <ul>
-              <li className=" text-lg font-reg text-secondary-dark mb-10 leading-32 sm:leading-35">
-                <span className="pr-20">-</span> one exhibition room with 15
-                photographs
-              </li>
-              <li className=" text-lg font-reg text-secondary-dark mb-10 leading-32 sm:leading-35">
-                <span className="pr-45">-</span>
-                <span className="pr-35"> 10GB storage (max 500 images)</span>
-              </li>
-              <li className=" text-lg font-reg text-secondary-dark mb-10 leading-32 sm:leading-35">
-                <span className="pr-45">-</span>{' '}
-                <span className="pr-35"> Sell your work (sale fee of 12%)</span>
-              </li>
-              <li className=" text-lg font-reg text-secondary-dark mb-10 leading-32 sm:leading-35">
-                <span className="pr-50">-</span>
-                <span className="pr-55"> Personal naming, logo, video</span>
-              </li>
-              <li className=" text-lg font-reg text-secondary-dark mb-10 leading-32 sm:leading-35">
-                <span className="pr-35">-</span>
-                <span className="pr-35"> Protect photos with a watermark</span>
-              </li>
-            </ul>
+            <p>and start selling your photographs:</p>{' '}
           </div>
+          <ul className="w-40% ml-40%">
+            <li className="text-lg font-reg text-secondary-dark mb-10 leading-32 sm:leading-35">
+              - One exhibition room with 15 photographs
+            </li>
+            <li className="w-300 text-lg font-reg text-secondary-dark mb-10 leading-32 sm:leading-35">
+              - 10GB storage (max 500 images)
+            </li>
+            <li className=" text-lg font-reg text-secondary-dark mb-10 leading-32 sm:leading-35">
+              - Sell your work (sale fee of 12%
+            </li>
+            <li className=" text-lg font-reg text-secondary-dark mb-10 leading-32 sm:leading-35">
+              - Personal naming, logo, video{' '}
+            </li>
+            <li className=" text-lg font-reg text-secondary-dark mb-10 leading-32 sm:leading-35">
+              - Protect photos with a watermark
+            </li>
+          </ul>
 
           <div className="flex justify-center mt-26">
             <Button
@@ -194,7 +189,7 @@ function Home() {
         </div>
       </div>
       <div className="max-screen sm:hidden">
-        <div className="border-border border-b ">
+        <div className="border-border  ">
           <DiscoverMore />
         </div>
       </div>

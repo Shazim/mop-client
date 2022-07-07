@@ -9,10 +9,10 @@ const obj = [
     key: 'my gallery',
     item: [
       {
-        icon: '/images/sidebar/exhibitionroom.svg',
-        redIcon: '/images/sidebar/exhibitionroom_red.svg',
-        name: 'Exhibition Rooms',
-        link: '/exhibitions',
+        redIcon: '/images/sidebar/gallery_red.svg',
+        icon: '/images/sidebar/gallery.svg',
+        link: '/gallery-setting',
+        name: 'gallery',
       },
       {
         redIcon: '/images/sidebar/stockroom_red.svg',
@@ -21,11 +21,12 @@ const obj = [
         link: '/stocks',
       },
       {
-        redIcon: '/images/sidebar/gallery_red.svg',
-        icon: '/images/sidebar/gallery.svg',
-        link: '/gallery-setting',
-        name: 'gallery',
+        icon: '/images/sidebar/exhibitionroom.svg',
+        redIcon: '/images/sidebar/exhibitionroom_red.svg',
+        name: 'Exhibition Rooms',
+        link: '/exhibitions',
       },
+
       {
         redIcon: '/images/sidebar/analytics_red.svg',
         icon: '/images/sidebar/analytics.svg',

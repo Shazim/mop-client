@@ -12,7 +12,7 @@ function DiscoverMore({ background = 'bg-white' }) {
           support to help you reach more clients
           <span className="text-primary">.</span>
         </div>
-        <div className="text-lg sm:text-base font-nunito-light text-center pt-28 pb-26 leading-38">
+        <div className="text-lg sm:text-base font-nunito-light text-center pt-28 pb-26 leading-32">
           Using our suite of tools you can create a spectacular custom gallery.
           You can store, organise, share and sell your photographs to clients.
           You can also create NFTs to sell on the major marketplaces.

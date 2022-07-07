@@ -42,11 +42,11 @@ function ReceiveInsight({ image = '/images/girl.png' }) {
           >
             {({ setFieldValue, values }) => (
               <>
-                <div className="mb-32 sm:px-9 sm:w-100%">
+                <div className="mb-8 sm:px-9 sm:w-100%">
                   <TextField
                     shadow="shadow"
                     className="w-100% h-48"
-                    mb="10"
+                    mb="8"
                     label="First Name"
                     name="name"
                     tracking="none"
@@ -61,19 +61,19 @@ function ReceiveInsight({ image = '/images/girl.png' }) {
                     name="email"
                     label="Email Address"
                     tracking="none"
-                    mb="10"
+                    mb="8"
                     textTransform="capitalize"
                     color="text-secondary-dark"
                   />
                 </div>
-                <SubmitButton className="w-251 mr-18 h-42 mt-44 mb-14">
+                <SubmitButton className="w-251 mr-18 h-42 mt-25 mb-14">
                   Subscribe
                 </SubmitButton>
               </>
             )}
           </Form>
 
-          <div className="text-primary capitalize font-nunito-light text-base link">
+          <div className="text-primary capitalize font-nunito-light text-base link mb-90">
             See Terms & Conditions
           </div>
         </div>
