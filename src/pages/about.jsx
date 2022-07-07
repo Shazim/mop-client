@@ -121,31 +121,36 @@ function About() {
           <Button className="w-251 h-51 mx-auto block">Let’s Go!</Button>
         </div>
       </div>
-      <div className="flex max-screen justify-between pt-126 pb-156 sm:flex-col-reverse sm:py-80 sm:px-23">
-        <div className="ml-50 w-40% lg:w-50% lg:ml-40 md:ml-30 md:w-50% sm:mt-43 sm:w-100% sm:ml-0">
-          <div className="tracking-wider uppercase text-2xl sm:text-center font-avenir-reg text-dark leading-38">
-            GET IN TOUCH!
-          </div>
-          <div className=" font-nunito-light text-lg text-dark leading-32 pt-31 sm:text-center">
-            Questions, feedback, or simply want to chat?
-          </div>
-          <div className="pt-30 font-nunito-light text-lg text-dark leading-32 sm:text-center">
-            We’re also always looking for blog contributors,
-            <br /> affiliate partners or other partnership ideas.
-          </div>
-          <div className="pt-30 font-nunito-light text-lg text-dark leading-32 sm:text-center">
-            Email us at:{' '}
-            <span className="font-bold">support@reddot.gallery</span>
-          </div>
-          <div className="pt-30 font-nunito-light text-lg text-dark leading-32 sm:text-center">
-            Connect with us on our social media channels:
-            <br /> (add logos of social media)
+      <div className="flex border-border  sm:border-t-0 sm:bg-offwhite ">
+        <div className=" max-screen sm:px-23 sm:w-100% pt-101 w-40% xl:w-45% lg:w-50% md:w-50% xl:pb-50 lg:pb-50 md:pb-50">
+          <div className="sm:w-100% sm:flex-col sm:flex sm:items-center sm:justify-center sm:pb-50">
+            <div className="tracking-wider uppercase text-2xl sm:text-center font-avenir-reg text-dark leading-38">
+              GET IN TOUCH!
+            </div>
+            <div className=" font-nunito-light text-lg text-dark leading-32 pt-31 sm:text-center">
+              Questions, feedback, or simply want to chat?
+            </div>
+            <div className="pt-30 font-nunito-light text-lg text-dark leading-32 sm:text-center">
+              We’re also always looking for blog contributors,
+              <br /> affiliate partners or other partnership ideas.
+            </div>
+            <div className="pt-30 font-nunito-light text-lg text-dark leading-32 sm:text-center">
+              Email us at:{' '}
+              <span className="font-bold">support@reddot.gallery</span>
+            </div>
+            <div className="pt-30 font-nunito-light text-lg text-dark leading-32 sm:text-center">
+              Connect with us on our social media channels:
+              <br /> (add logos of social media)
+            </div>
           </div>
         </div>
-        <div className="w-40% sm:w-100% hidden">
-          <img className="sm:w-100%" src="/images/girl.png" alt="" />
-        </div>
+        <img
+          className="sm:hidden  flex xl:w-55% lg:w-50% md:w-50% object-fill"
+          src="/images/girl.png"
+          alt=""
+        />
       </div>
+
       <LoginModal
         isOpen={signIn}
         openHandler={setSignIn}
