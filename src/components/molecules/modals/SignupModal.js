@@ -97,6 +97,32 @@ function SignupModal({ isOpen, openHandler, signInHandler, forgotHandler }) {
                   LOGIN WITH PINTEREST
                 </Button>
 
+                <div className="font-bold text-black tracking leading-32 uppercase text-sm mt-20">
+                  Choose the statement that best applies to you.
+                </div>
+                <div className="flex justify-between mt-20">
+                  <div
+                    onClick={tabHandler}
+                    className={`w-48% link uppercase px-65 py-22 ${
+                      customer
+                        ? 'bg-primary text-white'
+                        : 'bg-white text-secondary'
+                    } text-sm  text-center tracking`}
+                  >
+                    customer account
+                  </div>
+                  <div
+                    onClick={tabHandler}
+                    className={`w-48% link uppercase px-65 py-22 ${
+                      artist
+                        ? 'bg-primary text-white'
+                        : 'bg-white text-secondary'
+                    } text-sm  text-center tracking`}
+                  >
+                    artist account
+                  </div>
+                </div>
+
                 <div className="w-100% flex items-center justify-between mt-24">
                   <div className="w-100% border-b border-border opacity-1"></div>
                   <div className="font-bold text-sm mx-10 text-secondary tracking uppercase">
@@ -135,27 +161,6 @@ function SignupModal({ isOpen, openHandler, signInHandler, forgotHandler }) {
                   />
                 </div>
                 <div className="w-100% border-b border-border opacity-1 pb-30 mb-20">
-                  <div className="font-bold text-black tracking leading-32 uppercase text-sm">
-                    Choose the statement that best applies to you.
-                  </div>
-                  <div className="flex justify-between mt-20">
-                    <div
-                      onClick={tabHandler}
-                      className={`w-48% link uppercase px-65 py-22 ${
-                        customer ? 'bg-gray' : 'bg-white'
-                      } text-sm text-secondary text-center tracking`}
-                    >
-                      custom account
-                    </div>
-                    <div
-                      onClick={tabHandler}
-                      className={`w-48% link uppercase px-65 py-22 ${
-                        artist ? 'bg-gray' : 'bg-white'
-                      } text-sm text-secondary text-center tracking`}
-                    >
-                      artist account
-                    </div>
-                  </div>
                   {customer ? (
                     <div className="font-reg text-black text-base mt-20">
                       I want to be able to browse and buy artists work, but am
