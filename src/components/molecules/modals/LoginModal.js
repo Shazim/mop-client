@@ -55,7 +55,7 @@ function LoginModal({ isOpen, openHandler, signUpHandler, forgotHandler }) {
     >
       <Modal
         isOpen={isOpen}
-        className="absolute border-0 w3-animate-top  top-50% left-50% transform-xy outline-none"
+        className="absolute border-0   top-50% left-50% transform-xy outline-none"
         onRequestClose={closeModal}
         overlayClassName="fixed inset-0 overflow-auto"
       >

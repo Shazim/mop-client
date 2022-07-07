@@ -2,12 +2,11 @@ import React, { useState, useEffect } from 'react';
 import GalleryBar from 'components/GalleryBar/GalleryBar';
 import SearchBar from 'components/atoms/searchbar/SearchBar';
 import SelectOptions from 'components/atoms/form/SelectOptions';
-import DiscoverMore from 'components/DiscoveMore/DiscoverMore';
 import GalleryCard from 'components/atoms/cards/GalleryCard';
 import { Link } from 'react-router-dom';
 import { useLazyFetch } from 'hooks';
 import { getGalleries, getArtists } from 'api/api-services';
-
+import Button from 'components/atoms/buttons/Button';
 import Pagination from 'components/Pagination/Pagination';
 import Container from 'Layout/Container';
 import { getPublicExhibitions } from 'api';
@@ -159,7 +158,24 @@ function Gallery() {
             className="mt-25"
           />
         </div>
-        <DiscoverMore background="bg-gray-lighter" />
+
+        <div className="w-full bg-gray-lighter">
+          <div
+            className={`py-136 sm:py-80  sm:px-23 m-auto w-40% xl:w-50% lg:w-60% md:w-70% sm:w-100%`}
+          >
+            <div className="text-2xl sm:text-lg text-secondary-dark tracking-wider font-avenir-reg uppercase text-center">
+              If you are a photographer looking to exhibit we have the tools and
+              support to help you
+            </div>
+            <div className="text-lg sm:text-base font-nunito-light text-center pt-28 pb-26 leading-32">
+              Original galleries and photography, handpicked by our expert
+              curators.
+            </div>
+            <Button className="w-251 h-51 mx-auto block">
+              Discover More Today
+            </Button>
+          </div>
+        </div>
       </Container>
     </div>
   );
