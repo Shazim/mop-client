@@ -136,7 +136,7 @@ const SlickSlider = () => {
                     src={`/images/gallery-mockup/scene1-${backgroundImage}`}
                     width={'100%'}
                     height={'100vh'}
-                    alt={<Bars />}
+                    //alt={<Bars />}
                   />
 
                   <div className="w-100% h-100% absolute sm:left-30 left-50 top-0 flex flex-col items-center justify-center">
@@ -227,7 +227,6 @@ const SlickSlider = () => {
                             <LazyLoadImage
                               className="w-100% h-100vh "
                               src={`/images/gallery-mockup/scene3-${backgroundImage}`}
-                              effect="blur"
                               width={'100%'}
                               height={'100vh'}
                               alt={`/images/gallery-mockup/scene3-${backgroundImage}`}

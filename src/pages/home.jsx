@@ -59,7 +59,7 @@ function Home() {
                     galleries
                   </span>
                   <span className="hidden sm:inline"> by artists </span>
-                  <span className="sm:hidden">artists and photographers </span>
+                  <span className="sm:hidden"> artists and photographers </span>
                   photography galleries. Discover and buy from the best
                   photographers around the world or create your own gallery.
                 </div>

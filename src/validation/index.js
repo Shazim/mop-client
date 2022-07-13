@@ -48,7 +48,6 @@ export const generateSchema = (param) => {
 
 export const artworkSchema = Yup.object().shape({
   name: Yup.string().required('Name is required'),
-  note: Yup.string().required('Note is required'),
   artwork_images_attributes: Yup.array()
     .of(
       Yup.object().shape({

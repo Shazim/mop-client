@@ -29,7 +29,7 @@ export default function Detail({ addItem, steps, step, next }) {
         </div>
         <div className="w-65% mx-auto mt-87 items-center">
           <TextField
-            classes="w-100%"
+            className="h-38 w-100%"
             label="artwork name"
             name="name"
             placeholder="max 100 characters"
