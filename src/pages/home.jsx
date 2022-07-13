@@ -59,9 +59,7 @@ function Home() {
                     galleries
                   </span>
                   <span className="hidden sm:inline"> by artists </span>
-                  <span className="sm:hidden">
-                    from artists and photographers{' '}
-                  </span>
+                  <span className="sm:hidden">artists and photographers </span>
                   photography galleries. Discover and buy from the best
                   photographers around the world or create your own gallery.
                 </div>
@@ -90,7 +88,7 @@ function Home() {
                 className="w-275 h-48 mr-18 ml-50 sm:hidden"
                 onClick={() => history.push(routes.ROUTE_BROWSE_ARTWORK)}
               >
-                Browse
+                BROWSE ART
               </Button>
               <Button
                 transform="uppercase"
