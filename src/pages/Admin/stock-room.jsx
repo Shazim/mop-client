@@ -58,6 +58,7 @@ function StockRoom() {
 
   const addItem = () => {
     setStep(steps[0]);
+
     dispatch({ type: types.BACK_BUTTON, payload: true });
   };
 
@@ -107,13 +108,7 @@ function StockRoom() {
 
   return (
     <>
-      <AdminLayout
-        handler={addItem}
-        title="stockroom"
-        subtitle="up for sale"
-        buttonText="ADD NEW ITEM"
-        button={true}
-      >
+      <AdminLayout handler={addItem} title="stockroom" subtitle="up for sale">
         <Form
           initialValues={{
             name: '',

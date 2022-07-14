@@ -170,7 +170,7 @@ function MyProfile() {
               <img
                 src={values['imageFile']?.imageLink}
                 alt=""
-                className="w-200 h-200 absolute transform-xy top-50% left-50% sm:w-276 sm:h-244 "
+                className="w-200 object-cover h-200 absolute transform-xy top-50% left-50% sm:w-276 sm:h-244 "
               />
               <div>
                 <label

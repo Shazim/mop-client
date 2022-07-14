@@ -100,12 +100,12 @@ const obj = [
         name: 'My Profile',
         link: '/my-profile',
       },
-      {
-        redIcon: '/images/sidebar/subscription_red.svg',
-        icon: '/images/sidebar/subscription.svg',
-        name: 'subscription',
-        link: '/profile-subscription',
-      },
+      // {
+      //   redIcon: '/images/sidebar/subscription_red.svg',
+      //   icon: '/images/sidebar/subscription.svg',
+      //   name: 'subscription',
+      //   link: '/profile-subscription',
+      // },
       {
         redIcon: '/images/sidebar/price_red.svg',
         icon: '/images/sidebar/price.svg',

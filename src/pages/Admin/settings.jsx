@@ -4,11 +4,30 @@ import SelectOptions from 'components/atoms/form/SelectOptions';
 import Button from 'components/atoms/buttons/Button';
 import TextArea from 'components/atoms/form/TextArea';
 import RadioButton from 'components/atoms/buttons/RadioButton';
+import Package from 'components/Packages/package';
 
 function Settings() {
   return (
     <AdminLayout title="settings">
-      <div className="admin-h2 sm:text-center">subscription</div>
+      <div className="admin-h2 sm:text-center">current subscription</div>
+      <div className="text-sm text-black font-nunito-light mt-23 mb-27 sm:text-center">
+        You currently have the{' '}
+        <span className="font-bold ">Plus Subscription</span> Package.
+      </div>
+      <div>
+        <Package subscribeBtn={false} />
+      </div>
+      <div className="sm:text-center ">
+        <Button className="w-312 h-33 mt-33 mb-19 " transform="uppercase">
+          upgrade subscription
+        </Button>
+      </div>
+      <div className="hr-b pb-33 sm:text-center">
+        <Button className="w-312 h-33" transform="uppercase" color="gray">
+          cancel subscription
+        </Button>
+      </div>
+      {/* <div className="admin-h2 sm:text-center">subscription</div>
       <div className="text-sm text-black font-nunito-light mt-23 mb-27">
         You currently have the{' '}
         <span className="font-bold ">Plus Subscription</span> Package.
@@ -17,7 +36,7 @@ function Settings() {
         <Button transform="uppercase" color="gray" className="w-312 h-33">
           upgrade subscription
         </Button>
-      </div>
+      </div> */}
       <div className="admin-h2 mt-10 mb-20 sm:text-center">
         your payment details
       </div>
@@ -66,10 +85,43 @@ function Settings() {
       <Button
         transform="uppercase"
         color="gray"
-        className="w-215 h-33 mt-32 mb-243 sm:hidden"
+        className="w-215 h-33 mt-32 mb-23 sm:hidden"
       >
         Save
       </Button>
+      <div className="hr-b"></div>
+      <div className="admin-h2 mt-15 mb-20 sm:text-center">
+        Review your Subscription
+      </div>
+      <div className="admin-label mb-15 sm:text-center">
+        Use the stars to add a rating about your subscription.
+      </div>
+      <div className="flex mb-12 sm:justify-center">
+        <img src="/images/card/star_image.svg" alt="" className="w-40 h-40" />
+        <img src="/images/card/star_image.svg" alt="" className="w-40 h-40" />
+        <img src="/images/card/star_image.svg" alt="" className="w-40 h-40" />
+        <img src="/images/card/star_image.svg" alt="" className="w-40 h-40" />
+        <img
+          src="/images/card/unfilled-star.svg"
+          alt=""
+          className="w-40 h-40"
+        />
+      </div>
+      <div>
+        <TextArea
+          placeholder="MAX 500 CHARACTERS"
+          label="Add feedback about your subscription."
+        />
+      </div>
+      <div className="sm:text-center">
+        <Button
+          transform="uppercase"
+          color="gray"
+          className="w-215 h-33 mt-33 mb-169"
+        >
+          Submit review
+        </Button>
+      </div>
     </AdminLayout>
   );
 }
