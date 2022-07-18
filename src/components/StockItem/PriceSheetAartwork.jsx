@@ -15,10 +15,8 @@ const PriceSheetAartwork = () => {
   const [dataArray, setDataArray] = useState([]);
   const slectedItem = (e) => {
     const index = e;
-    //console.log('tagreted value', index);
     setFieldValue('price_sheet_id', index);
   };
-  console.log('id', price_sheet_id);
 
   useEffect(() => {
     if (getData) {

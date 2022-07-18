@@ -14,4 +14,6 @@ export {
   getPublicExhibitions,
   getPackages,
   galleryMock,
+  getArtistDetails,
+  getSearchArtists,
 } from './public-api-services';

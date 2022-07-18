@@ -1,16 +1,16 @@
 import VideoCard from 'components/atoms/cards/VideoCard';
 import React, { useEffect, useState } from 'react';
 import { useLazyFetch } from 'hooks';
-import { getGalleryDetails } from 'api/api-services';
 import Pagination from 'components/Pagination/Pagination';
 import Container from 'Layout/Container';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { getArtistDetails } from 'api';
 import { useLocation } from 'react-router-dom';
 
-function GalleryDetail({ props }) {
-  const [handleGetGalleries, { data }] = useLazyFetch(getGalleryDetails);
+function ArtistDetail({ props }) {
+  const [handleGetArtist, { data }] = useLazyFetch(getArtistDetails);
   const [currentPage, setCurrentPage] = useState(1);
   const search = useLocation().search;
   const params = new URLSearchParams(search);
@@ -52,7 +52,7 @@ function GalleryDetail({ props }) {
 
   useEffect(() => {
     if (id) {
-      handleGetGalleries({ variables: id });
+      handleGetArtist({ variables: id });
     }
   }, [id]);
 
@@ -94,4 +94,4 @@ function GalleryDetail({ props }) {
   );
 }
 
-export default GalleryDetail;
+export default ArtistDetail;

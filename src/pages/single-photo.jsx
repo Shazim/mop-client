@@ -27,8 +27,7 @@ function SinglePhoto(props) {
     more_by_this_artist,
     price_sheet,
   } = dataArtwork || [];
-  // console.log('here', price_sheet.sizes);
-  //const size = price_sheet.sizes;
+
   return (
     <Container>
       <div className="max-screen pt-50  sm:w-100% sm:px-23 sm:h-100% sm:bg-gray-dark">

@@ -27,7 +27,7 @@ function Gallery() {
       handleGetGalleries({
         variables: `?q[name_cont]=${search != '' ? `${search}` : ''}`,
       }),
-    exhibitions: () =>
+    exhibition: () =>
       handleGetExhibitions({
         variables: `?q[name_cont]=${search != '' ? `${search}` : ''}`,
       }),
@@ -68,7 +68,7 @@ function Gallery() {
         />
       </Link>
     )),
-    exhibitions: dataExhibitions?.exhibitions.map(
+    exhibition: dataExhibitions?.exhibitions.map(
       ({ room_name, views, id, image }) => (
         <GalleryCard
           className="w-100% h-100%"
@@ -81,14 +81,16 @@ function Gallery() {
       )
     ),
     artists: dataArtists?.artists.map(({ artist_name, id, image }) => (
-      <GalleryCard
-        className="w-100% h-100% mb-12 sm:pt-20"
-        imageClass="image"
-        info={false}
-        title={artist_name}
-        imageUrl={image ? image : '/images/card/bg_image2.svg'}
-        views={4}
-      />
+      <Link to={`/artist-detail?id=${id}`}>
+        <GalleryCard
+          className="w-100% h-100% mb-12 sm:pt-20"
+          imageClass="image"
+          info={false}
+          title={artist_name}
+          imageUrl={image ? image : '/images/card/bg_image2.svg'}
+          views={4}
+        />
+      </Link>
     )),
   };
   const settings = {

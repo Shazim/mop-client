@@ -26,7 +26,6 @@ function AddCart({ id, size }) {
   }, [dataArray]);
   const slectedItem = (e) => {
     const index = e;
-    console.log('tagreted value', index);
   };
 
   const { data } = useFetch(getPublicArtworkPrice, { variables: id });

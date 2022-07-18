@@ -1,21 +1,25 @@
-import MenuTable from 'components/Tables/menuTable';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { AdminLayout } from 'Layout';
-import TextField from 'components/atoms/form/TextField';
-import { Form } from 'components/app/forms';
-import Button from 'components/atoms/buttons/Button';
 import { usePost } from 'hooks';
 import { createPriceSheet } from 'api/api-services';
-import { priceSheetSchema } from 'validation';
 import PriceSheetForm from 'components/PriceSheet';
+import { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 
 const PricingSheet = () => {
   const [initalValues, setInitialValues] = useState({
     name: '',
     priceSheetAttributes: {},
   });
+  const history = useHistory();
   const [handleCreatePrice, { data: dataPost, loading }] =
     usePost(createPriceSheet);
+
+  useEffect(() => {
+    if (dataPost) {
+      history.push('/price-sheets');
+    }
+  }, [dataPost]);
 
   const onSubmit = (data) => {
     const name = data?.name;

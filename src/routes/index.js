@@ -2,6 +2,7 @@ import Home from 'pages/home';
 import About from 'pages/about';
 import Login from 'pages/Login';
 import GalleryDetail from 'pages/gallery-detail';
+import ArtistDetail from 'pages/artist-detail';
 import Gallery from 'pages/gallery';
 import CreateGallary from 'pages/create-gallary';
 import Pricing from 'pages/pricing';
@@ -40,6 +41,7 @@ export const routes = Object.freeze({
   ROUTE_ABOUT: '/about',
   ROUTE_CHECKOUT: '/checkout',
   ROUTE_GALLERY_DETAIL: '/gallery-detail',
+  ROUTE_ARTIST_DETAIL: '/artist-detail',
   ROUTE_GALLERY: '/gallery',
   ROUTE_BROWSE_ARTWORK: '/browse-artwork',
   ROUTE_CREATE_GALLERY: '/create-gallery',
@@ -76,6 +78,7 @@ export default Object.freeze([
   { path: routes.ROUTE_CREATE_GALLERY, component: CreateGallary },
   { path: routes.ROUTE_STORE, component: Pricing },
   { path: routes.ROUTE_GALLERY_DETAIL, component: GalleryDetail },
+  { path: routes.ROUTE_ARTIST_DETAIL, component: ArtistDetail },
   { path: routes.ROUTE_GALLERY, component: Gallery },
   {
     path: routes.ROUTE_ORDER_DETAIL,
