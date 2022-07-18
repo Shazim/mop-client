@@ -2,11 +2,23 @@ import React, { useEffect, useState } from 'react';
 import { useFetch } from 'hooks';
 import { PriceSheetCollection } from 'api/api-services';
 import SelectOptions from 'components/atoms/form/SelectOptions';
+import { useFormikContext } from 'formik';
+
 const PriceSheetAartwork = () => {
+  const {
+    setFieldValue,
+    values: { price_sheet_id },
+  } = useFormikContext() || {};
   const { data: getData } = useFetch(PriceSheetCollection);
   const { price_sheets } = getData || [];
   const [option, SetOption] = useState([]);
   const [dataArray, setDataArray] = useState([]);
+  const slectedItem = (e) => {
+    const index = e;
+    //console.log('tagreted value', index);
+    setFieldValue('price_sheet_id', index);
+  };
+  console.log('id', price_sheet_id);
 
   useEffect(() => {
     if (getData) {
@@ -43,6 +55,7 @@ const PriceSheetAartwork = () => {
         label="choose an option"
         className="mt-20 "
         option={option}
+        onChange={slectedItem}
       />
       <div className="mt-40 font-nunito-reg font-reg text-base leading-22 text-secondary">
         Shipping will be included in our printer’s fulfilment costs.{' '}

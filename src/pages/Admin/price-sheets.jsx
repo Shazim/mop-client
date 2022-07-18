@@ -14,7 +14,6 @@ const PriceSheet = () => {
 
   const { data: getData } = useFetch(PriceSheetCollection);
   const { price_sheets = [] } = getData || [];
-
   const settings = {
     dots: true,
     slidesToShow: 1,
@@ -50,32 +49,53 @@ const PriceSheet = () => {
       <div className="font-nunito-reg font-bold  text-secondary text-sm uppercase leading-32 tracking ">
         available price sheets:
       </div>
+      {price_sheets.length > 0 ? (
+        <>
+          <div className="hidden sm:block">
+            <Slider {...settings}>
+              {price_sheets.map(({ name, id }) => (
+                <Link to={`/price-sheet/${id}`}>
+                  <div className="mr-35">
+                    <div className="w-186 h-186 bg-gray "></div>
+                    <div className="mt-7 font-nunito-reg font-bold  text-secondary text-sm uppercase leading-32 tracking">
+                      {name}
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </Slider>
+          </div>
 
-      <div className="hidden sm:block">
-        <Slider {...settings}>
-          {price_sheets.map(({ name, id }) => (
-            <Link to={`/price-sheet/${id}`}>
-              <div className="mr-35">
+          <div className="mt-17 grid grid-cols-4 sm:hidden md:grid-cols-3">
+            {price_sheets.map(({ name, id }) => (
+              <Link to={`/price-sheet/${id}`}>
                 <div className="w-186 h-186 bg-gray "></div>
-                <div className="mt-7 font-nunito-reg font-bold  text-secondary text-sm uppercase leading-32 tracking">
+                <div className="mt-7 mb-30 font-nunito-reg font-bold  text-secondary text-sm uppercase leading-32 tracking">
                   {name}
                 </div>
-              </div>
-            </Link>
-          ))}
-        </Slider>
-      </div>
-
-      <div className="mt-17 grid grid-cols-4 sm:hidden md:grid-cols-3">
-        {price_sheets.map(({ name, id }) => (
-          <Link to={`/price-sheet/${id}`}>
-            <div className="w-186 h-186 bg-gray "></div>
-            <div className="mt-7 mb-30 font-nunito-reg font-bold  text-secondary text-sm uppercase leading-32 tracking">
-              {name}
-            </div>
-          </Link>
-        ))}
-      </div>
+              </Link>
+            ))}
+          </div>
+        </>
+      ) : (
+        <div className="text-center justify-center pt-112">
+          <p className="font-avenir-reg text-primary text-4xl uppercase leading-55 tracking-wider">
+            You have no Price Sheets
+          </p>
+          <p className="font-avenir-reg text-secondary text-xl uppercase leading-55 tracking-wider">
+            Drag your images here to start uploading.{' '}
+          </p>
+          <p className="font-reg text-black text-base leading-snug">
+            When uploaded, you can edit your image details by clicking the
+            pencil icon. Adding this will
+            <br /> make your images more visible for search engines.
+          </p>
+          <img
+            className="mx-auto w-180 h-180 mt-56 mb-491"
+            src="/images/galleryIcon.svg"
+          />
+        </div>
+      )}
     </AdminLayout>
   );
 };

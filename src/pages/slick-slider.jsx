@@ -7,11 +7,11 @@ import { useFetch, usePost } from 'hooks';
 import { galleryMock } from 'api';
 import { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { img } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import { Bars } from 'react-loader-spinner';
-import PreloadImage from 'react-preload-image';
-import Resizer from 'react-image-file-resizer';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 const SlickSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -53,21 +53,6 @@ const SlickSlider = () => {
         },
       },
     ],
-  };
-  const resizeFile = (file) =>
-    new Promise((resolve) => {
-      Resizer.imageFileResizer(file, 300, 300, 'PNG', 100, 0, (images) => {
-        resolve(images);
-      });
-    });
-  const onChange = async (event) => {
-    try {
-      const file = event.target.files[0];
-      const image = await resizeFile(file);
-      console.log(image);
-    } catch (err) {
-      console.log(err);
-    }
   };
 
   const width = window.innerWidth;
@@ -131,25 +116,29 @@ const SlickSlider = () => {
             ) : (
               <Slider ref={(c) => (slider.current = c)} {...settings}>
                 <div className="relative">
-                  <LazyLoadImage
+                  <img
                     className="w-100% h-100vh  "
-                    src={`/images/gallery-mockup/scene1-${backgroundImage}`}
-                    width={'100%'}
-                    height={'100vh'}
+                    src={
+                      `/images/gallery-mockup/scene1-${backgroundImage}` || (
+                        <Skeleton />
+                      )
+                    }
+                    // width={'100%'}
+                    // height={'100vh'}
                     //alt={<Bars />}
                   />
 
                   <div className="w-100% h-100% absolute sm:left-30 left-50 top-0 flex flex-col items-center justify-center">
                     <div className="w-65%">
                       <div className="mb-16 text-heading text-white sm:tracking font-avenir-300 tracking-wider lg:text-xl xl:text-22 md:text-xl sm:text-xl tab:text-base uppercase">
-                        {exhibition_detail?.room_name}
+                        {exhibition_detail?.room_name || <Skeleton />}
                         <span className="text-primary">.</span>
                       </div>
                       <div className="mb-6 text-20 text-gray-lighter font-nunito-bold sm:font-nunito-medium sm:tracking-tight   tracking uppercase">
-                        {exhibition_detail?.artist_name}
+                        {exhibition_detail?.artist_name || <Skeleton />}
                       </div>
                       <div className="text-20 text-gray-lighter font-nunito-bold sm:font-nunito-medium sm:tracking-tight tracking uppercase sm:text-xl ">
-                        {exhibition_detail?.gallery_name}
+                        {exhibition_detail?.gallery_name || <Skeleton />}
                       </div>
                       <div className="flex mt-25%" onClick={next}>
                         <img src="/images/arrows/arrow-mockup.svg" alt="" />
@@ -173,12 +162,16 @@ const SlickSlider = () => {
                       <>
                         {index % 2 != 0 ? (
                           <div className="relative">
-                            <LazyLoadImage
+                            <img
                               className="w-100% h-100vh  "
-                              src={`/images/gallery-mockup/scene2-${backgroundImage}`}
-                              width={'100%'}
-                              height={'100vh'}
-                              alt={<Bars />}
+                              src={
+                                `/images/gallery-mockup/scene2-${backgroundImage}` || (
+                                  <Skeleton />
+                                )
+                              }
+                              // width={'100%'}
+                              // height={'100vh'}
+                              // alt={<Bars />}
                             />
                             <div className="absolute top-50% transform-y flex w-100% justify-evenly">
                               <div className="h-222 relative  ">
@@ -187,11 +180,14 @@ const SlickSlider = () => {
                                   className="h-100% w-165 "
                                   alt=""
                                 />
-                                <LazyLoadImage
-                                  src={images[imageIndexScene2 - 3]?.image}
-                                  alt={<Bars />}
+                                <img
+                                  src={
+                                    images[imageIndexScene2 - 3]?.image || (
+                                      <Skeleton />
+                                    )
+                                  }
+                                  // alt={<Bars />}
                                   className="absolute object-cover top-19 h-183 left-19 w-127 "
-                                  onChange={onChange}
                                 />
                               </div>
                               <div className="h-222 relative ">
@@ -201,10 +197,13 @@ const SlickSlider = () => {
                                   alt=""
                                 />
                                 <img
-                                  src={images[imageIndexScene2 - 2]?.image}
+                                  src={
+                                    images[imageIndexScene2 - 2]?.image || (
+                                      <Skeleton />
+                                    )
+                                  }
                                   alt=""
                                   className="absolute top-27 h-169 left-27 w-245 object-cover"
-                                  onChange={onChange}
                                 />
                               </div>
                               <div className="h-222 relative ">
@@ -214,22 +213,29 @@ const SlickSlider = () => {
                                   alt=""
                                 />
                                 <img
-                                  src={images[imageIndexScene2 - 1]?.image}
+                                  src={
+                                    images[imageIndexScene2 - 1]?.image || (
+                                      <Skeleton />
+                                    )
+                                  }
                                   alt=""
                                   className="absolute top-19 h-183 left-19 w-127 object-cover "
-                                  onChange={onChange}
                                 />
                               </div>
                             </div>
                           </div>
                         ) : (
                           <div className="relative">
-                            <LazyLoadImage
+                            <img
                               className="w-100% h-100vh "
-                              src={`/images/gallery-mockup/scene3-${backgroundImage}`}
-                              width={'100%'}
-                              height={'100vh'}
-                              alt={`/images/gallery-mockup/scene3-${backgroundImage}`}
+                              src={
+                                `/images/gallery-mockup/scene3-${backgroundImage}` || (
+                                  <Skeleton />
+                                )
+                              }
+                              // width={'100%'}
+                              // height={'100vh'}
+                              //alt={`/images/gallery-mockup/scene3-${backgroundImage}`}
                             />
 
                             <div className="absolute top-51%  transform-y flex w-100% justify-evenly">
@@ -240,10 +246,13 @@ const SlickSlider = () => {
                                   alt=""
                                 />
                                 <img
-                                  src={images[imageIndexScene2]?.image}
+                                  src={
+                                    images[imageIndexScene2]?.image || (
+                                      <Skeleton />
+                                    )
+                                  }
                                   alt=""
                                   className="absolute object-cover top-19 h-183 left-19 w-127  "
-                                  onChange={onChange}
                                 />
                               </div>
                               <div className="h-222 relative mr-30  ">
@@ -253,7 +262,11 @@ const SlickSlider = () => {
                                   alt=""
                                 />
                                 <img
-                                  src={images[imageIndexScene2 + 1]?.image}
+                                  src={
+                                    images[imageIndexScene2 + 1]?.image || (
+                                      <Skeleton />
+                                    )
+                                  }
                                   alt=""
                                   className="absolute top-19 h-183 left-19 w-127 object-cover"
                                 />

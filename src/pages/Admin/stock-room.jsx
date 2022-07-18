@@ -121,6 +121,7 @@ function StockRoom() {
             colour_ids: {},
             style_ids: {},
             status: true,
+            price_sheet_id: {},
           }}
           onSubmit={data}
           validationSchema={artworkSchema}
