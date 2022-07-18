@@ -22,7 +22,7 @@ function PriceSheetForm({
           <TextField
             label="Price Sheet Name"
             name="name"
-            className="h-38 w-65%  "
+            className="h-38 w-60%  "
             placeholder="MAX 100 CHARACTERS"
           />
 
