@@ -30,6 +30,7 @@
     "react-image-file-resizer": "^0.4.8",
     "react-lazy-load-image-component": "^1.5.4",
     "react-loader-spinner": "^5.1.5",
+    "react-loading-skeleton": "^3.1.0",
     "react-modal": "^3.14.4",
     "react-preload-image": "^1.0.7",
     "react-redux": "^7.2.4",

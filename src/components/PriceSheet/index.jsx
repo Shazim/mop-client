@@ -22,11 +22,11 @@ function PriceSheetForm({
           <TextField
             label="Price Sheet Name"
             name="name"
-            className="h-33 w-370 pt-10 resize-none"
+            className="h-38 w-65%  "
             placeholder="MAX 100 CHARACTERS"
           />
 
-          <div className="hr-b mt-35 "></div>
+          <div className="hr-b mt-20 "></div>
           <div className=" mt-12 font-avenir-reg font-medium text-xl text-secondary leading-54 uppercase tracking-wider">
             Pricing
           </div>

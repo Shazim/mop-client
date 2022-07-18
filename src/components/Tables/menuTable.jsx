@@ -36,7 +36,7 @@ function MenuTable() {
 
   return (
     <>
-      <div className=" bg-white flex  h-42 ">
+      <div className=" bg-white flex   h-42 ">
         <div className="flex ml-22 ">
           <CheckBox
             className="mt-10"
@@ -47,7 +47,12 @@ function MenuTable() {
         <div className=" pl-44 flex-grow mb-5 mt-_5 font-avenir-reg font-medium text-base text-secondary uppercase leading-54 tracking-wider  ">
           size
         </div>
-
+        <div className="mb-5 mt-_5  flex-grow font-avenir-reg font-medium text-base text-secondary uppercase leading-54 tracking-wider ">
+          The Coast Price
+        </div>
+        <div className="mb-5 mt-_5 flex-grow font-avenir-reg font-medium text-base text-secondary uppercase leading-54 tracking-wider ">
+          The Mark-Up
+        </div>
         <div className="w-51  mr-130 sm:mr-70  mt-_5 font-avenir-reg font-medium text-base text-secondary uppercase leading-54 tracking-wider">
           Price
         </div>
