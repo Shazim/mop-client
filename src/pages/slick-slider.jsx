@@ -12,6 +12,8 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 import { Bars } from 'react-loader-spinner';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
+import loader from '../assets/images/loader.gif';
+
 
 const SlickSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -62,6 +64,7 @@ const SlickSlider = () => {
     variables: `?key=${params.id}`,
   });
   const { exhibition_detail, artwork_images } = data || {};
+  console.log({ exhibition_detail });
   const [images, setImages] = useState([]);
 
   const getImagesArray = () => {
@@ -105,13 +108,14 @@ const SlickSlider = () => {
         <>
           <div className="w-100% h-100vh slider-dots overflow-hidden">
             {isLoading ? (
-              <div className="w-100% h-100vh flex items-center justify-center">
-                <Bars
+              <div className="w-100% h-100vh flex items-center justify-center bg-black">
+                {/* <Bars
                   color="#000000"
                   height={80}
                   width={80}
                   ariaLabel="loading"
-                />
+                /> */}
+                <img src={loader} />
               </div>
             ) : (
               <Slider ref={(c) => (slider.current = c)} {...settings}>
@@ -123,9 +127,9 @@ const SlickSlider = () => {
                         <Skeleton />
                       )
                     }
-                    // width={'100%'}
-                    // height={'100vh'}
-                    //alt={<Bars />}
+                  // width={'100%'}
+                  // height={'100vh'}
+                  //alt={<Bars />}
                   />
 
                   <div className="w-100% h-100% absolute sm:left-30 left-50 top-0 flex flex-col items-center justify-center">
@@ -146,6 +150,34 @@ const SlickSlider = () => {
                           Enter Gallery
                         </div>
                       </div>
+                    </div>
+                  </div>
+                  <div className="w-73% absolute top-54% left-32% transform-y flex  justify-evenly">
+                    <div className="h-200 relative mr-20 ml-30  ">
+                      <img
+                        src="/images/gallery-mockup/portrait-frame.png"
+                        className="h-100% w-140 "
+                        alt=""
+                      />
+                      <img
+                        src={
+                          <Skeleton />
+                        }
+                        alt=""
+                        className="absolute object-cover top-17 h-165 left-17 w-107  "
+                      />
+                    </div>
+                    <div className="h-200 relative mr-30  ">
+                      <img
+                        src="/images/gallery-mockup/portrait-frame.png"
+                        className="h-100% w-140 "
+                        alt=""
+                      />
+                      <img
+                        src={<Skeleton />}
+                        alt=""
+                        className="absolute top-17 h-165 left-17 w-107 object-cover"
+                      />
                     </div>
                   </div>
                 </div>
@@ -169,9 +201,9 @@ const SlickSlider = () => {
                                   <Skeleton />
                                 )
                               }
-                              // width={'100%'}
-                              // height={'100vh'}
-                              // alt={<Bars />}
+                            // width={'100%'}
+                            // height={'100vh'}
+                            // alt={<Bars />}
                             />
                             <div className="absolute top-50% transform-y flex w-100% justify-evenly">
                               <div className="h-222 relative  ">
@@ -233,9 +265,9 @@ const SlickSlider = () => {
                                   <Skeleton />
                                 )
                               }
-                              // width={'100%'}
-                              // height={'100vh'}
-                              //alt={`/images/gallery-mockup/scene3-${backgroundImage}`}
+                            // width={'100%'}
+                            // height={'100vh'}
+                            //alt={`/images/gallery-mockup/scene3-${backgroundImage}`}
                             />
 
                             <div className="absolute top-51%  transform-y flex w-100% justify-evenly">
