@@ -63,18 +63,30 @@ const SlickSlider = () => {
   const { data, error } = useFetch(galleryMock, {
     variables: `?key=${params.id}`,
   });
+  console.log("data", data)
   const { exhibition_detail, artwork_images } = data || {};
-  console.log({ exhibition_detail });
   const [images, setImages] = useState([]);
 
   const getImagesArray = () => {
     if (data) {
-      let copyImages = [...images];
-      copyImages.length == 0 &&
-        artwork_images.map(({ images }) => {
-          copyImages = [...copyImages, ...images];
-        });
-      setImages(copyImages);
+      const { artwork_images } = data || [];
+      let newArray = artwork_images.slice(2);
+      let myResultArr = [];
+      let isSecond = true;
+
+      for (let i = 0; i < newArray.length; i--) {
+        if (i % 5 === 0 && isSecond) {
+          myResultArr.push([newArray[i], newArray[i + 1], newArray[i + 2]])
+          isSecond = false;
+          i = i + 4
+        }
+        else {
+          myResultArr.push([newArray[i], newArray[i + 1]])
+          isSecond = true;
+          i = i + 3
+        }
+      }
+      setImages(myResultArr);
     }
   };
 
@@ -87,16 +99,8 @@ const SlickSlider = () => {
       if (isLoading) setIsLoading(false);
     }, 5000);
   }, [isLoading]);
-  const length = images.length;
-
-  const mod = length % 5;
-  const divide = length / 5;
-  const totalScene2Length = Math.floor(divide) + mod;
-  const totalScene3Length = totalScene2Length - (mod > 3 ? 0 : 1);
 
   const backgroundImage = `${exhibition_detail?.style?.toLowerCase()}.png`;
-  let a = 0;
-  let b = 0;
 
   return (
     <>
@@ -161,7 +165,7 @@ const SlickSlider = () => {
                       />
                       <img
                         src={
-                          <Skeleton />
+                          artwork_images[0]?.image || (<Skeleton />)
                         }
                         alt=""
                         className="absolute object-cover top-17 h-165 left-17 w-107  "
@@ -174,141 +178,133 @@ const SlickSlider = () => {
                         alt=""
                       />
                       <img
-                        src={<Skeleton />}
+                        src={artwork_images[1]?.image || (<Skeleton />)}
                         alt=""
                         className="absolute top-17 h-165 left-17 w-107 object-cover"
                       />
                     </div>
                   </div>
                 </div>
-                {Array.from(
-                  Array(totalScene2Length + 1 + totalScene3Length).keys()
-                )
-                  .slice(1)
-                  .map((index) => {
-                    if (index % 2 != 0) {
-                      a = a + 1;
-                    }
-                    const imageIndexScene2 = 3 * a + 2 * (a - 1);
-                    return (
-                      <>
-                        {index % 2 != 0 ? (
-                          <div className="relative">
-                            <img
-                              className="w-100% h-100vh  "
-                              src={
-                                `/images/gallery-mockup/scene2-${backgroundImage}` || (
-                                  <Skeleton />
-                                )
-                              }
-                            // width={'100%'}
-                            // height={'100vh'}
-                            // alt={<Bars />}
-                            />
-                            <div className="absolute top-50% transform-y flex w-100% justify-evenly">
-                              <div className="h-222 relative  ">
-                                <img
-                                  src="/images/gallery-mockup/portrait-frame.png"
-                                  className="h-100% w-165 "
-                                  alt=""
-                                />
-                                <img
-                                  src={
-                                    images[imageIndexScene2 - 3]?.image || (
-                                      <Skeleton />
-                                    )
-                                  }
-                                  // alt={<Bars />}
-                                  className="absolute object-cover top-19 h-183 left-19 w-127 "
-                                />
-                              </div>
-                              <div className="h-222 relative ">
-                                <img
-                                  src="/images/gallery-mockup/landscape-frame.png"
-                                  className="h-100% w-298 "
-                                  alt=""
-                                />
-                                <img
-                                  src={
-                                    images[imageIndexScene2 - 2]?.image || (
-                                      <Skeleton />
-                                    )
-                                  }
-                                  alt=""
-                                  className="absolute top-27 h-169 left-27 w-245 object-cover"
-                                />
-                              </div>
-                              <div className="h-222 relative ">
-                                <img
-                                  src="/images/gallery-mockup/portrait-frame.png"
-                                  className="h-100% w-165 "
-                                  alt=""
-                                />
-                                <img
-                                  src={
-                                    images[imageIndexScene2 - 1]?.image || (
-                                      <Skeleton />
-                                    )
-                                  }
-                                  alt=""
-                                  className="absolute top-19 h-183 left-19 w-127 object-cover "
-                                />
-                              </div>
+                {images.map((val, index) => {
+                  return (
+                    <>
+                      {index % 2 == 0 ? (
+                        <div className="relative">
+                          <img
+                            className="w-100% h-100vh  "
+                            src={
+                              `/images/gallery-mockup/scene2-${backgroundImage}` || (
+                                <Skeleton />
+                              )
+                            }
+                          // width={'100%'}
+                          // height={'100vh'}
+                          // alt={<Bars />}
+                          />
+                          <div className="absolute top-50% transform-y flex w-100% justify-evenly">
+                            <div className="h-222 relative  ">
+                              <img
+                                src="/images/gallery-mockup/portrait-frame.png"
+                                className="h-100% w-165 "
+                                alt=""
+                              />
+                              <img
+                                src={
+                                  val[0]?.image || (
+                                    <Skeleton />
+                                  )
+                                }
+                                // alt={<Bars />}
+                                className="absolute object-cover top-19 h-183 left-19 w-127 "
+                              />
+                            </div>
+                            <div className="h-222 relative ">
+                              <img
+                                src="/images/gallery-mockup/landscape-frame.png"
+                                className="h-100% w-298 "
+                                alt=""
+                              />
+                              <img
+                                src={
+                                  val[1]?.image || (
+                                    <Skeleton />
+                                  )
+                                }
+                                alt=""
+                                className="absolute top-27 h-169 left-27 w-245 object-cover"
+                              />
+                            </div>
+                            <div className="h-222 relative ">
+                              <img
+                                src="/images/gallery-mockup/portrait-frame.png"
+                                className="h-100% w-165 "
+                                alt=""
+                              />
+                              <img
+                                src={
+                                  val[2]?.image || (
+                                    <Skeleton />
+                                  )
+                                }
+                                alt=""
+                                className="absolute top-19 h-183 left-19 w-127 object-cover "
+                              />
                             </div>
                           </div>
-                        ) : (
-                          <div className="relative">
-                            <img
-                              className="w-100% h-100vh "
-                              src={
-                                `/images/gallery-mockup/scene3-${backgroundImage}` || (
-                                  <Skeleton />
-                                )
-                              }
-                            // width={'100%'}
-                            // height={'100vh'}
-                            //alt={`/images/gallery-mockup/scene3-${backgroundImage}`}
-                            />
+                        </div>
+                      ) : (
+                        <div className="relative">
+                          <img
+                            className="w-100% h-100vh "
+                            src={
+                              `/images/gallery-mockup/scene3-${backgroundImage}` || (
+                                <Skeleton />
+                              )
+                            }
+                          // width={'100%'}
+                          // height={'100vh'}
+                          //alt={`/images/gallery-mockup/scene3-${backgroundImage}`}
+                          />
 
-                            <div className="absolute top-51%  transform-y flex w-100% justify-evenly">
-                              <div className="h-222 relative mr-20 ml-30  ">
-                                <img
-                                  src="/images/gallery-mockup/portrait-frame.png"
-                                  className="h-100% w-165 "
-                                  alt=""
-                                />
-                                <img
-                                  src={
-                                    images[imageIndexScene2]?.image || (
-                                      <Skeleton />
-                                    )
-                                  }
-                                  alt=""
-                                  className="absolute object-cover top-19 h-183 left-19 w-127  "
-                                />
-                              </div>
-                              <div className="h-222 relative mr-30  ">
-                                <img
-                                  src="/images/gallery-mockup/portrait-frame.png"
-                                  className="h-100% w-165 "
-                                  alt=""
-                                />
-                                <img
-                                  src={
-                                    images[imageIndexScene2 + 1]?.image || (
-                                      <Skeleton />
-                                    )
-                                  }
-                                  alt=""
-                                  className="absolute top-19 h-183 left-19 w-127 object-cover"
-                                />
-                              </div>
+                          <div className="absolute top-51%  transform-y flex w-100% justify-evenly">
+                            <div className="h-222 relative mr-20 ml-30  ">
+                              <img
+                                src="/images/gallery-mockup/portrait-frame.png"
+                                className="h-100% w-165 "
+                                alt=""
+                              />
+                              <img
+                                src={
+                                  val[0]?.image || (
+                                    <Skeleton />
+                                  )
+                                }
+                                alt=""
+                                className="absolute object-cover top-19 h-183 left-19 w-127  "
+                              />
+                            </div>
+                            <div className="h-222 relative mr-30  ">
+                              <img
+                                src="/images/gallery-mockup/portrait-frame.png"
+                                className="h-100% w-165 "
+                                alt=""
+                              />
+                              <img
+                                src={
+                                  val[1]?.image || (
+                                    <Skeleton />
+                                  )
+                                }
+                                alt=""
+                                className="absolute top-19 h-183 left-19 w-127 object-cover"
+                              />
                             </div>
                           </div>
-                        )}
-                      </>
-                    );
-                  })}
+                        </div>
+                      )}
+                    </>
+                  );
+                })}
               </Slider>
             )}
           </div>
