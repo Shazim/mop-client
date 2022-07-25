@@ -25,7 +25,7 @@ function ImageList({
         </p>
       </div>
       <div className="flex items-center">
-        <p className="font-bold tracking leading-32 text-secondary uppercase text-sm">
+        <p className="font-bold tracking leading-32 text-secondary uppercase text-sm ">
           {size}
         </p>
         <img
@@ -35,7 +35,7 @@ function ImageList({
         />
         {handleCheckbox && (
           <CheckBox
-            className="ml-25 h-17"
+            className="ml-25 h-17 "
             value=""
             onBlur={handleBlur}
             onChange={(e) => handleCheckbox(id, e.target.checked)}
