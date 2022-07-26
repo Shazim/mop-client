@@ -82,13 +82,13 @@ function ImagePicker({ name, label }) {
         >
           <span className="w-100% h-137 bg-white flex items-center justify-center">
             <div className="text-center">
-              <p className="font-bold tracking text-2xl text-gray uppercase mb-10">
+              <p className="font-bold tracking text-2xl text-gray uppercase mb-10 sm:mb-6 sm:tracking-tighter sm:text-xl">
                 upload your image
               </p>
-              <p className="font-bold tracking text-base m-auto text-gray uppercase mb-10">
+              <p className="font-bold tracking text-base m-auto text-gray uppercase mb-10 sm:mb-6 sm:tracking-tight">
                 Drop your file on here or click to browse.
               </p>
-              <p className="font-bold tracking text-sm text-gray uppercase">
+              <p className="font-bold tracking text-sm text-gray uppercase  sm:tracking-tight">
                 Max file size: 200mb, JPEG or PNG
               </p>
             </div>

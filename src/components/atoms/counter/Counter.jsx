@@ -26,7 +26,7 @@ function Counter({ active, width, onClick }) {
           src="/images/upArrow.svg"
           className="w-12 h-7 m-auto mb-4 link"
         />
-        <p>{count}</p>
+        <p className="z-70">{count}</p>
         <img
           onClick={() => (active ? countHandler(count > 1 ? 1 : 0) : null)}
           src="/images/downArrow.svg"

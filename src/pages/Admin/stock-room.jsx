@@ -108,7 +108,13 @@ function StockRoom() {
 
   return (
     <>
-      <AdminLayout handler={addItem} title="stockroom" subtitle="up for sale">
+      <AdminLayout
+        handler={addItem}
+        title="Add new artwork"
+        subtitle="artwork details"
+        buttonText="Add new items"
+        button={true}
+      >
         <Form
           initialValues={{
             name: '',
