@@ -16,13 +16,7 @@ const PriceSheet = () => {
   const [isLoading, setIsLoading] = useState(true);
   const { data: getData } = useFetch(PriceSheetCollection);
   const { price_sheets = [] } = getData || [];
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     if (isLoading) {
-  //       setIsLoading(false);
-  //     }
-  //   }, 1000);
-  // }, [isLoading]);
+
   useEffect(() => {
     if (getData) setIsLoading(false);
   }, [getData]);

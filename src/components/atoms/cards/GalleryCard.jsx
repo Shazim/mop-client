@@ -8,6 +8,7 @@ function GalleryCard({
   className: classes = '',
   title = 'Gallery Name',
   imageUrl = '/images/card/bg_image2.svg',
+
   views = 1302,
   incImages = 28,
   onClick,
@@ -17,9 +18,9 @@ function GalleryCard({
   edit = true,
 }) {
   return (
-    <div className={`relative ${classes}`} onClick={onClick}>
+    <div className={` stockroom__images relative ${classes}`} onClick={onClick}>
       <img
-        className={`${imageClass} sm:rounded-lg  w-100% h-100%`}
+        className={` ${imageClass} sm:rounded-lg w-100% h-100%`}
         src={imageUrl}
       />
       <div className="absolute bottom-0 w-100% flex">
