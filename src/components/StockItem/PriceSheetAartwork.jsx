@@ -37,8 +37,8 @@ const PriceSheetAartwork = () => {
   }, [dataArray]);
   return (
     <>
-      <div className="border-border border-t-2 my-25"></div>
-      <div className="w-150  font-avenir-reg font-medium text-xl uppercase leading-54 tracking-wider text-secondary">
+      <div className="border-border border-t-2 my-25 sm:hidden"></div>
+      <div className="w-150  font-avenir-reg font-medium text-xl uppercase leading-54 tracking-wider text-secondary sm:mx-auto">
         Price Sheet
       </div>
       <div className="flex">
