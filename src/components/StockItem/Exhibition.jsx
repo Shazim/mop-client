@@ -1,11 +1,9 @@
 import React from 'react';
-
 import SubHeader from 'components/molecules/header/SubHeader';
 import StepBar from 'components/stepbar/StepBar';
 import Button from 'components/atoms/buttons/Button';
 import SwitchButton from 'components/atoms/buttons/SwitchButton';
 import SubmitButton from 'components/atoms/buttons/SubmitButton';
-
 import { useFormikContext } from 'formik';
 
 export default function Exhibition({ addItem, steps, step, previous }) {
@@ -18,7 +16,7 @@ export default function Exhibition({ addItem, steps, step, previous }) {
   return (
     <div className="w-100% pb-172">
       <div className="px-43 pt-32">
-        <div className="w-57% m-auto">
+        <div className="w-57% m-auto sm:w-80%">
           <StepBar steps={steps} step={step} />
         </div>
         <div className="w-65% mx-auto mt-87 items-center">

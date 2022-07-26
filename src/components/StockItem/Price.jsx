@@ -25,7 +25,7 @@ export default function Price({ addItem, steps, step, next, previous }) {
   return (
     <div className="w-100% pb-172">
       <div className="px-43 sm:px-0 pt-32 sm:pt-0">
-        <div className="w-57% sm:h-100 m-auto">
+        <div className="w-57% sm:h-100 m-auto sm:w-80%">
           <StepBar steps={steps} step={step} />
         </div>
 

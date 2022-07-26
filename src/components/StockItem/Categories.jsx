@@ -45,7 +45,7 @@ export default function Categories({
   return (
     <div className="w-100% pb-172">
       <div className="px-43 sm:px-0 pt-32 sm:pt-0">
-        <div className="w-57% m-auto sm:h-100">
+        <div className="w-57% m-auto sm:h-100 sm:w-80%">
           <StepBar steps={steps} step={step} />
         </div>
         <div className="w-231 h-33 m-auto hidden sm:block font-avenir-reg text-xl tracking-wider text-secondary font-medium text-center uppercase ">

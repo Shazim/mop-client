@@ -24,7 +24,7 @@ export default function Detail({ addItem, steps, step, next }) {
         <div className="w-full hidden sm:block mx-auto">
           <AddItemButton btnText="Add new item" />
         </div>
-        <div className="w-57% sm:h-100 m-auto">
+        <div className="w-57% sm:h-100 m-auto sm:w-80%">
           <StepBar steps={steps} step={step} />
         </div>
         <div className="w-231 h-33 m-auto font-avenir-reg font-medium text-secondary text-xl leading-54 tracking-wider uppercase hidden sm:block">
