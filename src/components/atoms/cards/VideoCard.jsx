@@ -10,7 +10,10 @@ function VideoCard({
   onClick,
 }) {
   return (
-    <div className="relative max-w-sm sm:mx-10 " onClick={onClick}>
+    <div
+      className=" stockroom__images relative max-w-sm sm:mx-10 "
+      onClick={onClick}
+    >
       <img className="w-100% sm:rounded-8" src={imageUrl} />
       <img
         className="absolute  link left-50% top-50% transform-xy sm:invisible sm:hover:visible"
