@@ -1,15 +1,21 @@
 import VideoCard from 'components/atoms/cards/VideoCard';
 import { useFetch } from 'hooks';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { getExhibitions } from 'api';
 import Button from 'components/atoms/buttons/Button';
 import Pagination from 'components/Pagination/Pagination';
 import { useSelector } from 'react-redux';
+import { TailSpin } from 'react-loader-spinner';
 
 function ExhibitionsComp() {
   const { data: ExhibitionsData, refetch } = useFetch(getExhibitions);
   const [currentPage, setCurrentPage] = useState(1);
   const [draft, setDraft] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    if (ExhibitionsData) setIsLoading(false);
+  }, [ExhibitionsData]);
 
   const handleDraft = (status) => {
     setDraft(status);
@@ -34,12 +40,23 @@ function ExhibitionsComp() {
           DRAFTS
         </Button>
       </div>
-      <div className="mb-15 grid grid-cols-2 gap-22  sm:grid-cols-1">
-        {ExhibitionsData &&
-          ExhibitionsData?.exhibitions?.map(({ image }) => (
-            <VideoCard imageUrl={image ? image : undefined} />
-          ))}
-      </div>
+      {isLoading ? (
+        <div className="w-100% h-100vh flex items-center justify-center ">
+          <TailSpin
+            color="#C71118"
+            height={80}
+            width={80}
+            ariaLabel="loading"
+          />
+        </div>
+      ) : (
+        <div className="mb-15 grid grid-cols-2 gap-22  sm:grid-cols-1">
+          {ExhibitionsData &&
+            ExhibitionsData?.exhibitions?.map(({ image }) => (
+              <VideoCard imageUrl={image ? image : undefined} />
+            ))}
+        </div>
+      )}
       <Pagination
         pageDetails={ExhibitionsData?.pagination}
         currentPage={currentPage}
