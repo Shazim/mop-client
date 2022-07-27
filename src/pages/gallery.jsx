@@ -71,7 +71,7 @@ function Gallery() {
     exhibition: dataExhibitions?.exhibitions.map(
       ({ room_name, views, id, image }) => (
         <GalleryCard
-          className="w-100% h-100%"
+          className="w-100% h-100% mb-15"
           imageClass="image"
           info={false}
           title={room_name}

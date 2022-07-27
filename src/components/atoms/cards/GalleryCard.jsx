@@ -18,7 +18,7 @@ function GalleryCard({
   edit = true,
 }) {
   return (
-    <div className={` stockroom__images relative ${classes}`} onClick={onClick}>
+    <div className={`  relative ${classes}`} onClick={onClick}>
       <img
         className={` ${imageClass} sm:rounded-lg w-100% h-100%`}
         src={imageUrl}

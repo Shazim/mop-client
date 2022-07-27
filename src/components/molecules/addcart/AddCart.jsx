@@ -17,13 +17,14 @@ function AddCart({ id, size }) {
     }
   }, [size]);
 
-  let testData = [];
   useEffect(() => {
+    let testData = [];
     dataArray.map((data) => {
       testData.push({ value: data.id, label: data.name });
     });
     SetOption(testData);
   }, [dataArray]);
+
   const slectedItem = (e) => {
     const index = e;
   };

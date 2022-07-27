@@ -6,6 +6,7 @@ import { getArtWorks } from 'api/api-services';
 import GalleryCard from 'components/atoms/cards/GalleryCard';
 import Pagination from 'components/Pagination/Pagination';
 import { TailSpin } from 'react-loader-spinner';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 export default function StockItem({ addItem }) {
   const [search, setSearch] = useState('');
@@ -13,13 +14,7 @@ export default function StockItem({ addItem }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [perPage, setPerPage] = useState(10);
   const [isLoading, setIsLoading] = useState(true);
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     if (isLoading) {
-  //       setIsLoading(false);
-  //     }
-  //   }, 3000);
-  // }, [isLoading]);
+  //
   useEffect(() => {
     if (data) setIsLoading(false);
   }, [data]);
@@ -33,13 +28,17 @@ export default function StockItem({ addItem }) {
       });
     }
   }, [perPage, currentPage, search]);
+  const fetchMoreData = () => {
+    setCurrentPage(2);
+    ///console.log(currentPage);
+  };
 
   return (
     <>
       <div className="flex xl:flex-col lg:flex-col md:flex-col justify-between">
         <SearchBar
           placeholder="Search For An Artist"
-          bgColor="bg-primary-layout-background"
+          bgColor="bg-transparent"
           className="sm:w-90% sm:h-26 w-200"
           onChange={(e) => {
             refetch({
@@ -105,21 +104,41 @@ export default function StockItem({ addItem }) {
                   find them.
                 </div>
               </div>
-              <div className="gridView  sm:grid grid-cols-1">
-                {data.artworks.map(({ name, images }) => (
-                  <>
-                    {images.map(({ image, featured_image }) => (
-                      <>
-                        {featured_image ? (
-                          <div className="mb-25">
-                            <GalleryCard imageUrl={image} title={name} />
-                          </div>
-                        ) : null}
-                      </>
-                    ))}
-                  </>
-                ))}
-              </div>
+              <InfiniteScroll
+                dataLength={data?.artworks.length - 5}
+                next={fetchMoreData}
+                hasMore={true}
+                loader={
+                  <div className="w-100% h-80vh flex items-center justify-center ">
+                    <TailSpin
+                      color="#C71118"
+                      height={80}
+                      width={80}
+                      ariaLabel="loading"
+                    />
+                  </div>
+                }
+              >
+                <div className="gridView  sm:grid grid-cols-1">
+                  {data.artworks.map(({ name, images }) => (
+                    <>
+                      {images.map(({ image, featured_image }) => (
+                        <>
+                          {featured_image ? (
+                            <div className="mb-25">
+                              <GalleryCard
+                                imageUrl={image}
+                                title={name}
+                                className="stockroom__images"
+                              />
+                            </div>
+                          ) : null}
+                        </>
+                      ))}
+                    </>
+                  ))}
+                </div>
+              </InfiniteScroll>
               <div className="mb-44">
                 <Pagination
                   pageDetails={data?.pageDetails}
