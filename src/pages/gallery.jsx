@@ -1,18 +1,23 @@
+// ====================== IMPORTED LIBRARIES ========================
 import React, { useState, useEffect } from 'react';
+import Slider from 'react-slick';
+import { Link } from 'react-router-dom';
+import { useLazyFetch } from 'hooks';
+import { TailSpin } from 'react-loader-spinner';
+
+// ====================== IMPORTED COMPONENTS ========================
 import GalleryBar from 'components/GalleryBar/GalleryBar';
 import SearchBar from 'components/atoms/searchbar/SearchBar';
 import SelectOptions from 'components/atoms/form/SelectOptions';
 import GalleryCard from 'components/atoms/cards/GalleryCard';
-import { Link } from 'react-router-dom';
-import { useLazyFetch } from 'hooks';
-import { getGalleries, getArtists } from 'api/api-services';
 import Button from 'components/atoms/buttons/Button';
 import Pagination from 'components/Pagination/Pagination';
 import Container from 'Layout/Container';
+// ====================== IMPORTED api ========================
+import { getGalleries, getArtists } from 'api/api-services';
 import { getPublicExhibitions } from 'api';
-import Slider from 'react-slick';
 
-function Gallery() {
+const Gallery = () => {
   const [tab, setTab] = useState('galleries');
   const [handleGetGalleries, { data, status }] = useLazyFetch(getGalleries);
   const [handleGetArtists, { data: dataArtists }] = useLazyFetch(getArtists);
@@ -21,20 +26,38 @@ function Gallery() {
 
   const [currentPage, setCurrentPage] = useState(1);
   const [search, setSearch] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    if (data) setIsLoading(false);
+  }, [data]);
+
+  useEffect(() => {
+    if (dataArtists) setIsLoading(false);
+  }, [dataArtists]);
+  useEffect(() => {
+    if (dataExhibitions) setIsLoading(false);
+  }, [dataExhibitions]);
 
   const tabHandler = {
-    galleries: () =>
+    galleries: () => {
       handleGetGalleries({
         variables: `?q[name_cont]=${search != '' ? `${search}` : ''}`,
-      }),
-    exhibition: () =>
+      });
+      setIsLoading(true);
+    },
+    exhibition: () => {
       handleGetExhibitions({
         variables: `?q[name_cont]=${search != '' ? `${search}` : ''}`,
-      }),
-    artists: () =>
+      });
+      setIsLoading(true);
+    },
+    artists: () => {
       handleGetArtists({
         variables: `?q[name_cont]=${search != '' ? `${search}` : ''}`,
-      }),
+      });
+      setIsLoading(true);
+    },
   };
 
   // useEffect(()=>{
@@ -68,7 +91,7 @@ function Gallery() {
         />
       </Link>
     )),
-    exhibition: dataExhibitions?.exhibitions.map(
+    exhibition: dataExhibitions?.exhibitions?.map(
       ({ room_name, views, id, image }) => (
         <GalleryCard
           className="w-100% h-100% mb-15"
@@ -124,7 +147,18 @@ function Gallery() {
   return (
     <div>
       <Container>
-        <GalleryBar setHandler={setTab} />
+        {isLoading ? (
+          <div className="w-100% h-100vh flex items-center justify-center ">
+            <TailSpin
+              color="#C71118"
+              height={80}
+              width={80}
+              ariaLabel="loading"
+            />
+          </div>
+        ) : (
+          <GalleryBar setHandler={setTab} tab={tab} />
+        )}
         <div>
           <div className="max-screen flex justify-end sm:justify-between pt-31 sm:px-23">
             <div className="mr-25 sm:mr-0">
@@ -149,9 +183,20 @@ function Gallery() {
         <div className="max-screen pt-30 pb-43 sm:px-23">
           <div className="gridView-4 sm:hidden">{steps[tab]}</div>
           <div className="hidden sm:block">
-            <div className="gridView-1 packages-slider-2 ">
-              <Slider {...settings}>{steps[tab]}</Slider>
-            </div>
+            {isLoading ? (
+              <div className="w-100% h-100vh flex items-center justify-center ">
+                <TailSpin
+                  color="#C71118"
+                  height={80}
+                  width={80}
+                  ariaLabel="loading"
+                />
+              </div>
+            ) : (
+              <div className="gridView-1 packages-slider-2 ">
+                <Slider {...settings}>{steps[tab]}</Slider>
+              </div>
+            )}
           </div>
           <Pagination
             pageDetails={data?.pagination}
@@ -181,6 +226,6 @@ function Gallery() {
       </Container>
     </div>
   );
-}
+};
 
 export default Gallery;

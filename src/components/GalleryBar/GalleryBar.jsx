@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-function GalleryBar({
+const GalleryBar = ({
   setHandler,
   menus = ['galleries', 'exhibition', 'artists'],
-}) {
+  tab,
+}) => {
   const [id, setId] = useState(0);
 
   return (
@@ -13,7 +14,7 @@ function GalleryBar({
           {menus.map((item, index) => (
             <div
               className={`uppercase mr-45 sm:mr-25 ${
-                index == id ? 'text-primary' : 'text-secondary'
+                item == tab ? 'text-primary' : 'text-secondary'
               } tracking  text-sm sm:text-base font-bold link`}
               onClick={() => {
                 setId(index);
@@ -28,6 +29,6 @@ function GalleryBar({
       </div>
     </div>
   );
-}
+};
 
 export default GalleryBar;
