@@ -1,7 +1,10 @@
-import Button from 'components/atoms/buttons/Button';
-import SelectOptions from 'components/atoms/form/SelectOptions';
+// ====================== IMPORTED LIBRARIES ========================
 import React, { useState, useEffect } from 'react';
 import { useFetch } from 'hooks';
+// ====================== IMPORTED COMPONENTS ========================
+import Button from 'components/atoms/buttons/Button';
+import SelectOptions from 'components/atoms/form/SelectOptions';
+// ====================== IMPORTED api ========================
 import { getPublicArtworkPrice } from 'api/public-api-services';
 
 function AddCart({ id, size }) {
@@ -18,7 +21,7 @@ function AddCart({ id, size }) {
   }, [size]);
 
   useEffect(() => {
-    let testData = [];
+    const testData = [];
     dataArray.map((data) => {
       testData.push({ value: data.id, label: data.name });
     });

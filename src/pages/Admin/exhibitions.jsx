@@ -1,10 +1,12 @@
+// ====================== IMPORTED LIBRARIES ========================
 import React from 'react';
-import { AdminLayout } from 'Layout';
-import { ExhibitionsComp } from 'components/ExhibitionRoom/index';
 import { useHistory } from 'react-router-dom';
 import { routes } from 'routes';
+// ====================== IMPORTED COMPONENTS ========================
+import { AdminLayout } from 'Layout';
+import { ExhibitionsComp } from 'components/ExhibitionRoom/index';
 
-function Exhibitions() {
+const Exhibitions = () => {
   const history = useHistory();
 
   return (
@@ -18,6 +20,6 @@ function Exhibitions() {
       <ExhibitionsComp />
     </AdminLayout>
   );
-}
+};
 
 export default Exhibitions;

@@ -1,13 +1,18 @@
-import VideoCard from 'components/atoms/cards/VideoCard';
+// ====================== IMPORTED LIBRARIES ========================
 import { useFetch } from 'hooks';
 import React, { useState, useEffect } from 'react';
-import { getExhibitions } from 'api';
-import Button from 'components/atoms/buttons/Button';
-import Pagination from 'components/Pagination/Pagination';
 import { useSelector } from 'react-redux';
 import { TailSpin } from 'react-loader-spinner';
 
-function ExhibitionsComp() {
+// ====================== IMPORTED COMPONENTS ========================
+import VideoCard from 'components/atoms/cards/VideoCard';
+import Button from 'components/atoms/buttons/Button';
+import Pagination from 'components/Pagination/Pagination';
+
+// ====================== IMPORTED api ========================
+import { getExhibitions } from 'api';
+
+const ExhibitionsComp = () => {
   const { data: ExhibitionsData, refetch } = useFetch(getExhibitions);
   const [currentPage, setCurrentPage] = useState(1);
   const [draft, setDraft] = useState(false);
@@ -51,10 +56,9 @@ function ExhibitionsComp() {
         </div>
       ) : (
         <div className="mb-15 grid grid-cols-2 gap-22  sm:grid-cols-1">
-          {ExhibitionsData &&
-            ExhibitionsData?.exhibitions?.map(({ image }) => (
-              <VideoCard imageUrl={image ? image : undefined} />
-            ))}
+          {ExhibitionsData?.exhibitions?.map(({ image }) => (
+            <VideoCard imageUrl={image ? image : undefined} />
+          ))}
         </div>
       )}
       <Pagination
@@ -65,6 +69,6 @@ function ExhibitionsComp() {
       />
     </div>
   );
-}
+};
 
 export default ExhibitionsComp;

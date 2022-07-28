@@ -1,20 +1,24 @@
+// ====================== IMPORTED LIBRARIES ========================
 import React, { useState, useEffect } from 'react';
-import SelectOptions from 'components/atoms/form/SelectOptions';
-import SearchBar from 'components/atoms/searchbar/SearchBar';
-import { useFetch } from 'hooks';
-import { getArtWorks } from 'api/api-services';
-import GalleryCard from 'components/atoms/cards/GalleryCard';
-import Pagination from 'components/Pagination/Pagination';
 import { TailSpin } from 'react-loader-spinner';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import { useFetch } from 'hooks';
 
-export default function StockItem({ addItem }) {
+// ====================== IMPORTED COMPONENTS ========================
+import SelectOptions from 'components/atoms/form/SelectOptions';
+import SearchBar from 'components/atoms/searchbar/SearchBar';
+import GalleryCard from 'components/atoms/cards/GalleryCard';
+import Pagination from 'components/Pagination/Pagination';
+// ====================== IMPORTED api ========================
+import { getArtWorks } from 'api/api-services';
+
+const StockItem = ({ addItem }) => {
   const [search, setSearch] = useState('');
   const { data, status, refetch } = useFetch(getArtWorks);
   const [currentPage, setCurrentPage] = useState(1);
   const [perPage, setPerPage] = useState(10);
   const [isLoading, setIsLoading] = useState(true);
-  //
+
   useEffect(() => {
     if (data) setIsLoading(false);
   }, [data]);
@@ -29,7 +33,7 @@ export default function StockItem({ addItem }) {
     }
   }, [perPage, currentPage, search]);
   const fetchMoreData = () => {
-    setCurrentPage(2);
+    // setCurrentPage(2);
     ///console.log(currentPage);
   };
 
@@ -105,7 +109,7 @@ export default function StockItem({ addItem }) {
                 </div>
               </div>
               <InfiniteScroll
-                dataLength={data?.artworks.length - 5}
+                dataLength={data?.artworks.length - 3}
                 next={fetchMoreData}
                 hasMore={true}
                 loader={
@@ -120,11 +124,11 @@ export default function StockItem({ addItem }) {
                 }
               >
                 <div className="gridView  sm:grid grid-cols-1">
-                  {data.artworks.map(({ name, images }) => (
+                  {data?.artworks?.map(({ name, images }) => (
                     <>
-                      {images.map(({ image, featured_image }) => (
+                      {images?.map(({ image, featured_image }) => (
                         <>
-                          {featured_image ? (
+                          {featured_image && (
                             <div className="mb-25">
                               <GalleryCard
                                 imageUrl={image}
@@ -132,7 +136,7 @@ export default function StockItem({ addItem }) {
                                 className="stockroom__images"
                               />
                             </div>
-                          ) : null}
+                          )}
                         </>
                       ))}
                     </>
@@ -170,4 +174,5 @@ export default function StockItem({ addItem }) {
       )}
     </>
   );
-}
+};
+export default StockItem;
