@@ -49,9 +49,9 @@ const Artwork = () => {
             <>
               {images?.map(({ image, featured_image }) => (
                 <>
-                  {featured_image ? (
+                  {featured_image && (
                     <FeatureCard name={name} image={image} id={id} />
-                  ) : null}
+                  )}
                 </>
               ))}
             </>
