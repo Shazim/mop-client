@@ -1,4 +1,11 @@
+// ====================== IMPORTED LIBRARIES ========================
 import React from 'react';
+import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { useEffect } from 'react';
+import { usePost } from 'hooks';
+import { routes } from 'routes';
+// ====================== IMPORTED COMPONENTS ========================
 import {
   Launch,
   Artwork,
@@ -7,20 +14,17 @@ import {
   ExhibitionDemo,
   Detail,
 } from 'components/ExhibitionRoom/index';
-import { useState } from 'react';
 import { Form } from 'components/app/forms';
 import { AdminLayout } from 'Layout';
 import Button from 'components/atoms/buttons/Button';
+import Range from 'components/Range';
+// ====================== IMPORTED api ========================
 import { exhibitionSchema } from 'validation';
 import { createExhibitions } from 'api';
-import { usePost } from 'hooks';
+// ====================== IMPORTED utils ========================
 import { formDataHandler } from 'utils';
-import { useHistory } from 'react-router-dom';
-import { useEffect } from 'react';
-import Range from 'components/Range';
-import { routes } from 'routes';
 
-function ExhibitionRoom() {
+const ExhibitionRoom = () => {
   const steps = {
     1: <Detail />,
     2: <Artwork />,
@@ -134,6 +138,6 @@ function ExhibitionRoom() {
       )}
     </AdminLayout>
   );
-}
+};
 
 export default ExhibitionRoom;

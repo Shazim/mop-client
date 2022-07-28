@@ -1,12 +1,14 @@
+// ====================== IMPORTED LIBRARIES ========================
+import { useFetch } from 'hooks';
+import React from 'react';
+// ====================== IMPORTED COMPONENTS ========================
 import Sliders from 'components/atoms/slider/Slider';
 import AddCart from 'components/molecules/addcart/AddCart';
-import { useFetch } from 'hooks';
-
-import React from 'react';
-import { getPublicArtWork } from 'api/api-services';
 import { Container } from 'Layout';
+// ====================== IMPORTED api ========================
+import { getPublicArtWork } from 'api/api-services';
 
-function SinglePhoto(props) {
+const SinglePhoto = (props) => {
   const images = [
     '/images/image1.png',
     '/images/image2.png',
@@ -80,6 +82,6 @@ function SinglePhoto(props) {
       </div>
     </Container>
   );
-}
+};
 
 export default SinglePhoto;
