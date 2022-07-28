@@ -20,7 +20,7 @@ function Style() {
         <div className="admin-h1 pb-15">Choose your style</div>
         <div>
           {ExhibitionStylesData &&
-            ExhibitionStylesData.exhibition_styles.map(
+            ExhibitionStylesData?.exhibition_styles.map(
               ({ description, image, id, name }) => (
                 <div className="mb-28">
                   <StyleCard

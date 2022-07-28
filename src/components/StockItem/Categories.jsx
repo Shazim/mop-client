@@ -1,14 +1,17 @@
+// ====================== IMPORTED LIBRARIES ========================
 import React from 'react';
+// ====================== IMPORTED COMPONENT ========================
 import SubHeader from 'components/molecules/header/SubHeader';
 import StepBar from 'components/stepbar/StepBar';
 import Button from 'components/atoms/buttons/Button';
 import CheckBox from 'components/atoms/checkbox/CheckBox';
 import Counter from 'components/atoms/counter/Counter';
 import ToggleButton from 'components/atoms/togglebutton/ToggleButton';
-import { useFormikContext } from 'formik';
 import SelectOptions from 'components/atoms/form/SelectOptions';
+// ====================== IMPORTED API  ========================
+import { useFormikContext } from 'formik';
 
-export default function Categories({
+const Categories = ({
   addItem,
   next,
   steps,
@@ -16,7 +19,7 @@ export default function Categories({
   previous,
   styles,
   colors,
-}) {
+}) => {
   const {
     setFieldValue,
     values: { edition_type, colour_ids, style_ids },
@@ -56,7 +59,7 @@ export default function Categories({
             Which styles/subjects apply to this item?
           </div>
           <div className="grid grid-cols-3 gap-20 sm:hidden">
-            {styles.map((style, index) => (
+            {styles?.map((style, index) => (
               <>
                 <CheckBox
                   className=""
@@ -75,7 +78,7 @@ export default function Categories({
             which colours apply to this item?
           </div>
           <div className="grid grid-cols-3 gap-20 pr-30% sm:hidden">
-            {colors.map((color, index) => (
+            {colors?.map((color, index) => (
               <CheckBox
                 className=""
                 value={color.name}
@@ -155,4 +158,5 @@ export default function Categories({
       </div>
     </div>
   );
-}
+};
+export default Categories;

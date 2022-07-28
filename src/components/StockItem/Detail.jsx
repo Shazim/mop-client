@@ -1,14 +1,19 @@
+// ====================== IMPORTED LIBRARIES ========================
+
 import React from 'react';
+// ====================== IMPORTED COMPONENT ========================
+
 import TextArea from 'components/atoms/form/TextArea';
 import TextField from 'components/atoms/form/TextField';
 import StepBar from 'components/stepbar/StepBar';
 import Button from 'components/atoms/buttons/Button';
 import ImagePicker from 'components/atoms/imagepicker/ImagePicker';
 import ErrorMessage from 'components/app/forms/ErrorMessage';
-import { useFormikContext } from 'formik';
 import AddItemButton from 'components/atoms/additembutton/AddItemButton';
+// ====================== IMPORTED API ========================
+import { useFormikContext } from 'formik';
 
-export default function Detail({ addItem, steps, step, next }) {
+const Detail = ({ addItem, steps, step, next }) => {
   const {
     handleSubmit,
     values: { name, note, artwork_images_attributes },
@@ -69,4 +74,5 @@ export default function Detail({ addItem, steps, step, next }) {
       </div>
     </div>
   );
-}
+};
+export default Detail;
