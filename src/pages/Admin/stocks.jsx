@@ -1,10 +1,13 @@
+// ====================== IMPORTED LIBRARIES ========================
 import React from 'react';
-import { AdminLayout } from 'Layout';
-import StockItem from '../../components/StockItem';
 import { useHistory } from 'react-router-dom';
 import { routes } from 'routes';
 
-function Stocks() {
+// ====================== IMPORTED COMPONENT ========================
+import { AdminLayout } from 'Layout';
+import StockItem from '../../components/StockItem';
+
+const Stocks = () => {
   const history = useHistory();
 
   return (
@@ -18,6 +21,6 @@ function Stocks() {
       <StockItem />
     </AdminLayout>
   );
-}
+};
 
 export default Stocks;

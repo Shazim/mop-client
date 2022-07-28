@@ -1,3 +1,6 @@
+// ====================== IMPORTED LIBRARIES ========================
+import React, { useState } from 'react';
+// ====================== IMPORTED COMPONENT ========================
 import Button from 'components/atoms/buttons/Button';
 import { TextField } from 'components/atoms/form';
 import SubHeader from 'components/molecules/header/SubHeader';
@@ -5,9 +8,8 @@ import MobileMenu from 'components/molecules/mobilemenu/MobileMenu';
 import Tables from 'components/molecules/tables/Tables';
 import { Form } from 'components/app/forms';
 import { AdminLayout } from 'Layout';
-import React, { useState } from 'react';
 
-function OrderDetail() {
+const OrderDetail = () => {
   const [isMenuOpen, setIsMenuOpen] = useState();
   return (
     <AdminLayout
@@ -76,6 +78,6 @@ function OrderDetail() {
       </Form>
     </AdminLayout>
   );
-}
+};
 
 export default OrderDetail;

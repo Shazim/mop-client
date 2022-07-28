@@ -1,17 +1,19 @@
+// ====================== IMPORTED LIBRARIES ========================
 import React, { useState, useEffect } from 'react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { useLocation, useHistory } from 'react-router-dom';
+// ====================== IMPORTED COMPONENT ========================
 import Header from 'components/molecules/header/Header';
 import { DiscoverMore } from 'components/DiscoveMore';
 import { ReceiveInsight } from 'components/ReceiveInsight';
 import Footer from 'components/molecules/footer/Footer';
 import Button from 'components/atoms/buttons/Button';
-import { useLocation, useHistory } from 'react-router-dom';
 import LoginModal from 'components/molecules/modals/LoginModal';
 import SignupModal from 'components/molecules/modals/SignupModal';
 import ForgotPassword from 'components/molecules/modals/ForgotPassword';
 
-function About() {
+const About = () => {
   const [signUp, setSignUp] = useState();
   const search = useLocation().search;
   const [signIn, setSignIn] = useState();
@@ -172,6 +174,6 @@ function About() {
       <Footer />
     </>
   );
-}
+};
 
 export default About;

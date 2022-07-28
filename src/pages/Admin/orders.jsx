@@ -1,9 +1,11 @@
+// ====================== IMPORTED LIBRARIES ========================
+import React from 'react';
+// ====================== IMPORTED COMPONENT ========================
 import SelectOptions from 'components/atoms/form/SelectOptions';
 import Button from 'components/atoms/buttons/Button';
-import React from 'react';
 import { AdminLayout } from 'Layout';
 
-function Orders() {
+const Orders = () => {
   const data = [
     { id: 1, date: 'April2020', num: 589 },
     { id: 1, date: 'April2020', num: 589 },
@@ -62,6 +64,6 @@ function Orders() {
       </div>
     </AdminLayout>
   );
-}
+};
 
 export default Orders;

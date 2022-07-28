@@ -1,11 +1,14 @@
-import { AdminLayout } from 'Layout';
+// ====================== IMPORTED LIBRARIES ========================
 import React from 'react';
+
+// ====================== IMPORTED COMPONENT ========================
+import { AdminLayout } from 'Layout';
 import Package from 'components/Packages/package';
 import Button from 'components/atoms/buttons/Button';
 import TextArea from 'components/atoms/form/TextArea';
 import RadioButton from 'components/atoms/buttons/RadioButton';
 
-function ProfileSubscription() {
+const ProfileSubscription = () => {
   return (
     <AdminLayout title="profile" subtitle="subscription">
       <div className="admin-h2 sm:text-center">current subscription</div>
@@ -90,6 +93,6 @@ function ProfileSubscription() {
       </div>
     </AdminLayout>
   );
-}
+};
 
 export default ProfileSubscription;

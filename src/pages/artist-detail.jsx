@@ -1,15 +1,19 @@
-import VideoCard from 'components/atoms/cards/VideoCard';
+// ====================== IMPORTED LIBRARIES ========================
 import React, { useEffect, useState } from 'react';
 import { useLazyFetch } from 'hooks';
-import Pagination from 'components/Pagination/Pagination';
-import Container from 'Layout/Container';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { getArtistDetails } from 'api';
 import { useLocation } from 'react-router-dom';
+// ====================== IMPORTED COMPONENT ========================
+import VideoCard from 'components/atoms/cards/VideoCard';
+import Pagination from 'components/Pagination/Pagination';
+import Container from 'Layout/Container';
 
-function ArtistDetail({ props }) {
+// ====================== IMPORTED API ========================
+import { getArtistDetails } from 'api';
+
+const ArtistDetail = ({ props }) => {
   const [handleGetArtist, { data }] = useLazyFetch(getArtistDetails);
   const [currentPage, setCurrentPage] = useState(1);
   const search = useLocation().search;
@@ -92,6 +96,6 @@ function ArtistDetail({ props }) {
       </div>
     </Container>
   );
-}
+};
 
 export default ArtistDetail;

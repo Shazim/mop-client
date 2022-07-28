@@ -1,6 +1,8 @@
+// ====================== IMPORTED LIBRARIES ========================
+import React, { useState } from 'react';
+// ====================== IMPORTED COMPONENT ========================
 import Button from 'components/atoms/buttons/Button';
 import Cart from 'components/Cart/Cart';
-import React, { useState } from 'react';
 import { TextField } from 'components/atoms/form';
 import { Form } from 'components/app/forms';
 import RadioButton from 'components/atoms/buttons/RadioButton';
@@ -8,7 +10,7 @@ import CheckBox from 'components/atoms/checkbox/CheckBox';
 import { SubHeaderLayout } from 'Layout';
 import { Item } from 'components/Cart';
 
-function Checkout() {
+const Checkout = () => {
   const [initial, setInitial] = useState({
     firstName: '',
     surname: '',
@@ -344,6 +346,6 @@ function Checkout() {
       </div>
     </SubHeaderLayout>
   );
-}
+};
 
 export default Checkout;

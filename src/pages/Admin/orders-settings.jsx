@@ -1,9 +1,11 @@
+// ====================== IMPORTED LIBRARIES ========================
 import React from 'react';
+// ====================== IMPORTED COMPONENT ========================
 import { AdminLayout } from 'Layout';
 import RadioButton from 'components/atoms/buttons/RadioButton';
 import Button from 'components/atoms/buttons/Button';
 
-function OrderSettings() {
+const OrderSettings = () => {
   return (
     <AdminLayout title="orders" subtitle="settings">
       <div className="admin-h2 mb-20">your payment details</div>
@@ -28,6 +30,6 @@ function OrderSettings() {
       </div>
     </AdminLayout>
   );
-}
+};
 
 export default OrderSettings;
