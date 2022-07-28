@@ -1,4 +1,9 @@
+// ====================== IMPORTED LIBRARIES ========================
 import React from 'react';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+// ====================== IMPORTED COMPONENTS ========================
 import Button from 'components/atoms/buttons/Button';
 import SwitchButton from 'components/atoms/buttons/SwitchButton';
 import { Step } from 'components/Gallery';
@@ -7,15 +12,12 @@ import Header from 'components/molecules/header/Header';
 import { Packages } from 'components/Packages';
 import { FAQ } from 'components/FAQ';
 import Footer from 'components/molecules/footer/Footer';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import Slider from 'react-slick';
 import { DescriptiveIcon } from 'components/DescriptiveIcon';
 import GalleryCard from 'components/atoms/cards/GalleryCard';
 import ProfileCard from 'components/atoms/cards/ProfileCard';
 import Signup from './subscribe-login';
 
-function CreateGallary() {
+const CreateGallary = () => {
   const settings = {
     dots: true,
     infinite: true,
@@ -294,6 +296,6 @@ function CreateGallary() {
       </div>
     </>
   );
-}
+};
 
 export default CreateGallary;

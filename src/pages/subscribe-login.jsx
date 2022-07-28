@@ -1,12 +1,14 @@
-import SubHeaderLayout from 'Layout/SubHeaderLayout';
+// ====================== IMPORTED LIBRARIES ========================
 import React from 'react';
-import SubscribeAuth from 'components/SubscribeAuth/SubscribeAuth';
 import { useHistory } from 'react-router-dom';
+import { routes } from 'routes';
+// ====================== IMPORTED COMPONENTS ========================
+import SubHeaderLayout from 'Layout/SubHeaderLayout';
+import SubscribeAuth from 'components/SubscribeAuth/SubscribeAuth';
 import { getCookie } from 'cookies/Cookies';
 import SelectedPackage from 'components/SelectedPackage/SelectedPackage';
-import { routes } from 'routes';
 
-function SubscribeLogin() {
+const SubscribeLogin = () => {
   const history = useHistory();
 
   const loggedin = getCookie('user') && JSON.parse(getCookie('user'));
@@ -33,6 +35,6 @@ function SubscribeLogin() {
       </div>
     </SubHeaderLayout>
   );
-}
+};
 
 export default SubscribeLogin;

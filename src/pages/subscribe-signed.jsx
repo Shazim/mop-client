@@ -1,9 +1,11 @@
+// ====================== IMPORTED LIBRARIES ========================
+import React from 'react';
+// ====================== IMPORTED COMPONENTS ========================
 import SelectedPackage from 'components/SelectedPackage/SelectedPackage';
 import SubHeaderLayout from 'Layout/SubHeaderLayout';
-import React from 'react';
 import SubscribedCards from 'components/SubscribeAuth/SubscribedCards';
 
-function SubscribeSigned() {
+const SubscribeSigned = () => {
   return (
     <SubHeaderLayout title="subscribe to this plan">
       <div className="sm:px-0 flex pt-48 pb-299 sm:flex-col-reverse ">
@@ -22,6 +24,6 @@ function SubscribeSigned() {
       </div>
     </SubHeaderLayout>
   );
-}
+};
 
 export default SubscribeSigned;
