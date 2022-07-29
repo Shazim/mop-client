@@ -1,13 +1,16 @@
-import { priceSheetDetail } from 'api/api-services';
-import Button from 'components/atoms/buttons/Button';
-import { useFetch } from 'hooks';
-import { AdminLayout } from 'Layout';
+// ====================== IMPORTED LIBRARIES ========================
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { useParams } from 'react-router';
 import { routes } from 'routes';
-import { useHistory } from 'react-router-dom';
-import MenuTable2 from 'components/Tables/menuTable2';
 import { Link } from 'react-router-dom';
+import { useFetch } from 'hooks';
+// ====================== IMPORTED COMPONENT ========================
+import Button from 'components/atoms/buttons/Button';
+import MenuTable2 from 'components/Tables/menuTable2';
+// ====================== IMPORTED API ========================
+import { priceSheetDetail } from 'api/api-services';
+import { AdminLayout } from 'Layout';
 
 const PricingSheetDetails = () => {
   const history = useHistory();

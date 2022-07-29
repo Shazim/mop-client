@@ -1,21 +1,24 @@
+// ====================== IMPORTED LIBRARIES ========================
 import React, { useState, useEffect } from 'react';
-import { getColors, getStyles } from 'api';
+import { useHistory } from 'react-router-dom';
+import { routes } from 'routes';
+import { usePost } from 'hooks';
+import { useDispatch, useSelector } from 'react-redux';
+// ====================== IMPORTED COMPONENT ========================
 import { Form } from 'components/app/forms';
 import Categories from 'components/StockItem/Categories';
 import Detail from 'components/StockItem/Detail';
 import Exhibition from 'components/StockItem/Exhibition';
 import Price from 'components/StockItem/Price';
-import { artworkSchema } from 'validation';
-import { usePost } from 'hooks';
-import { createWork } from 'api/api-services';
-import { formDataHandler } from 'utils';
 import { AdminLayout } from 'Layout';
-import { useDispatch, useSelector } from 'react-redux';
+// ====================== IMPORTED APIS ========================
+import { artworkSchema } from 'validation';
+import { formDataHandler } from 'utils';
 import * as types from 'store/actions/actionTypes';
-import { useHistory } from 'react-router-dom';
-import { routes } from 'routes';
+import { getColors, getStyles } from 'api';
+import { createWork } from 'api/api-services';
 
-function StockRoom() {
+const StockRoom = () => {
   const [steps, setSteps] = useState([
     'item details',
     'categories',
@@ -178,6 +181,6 @@ function StockRoom() {
       </AdminLayout>
     </>
   );
-}
+};
 
 export default StockRoom;

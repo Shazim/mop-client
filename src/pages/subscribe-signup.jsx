@@ -1,11 +1,14 @@
-import SelectedPackage from 'components/SelectedPackage/SelectedPackage';
-import SubHeaderLayout from 'Layout/SubHeaderLayout';
+// ====================== IMPORTED LIBRARIES ========================
 import React from 'react';
-import SubscribeAuth from 'components/SubscribeAuth/SubscribeAuth';
 import { useHistory } from 'react-router-dom';
 import { routes } from 'routes';
 
-function SubscribeSignup() {
+// ====================== IMPORTED COMPONENTS ========================
+import SelectedPackage from 'components/SelectedPackage/SelectedPackage';
+import SubHeaderLayout from 'Layout/SubHeaderLayout';
+import SubscribeAuth from 'components/SubscribeAuth/SubscribeAuth';
+
+const SubscribeSignup = () => {
   const history = useHistory();
 
   const handleSignup = () => {
@@ -30,6 +33,6 @@ function SubscribeSignup() {
       </div>
     </SubHeaderLayout>
   );
-}
+};
 
 export default SubscribeSignup;

@@ -47,7 +47,7 @@ export default function GridLayout({
   return (
     <div style={{ columns: column, columnGap: 12 }}>
       {featured_artworks &&
-        featured_artworks.map((item, i) => (
+        featured_artworks?.map((item, i) => (
           <div className="relative sm:rounded-8">
             <img
               src={item.featured_image}

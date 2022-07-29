@@ -1,12 +1,15 @@
-import SearchBar from 'components/atoms/searchbar/SearchBar';
+// ====================== IMPORTED LIBRARIES ========================
 import React, { useEffect, useState } from 'react';
-import FeatureCard from './FeatureCard';
-import { getArtWorks } from 'api';
 import { useLazyFetch, useFetch } from 'hooks';
+// ====================== IMPORTED COMPONENTS ========================
+import SearchBar from 'components/atoms/searchbar/SearchBar';
+import FeatureCard from './FeatureCard';
 import ErrorMessage from 'components/app/forms/ErrorMessage';
+// ====================== IMPORTED api ========================
 import { useFormikContext } from 'formik';
+import { getArtWorks } from 'api';
 
-function Artwork() {
+const Artwork = () => {
   const [search, setSearch] = useState('');
   const { data: dataArtworks, status, refetch } = useFetch(getArtWorks);
   const [currentPage, setCurrentPage] = useState(1);
@@ -44,11 +47,11 @@ function Artwork() {
         {dataArtworks &&
           dataArtworks?.artworks.map(({ name, images, id }) => (
             <>
-              {images.map(({ image, featured_image }) => (
+              {images?.map(({ image, featured_image }) => (
                 <>
-                  {featured_image ? (
+                  {featured_image && (
                     <FeatureCard name={name} image={image} id={id} />
-                  ) : null}
+                  )}
                 </>
               ))}
             </>
@@ -60,6 +63,6 @@ function Artwork() {
       />
     </div>
   );
-}
+};
 
 export default Artwork;

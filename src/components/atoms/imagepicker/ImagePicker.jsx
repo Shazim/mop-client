@@ -104,7 +104,7 @@ function ImagePicker({ name, label }) {
           />
         </label>
       </div>
-      {artwork_images_attributes.map((item, index) => (
+      {artwork_images_attributes?.map((item, index) => (
         <ImageList
           name={item?.image?.name}
           imageUrl={item?.imageLink}

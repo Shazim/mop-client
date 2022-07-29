@@ -1,3 +1,9 @@
+// ====================== IMPORTED LIBRARIES ========================
+import React from 'react';
+import { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import { routes } from 'routes';
+// ====================== IMPORTED COMPONENTS ========================
 import Button from 'components/atoms/buttons/Button';
 import { DescriptiveIcon } from 'components/DescriptiveIcon';
 import { DiscoverMore } from 'components/DiscoveMore';
@@ -5,14 +11,10 @@ import Footer from 'components/molecules/footer/Footer';
 import Header from 'components/molecules/header/Header';
 import { LinkLabel } from 'components/LinkLabel';
 import { ReceiveInsight } from 'components/ReceiveInsight';
-import React from 'react';
-import { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
 import GridLayout from 'components/atoms/cards/GridLayout';
-import { routes } from 'routes';
 import CreateGallary from './create-gallary';
 
-function Home() {
+const Home = () => {
   const descriptiveIcons = [
     {
       source: '/images/services/satisfaction.svg',
@@ -202,6 +204,6 @@ function Home() {
       <Footer />
     </>
   );
-}
+};
 
 export default Home;

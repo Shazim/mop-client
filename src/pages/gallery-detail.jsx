@@ -1,15 +1,18 @@
-import VideoCard from 'components/atoms/cards/VideoCard';
+// ====================== IMPORTED LIBRARIES ========================
 import React, { useEffect, useState } from 'react';
 import { useLazyFetch } from 'hooks';
-import { getGalleryDetails } from 'api/api-services';
-import Pagination from 'components/Pagination/Pagination';
-import Container from 'Layout/Container';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { useLocation } from 'react-router-dom';
+// ====================== IMPORTED COMPONENTS ========================
+import VideoCard from 'components/atoms/cards/VideoCard';
+import Pagination from 'components/Pagination/Pagination';
+import Container from 'Layout/Container';
+// ====================== IMPORTED API ========================
+import { getGalleryDetails } from 'api/api-services';
 
-function GalleryDetail({ props }) {
+const GalleryDetail = ({ props }) => {
   const [handleGetGalleries, { data }] = useLazyFetch(getGalleryDetails);
   const [currentPage, setCurrentPage] = useState(1);
   const search = useLocation().search;
@@ -92,6 +95,6 @@ function GalleryDetail({ props }) {
       </div>
     </Container>
   );
-}
+};
 
 export default GalleryDetail;

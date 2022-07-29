@@ -1,8 +1,10 @@
+// ====================== IMPORTED LIBRARIES ========================
+import React from 'react';
+// ====================== IMPORTED COMPONENTS ========================
 import RadioButton from 'components/atoms/buttons/RadioButton';
 import TextArea from 'components/atoms/form/TextArea';
-import React from 'react';
 
-function MySubscription() {
+const MySubscription = () => {
   return (
     <div>
       <div>current subscription</div>
@@ -37,6 +39,6 @@ function MySubscription() {
       <button>Submit review</button>
     </div>
   );
-}
+};
 
 export default MySubscription;

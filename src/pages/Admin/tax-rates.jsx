@@ -1,5 +1,7 @@
-import SimplesTables from 'components/Tables/SimplesTables';
+// ====================== IMPORTED LIBRARIES ========================
 import React from 'react';
+// ====================== IMPORTED COMPONENT ========================
+import SimplesTables from 'components/Tables/SimplesTables';
 import { AdminLayout } from 'Layout';
 
 const TaxRates = () => {

@@ -1,11 +1,12 @@
+// ====================== IMPORTED LIBRARIES ========================
+import React from 'react';
+// ====================== IMPORTED COMPONENTS ========================
 import SelectedPackage from 'components/SelectedPackage/SelectedPackage';
 import SubHeaderLayout from 'Layout/SubHeaderLayout';
 import Button from 'components/atoms/buttons/Button';
-
-import React from 'react';
 import SubscribedCards from 'components/SubscribeAuth/SubscribedCards';
 
-function SubscribeLogged() {
+const SubscribeLogged = () => {
   return (
     <SubHeaderLayout title="subscribe to this plan">
       <div className="sm:px-0 flex pt-48 pb-299 sm:flex-col ">
@@ -30,6 +31,6 @@ function SubscribeLogged() {
       </div>
     </SubHeaderLayout>
   );
-}
+};
 
 export default SubscribeLogged;

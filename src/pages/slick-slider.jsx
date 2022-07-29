@@ -1,19 +1,19 @@
+// ====================== IMPORTED LIBRARIES ========================
 import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import Arrow from 'components/atoms/slider/Arrow/Arrow';
-import { useFetch, usePost } from 'hooks';
-import { galleryMock } from 'api';
 import { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
-import { img } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-import { Bars } from 'react-loader-spinner';
-import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
+import { useFetch, usePost } from 'hooks';
+import Skeleton from 'react-loading-skeleton';
+// ====================== IMPORTED COMPONENTS ========================
+import Arrow from 'components/atoms/slider/Arrow/Arrow';
 import loader from '../assets/images/loader.gif';
-
+// ====================== IMPORTED API ========================
+import { galleryMock } from 'api';
 
 const SlickSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -63,7 +63,7 @@ const SlickSlider = () => {
   const { data, error } = useFetch(galleryMock, {
     variables: `?key=${params.id}`,
   });
-  console.log("data", data)
+  console.log('data', data);
   const { exhibition_detail, artwork_images } = data || {};
   const [images, setImages] = useState([]);
 
@@ -76,14 +76,13 @@ const SlickSlider = () => {
 
       for (let i = 0; i < newArray.length; i--) {
         if (i % 5 === 0 && isSecond) {
-          myResultArr.push([newArray[i], newArray[i + 1], newArray[i + 2]])
+          myResultArr.push([newArray[i], newArray[i + 1], newArray[i + 2]]);
           isSecond = false;
-          i = i + 4
-        }
-        else {
-          myResultArr.push([newArray[i], newArray[i + 1]])
+          i = i + 4;
+        } else {
+          myResultArr.push([newArray[i], newArray[i + 1]]);
           isSecond = true;
-          i = i + 3
+          i = i + 3;
         }
       }
       setImages(myResultArr);
@@ -131,9 +130,9 @@ const SlickSlider = () => {
                         <Skeleton />
                       )
                     }
-                  // width={'100%'}
-                  // height={'100vh'}
-                  //alt={<Bars />}
+                    // width={'100%'}
+                    // height={'100vh'}
+                    //alt={<Bars />}
                   />
 
                   <div className="w-100% h-100% absolute sm:left-30 left-50 top-0 flex flex-col items-center justify-center">
@@ -164,9 +163,7 @@ const SlickSlider = () => {
                         alt=""
                       />
                       <img
-                        src={
-                          artwork_images[0]?.image || (<Skeleton />)
-                        }
+                        src={artwork_images[0]?.image || <Skeleton />}
                         alt=""
                         className="absolute object-cover top-17 h-165 left-17 w-107  "
                       />
@@ -178,7 +175,7 @@ const SlickSlider = () => {
                         alt=""
                       />
                       <img
-                        src={artwork_images[1]?.image || (<Skeleton />)}
+                        src={artwork_images[1]?.image || <Skeleton />}
                         alt=""
                         className="absolute top-17 h-165 left-17 w-107 object-cover"
                       />
@@ -197,9 +194,9 @@ const SlickSlider = () => {
                                 <Skeleton />
                               )
                             }
-                          // width={'100%'}
-                          // height={'100vh'}
-                          // alt={<Bars />}
+                            // width={'100%'}
+                            // height={'100vh'}
+                            // alt={<Bars />}
                           />
                           <div className="absolute top-50% transform-y flex w-100% justify-evenly">
                             <div className="h-222 relative  ">
@@ -209,11 +206,7 @@ const SlickSlider = () => {
                                 alt=""
                               />
                               <img
-                                src={
-                                  val[0]?.image || (
-                                    <Skeleton />
-                                  )
-                                }
+                                src={val[0]?.image || <Skeleton />}
                                 // alt={<Bars />}
                                 className="absolute object-cover top-19 h-183 left-19 w-127 "
                               />
@@ -225,11 +218,7 @@ const SlickSlider = () => {
                                 alt=""
                               />
                               <img
-                                src={
-                                  val[1]?.image || (
-                                    <Skeleton />
-                                  )
-                                }
+                                src={val[1]?.image || <Skeleton />}
                                 alt=""
                                 className="absolute top-27 h-169 left-27 w-245 object-cover"
                               />
@@ -241,11 +230,7 @@ const SlickSlider = () => {
                                 alt=""
                               />
                               <img
-                                src={
-                                  val[2]?.image || (
-                                    <Skeleton />
-                                  )
-                                }
+                                src={val[2]?.image || <Skeleton />}
                                 alt=""
                                 className="absolute top-19 h-183 left-19 w-127 object-cover "
                               />
@@ -261,9 +246,9 @@ const SlickSlider = () => {
                                 <Skeleton />
                               )
                             }
-                          // width={'100%'}
-                          // height={'100vh'}
-                          //alt={`/images/gallery-mockup/scene3-${backgroundImage}`}
+                            // width={'100%'}
+                            // height={'100vh'}
+                            //alt={`/images/gallery-mockup/scene3-${backgroundImage}`}
                           />
 
                           <div className="absolute top-51%  transform-y flex w-100% justify-evenly">
@@ -274,11 +259,7 @@ const SlickSlider = () => {
                                 alt=""
                               />
                               <img
-                                src={
-                                  val[0]?.image || (
-                                    <Skeleton />
-                                  )
-                                }
+                                src={val[0]?.image || <Skeleton />}
                                 alt=""
                                 className="absolute object-cover top-19 h-183 left-19 w-127  "
                               />
@@ -290,11 +271,7 @@ const SlickSlider = () => {
                                 alt=""
                               />
                               <img
-                                src={
-                                  val[1]?.image || (
-                                    <Skeleton />
-                                  )
-                                }
+                                src={val[1]?.image || <Skeleton />}
                                 alt=""
                                 className="absolute top-19 h-183 left-19 w-127 object-cover"
                               />

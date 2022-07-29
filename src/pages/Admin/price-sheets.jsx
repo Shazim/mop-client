@@ -1,15 +1,18 @@
+// ====================== IMPORTED LIBRARIES ========================
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { PriceSheetCollection } from 'api/api-services';
-import { useFetch } from 'hooks';
-import { AdminLayout } from 'Layout';
-import { Link } from 'react-router-dom';
-import { useHistory } from 'react-router-dom';
-import { routes } from 'routes';
-import { useEffect } from 'react';
 import { TailSpin } from 'react-loader-spinner';
+import { useFetch } from 'hooks';
+import { Link } from 'react-router-dom';
+import { routes } from 'routes';
+import { useHistory } from 'react-router-dom';
+// ====================== IMPORTED COMPONENT ========================
+import { AdminLayout } from 'Layout';
+// ====================== IMPORTED API ========================
+import { PriceSheetCollection } from 'api/api-services';
 
 const PriceSheet = () => {
   const history = useHistory();

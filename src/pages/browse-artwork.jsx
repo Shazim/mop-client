@@ -1,20 +1,23 @@
-import GalleryCard from 'components/atoms/cards/GalleryCard';
-import SelectOptions from 'components/atoms/form/SelectOptions';
-import { getBrowseArtworks } from 'api/api-services';
-import Footer from 'components/molecules/footer/Footer';
-import Header from 'components/molecules/header/Header';
-import SideBarWithLogin from 'components/molecules/sidebar/SideBarWithLogin';
+// ====================== IMPORTED LIBRARIES ========================
 import { Link } from 'react-router-dom';
 import { useFetch } from 'hooks';
 import { useEffect } from 'react';
-import Pagination from 'components/Pagination/Pagination';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import Slider from 'react-slick';
-import Button from 'components/atoms/buttons/Button';
 import { TailSpin } from 'react-loader-spinner';
+// ====================== IMPORTED COMPONENT ========================
+import GalleryCard from 'components/atoms/cards/GalleryCard';
+import SelectOptions from 'components/atoms/form/SelectOptions';
+import Footer from 'components/molecules/footer/Footer';
+import Header from 'components/molecules/header/Header';
+import SideBarWithLogin from 'components/molecules/sidebar/SideBarWithLogin';
+import Pagination from 'components/Pagination/Pagination';
+import Button from 'components/atoms/buttons/Button';
+// ====================== IMPORTED API ========================
+import { getBrowseArtworks } from 'api/api-services';
 
-function BrowseArtwork() {
+const BrowseArtwork = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const { data: dataArtworks, refetch } = useFetch(getBrowseArtworks, {
     variables: `page=${currentPage + 1}`,
@@ -213,6 +216,6 @@ function BrowseArtwork() {
       <Footer />
     </>
   );
-}
+};
 
 export default BrowseArtwork;
