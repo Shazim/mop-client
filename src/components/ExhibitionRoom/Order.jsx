@@ -1,7 +1,9 @@
+// ====================== IMPORTED COMPONENTS ========================
 import React from 'react';
+// ====================== IMPORTED COMPONENTS ========================
 import ImageList from 'components/ImageList';
 
-function Order() {
+const Order = () => {
   return (
     <div className="sm">
       <div>
@@ -24,6 +26,6 @@ function Order() {
       </div>
     </div>
   );
-}
+};
 
 export default Order;

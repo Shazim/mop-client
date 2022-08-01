@@ -1,17 +1,20 @@
+// ====================== IMPORTED LIBRARIES ========================
 import React from 'react';
-import { Package } from 'components/Packages';
-import SwitchButton from 'components/atoms/buttons/SwitchButton';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useFetch } from 'hooks';
-import { getPackages } from 'api';
-import { setCookie } from 'cookies/Cookies';
+import { useState } from 'react';
 import { routes } from 'routes';
+import { useFetch } from 'hooks';
+// ====================== IMPORTED COMPONENTS ========================
+import SwitchButton from 'components/atoms/buttons/SwitchButton';
+import { setCookie } from 'cookies/Cookies';
+import { Package } from 'components/Packages';
+// ====================== IMPORTED API ========================
+import { getPackages } from 'api';
 
-function Packages(
+const Packages = (
   {
     // packages = [
     //   {
@@ -22,7 +25,7 @@ function Packages(
     //   },
     // ],
   }
-) {
+) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -137,6 +140,6 @@ function Packages(
       </div>
     </div>
   );
-}
+};
 
 export default Packages;

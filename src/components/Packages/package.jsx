@@ -1,7 +1,9 @@
-import Button from 'components/atoms/buttons/Button';
+// ====================== IMPORTED LIBRARIES ========================
 import React from 'react';
+// ====================== IMPORTED COMPONENTS ========================
+import Button from 'components/atoms/buttons/Button';
 
-function Package({
+const Package = ({
   popular = false,
   title = 'starter',
   price = '8',
@@ -11,7 +13,7 @@ function Package({
   packageTotal = false,
   onClickSubscribeBtn,
   year,
-}) {
+}) => {
   const packages = [
     '10 galleries, 25GB storage',
     'Create a store. 5% fee to the Red dot gallery',
@@ -85,6 +87,6 @@ function Package({
       )}
     </div>
   );
-}
+};
 
 export default Package;

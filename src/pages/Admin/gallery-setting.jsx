@@ -1,17 +1,20 @@
+// ====================== IMPORTED LIBRARIES ========================
 import React, { useState } from 'react';
+import { useEffect } from 'react';
+import { usePost, useFetch } from 'hooks';
+// ====================== IMPORTED COMPONENT ========================
 import SubmitButton from 'components/atoms/buttons/SubmitButton';
 import TextField from 'components/atoms/form/TextField';
 import ToggleButton from 'components/atoms/togglebutton/ToggleButton';
 import { Form } from 'components/app/forms';
-import { usePost, useFetch } from 'hooks';
-import { createGallery, getGallery } from 'api/api-services';
 import { gallerySchema } from 'validation';
 import UploadImageCard from 'components/atoms/uploadimageCard';
-import { formDataHandler } from 'utils';
-import { useEffect } from 'react';
 import { AdminLayout } from 'Layout';
+// ====================== IMPORTED API ========================
+import { createGallery, getGallery } from 'api/api-services';
+import { formDataHandler } from 'utils';
 
-function GallerySetting() {
+const GallerySetting = () => {
   const { data: getData } = useFetch(getGallery);
 
   const [gallery, { data: dataPost, status: statusPost }] =
@@ -219,6 +222,6 @@ function GallerySetting() {
       </Form>
     </AdminLayout>
   );
-}
+};
 
 export default GallerySetting;

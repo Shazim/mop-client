@@ -1,11 +1,14 @@
-import { getExhibitionStyles } from 'api';
-import { useFetch } from 'hooks';
+// ====================== IMPORTED LIBRARIES ========================
 import React from 'react';
-import StyleCard from './StyleCard';
-import ErrorMessage from 'components/app/forms/ErrorMessage';
+import { useFetch } from 'hooks';
 import { useFormikContext } from 'formik';
+// ====================== IMPORTED COMPONENTS ========================
+import ErrorMessage from 'components/app/forms/ErrorMessage';
+import StyleCard from './StyleCard';
+// ====================== IMPORTED API ========================
+import { getExhibitionStyles } from 'api';
 
-function Style() {
+const Style = () => {
   const { data: ExhibitionStylesData } = useFetch(getExhibitionStyles);
   const {
     setFieldValue,
@@ -41,6 +44,6 @@ function Style() {
       </div>
     </div>
   );
-}
+};
 
 export default Style;

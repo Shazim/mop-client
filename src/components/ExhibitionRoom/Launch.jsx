@@ -1,7 +1,8 @@
+// ====================== IMPORTED LIBRARIES ========================
 import React from 'react';
 import { useFormikContext } from 'formik';
 
-function Launch() {
+const Launch = () => {
   const {
     values: { key },
     errors,
@@ -33,6 +34,6 @@ function Launch() {
       </div>
     </div>
   );
-}
+};
 
 export default Launch;

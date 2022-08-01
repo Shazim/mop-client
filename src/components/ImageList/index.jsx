@@ -1,8 +1,10 @@
+// ====================== IMPORTED LIBRARIES ========================
 import React from 'react';
-import CheckBox from 'components/atoms/checkbox/CheckBox';
 import { useFormikContext } from 'formik';
+// ====================== IMPORTED COMPONENTS ========================
+import CheckBox from 'components/atoms/checkbox/CheckBox';
 
-function ImageList({
+const ImageList = ({
   imageUrl,
   name,
   size,
@@ -11,7 +13,7 @@ function ImageList({
   handleCheckbox,
   bg = 'white',
   checked,
-}) {
+}) => {
   const { handleBlur } = useFormikContext();
 
   return (
@@ -45,6 +47,6 @@ function ImageList({
       </div>
     </div>
   );
-}
+};
 
 export default ImageList;

@@ -7,7 +7,7 @@ import SelectOptions from 'components/atoms/form/SelectOptions';
 // ====================== IMPORTED api ========================
 import { getPublicArtworkPrice } from 'api/public-api-services';
 
-function AddCart({ id, size }) {
+const AddCart = ({ id, size }) => {
   const [dataArray, setDataArray] = useState([]);
   const [option, SetOption] = useState([]);
   useEffect(() => {
@@ -88,6 +88,6 @@ function AddCart({ id, size }) {
       <Button className="w-100% h-42">Add to cart</Button>
     </div>
   );
-}
+};
 
 export default AddCart;
