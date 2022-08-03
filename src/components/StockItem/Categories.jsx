@@ -87,10 +87,6 @@ const Categories = ({
               />
             ))}
           </div>
-          <div className="border-border border-t-2 my-25 sm:hidden "> </div>
-          <div className="font-bold tracking leading-32 text-sm text-secondary sm:text-center uppercase mb-20">
-            Select an orientation :
-          </div>
 
           <div className="border-border border-t-2 my-25"></div>
           <div className="font-bold items-center sm:ml-auto  tracking leading-32 text-sm text-secondary uppercase mb-20 flex gap-3">
