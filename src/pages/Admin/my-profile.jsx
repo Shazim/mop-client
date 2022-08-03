@@ -340,10 +340,10 @@ const MyProfile = () => {
                 Save
               </Button>
             </div>
-            <div className="admin-h2 mt-20 mb-12 text-center">
+            <div className="admin-h2 mt-20 mb-12 sm:text-center">
               link up your social media
             </div>
-            <div className="admin-des text-black mb-15 text-center">
+            <div className="admin-des text-black mb-25 sm:text-center">
               Click to edit your profile picture.
             </div>
 

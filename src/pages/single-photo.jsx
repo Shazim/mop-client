@@ -20,7 +20,7 @@ const SinglePhoto = (props) => {
   const params = new URLSearchParams(search);
   const id = params.get('id');
 
-  const { data: dataArtwork } = useFetch(getPublicArtWork, { variables: 1 });
+  const { data: dataArtwork } = useFetch(getPublicArtWork, { variables: id });
   const {
     images: sliderImages,
     artist_name,
@@ -29,7 +29,7 @@ const SinglePhoto = (props) => {
     more_by_this_artist,
     price_sheet,
   } = dataArtwork || [];
-
+  console.log('therer is slider images', dataArtwork);
   return (
     <Container>
       <div className="max-screen pt-50  sm:w-100% sm:px-23 sm:h-100% sm:bg-gray-dark">
@@ -62,19 +62,17 @@ const SinglePhoto = (props) => {
           More by this artist
         </p>
         <div className="sm:hidden flex grid grid-cols-4 w-100% h-100%">
-          {more_by_this_artist &&
-            more_by_this_artist.slice(0, 4).map(({ images, orientation }) => (
-              <>
-                {images &&
-                  images.map(({ image, featured_image }) => {
-                    return featured_image ? (
-                      <img className="w-100% h-100%" src={image} />
-                    ) : (
-                      false
-                    );
-                  })}
-              </>
-            ))}
+          {more_by_this_artist?.slice(0, 4).map(({ images, orientation }) => (
+            <>
+              {images?.map(({ image, featured_image }) => {
+                return featured_image ? (
+                  <img className="w-100% h-100%" src={image} />
+                ) : (
+                  false
+                );
+              })}
+            </>
+          ))}
         </div>
         <div className="hidden sm:block">
           <Sliders column={1.2} dots={true} images={sliderImages} />

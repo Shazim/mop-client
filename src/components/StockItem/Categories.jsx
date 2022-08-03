@@ -91,29 +91,6 @@ const Categories = ({
           <div className="font-bold tracking leading-32 text-sm text-secondary sm:text-center uppercase mb-20">
             Select an orientation :
           </div>
-          <div className=" h-100 flex  items-center justify-between sm:flex-col">
-            <ToggleButton
-              bg={edition_type == 'open' ? 'bg-gray' : 'bg-white'}
-              onClick={() => setFieldValue('edition_type', 'open')}
-              className={'w-168 h-32'}
-            >
-              Landscape
-            </ToggleButton>
-            <ToggleButton
-              bg={edition_type == 'open' ? 'bg-white' : 'bg-gray'}
-              onClick={() => setFieldValue('edition_type', 'open')}
-              className={'w-168 h-32 sm:mt-10'}
-            >
-              Potrait
-            </ToggleButton>
-            <ToggleButton
-              bg={edition_type == 'open' ? 'bg-white' : 'bg-gray'}
-              onClick={() => setFieldValue('edition_type', 'open')}
-              className={'w-168 h-32 sm:mt-10'}
-            >
-              Square
-            </ToggleButton>
-          </div>
 
           <div className="border-border border-t-2 my-25"></div>
           <div className="font-bold items-center sm:ml-auto  tracking leading-32 text-sm text-secondary uppercase mb-20 flex gap-3">

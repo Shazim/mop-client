@@ -14,27 +14,33 @@ import { getArtWorks } from 'api/api-services';
 
 const StockItem = ({ addItem }) => {
   const [search, setSearch] = useState('');
-  const { data, status, refetch } = useFetch(getArtWorks);
   const [currentPage, setCurrentPage] = useState(1);
-  const [perPage, setPerPage] = useState(10);
+  const [artworkData, setArtworkData] = useState([]);
+
+  const [perPage, setPerPage] = useState(6);
   const [isLoading, setIsLoading] = useState(true);
+  const { data, status, refetch } = useFetch(getArtWorks, {
+    variables: `?page=${currentPage}&per_page=${perPage}`,
+  });
 
   useEffect(() => {
-    if (data) setIsLoading(false);
+    if (data && data?.artworks) {
+      setArtworkData((artData) => [...data?.artworks, ...artData]);
+      setIsLoading(false);
+    }
   }, [data]);
-
+  console.log('artworkData', artworkData);
   useEffect(() => {
-    if (perPage > 10 || search || currentPage > 1) {
+    if (currentPage > 1) {
       refetch({
-        variables: `${search != '' ? `q[name_cont]=${search}&` : ''}${
-          perPage ? `per_page=${perPage}` : ''
-        }${currentPage ? `page=${currentPage}` : ''}`,
+        variables: `?${
+          currentPage ? `page=${currentPage}` : ''
+        }&per_page=${perPage}`,
       });
     }
-  }, [perPage, currentPage, search]);
+  }, [currentPage]);
   const fetchMoreData = () => {
-    // setCurrentPage(2);
-    ///console.log(currentPage);
+    setCurrentPage(data?.pagination?.next);
   };
 
   return (
@@ -90,12 +96,13 @@ const StockItem = ({ addItem }) => {
             color="#C71118"
             height={80}
             width={80}
+            artworks
             ariaLabel="loading"
           />
         </div>
       ) : (
         <>
-          {data ? (
+          {artworkData ? (
             <>
               <div className="flex mt-21  mb-22">
                 <img
@@ -109,22 +116,22 @@ const StockItem = ({ addItem }) => {
                 </div>
               </div>
               <InfiniteScroll
-                dataLength={data?.artworks.length - 3}
+                dataLength={artworkData?.length - 2 || 0}
                 next={fetchMoreData}
                 hasMore={true}
-                loader={
-                  <div className="w-100% h-80vh flex items-center justify-center ">
-                    <TailSpin
-                      color="#C71118"
-                      height={80}
-                      width={80}
-                      ariaLabel="loading"
-                    />
-                  </div>
-                }
+                // loader={
+                //   <div className="w-100% h-80vh flex items-center justify-center ">
+                //     <TailSpin
+                //       color="#C71118"
+                //       height={80}
+                //       width={80}
+                //       ariaLabel="loading"
+                //     />
+                //   </div>
+                // }
               >
                 <div className="gridView  sm:grid grid-cols-1">
-                  {data?.artworks?.map(({ name, images }) => (
+                  {artworkData?.map(({ name, images }) => (
                     <>
                       {images?.map(({ image, featured_image }) => (
                         <>

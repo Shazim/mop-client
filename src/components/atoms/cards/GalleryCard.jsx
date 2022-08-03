@@ -49,23 +49,19 @@ function GalleryCard({
             </div>
           </div>
 
-          {enterExibit ? (
+          {enterExibit && (
             <div className="flex items-center link">
               <EnterIcon className="w-13 h-11 mr-5 stroke-white" />
               <p className="font-reg text-xsm capitalize text-white leading-22">
                 enter exibition room
               </p>
             </div>
-          ) : (
-            <></>
           )}
         </div>
-        {info ? (
+        {info && (
           <Button type="edit" className="w-100 h-33" transform="uppercase">
             Add Info
           </Button>
-        ) : (
-          <></>
         )}
       </div>
     </div>

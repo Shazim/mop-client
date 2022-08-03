@@ -25,7 +25,7 @@ const EditPriceSheet = () => {
   useEffect(() => {
     if (data) {
       const copyData = {};
-      data?.entries.map(
+      data?.entries?.map(
         ({ size, price, paper_one, paper_two }) =>
           (copyData[size] = {
             size,
