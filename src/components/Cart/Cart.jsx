@@ -7,7 +7,6 @@ function Cart({ prices }) {
       {[...Array(3)].map(() => (
         <Item />
       ))}
-
       <div>
         {prices.map((item) => (
           <div className="flex justify-between">

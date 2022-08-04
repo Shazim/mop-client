@@ -29,7 +29,7 @@ const SinglePhoto = (props) => {
     more_by_this_artist,
     price_sheet,
   } = dataArtwork || [];
-  console.log('therer is slider images', dataArtwork);
+
   return (
     <Container>
       <div className="max-screen pt-50  sm:w-100% sm:px-23 sm:h-100% sm:bg-gray-dark">
@@ -53,7 +53,7 @@ const SinglePhoto = (props) => {
           </p>
         </div>
         <div className="w-50% md:w-55% flex sm:flex-col justify-end sm:p-23 sm:w-100% sm:bg-white">
-          <AddCart id={id} size={price_sheet} />
+          <AddCart id={id} sizes={price_sheet} />
           <div className="hidden sm:block mt-24 w-100% border-border border-b"></div>
         </div>
       </div>
@@ -61,7 +61,7 @@ const SinglePhoto = (props) => {
         <p className="font-avenir-reg text-2xl sm:text-xl text-secondary-dark tracking-wider leading-60 sm:leading-38 uppercase mb-19">
           More by this artist
         </p>
-        <div className="sm:hidden flex grid grid-cols-4 w-100% h-100%">
+        <div className="sm:hidden flex grid grid-cols-4 gap-33 w-100% h-100% mb-86">
           {more_by_this_artist?.slice(0, 4).map(({ images, orientation }) => (
             <>
               {images?.map(({ image, featured_image }) => {

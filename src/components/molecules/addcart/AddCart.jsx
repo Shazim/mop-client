@@ -1,38 +1,68 @@
 // ====================== IMPORTED LIBRARIES ========================
 import React, { useState, useEffect } from 'react';
-import { useFetch } from 'hooks';
+import { useLazyFetch } from 'hooks';
+import { Link, useHistory } from 'react-router-dom';
+import { routes } from 'routes';
+
 // ====================== IMPORTED COMPONENTS ========================
 import Button from 'components/atoms/buttons/Button';
 import SelectOptions from 'components/atoms/form/SelectOptions';
 // ====================== IMPORTED api ========================
 import { getPublicArtworkPrice } from 'api/public-api-services';
 
-const AddCart = ({ id, size }) => {
+const AddCart = ({ id, sizes }) => {
   const [dataArray, setDataArray] = useState([]);
-  const [option, SetOption] = useState([]);
+  const [option, setOption] = useState([]);
+  const [frame, setFrame] = useState([]);
+  const [frameOption, setFrameOption] = useState([]);
+  const [material, setMaterial] = useState([]);
+
+  const history = useHistory();
+  const [handleGetPrice, { data }] = useLazyFetch(getPublicArtworkPrice);
+  const { paper_and_price } = data || [];
+
   useEffect(() => {
-    if (size) {
-      Object.entries(size).map(([key, value]) => {
+    if (sizes) {
+      Object.entries(sizes).map(([key, value]) => {
         if (key === 'sizes') {
           setDataArray(value);
+        } else if (key === 'frames') {
+          setFrame(value);
         }
       });
     }
-  }, [size]);
+  }, [sizes]);
 
   useEffect(() => {
-    const testData = [];
-    dataArray.map((data) => {
-      testData.push({ value: data.id, label: data.name });
+    const testData = dataArray.map((data) => {
+      return { value: data.id, label: data.name };
     });
-    SetOption(testData);
+    setOption(testData);
   }, [dataArray]);
+  useEffect(() => {
+    const testData = paper_and_price?.papers?.map((data, index) => {
+      return { value: index, label: data };
+    });
+    setMaterial(testData);
+  }, [data]);
+  useEffect(() => {
+    const testData = frame.map((data) => {
+      return { value: data.id, label: data.name };
+    });
+
+    setFrameOption(testData);
+  }, [frame]);
 
   const slectedItem = (e) => {
-    const index = e;
+    const size = e;
+    handleGetPrice({ variables: `id=${id}&size=${size}` });
   };
-
-  const { data } = useFetch(getPublicArtworkPrice, { variables: id });
+  const frameSlectedItem = (e) => {
+    const frame = e;
+  };
+  const materialSlectedItem = (e) => {
+    const material = e;
+  };
 
   return (
     <div className="h-578 w-80% xl:w-90% lg:w-93% md:w-93% sm:w-100% bg-gray-lighter flex flex-col px-42 sm:px-20 pt-20 pb-40 shadow">
@@ -58,6 +88,8 @@ const AddCart = ({ id, size }) => {
         color="white"
         width="100%"
         label="click to select type"
+        option={frameOption}
+        onChange={frameSlectedItem}
       />
       <p className="font-bold text-sm text-black tracking leading-32 uppercase mt-16">
         Select slip mount size
@@ -76,16 +108,23 @@ const AddCart = ({ id, size }) => {
         color="white"
         width="100%"
         label="click to select type"
+        option={material}
+        onChange={materialSlectedItem}
       />
       <div className="mt-16 flex justify-between">
         <p className="font-avenir-reg text-primary text-2xl leading-60 tracking-wider uppercase">
           price
         </p>
         <p className="font-avenir-reg text-primary text-2xl leading-60 tracking-wider">
-          £175
+          £{paper_and_price?.price}
         </p>
       </div>
-      <Button className="w-100% h-42">Add to cart</Button>
+      <Button
+        className="w-100% h-42"
+        onClick={() => history.push(routes.ROUTE_CHECKOUT)}
+      >
+        Add to cart
+      </Button>
     </div>
   );
 };

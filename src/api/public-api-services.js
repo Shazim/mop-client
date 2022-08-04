@@ -21,7 +21,7 @@ export const getSearchArtists = (data) => {
 
 export const getPublicArtworkPrice = (data) => {
   return doGet(
-    `${BASE_URL}${API_PATH}/items/artworks${ARTWORKS_PRICE}?${data}`
+    `${BASE_URL}${API_PATH}/items/artworks/${ARTWORKS_PRICE}?${data}`
   );
 };
 

@@ -16,11 +16,12 @@ import { useFormikContext } from 'formik';
 const Detail = ({ addItem, steps, step, next }) => {
   const {
     handleSubmit,
-    values: { name, note, artwork_images_attributes },
+    values: { name, notes, artwork_images_attributes },
     errors,
     touched,
     setFieldError,
   } = useFormikContext() || {};
+  console.log(notes);
 
   const errorLength = Object.keys(errors).length;
   return (
@@ -45,7 +46,7 @@ const Detail = ({ addItem, steps, step, next }) => {
           <div className="border-border border-t-2 my-25"></div>
           <TextArea
             label="artwork notes"
-            name="note"
+            name="notes"
             classes="h-113 w-100% pl-16 pt-10 resize-none"
             placeholder="MAX 500 CHARACTERS"
           />
