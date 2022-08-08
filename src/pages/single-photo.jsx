@@ -1,14 +1,18 @@
 // ====================== IMPORTED LIBRARIES ========================
 import { useFetch } from 'hooks';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 // ====================== IMPORTED COMPONENTS ========================
 import Sliders from 'components/atoms/slider/Slider';
 import AddCart from 'components/molecules/addcart/AddCart';
 import { Container } from 'Layout';
+import { setCookie } from 'cookies/Cookies';
+
 // ====================== IMPORTED api ========================
 import { getPublicArtWork } from 'api/api-services';
 
 const SinglePhoto = (props) => {
+  const [artwork, setArtwork] = useState({});
+
   const images = [
     '/images/image1.png',
     '/images/image2.png',
@@ -20,7 +24,9 @@ const SinglePhoto = (props) => {
   const params = new URLSearchParams(search);
   const id = params.get('id');
 
-  const { data: dataArtwork } = useFetch(getPublicArtWork, { variables: id });
+  const { data: dataArtwork = [] } = useFetch(getPublicArtWork, {
+    variables: id,
+  });
   const {
     images: sliderImages,
     artist_name,
@@ -33,7 +39,7 @@ const SinglePhoto = (props) => {
   return (
     <Container>
       <div className="max-screen pt-50  sm:w-100% sm:px-23 sm:h-100% sm:bg-gray-dark">
-        <Sliders column={1} images={sliderImages} />
+        <Sliders column={1} images={sliderImages || []} />
       </div>
       <div className="max-screen flex w-100% pt-115 sm:bg-gray-dark sm:flex-col sm:px-0">
         <div className="w-50% md:w-45% sm:w-100% sm:px-23 sm:pb-62">
@@ -53,7 +59,13 @@ const SinglePhoto = (props) => {
           </p>
         </div>
         <div className="w-50% md:w-55% flex sm:flex-col justify-end sm:p-23 sm:w-100% sm:bg-white">
-          <AddCart id={id} sizes={price_sheet} />
+          <AddCart
+            id={id}
+            sizes={price_sheet}
+            artwork_name={name}
+            artist={artist_name}
+            images={sliderImages}
+          />
           <div className="hidden sm:block mt-24 w-100% border-border border-b"></div>
         </div>
       </div>
@@ -75,7 +87,7 @@ const SinglePhoto = (props) => {
           ))}
         </div>
         <div className="hidden sm:block">
-          <Sliders column={1.2} dots={true} images={sliderImages} />
+          <Sliders column={1.2} dots={true} images={sliderImages || []} />
         </div>
       </div>
     </Container>
