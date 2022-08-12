@@ -30,7 +30,7 @@ export const createPriceSheet = (data) => {
   return doPost(`${BASE_URL}${API_PATH}/${PRICE_SHEETS}`, data);
 };
 export const createOrder = (data) => {
-  return doPost(`${BASE_URL}${API_PATH}${ORDERS}`, data);
+  return doPost(`${BASE_URL}${API_PATH}/${ORDERS}`, data);
 };
 export const priceSheet = () => {
   return doGet(`${BASE_URL}${API_PATH}${PRICE_SHEETS}${GET_PRICING_DATA}`);

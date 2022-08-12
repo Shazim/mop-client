@@ -8,6 +8,7 @@ function Input({
   style,
   values,
   readOnly,
+  autoComplete,
   ...otherProps
 }) {
   return (
@@ -20,6 +21,7 @@ function Input({
       placeholder={placeholder}
       style={style}
       readOnly={readOnly}
+      autoComplete={autoComplete}
       {...otherProps}
     />
   );

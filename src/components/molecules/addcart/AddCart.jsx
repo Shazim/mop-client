@@ -7,9 +7,11 @@ import { routes } from 'routes';
 // ====================== IMPORTED COMPONENTS ========================
 import Button from 'components/atoms/buttons/Button';
 import SelectOptions from 'components/atoms/form/SelectOptions';
-import { setCookie } from 'cookies/Cookies';
+import { setCookie, getCookie } from 'cookies/Cookies';
 // ====================== IMPORTED api ========================
 import { getPublicArtworkPrice } from 'api/public-api-services';
+import { object } from 'prop-types';
+import { toast } from 'react-toastify';
 
 const AddCart = ({ id, sizes, artwork_name, artist, images }) => {
   const [dataArray, setDataArray] = useState([]);
@@ -53,17 +55,26 @@ const AddCart = ({ id, sizes, artwork_name, artist, images }) => {
       artwork_id: id,
       artwork_name: artwork_name,
       artist_name: artist,
-      artwork_images: images,
+      artwork_images: images[0].image,
+      quantity: 1,
     }));
   };
-
+  const getCartItems = getCookie('obj') && JSON.parse(getCookie('obj'));
   const handleCart = () => {
-    history.push(routes.ROUTE_CHECKOUT);
+    if (obj?.size && obj?.frame && obj?.paper) {
+      let newCartItems;
+      if (getCartItems) {
+        newCartItems = [...getCartItems, obj];
+      } else {
+        newCartItems = [obj];
+      }
+      setCookie('obj', JSON.stringify(newCartItems));
 
-    setCookie('obj', JSON.stringify(obj));
+      history.push(routes.ROUTE_CHECKOUT);
+    } else {
+      toast.error('please fill these options');
+    }
   };
-
-  console.log('here is the data ', obj);
 
   return (
     <div className="h-578 w-80% xl:w-90% lg:w-93% md:w-93% sm:w-100% bg-gray-lighter flex flex-col px-42 sm:px-20 pt-20 pb-40 shadow">

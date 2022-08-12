@@ -12,6 +12,7 @@ function FormField({
   type,
   customChange,
   readOnly,
+  autoComplete,
   ...otherProps
 }) {
   const {
@@ -42,6 +43,7 @@ function FormField({
           type={type}
           value={type == 'file' ? '' : values[name]}
           readOnly={readOnly}
+          autoComplete={autoComplete}
           {...otherProps}
         />
       </div>

@@ -41,7 +41,7 @@ function LoginModal({ isOpen, openHandler, signUpHandler, forgotHandler }) {
         if (response?.status == 200) {
           setCookie('user', JSON.stringify(response?.data));
           closeModal();
-          history.push(routes.ROUTE_MY_PROFILE);
+          history.location('/checkout');
         }
       })
       .catch((error) => console.log('ERROR ', error));
@@ -60,8 +60,13 @@ function LoginModal({ isOpen, openHandler, signUpHandler, forgotHandler }) {
         overlayClassName="fixed inset-0 overflow-auto"
       >
         <div className="bg-gray-lighter w-568 pl-56 pr-57 py-40">
-          <div className="font-avenir-reg text-2xl text-secondary tracking-wider leading-38 uppercase">
-            login
+          <div className="flex justify-between">
+            <div className="font-avenir-reg text-2xl text-secondary tracking-wider leading-38 uppercase">
+              login
+            </div>
+            <div onClick={closeModal}>
+              <img src="images/icons/close.svg" className="link" />
+            </div>{' '}
           </div>
           <Button
             color="facebook"
@@ -91,6 +96,7 @@ function LoginModal({ isOpen, openHandler, signUpHandler, forgotHandler }) {
               onSubmit={login}
               initialValues={{ email: '', password: '' }}
               validationSchema={generateSchema({ email: '', password: '' })}
+              autoComplete="off"
             >
               {() => (
                 <>

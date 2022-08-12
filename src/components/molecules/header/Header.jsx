@@ -156,7 +156,10 @@ function Header({ login = false, signUpHandler, signInHandler, menu, isOpen }) {
               >
                 Sign in
               </div>
-              <Cart className="w-20 h-18" />
+              <Cart
+                className="w-20 h-18 link"
+                onClick={() => history.push(routes.ROUTE_CHECKOUT)}
+              />
             </div>
           </div>
         </div>
