@@ -181,6 +181,7 @@ const Checkout = () => {
         openHandler={setSignIn}
         signUpHandler={setSignUp}
         forgotHandler={setForgot}
+        Route={routes.ROUTE_CHECKOUT}
       />
       <SignupModal
         isOpen={signUp}
@@ -572,6 +573,7 @@ const Checkout = () => {
                         <Button
                           className="w-318 h-33 sm:w-275 sm:h-44"
                           transform="uppercase"
+                          disabled={`${access_token ? false : true}`}
                           onClick={handleSubmit}
                         >
                           complete purchase

@@ -6,7 +6,7 @@ import { getCookie, setCookie } from 'cookies/Cookies';
 import { useDispatch, useSelector } from 'react-redux';
 import { TOTAL_PRICE } from 'store/actions/actionTypes';
 
-function Cart() {
+const Cart = () => {
   const [cartItems, setCartItems] = useState(
     (getCookie('obj') && JSON.parse(getCookie('obj'))) || []
   );
@@ -31,7 +31,7 @@ function Cart() {
   const prices = [
     { heading: 'subtotal', price: `£${subTotal || ''}` },
     { heading: 'vat', price: `£${vet}` },
-    { heading: 'total', price: `£${Total || vet}` },
+    { heading: 'total', price: `£${Total || ''}` },
   ];
   return (
     <div className="bg-gray-lighter h-fit w-312 pt-31 pb-27 pl-27 pr-33">
@@ -63,6 +63,6 @@ function Cart() {
       </div>
     </div>
   );
-}
+};
 
 export default Cart;

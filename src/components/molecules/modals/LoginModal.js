@@ -10,7 +10,13 @@ import { useHistory } from 'react-router-dom';
 import { generateSchema } from 'validation';
 import { routes } from 'routes';
 
-function LoginModal({ isOpen, openHandler, signUpHandler, forgotHandler }) {
+const LoginModal = ({
+  isOpen,
+  openHandler,
+  signUpHandler,
+  forgotHandler,
+  Route = routes.ROUTE_MY_PROFILE,
+}) => {
   const history = useHistory();
   const closeModal = () => {
     openHandler((prv) => !prv);
@@ -41,7 +47,7 @@ function LoginModal({ isOpen, openHandler, signUpHandler, forgotHandler }) {
         if (response?.status == 200) {
           setCookie('user', JSON.stringify(response?.data));
           closeModal();
-          history.location('/checkout');
+          history.push(`${Route}`);
         }
       })
       .catch((error) => console.log('ERROR ', error));
@@ -142,6 +148,6 @@ function LoginModal({ isOpen, openHandler, signUpHandler, forgotHandler }) {
       </Modal>
     </div>
   );
-}
+};
 
 export default LoginModal;
