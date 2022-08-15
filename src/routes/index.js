@@ -32,6 +32,7 @@ import SlickSlider from 'pages/slick-slider';
 import PricingSheetDetails from 'pages/Admin/price-sheet-detail';
 import PriceSheet from 'pages/Admin/price-sheets';
 import editPriceSheet from 'pages/Admin/edit-price-sheet';
+import PageNotFound from 'pages/PageNotFound';
 // List of Routes name using for links and route
 export const routes = Object.freeze({
   ROUTE_FORGOT_PASSWORD: '/forgot-password',
@@ -71,6 +72,7 @@ export const routes = Object.freeze({
   ROUTE_PRICING_SHEET_DETAILS: '/price-sheet/:id',
   ROUTE_PRICE_SHEETS: '/price-sheets',
   ROUTE_EDIT_PRICE_SHEET: '/edit-price-sheet/:id',
+  ROUTE_PAGE_NOT_FOUND: '/*',
 });
 // List of route object which will be rendered under Router component
 export default Object.freeze([
@@ -94,6 +96,7 @@ export default Object.freeze([
     component: PricingSheet,
     privateRoute: true,
   },
+
   {
     path: routes.ROUTE_PRICING_SHEET_DETAILS,
     component: PricingSheetDetails,
@@ -174,4 +177,8 @@ export default Object.freeze([
   { path: routes.ROUTE_ABOUT, component: About },
   { path: routes.ROUTE_LOGIN, component: Login },
   { path: routes.ROUTE_SIGNUP, component: Login },
+  {
+    path: routes.ROUTE_PAGE_NOT_FOUND,
+    component: PageNotFound,
+  },
 ]);
