@@ -28,6 +28,7 @@ const Checkout = () => {
   const [forgot, setForgot] = useState();
   const [signUp, setSignUp] = useState();
   const [checked, setChecked] = useState(false);
+  const [disable, setDisable] = useState(false);
 
   const total_Price = useSelector((state) => state?.cart?.totalPrice);
   const history = useHistory();
@@ -92,6 +93,10 @@ const Checkout = () => {
       });
     }
   }, [checked]);
+  useEffect(() => {
+    if (!access_token) setDisable(true);
+    else setDisable(false);
+  }, [access_token]);
 
   const onSubmit = (data) => {
     const {
@@ -173,7 +178,7 @@ const Checkout = () => {
   const logIn = () => {
     setSignIn((prv) => !prv);
   };
-  console.log('history', history.goBack);
+
   return (
     <>
       <LoginModal
@@ -201,10 +206,9 @@ const Checkout = () => {
             <div className="pt-50 flex pb-182 sm:flex-col-reverse">
               <div className="w-100% mr-33">
                 <div className="admin-h2 mt-20 pb-33">Your Details</div>
-
-                <div className="flex sm:flex-col ">
-                  {!access_token && (
-                    <>
+                {!access_token && (
+                  <>
+                    <div className="flex sm:flex-col ">
                       <Button
                         color="gray"
                         className="w-190 h-33  mr-22  sm:w-234 sm:ml-auto sm:mr-auto"
@@ -221,13 +225,23 @@ const Checkout = () => {
                       >
                         CREATE AN ACCOUNT
                       </Button>
-                    </>
-                  )}
 
-                  <Button className="w-234 h-33 sm:mt-12 sm:ml-auto sm:mr-auto hidden">
-                    CONTINUE AS GUEST
-                  </Button>
-                </div>
+                      <Button className="w-234 h-33 sm:mt-12 sm:ml-auto sm:mr-auto hidden">
+                        CONTINUE AS GUEST
+                      </Button>
+                    </div>
+                    <div className="flex mt-21  mb-22">
+                      <img
+                        src="/images/icons/info-icon.svg"
+                        alt=""
+                        className="mr-7"
+                      />
+                      <div className="text-primary font-bold tracking uppercase mt-3">
+                        Please login to fill the form
+                      </div>
+                    </div>
+                  </>
+                )}
                 <div className="hidden sm:block hr-b mt-24"></div>
                 <Form
                   initialValues={initial}
@@ -249,6 +263,7 @@ const Checkout = () => {
                             //width="277"
                             value={values.first_name}
                             className="sm:w-full w-277"
+                            readOnly={disable}
                           />
                         </div>
                         <div className="ml-30 sm:ml-0 sm:mt-10">
@@ -260,6 +275,7 @@ const Checkout = () => {
                             label="Last Name"
                             value={values.last_name}
                             className="sm:w-full w-277"
+                            readOnly={disable}
                           />
                         </div>
                       </div>
@@ -272,6 +288,7 @@ const Checkout = () => {
                           label="Phone Number"
                           className="sm:w-full w-277"
                           value={values.phone_number}
+                          readOnly={disable}
                         />
                       </div>
                       <div className="admin-h2 pt-35 pb-18">
@@ -285,6 +302,7 @@ const Checkout = () => {
                           height="38"
                           label="Address Line 1"
                           value={values.address_1}
+                          readOnly={disable}
                         />
                       </div>
                       <div className="mb-11">
@@ -295,6 +313,7 @@ const Checkout = () => {
                           height="38"
                           label="Address Line 2"
                           value={values.address_2}
+                          readOnly={disable}
                         />
                       </div>
                       <div className="mb-11">
@@ -305,6 +324,7 @@ const Checkout = () => {
                           height="38"
                           label="Address line 3"
                           value={values.address_3}
+                          readOnly={disable}
                         />
                       </div>
                       <div className="flex hr-b pb-35 sm:flex-col">
@@ -316,6 +336,7 @@ const Checkout = () => {
                             height="38"
                             label="POST CODE"
                             value={values.postcode}
+                            readOnly={disable}
                           />
                         </div>
                         <div className="w-199 ml-30 sm:w-full sm:ml-0 sm:mt-10">
@@ -326,6 +347,7 @@ const Checkout = () => {
                             height="38"
                             label="country"
                             value={values.country}
+                            readOnly={disable}
                           />
                         </div>
                       </div>
