@@ -14,6 +14,7 @@ function TextField({
   titleClasses = 'text-secondary uppercase tracking',
   customChange,
   readOnly = false,
+  autoComplete = 'off',
   otherProps,
 }) {
   return (
@@ -31,6 +32,7 @@ function TextField({
           placeholder={placeholder}
           customChange={customChange}
           readOnly={readOnly}
+          autoComplete={autoComplete}
           {...otherProps}
         />
         {icon && (

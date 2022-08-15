@@ -1,18 +1,46 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { getCookie, setCookie } from 'cookies/Cookies';
 
-function Item({ artistName = 'Artist Name', artworkName = 'artwork Name' }) {
+function Item({
+  artistName = 'Artist Name',
+  artworkName = 'artwork Name',
+  image,
+  index,
+  artworkPrice,
+  setCartItems,
+  artworkQuantity,
+}) {
   const [quantity, setQuantity] = useState(1);
-  const basePrice = 175;
-  const [price, setPrice] = useState(basePrice);
-
+  const [price, setPrice] = useState(artworkPrice * artworkQuantity);
   const addQuantity = () => {
-    setQuantity((prev) => prev + 1);
-    setPrice(basePrice * (quantity + 1));
-  };
+    setCartItems((prev) => {
+      let copyPrev = [...prev];
+      copyPrev[index].quantity = artworkQuantity + 1;
+      setCookie('obj', JSON.stringify(copyPrev));
 
+      return copyPrev;
+    });
+    setPrice(artworkPrice * (artworkQuantity + 1));
+  };
   const subtractQuantity = () => {
-    setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
-    setPrice(basePrice * (quantity > 1 ? quantity - 1 : 1));
+    setCartItems((prev) => {
+      let copyPrev = [...prev];
+
+      copyPrev[index].quantity = artworkQuantity > 1 ? artworkQuantity - 1 : 1;
+      setCookie('obj', JSON.stringify(copyPrev));
+
+      return copyPrev;
+    });
+    setPrice(artworkPrice * (artworkQuantity > 1 ? artworkQuantity - 1 : 1));
+  };
+  const deleteProduct = () => {
+    setCartItems((prev) => {
+      let copyPrev = [...prev];
+
+      copyPrev.splice(index, 1);
+      setCookie('obj', JSON.stringify(copyPrev));
+      return copyPrev;
+    });
   };
 
   return (
@@ -36,7 +64,7 @@ function Item({ artistName = 'Artist Name', artworkName = 'artwork Name' }) {
                 onClick={subtractQuantity}
               />
               <div className="tracking text-sm text-secondary font-nunito-light flex items-center px-6 pt-3">
-                {quantity}
+                {artworkQuantity}
               </div>
               <img
                 src="/images/cart/add.svg"
@@ -47,16 +75,22 @@ function Item({ artistName = 'Artist Name', artworkName = 'artwork Name' }) {
             </div>
           </div>
           <div className="flex justify-between pb-20 border-b border-border">
-            <img src="/images/cart/product.svg" alt="" />
+            <img src={image} alt="" className="w-120 h-80 object-cover" />
             <div>
               <div className="text-primary text-sm tracking uppercase font-bold pb-28">
                 £{price}
               </div>
-              <img src="/images/cart/delete.svg" className="link" alt="" />
+              <img
+                src="/images/cart/delete.svg"
+                className="link"
+                alt=""
+                onClick={deleteProduct}
+              />
             </div>
           </div>
         </div>
       </div>
+
       <div className="hidden sm:block">
         <div className="flex hr-b pt-10">
           <div className="w-44 h-31">
@@ -73,10 +107,10 @@ function Item({ artistName = 'Artist Name', artworkName = 'artwork Name' }) {
           </div>
           <div>
             <div className="tracking text-sm text-secondary font-nunito-light flex items-center px-6 pt-3 pl-10">
-              X{quantity}
+              X{artworkQuantity}
             </div>
             <div className="text-secondary text-sm tracking uppercase font-bold pb-10">
-              £{price}
+              £{artworkPrice}
             </div>
           </div>
         </div>

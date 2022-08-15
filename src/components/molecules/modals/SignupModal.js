@@ -78,8 +78,13 @@ function SignupModal({ isOpen, openHandler, signInHandler, forgotHandler }) {
           >
             {() => (
               <>
-                <div className="font-avenir-reg text-2xl text-secondary tracking-wider leading-38 uppercase">
-                  sign up
+                <div className="flex justify-between">
+                  <div className="font-avenir-reg text-2xl text-secondary tracking-wider leading-38 uppercase">
+                    Sign Up
+                  </div>
+                  <div onClick={closeModal}>
+                    <img src="images/icons/close.svg" className="link" />
+                  </div>{' '}
                 </div>
                 <Button
                   color="facebook"

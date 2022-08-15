@@ -15,6 +15,7 @@ function SelectOptions({
   color = 'gray-lighter',
   textColor = 'secondary',
   onChange,
+  name,
 }) {
   const [text, setText] = useState(label);
   const [hide, setHide] = useState(true);
@@ -48,7 +49,7 @@ function SelectOptions({
         {option.map((item) => (
           <div
             onClick={() => {
-              onChange && onChange(item.value);
+              onChange && onChange(item.value, item.label, name);
               displayItems(item.label, item.value);
             }}
           >

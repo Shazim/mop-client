@@ -1,10 +1,13 @@
+// ====================== IMPORTED LIBRARIES ========================
 import React, { useState } from 'react';
-import { AdminLayout } from 'Layout';
 import { usePost } from 'hooks';
-import { createPriceSheet } from 'api/api-services';
-import PriceSheetForm from 'components/PriceSheet';
-import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import { useEffect } from 'react';
+// ====================== IMPORTED COMPONENTS ========================
+import PriceSheetForm from 'components/PriceSheet';
+import { AdminLayout } from 'Layout';
+// ====================== IMPORTED API ========================
+import { createPriceSheet } from 'api/api-services';
 
 const PricingSheet = () => {
   const [initalValues, setInitialValues] = useState({

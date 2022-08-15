@@ -1,9 +1,11 @@
+// ====================== IMPORTED API ========================
 import React from 'react';
+// ====================== IMPORTED COMPONENTS ========================
 import { AdminLayout } from 'Layout';
 import Tables from 'components/molecules/tables/Tables';
 import SelectOptions from 'components/atoms/form/SelectOptions';
 
-function Customers() {
+const Customers = () => {
   return (
     <AdminLayout title="customers">
       <div>
@@ -15,6 +17,6 @@ function Customers() {
       </div>
     </AdminLayout>
   );
-}
+};
 
 export default Customers;

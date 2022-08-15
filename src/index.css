@@ -425,6 +425,6 @@ svg.stroke-white {
 }
 
 .stockroom__images {
-  min-width: 700px;
   min-height: 200px;
+  min-width: 200px;
 }

@@ -1,9 +1,11 @@
+// ====================== IMPORTED LIBRARIES ========================
 import React from 'react';
-import { AdminLayout } from 'Layout';
+// ====================== IMPORTED COMPONENTS ========================
 import Tables from 'components/molecules/tables/Tables';
 import SelectOptions from 'components/atoms/form/SelectOptions';
+import { AdminLayout } from 'Layout';
 
-function CouponsOffers() {
+const CouponsOffers = () => {
   return (
     <AdminLayout title="coupons and offers">
       <div>
@@ -14,6 +16,6 @@ function CouponsOffers() {
       </div>
     </AdminLayout>
   );
-}
+};
 
 export default CouponsOffers;

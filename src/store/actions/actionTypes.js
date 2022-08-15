@@ -7,3 +7,4 @@ export const SIDEBAR_SEARCH = 'SIDEBAR_SEARCH';
 export const LOGIN_MODAL = 'LOGIN_MODAL';
 export const SIGNUP_MODAL = 'SIGNUP_MODAL';
 export const FORGET_MODAL = 'FORGET_MODAL';
+export const TOTAL_PRICE = 'TOTAL_PRICE';

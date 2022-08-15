@@ -1,14 +1,18 @@
 // ====================== IMPORTED LIBRARIES ========================
 import { useFetch } from 'hooks';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 // ====================== IMPORTED COMPONENTS ========================
 import Sliders from 'components/atoms/slider/Slider';
 import AddCart from 'components/molecules/addcart/AddCart';
 import { Container } from 'Layout';
+import { setCookie } from 'cookies/Cookies';
+
 // ====================== IMPORTED api ========================
 import { getPublicArtWork } from 'api/api-services';
 
 const SinglePhoto = (props) => {
+  const [artwork, setArtwork] = useState({});
+
   const images = [
     '/images/image1.png',
     '/images/image2.png',
@@ -20,7 +24,9 @@ const SinglePhoto = (props) => {
   const params = new URLSearchParams(search);
   const id = params.get('id');
 
-  const { data: dataArtwork } = useFetch(getPublicArtWork, { variables: 1 });
+  const { data: dataArtwork = [] } = useFetch(getPublicArtWork, {
+    variables: id,
+  });
   const {
     images: sliderImages,
     artist_name,
@@ -33,7 +39,7 @@ const SinglePhoto = (props) => {
   return (
     <Container>
       <div className="max-screen pt-50  sm:w-100% sm:px-23 sm:h-100% sm:bg-gray-dark">
-        <Sliders column={1} images={sliderImages} />
+        <Sliders column={1} images={sliderImages || []} />
       </div>
       <div className="max-screen flex w-100% pt-115 sm:bg-gray-dark sm:flex-col sm:px-0">
         <div className="w-50% md:w-45% sm:w-100% sm:px-23 sm:pb-62">
@@ -53,7 +59,13 @@ const SinglePhoto = (props) => {
           </p>
         </div>
         <div className="w-50% md:w-55% flex sm:flex-col justify-end sm:p-23 sm:w-100% sm:bg-white">
-          <AddCart id={id} size={price_sheet} />
+          <AddCart
+            id={id}
+            sizes={price_sheet}
+            artwork_name={name}
+            artist={artist_name}
+            images={sliderImages}
+          />
           <div className="hidden sm:block mt-24 w-100% border-border border-b"></div>
         </div>
       </div>
@@ -61,23 +73,21 @@ const SinglePhoto = (props) => {
         <p className="font-avenir-reg text-2xl sm:text-xl text-secondary-dark tracking-wider leading-60 sm:leading-38 uppercase mb-19">
           More by this artist
         </p>
-        <div className="sm:hidden flex grid grid-cols-4 w-100% h-100%">
-          {more_by_this_artist &&
-            more_by_this_artist.slice(0, 4).map(({ images, orientation }) => (
-              <>
-                {images &&
-                  images.map(({ image, featured_image }) => {
-                    return featured_image ? (
-                      <img className="w-100% h-100%" src={image} />
-                    ) : (
-                      false
-                    );
-                  })}
-              </>
-            ))}
+        <div className="sm:hidden flex grid grid-cols-4 gap-33 w-100% h-100% mb-86">
+          {more_by_this_artist?.slice(0, 4).map(({ images, orientation }) => (
+            <>
+              {images?.map(({ image, featured_image }) => {
+                return featured_image ? (
+                  <img className="w-100% h-100%" src={image} />
+                ) : (
+                  false
+                );
+              })}
+            </>
+          ))}
         </div>
         <div className="hidden sm:block">
-          <Sliders column={1.2} dots={true} images={sliderImages} />
+          <Sliders column={1.2} dots={true} images={sliderImages || []} />
         </div>
       </div>
     </Container>

@@ -1,12 +1,13 @@
+// ====================== IMPORTED LIBRARIES ========================
 import React from 'react';
 
-function StyleCard({
+const StyleCard = ({
   title,
   description,
   active = false,
   image = '/images/style-card.svg',
   onClick,
-}) {
+}) => {
   return (
     <div className="flex" onClick={onClick}>
       <img src={image} alt="" className="w-292 h-183 rounded-l-sm" />
@@ -29,6 +30,6 @@ function StyleCard({
       </div>
     </div>
   );
-}
+};
 
 export default StyleCard;

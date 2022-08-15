@@ -95,7 +95,20 @@ export const priceSheetSchema = Yup.object().shape({
       }
     ),
 });
+export const createOrderSchema = Yup.object().shape({
+  first_name: Yup.string().required('First Name is required'),
 
+  phone_number: Yup.string().required('Phone Number is required'),
+  address_1: Yup.string().required('address is required'),
+
+  postcode: Yup.string().required('postCode is required'),
+  country: Yup.string().required('country is required'),
+  shipping_address_1: Yup.string().required('shipping address is required'),
+
+  shipping_postcode: Yup.string().required('PostCode is required'),
+  shipping_country: Yup.string().required('Country is required'),
+  total_price: Yup.string().required('Total Price is required'),
+});
 export const gallerySchema = Yup.object().shape({
   name: Yup.string().required('Name is required'),
   artist_name: Yup.string().required('Note required please'),

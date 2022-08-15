@@ -1,8 +1,10 @@
+// ====================== IMPORTED COMPONENTS ========================
 import React from 'react';
+// ====================== IMPORTED COMPONENTS ========================
 import CheckBox from 'components/atoms/checkbox/CheckBox';
 import { useFormikContext } from 'formik';
 
-function FeatureCard({ name, image, id }) {
+const FeatureCard = ({ name, image, id }) => {
   const {
     setFieldValue,
     values: { artwork_ids },
@@ -47,6 +49,6 @@ function FeatureCard({ name, image, id }) {
       </div>
     </div>
   );
-}
+};
 
 export default FeatureCard;

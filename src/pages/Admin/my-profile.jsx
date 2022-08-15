@@ -1,18 +1,21 @@
+// ====================== IMPORTED LIBRARIES ========================
 import React, { useState } from 'react';
+import { useEffect } from 'react';
+import { useFetch, usePost } from 'hooks';
+// ====================== IMPORTED COMPONENT ========================
 import { Form } from 'components/app/forms';
+import SelectOptions from 'components/atoms/form/SelectOptions';
 import { TextField } from 'components/atoms/form';
 import TextArea from 'components/atoms/form/TextArea';
+import CheckBox from 'components/atoms/checkbox/CheckBox';
 import { AdminLayout } from 'Layout';
 import Button from 'components/atoms/buttons/Button';
-import { getStyles, getProfile, updateProfile } from 'api/api-services';
-import CheckBox from 'components/atoms/checkbox/CheckBox';
-import { useFetch, usePost } from 'hooks';
-import { formDataHandler } from 'utils';
 import { FormField } from 'components/app/forms';
-import { useEffect } from 'react';
-import SelectOptions from 'components/atoms/form/SelectOptions';
+// ====================== IMPORTED API ========================
+import { getStyles, getProfile, updateProfile } from 'api/api-services';
+import { formDataHandler } from 'utils';
 
-function MyProfile() {
+const MyProfile = () => {
   const [initial, setInitial] = useState({
     firstName: '',
     surname: '',
@@ -337,10 +340,10 @@ function MyProfile() {
                 Save
               </Button>
             </div>
-            <div className="admin-h2 mt-20 mb-12 text-center">
+            <div className="admin-h2 mt-20 mb-12 sm:text-center">
               link up your social media
             </div>
-            <div className="admin-des text-black mb-15 text-center">
+            <div className="admin-des text-black mb-25 sm:text-center">
               Click to edit your profile picture.
             </div>
 
@@ -388,6 +391,6 @@ function MyProfile() {
       </Form>
     </AdminLayout>
   );
-}
+};
 
 export default MyProfile;

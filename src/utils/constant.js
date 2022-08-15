@@ -19,6 +19,7 @@ export const END_POINTS = {
   PRICE_SHEETS: '/price_sheets',
   SEARCH_ARTIST: '/search_artist',
   ARTWORKS_PRICE: 'get_paper_and_price',
+  ORDERS: '/orders',
 };
 
 export const LINKS = {

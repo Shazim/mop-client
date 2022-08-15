@@ -1,6 +1,7 @@
+// ====================== IMPORTED LIBRARIES ========================
 import React from 'react';
 
-function LinkLabel({ label = 'View Featured Galleries' }) {
+const LinkLabel = ({ label = 'View Featured Galleries' }) => {
   return (
     <div className="flex">
       <img src="/images/Home/blocks.svg" />
@@ -10,6 +11,6 @@ function LinkLabel({ label = 'View Featured Galleries' }) {
       </div>
     </div>
   );
-}
+};
 
 export default LinkLabel;
