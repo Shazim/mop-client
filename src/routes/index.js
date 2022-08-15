@@ -72,7 +72,7 @@ export const routes = Object.freeze({
   ROUTE_PRICING_SHEET_DETAILS: '/price-sheet/:id',
   ROUTE_PRICE_SHEETS: '/price-sheets',
   ROUTE_EDIT_PRICE_SHEET: '/edit-price-sheet/:id',
-  '*': '/*',
+  ROUTE_PAGE_NOT_FOUND: '/*',
 });
 // List of route object which will be rendered under Router component
 export default Object.freeze([
@@ -178,7 +178,7 @@ export default Object.freeze([
   { path: routes.ROUTE_LOGIN, component: Login },
   { path: routes.ROUTE_SIGNUP, component: Login },
   {
-    path: '*',
+    path: routes.ROUTE_PAGE_NOT_FOUND,
     component: PageNotFound,
   },
 ]);
