@@ -307,6 +307,25 @@ input[type='number'] {
   object-fit: fill;
   min-height: 100px;
 }
+
+.wall-mount {
+  width: 54.82px;
+  height: 35.14px;
+}
+
+.frame-image {
+  overflow: hidden;
+}
+.frame-image .zoom-img {
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  transition: all 1s ease;
+}
+.frame-image .zoom-img:hover {
+  height: 100%;
+  width: 100%;
+}
 /*style the arrow inside the select element:*/
 .custom-arrow:after {
   position: absolute;

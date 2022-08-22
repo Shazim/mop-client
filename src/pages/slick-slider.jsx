@@ -168,6 +168,9 @@ const SlickSlider = () => {
                         className="absolute object-cover top-17 h-165 left-17 w-107  "
                       />
                     </div>
+                    <div className='wall-mount relative right-15% top-67'>
+                      <img src='/images/wall-mount.svg' />
+                    </div>
                     <div className="h-200 relative mr-30  ">
                       <img
                         src="/images/gallery-mockup/portrait-frame.png"
@@ -211,6 +214,9 @@ const SlickSlider = () => {
                                 className="absolute object-cover top-19 h-183 left-19 w-127 "
                               />
                             </div>
+                            <div className='wall-mount relative right-7% top-78'>
+                              <img src='/images/wall-mount.svg' />
+                            </div>
                             <div className="h-222 relative ">
                               <img
                                 src="/images/gallery-mockup/landscape-frame.png"
@@ -222,6 +228,9 @@ const SlickSlider = () => {
                                 alt=""
                                 className="absolute top-27 h-169 left-27 w-245 object-cover"
                               />
+                            </div>
+                            <div className='wall-mount relative right-7% top-78'>
+                              <img src='/images/wall-mount.svg' />
                             </div>
                             <div className="h-222 relative ">
                               <img
@@ -263,6 +272,9 @@ const SlickSlider = () => {
                                 alt=""
                                 className="absolute object-cover top-19 h-183 left-19 w-127  "
                               />
+                            </div>
+                            <div className='wall-mount relative right-1hub7% top-78'>
+                              <img src='/images/wall-mount.svg' />
                             </div>
                             <div className="h-222 relative mr-30  ">
                               <img
