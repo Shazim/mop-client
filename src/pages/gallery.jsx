@@ -1,7 +1,7 @@
 // ====================== IMPORTED LIBRARIES ========================
 import React, { useState, useEffect } from 'react';
 import Slider from 'react-slick';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useLazyFetch } from 'hooks';
 import { TailSpin } from 'react-loader-spinner';
 
@@ -13,12 +13,17 @@ import GalleryCard from 'components/atoms/cards/GalleryCard';
 import Button from 'components/atoms/buttons/Button';
 import Pagination from 'components/Pagination/Pagination';
 import Container from 'Layout/Container';
+import { routes } from 'routes';
+
 // ====================== IMPORTED api ========================
 import { getGalleries, getArtists } from 'api/api-services';
 import { getPublicExhibitions } from 'api';
 
 const Gallery = () => {
-  const [tab, setTab] = useState('galleries');
+  const location = useLocation();
+  const { pathname = '' } = location || {};
+  console.log({ location })
+  const [tab, setTab] = useState(location.pathname.slice(1));
   const [handleGetGalleries, { data, status }] = useLazyFetch(getGalleries);
   const [handleGetArtists, { data: dataArtists }] = useLazyFetch(getArtists);
   const [handleGetExhibitions, { data: dataExhibitions }] =
@@ -46,7 +51,7 @@ const Gallery = () => {
       });
       setIsLoading(true);
     },
-    exhibition: () => {
+    exhibitions: () => {
       handleGetExhibitions({
         variables: `?q[name_cont]=${search != '' ? `${search}` : ''}`,
       });
@@ -80,7 +85,7 @@ const Gallery = () => {
 
   const steps = {
     galleries: data?.galleries.map(({ gallery_name, views, id, image }) => (
-      <Link to={`/gallery-detail?id=${id}`}>
+      <Link to={`${routes.ROUTE_GALLERY}?id=${id}`}>
         <GalleryCard
           className="w-100% h-100% mb-12"
           imageClass="image"
@@ -91,7 +96,7 @@ const Gallery = () => {
         />
       </Link>
     )),
-    exhibition: dataExhibitions?.exhibitions?.map(
+    exhibitions: dataExhibitions?.exhibitions?.map(
       ({ room_name, views, id, image }) => (
         <GalleryCard
           className="w-100% h-100% mb-15"
@@ -164,9 +169,8 @@ const Gallery = () => {
             <div className="mr-25 sm:mr-0">
               <SearchBar
                 transform="uppercase"
-                placeholder={`search for ${
-                  tab == 'Galleries' ? 'Gallery' : tab
-                }`}
+                placeholder={`search for ${tab == 'Galleries' ? 'Gallery' : tab
+                  }`}
                 bgColor="bg-gray-lighter"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}

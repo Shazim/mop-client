@@ -1,9 +1,10 @@
 // ====================== IMPORTED LIBRARIES ========================
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const GalleryBar = ({
   setHandler,
-  menus = ['galleries', 'exhibition', 'artists'],
+  menus = ['galleries', 'exhibitions', 'artists'],
   tab,
 }) => {
   const [id, setId] = useState(0);
@@ -14,15 +15,16 @@ const GalleryBar = ({
         <div className="flex items-center sm:w-100%">
           {menus.map((item, index) => (
             <div
-              className={`uppercase mr-45 sm:mr-25 ${
-                item == tab ? 'text-primary' : 'text-secondary'
-              } tracking  text-sm sm:text-base font-bold link`}
-              onClick={() => {
-                setId(index);
-                setHandler(menus[index]);
-              }}
+              className={`uppercase mr-45 sm:mr-25 ${item == tab ? 'text-primary' : 'text-secondary'
+                } tracking  text-sm sm:text-base font-bold link`}
+            // onClick={() => {
+            //   setId(index);
+            //   setHandler(menus[index]);
+            // }}
             >
-              {item}
+              <Link to={`/${item}`}>
+                {item}
+              </Link>
             </div>
           ))}
         </div>
