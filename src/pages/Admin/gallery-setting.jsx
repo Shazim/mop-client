@@ -100,7 +100,7 @@ const GallerySetting = () => {
   }, [dataPost]);
 
   return (
-    <AdminLayout title="gallery settings">
+    <AdminLayout title="gallery ">
       <Form
         initialValues={initial}
         onSubmit={onSubmit}
@@ -109,7 +109,7 @@ const GallerySetting = () => {
       >
         {({ setFieldValue, values }) => (
           <div className="bg-primary-lighter pb-295">
-            <div className="admin-h2 mb-10">Name Setting</div>
+            {/* <div className="admin-h2 mb-10">Name Setting</div> */}
             <div className="flex hr-b pb-28 sm:flex-col">
               <div className="w-50% mr-50 sm:w-full">
                 <TextField
