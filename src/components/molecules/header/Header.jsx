@@ -16,6 +16,7 @@ function Header({ login = false, signUpHandler, signInHandler, menu, isOpen }) {
   const [signIn, setSignIn] = useState();
   const [forgot, setForgot] = useState();
   const [signUp, setSignUp] = useState();
+  const [value, setValue] = useState('');
 
   const [handleGetSearch, { data: dataSearch }] =
     useLazyFetch(getSearchArtists);
@@ -37,6 +38,7 @@ function Header({ login = false, signUpHandler, signInHandler, menu, isOpen }) {
   ];
 
   const location = useLocation();
+  const { pathname } = location || {}
   const history = useHistory();
   const scrollOff = () => {
     signUp || signIn || forgot
@@ -48,7 +50,10 @@ function Header({ login = false, signUpHandler, signInHandler, menu, isOpen }) {
   const { access_token, refresh_token } =
     (getCookie('user') && JSON.parse(getCookie('user'))) || {};
 
-  const [value, setValue] = useState('');
+  const activeRoute = () => {
+    if (['/galleries', '/exhibitions', '/artists'].includes(pathname)) return 'text-primary';
+  }
+
 
   return (
     <>
@@ -98,15 +103,16 @@ function Header({ login = false, signUpHandler, signInHandler, menu, isOpen }) {
               </div>
               <div className="flex w-65% justify-between sm:hidden">
                 {tabs.map((item, i) => (
-                  <div
-                    className={`font-bold mt-6 ${
-                      location.pathname == item.link
-                        ? 'text-primary'
-                        : 'text-secondary'
-                    } text-sm uppercase hover:text-primary link tracking`}
+                  item.title === 'galleries' ? <div
+                    className={`font-bold mt-6  ${activeRoute()} text-sm uppercase hover:text-primary link tracking`}
                   >
                     <Link to={`${item.link}`}>{item.title}</Link>
-                  </div>
+                  </div> :
+                    <div
+                      className={`font-bold mt-6   ${location.pathname == item.link ? 'text-primary' : 'text-secondary'} text-sm uppercase hover:text-primary link tracking`}
+                    >
+                      <Link to={`${item.link}`}>{item.title}</Link>
+                    </div>
                 ))}
               </div>
             </div>
@@ -165,7 +171,8 @@ function Header({ login = false, signUpHandler, signInHandler, menu, isOpen }) {
         </div>
       ) : (
         <LoginHeader />
-      )}
+      )
+      }
     </>
   );
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { routes } from 'routes';
 
 function Galleries() {
   return (
@@ -20,7 +21,7 @@ function Galleries() {
       <div className="max-screen pt-30 pb-43">
         <div className="grid grid-cols-4 gap-36 justify-between">
           {data?.galleries.map(({ gallery_name, views, id }) => (
-            <Link to={`/gallery-detail?id=${id}`}>
+            <Link to={`${routes.ROUTE_GALLERY}/${id}`}>
               <GalleryCard title={gallery_name} views={views} />
             </Link>
           ))}

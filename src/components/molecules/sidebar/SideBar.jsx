@@ -4,134 +4,136 @@ import { removeCookie } from 'cookies/Cookies';
 import { useDispatch, useSelector } from 'react-redux';
 import { routes } from 'routes';
 
-const obj = [
-  {
-    key: 'my gallery',
-    item: [
-      {
-        redIcon: '/images/sidebar/gallery_red.svg',
-        icon: '/images/sidebar/gallery.svg',
-        link: '/gallery-setting',
-        name: 'gallery',
-      },
-      {
-        redIcon: '/images/sidebar/stockroom_red.svg',
-        icon: '/images/sidebar/stockroom.svg',
-        name: 'Stockroom',
-        link: '/stocks',
-      },
-      {
-        icon: '/images/sidebar/exhibitionroom.svg',
-        redIcon: '/images/sidebar/exhibitionroom_red.svg',
-        name: 'Exhibition Rooms',
-        link: '/exhibitions',
-      },
 
-      {
-        redIcon: '/images/sidebar/analytics_red.svg',
-        icon: '/images/sidebar/analytics.svg',
-        link: 'stocks',
-        name: 'Analytics',
-      },
-      {
-        redIcon: '/images/sidebar/settings_red.svg',
-        icon: '/images/sidebar/settings.svg',
-        name: 'settings',
-        link: '/settings',
-      },
-    ],
-  },
-  {
-    key: 'store',
-    item: [
-      {
-        redIcon: '/images/sidebar/price_red.svg',
-        icon: '/images/sidebar/price.svg',
-        name: 'pricing and products',
-        link: '/price-sheets',
-        link2: '/create-price-sheet',
-        link3: '/price-sheet',
-        link4: '/edit-price-sheet',
-      },
-
-      {
-        redIcon: '/images/sidebar/order_red.svg',
-        icon: '/images/sidebar/order.svg',
-        name: 'orders',
-        link: '/orders',
-      },
-      {
-        redIcon: '/images/sidebar/profile_red.svg',
-        icon: '/images/sidebar/profile.svg',
-        name: 'customers',
-        link: '/customers',
-      },
-      {
-        redIcon: '/images/sidebar/tax_red.svg',
-        icon: '/images/sidebar/tax.svg',
-        name: 'tax rates',
-        link: '/tax-rates',
-      },
-      {
-        redIcon: '/images/sidebar/coupon_red.svg',
-        icon: '/images/sidebar/coupon.svg',
-        name: 'Coupons and offers',
-        link: '/coupons',
-      },
-    ],
-  },
-  {
-    key: 'get started',
-    item: [
-      {
-        redIcon: '/images/sidebar/step_by_red.svg',
-        icon: '/images/sidebar/step_by.svg',
-        name: 'Step by Step',
-        link: '/',
-      },
-    ],
-  },
-  {
-    key: 'account',
-    item: [
-      {
-        redIcon: '/images/sidebar/profile_red.svg',
-        icon: '/images/sidebar/profile.svg',
-        name: 'My Profile',
-        link: '/my-profile',
-      },
-      // {
-      //   redIcon: '/images/sidebar/subscription_red.svg',
-      //   icon: '/images/sidebar/subscription.svg',
-      //   name: 'subscription',
-      //   link: '/profile-subscription',
-      // },
-      {
-        redIcon: '/images/sidebar/price_red.svg',
-        icon: '/images/sidebar/price.svg',
-        name: 'Logout',
-        link: '/',
-      },
-    ],
-  },
-];
 
 function SideBar() {
   const location = useLocation();
   const history = useHistory();
+
+  const obj = [
+    {
+      key: 'my gallery',
+      item: [
+        {
+          redIcon: '/images/sidebar/gallery_red.svg',
+          icon: '/images/sidebar/gallery.svg',
+          link: routes.ROUTE_GALLERY_SETTING,
+          name: 'gallery',
+        },
+        {
+          redIcon: '/images/sidebar/stockroom_red.svg',
+          icon: '/images/sidebar/stockroom.svg',
+          link: routes.ROUTE_STOCKROOM,
+          name: 'Stockroom',
+        },
+        {
+          icon: '/images/sidebar/exhibitionroom.svg',
+          redIcon: '/images/sidebar/exhibitionroom_red.svg',
+          name: 'Exhibition Rooms',
+          link: `${routes.ROUTE_EXHIBITION_ROOM}/live`,
+        },
+
+        {
+          redIcon: '/images/sidebar/analytics_red.svg',
+          icon: '/images/sidebar/analytics.svg',
+          link: 'stocks',
+          name: 'Analytics',
+        },
+        {
+          redIcon: '/images/sidebar/settings_red.svg',
+          icon: '/images/sidebar/settings.svg',
+          name: 'settings',
+          link: routes.ROUTE_SETTINGS,
+        },
+      ],
+    },
+    {
+      key: 'store',
+      item: [
+        {
+          redIcon: '/images/sidebar/price_red.svg',
+          icon: '/images/sidebar/price.svg',
+          name: 'pricing and products',
+          link: routes.ROUTE_PRICE_PRODUCTS,
+          link2: routes.ROUTE_CREATE_PRICE_SHEET,
+          link3: '/price-sheet',
+          link4: '/edit-price-sheet',
+        },
+
+        {
+          redIcon: '/images/sidebar/order_red.svg',
+          icon: '/images/sidebar/order.svg',
+          name: 'orders',
+          link: routes.ROUTE_ORDERS,
+        },
+        {
+          redIcon: '/images/sidebar/profile_red.svg',
+          icon: '/images/sidebar/profile.svg',
+          name: 'customers',
+          link: routes.ROUTE_CUSTOMER,
+        },
+        {
+          redIcon: '/images/sidebar/tax_red.svg',
+          icon: '/images/sidebar/tax.svg',
+          name: 'tax rates',
+          link: routes.ROUTE_TAX_RATES,
+        },
+        {
+          redIcon: '/images/sidebar/coupon_red.svg',
+          icon: '/images/sidebar/coupon.svg',
+          name: 'Coupons and offers',
+          link: routes.ROUTE_COUPONS,
+        },
+      ],
+    },
+    {
+      key: 'get started',
+      item: [
+        {
+          redIcon: '/images/sidebar/step_by_red.svg',
+          icon: '/images/sidebar/step_by.svg',
+          name: 'Step by Step',
+          link: routes.ROUTE_HOME,
+        },
+      ],
+    },
+    {
+      key: 'account',
+      item: [
+        {
+          redIcon: '/images/sidebar/profile_red.svg',
+          icon: '/images/sidebar/profile.svg',
+          name: 'My Profile',
+          link: routes.ROUTE_MY_PROFILE,
+        },
+        // {
+        //   redIcon: '/images/sidebar/subscription_red.svg',
+        //   icon: '/images/sidebar/subscription.svg',
+        //   name: 'subscription',
+        //   link: '/profile-subscription',
+        // },
+        {
+          redIcon: '/images/sidebar/price_red.svg',
+          icon: '/images/sidebar/price.svg',
+          name: 'Logout',
+          link: '/',
+        },
+      ],
+    },
+  ];
 
   const logout = () => {
     removeCookie('user');
     history.push(routes.ROUTE_HOME);
   };
 
-  const links = ['/stock-room', '/exhibition-room'];
+  const links = [routes.ROUTE_CREATE_STOCKROOM, '/exhibition-room'];
 
   return (
     <div className="h-100% sm:w-100% bg-gray-lighter pt-40 pr-19 overflow-auto pb-120">
       {!links.includes(window.location.pathname) ? (
         <>
-          {obj.map((item, index) => {
+          {obj?.map((item, index) => {
             return (
               <div>
                 <div className="font-bold text-sm text-secondary tracking uppercase mt-15 mb-18 ml-37 xl:ml-35 lg:ml-30 md:ml-26">
@@ -142,11 +144,10 @@ function SideBar() {
                     <>
                       {subItem.name == 'Logout' ? (
                         <span
-                          className={`flex w-100% h-55  sm:bg-gray-lighter rounded-r-lg pl-62 xl:pl-50 lg:pl-40 md:pl-35 link ${
-                            subItem.link == location.pathname
-                              ? 'bg-secondary-dim'
-                              : ''
-                          }`}
+                          className={`flex w-100% h-55  sm:bg-gray-lighter rounded-r-lg pl-62 xl:pl-50 lg:pl-40 md:pl-35 link ${subItem.link == location.pathname
+                            ? 'bg-secondary-dim'
+                            : ''
+                            }`}
                           onClick={logout}
                         >
                           <img
@@ -158,11 +159,10 @@ function SideBar() {
                             }
                           />
                           <div
-                            className={`my-auto font-nunito-semibold capitalize text-base leading-5 ml-28 ${
-                              subItem.link == location.pathname
-                                ? 'text-primary'
-                                : 'text-secondary'
-                            } `}
+                            className={`my-auto font-nunito-semibold capitalize text-base leading-5 ml-28 ${subItem.link == location.pathname
+                              ? 'text-primary'
+                              : 'text-secondary'
+                              } `}
                           >
                             {subItem.name}
                           </div>
@@ -170,32 +170,30 @@ function SideBar() {
                       ) : (
                         <Link to={`${subItem.link}`}>
                           <span
-                            className={`flex w-100% h-55  sm:bg-gray-lighter rounded-r-lg pl-62 xl:pl-50 lg:pl-40 md:pl-35 link ${
-                              subItem.link == location.pathname
-                                ? 'bg-secondary-dim'
-                                : ''
-                            }`}
+                            className={`flex w-100% h-55  sm:bg-gray-lighter rounded-r-lg pl-62 xl:pl-50 lg:pl-40 md:pl-35 link ${subItem.link == location.pathname
+                              ? 'bg-secondary-dim'
+                              : ''
+                              }`}
                           >
                             <img
                               className="w-19 h-19 my-auto text-primary"
                               src={
                                 subItem.link == location.pathname ||
-                                location.pathname.includes(subItem?.link2) ||
-                                location.pathname.includes(subItem?.link3) ||
-                                location.pathname.includes(subItem?.link4)
+                                  location.pathname.includes(subItem?.link2) ||
+                                  location.pathname.includes(subItem?.link3) ||
+                                  location.pathname.includes(subItem?.link4)
                                   ? subItem.redIcon
                                   : subItem.icon
                               }
                             />
                             <div
-                              className={`my-auto font-nunito-semibold capitalize text-base leading-5 ml-28 ${
-                                subItem.link == location.pathname ||
+                              className={`my-auto font-nunito-semibold capitalize text-base leading-5 ml-28 ${subItem.link == location.pathname ||
                                 location.pathname.includes(subItem?.link2) ||
                                 location.pathname.includes(subItem?.link3) ||
                                 location.pathname.includes(subItem?.link4)
-                                  ? 'text-primary'
-                                  : 'text-secondary'
-                              } `}
+                                ? 'text-primary'
+                                : 'text-secondary'
+                                } `}
                             >
                               {subItem.name}
                             </div>
