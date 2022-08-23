@@ -17,7 +17,7 @@ const customerPayment = () => {
         galleries and NFTs).{' '}
       </div>
       <Button
-        className="w-312 h-33 mt-20 mb-19 "
+        className="w-312 h-33 mt-20 mb-19  sm:w-full"
         transform="uppercase"
         color="gray"
       >
@@ -27,7 +27,7 @@ const customerPayment = () => {
       <div className="font-Avenir-reg font-medium text-xl text-secondary leading-54 tracking-wider uppercase">
         Your payment details
       </div>
-      <div className="font-nunito-light font-medium text-xl leading-32 text-secondary ">
+      <div className="font-nunito-light font-medium text-xl leading-32 text-secondary mb-14 uppercase">
         payments going to{' '}
       </div>
       <div className="flex mb-15 sm:flex-col">

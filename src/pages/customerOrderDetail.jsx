@@ -136,12 +136,14 @@ const customerOrderDetail = () => {
                 </Button>
               </div>
             </div>
-            <Tables
-              filter={true}
-              tableHeading={['order no', 'date', 'Amount', 'status']}
-              obj={obj}
-              img={true}
-            />
+            <div className="pb-107">
+              <Tables
+                filter={true}
+                tableHeading={['order no', 'date', 'Amount', 'status']}
+                obj={obj}
+                img={true}
+              />
+            </div>
           </>
         )}
       </Form>

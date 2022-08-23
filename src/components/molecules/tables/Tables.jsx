@@ -139,12 +139,12 @@ const Tables = ({
             </div>
           </div>
         </div>
-        <div className="border-b-2 flex border-gray bg-white sm:flex-col-reverse sm:bg-gray-dark">
+        <div className=" flex  bg-white sm:flex-col-reverse sm:bg-gray-dark">
           <div className="w-25% pl-18 sm:pl-10 sm:w-100% sm:px-18">
             <img className="w-100% mt-38 mb-38" src={details['image'].url} />
           </div>
           <div className="flex w-75% pl-18 sm:pl-10 sm:w-100%">
-            <div className="w-33% align-top pt-23 sm:w-50%">
+            <div className="w-33%  align-top pt-23  sm:w-50%">
               <p className="heading">size</p>
               <p className={textClass}>{details['image'].size}</p>
               <p className="heading">paper</p>
@@ -204,7 +204,7 @@ const Tables = ({
       </div>
 
       {obj.map((keys, index) => (
-        <div className="border-b border-gray pb-10 ">
+        <div className="border-b border-gray  ">
           <div className="h-60 relative flex items-center  capitalize text-base pl-18 sm:pl-10 pr-0 font-reg text-black ">
             {Object.values(keys).map(
               (value, i) =>
