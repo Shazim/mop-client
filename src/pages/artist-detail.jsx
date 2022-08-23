@@ -4,7 +4,7 @@ import { useLazyFetch } from 'hooks';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 // ====================== IMPORTED COMPONENT ========================
 import VideoCard from 'components/atoms/cards/VideoCard';
 import Pagination from 'components/Pagination/Pagination';
@@ -16,9 +16,7 @@ import { getArtistDetails } from 'api';
 const ArtistDetail = ({ props }) => {
   const [handleGetArtist, { data }] = useLazyFetch(getArtistDetails);
   const [currentPage, setCurrentPage] = useState(1);
-  const search = useLocation().search;
-  const params = new URLSearchParams(search);
-  const id = params.get('id');
+  const { id } = useParams()
 
   const settings = {
     dots: true,

@@ -85,7 +85,7 @@ const Gallery = () => {
 
   const steps = {
     galleries: data?.galleries.map(({ gallery_name, views, id, image }) => (
-      <Link to={`${routes.ROUTE_GALLERY}?id=${id}`}>
+      <Link to={`${routes.ROUTE_GALLERY}/${id}`}>
         <GalleryCard
           className="w-100% h-100% mb-12"
           imageClass="image"
@@ -109,7 +109,7 @@ const Gallery = () => {
       )
     ),
     artists: dataArtists?.artists.map(({ artist_name, id, image }) => (
-      <Link to={`/artist-detail?id=${id}`}>
+      <Link to={`${routes.ROUTE_ARTISTS}/${id}`}>
         <GalleryCard
           className="w-100% h-100% mb-12 sm:pt-20"
           imageClass="image"
