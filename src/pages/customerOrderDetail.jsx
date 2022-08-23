@@ -2,10 +2,96 @@ import React, { useState } from 'react';
 import { AdminLayout } from 'Layout';
 import { Form } from 'components/app/forms';
 import { TextField } from 'components/atoms/form';
-import OrderTable from './order-table';
 import Button from 'components/atoms/buttons/Button';
+import Tables from 'components/molecules/tables/Tables';
 
 const customerOrderDetail = () => {
+  const obj = [
+    {
+      order: '#123456',
+      date: '12/10/21',
+
+      amount: '£190.00',
+      status: 'completed',
+      details: {
+        'customer Number': '#123456',
+        'customer name': 'mr dean horlock',
+        'shipping address': '2 Green Street, Poole. BH14 6HG',
+        'order date': '01/10/21',
+        'shipping date': '01/10/21',
+        'order total': '190.00',
+        image: {
+          size: '14 X 11 (36 x 28cm)',
+          paper: 'lustre',
+          frame: 'Wood, Light',
+          url: '/images/table/tree.png',
+        },
+      },
+    },
+    {
+      'order ': '#123456',
+      date: '12/10/21',
+      amount: '£190.00',
+
+      status: 'completed',
+      details: {
+        'customer Number': '#123456',
+        'customer name': 'mr dean horlock',
+        'shipping address': '2 Green Street, Poole. BH14 6HG',
+        'order date': '01/10/21',
+        'shipping date': '01/10/21',
+        'order total': '190.00',
+        image: {
+          size: '14 X 11 (36 x 28cm)',
+          paper: 'lustre',
+          frame: 'Wood, Light',
+          url: '/images/table/tree.png',
+        },
+      },
+    },
+    {
+      'order ': '#123456',
+      date: '12/10/21',
+      amount: '£190.00',
+
+      status: 'completed',
+      details: {
+        'customer Number': '#123456',
+        'customer name': 'mr dean horlock',
+        'shipping address': '2 Green Street, Poole. BH14 6HG',
+        'order date': '01/10/21',
+        'shipping date': '01/10/21',
+        'order total': '190.00',
+        image: {
+          size: '14 X 11 (36 x 28cm)',
+          paper: 'lustre',
+          frame: 'Wood, Light',
+          url: '/images/table/tree.png',
+        },
+      },
+    },
+    {
+      'order ': '#123456',
+      date: '12/10/21',
+      amount: '£190.00',
+
+      status: 'completed',
+      details: {
+        'customer number': '#123456',
+        'customer name': 'mr dean horlock',
+        'shipping address': '2 Green Street, Poole. BH14 6HG',
+        'order date': '01/10/21',
+        'shipping date': '01/10/21',
+        'order total': '190.00',
+        image: {
+          size: '14 X 11 (36 x 28cm)',
+          paper: 'lustre',
+          frame: 'Wood, Light',
+          url: '/images/table/tree.png',
+        },
+      },
+    },
+  ];
   return (
     <AdminLayout title="Orders" subtitle="order detailed">
       <Form
@@ -50,7 +136,12 @@ const customerOrderDetail = () => {
                 </Button>
               </div>
             </div>
-            <OrderTable />
+            <Tables
+              filter={true}
+              tableHeading={['order no', 'date', 'Amount', 'status']}
+              obj={obj}
+              img={true}
+            />
           </>
         )}
       </Form>
