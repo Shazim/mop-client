@@ -1,4 +1,6 @@
+// ====================== IMPORTED LIBRARIES ========================
 import React from 'react';
+// ====================== IMPORTED COMPONENTS ========================
 import { AdminLayout } from 'Layout';
 import { Form } from 'components/app/forms';
 import { TextField } from 'components/atoms/form';
@@ -21,21 +23,21 @@ const customerAccountDetail = () => {
                   name="firstName"
                   placeholder="rebecca"
                   mb="6"
-                  height="38"
+                  className="h-38"
                   label="First Name"
                 />
                 <TextField
                   name="surname"
                   placeholder="warbis"
                   mb="6"
-                  height="38"
+                  className="h-38"
                   label="Sur Name"
                 />
                 <TextField
                   name="companyName"
                   placeholder="photo name"
                   mb="6"
-                  height="38"
+                  className="h-38"
                   label="company Name"
                 />
 
@@ -43,7 +45,7 @@ const customerAccountDetail = () => {
                   name="phoneNumber"
                   placeholder="07929665622"
                   mb="6"
-                  height="38"
+                  className="h-38"
                   label="phone number"
                   type="number"
                 />
@@ -52,7 +54,7 @@ const customerAccountDetail = () => {
                   name="email"
                   placeholder="myemail@gmail.com"
                   mb="6"
-                  height="38"
+                  className="h-38"
                   label="email address"
                 />
               </div>
@@ -72,21 +74,21 @@ const customerAccountDetail = () => {
                   name="oldPassword"
                   placeholder="******"
                   mb="6"
-                  height="38"
+                  className="h-38"
                   label="old Password"
                 />
                 <TextField
                   name="newPassword"
                   placeholder="*****"
                   mb="6"
-                  height="38"
+                  className="h-38"
                   label="New Password"
                 />
                 <TextField
                   name="confirmPassword"
                   placeholder="*******"
                   mb="6"
-                  height="38"
+                  className="h-38"
                   label="Confirm New Password"
                 />
               </div>

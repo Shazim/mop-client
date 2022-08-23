@@ -1,9 +1,10 @@
+// ====================== IMPORTED LIBRARIES ========================
 import React, { useState } from 'react';
+// ====================== IMPORTED COMPONENTS ========================
 import { AdminLayout } from 'Layout';
 import { Form } from 'components/app/forms';
 import { TextField } from 'components/atoms/form';
 import Tables from 'components/molecules/tables/Tables';
-
 import Button from 'components/atoms/buttons/Button';
 
 const myOrders = () => {

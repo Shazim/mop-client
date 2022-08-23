@@ -1,4 +1,4 @@
-// ====================== IMPORTED API ========================
+// ====================== IMPORTED LIBRARIES ========================
 import React from 'react';
 // ====================== IMPORTED COMPONENTS ========================
 import { AdminLayout } from 'Layout';

@@ -1,6 +1,7 @@
+// ====================== IMPORTED LIBRARIES ========================
 import React, { useState, useEffect } from 'react';
 
-function Tables({
+const Tables = ({
   filter = false,
   img = false,
 
@@ -89,7 +90,7 @@ function Tables({
       },
     },
   ],
-}) {
+}) => {
   const [id, setId] = useState();
   const [showData, setShowdata] = useState(false);
   const handleId = (i) => {
@@ -254,6 +255,6 @@ function Tables({
       ))}
     </div>
   );
-}
+};
 
 export default Tables;

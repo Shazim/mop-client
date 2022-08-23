@@ -1,5 +1,7 @@
-import { AdminLayout } from 'Layout';
+// ====================== IMPORTED LIBRARIES ========================
 import React from 'react';
+// ====================== IMPORTED COMPONENTS ========================
+import { AdminLayout } from 'Layout';
 import Button from 'components/atoms/buttons/Button';
 import RadioButton from 'components/atoms/buttons/RadioButton';
 
