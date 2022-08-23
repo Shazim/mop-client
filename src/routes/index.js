@@ -33,6 +33,10 @@ import PricingSheetDetails from 'pages/Admin/price-sheet-detail';
 import PriceSheet from 'pages/Admin/price-sheets';
 import editPriceSheet from 'pages/Admin/edit-price-sheet';
 import PageNotFound from 'pages/PageNotFound';
+import myOrders from 'pages/myOrders';
+import customerAccountDetail from 'pages/customerAccountDetail';
+import customerOrderDetail from 'pages/customerOrderDetail';
+import customerPayment from 'pages/customerPayment';
 // List of Routes name using for links and route
 export const routes = Object.freeze({
   ROUTE_FORGOT_PASSWORD: '/forgot-password',
