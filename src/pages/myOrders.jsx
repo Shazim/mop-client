@@ -107,15 +107,14 @@ const myOrders = () => {
               <div className="w-55% flex justify-between xl:w-100% lg:w-100% md:w-100% sm:flex-col sm:w-100% ">
                 <div className="w-48% sm:w-100%">
                   <TextField
-                    classes="h-37 w-100%"
-                    height="45"
+                    className="h-37 "
                     label="start date"
                     placeholder="select a start date"
                   />
                 </div>
                 <div className="w-48% h-45 sm:w-100%">
                   <TextField
-                    classes="w-100%"
+                    className="h-37 "
                     label="end date"
                     placeholder="select a end date"
                   />
