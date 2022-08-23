@@ -26,7 +26,10 @@ function UploadImageCard({ id, label }) {
   return (
     <div className="w-220 relative bg-white h-220 flex items-center ">
       {values[id]?.imageLink ? (
-        <img src={values[id].imageLink} className="absolute w-220 h-220 " />
+        <img
+          src={values[id].imageLink}
+          className="absolute object-cover w-220 h-220 "
+        />
       ) : null}
 
       <label
