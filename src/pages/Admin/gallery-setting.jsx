@@ -116,7 +116,7 @@ const GallerySetting = () => {
                   name="name"
                   placeholder="max 100 characters"
                   mb="6"
-                  height="38"
+                  className="h-40"
                   label="gallery name"
                 />
               </div>
@@ -125,7 +125,7 @@ const GallerySetting = () => {
                   name="artist_name"
                   placeholder="max 100 characters"
                   mb="6"
-                  height="38"
+                  className="h-40"
                   label="artist name"
                 />
               </div>
