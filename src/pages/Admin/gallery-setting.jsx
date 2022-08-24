@@ -98,7 +98,7 @@ const GallerySetting = () => {
       });
     }
   }, [dataPost]);
-
+  console.log(initial);
   return (
     <AdminLayout title="gallery ">
       <Form
@@ -116,7 +116,7 @@ const GallerySetting = () => {
                   name="name"
                   placeholder="max 100 characters"
                   mb="6"
-                  height="38"
+                  className="h-40"
                   label="gallery name"
                 />
               </div>
@@ -125,7 +125,7 @@ const GallerySetting = () => {
                   name="artist_name"
                   placeholder="max 100 characters"
                   mb="6"
-                  height="38"
+                  className="h-40"
                   label="artist name"
                 />
               </div>
@@ -141,8 +141,8 @@ const GallerySetting = () => {
                 <ToggleButton
                   bg={
                     values['gallery_type'] == 'private_gallery'
-                      ? 'bg-white mr-32'
-                      : 'bg-gray mr-32'
+                      ? 'bg-gray mr-32'
+                      : 'bg-white mr-32'
                   }
                   onClick={() =>
                     setFieldValue('gallery_type', 'private_gallery')
@@ -154,8 +154,8 @@ const GallerySetting = () => {
                 <ToggleButton
                   bg={
                     values['gallery_type'] == 'public_gallery'
-                      ? 'bg-white'
-                      : 'bg-gray'
+                      ? 'bg-gray '
+                      : 'bg-white'
                   }
                   onClick={() =>
                     setFieldValue('gallery_type', 'public_gallery')
@@ -172,10 +172,9 @@ const GallerySetting = () => {
                 name="domain"
                 placeholder="if you don’t have domain name, we will create one automatically for you"
                 mb="6"
-                height="38"
                 label="if you don’t have domain name, we will create one automatically for you
                 "
-                className="w-55% sm:w-full"
+                className="w-55% h-38 sm:w-full"
               />
             </div>
             <div className="flex  pt-20 pb-29 sm:flex-col ">
