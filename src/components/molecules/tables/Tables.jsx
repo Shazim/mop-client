@@ -140,10 +140,10 @@ const Tables = ({
           </div>
         </div>
         <div className=" flex  bg-white sm:flex-col-reverse sm:bg-gray-dark">
-          <div className="w-25% pl-18 sm:pl-10 sm:w-100% sm:px-18">
+          <div className="w-25% pl-18 sm:pl-10 sm:w-100% sm:px-18 pb-20">
             <img className="w-100% mt-38 mb-38" src={details['image'].url} />
           </div>
-          <div className="flex w-75% pl-18 sm:pl-10 sm:w-100%">
+          <div className="flex w-75% pl-18 sm:pl-10  sm:w-100%">
             <div className="w-33%  align-top pt-23  sm:w-50%">
               <p className="heading">size</p>
               <p className={textClass}>{details['image'].size}</p>
@@ -245,7 +245,7 @@ const Tables = ({
                 <img
                   src="/images/table/tree.png"
                   alt=""
-                  className="w-103 h-73 ml-20 mb-10 "
+                  className="w-103 h-73 ml-20 mb-20 "
                 />
               )}
             </>

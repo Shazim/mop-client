@@ -27,7 +27,7 @@ const customerPayment = () => {
       <div className="font-Avenir-reg font-medium text-xl text-secondary leading-54 tracking-wider uppercase">
         Your payment details
       </div>
-      <div className="font-nunito-light font-medium text-xl leading-32 text-secondary mb-14 uppercase">
+      <div className="font-nunito-light font-bold text-xl leading-32 text-secondary mb-14 uppercase">
         payments going to{' '}
       </div>
       <div className="flex mb-15 sm:flex-col">

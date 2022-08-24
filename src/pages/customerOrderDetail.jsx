@@ -136,7 +136,7 @@ const customerOrderDetail = () => {
                 </Button>
               </div>
             </div>
-            <div className="pb-107">
+            <div className="pb-250">
               <Tables
                 filter={true}
                 tableHeading={['order no', 'date', 'Amount', 'status']}
