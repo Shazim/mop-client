@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 function SideBarWithLogin({ className: classes = '' }) {
   let initialObj = {
-    menu: {
+    colours: {
       type: 'checkbox',
       values: [
         { name: 'item1', select: false },
@@ -28,7 +28,7 @@ function SideBarWithLogin({ className: classes = '' }) {
         { name: 'item15', select: false },
       ],
     },
-    'Radio Menu': {
+    styles: {
       type: 'radio',
       values: [
         { name: 'item9', select: false },
@@ -36,24 +36,24 @@ function SideBarWithLogin({ className: classes = '' }) {
         { name: 'item8', select: false },
       ],
     },
-    'menu 1': {
-      type: 'radio',
-      values: [
-        { name: 'item2', select: false },
-        { name: 'item2', select: false },
-        { name: 'item3', select: false },
-      ],
-    },
-    price: {
-      type: 'input',
-      values: [
-        { name: 'Minimum', value: '' },
-        { name: 'Maximum', value: '' },
-      ],
-    },
-    minPrice: '',
-    search: '',
-    maxPrice: '',
+    // 'menu 1': {
+    //   type: 'radio',
+    //   values: [
+    //     { name: 'item2', select: false },
+    //     { name: 'item2', select: false },
+    //     { name: 'item3', select: false },
+    //   ],
+    // },
+    // price: {
+    //   type: 'input',
+    //   values: [
+    //     { name: 'Minimum', value: '' },
+    //     { name: 'Maximum', value: '' },
+    //   ],
+    // },
+    // minPrice: '',
+    // search: '',
+    // maxPrice: '',
   };
 
   const dispatch = useDispatch();
