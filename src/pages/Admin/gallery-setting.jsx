@@ -108,9 +108,8 @@ const GallerySetting = () => {
         enableReinitialize={true}
       >
         {({ setFieldValue, values }) => (
-          <div className="bg-primary-lighter pb-295">
-            {/* <div className="admin-h2 mb-10">Name Setting</div> */}
-            <div className="flex hr-b pb-28 sm:flex-col">
+          <div className=" pb-295">
+            <div className="flex hr-b pb-8 sm:flex-col">
               <div className="w-50% mr-50 sm:w-full">
                 <TextField
                   name="name"
@@ -137,7 +136,7 @@ const GallerySetting = () => {
                 you can choose here to make your gallery private, or publicly
                 available via our search engines.
               </div>
-              <div className="  flex  pb-30 sm:block">
+              <div className=" hr-b flex  pb-30 sm:block">
                 <ToggleButton
                   bg={
                     values['gallery_type'] == 'private_gallery'
@@ -166,7 +165,7 @@ const GallerySetting = () => {
                 </ToggleButton>
               </div>
             </div>
-            <div className="hr-b pb-30 pt-20">
+            <div className="hr-b pb-10 pt-25">
               <div className="admin-h2 pb-5 ">Domain</div>
               <TextField
                 name="domain"
@@ -200,7 +199,7 @@ const GallerySetting = () => {
                 </div>
               </div>
             </div>
-            <div className="hr-b pt-25 pb-15 sm:hidden">
+            <div className="hr-b pt-25 pb-10 sm:hidden">
               <div className="admin-h2 pb-5">Add a welcome video</div>
               <TextField
                 name="welcome_video"
