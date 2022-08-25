@@ -146,7 +146,7 @@ const GallerySetting = () => {
                   onClick={() =>
                     setFieldValue('gallery_type', 'private_gallery')
                   }
-                  className="w-193 h-32 sm:w-121 sm:h-49 mt-20 "
+                  className="w-193 h-32 sm:w-121 sm:h-49 mt-0 "
                 >
                   Private Gallery
                 </ToggleButton>
@@ -159,7 +159,7 @@ const GallerySetting = () => {
                   onClick={() =>
                     setFieldValue('gallery_type', 'public_gallery')
                   }
-                  className=" w-193 h-32 sm:w-121 sm:h-49 mt-20 "
+                  className=" w-193 h-32 sm:w-121 sm:h-49 mt-0 "
                 >
                   Public Gallery
                 </ToggleButton>
