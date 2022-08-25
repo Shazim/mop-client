@@ -1,7 +1,6 @@
 // ====================== IMPORTED LIBRARIES ========================
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
-import { Link, useLocation } from 'react-router-dom';
 import { routes } from 'routes';
 import { usePost } from 'hooks';
 import { toast } from 'react-toastify';
@@ -16,17 +15,14 @@ import { getCookie } from 'cookies/Cookies';
 import CheckBox from 'components/atoms/checkbox/CheckBox';
 import { SubHeaderLayout } from 'Layout';
 import { Item } from 'components/Cart';
-import LoginModal from 'components/molecules/modals/LoginModal';
-import SignupModal from 'components/molecules/modals/SignupModal';
-import ForgotPassword from 'components/molecules/modals/ForgotPassword';
+import { LoginModalContext } from 'App';
 // ====================== IMPORTED API ========================
 import { createOrder } from 'api/api-services';
 import { createOrderSchema } from 'validation';
 
 const Checkout = () => {
-  const [signIn, setSignIn] = useState();
-  const [forgot, setForgot] = useState();
-  const [signUp, setSignUp] = useState();
+  const { handleLoginToggle } = useContext(LoginModalContext);
+
   const [checked, setChecked] = useState(false);
   const [disable, setDisable] = useState(false);
 
@@ -164,42 +160,15 @@ const Checkout = () => {
     });
   };
 
-  const scrollOff = () => {
-    signUp || signIn || forgot
-      ? (window.document.body.style.overflow = 'hidden')
-      : (window.document.body.style.overflow = 'scroll');
-  };
-
   const ship = [
     { heading: 'Shipping', price: '£' },
     { heading: 'Estimated Delivery', price: '' },
     { heading: 'Delivered from', price: '24-48 Hours' },
   ];
-  const logIn = () => {
-    setSignIn((prv) => !prv);
-  };
+
 
   return (
     <>
-      <LoginModal
-        isOpen={signIn}
-        openHandler={setSignIn}
-        signUpHandler={setSignUp}
-        forgotHandler={setForgot}
-        Route={routes.ROUTE_CHECKOUT}
-      />
-      <SignupModal
-        isOpen={signUp}
-        openHandler={setSignUp}
-        signInHandler={setSignIn}
-        forgotHandler={setForgot}
-      />
-      <ForgotPassword
-        isOpen={forgot}
-        openHandler={setForgot}
-        signInHandler={setSignIn}
-        signUpHandler={setSignUp}
-      />
       <SubHeaderLayout title="My cart">
         {localData.length > 0 ? (
           <>
@@ -212,16 +181,16 @@ const Checkout = () => {
                       <Button
                         color="gray"
                         className="w-190 h-33  mr-22  sm:w-234 sm:ml-auto sm:mr-auto"
-                        onClick={logIn}
+                        onClick={handleLoginToggle}
                       >
                         LOGIN
                       </Button>
                       <Button
                         color="gray"
                         className="w-234 h-33  sm:mt-12 sm:ml-auto sm:mr-auto"
-                        // onClick={() =>
-                        //   //history.push(routes.ROUTE_CREATE_GALLERY)
-                        // }
+                      // onClick={() =>
+                      //   //history.push(routes.ROUTE_CREATE_GALLERY)
+                      // }
                       >
                         CREATE AN ACCOUNT
                       </Button>
@@ -514,18 +483,18 @@ const Checkout = () => {
                               className="text-sm mt-12"
                               name="payment"
                               value="Paypal"
-                              // value={item.name}
-                              // checked={item.select}
-                              // onChange={() => setData(title, index, '')}
+                            // value={item.name}
+                            // checked={item.select}
+                            // onChange={() => setData(title, index, '')}
                             />
                           </div>
                           <RadioButton
                             className="text-sm mt-12"
                             name="payment"
                             value="Card ending in 0876"
-                            // value={item.name}
-                            // checked={item.select}
-                            // onChange={() => setData(title, index, '')}
+                          // value={item.name}
+                          // checked={item.select}
+                          // onChange={() => setData(title, index, '')}
                           />
                         </div>
                         <div className="card-link sm:hidden">Add Card</div>

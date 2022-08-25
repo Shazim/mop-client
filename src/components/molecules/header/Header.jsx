@@ -1,21 +1,23 @@
+// ====================== IMPORTED LIBRARIES ========================
+import React, { useState, useContext } from 'react';
+import { Link, useHistory, useLocation } from 'react-router-dom';
+
+// ====================== IMPORTED components ========================
 import Button from 'components/atoms/buttons/Button';
 import SearchBar from 'components/atoms/searchbar/SearchBar';
-import React, { useState, useEffect } from 'react';
-import { Link, useHistory, useLocation } from 'react-router-dom';
-import LoginModal from 'components/molecules/modals/LoginModal';
-import SignupModal from 'components/molecules/modals/SignupModal';
-import ForgotPassword from 'components/molecules/modals/ForgotPassword';
 import { ReactComponent as Cart } from '../../../assets/images/cartIcon.svg';
 import LoginHeader from './LoginHeader';
+import { LoginModalContext } from 'App';
+
+// ====================== IMPORTED UTILS ========================
 import { getCookie } from 'cookies/Cookies';
 import { routes } from 'routes';
 import { getSearchArtists } from 'api';
 import { useLazyFetch } from 'hooks';
 
-function Header({ login = false, signUpHandler, signInHandler, menu, isOpen }) {
-  const [signIn, setSignIn] = useState();
-  const [forgot, setForgot] = useState();
-  const [signUp, setSignUp] = useState();
+function Header({ login = false, menu, isOpen }) {
+  const { handleLoginToggle } = useContext(LoginModalContext);
+
   const [value, setValue] = useState('');
 
   const [handleGetSearch, { data: dataSearch }] =
@@ -23,13 +25,6 @@ function Header({ login = false, signUpHandler, signInHandler, menu, isOpen }) {
 
   const artists = dataSearch?.artists || [];
 
-  useEffect(() => {
-    if (!signIn) {
-      const login = new URLSearchParams(search).get('login');
-      login && setSignIn((prv) => !prv);
-    }
-    scrollOff();
-  }, [signUp, signIn, forgot]);
 
   const tabs = [
     { title: 'about', link: routes.ROUTE_ABOUT },
@@ -40,12 +35,6 @@ function Header({ login = false, signUpHandler, signInHandler, menu, isOpen }) {
   const location = useLocation();
   const { pathname } = location || {}
   const history = useHistory();
-  const scrollOff = () => {
-    signUp || signIn || forgot
-      ? (window.document.body.style.overflow = 'hidden')
-      : (window.document.body.style.overflow = 'scroll');
-  };
-  const search = useLocation().search;
 
   const { access_token, refresh_token } =
     (getCookie('user') && JSON.parse(getCookie('user'))) || {};
@@ -54,29 +43,10 @@ function Header({ login = false, signUpHandler, signInHandler, menu, isOpen }) {
     if (['/galleries', '/exhibitions', '/artists'].includes(pathname)) return 'text-primary';
   }
 
-
   return (
     <>
-      <LoginModal
-        isOpen={signIn}
-        openHandler={setSignIn}
-        signUpHandler={setSignUp}
-        forgotHandler={setForgot}
-      />
-      <SignupModal
-        isOpen={signUp}
-        openHandler={setSignUp}
-        signInHandler={setSignIn}
-        forgotHandler={setForgot}
-      />
-      <ForgotPassword
-        isOpen={forgot}
-        openHandler={setForgot}
-        signInHandler={setSignIn}
-        signUpHandler={setSignUp}
-      />
       {!access_token ? (
-        <div className="max-screen lg:px-60 md:px-50 py-32 sm:px-23">
+        <div className={`max-screen lg:px-60 md:px-50 py-32 sm:px-23 `}>
           <div className="flex justify-between">
             <div className="flex justify-between w-50% xl:w-57% lg:w-57% md:w-57% items-center sm:w-100%">
               <Link to={routes.ROUTE_HOME}>
@@ -157,7 +127,7 @@ function Header({ login = false, signUpHandler, signInHandler, menu, isOpen }) {
                 Create
               </Button>
               <div
-                onClick={() => setSignIn((prv) => !prv)}
+                onClick={handleLoginToggle}
                 className="text-secondary-black font-reg text-base link"
               >
                 Sign in

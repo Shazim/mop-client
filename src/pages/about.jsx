@@ -2,37 +2,15 @@
 import React, { useState, useEffect } from 'react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { useLocation, useHistory } from 'react-router-dom';
 // ====================== IMPORTED COMPONENT ========================
 import Header from 'components/molecules/header/Header';
 import { DiscoverMore } from 'components/DiscoveMore';
 import { ReceiveInsight } from 'components/ReceiveInsight';
 import Footer from 'components/molecules/footer/Footer';
 import Button from 'components/atoms/buttons/Button';
-import LoginModal from 'components/molecules/modals/LoginModal';
-import SignupModal from 'components/molecules/modals/SignupModal';
-import ForgotPassword from 'components/molecules/modals/ForgotPassword';
+
 
 const About = () => {
-  const [signUp, setSignUp] = useState();
-  const search = useLocation().search;
-  const [signIn, setSignIn] = useState();
-  const [forgot, setForgot] = useState();
-  const history = useHistory();
-
-  useEffect(() => {
-    if (!signIn) {
-      const login = new URLSearchParams(search).get('login');
-      login && setSignIn((prv) => !prv);
-    }
-    scrollOff();
-  }, [signUp, signIn, forgot]);
-
-  const scrollOff = () => {
-    signUp || signIn || forgot
-      ? (window.document.body.style.overflow = 'hidden')
-      : (window.document.body.style.overflow = 'scroll');
-  };
 
   const settings = {
     dots: true,
@@ -153,24 +131,6 @@ const About = () => {
         />
       </div>
 
-      <LoginModal
-        isOpen={signIn}
-        openHandler={setSignIn}
-        signUpHandler={setSignUp}
-        forgotHandler={setForgot}
-      />
-      <SignupModal
-        isOpen={signUp}
-        openHandler={setSignUp}
-        signInHandler={setSignIn}
-        forgotHandler={setForgot}
-      />
-      <ForgotPassword
-        isOpen={forgot}
-        openHandler={setForgot}
-        signInHandler={setSignIn}
-        signUpHandler={setSignUp}
-      />
       <Footer />
     </>
   );
