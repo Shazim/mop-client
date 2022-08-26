@@ -1,34 +1,50 @@
 // ====================== IMPORTED LIBRARIES ========================
-import React, { useContext } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { generateSchema } from 'validation';
 import Modal from 'react-modal';
 
 // ====================== IMPORTED COMPONENTS ========================
-import { LoginModalContext } from 'App';
 import { Form } from 'components/app/forms';
 import Button from 'components/atoms/buttons/Button';
 import TextField from 'components/atoms/form/TextField';
+import { FORGOT_MODAL, LOGIN_MODAL, SIGNUP_MODAL } from 'store/actions/actionTypes';
 
-const ForgotPassword = ({ isOpen }) => {
+const ForgotPassword = () => {
 
-  const { handleLoginToggle, handleSignupToggle, handleForgotToggle } = useContext(LoginModalContext);
+  const { isLoginOpen, isSignupOpen, isForgotOpen } = useSelector((state) => state.modals);
+  const dispatch = useDispatch();
 
-  const handleLogin = () => {
+  const handleLoginToggle = () => {
     handleForgotToggle();
-    handleLoginToggle()
+    dispatch({ type: LOGIN_MODAL, payload: !isLoginOpen });
   };
 
-  const handleSignup = () => {
+  const handleSignupToggle = () => {
     handleForgotToggle();
-    handleSignupToggle();
+    dispatch({ type: SIGNUP_MODAL, payload: !isSignupOpen });
   };
+
+  const handleForgotToggle = () => {
+    dispatch({ type: FORGOT_MODAL, payload: !isForgotOpen });
+  }
+
+  const scrollOff = () => {
+    isForgotOpen
+      ? (window.document.body.style.overflow = 'hidden')
+      : (window.document.body.style.overflow = 'scroll');
+  };
+
+  useEffect(() => {
+    scrollOff()
+  }, [isForgotOpen]);
 
   return (
     <div
       className={`w-100% h-100% `}
     >
       <Modal
-        isOpen={isOpen}
+        isOpen={isForgotOpen}
         onRequestClose={handleForgotToggle}
         className="absolute border-0 top-50% left-50% transform-xy"
         overlayClassName=" fixed inset-0 overflow-auto bg-white bg-opacity-90 top-68"
@@ -58,13 +74,13 @@ const ForgotPassword = ({ isOpen }) => {
           </Button>
           <div className="flex justify-between pr-20 mt-34">
             <div
-              onClick={handleLogin}
+              onClick={handleLoginToggle}
               className="font-bold text-primary text-sm uppercase tracking leading-32 underline link"
             >
               login
             </div>
             <div
-              onClick={handleSignup}
+              onClick={handleSignupToggle}
               className="font-bold text-primary text-sm uppercase tracking leading-32 underline link"
             >
               sign up

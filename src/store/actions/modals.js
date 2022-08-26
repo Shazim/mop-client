@@ -1,26 +1,26 @@
 import { push } from 'redux-first-history';
 import * as types from './actionTypes';
 
-export const signupModal = (payload, nextPage) => {
+export const LoginModal = (payload) => {
   return (dispatch) => {
     dispatch({
-      type: types.SIGNUP_MODAL,
+      type: types.LOGIN_MODAL,
       payload,
     });
   };
 };
 
-export const signinModal = (payload) => {
+export const SignupModal = (payload) => {
   return {
     type: types.SIGNUP_MODAL,
     payload,
   };
 };
 
-export const LoginModal = (payload) => {
+export const ForgotModal = (payload) => {
   return (dispatch) => {
     dispatch({
-      type: types.LOGIN_MODAL,
+      type: types.FORGOT_MODAL,
       payload,
     });
   };

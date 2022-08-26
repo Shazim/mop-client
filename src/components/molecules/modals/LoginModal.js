@@ -1,6 +1,7 @@
 // ====================== IMPORTED LIBRARIES ========================
+import React, { useEffect } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
-import React, { useEffect, useContext } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Modal from 'react-modal';
 import { generateSchema } from 'validation';
 
@@ -9,17 +10,16 @@ import { Form } from 'components/app/forms';
 import Button from 'components/atoms/buttons/Button';
 import SubmitButton from 'components/atoms/buttons/SubmitButton';
 import TextField from 'components/atoms/form/TextField';
-import { LoginModalContext } from 'App';
 
 // ====================== IMPORTED UTILS ========================
 import { signIn } from 'api';
 import { setCookie } from 'cookies/Cookies';
 import { routes } from 'routes';
+import { FORGOT_MODAL, LOGIN_MODAL, SIGNUP_MODAL } from 'store/actions/actionTypes';
 
-const LoginModal = ({
-  isOpen
-}) => {
-  const { handleLoginToggle, handleSignupToggle, handleForgotToggle } = useContext(LoginModalContext);
+const LoginModal = () => {
+  const { isLoginOpen, isSignupOpen, isForgotOpen } = useSelector((state) => state.modals)
+  const dispatch = useDispatch();
   const history = useHistory();
   const location = useLocation();
   const { pathname } = location || {};
@@ -34,15 +34,18 @@ const LoginModal = ({
     return () => window.removeEventListener('keypress', handleKeyPress);
   }, []);
 
-  const handleSignup = () => {
+  const handleSignupToggle = () => {
     handleLoginToggle();
-    handleSignupToggle();
+    dispatch({ type: SIGNUP_MODAL, payload: !isSignupOpen });
   };
 
-  const handleForgot = () => {
-    handleLoginToggle();
-    handleForgotToggle()
+  const handleForgotToggle = () => {
+    handleLoginToggle()
+    dispatch({ type: FORGOT_MODAL, payload: !isForgotOpen });
   };
+  const handleLoginToggle = () => {
+    dispatch({ type: LOGIN_MODAL, payload: !isLoginOpen });
+  }
 
   const login = (values) => {
     const route = pathname === routes.ROUTE_CHECKOUT ? routes.ROUTE_CHECKOUT : routes.ROUTE_MY_PROFILE;
@@ -57,12 +60,22 @@ const LoginModal = ({
       .catch((error) => console.log('ERROR ', error));
   };
 
+  const scrollOff = () => {
+    isLoginOpen
+      ? (window.document.body.style.overflow = 'hidden')
+      : (window.document.body.style.overflow = 'scroll');
+  };
+
+  useEffect(() => {
+    scrollOff()
+  }, [isLoginOpen]);
+
   return (
     <div
       className={`w-100% h-100%`}
     >
       <Modal
-        isOpen={isOpen}
+        isOpen={isLoginOpen}
         className="absolute border-0   top-50% left-50% transform-xy outline-none"
         onRequestClose={handleLoginToggle}
         overlayClassName="fixed inset-0 overflow-auto bg-white bg-opacity-90 top-68"
@@ -134,13 +147,13 @@ const LoginModal = ({
           </div>
           <div className="flex justify-between pr-20 mt-34">
             <div
-              onClick={handleSignup}
+              onClick={handleSignupToggle}
               className="font-bold text-primary text-sm uppercase tracking leading-32 underline link"
             >
               sign up
             </div>
             <div
-              onClick={handleForgot}
+              onClick={handleForgotToggle}
               className="font-bold text-primary text-sm uppercase tracking leading-32 underline link"
             >
               forgot password
