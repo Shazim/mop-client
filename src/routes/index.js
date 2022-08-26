@@ -33,6 +33,11 @@ import PricingSheetDetails from 'pages/Admin/price-sheet-detail';
 import PriceSheet from 'pages/Admin/price-sheets';
 import editPriceSheet from 'pages/Admin/edit-price-sheet';
 import PageNotFound from 'pages/PageNotFound';
+import myOrders from 'pages/myOrders';
+import customerAccountDetail from 'pages/customerAccountDetail';
+import customerOrderDetail from 'pages/customerOrderDetail';
+import customerPayment from 'pages/customerPayment';
+import analytics from 'pages/analytics';
 // List of Routes name using for links and route
 export const routes = Object.freeze({
   ROUTE_FORGOT_PASSWORD: '/forgot-password',
@@ -75,6 +80,11 @@ export const routes = Object.freeze({
   ROUTE_CREATE_PRICE_SHEET: '/create-price-sheet',
   ROUTE_EDIT_PRICE_SHEET: '/edit-price-sheet/:id',
   ROUTE_PRICING_SHEET_DETAILS: '/price-sheet/:id',
+  ROUTE_MY_OREDRS: '/myorders',
+  ROUTE_CUSTOMER_OREDR_DETAIL: '/customer-order-detail',
+  ROUTE_CUSTOMER_ACCOUNT: '/customer-account',
+  ROUTE_CUSTOMER_PAYMENT: '/customer-payment',
+  ROUTE_ANALYTICS: '/analytics',
   ROUTE_PAGE_NOT_FOUND: '/*',
 });
 // List of route object which will be rendered under Router component
@@ -99,6 +109,11 @@ export default Object.freeze([
   {
     path: routes.ROUTE_CREATE_PRICE_SHEET,
     component: PricingSheet,
+    privateRoute: true,
+  },
+  {
+    path: routes.ROUTE_ANALYTICS,
+    component: analytics,
     privateRoute: true,
   },
 

@@ -29,13 +29,12 @@ const StockItem = ({ addItem }) => {
       setIsLoading(false);
     }
   }, [data]);
-  console.log('artworkData', artworkData);
+
   useEffect(() => {
     if (currentPage > 1) {
       refetch({
-        variables: `?${
-          currentPage ? `page=${currentPage}` : ''
-        }&per_page=${perPage}`,
+        variables: `?${currentPage ? `page=${currentPage}` : ''
+          }&per_page=${perPage}`,
       });
     }
   }, [currentPage]);
@@ -119,16 +118,16 @@ const StockItem = ({ addItem }) => {
                 dataLength={artworkData?.length - 2 || 0}
                 next={fetchMoreData}
                 hasMore={true}
-                // loader={
-                //   <div className="w-100% h-80vh flex items-center justify-center ">
-                //     <TailSpin
-                //       color="#C71118"
-                //       height={80}
-                //       width={80}
-                //       ariaLabel="loading"
-                //     />
-                //   </div>
-                // }
+              // loader={
+              //   <div className="w-100% h-80vh flex items-center justify-center ">
+              //     <TailSpin
+              //       color="#C71118"
+              //       height={80}
+              //       width={80}
+              //       ariaLabel="loading"
+              //     />
+              //   </div>
+              // }
               >
                 <div className="gridView  sm:grid grid-cols-1">
                   {artworkData?.map(({ name, images }) => (

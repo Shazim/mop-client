@@ -4,7 +4,16 @@ import { useHistory } from 'react-router-dom';
 import { routes } from 'routes';
 import { usePost } from 'hooks';
 import { toast } from 'react-toastify';
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
 import { useSelector } from 'react-redux';
+import {
+  CardNumberElement,
+  useElements,
+  useStripe,
+  CardCvcElement,
+  CardExpiryElement,
+} from '@stripe/react-stripe-js';
 // ====================== IMPORTED COMPONENT ========================
 import Button from 'components/atoms/buttons/Button';
 import Cart from 'components/Cart/Cart';
@@ -19,6 +28,7 @@ import { LoginModalContext } from 'App';
 // ====================== IMPORTED API ========================
 import { createOrder } from 'api/api-services';
 import { createOrderSchema } from 'validation';
+import PaymentMethod from './PaymentMethod';
 
 const Checkout = () => {
   const { handleLoginToggle } = useContext(LoginModalContext);
@@ -28,6 +38,7 @@ const Checkout = () => {
 
   const total_Price = useSelector((state) => state?.cart?.totalPrice);
   const history = useHistory();
+  const childRef = useRef();
   const [handleCreateOrder, { data: dataPost }] = usePost(createOrder);
   const { user, access_token, refresh_token } =
     (getCookie('user') && JSON.parse(getCookie('user'))) || {};
@@ -49,6 +60,24 @@ const Checkout = () => {
     total_price: '',
     order_items_attributes: [],
   });
+  // const elements = useElements();
+  // const stripe = useStripe();
+  // const stripeElementStyle = {
+  //   base: {
+  //     fontSize: '13px',
+  //     color: 'black',
+
+  //     letterSpacing: '0.10em',
+  //     fontFamily: 'Nunito, sans-serif',
+  //     '::placeholder': {
+  //       color: '#D6D6D6',
+  //     },
+  //     fontWeight: 'bold',
+  //     ':focus': {
+  //       borderBottomColor: 'red',
+  //     },
+  //   },
+  // };
   useEffect(() => {
     const data = localData?.map(
       ({ artwork_id, size, paper, price, frame, quantity }) => {
@@ -93,8 +122,10 @@ const Checkout = () => {
     if (!access_token) setDisable(true);
     else setDisable(false);
   }, [access_token]);
+  //console.log({ childRef });
 
   const onSubmit = (data) => {
+    //childRef.current.getAlert();
     const {
       first_name,
       last_name,
@@ -111,32 +142,29 @@ const Checkout = () => {
       shipping_country,
       total_price,
     } = data;
-    if (access_token) {
-      handleCreateOrder({
-        variables: {
-          token: 'tok_mastercard',
-          order: {
-            first_name,
-            last_name,
-            phone_number,
-            address_1,
-            address_2,
-            address_3,
-            postcode,
-            country,
-            shipping_address_1,
-            shipping_address_2,
-            shipping_address_3,
-            shipping_country,
-            shipping_postcode,
-            total_price,
-            order_items_attributes: [],
-          },
+
+    handleCreateOrder({
+      variables: {
+        token: 'tok_mastercard',
+        order: {
+          first_name,
+          last_name,
+          phone_number,
+          address_1,
+          address_2,
+          address_3,
+          postcode,
+          country,
+          shipping_address_1,
+          shipping_address_2,
+          shipping_address_3,
+          shipping_country,
+          shipping_postcode,
+          total_price,
+          order_items_attributes: [],
         },
-      });
-    } else {
-      toast.error('PLEASE LOGIN FIRST');
-    }
+      },
+    });
   };
 
   const onChange = (data) => {
@@ -165,7 +193,6 @@ const Checkout = () => {
     { heading: 'Estimated Delivery', price: '' },
     { heading: 'Delivered from', price: '24-48 Hours' },
   ];
-
 
   return (
     <>
@@ -472,13 +499,34 @@ const Checkout = () => {
                           ))}
                         </div>
                       </div>
-                      <div>
-                        <div className="admin-h2 py-18">
-                          your payment details
-                        </div>
-                        <div className="admin-label">payments going to </div>
-                        <div className="flex pt-14 pb-9">
-                          <div className="w-87 mr-26">
+                      {/* <Elements
+                        stripe={stripePromise}
+                        options={{
+                          fonts: [
+                            {
+                              src: '../../../src/fonts/Nunito-Bold.ttf',
+                              family: 'Nunito',
+                              style: 'normal',
+                            },
+                          ],
+                        }}
+                      >
+                        <div>
+                          <div className="admin-h2 py-18">
+                            your payment details
+                          </div>
+                          <div className="admin-label">payments going to </div>
+                          <div className="flex pt-14 pb-9">
+                            <div className="w-87 mr-26">
+                              <RadioButton
+                                className="text-sm mt-12"
+                                name="payment"
+                                value="Paypal"
+                                // value={item.name}
+                                // checked={item.select}
+                                // onChange={() => setData(title, index, '')}
+                              />
+                            </div>
                             <RadioButton
                               className="text-sm mt-12"
                               name="payment"
@@ -549,27 +597,17 @@ const Checkout = () => {
                             {item.price}
                           </div>
                         </div>
-                      ))}
-                    </div> */}
-
-                        {/* <div className="pt-10 pb-31 hr-b mb-35">
-                    <CheckBox
-                      // onChange={() => handleFeature(id)}
-                      // checked={artwork_ids[id] == id}
-                      value="billing address same as shipping address"
-                    />
-                  </div> */}
-                      </div>
-                      <div className="sm:flex justify-center">
-                        <Button
-                          className="w-318 h-33 sm:w-275 sm:h-44"
-                          transform="uppercase"
-                          disabled={`${access_token ? false : true}`}
-                          onClick={handleSubmit}
-                        >
-                          complete purchase
-                        </Button>
-                      </div>{' '}
+                        <div className="sm:flex justify-center">
+                          <Button
+                            className="w-318 h-33 sm:w-275 sm:h-44"
+                            transform="uppercase"
+                            disabled={`${access_token ? false : true}`}
+                            onClick={Submit}
+                          >
+                            complete purchase
+                          </Button>
+                        </div>{' '}
+                      </Elements> */}
                     </>
                   )}
                 </Form>
