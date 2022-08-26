@@ -220,9 +220,9 @@ const Checkout = () => {
                       <Button
                         color="gray"
                         className="w-234 h-33  sm:mt-12 sm:ml-auto sm:mr-auto"
-                      // onClick={() =>
-                      //   //history.push(routes.ROUTE_CREATE_GALLERY)
-                      // }
+                        // onClick={() =>
+                        //   //history.push(routes.ROUTE_CREATE_GALLERY)
+                        // }
                       >
                         CREATE AN ACCOUNT
                       </Button>

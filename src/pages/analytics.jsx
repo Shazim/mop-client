@@ -4,7 +4,8 @@ import { Form } from 'components/app/forms';
 import { TextField } from 'components/atoms/form';
 
 import React from 'react';
-import Graph from './Graph';
+import GraphAvgViewTime from './data-graphs/GraphAvgViewTime';
+import GraphVisitorsData from './data-graphs/GraphVisitorsData';
 
 const analytics = () => {
   return (
@@ -63,6 +64,9 @@ const analytics = () => {
                 <div className="pb-50 font-Avenir-reg font-medium leading-54 tracking-wider text-5xl text-primary">
                   1,024
                 </div>
+              </div>
+              <div className="visitors-data-graph h-320 w-70%">
+                <GraphVisitorsData />
               </div>
             </div>
             <div className="flex mt-21">
@@ -150,7 +154,7 @@ const analytics = () => {
                 </div>
               </div>
               <div className="w-80% pt-24 h-320">
-                <Graph />
+                <GraphAvgViewTime />
               </div>
             </div>
           </>
