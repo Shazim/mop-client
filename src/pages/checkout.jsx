@@ -1,5 +1,5 @@
 // ====================== IMPORTED LIBRARIES ========================
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useRef } from 'react';
 import { useHistory } from 'react-router-dom';
 import { routes } from 'routes';
 import { usePost } from 'hooks';
@@ -215,9 +215,9 @@ const Checkout = () => {
                       <Button
                         color="gray"
                         className="w-234 h-33  sm:mt-12 sm:ml-auto sm:mr-auto"
-                      // onClick={() =>
-                      //   //history.push(routes.ROUTE_CREATE_GALLERY)
-                      // }
+                        // onClick={() =>
+                        //   //history.push(routes.ROUTE_CREATE_GALLERY)
+                        // }
                       >
                         CREATE AN ACCOUNT
                       </Button>
