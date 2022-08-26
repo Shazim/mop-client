@@ -5,6 +5,10 @@ const initialState = {
   public: {
     searchSideBar: '',
   },
+  isLoginOpen: false,
+  isSignupOpen: false,
+  isForgotOpen: false
+
 };
 
 export default initialState;

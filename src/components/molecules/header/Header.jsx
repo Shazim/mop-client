@@ -1,22 +1,28 @@
 // ====================== IMPORTED LIBRARIES ========================
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { Link, useHistory, useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
 // ====================== IMPORTED components ========================
 import Button from 'components/atoms/buttons/Button';
 import SearchBar from 'components/atoms/searchbar/SearchBar';
 import { ReactComponent as Cart } from '../../../assets/images/cartIcon.svg';
 import LoginHeader from './LoginHeader';
-import { LoginModalContext } from 'App';
 
 // ====================== IMPORTED UTILS ========================
 import { getCookie } from 'cookies/Cookies';
 import { routes } from 'routes';
 import { getSearchArtists } from 'api';
 import { useLazyFetch } from 'hooks';
+import { LOGIN_MODAL } from 'store/actions/actionTypes';
 
-function Header({ login = false, menu, isOpen }) {
-  const { handleLoginToggle } = useContext(LoginModalContext);
+const Header = ({ login = false, menu, isOpen }) => {
+
+  const { isLoginOpen } = useSelector((state) => state.modals)
+  const dispatch = useDispatch();
+  const location = useLocation();
+  const { pathname } = location || {}
+  const history = useHistory();
 
   const [value, setValue] = useState('');
 
@@ -32,15 +38,16 @@ function Header({ login = false, menu, isOpen }) {
     { title: 'browse artwork', link: routes.ROUTE_BROWSE_ARTWORK },
   ];
 
-  const location = useLocation();
-  const { pathname } = location || {}
-  const history = useHistory();
 
   const { access_token, refresh_token } =
     (getCookie('user') && JSON.parse(getCookie('user'))) || {};
 
   const activeRoute = () => {
     if (['/galleries', '/exhibitions', '/artists'].includes(pathname)) return 'text-primary';
+  }
+
+  const handleLoginToggle = () => {
+    dispatch({ type: LOGIN_MODAL, payload: !isLoginOpen });
   }
 
   return (

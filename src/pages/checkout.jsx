@@ -1,12 +1,12 @@
 // ====================== IMPORTED LIBRARIES ========================
-import React, { useState, useEffect, useContext, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useHistory } from 'react-router-dom';
 import { routes } from 'routes';
 import { usePost } from 'hooks';
 import { toast } from 'react-toastify';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   CardNumberElement,
   useElements,
@@ -24,14 +24,15 @@ import { getCookie } from 'cookies/Cookies';
 import CheckBox from 'components/atoms/checkbox/CheckBox';
 import { SubHeaderLayout } from 'Layout';
 import { Item } from 'components/Cart';
-import { LoginModalContext } from 'App';
 // ====================== IMPORTED API ========================
 import { createOrder } from 'api/api-services';
 import { createOrderSchema } from 'validation';
 import PaymentMethod from './PaymentMethod';
+import { LOGIN_MODAL } from 'store/actions/actionTypes';
 
 const Checkout = () => {
-  const { handleLoginToggle } = useContext(LoginModalContext);
+  const { isLoginOpen } = useSelector((state) => state.modals)
+  const dispatch = useDispatch();
 
   const [checked, setChecked] = useState(false);
   const [disable, setDisable] = useState(false);
@@ -78,6 +79,10 @@ const Checkout = () => {
   //     },
   //   },
   // };
+
+  const handleLoginToggle = () => {
+    dispatch({ type: LOGIN_MODAL, payload: !isLoginOpen });
+  }
   useEffect(() => {
     const data = localData?.map(
       ({ artwork_id, size, paper, price, frame, quantity }) => {
