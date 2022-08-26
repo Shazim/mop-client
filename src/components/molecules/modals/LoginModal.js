@@ -1,26 +1,29 @@
-import { signIn } from 'api';
+// ====================== IMPORTED LIBRARIES ========================
+import { useHistory, useLocation } from 'react-router-dom';
+import React, { useEffect, useContext } from 'react';
+import Modal from 'react-modal';
+import { generateSchema } from 'validation';
+
+// ====================== IMPORTED COMPONENTS ========================
 import { Form } from 'components/app/forms';
 import Button from 'components/atoms/buttons/Button';
 import SubmitButton from 'components/atoms/buttons/SubmitButton';
 import TextField from 'components/atoms/form/TextField';
+import { LoginModalContext } from 'App';
+
+// ====================== IMPORTED UTILS ========================
+import { signIn } from 'api';
 import { setCookie } from 'cookies/Cookies';
-import React, { useState, useEffect } from 'react';
-import Modal from 'react-modal';
-import { useHistory } from 'react-router-dom';
-import { generateSchema } from 'validation';
 import { routes } from 'routes';
 
 const LoginModal = ({
-  isOpen,
-  openHandler,
-  signUpHandler,
-  forgotHandler,
-  Route = routes.ROUTE_MY_PROFILE,
+  isOpen
 }) => {
+  const { handleLoginToggle, handleSignupToggle, handleForgotToggle } = useContext(LoginModalContext);
   const history = useHistory();
-  const closeModal = () => {
-    openHandler((prv) => !prv);
-  };
+  const location = useLocation();
+  const { pathname } = location || {};
+
   useEffect(() => {
     const handleKeyPress = (e) => {
       if (e.charCode === 13) {
@@ -31,23 +34,24 @@ const LoginModal = ({
     return () => window.removeEventListener('keypress', handleKeyPress);
   }, []);
 
-  const signUpModal = () => {
-    openHandler((prv) => !prv);
-    signUpHandler((prv) => !prv);
+  const handleSignup = () => {
+    handleLoginToggle();
+    handleSignupToggle();
   };
 
-  const forgotModal = () => {
-    openHandler((prv) => !prv);
-    forgotHandler((prv) => !prv);
+  const handleForgot = () => {
+    handleLoginToggle();
+    handleForgotToggle()
   };
 
   const login = (values) => {
+    const route = pathname === routes.ROUTE_CHECKOUT ? routes.ROUTE_CHECKOUT : routes.ROUTE_MY_PROFILE;
     signIn({ ...values, grant_type: 'password' })
       .then((response) => {
         if (response?.status == 200) {
           setCookie('user', JSON.stringify(response?.data));
-          closeModal();
-          history.push(`${Route}`);
+          handleLoginToggle();
+          history.push(route);
         }
       })
       .catch((error) => console.log('ERROR ', error));
@@ -55,22 +59,20 @@ const LoginModal = ({
 
   return (
     <div
-      className={`w-100% h-100% ${
-        isOpen ? 'absolute top-0 bg-white bg-opacity-70' : ''
-      } `}
+      className={`w-100% h-100%`}
     >
       <Modal
         isOpen={isOpen}
         className="absolute border-0   top-50% left-50% transform-xy outline-none"
-        onRequestClose={closeModal}
-        overlayClassName="fixed inset-0 overflow-auto"
+        onRequestClose={handleLoginToggle}
+        overlayClassName="fixed inset-0 overflow-auto bg-white bg-opacity-90 top-68"
       >
         <div className="bg-gray-lighter w-568 pl-56 pr-57 py-40">
           <div className="flex justify-between">
             <div className="font-avenir-reg text-2xl text-secondary tracking-wider leading-38 uppercase">
               login
             </div>
-            <div onClick={closeModal}>
+            <div onClick={handleLoginToggle}>
               <img src="images/icons/close.svg" className="link" />
             </div>{' '}
           </div>
@@ -132,13 +134,13 @@ const LoginModal = ({
           </div>
           <div className="flex justify-between pr-20 mt-34">
             <div
-              onClick={signUpModal}
+              onClick={handleSignup}
               className="font-bold text-primary text-sm uppercase tracking leading-32 underline link"
             >
               sign up
             </div>
             <div
-              onClick={forgotModal}
+              onClick={handleForgot}
               className="font-bold text-primary text-sm uppercase tracking leading-32 underline link"
             >
               forgot password

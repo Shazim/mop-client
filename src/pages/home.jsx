@@ -35,13 +35,13 @@ const Home = () => {
     { source: '/images/services/world.svg', title: 'Worldwide Delivery' },
   ];
 
-  const [signUp, setSignUp] = useState();
+  const [showBg, setShowBg] = useState(false);
 
   const history = useHistory();
 
   return (
     <>
-      <div className="bg-featured-gallery sm:bg-home-mobile bg-no-repeat bg-cover">
+      <div className={`${showBg ? '' : 'bg-featured-gallery'} sm:bg-home-mobile bg-no-repeat bg-cover`}>
         <Header />
         <div className="relative">
           <img

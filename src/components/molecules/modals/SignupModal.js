@@ -1,14 +1,23 @@
-import { signUp } from 'api';
-import { Form } from 'components/app/forms';
-import Button from 'components/atoms/buttons/Button';
-import SubmitButton from 'components/atoms/buttons/SubmitButton';
-import CheckBox from 'components/atoms/checkbox/CheckBox';
-import TextField from 'components/atoms/form/TextField';
-import React, { useState, useEffect } from 'react';
+// ====================== IMPORTED LIBRARIES ========================
+import React, { useState, useContext } from 'react';
 import Modal from 'react-modal';
 import { generateSchema } from 'validation';
 
-function SignupModal({ isOpen, openHandler, signInHandler, forgotHandler }) {
+// ====================== IMPORTED COMPONENTS ========================
+import SubmitButton from 'components/atoms/buttons/SubmitButton';
+import CheckBox from 'components/atoms/checkbox/CheckBox';
+import TextField from 'components/atoms/form/TextField';
+import Button from 'components/atoms/buttons/Button';
+import { Form } from 'components/app/forms';
+
+// ====================== IMPORTED UTILD ========================
+import { signUp } from 'api';
+import { LoginModalContext } from 'App';
+
+function SignupModal({ isOpen }) {
+
+  const { handleLoginToggle, handleSignupToggle, handleForgotToggle } = useContext(LoginModalContext);
+
   const [customer, setCustomer] = useState(true);
   const [artist, setArtist] = useState(false);
   const [error, setError] = useState('');
@@ -27,7 +36,7 @@ function SignupModal({ isOpen, openHandler, signInHandler, forgotHandler }) {
     signUp(data)
       .then((response) => {
         if (response.status == 200) {
-          closeModal();
+          handleSignupToggle();
           setError('');
         } else if (response.status == 422) {
           setError('email ' + response?.data?.error?.detail?.email);
@@ -35,18 +44,15 @@ function SignupModal({ isOpen, openHandler, signInHandler, forgotHandler }) {
       })
       .catch((error) => console.log('ERROR ', error));
   };
-  function closeModal() {
-    openHandler((prv) => !prv);
-  }
 
-  const signInModal = () => {
-    openHandler((prv) => !prv);
-    signInHandler((prv) => !prv);
+  const handleLogin = () => {
+    handleSignupToggle()
+    handleLoginToggle();
   };
 
-  const forgotModal = () => {
-    openHandler((prv) => !prv);
-    forgotHandler((prv) => !prv);
+  const handleForgot = () => {
+    handleSignupToggle()
+    handleForgotToggle()
   };
 
   const tabHandler = () => {
@@ -56,15 +62,13 @@ function SignupModal({ isOpen, openHandler, signInHandler, forgotHandler }) {
 
   return (
     <div
-      className={`w-100% h-100% ${
-        isOpen ? 'absolute top-0 bg-white bg-opacity-70' : ''
-      } `}
+      className={`w-100% h-100%`}
     >
       <Modal
         isOpen={isOpen}
-        className="top-50% left-50% right-auto bottom-auto transform-xy mr-50% absolute vh-96 border-0"
-        onRequestClose={closeModal}
-        overlayClassName="fixed inset-0 overflow-auto"
+        className="top-50% left-50% right-auto bottom-auto transform-xy mr-50% absolute h-90% border-0"
+        onRequestClose={handleSignupToggle}
+        overlayClassName="fixed inset-0 overflow-auto bg-white bg-opacity-90 top-68"
       >
         <div className="bg-gray-lighter w-568 pl-56 pr-57 py-40">
           <Form
@@ -82,7 +86,7 @@ function SignupModal({ isOpen, openHandler, signInHandler, forgotHandler }) {
                   <div className="font-avenir-reg text-2xl text-secondary tracking-wider leading-38 uppercase">
                     Sign Up
                   </div>
-                  <div onClick={closeModal}>
+                  <div onClick={handleSignupToggle}>
                     <img src="images/icons/close.svg" className="link" />
                   </div>{' '}
                 </div>
@@ -108,21 +112,19 @@ function SignupModal({ isOpen, openHandler, signInHandler, forgotHandler }) {
                 <div className="flex justify-between mt-20">
                   <div
                     onClick={tabHandler}
-                    className={`w-48% link uppercase px-65 py-22 ${
-                      customer
-                        ? 'bg-primary text-white'
-                        : 'bg-white text-secondary'
-                    } text-sm  text-center tracking`}
+                    className={`w-48% link uppercase px-65 py-22 ${customer
+                      ? 'bg-primary text-white'
+                      : 'bg-white text-secondary'
+                      } text-sm  text-center tracking`}
                   >
                     customer account
                   </div>
                   <div
                     onClick={tabHandler}
-                    className={`w-48% link uppercase px-65 py-22 ${
-                      artist
-                        ? 'bg-primary text-white'
-                        : 'bg-white text-secondary'
-                    } text-sm  text-center tracking`}
+                    className={`w-48% link uppercase px-65 py-22 ${artist
+                      ? 'bg-primary text-white'
+                      : 'bg-white text-secondary'
+                      } text-sm  text-center tracking`}
                   >
                     artist account
                   </div>
@@ -189,13 +191,13 @@ function SignupModal({ isOpen, openHandler, signInHandler, forgotHandler }) {
                 </SubmitButton>
                 <div className="flex justify-between pr-20 mt-14">
                   <div
-                    onClick={signInModal}
+                    onClick={handleLogin}
                     className="font-bold text-primary text-sm uppercase tracking leading-32 link underline"
                   >
                     login
                   </div>
                   <div
-                    onClick={forgotModal}
+                    onClick={handleForgot}
                     className="font-bold text-primary text-sm uppercase tracking leading-32 link underline"
                   >
                     forgot password
