@@ -7,6 +7,7 @@ import userReducer, {
 import adminReducer from 'store/reducers/adminReducer';
 import publicReducer from 'store/reducers/publicReducer';
 import cartReducer from 'store/reducers/cartReducer';
+import modalsReducer from './modalsReducer';
 
 export const initialState = {
   user: userReducerInititalState,
@@ -27,4 +28,5 @@ export default combineReducers({
   admin: adminReducer,
   public: publicReducer,
   cart: cartReducer,
+  modals: modalsReducer
 });

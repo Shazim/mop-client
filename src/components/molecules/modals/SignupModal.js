@@ -1,5 +1,6 @@
 // ====================== IMPORTED LIBRARIES ========================
-import React, { useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Modal from 'react-modal';
 import { generateSchema } from 'validation';
 
@@ -12,11 +13,11 @@ import { Form } from 'components/app/forms';
 
 // ====================== IMPORTED UTILD ========================
 import { signUp } from 'api';
-import { LoginModalContext } from 'App';
+import { FORGOT_MODAL, LOGIN_MODAL, SIGNUP_MODAL } from 'store/actions/actionTypes';
 
-function SignupModal({ isOpen }) {
-
-  const { handleLoginToggle, handleSignupToggle, handleForgotToggle } = useContext(LoginModalContext);
+const SignupModal = () => {
+  const { isLoginOpen, isSignupOpen, isForgotOpen } = useSelector((state) => state.modals)
+  const dispatch = useDispatch();
 
   const [customer, setCustomer] = useState(true);
   const [artist, setArtist] = useState(false);
@@ -45,27 +46,41 @@ function SignupModal({ isOpen }) {
       .catch((error) => console.log('ERROR ', error));
   };
 
-  const handleLogin = () => {
+  const handleLoginToggle = () => {
     handleSignupToggle()
-    handleLoginToggle();
+    dispatch({ type: LOGIN_MODAL, payload: !isLoginOpen });
   };
 
-  const handleForgot = () => {
+  const handleForgotToggle = () => {
     handleSignupToggle()
-    handleForgotToggle()
+    dispatch({ type: FORGOT_MODAL, payload: !isForgotOpen });
   };
+
+  const handleSignupToggle = () => {
+    dispatch({ type: SIGNUP_MODAL, payload: !isSignupOpen });
+  }
 
   const tabHandler = () => {
     setArtist(!artist);
     setCustomer(!customer);
   };
 
+  const scrollOff = () => {
+    isSignupOpen
+      ? (window.document.body.style.overflow = 'hidden')
+      : (window.document.body.style.overflow = 'scroll');
+  };
+
+  useEffect(() => {
+    scrollOff()
+  }, [isSignupOpen]);
+
   return (
     <div
       className={`w-100% h-100%`}
     >
       <Modal
-        isOpen={isOpen}
+        isOpen={isSignupOpen}
         className="top-50% left-50% right-auto bottom-auto transform-xy mr-50% absolute h-90% border-0"
         onRequestClose={handleSignupToggle}
         overlayClassName="fixed inset-0 overflow-auto bg-white bg-opacity-90 top-68"
@@ -191,13 +206,13 @@ function SignupModal({ isOpen }) {
                 </SubmitButton>
                 <div className="flex justify-between pr-20 mt-14">
                   <div
-                    onClick={handleLogin}
+                    onClick={handleLoginToggle}
                     className="font-bold text-primary text-sm uppercase tracking leading-32 link underline"
                   >
                     login
                   </div>
                   <div
-                    onClick={handleForgot}
+                    onClick={handleForgotToggle}
                     className="font-bold text-primary text-sm uppercase tracking leading-32 link underline"
                   >
                     forgot password
