@@ -31,7 +31,7 @@ import PaymentMethod from './PaymentMethod';
 import { LOGIN_MODAL } from 'store/actions/actionTypes';
 
 const Checkout = () => {
-  const { isLoginOpen } = useSelector((state) => state.modals)
+  const { isLoginOpen } = useSelector((state) => state.modals);
   const dispatch = useDispatch();
 
   const [checked, setChecked] = useState(false);
@@ -82,7 +82,7 @@ const Checkout = () => {
 
   const handleLoginToggle = () => {
     dispatch({ type: LOGIN_MODAL, payload: !isLoginOpen });
-  }
+  };
   useEffect(() => {
     const data = localData?.map(
       ({ artwork_id, size, paper, price, frame, quantity }) => {
@@ -220,9 +220,9 @@ const Checkout = () => {
                       <Button
                         color="gray"
                         className="w-234 h-33  sm:mt-12 sm:ml-auto sm:mr-auto"
-                      // onClick={() =>
-                      //   //history.push(routes.ROUTE_CREATE_GALLERY)
-                      // }
+                        // onClick={() =>
+                        //   //history.push(routes.ROUTE_CREATE_GALLERY)
+                        // }
                       >
                         CREATE AN ACCOUNT
                       </Button>
