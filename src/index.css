@@ -61,6 +61,11 @@
   @apply font-avenir-reg font-medium text-base uppercase tracking-wider leading-55 text-secondary mb-4;
 }
 
+.custom-bg {
+  background-color: #c71118;
+  color: white;
+}
+
 .mockup-right-arrow {
   right: 111px;
   position: absolute;

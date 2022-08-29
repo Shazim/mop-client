@@ -140,7 +140,7 @@ const GallerySetting = () => {
                 <ToggleButton
                   bg={
                     values['gallery_type'] == 'private_gallery'
-                      ? 'bg-gray mr-32'
+                      ? 'custom-bg mr-32'
                       : 'bg-white mr-32'
                   }
                   onClick={() =>
@@ -153,7 +153,7 @@ const GallerySetting = () => {
                 <ToggleButton
                   bg={
                     values['gallery_type'] == 'public_gallery'
-                      ? 'bg-gray '
+                      ? 'custom-bg '
                       : 'bg-white'
                   }
                   onClick={() =>
@@ -207,7 +207,7 @@ const GallerySetting = () => {
                 mb="6"
                 height="38"
                 label="Add a Youtube or Vimeo Url that introduces your gallery:"
-                className="w-55%"
+                className="w-55% h-38"
               />
             </div>
             <div className="sm:text-center">
