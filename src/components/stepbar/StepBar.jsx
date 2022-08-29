@@ -5,7 +5,7 @@ function StepBar({
   step,
 }) {
   return (
-    <div className="flex w-100% pt-55 justify-between">
+    <div className="flex w-100% pt-18 justify-between">
       <div className="progress__container w-100% max-w-100% relative mb-80 flex justify-between">
         {steps.map((item, index) => (
           <>

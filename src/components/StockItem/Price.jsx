@@ -24,7 +24,7 @@ export default function Price({ addItem, steps, step, next, previous }) {
 
   return (
     <div className="w-100% pb-172">
-      <div className="px-43 sm:px-0 pt-32 sm:pt-0">
+      <div className="px-43 sm:px-0  sm:pt-0">
         <div className="w-57% sm:h-100 m-auto sm:w-80%">
           <StepBar steps={steps} step={step} />
         </div>
@@ -32,7 +32,7 @@ export default function Price({ addItem, steps, step, next, previous }) {
         <div className="hidden sm:block w-65% mx-auto items-center mt-20 ">
           <PriceSheetAartwork />
         </div>
-        <div className="w-65% mx-auto mt-87 items-center ">
+        <div className="w-65% mx-auto mt-29 items-center ">
           <div className="flex items-center justify-between mb-18 sm:hidden">
             <p className="font-bold tracking leading-32 text-sm text-secondary uppercase">
               Would you like to sell this item?
@@ -82,14 +82,14 @@ export default function Price({ addItem, steps, step, next, previous }) {
           <div className="border-border border-t-2 my-25 sm:hidden"></div>
           <div className="w-100% justify-between flex sm:flex-col sm:items-center">
             <button
-              className="h-33 w-153 font-nunito-bold mt-28 sm:w-275 sm:h-44 uppercase bg-primary text-white font-bold font-base sm:bg-gray sm:text-secondary"
+              className="h-33 w-153 font-nunito-bold mt-14 sm:w-275 sm:h-44 uppercase bg-primary text-white font-bold font-base sm:bg-gray sm:text-secondary"
               onClick={() => previous(1)}
             >
               Previous
             </button>
             <Button
               onClick={() => next(3)}
-              className={`h-33 w-153 mt-28 sm:w-275 sm:h-44`}
+              className={`h-33 w-153 mt-14 sm:w-275 sm:h-44`}
               color="primary"
             >
               NEXT
