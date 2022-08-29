@@ -48,10 +48,15 @@ function SelectOptions({
         <div
           class={`${
             hide ? 'hidden' : ''
-          } font-bold uppercase select-items w-100% absolute top-100% text-secondary text-sm pl-22 left-0 tracking right-0 z-50 bg-gray-lightest leading-7`}
+          } font-bold uppercase select-items w-100% absolute top-100% text-secondary text-sm left-0 tracking right-0 z-50 bg-gray-lightest leading-7`}
         >
           {option.map((item) => (
-            <div onClick={() => handleSelect(item, name)}>{item.label}</div>
+            <div
+              className="select-item pl-22"
+              onClick={() => handleSelect(item, name)}
+            >
+              {item.label}
+            </div>
           ))}
         </div>
       </div>
