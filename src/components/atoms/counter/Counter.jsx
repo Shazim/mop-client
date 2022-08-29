@@ -11,7 +11,7 @@ function Counter({ active, width, onClick }) {
   };
 
   return (
-    <div className={`${width} flex items-center`}>
+    <div className={`${width} flex items-center relative`}>
       <ToggleButton
         bg={active ? 'bg-gray' : 'bg-white'}
         onClick={() => onClick(count)}
@@ -20,7 +20,7 @@ function Counter({ active, width, onClick }) {
         limited edition of
       </ToggleButton>
 
-      <div className="w-10% text-center">
+      <div className="w-10% text-center absolute ml-75%">
         <img
           onClick={() => (active ? countHandler(1, 'add') : null)}
           src="/images/upArrow.svg"

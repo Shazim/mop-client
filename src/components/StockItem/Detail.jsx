@@ -21,15 +21,11 @@ const Detail = ({ addItem, steps, step, next }) => {
     touched,
     setFieldError,
   } = useFormikContext() || {};
-  console.log(notes);
 
   const errorLength = Object.keys(errors).length;
   return (
     <div className="w-100% pb-172">
       <div className="px-43 sm:px-0 pt-32 sm:pt-0">
-        <div className="w-full hidden sm:block mx-auto">
-          <AddItemButton btnText="Add new item" />
-        </div>
         <div className="w-57% sm:h-100 m-auto sm:w-80%">
           <StepBar steps={steps} step={step} />
         </div>
@@ -50,7 +46,7 @@ const Detail = ({ addItem, steps, step, next }) => {
             classes="h-113 w-100% pl-16 pt-10 resize-none"
             placeholder="MAX 500 CHARACTERS"
           />
-          <div className="border-border border-t-2 my-25"></div>
+          <div className="border-border border-t-2 my-19"></div>
           <ImagePicker name="images" label="artwork images" />
           <ErrorMessage
             error={errors['artwork_images_attributes']}

@@ -13,10 +13,10 @@ const Stocks = () => {
   return (
     <AdminLayout
       title="stockroom"
-      handler={() => history.push(routes.ROUTE_STOCKROOM)}
       subtitle="up for sale"
       buttonText="ADD NEW ITEM"
       button={true}
+      handler={() => history.push(routes.ROUTE_CREATE_STOCKROOM)}
     >
       <StockItem />
     </AdminLayout>

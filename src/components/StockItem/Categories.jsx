@@ -70,7 +70,7 @@ const Categories = ({
               </>
             ))}
           </div>
-          <div className="hidden sm:block h-210">
+          <div className="hidden sm:block h-180">
             <SelectOptions />
           </div>
           <div className="border-border border-t-2 my-25"></div>
@@ -88,8 +88,8 @@ const Categories = ({
             ))}
           </div>
 
-          <div className="border-border border-t-2 my-25"></div>
-          <div className="font-bold items-center sm:ml-auto  tracking leading-32 text-sm text-secondary uppercase mb-20 flex gap-3">
+          <div className="border-border border-t-2 my-25 sm:hidden"></div>
+          <div className="font-bold items-center sm:w-full sm:justify-center tracking leading-32 text-sm text-secondary uppercase mb-20 flex gap-3">
             choose an edition:
             <img src="/images/questionMark.svg" />
           </div>
@@ -102,7 +102,7 @@ const Categories = ({
               OPEN EDITION
             </ToggleButton>
             <Counter
-              width="w-263 ml-32 sm:h-32 sm:mt-35 "
+              width="w-293 h-32 ml-32 sm:h-32 sm:mt-35 "
               active={edition_type == 'limited'}
               onClick={(count) => {
                 setFieldValue('edition_type', 'limited');
@@ -113,7 +113,7 @@ const Categories = ({
 
           <div className="w-100% justify-between flex sm:flex-col sm:items-center">
             <button
-              className="h-33 w-153 mt-28 sm:w-275  font-nunito-bold sm:h-44 uppercase bg-primary text-white font-bold font-base sm:bg-gray sm:text-secondary"
+              className="h-33 w-153 mt-28 sm:w-275  font-nunito-bold sm:h-44 uppercase bg-primary text-white  font-sm sm:bg-gray sm:text-secondary"
               onClick={() => previous(0)}
             >
               Previous
