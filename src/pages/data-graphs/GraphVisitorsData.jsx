@@ -21,11 +21,13 @@ const GraphVisitorsData = () => {
   );
 
   const customData = [
+
     { x: '01/06', y: 100 },
     { x: '08/06', y: 200 },
     { x: '15/06', y: 200 },
     { x: '22/06', y: 100 },
     { x: '29/06', y: 300 },
+
   ];
 
   const data = {
@@ -41,6 +43,7 @@ const GraphVisitorsData = () => {
       },
       {
         label: 'Dataset 2',
+
         data: customData.map((data) => data.y),
         barThickness: 17,
         backgroundColor: '#4A4949',
@@ -49,6 +52,7 @@ const GraphVisitorsData = () => {
       },
       {
         label: 'Dataset 3',
+
         data: customData.map((data) => data.y),
         barThickness: 17,
         backgroundColor: '#C71118',
@@ -57,6 +61,7 @@ const GraphVisitorsData = () => {
       },
       {
         label: 'Dataset 4',
+
         data: customData.map((data) => data.y),
         barThickness: 17,
         backgroundColor: '#C71118',
@@ -65,6 +70,7 @@ const GraphVisitorsData = () => {
       },
       {
         label: 'Dataset 5',
+
         data: customData.map((data) => data.y),
         barThickness: 17,
         backgroundColor: '#C71118',
@@ -73,6 +79,7 @@ const GraphVisitorsData = () => {
       },
       {
         label: 'Dataset 6',
+
         data: customData.map((data) => data.y),
         barThickness: 17,
         backgroundColor: '#4A4949',
@@ -81,6 +88,7 @@ const GraphVisitorsData = () => {
       },
     ],
     options: {
+
       // scales: {
       //   y: {
       //     ticks: {

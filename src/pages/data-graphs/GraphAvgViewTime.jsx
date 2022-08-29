@@ -91,6 +91,7 @@ const GraphAvgViewTime = () => {
           },
         },
       },
+
       layout: {
         width: 700,
         height: 320,

@@ -31,7 +31,7 @@ import PaymentMethod from './PaymentMethod';
 import { LOGIN_MODAL } from 'store/actions/actionTypes';
 
 const Checkout = () => {
-  const { isLoginOpen } = useSelector((state) => state.modals)
+  const { isLoginOpen } = useSelector((state) => state.modals);
   const dispatch = useDispatch();
 
   const [checked, setChecked] = useState(false);
@@ -82,7 +82,7 @@ const Checkout = () => {
 
   const handleLoginToggle = () => {
     dispatch({ type: LOGIN_MODAL, payload: !isLoginOpen });
-  }
+  };
   useEffect(() => {
     const data = localData?.map(
       ({ artwork_id, size, paper, price, frame, quantity }) => {
