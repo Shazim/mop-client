@@ -447,3 +447,8 @@ svg.stroke-white {
   min-height: 200px;
   min-width: 200px;
 }
+
+.custom-bg {
+  background-color: #c71118;
+  color: white;
+}

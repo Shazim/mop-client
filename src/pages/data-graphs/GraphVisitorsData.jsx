@@ -21,13 +21,11 @@ const GraphVisitorsData = () => {
   );
 
   const customData = [
-
     { x: '01/06', y: 100 },
     { x: '08/06', y: 200 },
     { x: '15/06', y: 200 },
     { x: '22/06', y: 100 },
     { x: '29/06', y: 300 },
-
   ];
 
   const data = {
@@ -88,7 +86,6 @@ const GraphVisitorsData = () => {
       },
     ],
     options: {
-
       // scales: {
       //   y: {
       //     ticks: {
