@@ -452,3 +452,8 @@ svg.stroke-white {
   background-color: #c71118;
   color: white;
 }
+
+.select-item:hover {
+  background-color: #c71118;
+  color: #fff;
+}
