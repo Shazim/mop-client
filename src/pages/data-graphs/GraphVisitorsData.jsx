@@ -21,11 +21,13 @@ const GraphVisitorsData = () => {
   );
 
   const customData = [
-    { x: '01/06', y: '1', z: 2 },
-    { x: '08/06', y: '1', z: 5 },
-    { x: '15/06', y: '7', z: 3 },
-    { x: '22/06', y: '14', z: 12 },
-    { x: '29/06', y: '14', z: 14 },
+
+    { x: '01/06', y: 100 },
+    { x: '08/06', y: 200 },
+    { x: '15/06', y: 200 },
+    { x: '22/06', y: 100 },
+    { x: '29/06', y: 300 },
+
   ];
 
   const data = {
@@ -41,7 +43,8 @@ const GraphVisitorsData = () => {
       },
       {
         label: 'Dataset 2',
-        data: customData.map((data) => data.z),
+
+        data: customData.map((data) => data.y),
         barThickness: 17,
         backgroundColor: '#4A4949',
         borderWidth: 2,
@@ -49,7 +52,8 @@ const GraphVisitorsData = () => {
       },
       {
         label: 'Dataset 3',
-        data: customData.map((data) => data.z),
+
+        data: customData.map((data) => data.y),
         barThickness: 17,
         backgroundColor: '#C71118',
         borderWidth: 2,
@@ -57,7 +61,8 @@ const GraphVisitorsData = () => {
       },
       {
         label: 'Dataset 4',
-        data: customData.map((data) => data.z),
+
+        data: customData.map((data) => data.y),
         barThickness: 17,
         backgroundColor: '#C71118',
         borderWidth: 2,
@@ -65,7 +70,8 @@ const GraphVisitorsData = () => {
       },
       {
         label: 'Dataset 5',
-        data: customData.map((data) => data.z),
+
+        data: customData.map((data) => data.y),
         barThickness: 17,
         backgroundColor: '#C71118',
         borderWidth: 2,
@@ -73,7 +79,8 @@ const GraphVisitorsData = () => {
       },
       {
         label: 'Dataset 6',
-        data: customData.map((data) => data.z),
+
+        data: customData.map((data) => data.y),
         barThickness: 17,
         backgroundColor: '#4A4949',
         borderWidth: 2,
@@ -81,19 +88,21 @@ const GraphVisitorsData = () => {
       },
     ],
     options: {
-      scales: {
-        y: {
-          ticks: {
-            // Include a dollar sign in the ticks
-            callback: function (value, index, ticks) {
-              return '<' + value + ' Min';
-            },
-          },
-        },
-      },
+
+      // scales: {
+      //   y: {
+      //     ticks: {
+      //       // Include a dollar sign in the ticks
+      //       callback: function (value, index, ticks) {
+      //         return '<' + value + ' Min';
+      //       },
+      //     },
+      //   },
+      // },
       layout: {
         width: 700,
         height: 320,
+        padding: 30,
       },
     },
   };
