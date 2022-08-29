@@ -39,7 +39,7 @@ const Checkout = () => {
 
   const total_Price = useSelector((state) => state?.cart?.totalPrice);
   const history = useHistory();
-  const childRef = useRef();
+
   const [handleCreateOrder, { data: dataPost }] = usePost(createOrder);
   const { user, access_token, refresh_token } =
     (getCookie('user') && JSON.parse(getCookie('user'))) || {};

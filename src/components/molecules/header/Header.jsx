@@ -17,11 +17,10 @@ import { useLazyFetch } from 'hooks';
 import { LOGIN_MODAL } from 'store/actions/actionTypes';
 
 const Header = ({ login = false, menu, isOpen }) => {
-
-  const { isLoginOpen } = useSelector((state) => state.modals)
+  const { isLoginOpen } = useSelector((state) => state.modals);
   const dispatch = useDispatch();
   const location = useLocation();
-  const { pathname } = location || {}
+  const { pathname } = location || {};
   const history = useHistory();
 
   const [value, setValue] = useState('');
@@ -31,24 +30,23 @@ const Header = ({ login = false, menu, isOpen }) => {
 
   const artists = dataSearch?.artists || [];
 
-
   const tabs = [
     { title: 'about', link: routes.ROUTE_ABOUT },
     { title: 'galleries', link: routes.ROUTE_GALLERY },
     { title: 'browse artwork', link: routes.ROUTE_BROWSE_ARTWORK },
   ];
 
-
   const { access_token, refresh_token } =
     (getCookie('user') && JSON.parse(getCookie('user'))) || {};
 
   const activeRoute = () => {
-    if (['/galleries', '/exhibitions', '/artists'].includes(pathname)) return 'text-primary';
-  }
+    if (['/galleries', '/exhibitions', '/artists'].includes(pathname))
+      return 'text-primary';
+  };
 
   const handleLoginToggle = () => {
     dispatch({ type: LOGIN_MODAL, payload: !isLoginOpen });
-  }
+  };
 
   return (
     <>
@@ -79,18 +77,25 @@ const Header = ({ login = false, menu, isOpen }) => {
                 )}
               </div>
               <div className="flex w-65% justify-between sm:hidden">
-                {tabs.map((item, i) => (
-                  item.title === 'galleries' ? <div
-                    className={`font-bold mt-6  ${activeRoute()} text-sm uppercase hover:text-primary link tracking`}
-                  >
-                    <Link to={`${item.link}`}>{item.title}</Link>
-                  </div> :
+                {tabs.map((item, i) =>
+                  item.title === 'galleries' ? (
                     <div
-                      className={`font-bold mt-6   ${location.pathname == item.link ? 'text-primary' : 'text-secondary'} text-sm uppercase hover:text-primary link tracking`}
+                      className={`font-bold mt-6  ${activeRoute()} text-sm text-secondary uppercase hover:text-primary link tracking`}
                     >
                       <Link to={`${item.link}`}>{item.title}</Link>
                     </div>
-                ))}
+                  ) : (
+                    <div
+                      className={`font-bold mt-6   ${
+                        location.pathname == item.link
+                          ? 'text-primary'
+                          : 'text-secondary'
+                      } text-sm uppercase hover:text-primary link tracking`}
+                    >
+                      <Link to={`${item.link}`}>{item.title}</Link>
+                    </div>
+                  )
+                )}
               </div>
             </div>
             <div className="flex items-center justify-between w-33% xl:w-42% lg:w-40% md:w-43% sm:hidden">
@@ -148,10 +153,9 @@ const Header = ({ login = false, menu, isOpen }) => {
         </div>
       ) : (
         <LoginHeader />
-      )
-      }
+      )}
     </>
   );
-}
+};
 
 export default Header;

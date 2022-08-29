@@ -1,7 +1,7 @@
 import React from 'react';
 
 function ToggleButton({
-  className: classes = 'w-211 h-32',
+  className: classes = 'w-211 h-32 text-secondary',
   bg,
   children,
   ...props
@@ -9,7 +9,7 @@ function ToggleButton({
   return (
     <button
       {...props}
-      className={`font-bold text-sm text-secondary tracking leading-32 cursor-pointer ${classes} ${bg}`}
+      className={`font-bold text-sm  tracking leading-32 cursor-pointer ${classes} ${bg}`}
     >
       {children}
     </button>

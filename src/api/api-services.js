@@ -74,7 +74,12 @@ export const getPublicArtWork = (data) => {
 export const getBrowseArtworks = (data) => {
   return doGet(`${BASE_URL}${API_PATH}/items${ARTWORKS}?${data}`);
 };
-
+export const getPublicColors = () => {
+  return doGet(`${BASE_URL}${API_PATH}/items${COLORS}`);
+};
+export const getPublicStyles = () => {
+  return doGet(`${BASE_URL}${API_PATH}/items${STYLES}`);
+};
 export const getGalleries = (data) => {
   return doGet(`${BASE_URL}${API_PATH}/items${GALLERIES}${data}`);
 };
