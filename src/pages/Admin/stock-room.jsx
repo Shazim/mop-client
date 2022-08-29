@@ -111,13 +111,7 @@ const StockRoom = () => {
 
   return (
     <>
-      <AdminLayout
-        handler={addItem}
-        title="Add new artwork"
-        subtitle="artwork details"
-        buttonText="Add new items"
-        button={true}
-      >
+      <AdminLayout handler={addItem} title="Add new artwork" subtitle={step}>
         <Form
           initialValues={{
             name: '',
