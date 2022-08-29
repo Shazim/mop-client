@@ -19,13 +19,24 @@ const StockItem = ({ addItem }) => {
 
   const [perPage, setPerPage] = useState(6);
   const [isLoading, setIsLoading] = useState(true);
+  const array = [
+    { value: 20, label: 'show 20' },
+    { value: 30, label: 'show 30' },
+    { value: 40, label: 'show 40' },
+    { value: 50, label: 'show 50' },
+  ];
   const { data, status, refetch } = useFetch(getArtWorks, {
     variables: `?page=${currentPage}&per_page=${perPage}`,
   });
-
+  const selectedItems = (value) => {
+    setPerPage(value);
+  };
+  useEffect(() => {
+    refetch({ variables: `?page=${currentPage}&per_page=${perPage}` });
+  }, [perPage]);
   useEffect(() => {
     if (data && data?.artworks) {
-      setArtworkData((artData) => [...data?.artworks, ...artData]);
+      setArtworkData((artData) => [...data?.artworks]);
       setIsLoading(false);
     }
   }, [data]);
@@ -33,14 +44,12 @@ const StockItem = ({ addItem }) => {
   useEffect(() => {
     if (currentPage > 1) {
       refetch({
-        variables: `?${currentPage ? `page=${currentPage}` : ''
-          }&per_page=${perPage}`,
+        variables: `?${
+          currentPage ? `page=${currentPage}` : ''
+        }&per_page=${perPage}`,
       });
     }
   }, [currentPage]);
-  const fetchMoreData = () => {
-    setCurrentPage(data?.pagination?.next);
-  };
 
   return (
     <>
@@ -77,15 +86,8 @@ const StockItem = ({ addItem }) => {
           <SelectOptions
             className="w-30% sm:hidden xl:w-30% lg:w-30% md:w-30%"
             label="show 10"
-            option={[
-              { value: 20, label: 'show 20' },
-              { value: 30, label: 'show 30' },
-              { value: 40, label: 'show 40' },
-              { value: 50, label: 'show 50' },
-            ]}
-            onChange={(item) => {
-              setPerPage(item);
-            }}
+            option={array}
+            onChange={selectedItems}
           />
         </div>
       </div>
@@ -114,41 +116,26 @@ const StockItem = ({ addItem }) => {
                   find them.
                 </div>
               </div>
-              <InfiniteScroll
-                dataLength={artworkData?.length - 2 || 0}
-                next={fetchMoreData}
-                hasMore={true}
-              // loader={
-              //   <div className="w-100% h-80vh flex items-center justify-center ">
-              //     <TailSpin
-              //       color="#C71118"
-              //       height={80}
-              //       width={80}
-              //       ariaLabel="loading"
-              //     />
-              //   </div>
-              // }
-              >
-                <div className="gridView  sm:grid grid-cols-1">
-                  {artworkData?.map(({ name, images }) => (
-                    <>
-                      {images?.map(({ image, featured_image }) => (
-                        <>
-                          {featured_image && (
-                            <div className="mb-25">
-                              <GalleryCard
-                                imageUrl={image}
-                                title={name}
-                                className="stockroom__images"
-                              />
-                            </div>
-                          )}
-                        </>
-                      ))}
-                    </>
-                  ))}
-                </div>
-              </InfiniteScroll>
+              <div className="gridView  sm:grid grid-cols-1">
+                {artworkData?.map(({ name, images }) => (
+                  <>
+                    {images?.map(({ image, featured_image }) => (
+                      <>
+                        {featured_image && (
+                          <div className="mb-25">
+                            <GalleryCard
+                              imageUrl={image}
+                              title={name}
+                              className="stockroom__images"
+                            />
+                          </div>
+                        )}
+                      </>
+                    ))}
+                  </>
+                ))}
+              </div>
+
               <div className="mb-44">
                 <Pagination
                   pageDetails={data?.pageDetails}

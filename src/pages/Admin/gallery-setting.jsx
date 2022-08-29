@@ -98,7 +98,7 @@ const GallerySetting = () => {
       });
     }
   }, [dataPost]);
-  console.log(initial);
+
   return (
     <AdminLayout title="gallery ">
       <Form
