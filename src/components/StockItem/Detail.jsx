@@ -24,29 +24,29 @@ const Detail = ({ addItem, steps, step, next }) => {
 
   const errorLength = Object.keys(errors).length;
   return (
-    <div className="w-100% pb-172">
-      <div className="px-43 sm:px-0 pt-32 sm:pt-0">
+    <div className="w-100% pb-100">
+      <div className="px-43 sm:px-0 pt-0 sm:pt-0">
         <div className="w-57% sm:h-100 m-auto sm:w-80%">
           <StepBar steps={steps} step={step} />
         </div>
         <div className="w-231 h-33 m-auto font-avenir-reg font-medium text-secondary text-xl leading-54 tracking-wider uppercase hidden sm:block">
           items details
         </div>
-        <div className="w-65% mx-auto mt-87 sm:mt-24 items-center sm:w-full">
+        <div className="w-57% mx-auto mt-44 sm:mt-24 items-center sm:w-full">
           <TextField
-            className="h-38 w-100%"
+            className="h-38 w-100% "
             label="artwork name"
             name="name"
             placeholder="max 100 characters"
           />
-          <div className="border-border border-t-2 my-25"></div>
+          <div className="border-border border-t-2 my-26"></div>
           <TextArea
             label="artwork notes"
             name="notes"
             classes="h-113 w-100% pl-16 pt-10 resize-none"
             placeholder="MAX 500 CHARACTERS"
           />
-          <div className="border-border border-t-2 my-19"></div>
+          <div className="border-border border-t-2 my-20"></div>
           <ImagePicker name="images" label="artwork images" />
           <ErrorMessage
             error={errors['artwork_images_attributes']}

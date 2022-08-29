@@ -69,7 +69,7 @@ const StockRoom = () => {
 
   useEffect(() => {
     if (dataPost) {
-      history.push(routes.ROUTE_STOCKS);
+      history.push(routes.ROUTE_STOCKROOM);
     }
   }, [dataPost]);
 

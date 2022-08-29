@@ -47,14 +47,14 @@ const Categories = ({
 
   return (
     <div className="w-100% pb-172">
-      <div className="px-43 sm:px-0 pt-32 sm:pt-0">
+      <div className="px-43 sm:px-0  sm:pt-0">
         <div className="w-57% m-auto sm:h-100 sm:w-80%">
           <StepBar steps={steps} step={step} />
         </div>
         <div className="w-231 h-33 m-auto hidden sm:block font-avenir-reg text-xl tracking-wider text-secondary font-medium text-center uppercase ">
           categories
         </div>
-        <div className="w-65% mx-auto mt-87 items-center sm:w-full sm:mt-24">
+        <div className="w-65% mx-auto mt-29 items-center sm:w-full sm:mt-24">
           <div className="font-bold tracking leading-32 text-sm text-secondary uppercase mb-20">
             Which styles/subjects apply to this item?
           </div>
@@ -113,7 +113,7 @@ const Categories = ({
 
           <div className="w-100% justify-between flex sm:flex-col sm:items-center">
             <button
-              className="h-33 w-153 mt-28 sm:w-275  font-nunito-bold sm:h-44 uppercase bg-primary text-white  font-sm sm:bg-gray sm:text-secondary"
+              className="h-33 w-153 mt-14 sm:w-275  font-nunito-bold sm:h-44 uppercase bg-primary text-white  font-sm sm:bg-gray sm:text-secondary"
               onClick={() => previous(0)}
             >
               Previous
