@@ -22,7 +22,7 @@ import { getPublicExhibitions } from 'api';
 const Gallery = () => {
   const location = useLocation();
   const { pathname = '' } = location || {};
-  console.log({ location })
+  console.log({ location });
   const [tab, setTab] = useState(location.pathname.slice(1));
   const [handleGetGalleries, { data, status }] = useLazyFetch(getGalleries);
   const [handleGetArtists, { data: dataArtists }] = useLazyFetch(getArtists);
@@ -169,13 +169,15 @@ const Gallery = () => {
             <div className="mr-25 sm:mr-0">
               <SearchBar
                 transform="uppercase"
-                placeholder={`search for ${tab == 'Galleries' ? 'Gallery' : tab
-                  }`}
+                placeholder={`search for ${
+                  tab == 'Galleries' ? 'Gallery' : tab
+                }`}
                 bgColor="bg-gray-lighter"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />
             </div>
+
             <div className="sm:hidden">
               <SelectOptions label="sort: Most popular" />
             </div>
