@@ -5,7 +5,8 @@ import RadioButton from '../../atoms/buttons/RadioButton';
 import CheckBox from '../../atoms/checkbox/CheckBox';
 
 function Menu({ data, title, setData, filter }) {
-  const subMenu = (item, index, type, title) => {
+  let i = 0;
+  const subMenu = (item, id, type, title) => {
     const components = {
       radio: (
         <RadioButton
@@ -13,13 +14,13 @@ function Menu({ data, title, setData, filter }) {
           name={title}
           value={item.name}
           checked={item.select}
-          onChange={() => setData(title, index, '')}
+          onChange={() => setData(title, id, '')}
         />
       ),
       checkbox: (
         <CheckBox
           className="mt-12"
-          onChange={() => setData(title, index, '')}
+          onChange={(e) => setData(title, id, e, '')}
           value={item.name}
           checked={item.select}
         />
@@ -34,8 +35,8 @@ function Menu({ data, title, setData, filter }) {
             type="number"
             placeholder="enter price"
             className="textfield focus:outline-none uppercase w-220 tracking placeholder-gray h-32 font-bold text-sm pl-10 text-secondary"
-            onChange={(e) => setData(title, index, e.target.value)}
-            value={filter[title].values[index].value}
+            onChange={(e) => setData(title, id, e.target.value)}
+            value={filter[title].values[id].value}
           />
         </>
       ),
@@ -43,8 +44,8 @@ function Menu({ data, title, setData, filter }) {
     return components[type];
   };
 
-  const [isOpen, setIsOpne] = useState(false);
-  const clickHandler = () => setIsOpne(!isOpen);
+  const [isOpen, setIsOpen] = useState(false);
+  const clickHandler = () => setIsOpen(!isOpen);
   return (
     <div
       className={`relative ${

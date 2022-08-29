@@ -115,7 +115,7 @@ const GallerySetting = () => {
                   name="name"
                   placeholder="max 100 characters"
                   mb="6"
-                  className="h-40"
+                  className="h-38"
                   label="gallery name"
                 />
               </div>
@@ -124,7 +124,7 @@ const GallerySetting = () => {
                   name="artist_name"
                   placeholder="max 100 characters"
                   mb="6"
-                  className="h-40"
+                  className="h-38"
                   label="artist name"
                 />
               </div>
@@ -140,8 +140,8 @@ const GallerySetting = () => {
                 <ToggleButton
                   bg={
                     values['gallery_type'] == 'private_gallery'
-                      ? 'custom-bg mr-32'
-                      : 'bg-white mr-32'
+                      ? 'bg-primary  text-white mr-32'
+                      : 'bg-white text-secondary mr-32'
                   }
                   onClick={() =>
                     setFieldValue('gallery_type', 'private_gallery')
@@ -153,8 +153,8 @@ const GallerySetting = () => {
                 <ToggleButton
                   bg={
                     values['gallery_type'] == 'public_gallery'
-                      ? 'custom-bg '
-                      : 'bg-white'
+                      ? 'bg-primary text-white '
+                      : 'bg-white text-secondary'
                   }
                   onClick={() =>
                     setFieldValue('gallery_type', 'public_gallery')
@@ -205,7 +205,6 @@ const GallerySetting = () => {
                 name="welcome_video"
                 placeholder="YOUTUBE OR VIDEO URL"
                 mb="6"
-                height="38"
                 label="Add a Youtube or Vimeo Url that introduces your gallery:"
                 className="w-55% h-38"
               />

@@ -15,13 +15,18 @@ import SideBarWithLogin from 'components/molecules/sidebar/SideBarWithLogin';
 import Pagination from 'components/Pagination/Pagination';
 import Button from 'components/atoms/buttons/Button';
 // ====================== IMPORTED API ========================
-import { getBrowseArtworks } from 'api/api-services';
+import {
+  getBrowseArtworks,
+  getPublicColors,
+  getPublicStyles,
+} from 'api/api-services';
 
 const BrowseArtwork = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const { data: dataArtworks, refetch } = useFetch(getBrowseArtworks, {
     variables: `page=${currentPage + 1}`,
   });
+
   const [isLoading, setIsLoading] = useState(true);
 
   const search = useSelector((state) => state?.public?.searchSideBar);

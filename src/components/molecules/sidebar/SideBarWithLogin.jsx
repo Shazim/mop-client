@@ -5,36 +5,28 @@ import SearchBar from '../../atoms/searchbar/SearchBar';
 import Button from '../../atoms/buttons/Button';
 import * as types from 'store/actions/actionTypes';
 import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useFetch } from 'hooks';
+
+import { getPublicColors, getPublicStyles } from 'api/api-services';
 
 function SideBarWithLogin({ className: classes = '' }) {
+  const { data: dataColor } = useFetch(getPublicColors);
+  const { data: dataStyles } = useFetch(getPublicStyles);
+
   let initialObj = {
     colours: {
       type: 'checkbox',
-      values: [
-        { name: 'item1', select: false },
-        { name: 'item2', select: false },
-        { name: 'item3', select: false },
-        { name: 'item4', select: false },
-        { name: 'item5', select: false },
-        { name: 'item6', select: false },
-        { name: 'item7', select: false },
-        { name: 'item8', select: false },
-        { name: 'item9', select: false },
-        { name: 'item10', select: false },
-        { name: 'item11', select: false },
-        { name: 'item12', select: false },
-        { name: 'item13', select: false },
-        { name: 'item14', select: false },
-        { name: 'item15', select: false },
-      ],
+      values: [],
+      //[
+      //   { name: 'item2', select: false },
+      //   { name: 'item2', select: false },
+      //   { name: 'item3', select: false },
+      // ],
     },
     styles: {
-      type: 'radio',
-      values: [
-        { name: 'item9', select: false },
-        { name: 'item5', select: false },
-        { name: 'item8', select: false },
-      ],
+      type: 'checkbox',
+      values: [],
     },
     // 'menu 1': {
     //   type: 'radio',
@@ -57,28 +49,68 @@ function SideBarWithLogin({ className: classes = '' }) {
   };
 
   const dispatch = useDispatch();
-  const [filter, setFilter] = useState(initialObj);
 
-  const handler = (item, index, value) => {
+  const [filter, setFilter] = useState(initialObj);
+  const [select, setSelect] = useState({});
+
+  useEffect(() => {
+    const data = dataStyles?.styles?.map((data) => {
+      return { name: data.name, id: data.id, select: false };
+    });
+
+    if (data !== undefined) {
+      setFilter((prev) => {
+        return {
+          ...prev,
+          styles: { type: 'checkbox', values: data },
+        };
+      });
+    }
+  }, [dataStyles]);
+
+  useEffect(() => {
+    const testData = dataColor?.colours?.map((data) => {
+      return { name: data.name, id: data.id, select: false };
+    });
+    if (testData !== undefined) {
+      setFilter((prev) => {
+        return {
+          ...prev,
+          colours: { type: 'checkbox', values: testData },
+        };
+      });
+    }
+  }, [dataColor]);
+  // console.log({ filter });
+  const handler = (item, id) => {
     const copyFilters = { ...filter };
     const items = [...copyFilters[item].values];
-    if (copyFilters[item].type == 'checkbox') {
-      items[index].select = !items[index].select;
-      setFilter(copyFilters);
-    } else if (copyFilters[item].type == 'radio') {
-      items.map((item, i) => {
-        item.select = index == i ? true : false;
-      });
-      copyFilters[item].values = [...items];
-      setFilter(copyFilters);
-    } else {
-      copyFilters[item].values[index].value = value;
-      setFilter(copyFilters);
-    }
+    console.log('first', items[id].id);
   };
 
+  // const handler = (item, id, value) => {
+  //   console.log({ id, value });
+  //   const copyFilters = { ...filter };
+  //   const items = [...copyFilters[item].values];
+  //   if (copyFilters[item].type == 'checkbox') {
+  //     items[id].select = !items[id].select;
+  //     setFilter(copyFilters);
+  //   } else if (copyFilters[item].type == 'radio') {
+  //     items.map((item, i) => {
+  //       item.select = id == i ? true : false;
+  //     });
+  //     copyFilters[item].values = [...items];
+  //     setFilter(copyFilters);
+  //   } else {
+  //     copyFilters[item].values[id].value = value;
+  //     setFilter(copyFilters);
+  //   }
+  // };
+
   const clearFilter = () => {
-    setFilter(initialObj);
+    setFilter((prev) => ({
+      prev,
+    }));
   };
 
   const handle_field = (e) => {
