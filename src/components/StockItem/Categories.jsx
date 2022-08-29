@@ -113,7 +113,7 @@ const Categories = ({
 
           <div className="w-100% justify-between flex sm:flex-col sm:items-center">
             <button
-              className="h-33 w-153 mt-14 sm:w-275  font-nunito-bold sm:h-44 uppercase bg-primary text-white  font-sm sm:bg-gray sm:text-secondary"
+              className="h-33 w-153 mt-28 sm:w-275  font-nunito-bold sm:h-44 uppercase bg-primary text-white  font-sm sm:bg-gray sm:text-secondary"
               onClick={() => previous(0)}
             >
               Previous
