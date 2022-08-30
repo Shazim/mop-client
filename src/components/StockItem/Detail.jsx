@@ -34,16 +34,16 @@ const Detail = ({ addItem, steps, step, next }) => {
         </div>
         <div className="w-57% mx-auto mt-44 sm:mt-24 items-center sm:w-full">
           <TextField
-            className="h-38 w-100% "
+            className="h-38 w-100% uppercase "
             label="artwork name"
             name="name"
-            placeholder="max 100 characters"
+            placeholder="MAX 100 CHARACTERS"
           />
           <div className="border-border border-t-2 my-26"></div>
           <TextArea
             label="artwork notes"
             name="notes"
-            classes="h-113 w-100% pl-16 pt-10 resize-none"
+            classes="h-113 w-100% pl-16 pt-10  uppercase resize-none"
             placeholder="MAX 500 CHARACTERS"
           />
           <div className="border-border border-t-2 my-20"></div>

@@ -14,6 +14,7 @@ function Counter({ active, width, onClick }) {
     <div className={`${width} flex items-center relative`}>
       <ToggleButton
         bg={active ? 'bg-gray' : 'bg-white'}
+        border={active ? 'border-2 border-primary ' : 'border-white'}
         onClick={() => onClick(count)}
         className="h-32 font-bold w-90% text-sm text-secondary tracking leading-32 uppercase"
       >
