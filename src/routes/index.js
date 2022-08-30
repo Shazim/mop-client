@@ -37,7 +37,7 @@ import myOrders from 'pages/myOrders';
 import customerAccountDetail from 'pages/customerAccountDetail';
 import customerOrderDetail from 'pages/customerOrderDetail';
 import customerPayment from 'pages/customerPayment';
-import analytics from 'pages/analytics';
+import AdminAnalytics from 'pages/analytics';
 // List of Routes name using for links and route
 export const routes = Object.freeze({
   ROUTE_FORGOT_PASSWORD: '/forgot-password',
@@ -113,7 +113,7 @@ export default Object.freeze([
   },
   {
     path: routes.ROUTE_ANALYTICS,
-    component: analytics,
+    component: AdminAnalytics,
     privateRoute: true,
   },
 
