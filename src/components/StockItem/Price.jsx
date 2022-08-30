@@ -64,13 +64,24 @@ export default function Price({ addItem, steps, step, next, previous }) {
           <div className="flex items-center sm:hidden">
             <ToggleButton
               bg={sell_via == 'with_us' ? 'bg-gray' : 'bg-white'}
+              border={
+                sell_via == 'with_us'
+                  ? 'border-2 border-primary '
+                  : 'border-white'
+              }
+              className=" w-211 h-32 text-secondary"
               onClick={handleChange}
             >
               SELL WITH US
             </ToggleButton>
             <ToggleButton
-              className="ml-32 w-211 h-32"
+              className="ml-32 w-211 h-32 text-secondary"
               bg={sell_via == 'self_fulfil' ? 'bg-gray' : 'bg-white'}
+              border={
+                sell_via == 'self_fulfil'
+                  ? 'border-2 border-primary '
+                  : 'border-white'
+              }
               onClick={handleClick}
             >
               SELF FULFIL
@@ -82,7 +93,7 @@ export default function Price({ addItem, steps, step, next, previous }) {
           <div className="border-border border-t-2 my-25 sm:hidden"></div>
           <div className="w-100% justify-between flex sm:flex-col sm:items-center">
             <button
-              className="h-33 w-153 font-nunito-bold mt-14 sm:w-275 sm:h-44 uppercase bg-primary text-white font-bold font-base sm:bg-gray sm:text-secondary"
+              className="h-33 w-153 font-nunito-reg mt-14 sm:w-275 sm:h-44 uppercase bg-primary text-white  text-base sm:bg-gray sm:text-secondary tracking"
               onClick={() => previous(1)}
             >
               Previous

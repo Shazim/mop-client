@@ -57,7 +57,7 @@ export const artworkSchema = Yup.object().shape({
     .min(1, 'please add at least one image')
     .test(
       'artwork_images_attributes',
-      'please checked the one checkbox ',
+      'Select at least one image as primary ',
       (artwork_images_attributes) => {
         return artwork_images_attributes.some(
           (artwork_images_attributes) =>

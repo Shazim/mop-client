@@ -32,7 +32,7 @@ export default function Exhibition({ addItem, steps, step, previous }) {
           <div className="border-border border-t-2 my-25"></div>
           <div className="w-100% justify-between flex sm:flex-col sm:items-center">
             <button
-              className="h-33 w-153 mt-14 font-nunito-bold sm:w-275 sm:h-44 uppercase bg-primary text-white font-bold font-base sm:bg-gray sm:text-secondary"
+              className="h-33 w-153 mt-14 font-nunito-reg sm:w-275 sm:h-44 uppercase bg-primary text-white  text-base sm:bg-gray sm:text-secondary tracking"
               onClick={() => previous(2)}
             >
               Previous
