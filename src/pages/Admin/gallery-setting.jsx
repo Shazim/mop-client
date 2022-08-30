@@ -98,6 +98,7 @@ const GallerySetting = () => {
       });
     }
   }, [dataPost]);
+
   return (
     <AdminLayout title="gallery ">
       <Form
@@ -191,7 +192,7 @@ const GallerySetting = () => {
                 <div className="admin-h2 sm:mt-32">watermark</div>
                 <div className="admin-label my-18 leading-32 w-80%">
                   you can upload a watermark that will appear across your work.
-                  Please upload a png or svg that is less than 10mb.
+                  Please upload a png or svg that is less than 10MB.
                 </div>
                 <div className="sm:flex justify-center">
                   <UploadImageCard label="Add image" id="watermark" />
