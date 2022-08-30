@@ -4,6 +4,7 @@ import React from 'react';
 import SelectOptions from 'components/atoms/form/SelectOptions';
 import Button from 'components/atoms/buttons/Button';
 import { AdminLayout } from 'Layout';
+import withArtistRoute from 'hoc/withArtistRoute';
 
 const Orders = () => {
   const data = [
@@ -66,4 +67,4 @@ const Orders = () => {
   );
 };
 
-export default Orders;
+export default withArtistRoute(Orders);

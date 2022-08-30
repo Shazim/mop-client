@@ -3,6 +3,7 @@ import React from 'react';
 // ====================== IMPORTED COMPONENT ========================
 import SimplesTables from 'components/Tables/SimplesTables';
 import { AdminLayout } from 'Layout';
+import withArtistRoute from 'hoc/withArtistRoute';
 
 const TaxRates = () => {
   return (
@@ -17,4 +18,4 @@ const TaxRates = () => {
   );
 };
 
-export default TaxRates;
+export default withArtistRoute(TaxRates);

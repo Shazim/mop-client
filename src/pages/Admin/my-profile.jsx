@@ -14,6 +14,7 @@ import { FormField } from 'components/app/forms';
 // ====================== IMPORTED API ========================
 import { getStyles, getProfile, updateProfile } from 'api/api-services';
 import { formDataHandler } from 'utils';
+import withArtistRoute from 'hoc/withArtistRoute';
 
 const MyProfile = () => {
   const [initial, setInitial] = useState({
@@ -393,4 +394,4 @@ const MyProfile = () => {
   );
 };
 
-export default MyProfile;
+export default withArtistRoute(MyProfile);

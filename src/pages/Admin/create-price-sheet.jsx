@@ -8,6 +8,7 @@ import PriceSheetForm from 'components/PriceSheet';
 import { AdminLayout } from 'Layout';
 // ====================== IMPORTED API ========================
 import { createPriceSheet } from 'api/api-services';
+import withArtistRoute from 'hoc/withArtistRoute';
 
 const PricingSheet = () => {
   const [initalValues, setInitialValues] = useState({
@@ -45,4 +46,4 @@ const PricingSheet = () => {
   );
 };
 
-export default PricingSheet;
+export default withArtistRoute(PricingSheet);

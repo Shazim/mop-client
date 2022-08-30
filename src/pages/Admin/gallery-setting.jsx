@@ -13,6 +13,7 @@ import { AdminLayout } from 'Layout';
 // ====================== IMPORTED API ========================
 import { createGallery, getGallery } from 'api/api-services';
 import { formDataHandler } from 'utils';
+import withArtistRoute from 'hoc/withArtistRoute';
 
 const GallerySetting = () => {
   const { data: getData } = useFetch(getGallery);
@@ -222,4 +223,4 @@ const GallerySetting = () => {
   );
 };
 
-export default GallerySetting;
+export default withArtistRoute(GallerySetting);

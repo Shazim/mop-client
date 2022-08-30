@@ -6,6 +6,7 @@ import { routes } from 'routes';
 // ====================== IMPORTED COMPONENT ========================
 import { AdminLayout } from 'Layout';
 import StockItem from '../../components/StockItem';
+import withArtistRoute from 'hoc/withArtistRoute';
 
 const Stocks = () => {
   const history = useHistory();
@@ -23,4 +24,4 @@ const Stocks = () => {
   );
 };
 
-export default Stocks;
+export default withArtistRoute(Stocks);

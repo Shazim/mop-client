@@ -4,6 +4,7 @@ import React from 'react';
 import { AdminLayout } from 'Layout';
 import Tables from 'components/molecules/tables/Tables';
 import SelectOptions from 'components/atoms/form/SelectOptions';
+import withArtistRoute from 'hoc/withArtistRoute';
 
 const Customers = () => {
   return (
@@ -19,4 +20,4 @@ const Customers = () => {
   );
 };
 
-export default Customers;
+export default withArtistRoute(Customers);

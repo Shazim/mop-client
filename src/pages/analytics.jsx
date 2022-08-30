@@ -6,6 +6,7 @@ import { TextField } from 'components/atoms/form';
 import React, { useState } from 'react';
 import GraphAvgViewTime from './data-graphs/GraphAvgViewTime';
 import GraphVisitorsData from './data-graphs/GraphVisitorsData';
+import withArtistRoute from 'hoc/withArtistRoute';
 
 const AdminAnalytics = () => {
   const [fieldType, setFieldType] = useState('text');
@@ -179,4 +180,4 @@ const AdminAnalytics = () => {
   );
 };
 
-export default AdminAnalytics;
+export default withArtistRoute(AdminAnalytics);
