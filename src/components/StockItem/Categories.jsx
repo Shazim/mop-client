@@ -95,14 +95,10 @@ const Categories = ({
           </div>
           <div className="flex items-center sm:flex-col sm:justify-between">
             <ToggleButton
-              bg={edition_type == 'open' ? 'bg-gray ' : 'bg-white'}
-              border={
-                edition_type == 'open'
-                  ? 'border-2 border-primary '
-                  : 'border-white'
-              }
+              bg={edition_type == 'open' ? 'bg-primary  ' : 'bg-white '}
+              text={edition_type == 'open' ? 'text-white' : 'text-secondary'}
               onClick={() => setFieldValue('edition_type', 'open')}
-              className={'sm:w-263 sm:h-32 w-211 text-secondary '}
+              className={'sm:w-263 sm:h-32 w-211  '}
             >
               OPEN EDITION
             </ToggleButton>

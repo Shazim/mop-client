@@ -13,10 +13,10 @@ function Counter({ active, width, onClick }) {
   return (
     <div className={`${width} flex items-center relative`}>
       <ToggleButton
-        bg={active ? 'bg-gray' : 'bg-white'}
-        border={active ? 'border-2 border-primary ' : 'border-white'}
+        bg={active ? 'bg-primary' : 'bg-white'}
+        text={active ? 'text-white' : 'text-secondary'}
         onClick={() => onClick(count)}
-        className="h-32 font-bold w-90% text-sm text-secondary tracking leading-32 uppercase"
+        className="h-32 font-bold w-90% text-sm  tracking leading-32 uppercase"
       >
         limited edition of
       </ToggleButton>
@@ -27,7 +27,9 @@ function Counter({ active, width, onClick }) {
           src="/images/upArrow.svg"
           className="w-12 h-7 m-auto mb-4 link"
         />
-        <p className="z-70">{count}</p>
+        <p className={`z-70 ${active ? 'text-white' : 'text-secondary'}`}>
+          {count}
+        </p>
         <img
           onClick={() => (active ? countHandler(count > 1 ? 1 : 0) : null)}
           src="/images/downArrow.svg"
