@@ -13,8 +13,10 @@ import { LinkLabel } from 'components/LinkLabel';
 import { ReceiveInsight } from 'components/ReceiveInsight';
 import GridLayout from 'components/atoms/cards/GridLayout';
 import CreateGallary from './create-gallary';
+import { useSelector } from 'react-redux';
 
 const Home = () => {
+  const { isLoginOpen, isSignupOpen, isForgotOpen } = useSelector((state) => state.modals);
   const descriptiveIcons = [
     {
       source: '/images/services/satisfaction.svg',
@@ -41,7 +43,7 @@ const Home = () => {
 
   return (
     <>
-      <div className={`${showBg ? '' : 'bg-featured-gallery'} sm:bg-home-mobile bg-no-repeat bg-cover`}>
+      <div className={`${(isLoginOpen || isSignupOpen || isForgotOpen) ? '' : 'bg-featured-gallery'} sm:bg-home-mobile bg-no-repeat bg-cover`}>
         <Header />
         <div className="relative">
           <img
