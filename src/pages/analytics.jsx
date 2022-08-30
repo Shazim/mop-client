@@ -3,18 +3,14 @@ import Button from 'components/atoms/buttons/Button';
 import { Form } from 'components/app/forms';
 import { TextField } from 'components/atoms/form';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import GraphAvgViewTime from './data-graphs/GraphAvgViewTime';
 import GraphVisitorsData from './data-graphs/GraphVisitorsData';
 
 const AdminAnalytics = () => {
   const [fieldType, setFieldType] = useState('text');
 
-  useEffect(() => {
-    handleDatefieldFocus();
-  });
-
-  const handleDatefieldFocus = () => {
+  const handleDatefieldFocus = (e) => {
     setFieldType('date');
   };
   return (
@@ -29,7 +25,10 @@ const AdminAnalytics = () => {
           <>
             <div className="flex justify-between mb-45 -mt-10 items-center xl:flex-col lg:flex-col md:flex-col sm:flex-col sm:p-30">
               <div className="w-55% flex justify-between xl:w-100% lg:w-100% md:w-100% sm:flex-col sm:w-100% ">
-                <div className="w-48% sm:w-100%">
+                <div
+                  className="w-48% sm:w-100%"
+                  onClick={() => handleDatefieldFocus()}
+                >
                   <TextField
                     className="h-37"
                     label="start date"
@@ -38,12 +37,16 @@ const AdminAnalytics = () => {
                     type={fieldType}
                   />
                 </div>
-                <div className="w-48% sm:w-100%">
+                <div
+                  className="w-48% sm:w-100%"
+                  onClick={() => handleDatefieldFocus()}
+                >
                   <TextField
                     className="h-37"
                     label="end date"
                     placeholder="SELECT AN END DATE"
                     mb={2}
+                    type={fieldType}
                   />
                 </div>
               </div>
