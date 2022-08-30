@@ -1,5 +1,6 @@
 // ====================== IMPORTED LIBRARIES ========================
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 // ====================== IMPORTED COMPONENT ========================
@@ -11,7 +12,7 @@ import Button from 'components/atoms/buttons/Button';
 
 
 const About = () => {
-
+  const { isLoginOpen, isSignupOpen, isForgotOpen } = useSelector((state) => state.modals);
   const settings = {
     dots: true,
     infinite: true,
@@ -22,7 +23,7 @@ const About = () => {
 
   return (
     <>
-      <div className="bg-photography bg-no-repeat bg-cover ">
+      <div className={`${(isLoginOpen || isSignupOpen || isForgotOpen) ? '' : 'bg-photography bg-no-repeat bg-cover'}  `} >
         <Header />
         <div className="max-screen pt-370 pb-116 sm:px-23 sm:py-80">
           <div className="ml-50 sm:ml-0 sm:text-center text-primary tracking-wider font-avenir-300 uppercase text-3xl sm:text-2xl leading-55 w-55% xl:w-60% lg:w-65% md:w-70% sm:w-100%">

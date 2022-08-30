@@ -1,9 +1,11 @@
 // ====================== IMPORTED LIBRARIES ========================
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Modal from 'react-modal';
 import { generateSchema } from 'validation';
+import { TailSpin } from 'react-loader-spinner';
+
 
 // ====================== IMPORTED COMPONENTS ========================
 import { Form } from 'components/app/forms';
@@ -23,6 +25,8 @@ const LoginModal = () => {
   const history = useHistory();
   const location = useLocation();
   const { pathname } = location || {};
+
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const handleKeyPress = (e) => {
@@ -49,15 +53,17 @@ const LoginModal = () => {
 
   const login = (values) => {
     const route = pathname === routes.ROUTE_CHECKOUT ? routes.ROUTE_CHECKOUT : routes.ROUTE_MY_PROFILE;
+    setIsLoading(true)
     signIn({ ...values, grant_type: 'password' })
       .then((response) => {
+        setIsLoading(false)
         if (response?.status == 200) {
           setCookie('user', JSON.stringify(response?.data));
           handleLoginToggle();
           history.push(route);
         }
       })
-      .catch((error) => console.log('ERROR ', error));
+      .catch((error) => setIsLoading(false));
   };
 
   const scrollOff = () => {
@@ -112,39 +118,50 @@ const LoginModal = () => {
             </div>
             <div className="w-100% border-b border-border opacity-1"></div>
           </div>
-          <div className="mt-12">
-            <Form
-              onSubmit={login}
-              initialValues={{ email: '', password: '' }}
-              validationSchema={generateSchema({ email: '', password: '' })}
-              autoComplete="off"
-            >
-              {() => (
-                <>
-                  <TextField
-                    name="email"
-                    placeholder="Enter email here"
-                    mb="6"
-                    label="Email Address"
-                  />
-                  <TextField
-                    type="password"
-                    name="password"
-                    placeholder="Enter password here"
-                    mb="6"
-                    label="password"
-                  />
+          {isLoading ? (
+            <div className="w-100% flex items-center justify-center bg-gray-lighter">
+              <TailSpin
+                color="#C71118"
+                height={80}
+                width={80}
+                ariaLabel="loading"
+              />
+            </div>
+          ) : (
+            <div className="mt-12">
+              <Form
+                onSubmit={login}
+                initialValues={{ email: '', password: '' }}
+                validationSchema={generateSchema({ email: '', password: '' })}
+                autoComplete="off"
+              >
+                {() => (
+                  <>
+                    <TextField
+                      name="email"
+                      placeholder="Enter email here"
+                      mb="6"
+                      label="Email Address"
+                    />
+                    <TextField
+                      type="password"
+                      name="password"
+                      placeholder="Enter password here"
+                      mb="6"
+                      label="password"
+                    />
 
-                  <SubmitButton
-                    className="w-134 h-41 flex tracking text-sm justify-center items-center mx-auto mt-27"
-                    id="login-button"
-                  >
-                    LOGIN
-                  </SubmitButton>
-                </>
-              )}
-            </Form>
-          </div>
+                    <SubmitButton
+                      className="w-134 h-41 flex tracking text-sm justify-center items-center mx-auto mt-27"
+                      id="login-button"
+                    >
+                      LOGIN
+                    </SubmitButton>
+                  </>
+                )}
+              </Form>
+            </div>
+          )}
           <div className="flex justify-between pr-20 mt-34">
             <div
               onClick={handleSignupToggle}
