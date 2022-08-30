@@ -23,7 +23,7 @@ const ImageList = ({
       <div className="flex items-center">
         <img className="w-29 h-29 rounded-sm mr-15" src={imageUrl} />
         <p
-          className=" w-200 font-bold tracking leading-32 text-secondary uppercase text-sm overflow-hidden text-ellipsis block whitespace-nowrap ...."
+          className=" w-200 font-bold tracking leading-32 text-secondary uppercase text-sm truncate"
           title={name}
         >
           {name}
