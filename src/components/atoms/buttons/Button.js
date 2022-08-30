@@ -34,7 +34,7 @@ function Button({
 
   return (
     <button
-      className={`${classes} ${btnClasses} ${transform}`}
+      className={`${classes} ${btnClasses} ${transform} pt-3`}
       onClick={onClick}
       style={style}
       {...otherProps}

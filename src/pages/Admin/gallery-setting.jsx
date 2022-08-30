@@ -113,7 +113,7 @@ const GallerySetting = () => {
               <div className="w-50% mr-50 sm:w-full">
                 <TextField
                   name="name"
-                  placeholder="max 100 characters"
+                  placeholder="MAX 100 CHARACTERS"
                   mb="6"
                   className="h-40"
                   label="gallery name"
@@ -122,7 +122,7 @@ const GallerySetting = () => {
               <div className="w-50% sm:w-full">
                 <TextField
                   name="artist_name"
-                  placeholder="max 100 characters"
+                  placeholder="MAX 100 CHARACTERS"
                   mb="6"
                   className="h-40"
                   label="artist name"
