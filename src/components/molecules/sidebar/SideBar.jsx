@@ -36,6 +36,7 @@ function SideBar() {
           icon: '/images/sidebar/analytics.svg',
           link: routes.ROUTE_ANALYTICS,
           name: 'Analytics',
+          link: routes.ROUTE_ANALYTICS,
         },
         {
           redIcon: '/images/sidebar/settings_red.svg',

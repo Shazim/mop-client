@@ -3,11 +3,16 @@ import Button from 'components/atoms/buttons/Button';
 import { Form } from 'components/app/forms';
 import { TextField } from 'components/atoms/form';
 
-import React from 'react';
+import React, { useState } from 'react';
 import GraphAvgViewTime from './data-graphs/GraphAvgViewTime';
 import GraphVisitorsData from './data-graphs/GraphVisitorsData';
 
-const analytics = () => {
+const AdminAnalytics = () => {
+  const [fieldType, setFieldType] = useState('text');
+
+  const handleDatefieldFocus = (e) => {
+    setFieldType('date');
+  };
   return (
     <AdminLayout title="analytics">
       <Form
@@ -18,26 +23,36 @@ const analytics = () => {
       >
         {() => (
           <>
-            <div className="flex justify-between mb-45 items-center xl:flex-col lg:flex-col md:flex-col sm:flex-col sm:p-30">
+            <div className="flex justify-between mb-45 -mt-10 items-center xl:flex-col lg:flex-col md:flex-col sm:flex-col sm:p-30">
               <div className="w-55% flex justify-between xl:w-100% lg:w-100% md:w-100% sm:flex-col sm:w-100% ">
-                <div className="w-48% sm:w-100%">
+                <div
+                  className="w-48% sm:w-100%"
+                  onClick={() => handleDatefieldFocus()}
+                >
                   <TextField
-                    className="h-37 "
+                    className="h-37"
                     label="start date"
-                    placeholder="select a start date"
+                    placeholder="SELECT A START DATE"
+                    mb={2}
+                    type={fieldType}
                   />
                 </div>
-                <div className="w-48% sm:w-100%">
+                <div
+                  className="w-48% sm:w-100%"
+                  onClick={() => handleDatefieldFocus()}
+                >
                   <TextField
-                    className="h-37 "
+                    className="h-37"
                     label="end date"
-                    placeholder="select a end date"
+                    placeholder="SELECT AN END DATE"
+                    mb={2}
+                    type={fieldType}
                   />
                 </div>
               </div>
-              <div className="w-40% flex justify-between xl:w-100% xl:justify-between lg:w-100% lg:justify-between md:w-100% md:justify-between sm:w-100%">
+              <div className="-mt-19 w-40% flex justify-between xl:w-100% xl:justify-between lg:w-100% lg:justify-between md:w-100% md:justify-between sm:w-100%">
                 <Button
-                  className="w-45% h-37 mt-22 xl:w-48% lg:w-48% md:w-48% sm:w-45%"
+                  className="w-50% h-37 mt-22 xl:w-48% lg:w-48% md:w-48% sm:w-45%"
                   color="primary"
                 >
                   UPDATE DASHBOARD
@@ -50,7 +65,7 @@ const analytics = () => {
                 </Button>
               </div>
             </div>
-            <div className="mt-27 flex bg-white  ">
+            <div className="-mt-38 flex bg-white  ">
               <div className="pl-37">
                 <div className="pt-24 font-Avenir-reg font-medium leading-54 tracking-wider text-secondary text-xl uppercase">
                   monthly vistors
@@ -164,4 +179,4 @@ const analytics = () => {
   );
 };
 
-export default analytics;
+export default AdminAnalytics;
