@@ -63,24 +63,18 @@ export default function Price({ addItem, steps, step, next, previous }) {
 
           <div className="flex items-center sm:hidden">
             <ToggleButton
-              bg={sell_via == 'with_us' ? 'bg-gray' : 'bg-white'}
-              border={
-                sell_via == 'with_us'
-                  ? 'border-2 border-primary '
-                  : 'border-white'
-              }
-              className=" w-211 h-32 text-secondary"
+              bg={sell_via == 'with_us' ? 'bg-primary' : 'bg-white'}
+              text={sell_via == 'with_us' ? 'text-white ' : 'text-secondary'}
+              className=" w-211 h-32"
               onClick={handleChange}
             >
               SELL WITH US
             </ToggleButton>
             <ToggleButton
-              className="ml-32 w-211 h-32 text-secondary"
-              bg={sell_via == 'self_fulfil' ? 'bg-gray' : 'bg-white'}
-              border={
-                sell_via == 'self_fulfil'
-                  ? 'border-2 border-primary '
-                  : 'border-white'
+              className="ml-32 w-211 h-32 t"
+              bg={sell_via == 'self_fulfil' ? 'bg-primary' : 'bg-white'}
+              text={
+                sell_via == 'self_fulfil' ? 'text-white ' : 'text-secondary'
               }
               onClick={handleClick}
             >
