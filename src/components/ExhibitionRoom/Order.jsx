@@ -5,7 +5,7 @@ import ImageList from 'components/ImageList';
 
 const Order = () => {
   return (
-    <div className="sm">
+    <div className="sm px-25">
       <div>
         <div className="admin-h1 pb-20">Choose your order</div>
         <div className="admin-label mb-12">

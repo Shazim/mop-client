@@ -18,7 +18,7 @@ const ImageList = ({
 
   return (
     <div
-      className={`flex w-100% h-47 bg-${bg} justify-between items-center mt-18 px-12`}
+      className={`flex w-100% h-47 bg-${bg} justify-between items-center mt-12 px-12`}
     >
       <div className="flex items-center">
         <img className="w-29 h-29 rounded-sm mr-15" src={imageUrl} />

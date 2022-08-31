@@ -18,14 +18,14 @@ const Style = () => {
   } = useFormikContext() || {};
 
   return (
-    <div>
+    <div className="px-25">
       <div>
         <div className="admin-h1 pb-15">Choose your style</div>
         <div>
           {ExhibitionStylesData &&
             ExhibitionStylesData?.exhibition_styles.map(
               ({ description, image, id, name }) => (
-                <div className="mb-28">
+                <div className="mb-28 cursor-pointer">
                   <StyleCard
                     title={name}
                     description={description}

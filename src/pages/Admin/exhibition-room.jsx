@@ -42,7 +42,7 @@ const ExhibitionRoom = () => {
     'Order',
     'Style',
     'Exhibition',
-    'Lunch',
+    'Launch',
   ]);
   const [store, setStore] = useState('Detail');
   const lengthOfSteps = Object.keys(steps).length;
@@ -60,6 +60,8 @@ const ExhibitionRoom = () => {
       setStore('Exhibition');
     } else if (step == 6) {
       setStore('Launch');
+    } else {
+      setStore('Detail');
     }
   }, [step]);
   const [handleCreatePost, { data: dataPost }] = usePost(createExhibitions);
@@ -92,7 +94,7 @@ const ExhibitionRoom = () => {
 
   return (
     <AdminLayout title="exhibition room">
-      <div className="w-57% sm:h-100 m-auto sm:w-80%">
+      <div className="w-55% sm:h-100 m-auto sm:w-80%">
         <StepBar steps={detail} step={store} />
       </div>
       {step == 0 ? null : (
@@ -105,23 +107,23 @@ const ExhibitionRoom = () => {
           >
             {({ handleSubmit, values }) => (
               <>
-                <div className="bg-white w-57% h-fit px-47 pt-36 pb-28 mt-41 shadow-sm">
+                <div className="bg-white w-60% h-fit  pt-36 pb-28 shadow-sm sm:w-80%">
                   {steps[step]}
                   {lengthOfSteps != step && (
-                    <div className="hr-form-t flex justify-end pt-28 mt-39">
+                    <div className="hr-form-t flex justify-end pt-28 mt-39 px-47">
                       <Button
                         className="w-153 h-33"
                         onClick={() =>
                           values.room_name == '' && step == 1
                             ? handleSubmit()
                             : step == 5 && values.exhibition_style_id == ''
-                              ? handleSubmit()
-                              : step == 2 &&
-                                Object.keys(values.artwork_ids).length == 0
-                                ? handleSubmit()
-                                : step == 5
-                                  ? handleSubmit()
-                                  : setStep((prev) => prev + 1)
+                            ? handleSubmit()
+                            : step == 2 &&
+                              Object.keys(values.artwork_ids).length == 0
+                            ? handleSubmit()
+                            : step == 5
+                            ? handleSubmit()
+                            : setStep((prev) => prev + 1)
                         }
                       >
                         NEXT

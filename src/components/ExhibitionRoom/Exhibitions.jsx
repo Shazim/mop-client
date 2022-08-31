@@ -68,7 +68,7 @@ const ExhibitionsComp = () => {
               />
             </div>
           ) : (
-            <div className="stockroom__images mb-15 grid grid-cols-2 gap-22   sm:grid-cols-1">
+            <div className="stockroom__images  grid grid-cols-2 gap-11   sm:grid-cols-1">
               {ExhibitionsData?.exhibitions?.map(({ image }) => (
                 <VideoCard imageUrl={image ? image : undefined} />
               ))}

@@ -28,7 +28,7 @@ const Artwork = () => {
   const { setFieldValue, errors, touched } = useFormikContext() || {};
 
   return (
-    <div>
+    <div className="px-45">
       <div className="admin-h1 pb-17">Add artwork to exhibition room</div>
       <div className="admin-des pb-20 hr-b">
         Add images that you want in your exhibition room. You can choose the
@@ -43,7 +43,7 @@ const Artwork = () => {
         />
       </div>
       <div className="mt-26 admin-label mb-20">Choose Your artwork</div>
-      <div className="grid grid-cols-2 gap-12 ">
+      <div className="grid grid-cols-2 gap-11 ">
         {dataArtworks &&
           dataArtworks?.artworks.map(({ name, images, id }) => (
             <>
