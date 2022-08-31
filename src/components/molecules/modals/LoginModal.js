@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Modal from 'react-modal';
 import { generateSchema } from 'validation';
 import { TailSpin } from 'react-loader-spinner';
+import { toast } from 'react-toastify';
 
 
 // ====================== IMPORTED COMPONENTS ========================
@@ -62,8 +63,9 @@ const LoginModal = () => {
           handleLoginToggle();
           history.push(route);
         }
+        else toast.error(response?.data?.title)
       })
-      .catch((error) => setIsLoading(false));
+      .catch((error) => toast.error(error));
   };
 
   const scrollOff = () => {

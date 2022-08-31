@@ -51,7 +51,7 @@ const MyProfile = () => {
 
       const { facebook, linkedin, instagram } = social_account || {};
       let styleIds = {};
-      styles.map((item) => (styleIds[item.id] = item.id));
+      styles?.map((item) => (styleIds[item.id] = item.id));
 
       setInitial({
         ...initial,
@@ -316,7 +316,7 @@ const MyProfile = () => {
                 label="Select category"
               />
               <div className="grid grid-cols-3 gap-20  sm:hidden ">
-                {stylesData?.styles.map((style, index) => (
+                {stylesData?.styles?.map((style, index) => (
                   <>
                     <CheckBox
                       className=""
