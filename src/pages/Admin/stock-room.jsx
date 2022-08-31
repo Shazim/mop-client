@@ -17,6 +17,7 @@ import { formDataHandler } from 'utils';
 import * as types from 'store/actions/actionTypes';
 import { getColors, getStyles } from 'api';
 import { createWork } from 'api/api-services';
+import withArtistRoute from 'hoc/withArtistRoute';
 
 const StockRoom = () => {
   const [steps, setSteps] = useState([
@@ -177,4 +178,4 @@ const StockRoom = () => {
   );
 };
 
-export default StockRoom;
+export default withArtistRoute(StockRoom);

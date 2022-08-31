@@ -14,6 +14,7 @@ import { ReceiveInsight } from 'components/ReceiveInsight';
 import GridLayout from 'components/atoms/cards/GridLayout';
 import CreateGallary from './create-gallary';
 import { useSelector } from 'react-redux';
+import withCustomerRoute from 'hoc/withCustomerRoute';
 
 const Home = () => {
   const { isLoginOpen, isSignupOpen, isForgotOpen } = useSelector((state) => state.modals);
@@ -208,4 +209,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default withCustomerRoute(Home);

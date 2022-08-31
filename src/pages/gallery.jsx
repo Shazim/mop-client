@@ -18,6 +18,7 @@ import { routes } from 'routes';
 // ====================== IMPORTED api ========================
 import { getGalleries, getArtists } from 'api/api-services';
 import { getPublicExhibitions } from 'api';
+import withCustomerRoute from 'hoc/withCustomerRoute';
 
 const Gallery = () => {
   const location = useLocation();
@@ -169,9 +170,8 @@ const Gallery = () => {
             <div className="mr-25 sm:mr-0">
               <SearchBar
                 transform="uppercase"
-                placeholder={`search for ${
-                  tab == 'Galleries' ? 'Gallery' : tab
-                }`}
+                placeholder={`search for ${tab == 'Galleries' ? 'Gallery' : tab
+                  }`}
                 bgColor="bg-gray-lighter"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
@@ -234,4 +234,4 @@ const Gallery = () => {
   );
 };
 
-export default Gallery;
+export default withCustomerRoute(Gallery);

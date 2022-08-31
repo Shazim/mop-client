@@ -13,6 +13,7 @@ import { useHistory } from 'react-router-dom';
 import { AdminLayout } from 'Layout';
 // ====================== IMPORTED API ========================
 import { PriceSheetCollection } from 'api/api-services';
+import withArtistRoute from 'hoc/withArtistRoute';
 
 const PriceSheet = () => {
   const history = useHistory();
@@ -122,4 +123,4 @@ const PriceSheet = () => {
   );
 };
 
-export default PriceSheet;
+export default withArtistRoute(PriceSheet);

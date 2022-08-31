@@ -9,6 +9,7 @@ import { DiscoverMore } from 'components/DiscoveMore';
 import { ReceiveInsight } from 'components/ReceiveInsight';
 import Footer from 'components/molecules/footer/Footer';
 import Button from 'components/atoms/buttons/Button';
+import withCustomerRoute from 'hoc/withCustomerRoute';
 
 
 const About = () => {
@@ -137,4 +138,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default withCustomerRoute(About);

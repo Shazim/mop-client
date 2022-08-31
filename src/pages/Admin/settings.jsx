@@ -7,6 +7,7 @@ import Button from 'components/atoms/buttons/Button';
 import TextArea from 'components/atoms/form/TextArea';
 import RadioButton from 'components/atoms/buttons/RadioButton';
 import Package from 'components/Packages/package';
+import withArtistRoute from 'hoc/withArtistRoute';
 
 const Settings = () => {
   return (
@@ -128,4 +129,4 @@ const Settings = () => {
   );
 };
 
-export default Settings;
+export default withArtistRoute(Settings);

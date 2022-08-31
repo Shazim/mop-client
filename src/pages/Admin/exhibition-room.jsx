@@ -23,6 +23,7 @@ import { exhibitionSchema } from 'validation';
 import { createExhibitions } from 'api';
 // ====================== IMPORTED utils ========================
 import { formDataHandler } from 'utils';
+import withArtistRoute from 'hoc/withArtistRoute';
 
 const ExhibitionRoom = () => {
   const steps = {
@@ -92,13 +93,13 @@ const ExhibitionRoom = () => {
                           values.room_name == '' && step == 1
                             ? handleSubmit()
                             : step == 5 && values.exhibition_style_id == ''
-                            ? handleSubmit()
-                            : step == 2 &&
-                              Object.keys(values.artwork_ids).length == 0
-                            ? handleSubmit()
-                            : step == 5
-                            ? handleSubmit()
-                            : setStep((prev) => prev + 1)
+                              ? handleSubmit()
+                              : step == 2 &&
+                                Object.keys(values.artwork_ids).length == 0
+                                ? handleSubmit()
+                                : step == 5
+                                  ? handleSubmit()
+                                  : setStep((prev) => prev + 1)
                         }
                       >
                         NEXT
@@ -140,4 +141,4 @@ const ExhibitionRoom = () => {
   );
 };
 
-export default ExhibitionRoom;
+export default withArtistRoute(ExhibitionRoom);

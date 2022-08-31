@@ -1,6 +1,8 @@
 // ====================== IMPORTED LIBRARIES ========================
 import { useFetch } from 'hooks';
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+
 // ====================== IMPORTED COMPONENTS ========================
 import Sliders from 'components/atoms/slider/Slider';
 import AddCart from 'components/molecules/addcart/AddCart';
@@ -9,6 +11,7 @@ import { setCookie } from 'cookies/Cookies';
 
 // ====================== IMPORTED api ========================
 import { getPublicArtWork } from 'api/api-services';
+import withCustomerRoute from 'hoc/withCustomerRoute';
 
 const SinglePhoto = (props) => {
   const [artwork, setArtwork] = useState({});
@@ -20,9 +23,7 @@ const SinglePhoto = (props) => {
     '/images/image4.png',
   ];
 
-  const search = props.location.search;
-  const params = new URLSearchParams(search);
-  const id = params.get('id');
+  const { id } = useParams()
 
   const { data: dataArtwork = [] } = useFetch(getPublicArtWork, {
     variables: id,
@@ -94,4 +95,4 @@ const SinglePhoto = (props) => {
   );
 };
 
-export default SinglePhoto;
+export default withCustomerRoute(SinglePhoto);

@@ -4,6 +4,7 @@ import React from 'react';
 import Tables from 'components/molecules/tables/Tables';
 import SelectOptions from 'components/atoms/form/SelectOptions';
 import { AdminLayout } from 'Layout';
+import withArtistRoute from 'hoc/withArtistRoute';
 
 const CouponsOffers = () => {
   return (
@@ -18,4 +19,4 @@ const CouponsOffers = () => {
   );
 };
 
-export default CouponsOffers;
+export default withArtistRoute(CouponsOffers);

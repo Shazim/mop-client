@@ -14,6 +14,9 @@ import Header from 'components/molecules/header/Header';
 import SideBarWithLogin from 'components/molecules/sidebar/SideBarWithLogin';
 import Pagination from 'components/Pagination/Pagination';
 import Button from 'components/atoms/buttons/Button';
+import withCustomerRoute from 'hoc/withCustomerRoute';
+import { routes } from 'routes';
+
 // ====================== IMPORTED API ========================
 import {
   getBrowseArtworks,
@@ -123,7 +126,7 @@ const BrowseArtwork = () => {
                       images_included,
                       views,
                     }) => (
-                      <Link to={`/single-photo?id=${id}`}>
+                      <Link to={`${routes.ROUTE_SINGLE_ARTWORK}/${id}`}>
                         <GalleryCard
                           imageClass="image"
                           className="mb-12 stockroom__images"
@@ -149,7 +152,7 @@ const BrowseArtwork = () => {
                           images_included,
                           views,
                         }) => (
-                          <Link to={`/single-photo?id=${id}`}>
+                          <Link to={`${routes.ROUTE_SINGLE_ARTWORK}/${id}`}>
                             <GalleryCard
                               imageClass="image"
                               className="mb-12"
@@ -223,4 +226,4 @@ const BrowseArtwork = () => {
   );
 };
 
-export default BrowseArtwork;
+export default withCustomerRoute(BrowseArtwork);

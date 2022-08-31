@@ -12,6 +12,7 @@ import Container from 'Layout/Container';
 
 // ====================== IMPORTED API ========================
 import { getArtistDetails } from 'api';
+import withCustomerRoute from 'hoc/withCustomerRoute';
 
 const ArtistDetail = ({ props }) => {
   const [handleGetArtist, { data }] = useLazyFetch(getArtistDetails);
@@ -96,4 +97,4 @@ const ArtistDetail = ({ props }) => {
   );
 };
 
-export default ArtistDetail;
+export default withCustomerRoute(ArtistDetail);

@@ -11,6 +11,7 @@ import Pagination from 'components/Pagination/Pagination';
 import Container from 'Layout/Container';
 // ====================== IMPORTED API ========================
 import { getGalleryDetails } from 'api/api-services';
+import withCustomerRoute from 'hoc/withCustomerRoute';
 
 const GalleryDetail = ({ props }) => {
   const [handleGetGalleries, { data }] = useLazyFetch(getGalleryDetails);
@@ -95,4 +96,4 @@ const GalleryDetail = ({ props }) => {
   );
 };
 
-export default GalleryDetail;
+export default withCustomerRoute(GalleryDetail);

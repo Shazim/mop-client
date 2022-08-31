@@ -5,6 +5,7 @@ import { routes } from 'routes';
 // ====================== IMPORTED COMPONENTS ========================
 import { AdminLayout } from 'Layout';
 import { ExhibitionsComp } from 'components/ExhibitionRoom/index';
+import withArtistRoute from 'hoc/withArtistRoute';
 
 const Exhibitions = () => {
   const history = useHistory();
@@ -22,4 +23,4 @@ const Exhibitions = () => {
   );
 };
 
-export default Exhibitions;
+export default withArtistRoute(Exhibitions);
