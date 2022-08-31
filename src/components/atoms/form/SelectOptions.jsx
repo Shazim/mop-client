@@ -10,6 +10,7 @@ function SelectOptions({
     { value: 3, label: 'item4' },
     { value: 4, label: 'item5' },
   ],
+
   label = 'choose an option',
   className: classes = 'w-100%',
   color = 'gray-lighter',
@@ -27,7 +28,6 @@ function SelectOptions({
     setValue(item.value);
     setHide(!hide);
   };
-
   return (
     <OutsideAlerter close={() => setHide(true)}>
       <div

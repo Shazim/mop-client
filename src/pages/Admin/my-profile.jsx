@@ -33,7 +33,7 @@ const MyProfile = () => {
   const { data: stylesData } = useFetch(getStyles);
   const { data: profileData } = useFetch(getProfile);
   const [submitProfile, { data: profileResponse }] = usePost(updateProfile);
-
+  console.log('STYLE DATA : ', stylesData);
   useEffect(() => {
     if (profileData) {
       const {
@@ -317,6 +317,7 @@ const MyProfile = () => {
                 className="hidden mt-22 mb-42 sm:w-100% sm:block"
                 label="Select category"
               />
+
               <div className="grid grid-cols-3 gap-20  sm:hidden ">
                 {stylesData?.styles.map((style, index) => (
                   <>
@@ -334,7 +335,7 @@ const MyProfile = () => {
               <Button
                 color="gray"
                 transform="uppercase"
-                className="w-141 h-33 block ml-auto mr-0 sm:mr-auto sm:mt-30"
+                className="w-141 h-33 block ml-auto mr-0 sm:mr-auto sm:mt-60"
                 onClick={() => {
                   setFieldValue('customParam', 'styles');
                   handleSubmit();
@@ -377,7 +378,7 @@ const MyProfile = () => {
               <Button
                 color="gray"
                 transform="uppercase"
-                className="w-141 h-33 self-end sm:ml-auto sm:mr-auto sm:mt-30"
+                className="w-141 h-33 self-end sm:ml-auto sm:mr-auto sm:mt-10"
                 onClick={() => {
                   setFieldValue('customParam', 'socialLink');
                   handleSubmit();
