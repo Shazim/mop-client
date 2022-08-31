@@ -43,19 +43,19 @@ export const routes = Object.freeze({
   ROUTE_FORGOT_PASSWORD: '/forgot-password',
   ROUTE_LOGIN: '/login',
   ROUTE_SIGNUP: '/signup',
-  ROUTE_GALLERY_SETTING: '/gallery',
-  ROUTE_STOCKROOM: '/stockroom',
-  ROUTE_CREATE_STOCKROOM: '/create-stockroom',
-  ROUTE_EXHIBITION_ROOM: '/exhibition-room',
-  ROUTE_ANALYTICS: '/analytics',
-  ROUTE_SETTINGS: '/settings',
-  ROUTE_PRICE_PRODUCTS: '/pricing-and-products',
-  ROUTE_CREATE_PRICE_SHEET: '/create-price-sheet',
-  ROUTE_ORDERS: '/orders',
-  ROUTE_CUSTOMER: '/customers',
-  ROUTE_TAX_RATES: '/tax-rates',
-  ROUTE_COUPONS: '/coupons-and-offers',
-  ROUTE_MY_PROFILE: '/profile',
+  ROUTE_GALLERY_SETTING: '/artist/gallery',
+  ROUTE_STOCKROOM: '/artist/stockroom',
+  ROUTE_CREATE_STOCKROOM: '/artist/create-stockroom',
+  ROUTE_EXHIBITION_ROOM: '/artist/exhibition-room',
+  ROUTE_ANALYTICS: '/artist/analytics',
+  ROUTE_SETTINGS: '/artist/settings',
+  ROUTE_PRICE_PRODUCTS: '/artist/pricing-and-products',
+  ROUTE_CREATE_PRICE_SHEET: '/artist/create-price-sheet',
+  ROUTE_ORDERS: '/artist/orders',
+  ROUTE_CUSTOMER: '/artist/customers',
+  ROUTE_TAX_RATES: '/artist/tax-rates',
+  ROUTE_COUPONS: '/artist/coupons-and-offers',
+  ROUTE_MY_PROFILE: '/artist/profile',
   ROUTE_HOME: '/',
   ROUTE_ABOUT: '/about',
   ROUTE_GALLERY: '/galleries',
@@ -89,6 +89,76 @@ export const routes = Object.freeze({
 });
 // List of route object which will be rendered under Router component
 export default Object.freeze([
+  {
+    path: routes.ROUTE_GALLERY_SETTING,
+    component: GallerySetting,
+    privateRoute: true,
+  },
+  {
+    path: routes.ROUTE_STOCKROOM,
+    component: Stocks,
+    privateRoute: true,
+  },
+  {
+    path: routes.ROUTE_CREATE_STOCKROOM,
+    component: StockRoom,
+    privateRoute: true,
+  },
+  {
+    path: `${routes.ROUTE_EXHIBITION_ROOM}/live`,
+    component: Exhibitions,
+    privateRoute: true,
+  },
+  {
+    path: routes.ROUTE_EXHIBITION_ROOM,
+    component: ExhibitionRoom,
+    privateRoute: true,
+  },
+  {
+    path: routes.ROUTE_ANALYTICS,
+    component: AdminAnalytics,
+    privateRoute: true,
+  },
+  {
+    path: routes.ROUTE_SETTINGS,
+    component: Settings,
+    privateRoute: true
+  },
+  {
+    path: routes.ROUTE_PRICE_PRODUCTS,
+    component: PriceSheet,
+    privateRoute: true,
+  },
+  {
+    path: routes.ROUTE_CREATE_PRICE_SHEET,
+    component: PricingSheet,
+    privateRoute: true,
+  },
+  {
+    path: routes.ROUTE_ORDERS,
+    component: Orders,
+    privateRoute: true
+  },
+  {
+    path: routes.ROUTE_CUSTOMER,
+    component: Customers,
+    privateRoute: true
+  },
+  {
+    path: routes.ROUTE_TAX_RATES,
+    component: TaxRates,
+    privateRoute: true
+  },
+  {
+    path: routes.ROUTE_COUPONS,
+    component: CouponsOffers,
+    privateRoute: true
+  },
+  {
+    path: routes.ROUTE_MY_PROFILE,
+    component: MyProfile,
+    privateRoute: true,
+  },
   { path: routes.ROUTE_HOME, component: Home },
   { path: routes.ROUTE_CREATE_GALLERY, component: CreateGallary },
   { path: routes.ROUTE_STORE, component: Pricing },
@@ -104,19 +174,6 @@ export default Object.freeze([
   },
   { path: routes.ROUTE_BROWSE_ARTWORK, component: BrowseArtwork },
   { path: routes.ROUTE_CHECKOUT, component: Checkout },
-  { path: routes.ROUTE_COUPONS, component: CouponsOffers, privateRoute: true },
-  { path: routes.ROUTE_ORDERS, component: Orders, privateRoute: true },
-  {
-    path: routes.ROUTE_CREATE_PRICE_SHEET,
-    component: PricingSheet,
-    privateRoute: true,
-  },
-  {
-    path: routes.ROUTE_ANALYTICS,
-    component: AdminAnalytics,
-    privateRoute: true,
-  },
-
   {
     path: routes.ROUTE_PRICING_SHEET_DETAILS,
     component: PricingSheetDetails,
@@ -127,14 +184,6 @@ export default Object.freeze([
     component: editPriceSheet,
     privateRoute: true,
   },
-  {
-    path: routes.ROUTE_PRICE_PRODUCTS,
-    component: PriceSheet,
-    privateRoute: true,
-  },
-  { path: routes.ROUTE_TAX_RATES, component: TaxRates, privateRoute: true },
-
-  { path: routes.ROUTE_CUSTOMER, component: Customers, privateRoute: true },
   { path: routes.ROUTE_SUBSCRIBE_LOGIN, component: SubscribeLogin },
   { path: routes.ROUTE_SUBSCRIBE_SIGNUP, component: SubscribeSignup },
   {
@@ -152,7 +201,6 @@ export default Object.freeze([
     component: SubscribeLogged,
     privateRoute: true,
   },
-  { path: routes.ROUTE_SETTINGS, component: Settings, privateRoute: true },
   {
     path: routes.ROUTE_ORDER_SETTINGS,
     component: OrderSettings,
@@ -161,36 +209,6 @@ export default Object.freeze([
   {
     path: routes.ROUTE_PROFILE_SUBSCRIPTION,
     component: ProfileSubscription,
-    privateRoute: true,
-  },
-  {
-    path: `${routes.ROUTE_EXHIBITION_ROOM}/live`,
-    component: Exhibitions,
-    privateRoute: true,
-  },
-  {
-    path: routes.ROUTE_MY_PROFILE,
-    component: MyProfile,
-    privateRoute: true,
-  },
-  {
-    path: routes.ROUTE_STOCKROOM,
-    component: Stocks,
-    privateRoute: true,
-  },
-  {
-    path: routes.ROUTE_CREATE_STOCKROOM,
-    component: StockRoom,
-    privateRoute: true,
-  },
-  {
-    path: routes.ROUTE_EXHIBITION_ROOM,
-    component: ExhibitionRoom,
-    privateRoute: true,
-  },
-  {
-    path: routes.ROUTE_GALLERY_SETTING,
-    component: GallerySetting,
     privateRoute: true,
   },
   { path: `${routes.ROUTE_SINGLE_ARTWORK}/:id`, component: SinglePhoto },

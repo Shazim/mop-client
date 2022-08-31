@@ -11,7 +11,7 @@ function withCustomerRoute(WComponent) {
         if (user_type === "customer" || !access_token) {
             return <WComponent />
         } else {
-            return <Redirect to="/" />
+            return <Redirect to="/artist/profile" />
         }
 
     }
