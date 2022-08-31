@@ -152,7 +152,7 @@ const GallerySetting = () => {
                   onClick={() =>
                     setFieldValue('gallery_type', 'private_gallery')
                   }
-                  className="w-193 h-32 sm:w-121 sm:h-49 mt-0 "
+                  className="w-193 h-32 sm:w-121 sm:h-49 mt-0 uppercase "
                 >
                   Private Gallery
                 </ToggleButton>
@@ -170,7 +170,7 @@ const GallerySetting = () => {
                   onClick={() =>
                     setFieldValue('gallery_type', 'public_gallery')
                   }
-                  className=" w-193 h-32 sm:w-121 sm:h-49 mt-0 "
+                  className=" w-193 h-32 sm:w-121 sm:h-49 mt-0 uppercase"
                 >
                   Public Gallery
                 </ToggleButton>
@@ -223,7 +223,7 @@ const GallerySetting = () => {
             </div>
             <div className="sm:text-center">
               <SubmitButton className={`h-42 w-251 mt-30`} color="primary">
-                Save Changes
+                SAVE CHANGES
               </SubmitButton>
             </div>
           </div>
