@@ -240,7 +240,7 @@ const MyProfile = () => {
               <Button
                 color="gray"
                 transform="uppercase"
-                className="w-141 h-33 mb-33 self-end sm:ml-auto sm:mr-auto"
+                className="w-141 h-33 mb-33 self-end sm:-mt-12 sm:ml-auto sm:mr-auto"
                 onClick={() => {
                   setFieldValue('customParam', 'profile');
                   handleSubmit();
@@ -280,7 +280,7 @@ const MyProfile = () => {
               <Button
                 color="gray"
                 transform="uppercase"
-                className="w-141 h-33 mt-96 self-end sm:ml-auto sm:mr-auto sm:mt-30"
+                className="w-141 h-33 mt-96 self-end sm:ml-auto sm:mr-auto sm:mt-10"
               >
                 Save
               </Button>
@@ -300,7 +300,7 @@ const MyProfile = () => {
               <Button
                 color="gray"
                 transform="uppercase"
-                className="w-141 h-33 self-end  sm:ml-auto sm:mr-auto"
+                className="w-141 h-33 self-end  sm:mt-23 sm:ml-auto sm:mr-auto"
                 onClick={() => {
                   setFieldValue('customParam', 'bio');
                   handleSubmit();
@@ -309,7 +309,7 @@ const MyProfile = () => {
                 Save
               </Button>
             </div>
-            <div className="admin-h2 mt-20 mb-20 sm:text-center">
+            <div className="admin-h2 mt-20 mb-20 sm:w-277 sm:mr-auto sm:ml-auto sm:text-center">
               What Styles best describe your work?
             </div>
             <div className="hr-b pb-32">
@@ -334,7 +334,7 @@ const MyProfile = () => {
               <Button
                 color="gray"
                 transform="uppercase"
-                className="w-141 h-33 block ml-auto mr-0 sm:mr-auto sm:mt-15"
+                className="w-141 h-33 block ml-auto mr-0 sm:mr-auto sm:mt-30"
                 onClick={() => {
                   setFieldValue('customParam', 'styles');
                   handleSubmit();
