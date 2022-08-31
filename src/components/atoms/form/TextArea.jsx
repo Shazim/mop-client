@@ -24,7 +24,7 @@ function TextArea({
         <FormTextArea
           type={type}
           name={name}
-          className={`${className} ${shadow} w-100% bg-white outline-none text-secondary placeholder-gray font-bold text-sm pl-8 py-5 tracking`}
+          className={`${className} ${shadow} w-100% bg-white outline-none text-secondary placeholder-gray font-bold text-sm pl-16 py-10 tracking`}
           placeholder={placeholder}
         />
         {icon && (
