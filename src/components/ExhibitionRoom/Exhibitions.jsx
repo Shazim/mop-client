@@ -45,21 +45,36 @@ const ExhibitionsComp = () => {
           DRAFTS
         </Button>
       </div>
-      {isLoading ? (
-        <div className="w-100% h-100vh flex items-center justify-center ">
-          <TailSpin
-            color="#C71118"
-            height={80}
-            width={80}
-            ariaLabel="loading"
+      {draft ? (
+        <div className="text-center justify-center pt-112">
+          <p className="font-avenir-reg text-primary text-4xl uppercase leading-55 tracking-wider">
+            You have no Drafts Found
+          </p>
+
+          <img
+            className="mx-auto w-180 h-180 mt-56 mb-491"
+            src="/images/galleryIcon.svg"
           />
         </div>
       ) : (
-        <div className="stockroom__images mb-15 grid grid-cols-2 gap-22   sm:grid-cols-1">
-          {ExhibitionsData?.exhibitions?.map(({ image }) => (
-            <VideoCard imageUrl={image ? image : undefined} />
-          ))}
-        </div>
+        <>
+          {isLoading ? (
+            <div className="w-100% h-100vh flex items-center justify-center ">
+              <TailSpin
+                color="#C71118"
+                height={80}
+                width={80}
+                ariaLabel="loading"
+              />
+            </div>
+          ) : (
+            <div className="stockroom__images mb-15 grid grid-cols-2 gap-22   sm:grid-cols-1">
+              {ExhibitionsData?.exhibitions?.map(({ image }) => (
+                <VideoCard imageUrl={image ? image : undefined} />
+              ))}
+            </div>
+          )}
+        </>
       )}
       <Pagination
         pageDetails={ExhibitionsData?.pagination}

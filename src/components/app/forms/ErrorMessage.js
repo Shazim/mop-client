@@ -6,9 +6,12 @@ function ErrorMessage({
 }) {
   if (!visible || !error) return null;
   return (
-    <p className={`input-validation-error capitalize ${classes}`} style={style}>
+    <span
+      className={`input-validation-error capitalize ${classes}`}
+      style={style}
+    >
       {error}
-    </p>
+    </span>
   );
 }
 

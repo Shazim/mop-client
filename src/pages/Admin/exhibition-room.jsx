@@ -17,7 +17,8 @@ import {
 import { Form } from 'components/app/forms';
 import { AdminLayout } from 'Layout';
 import Button from 'components/atoms/buttons/Button';
-import Range from 'components/Range';
+import StepBar from 'components/stepbar/StepBar';
+
 // ====================== IMPORTED api ========================
 import { exhibitionSchema } from 'validation';
 import { createExhibitions } from 'api';
@@ -35,8 +36,32 @@ const ExhibitionRoom = () => {
     6: <Launch />,
   };
 
+  const [detail, setDetail] = useState([
+    'Detail',
+    'Artwork',
+    'Order',
+    'Style',
+    'Exhibition',
+    'Lunch',
+  ]);
+  const [store, setStore] = useState('Detail');
   const lengthOfSteps = Object.keys(steps).length;
   const [step, setStep] = useState(1);
+  useEffect(() => {
+    if (step == 1) {
+      setStore('Detail');
+    } else if (step == 2) {
+      setStore('Artwork');
+    } else if (step == 3) {
+      setStore('Order');
+    } else if (step == 4) {
+      setStore('Style');
+    } else if (step == 5) {
+      setStore('Exhibition');
+    } else if (step == 6) {
+      setStore('Launch');
+    }
+  }, [step]);
   const [handleCreatePost, { data: dataPost }] = usePost(createExhibitions);
   const [initalValues, setInitialValues] = useState({
     room_name: '',
@@ -66,15 +91,12 @@ const ExhibitionRoom = () => {
   }, [dataPost]);
 
   return (
-    <AdminLayout
-      title="exhibition room"
-      subtitle="up for sale"
-      buttonText="ADD NEW ITEM"
-      button={true}
-    >
-      <Range />
+    <AdminLayout title="exhibition room">
+      <div className="w-57% sm:h-100 m-auto sm:w-80%">
+        <StepBar steps={detail} step={store} />
+      </div>
       {step == 0 ? null : (
-        <div className="bg-primary-lighter h-auto pb-130 flex flex-col items-center">
+        <div className=" h-auto pb-130 flex flex-col items-center">
           <Form
             initialValues={initalValues}
             onSubmit={onSubmit}
@@ -83,7 +105,7 @@ const ExhibitionRoom = () => {
           >
             {({ handleSubmit, values }) => (
               <>
-                <div className="bg-white w-60% h-fit px-30 pt-36 pb-28 mt-41 shadow-sm">
+                <div className="bg-white w-57% h-fit px-47 pt-36 pb-28 mt-41 shadow-sm">
                   {steps[step]}
                   {lengthOfSteps != step && (
                     <div className="hr-form-t flex justify-end pt-28 mt-39">
@@ -108,7 +130,7 @@ const ExhibitionRoom = () => {
                   )}
                 </div>
                 <div className="mt-36 flex justify-center">
-                  {step > 1 && step < 6 && (
+                  {step >= 1 && step <= 6 && (
                     <Button
                       // onClick={handleSubmit}
                       onClick={() => setStep((prev) => prev - 1)}

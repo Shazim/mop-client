@@ -39,7 +39,7 @@ const Artwork = () => {
           transform="uppercase"
           placeholder="search for Artwork"
           bgColor="bg-gray-lighter"
-          className="w-243 h-32 mt-22"
+          className="w-251 h-32 mt-22"
         />
       </div>
       <div className="mt-26 admin-label mb-20">Choose Your artwork</div>

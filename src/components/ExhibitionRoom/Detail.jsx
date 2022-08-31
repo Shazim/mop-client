@@ -8,10 +8,8 @@ function Detail() {
       <TextField
         name="room_name"
         placeholder="max 100 characters"
-        mb="11"
-        height="38"
         label="Exhibition room name"
-        className="border-border-light border border-solid w-100%"
+        className="border-border-light border border-solid w-100% h-40"
       />
       <div className="admin-label--light my-7">
         ** You can add more exhibition rooms later on.
@@ -19,10 +17,8 @@ function Detail() {
       <TextField
         name="artist_name"
         placeholder="max 100 characters"
-        mb="11"
-        height="38"
         label="Artist name (optional)"
-        className="border-border-light border border-solid w-100%"
+        className="border-border-light border border-solid w-100% h-40"
       />
     </>
   );
