@@ -110,7 +110,7 @@ const GallerySetting = () => {
       >
         {({ setFieldValue, values }) => (
           <div className=" pb-295">
-            <div className="flex hr-b pb-28 sm:flex-col">
+            <div className="flex hr-b pb-28 sm:flex-col ">
               <div className="w-50% mr-50 sm:w-full">
                 <TextField
                   name="name"
@@ -120,7 +120,7 @@ const GallerySetting = () => {
                   label="gallery name"
                 />
               </div>
-              <div className="w-50% sm:w-full">
+              <div className="w-50% sm:w-full sm:mt-20">
                 <TextField
                   name="artist_name"
                   placeholder="MAX 100 CHARACTERS"
@@ -130,8 +130,8 @@ const GallerySetting = () => {
                 />
               </div>
             </div>
-            <div className="admin-h2 pt-15 sm:hidden">Private or public</div>
-            <div className="hidden admin-h2 pt-15 sm:block">Name Settings</div>
+            <div className="admin-h2 pt-25 sm:hidden">Private or public</div>
+            <div className="hidden admin-h2 pt-25 sm:block">Name Settings</div>
             <div className="flex flex-col sm:flex-col-reverse">
               <div className="admin-label my-17 ">
                 you can choose here to make your gallery private, or publicly
