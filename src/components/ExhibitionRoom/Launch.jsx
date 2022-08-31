@@ -10,7 +10,7 @@ const Launch = () => {
   } = useFormikContext() || {};
 
   return (
-    <div>
+    <div className="px-32">
       <div className="pt-38 pb-39 flex flex-col items-center">
         <div className="admin-h1">Congratulations!</div>
         <div className="admin-label--light pb-47">

@@ -22,9 +22,13 @@ const FeatureCard = ({ name, image, id }) => {
   };
 
   return (
-    <div className="card-featured w-292 relative">
-      <div className="bg-gray-darker relative rounded-sm w-292 h-183">
-        <img src={image} alt="" className="absolute w-100% h-100% rounded-sm" />
+    <div className="max-w-292 relative ">
+      <div className="bg-gray-darker relative rounded-sm  h-183">
+        <img
+          src={image}
+          alt=""
+          className="absolute w-100% h-100% rounded-sm object-cover"
+        />
         <div className="flex top-11 left-13 absolute">
           <CheckBox
             onChange={() => handleFeature(id)}
@@ -36,12 +40,12 @@ const FeatureCard = ({ name, image, id }) => {
         <div className="text-15 font-nunito-light font-normal tracking-tightest text-secondary">
           {name}
         </div>
-        <div className="flex">
+        <div className="flex hidden">
           <img src="/images/edit.svg" className="mr-14" />
           <img src="/images/delete.svg" />
         </div>
       </div>
-      <div className="flex justify-between">
+      <div className="flex justify-between hidden">
         <div className="text-15 font-normal font-nunito-light tracking-tightest text-secondary">
           Edit Description
         </div>

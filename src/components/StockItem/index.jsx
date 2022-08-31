@@ -105,7 +105,7 @@ const StockItem = ({ addItem }) => {
         <>
           {artworkData ? (
             <>
-              <div className="flex mt-21  mb-22">
+              <div className="flex mt-21  mb-22 hidden">
                 <img
                   src="/images/icons/info-icon.svg"
                   alt=""
@@ -116,7 +116,7 @@ const StockItem = ({ addItem }) => {
                   find them.
                 </div>
               </div>
-              <div className="gridView  sm:grid grid-cols-1">
+              <div className="gridView  sm:grid grid-cols-1 mt-40">
                 {artworkData?.map(({ name, images }) => (
                   <>
                     {images?.map(({ image, featured_image }) => (

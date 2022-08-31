@@ -5,7 +5,7 @@ import ImageList from 'components/ImageList';
 
 const Order = () => {
   return (
-    <div className="sm">
+    <div className="sm px-25">
       <div>
         <div className="admin-h1 pb-20">Choose your order</div>
         <div className="admin-label mb-12">
@@ -16,7 +16,7 @@ const Order = () => {
           them to be viewed. Please note that images at the top of the list will
           be viewed first.
         </div>
-        <div className="pb-37 ">
+        <div className="">
           {Array.from(Array(5).keys())
             .slice(1)
             .map(() => (

@@ -2,7 +2,7 @@ import React from 'react';
 
 function ExhibitionDemo() {
   return (
-    <div>
+    <div className="px-31">
       <div className="admin-h1 pb-10 text-center">your exhibition demo</div>
       <div className="text-sm text-secondary font-nunito-light tracking-tightest mb-50 text-center">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra purus

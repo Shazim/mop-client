@@ -40,7 +40,7 @@ function GalleryCard({
               {edit && (
                 <Button
                   type="edit"
-                  className=" sm:block w-100 h-33 mr-20 mt-_29 "
+                  className=" sm:block w-100 h-33 mr-20 mt-_29 hidden "
                   transform="uppercase"
                 >
                   Add Info
