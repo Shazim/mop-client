@@ -196,8 +196,8 @@ const MyProfile = () => {
               </div>
             </div>
             <div className="hr-b mt-31 sm:block"></div>
-            <div className="flex pt-22 justify-between hr-b sm:grid grid-cols-1">
-              <div className="grid grid-cols-3 gap-x-32 gap-y-13 mb-22 w-100% sm:grid-cols-1">
+            <div className="flex pt-22 justify-between hr-b  pb-12 sm:grid grid-cols-1">
+              <div className="grid grid-cols-3 gap-x-32 gap-y-28 mb-22 w-100% sm:grid-cols-1">
                 <TextField
                   name="firstName"
                   placeholder="REBECCA"
@@ -241,7 +241,7 @@ const MyProfile = () => {
               <Button
                 color="gray"
                 transform="uppercase"
-                className="w-141 h-33 mb-33 self-end sm:-mt-12 sm:ml-auto sm:mr-auto"
+                className="w-141 h-33 mb-20 self-end  sm:ml-auto sm:mr-auto"
                 onClick={() => {
                   setFieldValue('customParam', 'profile');
                   handleSubmit();
@@ -281,7 +281,7 @@ const MyProfile = () => {
               <Button
                 color="gray"
                 transform="uppercase"
-                className="w-141 h-33 mt-96 self-end sm:ml-auto sm:mr-auto sm:mt-10"
+                className="w-141 h-33 mt-96 self-end sm:ml-auto sm:mr-auto sm:mt-20"
               >
                 Save
               </Button>
