@@ -34,7 +34,7 @@ const MyProfile = () => {
   const { data: stylesData } = useFetch(getStyles);
   const { data: profileData } = useFetch(getProfile);
   const [submitProfile, { data: profileResponse }] = usePost(updateProfile);
-
+  console.log('STYLE DATA : ', stylesData);
   useEffect(() => {
     if (profileData) {
       const {
@@ -195,28 +195,28 @@ const MyProfile = () => {
                 />
               </div>
             </div>
-            <div className="hr-b hidden sm:block"></div>
-            <div className="flex justify-between sm:grid grid-cols-1">
-              <div className="grid grid-cols-3 gap-x-32 gap-y-20 mb-22 w-100% sm:grid-cols-1">
+            <div className="hr-b mt-31 sm:block"></div>
+            <div className="flex pt-22 justify-between hr-b sm:grid grid-cols-1">
+              <div className="grid grid-cols-3 gap-x-32 gap-y-13 mb-22 w-100% sm:grid-cols-1">
                 <TextField
                   name="firstName"
-                  placeholder="rebecca"
+                  placeholder="REBECCA"
                   mb="6"
-                  height="38"
                   label="First Name"
+                  className="h-38"
                 />
                 <TextField
                   name="surname"
-                  placeholder="warbis"
+                  placeholder="WARBIS"
                   mb="6"
-                  height="38"
-                  label="Sur Name"
+                  className="h-38"
+                  label="Surname"
                 />
                 <TextField
                   name="companyName"
-                  placeholder="photo name"
+                  placeholder="PHOTO NAME"
                   mb="6"
-                  height="38"
+                  className="h-38"
                   label="company Name"
                 />
 
@@ -224,8 +224,8 @@ const MyProfile = () => {
                   name="phoneNumber"
                   placeholder="07929665622"
                   mb="6"
-                  height="38"
-                  label="phone number"
+                  className="h-38"
+                  label="PHONE NUMBER"
                   type="number"
                 />
 
@@ -233,7 +233,7 @@ const MyProfile = () => {
                   name="email"
                   placeholder="myemail@gmail.com"
                   mb="6"
-                  height="38"
+                  className="h-38"
                   label="email address"
                   readOnly={true}
                 />
@@ -241,7 +241,7 @@ const MyProfile = () => {
               <Button
                 color="gray"
                 transform="uppercase"
-                className="w-141 h-33 self-end sm:ml-auto sm:mr-auto"
+                className="w-141 h-33 mb-33 self-end sm:-mt-12 sm:ml-auto sm:mr-auto"
                 onClick={() => {
                   setFieldValue('customParam', 'profile');
                   handleSubmit();
@@ -255,30 +255,33 @@ const MyProfile = () => {
               <div className="grid grid-cols-3 gap-y-20 gap-x-32 w-100% sm:grid-cols-1">
                 <TextField
                   name="oldPassword"
+                  type="password"
                   placeholder="******"
                   mb="6"
-                  height="38"
+                  className="h-38"
                   label="old Password"
                 />
                 <TextField
                   name="newPassword"
+                  type="password"
                   placeholder="*****"
                   mb="6"
-                  height="38"
+                  className="h-38"
                   label="New Password"
                 />
                 <TextField
                   name="confirmPassword"
+                  type="password"
                   placeholder="*******"
                   mb="6"
-                  height="38"
+                  className="h-38"
                   label="Confirm New Password"
                 />
               </div>
               <Button
                 color="gray"
                 transform="uppercase"
-                className="w-141 h-33 mt-90 sm:ml-auto sm:mr-auto sm:mt-30"
+                className="w-141 h-33 mt-96 self-end sm:ml-auto sm:mr-auto sm:mt-10"
               >
                 Save
               </Button>
@@ -288,7 +291,7 @@ const MyProfile = () => {
             </div>
             <div className="flex hr-b justify-between sm:grid grid-cols-1 sm:text-center pb-32">
               <TextArea
-                placeholder="Max 500 Character"
+                placeholder="MAX 500 CHARACTERS"
                 label="edit your bio."
                 className=" h-113"
                 width="40% sm:w-full"
@@ -298,7 +301,7 @@ const MyProfile = () => {
               <Button
                 color="gray"
                 transform="uppercase"
-                className="w-141 h-33 self-end  sm:ml-auto sm:mr-auto"
+                className="w-141 h-33 self-end  sm:mt-23 sm:ml-auto sm:mr-auto"
                 onClick={() => {
                   setFieldValue('customParam', 'bio');
                   handleSubmit();
@@ -307,7 +310,7 @@ const MyProfile = () => {
                 Save
               </Button>
             </div>
-            <div className="admin-h2 mt-20 mb-20 sm:text-center">
+            <div className="admin-h2 mt-20 mb-20 sm:w-277 sm:mr-auto sm:ml-auto sm:text-center">
               What Styles best describe your work?
             </div>
             <div className="hr-b pb-32">
@@ -315,6 +318,7 @@ const MyProfile = () => {
                 className="hidden mt-22 mb-42 sm:w-100% sm:block"
                 label="Select category"
               />
+
               <div className="grid grid-cols-3 gap-20  sm:hidden ">
                 {stylesData?.styles.map((style, index) => (
                   <>
@@ -332,7 +336,7 @@ const MyProfile = () => {
               <Button
                 color="gray"
                 transform="uppercase"
-                className="w-141 h-33 block ml-auto mr-0 sm:mr-auto sm:mt-15"
+                className="w-141 h-33 block ml-auto mr-0 sm:mr-auto sm:mt-60"
                 onClick={() => {
                   setFieldValue('customParam', 'styles');
                   handleSubmit();
@@ -344,26 +348,24 @@ const MyProfile = () => {
             <div className="admin-h2 mt-20 mb-12 sm:text-center">
               link up your social media
             </div>
-            <div className="admin-des text-black mb-25 sm:text-center">
+            {/* <div className="admin-des text-black mb-25 sm:text-center">
               Click to edit your profile picture.
-            </div>
+            </div> */}
 
             <TextField
               name="facebook"
               placeholder="ENTER PROFILE URL"
               mb="6"
-              height="38"
               label="facebook"
-              className="w-40% sm:w-full"
+              className="h-38 w-40% sm:w-full"
             />
             <div className=" my-15">
               <TextField
                 name="instagram"
                 placeholder="ENTER PROFILE URL"
                 mb="6"
-                height="38"
                 label="instagram"
-                className="w-40% sm:w-full"
+                className="h-38 w-40% sm:w-full"
               />
             </div>
             <div className="flex justify-between mb-81 w-100% sm:flex-col">
@@ -371,14 +373,13 @@ const MyProfile = () => {
                 name="linkedin"
                 placeholder="ENTER PROFILE URL"
                 mb="6"
-                height="38"
-                label="Linkdn"
-                className="w-45% sm:w-full"
+                label="twitter"
+                className="h-38 w-45% sm:w-full"
               />
               <Button
                 color="gray"
                 transform="uppercase"
-                className="w-141 h-33 self-end sm:ml-auto sm:mr-auto sm:mt-30"
+                className="w-141 h-33 self-end sm:ml-auto sm:mr-auto sm:mt-10"
                 onClick={() => {
                   setFieldValue('customParam', 'socialLink');
                   handleSubmit();
