@@ -110,7 +110,7 @@ const GallerySetting = () => {
       >
         {({ setFieldValue, values }) => (
           <div className=" pb-295">
-            <div className="flex hr-b pb-8 sm:flex-col">
+            <div className="flex hr-b pb-28 sm:flex-col ">
               <div className="w-50% mr-50 sm:w-full">
                 <TextField
                   name="name"
@@ -120,7 +120,7 @@ const GallerySetting = () => {
                   label="gallery name"
                 />
               </div>
-              <div className="w-50% sm:w-full">
+              <div className="w-50% sm:w-full sm:mt-20">
                 <TextField
                   name="artist_name"
                   placeholder="MAX 100 CHARACTERS"
@@ -130,8 +130,8 @@ const GallerySetting = () => {
                 />
               </div>
             </div>
-            <div className="admin-h2 pt-15 sm:hidden">Private or public</div>
-            <div className="hidden admin-h2 pt-15 sm:block">Name Settings</div>
+            <div className="admin-h2 pt-25 sm:hidden">Private or public</div>
+            <div className="hidden admin-h2 pt-25 sm:block">Name Settings</div>
             <div className="flex flex-col sm:flex-col-reverse">
               <div className="admin-label my-17 ">
                 you can choose here to make your gallery private, or publicly
@@ -141,8 +141,13 @@ const GallerySetting = () => {
                 <ToggleButton
                   bg={
                     values['gallery_type'] == 'private_gallery'
-                      ? 'custom-bg mr-32'
+                      ? 'bg-primary mr-32'
                       : 'bg-white mr-32'
+                  }
+                  text={
+                    values['gallery_type'] == 'private_gallery'
+                      ? 'text-white'
+                      : 'text-secondary'
                   }
                   onClick={() =>
                     setFieldValue('gallery_type', 'private_gallery')
@@ -154,8 +159,13 @@ const GallerySetting = () => {
                 <ToggleButton
                   bg={
                     values['gallery_type'] == 'public_gallery'
-                      ? 'custom-bg '
+                      ? 'bg-primary '
                       : 'bg-white'
+                  }
+                  text={
+                    values['gallery_type'] == 'public_gallery'
+                      ? 'text-white'
+                      : 'text-secondary'
                   }
                   onClick={() =>
                     setFieldValue('gallery_type', 'public_gallery')
@@ -166,7 +176,7 @@ const GallerySetting = () => {
                 </ToggleButton>
               </div>
             </div>
-            <div className="hr-b pb-10 pt-25">
+            <div className="hr-b pb-31 pt-25">
               <div className="admin-h2 pb-5 ">Domain</div>
               <TextField
                 name="domain"
@@ -177,7 +187,7 @@ const GallerySetting = () => {
                 className="w-55% h-38 sm:w-full"
               />
             </div>
-            <div className="flex  pt-20 pb-29 sm:flex-col ">
+            <div className="flex  pt-20 hr-b pb-29 sm:flex-col ">
               <div>
                 <div className="admin-h2 ">logo and branding</div>
                 <div className="admin-label my-18 leading-32 w-80%">
@@ -200,7 +210,7 @@ const GallerySetting = () => {
                 </div>
               </div>
             </div>
-            <div className="hr-b pt-25 pb-10 sm:hidden">
+            <div className="hr-b pt-25 pb-28 sm:hidden">
               <div className="admin-h2 pb-5">Add a welcome video</div>
               <TextField
                 name="welcome_video"
