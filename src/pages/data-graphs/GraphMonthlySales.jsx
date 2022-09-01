@@ -58,29 +58,16 @@ const GraphMonthlySales = () => {
       },
       plugins: {
         tooltip: {
-          enabled: false,
+          enabled: true,
         },
       },
+
+      layout: {
+        width: 350,
+        height: 250,
+        padding: 20,
+      },
     },
-
-    // options: {
-    //   scales: {
-    //     y: {
-    //       ticks: {
-    //         // Include a dollar sign in the ticks
-    //         callback: function (value, index, ticks) {
-    //           return '<' + value + ' Min';
-    //         },
-    //       },
-    //     },
-    //   },
-
-    //   layout: {
-    //     width: 700,
-    //     height: 320,
-    //     padding: 30,
-    //   },
-    // },
   };
 
   return (

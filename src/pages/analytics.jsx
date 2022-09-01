@@ -96,7 +96,9 @@ const AdminAnalytics = () => {
                     0.2
                   </div>
                 </div>
-                <GraphMonthlySales />
+                <div className="monthly-sales-graph h-250 w-70% sm:w-100%">
+                  <GraphMonthlySales />
+                </div>
               </div>
               <div className="ml-28 bg-white w-30%">
                 <div className=" pt-14 pl-39 font-Avenir-reg font-medium leading-54 tracking-wider text-secondary text-xl uppercase">
