@@ -24,50 +24,44 @@ const AdminAnalytics = () => {
       >
         {() => (
           <>
-            <div className="flex justify-between mb-45 -mt-10 items-center xl:flex-col lg:flex-col md:flex-col sm:flex-col sm:p-30">
-              <div className="w-55% flex justify-between xl:w-100% lg:w-100% md:w-100% sm:flex-col sm:w-100% ">
-                <div
-                  className="w-48% sm:w-100%"
-                  onClick={() => handleDatefieldFocus()}
-                >
-                  <TextField
-                    className="h-37"
-                    label="start date"
-                    placeholder="SELECT A START DATE"
-                    mb={2}
-                    type={fieldType}
-                  />
-                </div>
-                <div
-                  className="w-48% sm:w-100%"
-                  onClick={() => handleDatefieldFocus()}
-                >
-                  <TextField
-                    className="h-37"
-                    label="end date"
-                    placeholder="SELECT AN END DATE"
-                    mb={2}
-                    type={fieldType}
-                  />
-                </div>
+            <div className="flex justify-between -mt-14 gap-26 mb-65  items-end xl:flex-col lg:flex-col md:flex-col sm:flex-col sm:p-30 sm:hidden">
+              <div
+                className="w-1/4 md:w-1/4 sm:w-100%"
+                onClick={() => handleDatefieldFocus()}
+              >
+                <TextField
+                  className="h-37"
+                  label="start date"
+                  placeholder="SELECT A START DATE"
+                  mb={2}
+                  type={fieldType}
+                />
               </div>
-              <div className="-mt-19 w-40% flex justify-between xl:w-100% xl:justify-between lg:w-100% lg:justify-between md:w-100% md:justify-between sm:w-100%">
-                <Button
-                  className="w-50% h-37 mt-22 xl:w-48% lg:w-48% md:w-48% sm:w-45%"
-                  color="primary"
-                >
+              <div
+                className="w-1/4 md:w-1/4 sm:w-100%"
+                onClick={() => handleDatefieldFocus()}
+              >
+                <TextField
+                  className="h-37"
+                  label="end date"
+                  placeholder="SELECT AN END DATE"
+                  mb={2}
+                  type={fieldType}
+                />
+              </div>
+              <div className="w-1/4 md:w-1/4 sm:w-100%">
+                <Button className="w-100% h-37" color="primary">
                   UPDATE DASHBOARD
                 </Button>
-                <Button
-                  className="w-45% h-37 mt-22 xl:w-48% lg:w-48% md:w-48% sm:w-45%"
-                  color="gray"
-                >
+              </div>
+              <div className="w-1/4 md:w-1/4 sm:w-100%">
+                <Button className="w-100% h-37" color="gray">
                   RESET FILTER
                 </Button>
               </div>
             </div>
-            <div className="-mt-38 flex bg-white  ">
-              <div className="pl-37">
+            <div className="-mt-38 flex bg-white sm:hidden">
+              <div className="pl-37 sm:w-100%">
                 <div className="pt-24 font-Avenir-reg font-medium leading-54 tracking-wider text-secondary text-xl uppercase">
                   monthly vistors
                 </div>
@@ -81,11 +75,11 @@ const AdminAnalytics = () => {
                   1,024
                 </div>
               </div>
-              <div className="visitors-data-graph h-320 w-70%">
+              <div className="visitors-data-graph h-320 w-70% sm:w-100%">
                 <GraphVisitorsData />
               </div>
             </div>
-            <div className="flex mt-21">
+            <div className="flex mt-21 sm:hidden">
               <div className="flex  w-70% bg-white">
                 <div className=" pl-37">
                   <div className="pt-24 font-Avenir-reg font-medium leading-54 tracking-wider text-secondary text-xl uppercase">
@@ -109,7 +103,7 @@ const AdminAnalytics = () => {
                 <div className="flex mt-10 pl-39">
                   <div className="w-84 h-84 relative bg-gray rounded-full">
                     <img
-                      src="images/icons/clock.svg"
+                      src={window.location.origin + '/images/icons/clock.svg'}
                       alt=""
                       className="absolute w-35 h-35 mt-24 ml-25 "
                     />
@@ -124,7 +118,7 @@ const AdminAnalytics = () => {
                     </div>
                   </div>
                   <img
-                    src="images/icons/nexticon.svg"
+                    src={window.location.origin + '/images/icons/nexticon.svg'}
                     alt=""
                     className="h-22 w-14 mt-20 ml-30"
                   />
@@ -132,7 +126,7 @@ const AdminAnalytics = () => {
                 <div className="flex mt-10 pl-39">
                   <div className="w-84 h-84 relative bg-gray rounded-full">
                     <img
-                      src="images/icons/clock.svg"
+                      src={window.location.origin + '/images/icons/clock.svg'}
                       alt=""
                       className="absolute w-35 h-35 mt-24 ml-25 "
                     />
@@ -147,14 +141,14 @@ const AdminAnalytics = () => {
                     </div>
                   </div>
                   <img
-                    src="images/icons/nexticon.svg"
+                    src={window.location.origin + '/images/icons/nexticon.svg'}
                     alt=""
                     className="h-22 w-14 mt-20 ml-30"
                   />
                 </div>
               </div>
             </div>
-            <div className="mt-22 flex mb-48 bg-white">
+            <div className="mt-22 flex mb-48 bg-white sm:hidden">
               <div className="pl-37">
                 <div className="pt-24 font-Avenir-reg font-medium leading-54 tracking-wider text-secondary text-xl uppercase">
                   Avg View Time
@@ -172,6 +166,11 @@ const AdminAnalytics = () => {
               <div className="w-80% pt-24 h-320">
                 <GraphAvgViewTime />
               </div>
+            </div>
+            <div className="hidden sm:block">
+              <h2 className="leading-54 font-medium text-primary text-3xl p-30">
+                Analytics cannot be providd in mobile view.
+              </h2>
             </div>
           </>
         )}
