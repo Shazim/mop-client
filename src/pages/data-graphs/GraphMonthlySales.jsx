@@ -23,10 +23,10 @@ const GraphMonthlySales = () => {
   );
 
   const customData = [
-    { x: 'jan', y: '1000' },
-    { x: 'feb', y: '1500' },
-    { x: 'mar', y: '2000' },
-    { x: 'apr', y: '1000' },
+    { x: 'jan', y: '1300' },
+    { x: 'feb', y: '1000' },
+    { x: 'mar', y: '1700' },
+    { x: 'apr', y: '1400' },
   ];
 
   const data = {
@@ -36,6 +36,7 @@ const GraphMonthlySales = () => {
         label: 'Dataset 1',
         data: customData.map((data) => data.y),
         barThickness: 17,
+        borderColor: '#C71118',
         backgroundColor: '#C71118',
         borderWidth: 2,
         tension: 0.4,
@@ -50,7 +51,8 @@ const GraphMonthlySales = () => {
         },
       },
       hoverRadius: 12,
-      hoverBackgroundColor: 'yellow',
+      backgroundColor: '#fff',
+      hoverBackgroundColor: '#4A4949',
       interaction: {
         mode: 'nearest',
         intersect: false,
@@ -63,10 +65,12 @@ const GraphMonthlySales = () => {
       },
 
       layout: {
-        width: 350,
-        height: 250,
+        width: 300,
+        height: 200,
         padding: 20,
       },
+
+      point: { borderColor: '#D6D6D6', backgroundColor: '#fff' },
     },
   };
 
