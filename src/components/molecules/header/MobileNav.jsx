@@ -25,11 +25,17 @@ const MobileNav = () => {
           right
           width={'100%'}
           customBurgerIcon={
-            <img src="images/icons/menu.svg" className="hidden sm:block" />
+            <img
+              src={window.location.origin + '/images/icons/menu.svg'}
+              className="hidden sm:block"
+            />
           }
           onClick={() => setOpen(!open)}
           customCrossIcon={
-            <img src="images/icons/close.svg" className="hidden sm:block" />
+            <img
+              src={window.location.origin + '/images/icons/close.svg'}
+              className="hidden sm:block"
+            />
           }
           className="top-0"
         >
