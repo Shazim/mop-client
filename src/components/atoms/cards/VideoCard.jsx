@@ -17,7 +17,7 @@ function VideoCard({
         src="/images/card/play-button.svg"
       />
       <div className=" sm:block absolute sm:bottom-80% right-20 bottom-5%">
-        <button className="bg-white w-75 h-33 rounded-md font-bold text-sm tracking text-secondary-darkest">
+        <button className="bg-white link w-75 h-33 rounded-md font-bold text-sm tracking text-secondary-darkest">
           Edit
         </button>
       </div>
@@ -47,7 +47,7 @@ function VideoCard({
           </div>
         </div>
         {edit && (
-          <button className="bg-white w-75 h-33 rounded-md font-bold text-sm tracking text-secondary-darkest">
+          <button className="bg-white w-75 h-33 rounded-md  font-bold text-sm tracking text-secondary-darkest">
             Edit
           </button>
         )}

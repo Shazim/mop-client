@@ -29,12 +29,13 @@ function SideBar() {
           redIcon: '/images/sidebar/exhibitionroom_red.svg',
           name: 'Exhibition Rooms',
           link: `${routes.ROUTE_EXHIBITION_ROOM}/live`,
+          link2: routes.ROUTE_EXHIBITION_ROOM,
         },
 
         {
           redIcon: '/images/sidebar/analytics_red.svg',
           icon: '/images/sidebar/analytics.svg',
-          link: routes.ROUTE_ANALYTICS,
+
           name: 'Analytics',
           link: routes.ROUTE_ANALYTICS,
         },
@@ -143,10 +144,11 @@ function SideBar() {
                     <>
                       {subItem.name == 'Logout' ? (
                         <span
-                          className={`flex w-100% h-55  sm:bg-gray-lighter rounded-r-lg pl-62 xl:pl-50 lg:pl-40 md:pl-35 link ${subItem.link == location.pathname
-                            ? 'bg-secondary-dim'
-                            : ''
-                            }`}
+                          className={`flex w-100% h-55  sm:bg-gray-lighter rounded-r-lg pl-62 xl:pl-50 lg:pl-40 md:pl-35 link ${
+                            subItem.link == location.pathname
+                              ? 'bg-secondary-dim'
+                              : ''
+                          }`}
                           onClick={logout}
                         >
                           <img
@@ -158,10 +160,11 @@ function SideBar() {
                             }
                           />
                           <div
-                            className={`my-auto font-nunito-semibold capitalize text-base leading-5 ml-28 ${subItem.link == location.pathname
-                              ? 'text-primary'
-                              : 'text-secondary'
-                              } `}
+                            className={`my-auto font-nunito-semibold capitalize text-base leading-5 ml-28 ${
+                              subItem.link == location.pathname
+                                ? 'text-primary'
+                                : 'text-secondary'
+                            } `}
                           >
                             {subItem.name}
                           </div>
@@ -169,30 +172,32 @@ function SideBar() {
                       ) : (
                         <Link to={`${subItem.link}`}>
                           <span
-                            className={`flex w-100% h-55  sm:bg-gray-lighter rounded-r-lg pl-62 xl:pl-50 lg:pl-40 md:pl-35 link ${subItem.link == location.pathname
-                              ? 'bg-secondary-dim'
-                              : ''
-                              }`}
+                            className={`flex w-100% h-55  sm:bg-gray-lighter rounded-r-lg pl-62 xl:pl-50 lg:pl-40 md:pl-35 link ${
+                              subItem.link == location.pathname
+                                ? 'bg-secondary-dim'
+                                : ''
+                            }`}
                           >
                             <img
                               className="w-19 h-19 my-auto text-primary"
                               src={
                                 subItem.link == location.pathname ||
-                                  location.pathname.includes(subItem?.link2) ||
-                                  location.pathname.includes(subItem?.link3) ||
-                                  location.pathname.includes(subItem?.link4)
+                                location.pathname.includes(subItem?.link2) ||
+                                location.pathname.includes(subItem?.link3) ||
+                                location.pathname.includes(subItem?.link4)
                                   ? subItem.redIcon
                                   : subItem.icon
                               }
                             />
                             <div
-                              className={`my-auto font-nunito-semibold capitalize text-base leading-5 ml-28 ${subItem.link == location.pathname ||
+                              className={`my-auto font-nunito-semibold capitalize text-base leading-5 ml-28 ${
+                                subItem.link == location.pathname ||
                                 location.pathname.includes(subItem?.link2) ||
                                 location.pathname.includes(subItem?.link3) ||
                                 location.pathname.includes(subItem?.link4)
-                                ? 'text-primary'
-                                : 'text-secondary'
-                                } `}
+                                  ? 'text-primary'
+                                  : 'text-secondary'
+                              } `}
                             >
                               {subItem.name}
                             </div>
@@ -216,7 +221,7 @@ function SideBar() {
             </div>
             <img
               className="w-14 h-13 my-auto text-primary"
-              src="images/sidebar/leftArrow.svg"
+              src={window.location.origin + '/images/sidebar/leftArrow.svg'}
             />
           </span>
         </div>

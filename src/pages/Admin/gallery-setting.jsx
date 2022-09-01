@@ -133,16 +133,18 @@ const GallerySetting = () => {
             <div className="admin-h2 pt-25 sm:hidden">Private or public</div>
             <div className="hidden admin-h2 pt-25 sm:block">Name Settings</div>
             <div className="flex flex-col sm:flex-col-reverse">
+              <div className="hr-b hidden sm:block"></div>
               <div className="admin-label my-17 ">
                 you can choose here to make your gallery private, or publicly
                 available via our search engines.
               </div>
-              <div className=" hr-b flex  pb-30 sm:block">
+
+              <div className="  flex   pb-30 sm:block">
                 <ToggleButton
                   bg={
                     values['gallery_type'] == 'private_gallery'
-                      ? 'bg-primary mr-32'
-                      : 'bg-white mr-32'
+                      ? 'bg-primary '
+                      : 'bg-white '
                   }
                   text={
                     values['gallery_type'] == 'private_gallery'
@@ -152,7 +154,7 @@ const GallerySetting = () => {
                   onClick={() =>
                     setFieldValue('gallery_type', 'private_gallery')
                   }
-                  className="w-193 h-32 sm:w-121 sm:h-49 mt-0 uppercase "
+                  className="w-193 h-32 sm:w-142 mr-32  sm:mr-10 sm:leading-18 sm:h-49 mt-0 uppercase "
                 >
                   Private Gallery
                 </ToggleButton>
@@ -170,13 +172,14 @@ const GallerySetting = () => {
                   onClick={() =>
                     setFieldValue('gallery_type', 'public_gallery')
                   }
-                  className=" w-193 h-32 sm:w-121 sm:h-49 mt-0 uppercase"
+                  className=" w-193 h-32 sm:w-142 sm:leading-18 sm:h-49 mt-0 uppercase"
                 >
                   Public Gallery
                 </ToggleButton>
               </div>
+              <div className="hr-b sm:hidden"></div>
             </div>
-            <div className="hr-b pb-31 pt-25">
+            <div className="hr-b pb-31 pt-25 sm:hidden">
               <div className="admin-h2 pb-5 ">Domain</div>
               <TextField
                 name="domain"

@@ -57,7 +57,7 @@ const StockItem = ({ addItem }) => {
         <SearchBar
           placeholder="Search For An Artist"
           bgColor="bg-transparent"
-          className="sm:w-90% sm:h-26 w-200"
+          className="sm:w-90% sm:h-26 w-200  "
           onChange={(e) => {
             refetch({
               variables: `?q[name_cont]=${e.target.value}`,

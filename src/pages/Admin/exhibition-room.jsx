@@ -25,8 +25,12 @@ import { createExhibitions } from 'api';
 // ====================== IMPORTED utils ========================
 import { formDataHandler } from 'utils';
 import withArtistRoute from 'hoc/withArtistRoute';
+import { getCookie } from 'cookies/Cookies';
 
 const ExhibitionRoom = () => {
+  const user = getCookie('user') && JSON.parse(getCookie('user'));
+  const { user_type } = user?.user || {};
+  console.log({ user_type });
   const steps = {
     1: <Detail />,
     2: <Artwork />,
@@ -44,11 +48,13 @@ const ExhibitionRoom = () => {
     'Exhibition',
     'Launch',
   ]);
-  const [store, setStore] = useState('Detail');
+  const [store, setStore] = useState('');
   const lengthOfSteps = Object.keys(steps).length;
   const [step, setStep] = useState(1);
   useEffect(() => {
-    if (step == 1) {
+    if (step == 0) {
+      setStep((prev) => prev - 1) && setDetail('');
+    } else if (step == 1) {
       setStore('Detail');
     } else if (step == 2) {
       setStore('Artwork');
@@ -61,7 +67,9 @@ const ExhibitionRoom = () => {
     } else if (step == 6) {
       setStore('Launch');
     } else {
-      setStore('Detail');
+      user_type === 'artist'
+        ? history.push(`${routes.ROUTE_EXHIBITION_ROOM}/live`)
+        : history.push(routes.ROUTE_EXHIBITIONS);
     }
   }, [step]);
   const [handleCreatePost, { data: dataPost }] = usePost(createExhibitions);
@@ -147,10 +155,12 @@ const ExhibitionRoom = () => {
                       SAVE AS DRAFT
                     </Button>
                   )}
-                  {lengthOfSteps == step && (
+                  {lengthOfSteps === step && (
                     <Button
                       className="ml-22 w-153 h-33"
-                      onClick={() => history.push(routes.ROUTE_EXHIBITIONS)}
+                      onClick={() =>
+                        history.push(`${routes.ROUTE_EXHIBITION_ROOM}/live`)
+                      }
                     >
                       FINISH
                     </Button>

@@ -447,6 +447,12 @@ svg.stroke-white {
   min-height: 200px;
   min-width: 200px;
 }
+.custom-search:focus {
+  outline: none;
+  border-bottom: solid 1px #c71118;
+  background-color: white;
+  transition: 0.4s;
+}
 
 .custom-bg {
   background-color: #c71118;
