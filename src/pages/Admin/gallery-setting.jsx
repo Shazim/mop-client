@@ -139,7 +139,7 @@ const GallerySetting = () => {
                 available via our search engines.
               </div>
 
-              <div className="  flex   pb-30 sm:block">
+              <div className="  flex sm:mt-26 sm:pb-4 pb-30 sm:block">
                 <ToggleButton
                   bg={
                     values['gallery_type'] == 'private_gallery'
