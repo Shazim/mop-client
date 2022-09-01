@@ -205,7 +205,7 @@ const GallerySetting = () => {
             <div className="flex  pt-20 hr-b pb-29 sm:flex-col ">
               <div>
                 <div className="admin-h2 ">logo and branding</div>
-                <div className="admin-label my-18 leading-32 w-80%">
+                <div className="admin-label my-18 leading-32 w-80% sm:w-full">
                   this will appear below your gallery name and artist name.
                   Please upload a png or svg that is less than 10mb.
                 </div>
@@ -216,7 +216,7 @@ const GallerySetting = () => {
               <div className="hidden hr-b mt-48 sm:block"></div>
               <div>
                 <div className="admin-h2 sm:mt-32">watermark</div>
-                <div className="admin-label my-18 leading-32 w-80%">
+                <div className="admin-label my-18 leading-32 w-80% sm:w-full">
                   you can upload a watermark that will appear across your work.
                   Please upload a png or svg that is less than 10MB.
                 </div>
