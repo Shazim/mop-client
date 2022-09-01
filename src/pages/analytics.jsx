@@ -7,6 +7,7 @@ import React, { useState } from 'react';
 import GraphAvgViewTime from './data-graphs/GraphAvgViewTime';
 import GraphVisitorsData from './data-graphs/GraphVisitorsData';
 import withArtistRoute from 'hoc/withArtistRoute';
+import GraphMonthlySales from './data-graphs/GraphMonthlySales';
 
 const AdminAnalytics = () => {
   const [fieldType, setFieldType] = useState('text');
@@ -95,6 +96,7 @@ const AdminAnalytics = () => {
                     0.2
                   </div>
                 </div>
+                <GraphMonthlySales />
               </div>
               <div className="ml-28 bg-white w-30%">
                 <div className=" pt-14 pl-39 font-Avenir-reg font-medium leading-54 tracking-wider text-secondary text-xl uppercase">
@@ -103,7 +105,7 @@ const AdminAnalytics = () => {
                 <div className="flex mt-10 pl-39">
                   <div className="w-84 h-84 relative bg-gray rounded-full">
                     <img
-                      src="images/icons/clock.svg"
+                      src={window.location.origin + '/images/icons/clock.svg'}
                       alt=""
                       className="absolute w-35 h-35 mt-24 ml-25 "
                     />
