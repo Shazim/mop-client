@@ -103,7 +103,7 @@ const AdminAnalytics = () => {
                 <div className="flex mt-10 pl-39">
                   <div className="w-84 h-84 relative bg-gray rounded-full">
                     <img
-                      src={window.location.origin + '/images/icons/clock.svg'}
+                      src="images/icons/clock.svg"
                       alt=""
                       className="absolute w-35 h-35 mt-24 ml-25 "
                     />
