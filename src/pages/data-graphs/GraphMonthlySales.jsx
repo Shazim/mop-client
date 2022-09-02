@@ -64,11 +64,11 @@ const GraphMonthlySales = () => {
         },
       },
 
-      layout: {
-        width: 300,
-        height: 200,
-        padding: 20,
-      },
+      // layout: {
+      //   width: 300,
+      //   height: 200,
+      //   padding: 20,
+      // },
 
       point: { borderColor: '#D6D6D6', backgroundColor: '#fff' },
     },
