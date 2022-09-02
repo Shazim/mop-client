@@ -105,7 +105,7 @@ export default Object.freeze([
     privateRoute: true,
   },
   {
-    path: `${routes.ROUTE_EXHIBITION_ROOM}/live`,
+    path: `${routes.ROUTE_EXHIBITION_ROOM}/:id`,
     component: Exhibitions,
     privateRoute: true,
   },
