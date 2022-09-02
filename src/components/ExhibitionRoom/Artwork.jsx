@@ -1,6 +1,9 @@
 // ====================== IMPORTED LIBRARIES ========================
 import React, { useEffect, useState } from 'react';
 import { useLazyFetch, useFetch } from 'hooks';
+import { debounce } from "lodash";
+import { TailSpin } from 'react-loader-spinner';
+
 // ====================== IMPORTED COMPONENTS ========================
 import SearchBar from 'components/atoms/searchbar/SearchBar';
 import FeatureCard from './FeatureCard';
@@ -10,22 +13,20 @@ import { useFormikContext } from 'formik';
 import { getArtWorks } from 'api';
 
 const Artwork = () => {
+  const { setFieldValue, errors, touched } = useFormikContext() || {};
   const [search, setSearch] = useState('');
-  const { data: dataArtworks, status, refetch } = useFetch(getArtWorks);
+  const { data: dataArtworks, loading, status, refetch } = useFetch(getArtWorks);
   const [currentPage, setCurrentPage] = useState(1);
   const [perPage, setPerPage] = useState(10);
 
   useEffect(() => {
-    if (perPage > 10 || search || currentPage > 1) {
+    if (perPage > 10 || currentPage > 1) {
       refetch({
-        variables: `${search != '' ? `q[name_cont]=${search}&` : ''}${
-          perPage ? `per_page=${perPage}` : ''
-        }${currentPage ? `page=${currentPage}` : ''}`,
+        variables: `${perPage ? `per_page=${perPage}` : ''
+          }${currentPage ? `page=${currentPage}` : ''}`,
       });
     }
-  }, [perPage, currentPage, search]);
-
-  const { setFieldValue, errors, touched } = useFormikContext() || {};
+  }, [perPage, currentPage,]);
 
   return (
     <div className="px-45">
@@ -40,9 +41,27 @@ const Artwork = () => {
           placeholder="search for Artwork"
           bgColor="bg-gray-lighter"
           className="w-251 h-32 mt-22"
+          value={search}
+          onChange={(e) => {
+            refetch({
+              variables: `?q[name_cont]=${e.target.value}`,
+            });
+            setSearch(e.target.value);
+          }}
         />
       </div>
       <div className="mt-26 admin-label mb-20">Choose Your artwork</div>
+      {loading && (
+        <div className="w-100% flex items-center justify-center ">
+          <TailSpin
+            color="#C71118"
+            height={80}
+            width={80}
+            ariaLabel="loading"
+          />
+        </div>
+      )
+      }
       <div className="grid grid-cols-2 gap-11 ">
         {dataArtworks &&
           dataArtworks?.artworks.map(({ name, images, id }) => (
