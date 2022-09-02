@@ -10,14 +10,17 @@ function VideoCard({
   onClick,
 }) {
   return (
-    <div className=" max-w-900 relative  sm:mx-10 " onClick={onClick}>
+    <div
+      className="stockroom__images max-w-900 relative  sm:mx-10 "
+      onClick={onClick}
+    >
       <img className="w-100% sm:rounded-8" src={imageUrl} />
       <img
         className="absolute  link left-50% top-50% transform-xy sm:invisible sm:hover:visible"
         src="/images/card/play-button.svg"
       />
       <div className=" sm:block absolute sm:bottom-80% right-20 bottom-5%">
-        <button className="bg-white link w-75 h-33 rounded-md font-bold text-sm tracking text-secondary-darkest">
+        <button className=" hidden bg-white link w-75 h-33 rounded-md font-bold text-sm tracking text-secondary-darkest">
           Edit
         </button>
       </div>

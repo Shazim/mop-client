@@ -88,7 +88,7 @@ const Gallery = () => {
     galleries: data?.galleries.map(({ gallery_name, views, id, image }) => (
       <Link to={`${routes.ROUTE_GALLERY}/${id}`}>
         <GalleryCard
-          className="w-100% h-100% mb-12"
+          className="w-100% h-100% mb-12 sm:pr-10"
           imageClass="image"
           info={false}
           title={gallery_name}
@@ -100,7 +100,7 @@ const Gallery = () => {
     exhibitions: dataExhibitions?.exhibitions?.map(
       ({ room_name, views, id, image }) => (
         <GalleryCard
-          className="w-100% h-100% mb-15"
+          className="w-100% h-100% mb-15 sm:pr-10"
           imageClass="image"
           info={false}
           title={room_name}
@@ -112,7 +112,7 @@ const Gallery = () => {
     artists: dataArtists?.artists.map(({ artist_name, id, image }) => (
       <Link to={`${routes.ROUTE_ARTISTS}/${id}`}>
         <GalleryCard
-          className="w-100% h-100% mb-12 sm:pt-20"
+          className="w-100% h-100% mb-12 sm:pt-20 sm:pr-10"
           imageClass="image"
           info={false}
           title={artist_name}
@@ -132,8 +132,9 @@ const Gallery = () => {
         settings: {
           arrows: false,
           slidesToShow: 2,
-          rows: 2,
-
+          rows: 3,
+          margin: 40,
+          slidesToScroll: 2,
           dots: true,
         },
       },
@@ -143,7 +144,7 @@ const Gallery = () => {
           arrows: false,
           slidesToShow: 2,
           rows: 2,
-
+          slidesToScroll: 2,
           dots: true,
         },
       },
@@ -170,8 +171,9 @@ const Gallery = () => {
             <div className="mr-25 sm:mr-0">
               <SearchBar
                 transform="uppercase"
-                placeholder={`search for ${tab == 'Galleries' ? 'Gallery' : tab
-                  }`}
+                placeholder={`search for ${
+                  tab == 'Galleries' ? 'Gallery' : tab
+                }`}
                 bgColor="bg-gray-lighter"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
@@ -199,8 +201,8 @@ const Gallery = () => {
                 />
               </div>
             ) : (
-              <div className="gridView-1 packages-slider-2 ">
-                <Slider {...settings}>{steps[tab]}</Slider>
+              <div className="gridView-1 packages-slider-1 ">
+                <Slider {...settings}>{steps[tab]} </Slider>
               </div>
             )}
           </div>

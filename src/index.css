@@ -452,6 +452,7 @@ svg.stroke-white {
   border-bottom: solid 1px #c71118;
   background-color: white;
   transition: 0.4s;
+  height: 32px;
 }
 
 .custom-bg {

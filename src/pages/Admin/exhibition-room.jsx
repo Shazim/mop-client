@@ -30,20 +30,20 @@ import { getCookie } from 'cookies/Cookies';
 const ExhibitionRoom = () => {
   const user = getCookie('user') && JSON.parse(getCookie('user'));
   const { user_type } = user?.user || {};
-  console.log({ user_type });
+
   const steps = {
     1: <Detail />,
     2: <Artwork />,
-    3: <Order />,
-    4: <Style />,
-    5: <ExhibitionDemo />,
-    6: <Launch />,
+    // 3: <Order />,
+    3: <Style />,
+    4: <ExhibitionDemo />,
+    5: <Launch />,
   };
 
   const [detail, setDetail] = useState([
     'Detail',
     'Artwork',
-    'Order',
+
     'Style',
     'Exhibition',
     'Launch',
@@ -51,6 +51,32 @@ const ExhibitionRoom = () => {
   const [store, setStore] = useState('');
   const lengthOfSteps = Object.keys(steps).length;
   const [step, setStep] = useState(1);
+  const handleStore = (param) => {
+    console.log('PARAMS :', param);
+    setStore(param);
+    return param;
+  };
+
+  // const check = (step) => {
+  //   const renderStep = {
+  //     1: handleStore('Detail'),
+  //     2: handleStore('Artwork'),
+  //     3: handleStore('Order'),
+  //     4: handleStore('Style'),
+  //     5: handleStore('Exhibition'),
+  //     6: handleStore('Launch'),
+  //   }[step];
+  //   console.log('RENDER', renderStep);
+  //   return renderStep || history.push(`${routes.ROUTE_EXHIBITION_ROOM}/live`);
+  // };
+  // useEffect(() => {
+  //   console.log('STEP :', step);
+  //   check(step);
+  //   console.log('STEP :', check(step));
+  // }, [step]);
+
+  // console.log('check function', check(`${step}`));
+
   useEffect(() => {
     if (step == 0) {
       setStep((prev) => prev - 1) && setDetail('');
@@ -59,12 +85,10 @@ const ExhibitionRoom = () => {
     } else if (step == 2) {
       setStore('Artwork');
     } else if (step == 3) {
-      setStore('Order');
-    } else if (step == 4) {
       setStore('Style');
-    } else if (step == 5) {
+    } else if (step == 4) {
       setStore('Exhibition');
-    } else if (step == 6) {
+    } else if (step == 5) {
       setStore('Launch');
     } else {
       user_type === 'artist'
@@ -103,6 +127,7 @@ const ExhibitionRoom = () => {
   return (
     <AdminLayout title="exhibition room">
       <div className="w-55% sm:h-100 m-auto sm:w-80%">
+        {console.log(store, 'STORE')}
         <StepBar steps={detail} step={store} />
       </div>
       {step == 0 ? null : (
@@ -124,12 +149,12 @@ const ExhibitionRoom = () => {
                         onClick={() =>
                           values.room_name == '' && step == 1
                             ? handleSubmit()
-                            : step == 5 && values.exhibition_style_id == ''
+                            : step == 4 && values.exhibition_style_id == ''
                             ? handleSubmit()
                             : step == 2 &&
                               Object.keys(values.artwork_ids).length == 0
                             ? handleSubmit()
-                            : step == 5
+                            : step == 4
                             ? handleSubmit()
                             : setStep((prev) => prev + 1)
                         }
@@ -140,7 +165,7 @@ const ExhibitionRoom = () => {
                   )}
                 </div>
                 <div className="mt-36 flex justify-center">
-                  {step >= 1 && step <= 6 && (
+                  {step >= 1 && step < 6 && (
                     <Button
                       // onClick={handleSubmit}
                       onClick={() => setStep((prev) => prev - 1)}
@@ -150,7 +175,7 @@ const ExhibitionRoom = () => {
                       BACK
                     </Button>
                   )}
-                  {step == 5 && (
+                  {step == 4 && (
                     <Button color="gray" className="ml-22 w-203 h-33">
                       SAVE AS DRAFT
                     </Button>

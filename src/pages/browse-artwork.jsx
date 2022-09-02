@@ -55,7 +55,7 @@ const BrowseArtwork = () => {
 
   const settings = {
     dots: true,
-
+    infinite: false,
     slidesToShow: 1,
     responsive: [
       {
@@ -63,7 +63,8 @@ const BrowseArtwork = () => {
         settings: {
           arrows: false,
           slidesToShow: 2,
-          rows: 4,
+          rows: 3,
+          slidesToScroll: 2,
 
           dots: true,
         },
@@ -73,7 +74,8 @@ const BrowseArtwork = () => {
         settings: {
           arrows: false,
           slidesToShow: 2,
-          rows: 4,
+          rows: 3,
+          slidesToScroll: 2,
 
           dots: true,
         },
@@ -141,7 +143,7 @@ const BrowseArtwork = () => {
                 </div>
 
                 <div className="hidden sm:w-full sm:block">
-                  <div className="grid grid-cols-1 packages-slider-2 ">
+                  <div className="grid grid-cols-1  ">
                     <Slider {...settings}>
                       {dataArtworks?.artworks?.map(
                         ({
@@ -155,7 +157,7 @@ const BrowseArtwork = () => {
                           <Link to={`${routes.ROUTE_SINGLE_ARTWORK}/${id}`}>
                             <GalleryCard
                               imageClass="image"
-                              className="mb-12"
+                              className="mb-12 mr-10"
                               incImages={images_included}
                               imageUrl={
                                 featured_image ? featured_image : undefined
