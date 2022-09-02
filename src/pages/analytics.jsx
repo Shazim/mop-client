@@ -112,7 +112,7 @@ const AdminAnalytics = () => {
                       class="w-35 h-35 "
                     />
                   </div>
-                  <div class="w-50%">
+                  <div class="w-fit">
                     <div class="font-Avenir-reg font-medium leading-54 tracking-wider text-5xl text-primary">
                       £600
                     </div>
@@ -135,7 +135,7 @@ const AdminAnalytics = () => {
                       class="w-35 h-35 "
                     />
                   </div>
-                  <div class="w-50%">
+                  <div class="w-fit">
                     <div class="font-Avenir-reg font-medium leading-54 tracking-wider text-5xl text-primary">
                       £600
                     </div>
