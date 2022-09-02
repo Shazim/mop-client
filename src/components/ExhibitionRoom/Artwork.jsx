@@ -1,7 +1,6 @@
 // ====================== IMPORTED LIBRARIES ========================
 import React, { useEffect, useState } from 'react';
 import { useLazyFetch, useFetch } from 'hooks';
-import { debounce } from "lodash";
 import { TailSpin } from 'react-loader-spinner';
 
 // ====================== IMPORTED COMPONENTS ========================
