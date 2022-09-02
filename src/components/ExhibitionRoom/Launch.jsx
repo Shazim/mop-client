@@ -1,6 +1,7 @@
 // ====================== IMPORTED LIBRARIES ========================
 import React from 'react';
 import { useFormikContext } from 'formik';
+import { toast } from 'react-toastify';
 
 const Launch = () => {
   const {
@@ -8,6 +9,13 @@ const Launch = () => {
     errors,
     touched,
   } = useFormikContext() || {};
+
+  const handleCopy = (key) => {
+    if (key) {
+      navigator.clipboard.writeText(key)
+      toast.info('Copied To Clipboard');
+    }
+  }
 
   return (
     <div className="px-32">
@@ -25,7 +33,7 @@ const Launch = () => {
             readOnly={true}
           />
           <button
-            onClick={() => navigator.clipboard.writeText(key)}
+            onClick={() => handleCopy(key)}
             className="w-116 h-33 bg-gray admin-label shadow uppercase"
           >
             Copy
