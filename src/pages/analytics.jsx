@@ -104,50 +104,50 @@ const AdminAnalytics = () => {
                 <div className=" pt-14 pl-39 pr-29 font-Avenir-reg font-medium leading-54 tracking-wider text-secondary text-xl uppercase">
                   recent orders
                 </div>
-                <div className="flex pl-39 pr-29 mt-10 order-item">
-                  <div className="w-20% bg-gray rounded-full">
+                <div class="flex justify-evenly mt-10 order-item">
+                  <div class="w-84 h-84 bg-gray rounded-full flex items-center justify-center">
                     <img
                       src={window.location.origin + '/images/icons/clock.svg'}
                       alt=""
-                      className="w-35 h-35 "
+                      class="w-35 h-35 "
                     />
                   </div>
-                  <div className="w-80%">
-                    <div className="font-Avenir-reg font-medium leading-54 tracking-wider text-5xl text-primary">
+                  <div class="w-50%">
+                    <div class="font-Avenir-reg font-medium leading-54 tracking-wider text-5xl text-primary">
                       £600
                     </div>
-                    <div className="font-Avenir-reg font-medium leading-54 tracking-wider text-secondary text-tiny uppercase">
+                    <div class="font-Avenir-reg font-medium leading-54 tracking-wider text-secondary text-tiny uppercase">
                       <span>#1276 </span>
-                      <span className="pl-10">dean horlock</span>
+                      <span class="">dean horlock</span>
                     </div>
                   </div>
                   <img
                     src={window.location.origin + '/images/icons/nexticon.svg'}
                     alt=""
-                    className="h-22 w-14 mt-20 ml-30"
+                    class="h-22 w-14 mt-20"
                   />
                 </div>
-                <div className="flex mt-10 pl-39">
-                  <div className="w-84 h-84 relative bg-gray rounded-full">
+                <div class="flex justify-evenly mt-10 order-item">
+                  <div class="w-84 h-84 bg-gray rounded-full flex items-center justify-center">
                     <img
                       src={window.location.origin + '/images/icons/clock.svg'}
                       alt=""
-                      className="absolute w-35 h-35 mt-24 ml-25 "
+                      class="w-35 h-35 "
                     />
                   </div>
-                  <div className="pl-28 ">
-                    <div className="font-Avenir-reg font-medium leading-54 tracking-wider text-5xl text-primary">
+                  <div class="w-50%">
+                    <div class="font-Avenir-reg font-medium leading-54 tracking-wider text-5xl text-primary">
                       £600
                     </div>
-                    <div className="font-Avenir-reg font-medium leading-54 tracking-wider text-secondary text-tiny uppercase">
+                    <div class="font-Avenir-reg font-medium leading-54 tracking-wider text-secondary text-tiny uppercase">
                       <span>#1276 </span>
-                      <span className="pl-10">dean horlock</span>
+                      <span class="">dean horlock</span>
                     </div>
                   </div>
                   <img
                     src={window.location.origin + '/images/icons/nexticon.svg'}
                     alt=""
-                    className="h-22 w-14 mt-20 ml-30"
+                    class="h-22 w-14 mt-20"
                   />
                 </div>
               </div>
