@@ -81,8 +81,8 @@ const AdminAnalytics = () => {
               </div>
             </div>
             <div className="flex mt-21 sm:hidden">
-              <div className="flex  w-70% bg-white">
-                <div className=" pl-37">
+              <div className="flex px-37 pb-50 items-center w-70% bg-white">
+                <div className="w-40%">
                   <div className="pt-24 font-Avenir-reg font-medium leading-54 tracking-wider text-secondary text-xl uppercase">
                     monthly Sales
                   </div>
@@ -96,7 +96,7 @@ const AdminAnalytics = () => {
                     0.2%
                   </div>
                 </div>
-                <div className="monthly-sales-graph h-250 w-70% sm:w-100%">
+                <div className="monthly-sales-graph h-250 w-60%">
                   <GraphMonthlySales />
                 </div>
               </div>
@@ -112,7 +112,7 @@ const AdminAnalytics = () => {
                       class="w-35 h-35 "
                     />
                   </div>
-                  <div class="w-50%">
+                  <div class="w-fit">
                     <div class="font-Avenir-reg font-medium leading-54 tracking-wider text-5xl text-primary">
                       £600
                     </div>
@@ -135,7 +135,7 @@ const AdminAnalytics = () => {
                       class="w-35 h-35 "
                     />
                   </div>
-                  <div class="w-50%">
+                  <div class="w-fit">
                     <div class="font-Avenir-reg font-medium leading-54 tracking-wider text-5xl text-primary">
                       £600
                     </div>
@@ -167,7 +167,7 @@ const AdminAnalytics = () => {
                   68%
                 </div>
               </div>
-              <div className="w-80% pt-24 h-320">
+              <div className="w-80% pt-24 h-fit">
                 <GraphAvgViewTime />
               </div>
             </div>
