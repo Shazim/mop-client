@@ -7,7 +7,6 @@ import { generateSchema } from 'validation';
 import { TailSpin } from 'react-loader-spinner';
 import { toast } from 'react-toastify';
 
-
 // ====================== IMPORTED COMPONENTS ========================
 import { Form } from 'components/app/forms';
 import Button from 'components/atoms/buttons/Button';
@@ -18,10 +17,16 @@ import TextField from 'components/atoms/form/TextField';
 import { signIn } from 'api';
 import { setCookie } from 'cookies/Cookies';
 import { routes } from 'routes';
-import { FORGOT_MODAL, LOGIN_MODAL, SIGNUP_MODAL } from 'store/actions/actionTypes';
+import {
+  FORGOT_MODAL,
+  LOGIN_MODAL,
+  SIGNUP_MODAL,
+} from 'store/actions/actionTypes';
 
 const LoginModal = () => {
-  const { isLoginOpen, isSignupOpen, isForgotOpen } = useSelector((state) => state.modals)
+  const { isLoginOpen, isSignupOpen, isForgotOpen } = useSelector(
+    (state) => state.modals
+  );
   const dispatch = useDispatch();
   const history = useHistory();
   const location = useLocation();
@@ -45,25 +50,27 @@ const LoginModal = () => {
   };
 
   const handleForgotToggle = () => {
-    handleLoginToggle()
+    handleLoginToggle();
     dispatch({ type: FORGOT_MODAL, payload: !isForgotOpen });
   };
   const handleLoginToggle = () => {
     dispatch({ type: LOGIN_MODAL, payload: !isLoginOpen });
-  }
+  };
 
   const login = (values) => {
-    const route = pathname === routes.ROUTE_CHECKOUT ? routes.ROUTE_CHECKOUT : routes.ROUTE_MY_PROFILE;
-    setIsLoading(true)
+    const route =
+      pathname === routes.ROUTE_CHECKOUT
+        ? routes.ROUTE_CHECKOUT
+        : routes.ROUTE_MY_PROFILE;
+    setIsLoading(true);
     signIn({ ...values, grant_type: 'password' })
       .then((response) => {
-        setIsLoading(false)
+        setIsLoading(false);
         if (response?.status == 200) {
           setCookie('user', JSON.stringify(response?.data));
           handleLoginToggle();
           history.push(route);
-        }
-        else toast.error(response?.data?.title)
+        } else toast.error(response?.data?.title);
       })
       .catch((error) => toast.error(error));
   };
@@ -75,13 +82,11 @@ const LoginModal = () => {
   };
 
   useEffect(() => {
-    scrollOff()
+    scrollOff();
   }, [isLoginOpen]);
 
   return (
-    <div
-      className={`w-100% h-100%`}
-    >
+    <div className={`w-100% h-100%`}>
       <Modal
         isOpen={isLoginOpen}
         className="absolute border-0   top-50% left-50% transform-xy outline-none"
@@ -141,20 +146,23 @@ const LoginModal = () => {
                   <>
                     <TextField
                       name="email"
-                      placeholder="Enter email here"
+                      type="email"
+                      placeholder="ENTER EMAIL HERE"
                       mb="6"
                       label="Email Address"
+                      className="h-38 mb-10"
                     />
                     <TextField
                       type="password"
                       name="password"
-                      placeholder="Enter password here"
+                      placeholder="ENTER PASSWORD HERE"
                       mb="6"
                       label="password"
+                      className="h-38 mb-10"
                     />
 
                     <SubmitButton
-                      className="w-134 h-41 flex tracking text-sm justify-center items-center mx-auto mt-27"
+                      className="w-134 h-41 flex tracking text-sm justify-center items-center mx-auto mt-16"
                       id="login-button"
                     >
                       LOGIN

@@ -14,10 +14,16 @@ import { Form } from 'components/app/forms';
 
 // ====================== IMPORTED UTILD ========================
 import { signUp } from 'api';
-import { FORGOT_MODAL, LOGIN_MODAL, SIGNUP_MODAL } from 'store/actions/actionTypes';
+import {
+  FORGOT_MODAL,
+  LOGIN_MODAL,
+  SIGNUP_MODAL,
+} from 'store/actions/actionTypes';
 
 const SignupModal = () => {
-  const { isLoginOpen, isSignupOpen, isForgotOpen } = useSelector((state) => state.modals)
+  const { isLoginOpen, isSignupOpen, isForgotOpen } = useSelector(
+    (state) => state.modals
+  );
   const dispatch = useDispatch();
 
   const [customer, setCustomer] = useState(true);
@@ -25,9 +31,8 @@ const SignupModal = () => {
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-
   const handleSubmit = (values) => {
-    setIsLoading(true)
+    setIsLoading(true);
     const data = {
       user: {
         email: values.email,
@@ -43,30 +48,28 @@ const SignupModal = () => {
         if (response.status == 200) {
           handleLoginToggle();
           setError('');
-          setIsLoading(false)
-
+          setIsLoading(false);
         } else if (response.status == 422) {
           setError('email ' + response?.data?.error?.detail?.email);
-          setIsLoading(false)
-
+          setIsLoading(false);
         }
       })
       .catch((error) => setIsLoading(false));
   };
 
   const handleLoginToggle = () => {
-    handleSignupToggle()
+    handleSignupToggle();
     dispatch({ type: LOGIN_MODAL, payload: !isLoginOpen });
   };
 
   const handleForgotToggle = () => {
-    handleSignupToggle()
+    handleSignupToggle();
     dispatch({ type: FORGOT_MODAL, payload: !isForgotOpen });
   };
 
   const handleSignupToggle = () => {
     dispatch({ type: SIGNUP_MODAL, payload: !isSignupOpen });
-  }
+  };
 
   const tabHandler = () => {
     setArtist(!artist);
@@ -80,13 +83,11 @@ const SignupModal = () => {
   };
 
   useEffect(() => {
-    scrollOff()
+    scrollOff();
   }, [isSignupOpen]);
 
   return (
-    <div
-      className={`w-100% h-100%`}
-    >
+    <div className={`w-100% h-100%`}>
       <Modal
         isOpen={isSignupOpen}
         className="top-50% left-50% right-auto bottom-auto transform-xy mr-50% absolute h-90% border-0"
@@ -139,8 +140,6 @@ const SignupModal = () => {
                     LOGIN WITH PINTEREST
                   </Button>
 
-
-
                   <div className="w-100% flex items-center justify-between mt-24">
                     <div className="w-100% border-b border-border opacity-1"></div>
                     <div className="font-bold text-sm mx-10 text-secondary tracking uppercase">
@@ -149,54 +148,56 @@ const SignupModal = () => {
                     <div className="w-100% border-b border-border opacity-1"></div>
                   </div>
 
-                  <div className="w-455 border-b border-border opacity-1 pb-33 pt-10 mb-33">
+                  <div className="w-455 border-b border-border opacity-1 pb-33 pt-10 my-33">
                     <TextField
                       name="email"
                       type="email"
-                      placeholder="Enter email here"
+                      placeholder="ENTER EMAIL HERE"
                       mb="6"
-                      height="38"
                       label="Email Address"
+                      className="h-38 mb-10"
                     />
                     <div className="font-avenir-reg text-base text-primary">
                       {error}
                     </div>
                     <TextField
                       name="password"
-                      placeholder="enter password here"
+                      placeholder="ENTER PASSWORD HERE"
                       type="password"
                       mb="6"
-                      height="38"
+                      className="h-38 mb-10"
                       label="password"
                     />
                     <TextField
                       name="confirm"
-                      placeholder="confirm password here"
+                      placeholder="ENTER CONFIRM PASSWORD HERE"
                       mb="6"
                       type="password"
-                      height="38"
+                      className="h-38"
                       label="confirm password"
                     />
                   </div>
-                  <div className="font-bold text-black tracking leading-32 uppercase text-sm mt-20">
+                  <div className="font-bold text-black tracking leading-32 uppercase text-sm ">
                     Choose the statement that best applies to you.
                   </div>
                   <div className="flex justify-between mt-20">
                     <div
                       onClick={tabHandler}
-                      className={`w-48% link uppercase px-65 py-14 ${customer
-                        ? 'bg-primary text-white'
-                        : 'bg-white text-secondary'
-                        } text-sm  text-center tracking`}
+                      className={`w-48% link uppercase px-65 py-14 ${
+                        customer
+                          ? 'bg-primary text-white'
+                          : 'bg-white text-secondary'
+                      } text-sm  text-center tracking`}
                     >
                       customer account
                     </div>
                     <div
                       onClick={tabHandler}
-                      className={`w-48% link uppercase px-65 py-14 ${artist
-                        ? 'bg-primary text-white'
-                        : 'bg-white text-secondary'
-                        } text-sm  text-center tracking`}
+                      className={`w-48% link uppercase px-65 py-14 ${
+                        artist
+                          ? 'bg-primary text-white'
+                          : 'bg-white text-secondary'
+                      } text-sm  text-center tracking`}
                     >
                       artist account
                     </div>
@@ -209,9 +210,9 @@ const SignupModal = () => {
                       </div>
                     ) : (
                       <div className="font-reg text-black text-base mt-20">
-                        I want to be able to create my own gallery and sell my own
-                        art to a range of customers, as well as browse and buy
-                        work.{' '}
+                        I want to be able to create my own gallery and sell my
+                        own art to a range of customers, as well as browse and
+                        buy work.{' '}
                       </div>
                     )}
                   </div>
@@ -245,6 +246,6 @@ const SignupModal = () => {
       </Modal>
     </div>
   );
-}
+};
 
 export default SignupModal;

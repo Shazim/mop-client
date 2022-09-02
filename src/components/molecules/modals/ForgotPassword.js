@@ -8,11 +8,16 @@ import Modal from 'react-modal';
 import { Form } from 'components/app/forms';
 import Button from 'components/atoms/buttons/Button';
 import TextField from 'components/atoms/form/TextField';
-import { FORGOT_MODAL, LOGIN_MODAL, SIGNUP_MODAL } from 'store/actions/actionTypes';
+import {
+  FORGOT_MODAL,
+  LOGIN_MODAL,
+  SIGNUP_MODAL,
+} from 'store/actions/actionTypes';
 
 const ForgotPassword = () => {
-
-  const { isLoginOpen, isSignupOpen, isForgotOpen } = useSelector((state) => state.modals);
+  const { isLoginOpen, isSignupOpen, isForgotOpen } = useSelector(
+    (state) => state.modals
+  );
   const dispatch = useDispatch();
 
   const handleLoginToggle = () => {
@@ -27,7 +32,7 @@ const ForgotPassword = () => {
 
   const handleForgotToggle = () => {
     dispatch({ type: FORGOT_MODAL, payload: !isForgotOpen });
-  }
+  };
 
   const scrollOff = () => {
     isForgotOpen
@@ -36,13 +41,11 @@ const ForgotPassword = () => {
   };
 
   useEffect(() => {
-    scrollOff()
+    scrollOff();
   }, [isForgotOpen]);
 
   return (
-    <div
-      className={`w-100% h-100% `}
-    >
+    <div className={`w-100% h-100% `}>
       <Modal
         isOpen={isForgotOpen}
         onRequestClose={handleForgotToggle}
@@ -62,10 +65,10 @@ const ForgotPassword = () => {
               <TextField
                 name="email"
                 type="email"
-                placeholder="Enter email here"
+                placeholder="ENTER EMAIL HERE"
                 mb="6"
-                height="38"
                 label="Email Address"
+                className="h-38"
               />
             )}
           </Form>
@@ -90,6 +93,6 @@ const ForgotPassword = () => {
       </Modal>
     </div>
   );
-}
+};
 
 export default ForgotPassword;

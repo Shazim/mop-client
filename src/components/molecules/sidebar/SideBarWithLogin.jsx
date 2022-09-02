@@ -143,9 +143,14 @@ function SideBarWithLogin({ className: classes = '' }) {
           );
         }
       })}
-
       <Button
-        className="flex w-220 h-33 text-secondary justify-center items-center mt-28 m-auto"
+        className="flex w-220 h-33 text-white justify-center items-center mt-25 m-auto"
+        color="primary"
+      >
+        SEARCH
+      </Button>
+      <Button
+        className="flex w-220 h-33 text-secondary justify-center items-center mt-20 m-auto"
         color="gray"
         onClick={clearFilter}
       >
