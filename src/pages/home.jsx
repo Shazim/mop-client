@@ -17,7 +17,9 @@ import { useSelector } from 'react-redux';
 import withCustomerRoute from 'hoc/withCustomerRoute';
 
 const Home = () => {
-  const { isLoginOpen, isSignupOpen, isForgotOpen } = useSelector((state) => state.modals);
+  const { isLoginOpen, isSignupOpen, isForgotOpen } = useSelector(
+    (state) => state.modals
+  );
   const descriptiveIcons = [
     {
       source: '/images/services/satisfaction.svg',
@@ -44,7 +46,13 @@ const Home = () => {
 
   return (
     <>
-      <div className={`${(isLoginOpen || isSignupOpen || isForgotOpen) ? '' : 'bg-featured-gallery'} sm:bg-home-mobile bg-no-repeat bg-cover`}>
+      <div
+        className={`${
+          isLoginOpen || isSignupOpen || isForgotOpen
+            ? ''
+            : 'bg-featured-gallery'
+        } sm:bg-home-mobile bg-no-repeat bg-cover`}
+      >
         <Header />
         <div className="relative">
           <img
@@ -120,7 +128,7 @@ const Home = () => {
           </div>
         </div>
         <div className="block">
-          <GridLayout column={3} gap={5} />
+          <GridLayout />
         </div>
         <div className="flex sm:hidden mt-43 justify-center mb-121">
           <Button className="w-184 mr-18 ">View More</Button>
