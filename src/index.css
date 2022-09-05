@@ -464,3 +464,8 @@ svg.stroke-white {
   background-color: #c71118;
   color: #fff;
 }
+.featured-arts-custom-bg {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
