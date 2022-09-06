@@ -203,7 +203,7 @@ export default function GridLayout() {
           }}
         >
           <div
-            className="artwork-meta-info h-full flex items-start justify-end pl-11 pb-6 flex-col gap-10"
+            className="artwork-meta-info h-full flex items-start justify-end pl-11 pb-6 flex-col gap-10 rounded-8"
             style={{
               background:
                 'linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 70%)',
@@ -237,7 +237,7 @@ export default function GridLayout() {
 
         <div className="featured-row flex flex-row gap-10 justify-between mt-10">
           <div
-            className="item-vertical w-1/2 featured-arts-custom-bg"
+            className="item-vertical w-1/2 featured-arts-custom-bg rounded-8"
             data-id={featured_artworks ? featured_artworks[1]?.id : ''}
             style={{
               backgroundImage: `url(${
@@ -248,7 +248,7 @@ export default function GridLayout() {
             }}
           >
             <div
-              className="artwork-meta-info  flex pl-11 pb-6 items-start justify-end flex-col gap-10"
+              className="artwork-meta-info  flex pl-11 pb-6 items-start justify-end flex-col gap-10 rounded-8"
               style={{
                 background:
                   'linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 70%)',
@@ -283,7 +283,7 @@ export default function GridLayout() {
           <div className="flex flex-col w-1/2 justify-between gap-10">
             <div
               data-id={featured_artworks ? featured_artworks[2]?.id : ''}
-              className="item-square h-1/2 featured-arts-custom-bg"
+              className="item-square h-1/2 featured-arts-custom-bg rounded-8"
               style={{
                 backgroundImage: `url(${
                   featured_artworks
@@ -293,7 +293,7 @@ export default function GridLayout() {
               }}
             >
               <div
-                className="artwork-meta-info h-full flex items-start justify-end pl-11 pb-6 flex-col gap-10"
+                className="artwork-meta-info h-full flex items-start justify-end pl-11 pb-6 flex-col gap-10 rounded-8"
                 style={{
                   background:
                     'linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 70%)',
@@ -326,7 +326,7 @@ export default function GridLayout() {
             </div>
             <div
               data-id={featured_artworks ? featured_artworks[3]?.id : ''}
-              className="item-square h-1/2 featured-arts-custom-bg"
+              className="item-square h-1/2 featured-arts-custom-bg rounded-8"
               style={{
                 backgroundImage: `url(${
                   featured_artworks
@@ -336,7 +336,7 @@ export default function GridLayout() {
               }}
             >
               <div
-                className="artwork-meta-info h-full flex pl-11 pb-6 items-start justify-end flex-col gap-10"
+                className="artwork-meta-info h-full flex pl-11 pb-6 items-start justify-end flex-col gap-10 rounded-8"
                 style={{
                   background:
                     'linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 70%)',
