@@ -119,7 +119,10 @@
 .slider-arrow .slick-arrow {
   @apply sm:hidden !important;
 }
-
+.slick-next::before {
+  content: '' !important;
+  opacity: 0 !important;
+}
 .transform-x {
   transform: translate(-50%, 0);
 }

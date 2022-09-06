@@ -288,7 +288,7 @@ const CreateGallary = () => {
           </Button>
         </div>
       </div>
-      <div className="max-screen py-67 sm:px-23 sm:py-50">
+      <div className="max-screen pt-37 pb-120 sm:px-23 sm:py-50">
         <FAQ />
       </div>
       <div>
