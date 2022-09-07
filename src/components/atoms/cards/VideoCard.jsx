@@ -8,6 +8,7 @@ function VideoCard({
   comments = 6,
   edit = false,
   onClick,
+  handleEdit
 }) {
   return (
     <div
@@ -50,7 +51,7 @@ function VideoCard({
           </div>
         </div>
         {edit && (
-          <button className="bg-white w-75 h-33 rounded-md  font-bold text-sm tracking text-secondary-darkest">
+          <button onClick={handleEdit} className="bg-white w-75 h-33 rounded-md  font-bold text-sm tracking text-secondary-darkest">
             Edit
           </button>
         )}

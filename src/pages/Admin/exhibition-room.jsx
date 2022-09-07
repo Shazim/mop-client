@@ -1,9 +1,9 @@
 // ====================== IMPORTED LIBRARIES ========================
 import React from 'react';
 import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
-import { usePost } from 'hooks';
+import { useFetch, usePost } from 'hooks';
 import { routes } from 'routes';
 // ====================== IMPORTED COMPONENTS ========================
 import {
@@ -22,14 +22,19 @@ import StepBar from 'components/stepbar/StepBar';
 // ====================== IMPORTED api ========================
 import { exhibitionSchema } from 'validation';
 import { createExhibitions } from 'api';
+
 // ====================== IMPORTED utils ========================
 import { formDataHandler } from 'utils';
 import withArtistRoute from 'hoc/withArtistRoute';
 import { getCookie } from 'cookies/Cookies';
+import { getSingleExhibition } from 'api/api-services';
 
 const ExhibitionRoom = () => {
   const user = getCookie('user') && JSON.parse(getCookie('user'));
   const { user_type } = user?.user || {};
+  const history = useHistory();
+  const { id } = useParams();
+  const { data: ExhibitionsData } = useFetch(getSingleExhibition, { variables: id });
 
   const steps = {
     1: <Detail />,
@@ -43,7 +48,6 @@ const ExhibitionRoom = () => {
   const [detail, setDetail] = useState([
     'Detail',
     'Artwork',
-
     'Style',
     'Exhibition',
     'Launch',
@@ -77,6 +81,48 @@ const ExhibitionRoom = () => {
 
   // console.log('check function', check(`${step}`));
 
+
+  const [handleCreatePost, { data: dataPost }] = usePost(createExhibitions);
+  const [initialValues, setInitialValues] = useState({
+    room_name: '',
+    artwork_ids: {},
+    status: true,
+    draft: false,
+    exhibition_style_id: ''
+  });
+
+  useEffect(() => {
+    if (ExhibitionsData?.artworks) {
+      const updatedArtworkIds = {};
+      const artworkIds = ExhibitionsData?.artworks?.map((item) => updatedArtworkIds[item.id] = item.id);
+      ExhibitionsData.artwork_ids = updatedArtworkIds
+      ExhibitionsData.exhibition_style_id = ExhibitionsData.exhibition_style.id;
+      const draftsInitialValues = {
+        room_name: ExhibitionsData.room_name,
+        artwork_ids: updatedArtworkIds,
+        status: ExhibitionsData.status,
+        draft: ExhibitionsData.draft,
+        exhibition_style_id: ExhibitionsData.exhibition_style.id,
+        artist_name: ExhibitionsData.artist_name
+      }
+      setInitialValues(draftsInitialValues)
+    }
+
+  }, [ExhibitionsData])
+
+  const onSubmit = (data) => {
+    const formData = new FormData();
+    Object.entries(data).map(([key, value]) => {
+      formDataHandler('exhibition', key, value, formData);
+    });
+    handleCreatePost({
+      variables: formData,
+    });
+  };
+  const handleDraft = (val, handleSubmit) => {
+    handleSubmit()
+  }
+
   useEffect(() => {
     if (step == 0) {
       setStep((prev) => prev - 1) && setDetail('');
@@ -96,31 +142,12 @@ const ExhibitionRoom = () => {
         : history.push(routes.ROUTE_EXHIBITIONS);
     }
   }, [step]);
-  const [handleCreatePost, { data: dataPost }] = usePost(createExhibitions);
-  const [initalValues, setInitialValues] = useState({
-    room_name: '',
-    artwork_ids: {},
-    status: true,
-    draft: false,
-    exhibition_style_id: '',
-    key: '',
-  });
-  const history = useHistory();
-
-  const onSubmit = (data) => {
-    const formData = new FormData();
-    Object.entries(data).map(([key, value]) => {
-      formDataHandler('exhibition', key, value, formData);
-    });
-    handleCreatePost({
-      variables: formData,
-    });
-  };
 
   useEffect(() => {
     if (dataPost) {
-      setInitialValues({ ...initalValues, key: dataPost?.key });
-      setStep((prev) => prev + 1);
+      setInitialValues({ ...initialValues, key: dataPost?.key });
+      if (dataPost.draft) history.push(`${routes.ROUTE_EXHIBITION_ROOM}/drafts`)
+      else setStep((prev) => prev + 1);
     }
   }, [dataPost]);
 
@@ -133,7 +160,7 @@ const ExhibitionRoom = () => {
       {step == 0 ? null : (
         <div className=" h-auto pb-130 flex flex-col items-center">
           <Form
-            initialValues={initalValues}
+            initialValues={initialValues}
             onSubmit={onSubmit}
             validationSchema={exhibitionSchema}
             enableReinitialize={true}
@@ -150,13 +177,13 @@ const ExhibitionRoom = () => {
                           values.room_name == '' && step == 1
                             ? handleSubmit()
                             : step == 4 && values.exhibition_style_id == ''
-                            ? handleSubmit()
-                            : step == 2 &&
-                              Object.keys(values.artwork_ids).length == 0
-                            ? handleSubmit()
-                            : step == 4
-                            ? handleSubmit()
-                            : setStep((prev) => prev + 1)
+                              ? handleSubmit()
+                              : step == 2 &&
+                                Object.keys(values.artwork_ids).length == 0
+                                ? handleSubmit()
+                                : step == 4
+                                  ? handleDraft(values['draft'] = false, handleSubmit)
+                                  : setStep((prev) => prev + 1)
                         }
                       >
                         NEXT
@@ -176,7 +203,11 @@ const ExhibitionRoom = () => {
                     </Button>
                   )}
                   {step == 4 && (
-                    <Button color="gray" className="ml-22 w-203 h-33">
+                    <Button
+                      onClick={() => {
+                        handleDraft(values['draft'] = true, handleSubmit)
+                      }}
+                      color="gray" className="ml-22 w-203 h-33">
                       SAVE AS DRAFT
                     </Button>
                   )}

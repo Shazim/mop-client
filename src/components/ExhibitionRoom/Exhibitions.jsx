@@ -1,8 +1,8 @@
 // ====================== IMPORTED LIBRARIES ========================
-import { useFetch } from 'hooks';
+import { useFetch, useLazyFetch } from 'hooks';
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import { TailSpin } from 'react-loader-spinner';
 
 // ====================== IMPORTED COMPONENTS ========================
@@ -13,10 +13,14 @@ import { routes } from 'routes';
 
 // ====================== IMPORTED api ========================
 import { getExhibitions } from 'api';
+import { getValueInLink } from 'utils/helper';
 
 const ExhibitionsComp = () => {
-  const { data: ExhibitionsData, refetch } = useFetch(getExhibitions);
-  const { id } = useParams()
+  const [handleExhibitions, { data: ExhibitionsData }] = useLazyFetch(getExhibitions);
+
+  const { pathname } = useLocation();
+  const history = useHistory();
+  const id = getValueInLink(pathname, 3);
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -25,8 +29,10 @@ const ExhibitionsComp = () => {
   }, [ExhibitionsData]);
 
   useEffect(() => {
-    const status = id === 'drafts';
-    refetch({ variables: `draft=${status}` });
+    if (id) {
+      const status = id === 'drafts' ? true : false;
+      handleExhibitions({ variables: `draft=${status}` });
+    }
   }, [id])
 
   return (
@@ -49,7 +55,7 @@ const ExhibitionsComp = () => {
           </Button>
         </Link>
       </div>
-      {id === 'drafts' ? (
+      {id === 'drafts' && ExhibitionsData?.exhibitions.length === 0 ? (
         <div className="text-center justify-center pt-112">
           <p className="font-avenir-reg text-primary text-4xl uppercase leading-55 tracking-wider">
             You have no Drafts Found
@@ -73,8 +79,8 @@ const ExhibitionsComp = () => {
             </div>
           ) : (
             <div className="  grid grid-cols-2 gap-11   sm:grid-cols-1">
-              {ExhibitionsData?.exhibitions?.map(({ image }) => (
-                <VideoCard imageUrl={image ? image : undefined} />
+              {ExhibitionsData?.exhibitions?.map(({ image, id: exhibitionId }) => (
+                <VideoCard edit={id === 'drafts'} handleEdit={() => history.push(`${routes.ROUTE_EXHIBITION_ROOM}/${exhibitionId}`)} imageUrl={image ? image : undefined} />
               ))}
             </div>
           )}
