@@ -88,6 +88,9 @@ export const getGalleries = (data) => {
 export const getExhibitions = (data) => {
   return doGet(`${BASE_URL}${API_PATH}/${EXHIBITIONS}?${data}`);
 };
+export const getSingleExhibition = (data) => {
+  return doGet(`${BASE_URL}${API_PATH}/${EXHIBITIONS}/${data}`);
+};
 
 export const createExhibitions = (data) => {
   return doPost(`${BASE_URL}${API_PATH}/${EXHIBITIONS}`, data);

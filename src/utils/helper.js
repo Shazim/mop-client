@@ -89,3 +89,8 @@ export const formDataHandler = (mainKey, key, value, formData1) => {
     formData1.append(`${mainKey}[${key}]`, value);
   }
 };
+
+export const getValueInLink = (data, index) => {
+  let Link = data.split('/');
+  return Link[index];
+};
