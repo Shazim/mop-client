@@ -62,7 +62,7 @@ const Home = () => {
           <div className="max-screen pb-237 sm:pb-80 pt-158 sm:pt-60 sm:px-30 sm:flex sm:flex-col sm:items-center sm:justify-center">
             <div className="w-100% sm:border-border sm:border-brown sm:shadow-3xl sm:flex sm:items-center sm:justify-center sm:border-6 pt-0 pb-0">
               <div className="w-100% h-100% sm:flex sm:items-center sm:justify-center sm:p-30">
-                <div className="ml-50 sm:ml-0 sm:text-center text-primary sm:px-40 tracking-wider font-nunito-light uppercase text-3xl leading-55 w-61% xl:w-70% lg:w-80% md:w-86% sm:w-100% sm:leading-50 sm:text-22 sm:tracking-wider sm:bg-gradient-to-t from-transparent to-offwhite ">
+                <div className="ml-50 sm:ml-0 sm:text-center text-primary sm:px-30 tracking-wider font-nunito-light uppercase text-3xl leading-55 w-61% xl:w-70% lg:w-80% md:w-86% sm:w-100% sm:leading-50 sm:text-xl sm:tracking-wider sm:bg-gradient-to-t from-transparent to-offwhite ">
                   {' '}
                   <span className="text-secondary sm:hidden">
                     Access hundreds of independent
@@ -71,6 +71,7 @@ const Home = () => {
                     {' '}
                     galleries
                   </span>
+                  <br className="sm:block hidden" />
                   <span className="hidden sm:inline"> by artists </span>
                   <span className="sm:hidden"> artists and photographers </span>
                   photography galleries. Discover and buy from the best
@@ -142,7 +143,7 @@ const Home = () => {
         </div>
 
         <div className="text-center hidden sm:block pt-30 pb-60 border-border border-t mt-30">
-          <p className="font-avenir-reg font-medium mb-35 text-base uppercase text-secondary-dark leading-38 tracking-wider">
+          <p className="font-avenir-reg font-medium mb-35 text-base uppercase text-secondary-dark leading-38 tracking-wider sm:font-medium">
             If you are a photographer looking to exhibit we have the tools and
             support to help you reach more clients.
           </p>
@@ -176,7 +177,7 @@ const Home = () => {
           <div className="text-center text-lg font-reg text-secondary-dark mb-22 leading-32 sm:leading-35">
             <p>And start selling your photographs:</p>{' '}
           </div>
-          <ul className="w-40% ml-40% sm:w-100% sm:ml-0">
+          <ul className="w-40% ml-40% sm:w-60% sm:ml-30% xsm:w-251 xsm:ml-20 xsm:mr-20 xsm:truncate lg:w-30% lg:ml-35%">
             <li className="text-lg font-reg text-secondary-dark mb-10 leading-32 sm:leading-35">
               - One exhibition room with 15 photographs
             </li>
@@ -205,7 +206,7 @@ const Home = () => {
         </div>
       </div>
       <div className="max-screen sm:hidden">
-        <div className="border-border  ">
+        <div className="border-border mb-16  ">
           <DiscoverMore />
         </div>
       </div>

@@ -269,6 +269,7 @@ module.exports = {
       },
 
       screens: {
+        xsm: [{ min: '0px', max: '459px' }],
         sm: [{ min: '0px', max: '959px' }],
         tab: [{ min: '801px', max: '959px' }],
         md: [{ min: '960px', max: '1023px' }],
