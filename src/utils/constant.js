@@ -20,6 +20,7 @@ export const END_POINTS = {
   SEARCH_ARTIST: '/search_artist',
   ARTWORKS_PRICE: 'get_paper_and_price',
   ORDERS: '/orders',
+  FAQS: '/faqs',
 };
 
 export const LINKS = {

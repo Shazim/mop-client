@@ -20,6 +20,7 @@ const {
   PRICE_SHEETS,
   GET_PRICING_DATA,
   ORDERS,
+  FAQS,
 } = END_POINTS;
 
 export const featureArtwork = (data) => {
@@ -130,4 +131,7 @@ export const getStyles = () => {
 
 export const getColors = () => {
   return doGet(`${BASE_URL}${API_PATH}${COLORS}`);
+};
+export const getFaqs = () => {
+  return doGet(`${BASE_URL}${API_PATH}/items${FAQS}`);
 };
