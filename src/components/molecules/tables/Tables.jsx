@@ -94,7 +94,7 @@ const Tables = ({
   const [id, setId] = useState();
   const [showData, setShowdata] = useState(false);
   const handleId = (i) => {
-    setId((prev) => prev == i ? null : i);
+    setId((prev) => (prev == i ? null : i));
     setShowdata(!showData);
   };
 
@@ -180,17 +180,19 @@ const Tables = ({
           <div
             className={`w-${divider(
               tableHeading.length
-            )} flex leading-5 items-center text-secondary  sm:${i == 2 ? 'hidden' : ''
-              } font-medium`}
+            )} flex leading-5 items-center text-secondary  sm:${
+              i == 2 ? 'hidden' : ''
+            } font-medium`}
           >
             {heading}{' '}
             {filter ? (
               <img
                 className="-mt-6 link"
-                src={`${i == 0
-                  ? '/images/table/nameFilter.svg'
-                  : '/images/table/filterIcon.svg'
-                  }`}
+                src={`${
+                  i == 0
+                    ? '/images/table/nameFilter.svg'
+                    : '/images/table/filterIcon.svg'
+                }`}
               />
             ) : (
               ''
@@ -208,8 +210,9 @@ const Tables = ({
                 typeof value != 'object' && (
                   <>
                     <div
-                      className={`w-${divider(tableHeading.length)} sm:${i == 2 ? 'hidden' : ''
-                        }`}
+                      className={`w-${divider(tableHeading.length)} sm:${
+                        i == 2 ? 'hidden' : ''
+                      }`}
                     >
                       {value}
                     </div>
@@ -233,7 +236,7 @@ const Tables = ({
               </div>
             )}
           </div>
-          {(!showData && img) && (
+          {!showData && img && (
             <img
               src="/images/table/tree.png"
               alt=""
