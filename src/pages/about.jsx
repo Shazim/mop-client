@@ -129,7 +129,7 @@ const About = () => {
             </div>
             <div className="pt-30 font-nunito-light text-lg text-dark leading-32 sm:text-center">
               Connect with us on our social media channels:
-              <br /> (add logos of social media)
+              <br />
             </div>
             <div className="social-media-icons mt-30 flex justify-start gap-40 items-center">
               <a href="#" className="icon-facebook cursor-pointer">
