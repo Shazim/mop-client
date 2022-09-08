@@ -30,26 +30,19 @@ const StockItem = ({ addItem }) => {
   });
   const selectedItems = (value) => {
     setPerPage(value);
+    setIsLoading(true);
   };
-  useEffect(() => {
-    refetch({ variables: `?page=${currentPage}&per_page=${perPage}` });
-  }, [perPage]);
+
   useEffect(() => {
     if (data && data?.artworks) {
       setArtworkData((artData) => [...data?.artworks]);
-      setIsLoading(false);
+      setTimeout(() => setIsLoading(false), 3000);
     }
   }, [data]);
 
   useEffect(() => {
-    if (currentPage > 1) {
-      refetch({
-        variables: `?${
-          currentPage ? `page=${currentPage}` : ''
-        }&per_page=${perPage}`,
-      });
-    }
-  }, [currentPage]);
+    refetch({ variables: `?page=${currentPage}&per_page=${perPage}` });
+  }, [currentPage, perPage]);
 
   return (
     <>
@@ -74,7 +67,7 @@ const StockItem = ({ addItem }) => {
           />
         </div>
         <div className="w-65% sm:hidden xl:w-100% lg:w-100% md:w-100% flex xl:mt-30 lg:mt-30 md:mt-30 justify-between">
-          <SelectOptions
+          {/* <SelectOptions
             className="w-90% xl:w-90% lg:w-90% md:w-30%"
             label="up for sale"
           />
@@ -82,9 +75,10 @@ const StockItem = ({ addItem }) => {
           <SelectOptions
             className="w-100%  sm:hidden xl:w-80% lg:w-90% md:w-35%"
             label="sort low-high"
-          />
+          /> */}
           <SelectOptions
-            className="w-80% ml-20 sm:hidden xl:w-90% lg:w-90% md:w-30%"
+            // className="w-80% ml-20 sm:hidden xl:w-90% lg:w-90% md:w-30%"
+            className="w-30% ml-auto sm:hidden xl:w-30% lg:w-30% md:w-40%"
             label="show 10"
             option={array}
             onChange={selectedItems}
