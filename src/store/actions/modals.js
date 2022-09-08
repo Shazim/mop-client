@@ -25,3 +25,12 @@ export const ForgotModal = (payload) => {
     });
   };
 };
+
+export const logoutUser = (payload) => {
+  return (dispatch) => {
+    dispatch({
+      type: types.LOGOUT_USER,
+      payload,
+    });
+  };
+};

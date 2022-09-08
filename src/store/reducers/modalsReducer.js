@@ -13,6 +13,9 @@ const modalsReducer = (state = initialState, action) => {
         case types.FORGOT_MODAL: {
             return { ...state, isForgotOpen: payload };
         }
+        case types.LOGOUT_USER: {
+            return { ...state, isLogout: payload };
+        }
         default:
             return state;
     }

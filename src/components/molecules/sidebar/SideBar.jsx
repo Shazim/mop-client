@@ -1,10 +1,16 @@
-import React, { useState } from 'react';
+// ====================== IMPORTED LIBRARIES ========================
+import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Link, useLocation, useHistory } from 'react-router-dom';
+
+// ====================== IMPORTED UTILS ========================
+import { LOGOUT_USER } from 'store/actions/actionTypes';
 import { removeCookie } from 'cookies/Cookies';
-import { useDispatch, useSelector } from 'react-redux';
 import { routes } from 'routes';
 
-function SideBar() {
+const SideBar = () => {
+
+  const dispatch = useDispatch();
   const location = useLocation();
   const history = useHistory();
 
@@ -123,8 +129,13 @@ function SideBar() {
   ];
 
   const logout = () => {
-    removeCookie('user');
-    history.push(routes.ROUTE_HOME);
+    dispatch({ type: LOGOUT_USER, payload: true });
+    setTimeout(() => {
+      removeCookie('user');
+      dispatch({ type: LOGOUT_USER, payload: false });
+      history.push(routes.ROUTE_HOME);
+    }, 3000)
+
   };
 
   const links = [routes.ROUTE_CREATE_STOCKROOM, '/exhibition-room'];
@@ -144,11 +155,10 @@ function SideBar() {
                     <>
                       {subItem.name == 'Logout' ? (
                         <span
-                          className={`flex w-100% h-55  sm:bg-gray-lighter rounded-r-lg pl-62 xl:pl-50 lg:pl-40 md:pl-35 link ${
-                            subItem.link == location.pathname
-                              ? 'bg-secondary-dim'
-                              : ''
-                          }`}
+                          className={`flex w-100% h-55  sm:bg-gray-lighter rounded-r-lg pl-62 xl:pl-50 lg:pl-40 md:pl-35 link ${subItem.link == location.pathname
+                            ? 'bg-secondary-dim'
+                            : ''
+                            }`}
                           onClick={logout}
                         >
                           <img
@@ -160,11 +170,10 @@ function SideBar() {
                             }
                           />
                           <div
-                            className={`my-auto font-nunito-semibold capitalize text-base leading-5 ml-28 ${
-                              subItem.link == location.pathname
-                                ? 'text-primary'
-                                : 'text-secondary'
-                            } `}
+                            className={`my-auto font-nunito-semibold capitalize text-base leading-5 ml-28 ${subItem.link == location.pathname
+                              ? 'text-primary'
+                              : 'text-secondary'
+                              } `}
                           >
                             {subItem.name}
                           </div>
@@ -172,32 +181,30 @@ function SideBar() {
                       ) : (
                         <Link to={`${subItem.link}`}>
                           <span
-                            className={`flex w-100% h-55  sm:bg-gray-lighter rounded-r-lg pl-62 xl:pl-50 lg:pl-40 md:pl-35 link ${
-                              subItem.link == location.pathname
-                                ? 'bg-secondary-dim'
-                                : ''
-                            }`}
+                            className={`flex w-100% h-55  sm:bg-gray-lighter rounded-r-lg pl-62 xl:pl-50 lg:pl-40 md:pl-35 link ${subItem.link == location.pathname
+                              ? 'bg-secondary-dim'
+                              : ''
+                              }`}
                           >
                             <img
                               className="w-19 h-19 my-auto text-primary"
                               src={
                                 subItem.link == location.pathname ||
-                                location.pathname.includes(subItem?.link2) ||
-                                location.pathname.includes(subItem?.link3) ||
-                                location.pathname.includes(subItem?.link4)
+                                  location.pathname.includes(subItem?.link2) ||
+                                  location.pathname.includes(subItem?.link3) ||
+                                  location.pathname.includes(subItem?.link4)
                                   ? subItem.redIcon
                                   : subItem.icon
                               }
                             />
                             <div
-                              className={`my-auto font-nunito-semibold capitalize text-base leading-5 ml-28 ${
-                                subItem.link == location.pathname ||
+                              className={`my-auto font-nunito-semibold capitalize text-base leading-5 ml-28 ${subItem.link == location.pathname ||
                                 location.pathname.includes(subItem?.link2) ||
                                 location.pathname.includes(subItem?.link3) ||
                                 location.pathname.includes(subItem?.link4)
-                                  ? 'text-primary'
-                                  : 'text-secondary'
-                              } `}
+                                ? 'text-primary'
+                                : 'text-secondary'
+                                } `}
                             >
                               {subItem.name}
                             </div>
