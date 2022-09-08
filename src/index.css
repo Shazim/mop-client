@@ -450,12 +450,15 @@ svg.stroke-white {
   min-height: 200px;
   min-width: 200px;
 }
-.custom-search:focus {
+.custom-search:focus-within {
   outline: none;
   border-bottom: solid 1px #c71118;
   background-color: white;
   transition: 0.4s;
   height: 32px;
+}
+.custom-search input:focus {
+  outline: none;
 }
 
 .custom-bg {

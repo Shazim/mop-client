@@ -17,7 +17,9 @@ function SearchBar({
   ...otherProps
 }) {
   return (
-    <div className={`${classes} ${bgColor} pl-10 flex items-center`}>
+    <div
+      className={`${classes} ${bgColor} pl-10 flex items-center custom-search`}
+    >
       <img
         src={window.location.origin + '/images/searchbar/searchIcon.svg'}
         className=" w-16 h-16 mr-10 mt-2"
@@ -28,7 +30,7 @@ function SearchBar({
         onChange={onChange}
         onBlur={onBlur}
         value={value}
-        className={`${bgColor} ${transform} ${textSize} sm:text-tiny w-full  tracking font-bold placeholder-secondary  custom-search`}
+        className={`${bgColor} ${transform} ${textSize} sm:text-tiny w-full  tracking font-bold placeholder-secondary`}
         {...otherProps}
       />
     </div>
