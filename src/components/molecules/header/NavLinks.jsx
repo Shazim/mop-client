@@ -6,7 +6,8 @@ import { getCookie } from 'cookies/Cookies';
 
 const NavLinks = () => {
   const user = getCookie('user') && JSON.parse(getCookie('user'));
-  const { user_type } = user?.user || {}
+  const { user_type } = user?.user || {};
+  console.log(user);
   return (
     <div className="py-32 flex justify-between max-screen  sm:w-full sm:relative">
       <div className="w-30% ">
@@ -26,33 +27,46 @@ const NavLinks = () => {
           bgColor="bg-transparent"
         />
         {/* </div> */}
-        <Link to={user_type === 'customer' ? routes.ROUTE_GALLERY : routes.ROUTE_STOCKROOM}>
+        <Link
+          to={
+            user_type === 'customer'
+              ? routes.ROUTE_GALLERY
+              : routes.ROUTE_STOCKROOM
+          }
+        >
           <div
             className={`font-bold mt-6 ${'text-secondary'} text-sm uppercase hover:text-primary link tracking sm:mt-30 `}
           >
             {user_type === 'customer' ? 'my gallery' : 'stockroom'}
           </div>
         </Link>
-        <Link to={user_type === 'customer' ? routes.ROUTE_GALLERY : `${routes.ROUTE_EXHIBITION_ROOM}/live`}>
+        <Link
+          to={
+            user_type === 'customer'
+              ? routes.ROUTE_GALLERY
+              : `${routes.ROUTE_EXHIBITION_ROOM}/live`
+          }
+        >
           <div
             className={`font-bold mt-6 ${'text-secondary'} text-sm uppercase hover:text-primary link tracking sm:mt-30 `}
           >
             {user_type === 'customer' ? 'galleries' : 'exhibition'}
           </div>
         </Link>
-        {user_type === 'customer' && <Link to={routes.ROUTE_BROWSE_ARTWORK}>
-          <div
-            className={`font-bold mt-6 ${'text-secondary'} text-sm uppercase hover:text-primary link tracking sm:mt-30 `}
-          >
-            browse artwork
-          </div>
-        </Link>
-        }
+        {user_type === 'customer' && (
+          <Link to={routes.ROUTE_BROWSE_ARTWORK}>
+            <div
+              className={`font-bold mt-6 ${'text-secondary'} text-sm uppercase hover:text-primary link tracking sm:mt-30 `}
+            >
+              browse artwork
+            </div>
+          </Link>
+        )}
         <Link to={routes.ROUTE_MY_PROFILE}>
           <div
             className={`font-bold mt-6 ${'text-secondary'} text-sm uppercase hover:text-primary link tracking  sm:mt-30`}
           >
-            profile
+            {'Howdy, ' + user?.first_name + '!'}
           </div>
         </Link>
       </div>
