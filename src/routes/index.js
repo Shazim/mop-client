@@ -171,7 +171,7 @@ export default Object.freeze([
   },
   { path: routes.ROUTE_HOME, component: Home },
   { path: routes.ROUTE_CREATE_GALLERY, component: CreateGallary },
-  { path: routes.ROUTE_STORE, component: Pricing },
+  { path: routes.ROUTE_STORE, component: Pricing, privateRoute: true },
   { path: `${routes.ROUTE_GALLERY}/:id`, component: GalleryDetail },
   { path: `${routes.ROUTE_ARTISTS}/:id`, component: ArtistDetail },
   { path: routes.ROUTE_GALLERY, component: Gallery },

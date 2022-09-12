@@ -1,5 +1,4 @@
 // ====================== IMPORTED LIBRARIES ========================
-import { createContext, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider, useSelector } from 'react-redux';
 import 'react-toastify/dist/ReactToastify.css';
