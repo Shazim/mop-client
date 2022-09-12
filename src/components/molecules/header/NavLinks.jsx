@@ -1,13 +1,31 @@
+// ====================== IMPORTED LIBRARIES ========================
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { routes } from 'routes';
+import { useDispatch } from 'react-redux';
+import { Link, useHistory } from 'react-router-dom';
+
+// ====================== IMPORTED COMPONENTS ========================
 import SearchBar from 'components/atoms/searchbar/SearchBar';
-import { getCookie } from 'cookies/Cookies';
+import { getCookie, removeCookie } from 'cookies/Cookies';
+
+// ====================== IMPORTED UTILS ========================
+import { LOGOUT_USER } from 'store/actions/actionTypes';
+import { routes } from 'routes';
 
 const NavLinks = () => {
+  const dispatch = useDispatch();
+  const history = useHistory();
   const user = getCookie('user') && JSON.parse(getCookie('user'));
-  const { user_type } = user?.user || {};
-  console.log(user);
+  const { user_type, stripe_id } = user?.user || {};
+
+  const handleLogout = () => {
+    dispatch({ type: LOGOUT_USER, payload: true });
+    setTimeout(() => {
+      removeCookie('user');
+      dispatch({ type: LOGOUT_USER, payload: false });
+      history.push(routes.ROUTE_HOME);
+    }, 3000)
+
+  };
   return (
     <div className="py-32 flex justify-between max-screen  sm:w-full sm:relative">
       <div className="w-30% ">
@@ -69,6 +87,13 @@ const NavLinks = () => {
             {'Howdy, ' + user?.first_name + '!'}
           </div>
         </Link>
+        {!stripe_id && <div
+          className={`font-bold mt-6 text-primary text-sm uppercase  link tracking  sm:mt-30`}
+          onClick={handleLogout}
+        >
+          Logout
+        </div>
+        }
       </div>
     </div>
   );
