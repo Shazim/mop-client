@@ -4,11 +4,11 @@ import { useDispatch } from 'react-redux';
 import { Link, useLocation, useHistory } from 'react-router-dom';
 
 // ====================== IMPORTED UTILS ========================
-import { LOGOUT_USER } from 'store/actions/actionTypes';
-import { removeCookie } from 'cookies/Cookies';
+import useUserLogout from 'hooks/useUserLogout';
 import { routes } from 'routes';
 
 const SideBar = () => {
+  const handleLogout = useUserLogout();
 
   const dispatch = useDispatch();
   const location = useLocation();
@@ -128,16 +128,6 @@ const SideBar = () => {
     },
   ];
 
-  const logout = () => {
-    dispatch({ type: LOGOUT_USER, payload: true });
-    setTimeout(() => {
-      removeCookie('user');
-      dispatch({ type: LOGOUT_USER, payload: false });
-      history.push(routes.ROUTE_HOME);
-    }, 3000)
-
-  };
-
   const links = [routes.ROUTE_CREATE_STOCKROOM, '/exhibition-room'];
 
   return (
@@ -159,7 +149,7 @@ const SideBar = () => {
                             ? 'bg-secondary-dim'
                             : ''
                             }`}
-                          onClick={logout}
+                          onClick={handleLogout}
                         >
                           <img
                             className="w-19 h-19 my-auto text-primary"

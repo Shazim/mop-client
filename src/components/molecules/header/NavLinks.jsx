@@ -1,31 +1,21 @@
 // ====================== IMPORTED LIBRARIES ========================
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 // ====================== IMPORTED COMPONENTS ========================
 import SearchBar from 'components/atoms/searchbar/SearchBar';
-import { getCookie, removeCookie } from 'cookies/Cookies';
+import { getCookie } from 'cookies/Cookies';
 
 // ====================== IMPORTED UTILS ========================
-import { LOGOUT_USER } from 'store/actions/actionTypes';
 import { routes } from 'routes';
+import useUserLogout from 'hooks/useUserLogout';
 
 const NavLinks = () => {
-  const dispatch = useDispatch();
-  const history = useHistory();
+  const handleLogout = useUserLogout();
+
   const user = getCookie('user') && JSON.parse(getCookie('user'));
   const { user_type, stripe_id } = user?.user || {};
 
-  const handleLogout = () => {
-    dispatch({ type: LOGOUT_USER, payload: true });
-    setTimeout(() => {
-      removeCookie('user');
-      dispatch({ type: LOGOUT_USER, payload: false });
-      history.push(routes.ROUTE_HOME);
-    }, 3000)
-
-  };
   return (
     <div className="py-32 flex justify-between max-screen  sm:w-full sm:relative">
       <div className="w-30% ">
