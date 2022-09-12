@@ -4,18 +4,8 @@ import { useState } from 'react';
 import Answer from './Answer';
 import { getFaqs } from 'api/api-services';
 
-function QuestionAnswers({
-  question = [
-    'How many pictures can I store?',
-    'How many pictures can I store?',
-    'How many pictures can I store?',
-    'How many pictures can I store?',
-    'How many pictures can I store',
-  ],
-}) {
+function QuestionAnswers() {
   const data = useFetch(getFaqs);
-
-  console.log(data);
 
   const [showData, setShowData] = useState(false);
   const [id, setId] = useState();

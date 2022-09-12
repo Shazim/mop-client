@@ -34,7 +34,7 @@ const MyProfile = () => {
   const { data: stylesData } = useFetch(getStyles);
   const { data: profileData } = useFetch(getProfile);
   const [submitProfile, { data: profileResponse }] = usePost(updateProfile);
-  console.log('STYLE DATA : ', stylesData);
+
   useEffect(() => {
     if (profileData) {
       const {
