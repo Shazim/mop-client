@@ -15,8 +15,6 @@ function QuestionAnswers({
 }) {
   const data = useFetch(getFaqs);
 
-  console.log(data);
-
   const [showData, setShowData] = useState(false);
   const [id, setId] = useState();
 

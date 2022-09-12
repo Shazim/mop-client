@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 const Tables = ({
   filter = false,
   img = false,
-
+  coupon = false,
   isOpen,
   handler,
   tableHeading = ['order', 'date', 'shipping date', 'status'],
@@ -197,6 +197,20 @@ const Tables = ({
             ) : (
               ''
             )}
+            {coupon &&
+              (i == 0 ? (
+                <img
+                  className="-mt-6 link"
+                  src="/images/table/nameFilter.svg"
+                />
+              ) : (
+                i == 3 && (
+                  <img
+                    className="-mt-6 link"
+                    src="/images/table/filterIcon.svg"
+                  />
+                )
+              ))}
             {/* </div> */}
           </div>
         ))}
@@ -220,7 +234,7 @@ const Tables = ({
                 )
             )}
 
-            {filter ? (
+            {coupon || filter ? (
               <div
                 className="link absolute right-20 sm:right-10"
                 onClick={() => handleId(index)}
