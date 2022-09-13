@@ -35,17 +35,11 @@ const NavLinks = () => {
           bgColor="bg-transparent"
         />
         {/* </div> */}
-        <Link
-          to={
-            user_type === 'customer'
-              ? routes.ROUTE_GALLERY
-              : routes.ROUTE_STOCKROOM
-          }
-        >
+        <Link to={user_type !== 'customer' && routes.ROUTE_STOCKROOM}>
           <div
             className={`font-bold mt-6 ${'text-secondary'} text-sm uppercase hover:text-primary link tracking sm:mt-30 `}
           >
-            {user_type === 'customer' ? 'my gallery' : 'stockroom'}
+            {user_type !== 'customer' && 'stockroom'}
           </div>
         </Link>
         <Link
@@ -70,20 +64,27 @@ const NavLinks = () => {
             </div>
           </Link>
         )}
-        <Link to={routes.ROUTE_MY_PROFILE}>
+        <Link
+          to={
+            user_type === 'customer'
+              ? routes.ROUTE_CUSTOMER_ACCOUNT
+              : routes.ROUTE_MY_PROFILE
+          }
+        >
           <div
             className={`font-bold mt-6 ${'text-secondary'} text-sm uppercase hover:text-primary link tracking  sm:mt-30`}
           >
             {'Howdy, ' + user?.first_name + '!'}
           </div>
         </Link>
-        {!stripe_id && <div
-          className={`font-bold mt-6 text-primary text-sm uppercase  link tracking  sm:mt-30`}
-          onClick={handleLogout}
-        >
-          Logout
-        </div>
-        }
+        {!stripe_id && (
+          <div
+            className={`font-bold mt-6 text-primary text-sm uppercase  link tracking  sm:mt-30`}
+            onClick={handleLogout}
+          >
+            Logout
+          </div>
+        )}
       </div>
     </div>
   );

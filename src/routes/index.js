@@ -132,7 +132,7 @@ export default Object.freeze([
   {
     path: routes.ROUTE_SETTINGS,
     component: Settings,
-    privateRoute: true
+    privateRoute: true,
   },
   {
     path: routes.ROUTE_PRICE_PRODUCTS,
@@ -147,26 +147,31 @@ export default Object.freeze([
   {
     path: routes.ROUTE_ORDERS,
     component: Orders,
-    privateRoute: true
+    privateRoute: true,
   },
   {
     path: routes.ROUTE_CUSTOMER,
     component: Customers,
-    privateRoute: true
+    privateRoute: true,
   },
   {
     path: routes.ROUTE_TAX_RATES,
     component: TaxRates,
-    privateRoute: true
+    privateRoute: true,
   },
   {
     path: routes.ROUTE_COUPONS,
     component: CouponsOffers,
-    privateRoute: true
+    privateRoute: true,
   },
   {
     path: routes.ROUTE_MY_PROFILE,
     component: MyProfile,
+    privateRoute: true,
+  },
+  {
+    path: routes.ROUTE_CUSTOMER_ACCOUNT,
+    component: customerAccountDetail,
     privateRoute: true,
   },
   { path: routes.ROUTE_HOME, component: Home },
@@ -221,7 +226,10 @@ export default Object.freeze([
     component: ProfileSubscription,
     privateRoute: true,
   },
-  { path: `${routes.ROUTE_SINGLE_ARTWORK} /: id`, component: SinglePhoto },
+  {
+    path: `${routes.ROUTE_SINGLE_ARTWORK}/:id`,
+    component: SinglePhoto,
+  },
   { path: routes.ROUTE_ABOUT, component: About },
   { path: routes.ROUTE_LOGIN, component: Login },
   { path: routes.ROUTE_SIGNUP, component: Login },

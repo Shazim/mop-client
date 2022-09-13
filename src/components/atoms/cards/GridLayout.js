@@ -7,10 +7,9 @@ import { parsePath } from 'history';
 export default function GridLayout() {
   const { data: getData } = useFetch(featureArtwork);
   const { featured_artworks } = getData || [];
-  console.log(featured_artworks);
+
   return (
     <div>
-      {/* This is Desktop design below */}
       <div className="featured-desktop sm:hidden">
         <div className="featured-row flex gap-24 justify-between">
           <div
