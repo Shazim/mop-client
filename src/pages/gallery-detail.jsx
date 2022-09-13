@@ -5,6 +5,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { useParams } from 'react-router-dom';
+import { TailSpin } from 'react-loader-spinner';
 // ====================== IMPORTED COMPONENTS ========================
 import VideoCard from 'components/atoms/cards/VideoCard';
 import Pagination from 'components/Pagination/Pagination';
@@ -14,9 +15,10 @@ import { getGalleryDetails } from 'api/api-services';
 import withCustomerRoute from 'hoc/withCustomerRoute';
 
 const GalleryDetail = ({ props }) => {
-  const [handleGetGalleries, { data }] = useLazyFetch(getGalleryDetails);
+  const [handleGetGalleries, { data, loading }] =
+    useLazyFetch(getGalleryDetails);
   const [currentPage, setCurrentPage] = useState(1);
-  const { id } = useParams()
+  const { id } = useParams();
 
   const settings = {
     dots: true,
@@ -60,6 +62,16 @@ const GalleryDetail = ({ props }) => {
 
   return (
     <Container>
+      {loading && (
+        <div className="w-100% flex items-center justify-center ">
+          <TailSpin
+            color="#C71118"
+            height={80}
+            width={80}
+            ariaLabel="loading"
+          />
+        </div>
+      )}
       <div className="flex pb-30 flex-col items-center pt-34 tracking-wider font-avenir-reg font-medium uppercase ">
         <div className="text-primary text-2xl">{data?.gallery_name}</div>
         <div className="text-secondary text-lg">{data?.artist_name}</div>
