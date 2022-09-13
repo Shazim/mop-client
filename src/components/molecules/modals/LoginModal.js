@@ -6,6 +6,10 @@ import Modal from 'react-modal';
 import { generateSchema } from 'validation';
 import { TailSpin } from 'react-loader-spinner';
 import { toast } from 'react-toastify';
+import Facebook from 'assets/images/svgs/Facebook';
+import Instagram from 'assets/images/svgs/Instagram';
+import Twitter from 'assets/images/svgs/Twitter';
+import Youtube from 'assets/images/svgs/Youtube';
 
 // ====================== IMPORTED COMPONENTS ========================
 import { Form } from 'components/app/forms';
@@ -22,6 +26,7 @@ import {
   LOGIN_MODAL,
   SIGNUP_MODAL,
 } from 'store/actions/actionTypes';
+import Pinterest from 'assets/images/svgs/Pinterest';
 
 const LoginModal = () => {
   const { isLoginOpen, isSignupOpen, isForgotOpen } = useSelector(
@@ -86,15 +91,15 @@ const LoginModal = () => {
   }, [isLoginOpen]);
 
   return (
-    <div className={`w-100% h-100%`}>
+    <div className={`w-100% h-100% sm:w-full sm:h-100%`}>
       <Modal
         isOpen={isLoginOpen}
         className="absolute border-0   top-50% left-50% transform-xy outline-none"
         onRequestClose={handleLoginToggle}
         overlayClassName="fixed inset-0 overflow-auto bg-white bg-opacity-90 top-68"
       >
-        <div className="bg-gray-lighter w-568 pl-56 pr-57 py-40">
-          <div className="flex justify-between">
+        <div className="bg-gray-lighter w-568 pl-56 pr-57 py-40 sm:w-full">
+          <div className="flex justify-between sm:w-full">
             <div className="font-avenir-reg text-2xl text-secondary tracking-wider leading-38 uppercase">
               login
             </div>
@@ -104,20 +109,25 @@ const LoginModal = () => {
           </div>
           <Button
             color="facebook"
-            className="w-455 h-42 font-bold text-white tracking text-sm mt-20"
+            className="w-455 h-42 font-bold text-white tracking text-sm mt-20 sm:hidden"
           >
             LOGIN WITH FACEBOOK
           </Button>
           <Button
             color="instagram"
-            className="w-455 h-42 tracking font-bold text-white text-sm  mt-20"
+            className="w-455 h-42 tracking font-bold text-white text-sm  mt-20 sm:hidden"
           >
-            LOGIN WITH INSTAGRAM
+            <span className="sm:hidden"> LOGIN WITH</span> INSTAGRAM
           </Button>
-          <Button className="w-455 h-42 tracking text-sm mt-20">
-            LOGIN WITH PINTEREST
+          <Button className="w-455 h-42 tracking text-sm mt-20 sm:hidden">
+            <span className="sm:hidden"> LOGIN WITH</span> PINTEREST
           </Button>
-
+          <div className="hidden sm:pl-43 sm:pr-23 sm:flex w-100% sm:justify-between social-links mt-40 sm:block">
+            <Twitter className="w-22 h-22 mr-22 fill-primary link stroke-1" />
+            <Facebook className="w-22 h-22 mr-22 link stroke-primary stroke-1" />
+            <Instagram className="w-22 h-22 mr-22 link stroke-primary " />
+            <Pinterest className="w-22 h-22 mr-22 link fill-primary" />
+          </div>
           <div className="w-100% flex items-center justify-between mt-24">
             <div className="w-100% border-b border-border opacity-1"></div>
             <div className="font-bold text-sm text-secondary tracking uppercase mx-10">
@@ -158,7 +168,7 @@ const LoginModal = () => {
                       placeholder="ENTER PASSWORD HERE"
                       mb="6"
                       label="password"
-                      className="h-38 mb-10"
+                      className="h-38 mb-10 sm:w-full"
                     />
 
                     <SubmitButton
@@ -172,7 +182,7 @@ const LoginModal = () => {
               </Form>
             </div>
           )}
-          <div className="flex justify-between pr-20 mt-34">
+          <div className=" sm:w-full sm:flex-col flex justify-between pr-20 mt-34">
             <div
               onClick={handleSignupToggle}
               className="font-bold text-primary text-sm uppercase tracking leading-32 underline link"
@@ -181,7 +191,7 @@ const LoginModal = () => {
             </div>
             <div
               onClick={handleForgotToggle}
-              className="font-bold text-primary text-sm uppercase tracking leading-32 underline link"
+              className="font-bold text-primary text-sm uppercase tracking leading-32 underline link sm:leading-20 "
             >
               forgot password
             </div>

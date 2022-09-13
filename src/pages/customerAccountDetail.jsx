@@ -5,6 +5,7 @@ import { AdminLayout } from 'Layout';
 import { Form } from 'components/app/forms';
 import { TextField } from 'components/atoms/form';
 import Button from 'components/atoms/buttons/Button';
+import withCustomerRoute from 'hoc/withCustomerRoute';
 
 const customerAccountDetail = () => {
   return (
@@ -107,4 +108,4 @@ const customerAccountDetail = () => {
   );
 };
 
-export default customerAccountDetail;
+export default withCustomerRoute(customerAccountDetail);

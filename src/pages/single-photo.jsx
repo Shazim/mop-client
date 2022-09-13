@@ -23,7 +23,7 @@ const SinglePhoto = (props) => {
     '/images/image4.png',
   ];
 
-  const { id } = useParams()
+  const { id } = useParams();
 
   const { data: dataArtwork = [] } = useFetch(getPublicArtWork, {
     variables: id,
