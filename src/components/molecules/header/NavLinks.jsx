@@ -74,7 +74,7 @@ const NavLinks = () => {
           <div
             className={`font-bold mt-6 ${'text-secondary'} text-sm uppercase hover:text-primary link tracking  sm:mt-30`}
           >
-            {'Howdy, ' + user?.first_name + '!'}
+            {user.first_name ? `Howdy ${user.first_name}` : 'Profile'}
           </div>
         </Link>
         {!stripe_id && (
