@@ -132,7 +132,12 @@ const Home = () => {
           <GridLayout />
         </div>
         <div className="flex sm:hidden mt-43 justify-center mb-121">
-          <Button className="w-184 mr-18 ">View More</Button>
+          <Button
+            className="w-184 mr-18 "
+            onClick={() => history.push(routes.ROUTE_BROWSE_ARTWORK)}
+          >
+            View More
+          </Button>
           <Button
             type="outline"
             className="w-184 h-48"
