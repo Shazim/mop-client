@@ -11,7 +11,11 @@ import CheckBox from 'components/atoms/checkbox/CheckBox';
 import TextField from 'components/atoms/form/TextField';
 import Button from 'components/atoms/buttons/Button';
 import { Form } from 'components/app/forms';
-
+import Facebook from 'assets/images/svgs/Facebook';
+import Instagram from 'assets/images/svgs/Instagram';
+import Twitter from 'assets/images/svgs/Twitter';
+import Youtube from 'assets/images/svgs/Youtube';
+import Pinterest from 'assets/images/svgs/Pinterest';
 // ====================== IMPORTED UTILD ========================
 import { signUp } from 'api';
 import {
@@ -87,7 +91,7 @@ const SignupModal = () => {
   }, [isSignupOpen]);
 
   return (
-    <div className={`w-100% h-100%`}>
+    <div className={`w-100% h-100% sm:w-full sm:h-100%`}>
       <Modal
         isOpen={isSignupOpen}
         className="top-50% left-50% right-auto bottom-auto transform-xy mr-50% absolute h-90% border-0"
@@ -104,7 +108,7 @@ const SignupModal = () => {
             />
           </div>
         ) : (
-          <div className="bg-gray-lighter w-568 pl-56 pr-57 py-40">
+          <div className="bg-gray-lighter w-568 pl-56 pr-57 py-40 sm:w-full">
             <Form
               onSubmit={handleSubmit}
               initialValues={{ email: '', password: '', confirm: '' }}
@@ -116,7 +120,7 @@ const SignupModal = () => {
             >
               {() => (
                 <>
-                  <div className="flex justify-between">
+                  <div className="flex justify-between sm:w-full">
                     <div className="font-avenir-reg text-2xl text-secondary tracking-wider leading-38 uppercase">
                       Sign Up
                     </div>
@@ -126,29 +130,36 @@ const SignupModal = () => {
                   </div>
                   <Button
                     color="facebook"
-                    className="w-455 h-42 tracking font-bold text-white text-sm mt-20"
+                    className="w-455 h-42 tracking font-bold text-white text-sm mt-20 sm:hidden"
                   >
                     LOGIN WITH FACEBOOK
                   </Button>
                   <Button
                     color="instagram"
-                    className="w-455 h-42 tracking font-bold text-white text-sm  mt-20"
+                    className="w-455 h-42 tracking font-bold text-white text-sm  mt-20   sm:hidden"
                   >
                     LOGIN WITH INSTAGRAM
                   </Button>
-                  <Button className="w-455 h-42 tracking font-bold text-sm mt-20">
+                  <Button className="w-455 h-42 tracking font-bold text-sm mt-20 sm:hidden">
                     LOGIN WITH PINTEREST
                   </Button>
 
-                  <div className="w-100% flex items-center justify-between mt-24">
-                    <div className="w-100% border-b border-border opacity-1"></div>
+                  <div className="hidden sm:pl-43 sm:pr-23 sm:flex w-100% sm:justify-between social-links mt-40 sm:block">
+                    <Twitter className="w-22 h-22 mr-22 fill-primary link stroke-1" />
+                    <Facebook className="w-22 h-22 mr-22 link stroke-primary stroke-1" />
+                    <Instagram className="w-22 h-22 mr-22 link stroke-primary " />
+                    <Pinterest className="w-22 h-22 mr-22 link fill-primary" />
+                  </div>
+
+                  <div className="w-100% flex items-center justify-between mt-24 sm:w-full">
+                    <div className="w-100% border-b border-border opacity-1 sm:w-full"></div>
                     <div className="font-bold text-sm mx-10 text-secondary tracking uppercase">
                       or
                     </div>
-                    <div className="w-100% border-b border-border opacity-1"></div>
+                    <div className="w-100% border-b border-border opacity-1 sm:w-full"></div>
                   </div>
 
-                  <div className="w-455 border-b border-border opacity-1 pb-33 pt-10 my-33">
+                  <div className="w-455 border-b border-border opacity-1 pb-33 pt-10 my-33 sm:w-full">
                     <TextField
                       name="email"
                       type="email"
@@ -180,14 +191,14 @@ const SignupModal = () => {
                   <div className="font-bold text-black tracking leading-32 uppercase text-sm ">
                     Choose the statement that best applies to you.
                   </div>
-                  <div className="flex justify-between mt-20">
+                  <div className="flex justify-between mt-20 ">
                     <div
                       onClick={tabHandler}
                       className={`w-48% link uppercase px-65 py-14 ${
                         customer
                           ? 'bg-primary text-white'
                           : 'bg-white text-secondary'
-                      } text-sm  text-center tracking`}
+                      } text-sm  text-center tracking  sm:px-25`}
                     >
                       customer account
                     </div>
@@ -197,12 +208,12 @@ const SignupModal = () => {
                         artist
                           ? 'bg-primary text-white'
                           : 'bg-white text-secondary'
-                      } text-sm  text-center tracking`}
+                      } text-sm  text-center tracking sm:px-25`}
                     >
                       artist account
                     </div>
                   </div>
-                  <div className="w-100% border-b border-border opacity-1 pb-30 mb-20">
+                  <div className="w-100% border-b border-border opacity-1 pb-30 mb-20 sm:w-full">
                     {customer ? (
                       <div className="font-reg text-black text-base mt-20">
                         I want to be able to browse and buy artists work, but am
@@ -224,7 +235,7 @@ const SignupModal = () => {
                   <SubmitButton className="w-134 h-41 flex tracking font-bold text-sm justify-center items-center mx-auto mt-12">
                     SIGN UP
                   </SubmitButton>
-                  <div className="flex justify-between pr-20 mt-14">
+                  <div className="flex justify-between pr-20 mt-14 sm:flex-col">
                     <div
                       onClick={handleLoginToggle}
                       className="font-bold text-primary text-sm uppercase tracking leading-32 link underline"

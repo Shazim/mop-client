@@ -19,6 +19,7 @@ const GalleryDetail = ({ props }) => {
     useLazyFetch(getGalleryDetails);
   const [currentPage, setCurrentPage] = useState(1);
   const { id } = useParams();
+  const { exhibitions } = data || [];
 
   const settings = {
     dots: true,
@@ -35,7 +36,7 @@ const GalleryDetail = ({ props }) => {
           arrows: false,
           slidesToShow: 1,
           centerMode: true,
-          dots: true,
+          dots: false,
           centerPadding: '0%',
           transformEnabled: true,
         },
@@ -46,7 +47,7 @@ const GalleryDetail = ({ props }) => {
           arrows: false,
           slidesToShow: 1,
           centerMode: true,
-          dots: true,
+          dots: false,
           centerPadding: '0%',
           transformEnabled: true,
         },
@@ -76,34 +77,47 @@ const GalleryDetail = ({ props }) => {
         <div className="text-primary text-2xl">{data?.gallery_name}</div>
         <div className="text-secondary text-lg">{data?.artist_name}</div>
       </div>
-      <div className="max-screen sm:px-23 sm:pb-70">
-        <div className="mx-80 pb-30 grid grid-cols-2 gap-22 sm:hidden">
-          {data?.exhibitions?.map(({ room_name, views, image }) => (
-            <VideoCard
-              title={room_name}
-              views={views}
-              imageUrl={image ? image : undefined}
-            />
-          ))}
-        </div>
-        <div className="hidden sm:block">
-          <Slider {...settings}>
-            {data?.exhibitions?.map(({ room_name, views, image }) => (
+      {exhibitions?.length > 0 ? (
+        <div className="max-screen sm:px-23 sm:pb-70">
+          <div className="mx-80 pb-30 grid grid-cols-2 gap-22 sm:hidden">
+            {exhibitions?.map(({ room_name, views, image }) => (
               <VideoCard
                 title={room_name}
                 views={views}
                 imageUrl={image ? image : undefined}
               />
             ))}
-          </Slider>
+          </div>
+          <div className="hidden sm:block">
+            <Slider {...settings}>
+              {exhibitions?.map(({ room_name, views, image }) => (
+                <VideoCard
+                  title={room_name}
+                  views={views}
+                  imageUrl={image ? image : undefined}
+                />
+              ))}
+            </Slider>
+          </div>
+          <Pagination
+            pageDetails={data?.pagination}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+            className="mt-15 mb-63"
+          />
         </div>
-        <Pagination
-          pageDetails={data?.pagination}
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
-          className="mt-15 mb-63"
-        />
-      </div>
+      ) : (
+        <div className="text-center justify-center pt-112">
+          <p className="font-avenir-reg text-primary text-4xl uppercase leading-55 tracking-wider">
+            no items to show
+          </p>
+
+          <img
+            className="mx-auto w-180 h-180 mt-56 mb-491"
+            src="/images/galleryIcon.svg"
+          />
+        </div>
+      )}
     </Container>
   );
 };
