@@ -109,7 +109,7 @@ const GalleryDetail = ({ props }) => {
       ) : (
         <div className="text-center justify-center pt-112">
           <p className="font-avenir-reg text-primary text-4xl uppercase leading-55 tracking-wider">
-            You have no Drafts Found
+            no items to show
           </p>
 
           <img
