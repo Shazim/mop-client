@@ -617,18 +617,10 @@ const Checkout = () => {
                   )}
                 </Form>
               </div>
-
-              <div className="sm:hidden">
-                <Cart />
-              </div>
               <div className="hidden sm:block mt-10">
-                <div className="w-full  bg-white h-fit pt-31 pb-27 pl-27 pr-33">
-                  {[...Array(3)].map(() => (
-                    <Item />
-                  ))}
-                </div>
                 <div className="card-link flex justify-end mt-7">EDIT</div>
               </div>
+              <Cart />
             </div>
           </>
         ) : (

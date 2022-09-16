@@ -60,7 +60,7 @@ function Item({
               <img
                 src="/images/cart/subtract.svg"
                 alt=""
-                className="link"
+                className="link "
                 onClick={subtractQuantity}
               />
               <div className="tracking text-sm text-secondary font-nunito-light flex items-center px-6 pt-3">
@@ -91,10 +91,10 @@ function Item({
         </div>
       </div>
 
-      <div className="hidden sm:block">
+      <div className="hidden sm:block ">
         <div className="flex hr-b pt-10">
           <div className="w-44 h-31">
-            <img src="/images/cart/product.svg" alt="" />
+            <img src={image} alt="" className=" w-100% h-100% object-cover" />
           </div>
 
           <div className="pb-3 flex-grow">
@@ -110,7 +110,7 @@ function Item({
               X{artworkQuantity}
             </div>
             <div className="text-secondary text-sm tracking uppercase font-bold pb-10">
-              £{artworkPrice}
+              £{price}
             </div>
           </div>
         </div>
