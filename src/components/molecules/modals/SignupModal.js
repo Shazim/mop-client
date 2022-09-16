@@ -91,10 +91,10 @@ const SignupModal = () => {
   }, [isSignupOpen]);
 
   return (
-    <div className={`w-100% h-100% sm:w-full sm:h-100%`}>
+    <div className={`w-100% h-100% `}>
       <Modal
         isOpen={isSignupOpen}
-        className="top-50% left-50% right-auto bottom-auto transform-xy mr-50% absolute h-90% border-0"
+        className="top-50% left-50% right-auto bottom-auto transform-xy mr-50% absolute h-90% border-0 sm:w-full"
         onRequestClose={handleSignupToggle}
         overlayClassName="fixed inset-0 overflow-auto bg-white bg-opacity-90 top-68"
       >
@@ -120,7 +120,7 @@ const SignupModal = () => {
             >
               {() => (
                 <>
-                  <div className="flex justify-between sm:w-full">
+                  <div className="flex justify-between ">
                     <div className="font-avenir-reg text-2xl text-secondary tracking-wider leading-38 uppercase">
                       Sign Up
                     </div>
@@ -130,26 +130,19 @@ const SignupModal = () => {
                   </div>
                   <Button
                     color="facebook"
-                    className="w-455 h-42 tracking font-bold text-white text-sm mt-20 sm:hidden"
+                    className="w-455 h-42 tracking font-bold text-white text-sm mt-20 sm:w-full"
                   >
                     LOGIN WITH FACEBOOK
                   </Button>
                   <Button
                     color="instagram"
-                    className="w-455 h-42 tracking font-bold text-white text-sm  mt-20   sm:hidden"
+                    className="w-455 h-42 tracking font-bold text-white text-sm  mt-20   sm:w-full"
                   >
                     LOGIN WITH INSTAGRAM
                   </Button>
-                  <Button className="w-455 h-42 tracking font-bold text-sm mt-20 sm:hidden">
+                  <Button className="w-455 h-42 tracking font-bold text-sm mt-20 sm:w-full">
                     LOGIN WITH PINTEREST
                   </Button>
-
-                  <div className="hidden sm:pl-43 sm:pr-23 sm:flex w-100% sm:justify-between social-links mt-40 sm:block">
-                    <Twitter className="w-22 h-22 mr-22 fill-primary link stroke-1" />
-                    <Facebook className="w-22 h-22 mr-22 link stroke-primary stroke-1" />
-                    <Instagram className="w-22 h-22 mr-22 link stroke-primary " />
-                    <Pinterest className="w-22 h-22 mr-22 link fill-primary" />
-                  </div>
 
                   <div className="w-100% flex items-center justify-between mt-24 sm:w-full">
                     <div className="w-100% border-b border-border opacity-1 sm:w-full"></div>
@@ -235,7 +228,7 @@ const SignupModal = () => {
                   <SubmitButton className="w-134 h-41 flex tracking font-bold text-sm justify-center items-center mx-auto mt-12">
                     SIGN UP
                   </SubmitButton>
-                  <div className="flex justify-between pr-20 mt-14 sm:flex-col">
+                  <div className="flex justify-between pr-20 mt-14 ">
                     <div
                       onClick={handleLoginToggle}
                       className="font-bold text-primary text-sm uppercase tracking leading-32 link underline"
