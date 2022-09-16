@@ -34,7 +34,7 @@ const Cart = () => {
     { heading: 'total', price: `£${Total || ''}` },
   ];
   return (
-    <div className="bg-gray-lighter h-fit w-312 pt-31 pb-27 pl-27 pr-33">
+    <div className="bg-gray-lighter h-fit w-312 pt-31 pb-27 pl-27 pr-33 sm:w-full sm:bg-white">
       {cartItems.map(
         (
           { artwork_images, artwork_name, artist_name, price, quantity },
@@ -53,7 +53,7 @@ const Cart = () => {
       )}
       <div>
         {prices.map((item) => (
-          <div className="flex justify-between">
+          <div className="flex justify-between sm:hidden">
             <div className="text-secondary uppercase tracking font-bold">
               {item.heading}
             </div>

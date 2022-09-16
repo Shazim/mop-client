@@ -39,10 +39,10 @@ const About = () => {
             Masters of photography classes{' '}
             <span className="text-secondary"> the</span> Red Dot
             <span className="text-secondary">
-              Gallery offers photographers a new way to
+              {''} Gallery offers photographers a new way to
             </span>
-            exhabit and sell
-            <span className="text-secondary">their art.</span>
+            {''} exhabit and sell
+            <span className="text-secondary">{''} their art.</span>
           </div>
           <div className="ml-50  mt-25">
             <Button className="w-275 h-48" transform="uppercase">
