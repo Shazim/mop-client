@@ -33,6 +33,11 @@ const BrowseArtwork = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   const search = useSelector((state) => state?.public?.searchSideBar);
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   useEffect(() => {
     if (dataArtworks) setIsLoading(false);
   }, [dataArtworks]);
