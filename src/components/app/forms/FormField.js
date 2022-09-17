@@ -38,7 +38,7 @@ function FormField({
         <Input
           className="w-100% h-100% bg-white outline-none  text-secondary placeholder-gray font-bold text-sm pl-16 py-5 tracking"
           name={name}
-          onBlur={handleBlur}
+          onBlur={!readOnly && handleBlur}
           onChange={handleChangeCustom}
           type={type}
           value={type == 'file' ? '' : values[name]}
@@ -47,7 +47,7 @@ function FormField({
           {...otherProps}
         />
       </div>
-      <ErrorMessage error={errors[name]} visible={touched[name]} />
+      {!readOnly && <ErrorMessage error={errors[name]} visible={touched[name]} />}
     </>
   );
 }
