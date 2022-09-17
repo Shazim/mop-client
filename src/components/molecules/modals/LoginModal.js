@@ -15,7 +15,7 @@ import TextField from 'components/atoms/form/TextField';
 
 // ====================== IMPORTED UTILS ========================
 import { signIn } from 'api';
-import { setCookie } from 'cookies/Cookies';
+import { getCookie, setCookie } from 'cookies/Cookies';
 import { routes } from 'routes';
 import {
   FORGOT_MODAL,
@@ -32,6 +32,8 @@ const LoginModal = () => {
   const history = useHistory();
   const location = useLocation();
   const { pathname } = location || {};
+  const user = getCookie('user') && JSON.parse(getCookie('user'));
+  const { user_type } = user?.user || {};
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -59,15 +61,16 @@ const LoginModal = () => {
   };
 
   const login = (values) => {
-    const route =
-      pathname === routes.ROUTE_CHECKOUT
-        ? routes.ROUTE_CHECKOUT
-        : routes.ROUTE_MY_PROFILE;
+    let route = routes.ROUTE_ARTIST_PROFILE
     setIsLoading(true);
     signIn({ ...values, grant_type: 'password' })
       .then((response) => {
         setIsLoading(false);
         if (response?.status == 200) {
+          const { user_type } = response?.data?.user
+          if (pathname === routes.ROUTE_CHECKOUT) route = routes.ROUTE_CHECKOUT;
+          if (pathname !== routes.ROUTE_CHECKOUT && user_type === 'artist') route = routes.ROUTE_ARTIST_PROFILE;
+          if (pathname !== routes.ROUTE_CHECKOUT && user_type === 'customer') route = routes.ROUTE_CUSTOMER_PROFILE;
           setCookie('user', JSON.stringify(response?.data));
           handleLoginToggle();
           history.push(route);

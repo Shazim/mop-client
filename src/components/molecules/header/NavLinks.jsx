@@ -67,8 +67,8 @@ const NavLinks = () => {
         <Link
           to={
             user_type === 'customer'
-              ? routes.ROUTE_CUSTOMER_ACCOUNT
-              : routes.ROUTE_MY_PROFILE
+              ? routes.ROUTE_CUSTOMER_PROFILE
+              : routes.ROUTE_ARTIST_PROFILE
           }
         >
           <div
@@ -77,7 +77,7 @@ const NavLinks = () => {
             {user.first_name ? `Howdy ${user.first_name}` : 'Profile'}
           </div>
         </Link>
-        {!stripe_id && (
+        {(!stripe_id && user_type === 'artist') && (
           <div
             className={`font-bold mt-6 text-primary text-sm uppercase  link tracking  sm:mt-30`}
             onClick={handleLogout}
