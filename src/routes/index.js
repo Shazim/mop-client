@@ -35,9 +35,10 @@ import editPriceSheet from 'pages/Admin/edit-price-sheet';
 import PageNotFound from 'pages/PageNotFound';
 import myOrders from 'pages/myOrders';
 import customerAccountDetail from 'pages/customerAccountDetail';
-import customerOrderDetail from 'pages/customerOrderDetail';
+
 import customerPayment from 'pages/customerPayment';
 import AdminAnalytics from 'pages/analytics';
+import customerOrderSumary from 'pages/customerOrderSumary';
 // List of Routes name using for links and route
 export const routes = Object.freeze({
   ROUTE_FORGOT_PASSWORD: '/forgot-password',
@@ -82,9 +83,9 @@ export const routes = Object.freeze({
   ROUTE_EDIT_PRICE_SHEET: '/edit-price-sheet/:id',
   ROUTE_PRICING_SHEET_DETAILS: '/price-sheet/:id',
   ROUTE_MY_OREDRS: '/myorders',
-  ROUTE_CUSTOMER_OREDR_DETAIL: '/customer-order-detail',
   ROUTE_CUSTOMER_PROFILE: '/customer/profile',
   ROUTE_CUSTOMER_PAYMENT: '/customer-payment',
+  ROUTE_CUSTOMER_ORDER: '/customer-order',
   ROUTE_PAGE_NOT_FOUND: '/*',
 });
 // List of route object which will be rendered under Router component
@@ -94,10 +95,20 @@ export default Object.freeze([
     component: GallerySetting,
     privateRoute: true,
   },
+
   {
     path: routes.ROUTE_STOCKROOM,
     component: Stocks,
     privateRoute: true,
+  },
+
+  {
+    path: routes.ROUTE_CUSTOMER_ORDER,
+    component: customerOrderSumary,
+  },
+  {
+    path: routes.ROUTE_CUSTOMER_PAYMENT,
+    component: customerPayment,
   },
   {
     path: routes.ROUTE_CREATE_STOCKROOM,
@@ -172,7 +183,6 @@ export default Object.freeze([
   {
     path: routes.ROUTE_CUSTOMER_PROFILE,
     component: customerAccountDetail,
-    privateRoute: true,
   },
   { path: routes.ROUTE_HOME, component: Home },
   { path: routes.ROUTE_CREATE_GALLERY, component: CreateGallary },

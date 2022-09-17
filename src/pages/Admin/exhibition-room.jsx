@@ -34,7 +34,9 @@ const ExhibitionRoom = () => {
   const { user_type } = user?.user || {};
   const history = useHistory();
   const { id } = useParams();
-  const { data: ExhibitionsData } = useFetch(getSingleExhibition, { variables: id });
+  const { data: ExhibitionsData } = useFetch(getSingleExhibition, {
+    variables: id,
+  });
 
   const steps = {
     1: <Detail />,
@@ -55,11 +57,11 @@ const ExhibitionRoom = () => {
   const [store, setStore] = useState('');
   const lengthOfSteps = Object.keys(steps).length;
   const [step, setStep] = useState(1);
-  const handleStore = (param) => {
-    console.log('PARAMS :', param);
-    setStore(param);
-    return param;
-  };
+  // const handleStore = (param) => {
+  //   console.log('PARAMS :', param);
+  //   setStore(param);
+  //   return param;
+  // };
 
   // const check = (step) => {
   //   const renderStep = {
@@ -81,21 +83,22 @@ const ExhibitionRoom = () => {
 
   // console.log('check function', check(`${step}`));
 
-
   const [handleCreatePost, { data: dataPost }] = usePost(createExhibitions);
   const [initialValues, setInitialValues] = useState({
     room_name: '',
     artwork_ids: {},
     status: true,
     draft: false,
-    exhibition_style_id: ''
+    exhibition_style_id: '',
   });
 
   useEffect(() => {
     if (ExhibitionsData?.artworks) {
       const updatedArtworkIds = {};
-      const artworkIds = ExhibitionsData?.artworks?.map((item) => updatedArtworkIds[item.id] = item.id);
-      ExhibitionsData.artwork_ids = updatedArtworkIds
+      const artworkIds = ExhibitionsData?.artworks?.map(
+        (item) => (updatedArtworkIds[item.id] = item.id)
+      );
+      ExhibitionsData.artwork_ids = updatedArtworkIds;
       ExhibitionsData.exhibition_style_id = ExhibitionsData.exhibition_style.id;
       const draftsInitialValues = {
         room_name: ExhibitionsData.room_name,
@@ -103,12 +106,11 @@ const ExhibitionRoom = () => {
         status: ExhibitionsData.status,
         draft: ExhibitionsData.draft,
         exhibition_style_id: ExhibitionsData.exhibition_style.id,
-        artist_name: ExhibitionsData.artist_name
-      }
-      setInitialValues(draftsInitialValues)
+        artist_name: ExhibitionsData.artist_name,
+      };
+      setInitialValues(draftsInitialValues);
     }
-
-  }, [ExhibitionsData])
+  }, [ExhibitionsData]);
 
   const onSubmit = (data) => {
     const formData = new FormData();
@@ -120,8 +122,8 @@ const ExhibitionRoom = () => {
     });
   };
   const handleDraft = (val, handleSubmit) => {
-    handleSubmit()
-  }
+    handleSubmit();
+  };
 
   useEffect(() => {
     if (step == 0) {
@@ -146,7 +148,8 @@ const ExhibitionRoom = () => {
   useEffect(() => {
     if (dataPost) {
       setInitialValues({ ...initialValues, key: dataPost?.key });
-      if (dataPost.draft) history.push(`${routes.ROUTE_EXHIBITION_ROOM}/drafts`)
+      if (dataPost.draft)
+        history.push(`${routes.ROUTE_EXHIBITION_ROOM}/drafts`);
       else setStep((prev) => prev + 1);
     }
   }, [dataPost]);
@@ -177,13 +180,16 @@ const ExhibitionRoom = () => {
                           values.room_name == '' && step == 1
                             ? handleSubmit()
                             : step == 4 && values.exhibition_style_id == ''
-                              ? handleSubmit()
-                              : step == 2 &&
-                                Object.keys(values.artwork_ids).length == 0
-                                ? handleSubmit()
-                                : step == 4
-                                  ? handleDraft(values['draft'] = false, handleSubmit)
-                                  : setStep((prev) => prev + 1)
+                            ? handleSubmit()
+                            : step == 2 &&
+                              Object.keys(values.artwork_ids).length == 0
+                            ? handleSubmit()
+                            : step == 4
+                            ? handleDraft(
+                                (values['draft'] = false),
+                                handleSubmit
+                              )
+                            : setStep((prev) => prev + 1)
                         }
                       >
                         NEXT
@@ -205,9 +211,11 @@ const ExhibitionRoom = () => {
                   {step == 4 && (
                     <Button
                       onClick={() => {
-                        handleDraft(values['draft'] = true, handleSubmit)
+                        handleDraft((values['draft'] = true), handleSubmit);
                       }}
-                      color="gray" className="ml-22 w-203 h-33">
+                      color="gray"
+                      className="ml-22 w-203 h-33"
+                    >
                       SAVE AS DRAFT
                     </Button>
                   )}
