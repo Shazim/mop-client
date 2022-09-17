@@ -27,7 +27,6 @@ const HeaderMobile = () => {
     { title: 'galleries', link: routes.ROUTE_GALLERY },
     { title: 'browse artwork', link: routes.ROUTE_BROWSE_ARTWORK },
   ];
-
   const { access_token, refresh_token } =
     (getCookie('user') && JSON.parse(getCookie('user'))) || {};
 
@@ -35,9 +34,14 @@ const HeaderMobile = () => {
     if (['/galleries', '/exhibitions', '/artists'].includes(pathname))
       return 'text-primary';
   };
+  const handleCustomMenuClose = () => {
+    let close_icon = document.getElementById('react-burger-cross-btn');
+  };
 
   const handleLoginToggle = () => {
     dispatch({ type: LOGIN_MODAL, payload: !isLoginOpen });
+    document.getElementById('react-burger-cross-btn').click();
+    //handleCustomMenuClose()
   };
 
   return (
@@ -62,7 +66,6 @@ const HeaderMobile = () => {
                 className="hidden sm:block"
               />
             }
-            onClick={() => setOpen(!open)}
             customCrossIcon={
               <img
                 src={window.location.origin + '/images/icons/close.svg'}

@@ -62,7 +62,7 @@ const MobileNav = () => {
               <div
                 className={`font-bold mt-30 ${'text-primary'} text-lg uppercase hover:text-primary link tracking   flex justify-center`}
               >
-                {'Howdy, ' + user?.first_name + '!'}
+                {user.first_name ? `Howdy ${user.first_name}` : 'Profile'}
               </div>
             </Link>
             {/* </div> */}
@@ -108,7 +108,7 @@ const MobileNav = () => {
                 My Profile
               </div>
             </Link>
-            {!stripe_id && (
+            {stripe_id && (
               <div
                 className={`font-bold mt-6 text-primary text-sm uppercase  link tracking flex justify-center sm:mt-30`}
                 onClick={handleLogout}
