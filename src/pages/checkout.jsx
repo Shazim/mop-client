@@ -61,24 +61,6 @@ const Checkout = () => {
     total_price: '',
     order_items_attributes: [],
   });
-  // const elements = useElements();
-  // const stripe = useStripe();
-  // const stripeElementStyle = {
-  //   base: {
-  //     fontSize: '13px',
-  //     color: 'black',
-
-  //     letterSpacing: '0.10em',
-  //     fontFamily: 'Nunito, sans-serif',
-  //     '::placeholder': {
-  //       color: '#D6D6D6',
-  //     },
-  //     fontWeight: 'bold',
-  //     ':focus': {
-  //       borderBottomColor: 'red',
-  //     },
-  //   },
-  // };
 
   const handleLoginToggle = () => {
     dispatch({ type: LOGIN_MODAL, payload: !isLoginOpen });
@@ -98,28 +80,29 @@ const Checkout = () => {
         };
       }
     );
-
-    setInitial({
-      ...initial,
-      order_items_attributes: data,
-      total_price: total_Price,
+    setInitial(prev => {
+      return {
+        ...prev, order_items_attributes: data, total_price: total_Price
+      }
     });
   }, []);
 
-  useEffect(() => {
-    if (dataPost) {
-      toast.success('your order is Completed');
-    }
-  }, [dataPost]);
+  // useEffect(() => {
+  //   if (dataPost) {
+  //     toast.success('your order is Completed');
+  //   }
+  // }, [dataPost]);
   useEffect(() => {
     if (!checked) {
-      setInitial({
-        ...initial,
-        shipping_address_1: '',
-        shipping_address_2: '',
-        shipping_address_3: '',
-        shipping_postcode: '',
-        shipping_country: '',
+      setInitial(prev => {
+        return {
+          ...prev,
+          shipping_address_1: '',
+          shipping_address_2: '',
+          shipping_address_3: '',
+          shipping_postcode: '',
+          shipping_country: '',
+        }
       });
     }
   }, [checked]);
@@ -127,7 +110,6 @@ const Checkout = () => {
     if (!access_token) setDisable(true);
     else setDisable(false);
   }, [access_token]);
-  //console.log({ childRef });
 
   const onSubmit = (data) => {
     //childRef.current.getAlert();
@@ -169,7 +151,8 @@ const Checkout = () => {
           order_items_attributes: [],
         },
       },
-    });
+    }
+    );
   };
 
   const onChange = (data) => {
@@ -220,9 +203,9 @@ const Checkout = () => {
                       <Button
                         color="gray"
                         className="w-234 h-33  sm:mt-12 sm:ml-auto sm:mr-auto"
-                        // onClick={() =>
-                        //   //history.push(routes.ROUTE_CREATE_GALLERY)
-                        // }
+                      // onClick={() =>
+                      //   //history.push(routes.ROUTE_CREATE_GALLERY)
+                      // }
                       >
                         CREATE AN ACCOUNT
                       </Button>
@@ -373,7 +356,7 @@ const Checkout = () => {
                           height="38"
                           label="Shipping Address Line 1"
                           value={values.shipping_address_1}
-                          readOnly={checked}
+                          readOnly={checked || disable}
                         />
                       </div>
                       <div className="mb-11">
@@ -384,7 +367,7 @@ const Checkout = () => {
                           height="38"
                           label="Shipping Address Line 2"
                           value={values.shipping_address_2}
-                          readOnly={checked}
+                          readOnly={checked || disable}
                         />
                       </div>
                       <div className="mb-11">
@@ -395,7 +378,7 @@ const Checkout = () => {
                           height="38"
                           label="Shipping Address line 3"
                           value={values.shipping_address_3}
-                          readOnly={checked}
+                          readOnly={checked || disable}
                         />
                       </div>
                       <div className="flex hr-b pb-35 sm:flex-col">
@@ -407,7 +390,7 @@ const Checkout = () => {
                             height="38"
                             label=" Shipping POST CODE"
                             value={values.shipping_postcode}
-                            readOnly={checked}
+                            readOnly={checked || disable}
                           />
                         </div>
                         <div className="w-199 ml-30 sm:w-full sm:ml-0 sm:mt-10">
@@ -418,7 +401,7 @@ const Checkout = () => {
                             height="38"
                             label="shipping country"
                             value={values.shipping_country}
-                            readOnly={checked}
+                            readOnly={checked || disable}
                           />
                         </div>
                       </div>
@@ -504,34 +487,14 @@ const Checkout = () => {
                           ))}
                         </div>
                       </div>
-                      {/* <Elements
-                        stripe={stripePromise}
-                        options={{
-                          fonts: [
-                            {
-                              src: '../../../src/fonts/Nunito-Bold.ttf',
-                              family: 'Nunito',
-                              style: 'normal',
-                            },
-                          ],
-                        }}
-                      >
-                        <div>
-                          <div className="admin-h2 py-18">
-                            your payment details
-                          </div>
-                          <div className="admin-label">payments going to </div>
-                          <div className="flex pt-14 pb-9">
-                            <div className="w-87 mr-26">
-                              <RadioButton
-                                className="text-sm mt-12"
-                                name="payment"
-                                value="Paypal"
-                                // value={item.name}
-                                // checked={item.select}
-                                // onChange={() => setData(title, index, '')}
-                              />
-                            </div>
+
+                      <div>
+                        <div className="admin-h2 py-18">
+                          your payment details
+                        </div>
+                        <div className="admin-label">payments going to </div>
+                        <div className="flex pt-14 pb-9">
+                          <div className="w-87 mr-26">
                             <RadioButton
                               className="text-sm mt-12"
                               name="payment"
@@ -544,75 +507,74 @@ const Checkout = () => {
                           <RadioButton
                             className="text-sm mt-12"
                             name="payment"
-                            value="Card ending in 0876"
+                            value="Paypal"
                           // value={item.name}
                           // checked={item.select}
                           // onChange={() => setData(title, index, '')}
                           />
                         </div>
-                        <div className="card-link sm:hidden">Add Card</div>
-                        <div className="flex mb-8 mt-24 sm:hidden">
+                        <RadioButton
+                          className="text-sm mt-12"
+                          name="payment"
+                          value="Card ending in 0876"
+                        // value={item.name}
+                        // checked={item.select}
+                        // onChange={() => setData(title, index, '')}
+                        />
+                      </div>
+                      <div className="card-link sm:hidden">Add Card</div>
+                      <div className="flex mb-8 mt-24 sm:hidden">
+                        <TextField
+                          name="cardHolder Name"
+                          placeholder="ENTER CARDHOLDER NAME"
+                          mb="9"
+                          height="38"
+                          label="CARDHOLDER Name"
+                          width="277"
+                        />
+                        <div className="ml-30">
                           <TextField
-                            name="cardHolder Name"
-                            placeholder="ENTER CARDHOLDER NAME"
+                            name="CARD NUMBER"
+                            placeholder="ENTER CARD NUMBER"
                             mb="9"
                             height="38"
-                            label="CARDHOLDER Name"
+                            label="CARD NUMBER"
                             width="277"
                           />
-                          <div className="ml-30">
-                            <TextField
-                              name="CARD NUMBER"
-                              placeholder="ENTER CARD NUMBER"
-                              mb="9"
-                              height="38"
-                              label="CARD NUMBER"
-                              width="277"
-                            />
-                          </div>
                         </div>
-                        <div className="flex mb-8 mt-24 pb-30 sm:hidden">
+                      </div>
+                      <div className="flex mb-8 mt-24 pb-30 sm:hidden">
+                        <TextField
+                          name="EXPIRY DATE"
+                          placeholder="05/25"
+                          mb="9"
+                          height="38"
+                          label="EXPIRY DATE"
+                          width="140"
+                        />
+                        <div className="ml-30">
                           <TextField
-                            name="EXPIRY DATE"
-                            placeholder="05/25"
+                            name="CSV"
+                            placeholder="456"
                             mb="9"
                             height="38"
-                            label="EXPIRY DATE"
-                            width="140"
+                            label="CSV"
+                            width="70"
                           />
-                          <div className="ml-30">
-                            <TextField
-                              name="CSV"
-                              placeholder="456"
-                              mb="9"
-                              height="38"
-                              label="CSV"
-                              width="70"
-                            />
-                          </div>
                         </div>
-                        {/* <div className="hidden sm:block hr-b mt-303"></div>
-                    <div className="mb-30 mt-25">
-                      {prices.map((item) => (
-                        <div className="flex justify-between">
-                          <div className="text-secondary uppercase tracking font-bold">
-                            {item.heading}
-                          </div>
-                          <div className="text-primary tracking font-bold">
-                            {item.price}
-                          </div>
-                        </div>
-                        <div className="sm:flex justify-center">
-                          <Button
-                            className="w-318 h-33 sm:w-275 sm:h-44"
-                            transform="uppercase"
-                            disabled={`${access_token ? false : true}`}
-                            onClick={Submit}
-                          >
-                            complete purchase
-                          </Button>
-                        </div>{' '}
-                      </Elements> */}
+                      </div>
+
+                      <div className="sm:flex justify-center">
+                        <Button
+                          className="w-318 h-33 sm:w-275 sm:h-44"
+                          transform="uppercase"
+                          // disabled={`${access_token ? false : true}`}
+                          onClick={onSubmit}
+                        >
+                          complete purchase
+                        </Button>
+                      </div>{' '}
+
                     </>
                   )}
                 </Form>
