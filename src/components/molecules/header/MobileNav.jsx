@@ -11,7 +11,7 @@ import useUserLogout from 'hooks/useUserLogout';
 const MobileNav = () => {
   const [open, setOpen] = useState(false);
   const user = getCookie('user') && JSON.parse(getCookie('user'));
-  const { user_type, stripe_id } = user?.user || {};
+  const { user_type } = user?.user || {};
   const handleLogout = useUserLogout();
   return (
     <>
@@ -55,8 +55,8 @@ const MobileNav = () => {
             <Link
               to={
                 user_type === 'customer'
-                  ? routes.ROUTE_CUSTOMER_ACCOUNT
-                  : routes.ROUTE_MY_PROFILE
+                  ? routes.ROUTE_CUSTOMER_PROFILE
+                  : routes.ROUTE_ARTIST_PROFILE
               }
             >
               <div
@@ -98,8 +98,8 @@ const MobileNav = () => {
             <Link
               to={
                 user_type === 'customer'
-                  ? routes.ROUTE_CUSTOMER_ACCOUNT
-                  : routes.ROUTE_MY_PROFILE
+                  ? routes.ROUTE_CUSTOMER_PROFILE
+                  : routes.ROUTE_ARTIST_PROFILE
               }
             >
               <div
@@ -108,7 +108,7 @@ const MobileNav = () => {
                 My Profile
               </div>
             </Link>
-            {!stripe_id && (
+            {user_type && (
               <div
                 className={`font-bold mt-6 text-primary text-sm uppercase  link tracking flex justify-center sm:mt-30`}
                 onClick={handleLogout}

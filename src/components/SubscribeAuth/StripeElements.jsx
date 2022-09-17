@@ -1,7 +1,7 @@
-import { Form } from 'components/app/forms';
-import Button from 'components/atoms/buttons/Button';
-import CheckBox from 'components/atoms/checkbox/CheckBox';
-import RadioButton from 'components/atoms/buttons/RadioButton';
+// ====================== IMPORTED LIBRARIES ========================
+import { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import {
   CardNumberElement,
   useElements,
@@ -9,15 +9,29 @@ import {
   CardCvcElement,
   CardExpiryElement,
 } from '@stripe/react-stripe-js';
-import { toast } from 'react-toastify';
+
+// ====================== IMPORTED COMPONENTS ========================
+import Button from 'components/atoms/buttons/Button';
+import CheckBox from 'components/atoms/checkbox/CheckBox';
+import RadioButton from 'components/atoms/buttons/RadioButton';
+import { Form } from 'components/app/forms';
+
+// ====================== IMPORTED UTILS ========================
+import { getCookie, setCookie } from 'cookies/Cookies';
 import { subscription } from 'api';
 import { usePost } from 'hooks';
-import { getCookie } from 'cookies/Cookies';
-import { useEffect } from 'react';
+import { routes } from 'routes';
 
-function StripeElements() {
+
+const StripeElements = () => {
+
+  const selectedPackage = getCookie('package') && JSON.parse(getCookie('package'));
+  const { id } = selectedPackage || {};
+  const user = getCookie('user') && JSON.parse(getCookie('user'));
+
   const elements = useElements();
   const stripe = useStripe();
+  const history = useHistory()
 
   const [subscribe, { data: dataSubscription }] = usePost(subscription);
 
@@ -38,12 +52,12 @@ function StripeElements() {
     },
   };
 
-  const selectedPackage =
-    getCookie('package') && JSON.parse(getCookie('package'));
-  const { id } = selectedPackage || {};
 
   useEffect(() => {
     if (dataSubscription) {
+      user['user'] = dataSubscription?.user;
+      setCookie('user', JSON.stringify(user));
+      history.push(routes.ROUTE_ARTIST_PROFILE)
     }
   }, [dataSubscription]);
 
