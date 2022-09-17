@@ -7,13 +7,13 @@ function withCustomerRoute(WComponent) {
         const user = getCookie('user') && JSON.parse(getCookie('user'));
         const { user_type } = user?.user || {}
         const { access_token } = user || {}
-
         if (user_type === "customer" || !access_token) {
             return <WComponent />
-        } else {
+        } else if (user_type === "artist") {
             return <Redirect to="/artist/profile" />
+        } else {
+            return <Redirect to="/" />
         }
-
     }
     return newComponent
 }

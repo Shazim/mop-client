@@ -8,9 +8,12 @@ function withArtistRoute(WComponent) {
         const { user_type, stripe_id } = user?.user || {}
         if (user_type === "artist" && stripe_id) {
             return <WComponent />
-        } else {
+        } else if (user_type === "artist" && !stripe_id) {
             return <Redirect to="/artist/store" />
+        } else {
+            return <Redirect to="/" />
         }
+
 
     }
     return newComponent

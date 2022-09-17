@@ -55,7 +55,7 @@ export const routes = Object.freeze({
   ROUTE_CUSTOMER: '/artist/customers',
   ROUTE_TAX_RATES: '/artist/tax-rates',
   ROUTE_COUPONS: '/artist/coupons-and-offers',
-  ROUTE_MY_PROFILE: '/artist/profile',
+  ROUTE_ARTIST_PROFILE: '/artist/profile',
   ROUTE_HOME: '/',
   ROUTE_ABOUT: '/about',
   ROUTE_GALLERY: '/galleries',
@@ -83,7 +83,7 @@ export const routes = Object.freeze({
   ROUTE_PRICING_SHEET_DETAILS: '/price-sheet/:id',
   ROUTE_MY_OREDRS: '/myorders',
   ROUTE_CUSTOMER_OREDR_DETAIL: '/customer-order-detail',
-  ROUTE_CUSTOMER_ACCOUNT: '/customer-account',
+  ROUTE_CUSTOMER_PROFILE: '/customer/profile',
   ROUTE_CUSTOMER_PAYMENT: '/customer-payment',
   ROUTE_PAGE_NOT_FOUND: '/*',
 });
@@ -165,12 +165,12 @@ export default Object.freeze([
     privateRoute: true,
   },
   {
-    path: routes.ROUTE_MY_PROFILE,
+    path: routes.ROUTE_ARTIST_PROFILE,
     component: MyProfile,
     privateRoute: true,
   },
   {
-    path: routes.ROUTE_CUSTOMER_ACCOUNT,
+    path: routes.ROUTE_CUSTOMER_PROFILE,
     component: customerAccountDetail,
     privateRoute: true,
   },
