@@ -14,6 +14,8 @@ import { ReceiveInsight } from 'components/ReceiveInsight';
 import GridLayout from 'components/atoms/cards/GridLayout';
 import CreateGallary from './create-gallary';
 import { useSelector } from 'react-redux';
+import { useFetch } from 'hooks';
+import { featureArtwork } from 'api/api-services';
 import withCustomerRoute from 'hoc/withCustomerRoute';
 
 const Home = () => {
@@ -43,7 +45,8 @@ const Home = () => {
   const [showBg, setShowBg] = useState(false);
 
   const history = useHistory();
-
+  const { data: getData } = useFetch(featureArtwork);
+  const { featured_artworks } = getData || [];
   return (
     <>
       <div
@@ -119,35 +122,38 @@ const Home = () => {
         </div>
       </div>
       <div className="max-screen pt-72 sm:px-23">
-        <div className="text-2xl sm:text-center font-avenir-reg uppercase text-secondary-dark tracking-wider mb-42 sm:text-xl sm:leading-38 sm:mb-20">
-          Featured
-          <div className="flex">
-            <div className="text-primary sm:hidden text-57 -mt-18 text-heading font-bold">
-              .
+        {featured_artworks > 0 && (
+          <div>
+            <div className="text-2xl sm:text-center font-avenir-reg uppercase text-secondary-dark tracking-wider mb-42 sm:text-xl sm:leading-38 sm:mb-20">
+              Featured
+              <div className="flex">
+                <div className="text-primary sm:hidden text-57 -mt-18 text-heading font-bold">
+                  .
+                </div>
+                <div className="border-t w-69 sm:hidden border-border mt-14"></div>
+              </div>
             </div>
-            <div className="border-t w-69 sm:hidden border-border mt-14"></div>
+            <div className="block">
+              <GridLayout featured_artworks={featured_artworks} />
+            </div>
+            <div className="flex sm:hidden mt-43 justify-center mb-121">
+              <Button
+                className="w-184 mr-18 "
+                onClick={() => history.push(routes.ROUTE_BROWSE_ARTWORK)}
+              >
+                View More
+              </Button>
+              <Button
+                type="outline"
+                className="w-184 h-48"
+                onClick={() => history.push(routes.ROUTE_BROWSE_ARTWORK)}
+              >
+                Browse
+              </Button>
+            </div>
           </div>
-        </div>
-        <div className="block">
-          <GridLayout />
-        </div>
-        <div className="flex sm:hidden mt-43 justify-center mb-121">
-          <Button
-            className="w-184 mr-18 "
-            onClick={() => history.push(routes.ROUTE_BROWSE_ARTWORK)}
-          >
-            View More
-          </Button>
-          <Button
-            type="outline"
-            className="w-184 h-48"
-            onClick={() => history.push(routes.ROUTE_BROWSE_ARTWORK)}
-          >
-            Browse
-          </Button>
-        </div>
-
-        <div className="text-center hidden sm:block pt-30 pb-60 border-border border-t mt-30">
+        )}{' '}
+        <div className="text-center hidden sm:block pt-30 pb-60  mt-30">
           <p className="font-avenir-reg font-medium mb-35 text-base uppercase text-secondary-dark leading-38 tracking-wider sm:font-medium">
             If you are a photographer looking to exhibit we have the tools and
             support to help you reach more clients.
@@ -160,7 +166,7 @@ const Home = () => {
           <Button className="w-275 h-51 mt-34">Discove More Today</Button>
         </div>
       </div>
-      <div className="hr-b"></div>
+      {featured_artworks > 0 && <div className="hr-b"></div>}
       <div className="flex justify-between max-screen pt-130 pb-122 sm:pb-0 sm:pt-60 sm:w-100% sm:flex-col sm:items-center">
         <div className="text-center hidden sm:block mb-50">
           <p className="text-secondary-dark font-avenir-reg text-xl tracking-wider leading-15 uppercase">

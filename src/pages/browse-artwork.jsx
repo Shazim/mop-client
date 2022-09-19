@@ -35,8 +35,8 @@ const BrowseArtwork = () => {
   const search = useSelector((state) => state?.public?.searchSideBar);
 
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     if (dataArtworks) setIsLoading(false);
@@ -92,7 +92,7 @@ const BrowseArtwork = () => {
     <>
       <Header />
 
-      <div className="flex">
+      <div className="flex h-100vh">
         <SideBarWithLogin className="sm:hidden" />
         <div className="w-91% sm:w-100% bg-gray-dark">
           <div className="flex justify-end pt-31 px-57 sm:hidden sm:bg-white">
@@ -121,35 +121,11 @@ const BrowseArtwork = () => {
               />
             </div>
           ) : (
-            <div className="pt-30 pl-57 pb-43 pr-60">
-              <div className="flex flex-wrap gap-36">
-                <div className="gridView sm:hidden">
-                  {dataArtworks?.artworks?.map(
-                    ({
-                      name,
-                      id,
-                      artist_name,
-                      featured_image,
-                      images_included,
-                      views,
-                    }) => (
-                      <Link to={`${routes.ROUTE_SINGLE_ARTWORK}/${id}`}>
-                        <GalleryCard
-                          imageClass="image"
-                          className="mb-12 stockroom__images"
-                          incImages={images_included}
-                          imageUrl={featured_image ? featured_image : undefined}
-                          views={views}
-                          title={name}
-                        />
-                      </Link>
-                    )
-                  )}
-                </div>
-
-                <div className="hidden sm:w-full sm:block">
-                  <div className="grid grid-cols-1  ">
-                    <Slider {...settings}>
+            <>
+              {dataArtworks?.artworks > 0 ? (
+                <div className="pt-30 pl-57 pb-43 pr-60">
+                  <div className="flex flex-wrap gap-36">
+                    <div className="gridView sm:hidden">
                       {dataArtworks?.artworks?.map(
                         ({
                           name,
@@ -162,68 +138,116 @@ const BrowseArtwork = () => {
                           <Link to={`${routes.ROUTE_SINGLE_ARTWORK}/${id}`}>
                             <GalleryCard
                               imageClass="image"
-                              className="mb-12 mr-10"
+                              className="mb-12 stockroom__images"
                               incImages={images_included}
                               imageUrl={
                                 featured_image ? featured_image : undefined
                               }
                               views={views}
                               title={name}
-                              edit={false}
                             />
                           </Link>
                         )
                       )}
+                    </div>
 
-                      {/* <div>
-                      {' '}
-                      <img src="/images/slider/image.png" alt="" />
-                    </div>
-                    <div>
-                      {' '}
-                      <img src="/images/slider/image.png" alt="" />
-                    </div>
-                    <div>
-                      {' '}
-                      <img src="/images/slider/image.png" alt="" />
-                    </div>
-                    <div>
-                      {' '}
-                      <img src="/images/slider/image.png" alt="" />
-                    </div>
-                    <div>
-                      {' '}
-                      <img src="/images/slider/image.png" alt="" />
-                    </div> */}
-                    </Slider>
+                    <div className="hidden sm:w-full sm:block">
+                      <div className="grid grid-cols-1  ">
+                        <Slider {...settings}>
+                          {dataArtworks?.artworks?.map(
+                            ({
+                              name,
+                              id,
+                              artist_name,
+                              featured_image,
+                              images_included,
+                              views,
+                            }) => (
+                              <Link to={`${routes.ROUTE_SINGLE_ARTWORK}/${id}`}>
+                                <GalleryCard
+                                  imageClass="image"
+                                  className="mb-12 mr-10"
+                                  incImages={images_included}
+                                  imageUrl={
+                                    featured_image ? featured_image : undefined
+                                  }
+                                  views={views}
+                                  title={name}
+                                  edit={false}
+                                />
+                              </Link>
+                            )
+                          )}
+
+                          {/* <div>
+                    {' '}
+                    <img src="/images/slider/image.png" alt="" />
                   </div>
-                  <div className="bg-gray-lighter pb-60 sm:w-full">
-                    <div className="mt-48 font-avenir-reg font-normal text-secondary-dark tracking-wider leading-38 text-base text-center uppercase">
-                      If you are a photographer looking to exhibit we have the
-                      tools and support to help you reach more clients.
-                    </div>
-                    <div className="mt-27 font-nunito-light font-light leading-35 text-secondary-dark text-center text-lg">
-                      Using our suite of tools and mentorship program we can
-                      help you grow in terms of skills and reach. Click below to
-                      find out how much we offer and the different ways we can
-                      help you.
-                    </div>
-                    <div className="mt-34 text-center">
-                      <Button transform="uppercase" className="w-275 h-48 ">
-                        Discover More Today
-                      </Button>
+                  <div>
+                    {' '}
+                    <img src="/images/slider/image.png" alt="" />
+                  </div>
+                  <div>
+                    {' '}
+                    <img src="/images/slider/image.png" alt="" />
+                  </div>
+                  <div>
+                    {' '}
+                    <img src="/images/slider/image.png" alt="" />
+                  </div>
+                  <div>
+                    {' '}
+                    <img src="/images/slider/image.png" alt="" />
+                  </div> */}
+                        </Slider>
+                      </div>
+                      <div className="bg-gray-lighter pb-60 sm:w-full">
+                        <div className="mt-48 font-avenir-reg font-normal text-secondary-dark tracking-wider leading-38 text-base text-center uppercase">
+                          If you are a photographer looking to exhibit we have
+                          the tools and support to help you reach more clients.
+                        </div>
+                        <div className="mt-27 font-nunito-light font-light leading-35 text-secondary-dark text-center text-lg">
+                          Using our suite of tools and mentorship program we can
+                          help you grow in terms of skills and reach. Click
+                          below to find out how much we offer and the different
+                          ways we can help you.
+                        </div>
+                        <div className="mt-34 text-center">
+                          <Button transform="uppercase" className="w-275 h-48 ">
+                            Discover More Today
+                          </Button>
+                        </div>
+                      </div>
                     </div>
                   </div>
+                  <Pagination
+                    pageDetails={dataArtworks?.pagination}
+                    currentPage={currentPage}
+                    setCurrentPage={setCurrentPage}
+                    className="mt-25 sm:hidden"
+                  />
+                  {/* <div className="text-primary link mt-25 text-base">1</div> */}
                 </div>
-              </div>
-              <Pagination
-                pageDetails={dataArtworks?.pagination}
-                currentPage={currentPage}
-                setCurrentPage={setCurrentPage}
-                className="mt-25 sm:hidden"
-              />
-              {/* <div className="text-primary link mt-25 text-base">1</div> */}
-            </div>
+              ) : (
+                <div className="text-center justify-center pt-112">
+                  <p className="font-avenir-reg text-primary text-4xl uppercase leading-55 tracking-wider">
+                    You have no images for sale
+                  </p>
+                  <p className="font-avenir-reg text-secondary text-xl uppercase leading-55 tracking-wider">
+                    Drag your images here to start uploading.{' '}
+                  </p>
+                  <p className="font-reg text-black text-base leading-snug">
+                    When uploaded, you can edit your image details by clicking
+                    the pencil icon. Adding this will
+                    <br /> make your images more visible for search engines.
+                  </p>
+                  <img
+                    className="mx-auto w-180 h-180 mt-56 mb-491"
+                    src="/images/galleryIcon.svg"
+                  />
+                </div>
+              )}
+            </>
           )}
           {/* <DiscoverMore background="bg-gray-lighter" /> */}
         </div>
