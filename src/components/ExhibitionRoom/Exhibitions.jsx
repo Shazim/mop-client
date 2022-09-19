@@ -16,7 +16,8 @@ import { getExhibitions } from 'api';
 import { getValueInLink } from 'utils/helper';
 
 const ExhibitionsComp = () => {
-  const [handleExhibitions, { data: ExhibitionsData }] = useLazyFetch(getExhibitions);
+  const [handleExhibitions, { data: ExhibitionsData }] =
+    useLazyFetch(getExhibitions);
 
   const { pathname } = useLocation();
   const history = useHistory();
@@ -33,7 +34,7 @@ const ExhibitionsComp = () => {
       const status = id === 'drafts' ? true : false;
       handleExhibitions({ variables: `draft=${status}` });
     }
-  }, [id])
+  }, [id]);
 
   return (
     <div className="pb-106">
@@ -78,11 +79,38 @@ const ExhibitionsComp = () => {
               />
             </div>
           ) : (
-            <div className="  grid grid-cols-2 gap-11   sm:grid-cols-1">
-              {ExhibitionsData?.exhibitions?.map(({ image, id: exhibitionId }) => (
-                <VideoCard edit={id === 'drafts'} handleEdit={() => history.push(`${routes.ROUTE_EXHIBITION_ROOM}/${exhibitionId}`)} imageUrl={image ? image : undefined} />
-              ))}
-            </div>
+            <>
+              {ExhibitionsData?.exhibitions > 0 ? (
+                <>
+                  <div className="  grid grid-cols-2 gap-11   sm:grid-cols-1">
+                    {ExhibitionsData?.exhibitions?.map(
+                      ({ image, id: exhibitionId }) => (
+                        <VideoCard
+                          edit={id === 'drafts'}
+                          handleEdit={() =>
+                            history.push(
+                              `${routes.ROUTE_EXHIBITION_ROOM}/${exhibitionId}`
+                            )
+                          }
+                          imageUrl={image ? image : undefined}
+                        />
+                      )
+                    )}
+                  </div>
+                </>
+              ) : (
+                <div className="text-center justify-center pt-112">
+                  <p className="font-avenir-reg text-primary text-4xl uppercase leading-55 tracking-wider">
+                    You have no Exhibition
+                  </p>
+
+                  <img
+                    className="mx-auto w-180 h-180 mt-56 mb-491"
+                    src="/images/galleryIcon.svg"
+                  />
+                </div>
+              )}
+            </>
           )}
         </>
       )}

@@ -104,7 +104,7 @@ const Gallery = () => {
       ) : (
         <div className="text-center   col-span-4 pt-10">
           <p className="font-avenir-reg text-primary text-4xl uppercase leading-55 tracking-wider">
-            You have no images for sale
+            no gallery to display
           </p>
 
           <img
@@ -133,7 +133,7 @@ const Gallery = () => {
       ) : (
         <div className="text-center col-span-4  pt-10">
           <p className="font-avenir-reg text-primary text-4xl uppercase leading-55 tracking-wider">
-            You have no images for sale
+            no exhibition to display
           </p>
 
           <img
@@ -162,7 +162,7 @@ const Gallery = () => {
       ) : (
         <div className="text-center   col-span-4  pt-10">
           <p className="font-avenir-reg text-primary text-4xl uppercase leading-55 tracking-wider">
-            You have no images for sale
+            no artist to display
           </p>
 
           <img

@@ -80,10 +80,12 @@ const Checkout = () => {
         };
       }
     );
-    setInitial(prev => {
+    setInitial((prev) => {
       return {
-        ...prev, order_items_attributes: data, total_price: total_Price
-      }
+        ...prev,
+        order_items_attributes: data,
+        total_price: total_Price,
+      };
     });
   }, []);
 
@@ -94,7 +96,7 @@ const Checkout = () => {
   // }, [dataPost]);
   useEffect(() => {
     if (!checked) {
-      setInitial(prev => {
+      setInitial((prev) => {
         return {
           ...prev,
           shipping_address_1: '',
@@ -102,7 +104,7 @@ const Checkout = () => {
           shipping_address_3: '',
           shipping_postcode: '',
           shipping_country: '',
-        }
+        };
       });
     }
   }, [checked]);
@@ -151,8 +153,7 @@ const Checkout = () => {
           order_items_attributes: [],
         },
       },
-    }
-    );
+    });
   };
 
   const onChange = (data) => {
@@ -203,9 +204,9 @@ const Checkout = () => {
                       <Button
                         color="gray"
                         className="w-234 h-33  sm:mt-12 sm:ml-auto sm:mr-auto"
-                      // onClick={() =>
-                      //   //history.push(routes.ROUTE_CREATE_GALLERY)
-                      // }
+                        // onClick={() =>
+                        //   //history.push(routes.ROUTE_CREATE_GALLERY)
+                        // }
                       >
                         CREATE AN ACCOUNT
                       </Button>
@@ -487,7 +488,6 @@ const Checkout = () => {
                           ))}
                         </div>
                       </div>
-
                       <div>
                         <div className="admin-h2 py-18">
                           your payment details
@@ -499,27 +499,27 @@ const Checkout = () => {
                               className="text-sm mt-12"
                               name="payment"
                               value="Paypal"
-                            // value={item.name}
-                            // checked={item.select}
-                            // onChange={() => setData(title, index, '')}
+                              // value={item.name}
+                              // checked={item.select}
+                              // onChange={() => setData(title, index, '')}
                             />
                           </div>
                           <RadioButton
                             className="text-sm mt-12"
                             name="payment"
                             value="Paypal"
-                          // value={item.name}
-                          // checked={item.select}
-                          // onChange={() => setData(title, index, '')}
+                            // value={item.name}
+                            // checked={item.select}
+                            // onChange={() => setData(title, index, '')}
                           />
                         </div>
                         <RadioButton
                           className="text-sm mt-12"
                           name="payment"
                           value="Card ending in 0876"
-                        // value={item.name}
-                        // checked={item.select}
-                        // onChange={() => setData(title, index, '')}
+                          // value={item.name}
+                          // checked={item.select}
+                          // onChange={() => setData(title, index, '')}
                         />
                       </div>
                       <div className="card-link sm:hidden">Add Card</div>
@@ -563,7 +563,6 @@ const Checkout = () => {
                           />
                         </div>
                       </div>
-
                       <div className="sm:flex justify-center">
                         <Button
                           className="w-318 h-33 sm:w-275 sm:h-44"
@@ -574,7 +573,6 @@ const Checkout = () => {
                           complete purchase
                         </Button>
                       </div>{' '}
-
                     </>
                   )}
                 </Form>
@@ -593,11 +591,7 @@ const Checkout = () => {
             <p className="font-avenir-reg text-secondary text-xl uppercase leading-55 tracking-wider">
               Add to cart your Products{' '}
             </p>
-            {/* <p className="font-reg text-black text-base leading-snug">
-              When uploaded, you can edit your image details by clicking the
-              pencil icon. Adding this will
-              <br /> make your images more visible for search engines.
-            </p> */}
+
             <img
               className="mx-auto w-180 h-180 mt-56 mb-491"
               src="/images/galleryIcon.svg"
