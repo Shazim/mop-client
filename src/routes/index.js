@@ -105,10 +105,12 @@ export default Object.freeze([
   {
     path: routes.ROUTE_CUSTOMER_ORDER,
     component: customerOrderSumary,
+    privateRoute: true,
   },
   {
     path: routes.ROUTE_CUSTOMER_PAYMENT,
     component: customerPayment,
+    privateRoute: true,
   },
   {
     path: routes.ROUTE_CREATE_STOCKROOM,

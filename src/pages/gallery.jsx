@@ -23,7 +23,7 @@ import withCustomerRoute from 'hoc/withCustomerRoute';
 const Gallery = () => {
   const location = useLocation();
   const { pathname = '' } = location || {};
-  console.log({ location });
+
   const [tab, setTab] = useState(location.pathname.slice(1));
   const [handleGetGalleries, { data, status }] = useLazyFetch(getGalleries);
   const [handleGetArtists, { data: dataArtists }] = useLazyFetch(getArtists);
@@ -85,42 +85,92 @@ const Gallery = () => {
   }, [search, tab]);
 
   const steps = {
-    galleries: data?.galleries.map(({ gallery_name, views, id, image }) => (
-      <Link to={`${routes.ROUTE_GALLERY}/${id}`}>
-        <GalleryCard
-          className="w-100% h-100% mb-12 sm:pr-10"
-          imageClass="image"
-          info={false}
-          title={gallery_name}
-          imageUrl={image ? image : '/images/card/bg_image2.svg'}
-          views={views}
-        />
-      </Link>
-    )),
-    exhibitions: dataExhibitions?.exhibitions?.map(
-      ({ room_name, views, id, image }) => (
-        <GalleryCard
-          className="w-100% h-100% mb-15 sm:pr-10"
-          imageClass="image"
-          info={false}
-          title={room_name}
-          views={views}
-          imageUrl={image ? image : '/images/card/bg_image2.svg'}
-        />
-      )
-    ),
-    artists: dataArtists?.artists.map(({ artist_name, id, image }) => (
-      <Link to={`${routes.ROUTE_ARTISTS}/${id}`}>
-        <GalleryCard
-          className="w-100% h-100% mb-12 sm:pt-20 sm:pr-10"
-          imageClass="image"
-          info={false}
-          title={artist_name}
-          imageUrl={image ? image : '/images/card/bg_image2.svg'}
-          views={4}
-        />
-      </Link>
-    )),
+    galleries:
+      data?.galleries > 0 ? (
+        <>
+          {data?.galleries.map(({ gallery_name, views, id, image }) => (
+            <Link to={`${routes.ROUTE_GALLERY}/${id}`}>
+              <GalleryCard
+                className="w-100% h-100% mb-12 sm:pr-10"
+                imageClass="image"
+                info={false}
+                title={gallery_name}
+                imageUrl={image ? image : '/images/card/bg_image2.svg'}
+                views={views}
+              />
+            </Link>
+          ))}
+        </>
+      ) : (
+        <div className="text-center   col-span-4 pt-10">
+          <p className="font-avenir-reg text-primary text-4xl uppercase leading-55 tracking-wider">
+            You have no images for sale
+          </p>
+
+          <img
+            className="mx-auto w-180 h-180 mt-56 mb-491"
+            src="/images/galleryIcon.svg"
+          />
+        </div>
+      ),
+    exhibitions:
+      dataExhibitions?.exhibitions > 0 ? (
+        <>
+          {' '}
+          {dataExhibitions?.exhibitions?.map(
+            ({ room_name, views, id, image }) => (
+              <GalleryCard
+                className="w-100% h-100% mb-15 sm:pr-10"
+                imageClass="image"
+                info={false}
+                title={room_name}
+                views={views}
+                imageUrl={image ? image : '/images/card/bg_image2.svg'}
+              />
+            )
+          )}
+        </>
+      ) : (
+        <div className="text-center col-span-4  pt-10">
+          <p className="font-avenir-reg text-primary text-4xl uppercase leading-55 tracking-wider">
+            You have no images for sale
+          </p>
+
+          <img
+            className="mx-auto w-180 h-180 mt-56 mb-491"
+            src="/images/galleryIcon.svg"
+          />
+        </div>
+      ),
+    artists:
+      dataArtists?.artists > 0 ? (
+        <>
+          {' '}
+          {dataArtists?.artists?.map(({ artist_name, id, image }) => (
+            <Link to={`${routes.ROUTE_ARTISTS}/${id}`}>
+              <GalleryCard
+                className="w-100% h-100% mb-12 sm:pt-20 sm:pr-10"
+                imageClass="image"
+                info={false}
+                title={artist_name}
+                imageUrl={image ? image : '/images/card/bg_image2.svg'}
+                views={4}
+              />
+            </Link>
+          ))}
+        </>
+      ) : (
+        <div className="text-center   col-span-4  pt-10">
+          <p className="font-avenir-reg text-primary text-4xl uppercase leading-55 tracking-wider">
+            You have no images for sale
+          </p>
+
+          <img
+            className="mx-auto w-180 h-180 mt-56 mb-491"
+            src="/images/galleryIcon.svg"
+          />
+        </div>
+      ),
   };
   const settings = {
     dots: true,
@@ -188,8 +238,23 @@ const Gallery = () => {
             </div>
           </div>
         </div>
+
         <div className="max-screen pt-30 pb-43 sm:px-23">
-          <div className="gridView-4 sm:hidden">{steps[tab]}</div>
+          {isLoading ? (
+            <div className="w-100% h-100vh flex items-center justify-center ">
+              <TailSpin
+                color="#C71118"
+                height={80}
+                width={80}
+                ariaLabel="loading"
+              />
+            </div>
+          ) : (
+            <div className="grid grid-cols-4 gap-12 sm:hidden">
+              {steps[tab]}
+            </div>
+          )}
+
           <div className="hidden sm:block">
             {isLoading ? (
               <div className="w-100% h-100vh flex items-center justify-center ">

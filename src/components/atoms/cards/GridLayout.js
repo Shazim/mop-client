@@ -4,10 +4,7 @@ import '../../../index.css';
 import { featureArtwork } from 'api/api-services';
 import { parsePath } from 'history';
 
-export default function GridLayout() {
-  const { data: getData } = useFetch(featureArtwork);
-  const { featured_artworks } = getData || [];
-
+export default function GridLayout({ featured_artworks }) {
   return (
     <div>
       <div className="featured-desktop sm:hidden">
@@ -18,7 +15,7 @@ export default function GridLayout() {
             style={{
               backgroundImage: `url(${
                 featured_artworks
-                  ? featured_artworks[0].images[0].image
+                  ? featured_artworks[0]?.images[0]?.image
                   : '/images/gallery/image0.png'
               })`,
             }}
@@ -40,7 +37,7 @@ export default function GridLayout() {
                 <div className="artist-name text-white text-base font-avenir-reg leading-22 tracking-tight font-bold ml-10 sm:text-tiny">
                   <h3>
                     {featured_artworks
-                      ? featured_artworks[0].artist_name
+                      ? featured_artworks[0]?.artist_name
                       : 'No Name'}
                   </h3>
                 </div>
@@ -61,7 +58,7 @@ export default function GridLayout() {
             style={{
               backgroundImage: `url(${
                 featured_artworks
-                  ? featured_artworks[1].images[0].image
+                  ? featured_artworks[1]?.images[0]?.image
                   : '/images/gallery/image0.png'
               })`,
             }}
@@ -83,7 +80,7 @@ export default function GridLayout() {
                 <div className="artist-name text-white text-base font-avenir-reg leading-22 tracking-tight font-bold ml-10 sm:text-tiny">
                   <h3>
                     {featured_artworks
-                      ? featured_artworks[1].artist_name
+                      ? featured_artworks[1]?.artist_name
                       : 'No Name'}
                   </h3>
                 </div>
@@ -106,7 +103,7 @@ export default function GridLayout() {
             style={{
               backgroundImage: `url(${
                 featured_artworks
-                  ? featured_artworks[2].images[0].image
+                  ? featured_artworks[2]?.images[0]?.image
                   : '/images/gallery/image0.png'
               })`,
             }}
@@ -128,7 +125,7 @@ export default function GridLayout() {
                 <div className="artist-name text-white text-base font-avenir-reg leading-22 tracking-tight font-bold ml-10 sm:text-tiny">
                   <h3>
                     {featured_artworks
-                      ? featured_artworks[2].artist_name
+                      ? featured_artworks[2]?.artist_name
                       : 'No Name'}
                   </h3>
                 </div>
@@ -149,7 +146,7 @@ export default function GridLayout() {
             style={{
               backgroundImage: `url(${
                 featured_artworks
-                  ? featured_artworks[3].images[0].image
+                  ? featured_artworks[3]?.images[0]?.image
                   : '/images/gallery/image0.png'
               })`,
             }}
@@ -171,7 +168,7 @@ export default function GridLayout() {
                 <div className="artist-name text-white text-base font-avenir-reg leading-22 tracking-tight font-bold ml-10 sm:text-tiny">
                   <h3>
                     {featured_artworks
-                      ? featured_artworks[3].artist_name
+                      ? featured_artworks[3]?.artist_name
                       : 'No Name'}
                   </h3>
                 </div>
@@ -196,7 +193,7 @@ export default function GridLayout() {
           style={{
             backgroundImage: `url(${
               featured_artworks
-                ? featured_artworks[0].images[0].image
+                ? featured_artworks[0]?.images[0]?.image
                 : '/images/gallery/image0.png'
             })`,
           }}
@@ -218,7 +215,7 @@ export default function GridLayout() {
               <div className="artist-name text-white text-base font-avenir-reg leading-22 tracking-tight font-bold ml-10 sm:text-tiny">
                 <h3>
                   {featured_artworks
-                    ? featured_artworks[0].artist_name
+                    ? featured_artworks[0]?.artist_name
                     : 'No Name'}
                 </h3>
               </div>
@@ -241,7 +238,7 @@ export default function GridLayout() {
             style={{
               backgroundImage: `url(${
                 featured_artworks
-                  ? featured_artworks[1].images[0].image
+                  ? featured_artworks[1]?.images[0]?.image
                   : '/images/gallery/image0.png'
               })`,
             }}
@@ -264,7 +261,7 @@ export default function GridLayout() {
                 <div className="artist-name text-white text-base font-avenir-reg leading-22 tracking-tight font-bold ml-10 sm:text-tiny">
                   <h3>
                     {featured_artworks
-                      ? featured_artworks[1].artist_name
+                      ? featured_artworks[1]?.artist_name
                       : 'No Name'}
                   </h3>
                 </div>
@@ -286,7 +283,7 @@ export default function GridLayout() {
               style={{
                 backgroundImage: `url(${
                   featured_artworks
-                    ? featured_artworks[2].images[0].image
+                    ? featured_artworks[2]?.images[0]?.image
                     : '/images/gallery/image0.png'
                 })`,
               }}
@@ -308,7 +305,7 @@ export default function GridLayout() {
                   <div className="artist-name text-white text-base font-avenir-reg leading-22 tracking-tight font-bold ml-10 sm:text-tiny">
                     <h3>
                       {featured_artworks
-                        ? featured_artworks[2].artist_name
+                        ? featured_artworks[2]?.artist_name
                         : 'No Name'}
                     </h3>
                   </div>
@@ -329,7 +326,7 @@ export default function GridLayout() {
               style={{
                 backgroundImage: `url(${
                   featured_artworks
-                    ? featured_artworks[3].images[0].image
+                    ? featured_artworks[3]?.images[0]?.image
                     : '/images/gallery/image0.png'
                 })`,
               }}
@@ -351,7 +348,7 @@ export default function GridLayout() {
                   <div className="artist-name text-white text-base font-avenir-reg leading-22 tracking-tight font-bold ml-10 sm:text-tiny">
                     <h3>
                       {featured_artworks
-                        ? featured_artworks[3].artist_name
+                        ? featured_artworks[3]?.artist_name
                         : 'No Name'}
                     </h3>
                   </div>
