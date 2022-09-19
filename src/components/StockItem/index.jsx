@@ -97,7 +97,7 @@ const StockItem = ({ addItem }) => {
         </div>
       ) : (
         <>
-          {artworkData ? (
+          {artworkData > 0 ? (
             <>
               <div className="flex mt-21  mb-22 hidden">
                 <img
@@ -141,16 +141,9 @@ const StockItem = ({ addItem }) => {
           ) : (
             <div className="text-center justify-center pt-112">
               <p className="font-avenir-reg text-primary text-4xl uppercase leading-55 tracking-wider">
-                You have no images for sale
+                You have no stock
               </p>
-              <p className="font-avenir-reg text-secondary text-xl uppercase leading-55 tracking-wider">
-                Drag your images here to start uploading.{' '}
-              </p>
-              <p className="font-reg text-black text-base leading-snug">
-                When uploaded, you can edit your image details by clicking the
-                pencil icon. Adding this will
-                <br /> make your images more visible for search engines.
-              </p>
+
               <img
                 className="mx-auto w-180 h-180 mt-56 mb-491"
                 src="/images/galleryIcon.svg"

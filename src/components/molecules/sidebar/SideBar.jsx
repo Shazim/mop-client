@@ -136,7 +136,7 @@ const SideBar = () => {
           redIcon: '/images/sidebar/profile_red.svg',
           icon: '/images/sidebar/profile.svg',
           name: 'My Profile',
-          link: routes.ROUTE_MY_PROFILE,
+          link: routes.ROUTE_ARTIST_PROFILE,
         },
         // {
         //   redIcon: '/images/sidebar/subscription_red.svg',
