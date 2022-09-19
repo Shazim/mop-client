@@ -13,7 +13,7 @@ import AddItemButton from 'components/atoms/additembutton/AddItemButton';
 // ====================== IMPORTED API ========================
 import { useFormikContext } from 'formik';
 
-const Detail = ({ addItem, steps, step, next }) => {
+const Detail = ({ addItem, steps, step, next, data }) => {
   const {
     handleSubmit,
     values: { name, notes, artwork_images_attributes },
@@ -29,7 +29,11 @@ const Detail = ({ addItem, steps, step, next }) => {
         <div className="w-57% sm:h-100 m-auto sm:w-80%">
           <StepBar steps={steps} step={step} />
         </div>
-        <div className="w-231 h-33 m-auto font-avenir-reg font-medium text-secondary text-xl leading-54 tracking-wider uppercase hidden sm:block">
+        <div
+          className="w-231 h-33 m-auto font-avenir-reg font-medium text-secondary text-xl leading-54 tracking-wider uppercase hidden sm:block"
+          onClick={data}
+          data-tut="reactour__iso"
+        >
           items details
         </div>
         <div className="w-57% mx-auto mt-44 sm:mt-24 items-center sm:w-full">

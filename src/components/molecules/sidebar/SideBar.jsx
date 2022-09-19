@@ -15,7 +15,31 @@ const SideBar = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const history = useHistory();
-
+  const customerArr = [
+    {
+      key: 'my account',
+      item: [
+        {
+          redIcon: '/images/sidebar/order_red.svg',
+          icon: '/images/sidebar/order.svg',
+          name: 'my orders',
+          link: routes.ROUTE_CUSTOMER_ORDER,
+        },
+        {
+          redIcon: '/images/sidebar/profile_red.svg',
+          icon: '/images/sidebar/profile.svg',
+          name: 'My Profile',
+          link: routes.ROUTE_CUSTOMER_PROFILE,
+        },
+        {
+          redIcon: '/images/sidebar/settings_red.svg',
+          icon: '/images/sidebar/settings.svg',
+          name: 'Payment Options',
+          link: routes.ROUTE_CUSTOMER_PAYMENT,
+        },
+      ],
+    },
+  ];
   const obj = [
     {
       key: 'my gallery',
@@ -112,10 +136,7 @@ const SideBar = () => {
           redIcon: '/images/sidebar/profile_red.svg',
           icon: '/images/sidebar/profile.svg',
           name: 'My Profile',
-          link:
-            user_type === 'customer'
-              ? routes.ROUTE_CUSTOMER_PROFILE
-              : routes.ROUTE_ARTIST_PROFILE,
+          link: routes.ROUTE_MY_PROFILE,
         },
         // {
         //   redIcon: '/images/sidebar/subscription_red.svg',
@@ -139,79 +160,177 @@ const SideBar = () => {
     <div className="h-100% sm:w-100% bg-gray-lighter pt-40 pr-19 overflow-auto pb-120">
       {!links.includes(window.location.pathname) ? (
         <>
-          {obj?.map((item, index) => {
-            return (
-              <div>
-                <div className="font-bold text-sm text-secondary tracking uppercase mt-15 mb-18 ml-37 xl:ml-35 lg:ml-30 md:ml-26">
-                  {item.key}
-                </div>
-                <>
-                  {item.item.map((subItem, subIndex) => (
+          {user_type === 'artist'
+            ? obj?.map((item, index) => {
+                return (
+                  <div>
+                    <div className="font-bold text-sm text-secondary tracking uppercase mt-15 mb-18 ml-37 xl:ml-35 lg:ml-30 md:ml-26">
+                      {item.key}
+                    </div>
                     <>
-                      {subItem.name == 'Logout' ? (
-                        <span
-                          className={`flex w-100% h-55  sm:bg-gray-lighter rounded-r-lg pl-62 xl:pl-50 lg:pl-40 md:pl-35 link ${subItem.link == location.pathname
-                            ? 'bg-secondary-dim'
-                            : ''
-                            }`}
-                          onClick={handleLogout}
-                        >
-                          <img
-                            className="w-19 h-19 my-auto text-primary"
-                            src={
-                              subItem.link == location.pathname
-                                ? subItem.redIcon
-                                : subItem.icon
-                            }
-                          />
-                          <div
-                            className={`my-auto font-nunito-semibold capitalize text-base leading-5 ml-28 ${subItem.link == location.pathname
-                              ? 'text-primary'
-                              : 'text-secondary'
-                              } `}
-                          >
-                            {subItem.name}
-                          </div>
-                        </span>
-                      ) : (
-                        <Link to={`${subItem.link}`}>
-                          <span
-                            className={`flex w-100% h-55  sm:bg-gray-lighter rounded-r-lg pl-62 xl:pl-50 lg:pl-40 md:pl-35 link ${subItem.link == location.pathname
-                              ? 'bg-secondary-dim'
-                              : ''
+                      {item.item.map((subItem, subIndex) => (
+                        <>
+                          {subItem.name == 'Logout' ? (
+                            <span
+                              className={`flex w-100% h-55  sm:bg-gray-lighter rounded-r-lg pl-62 xl:pl-50 lg:pl-40 md:pl-35 link ${
+                                subItem.link == location.pathname
+                                  ? 'bg-secondary-dim'
+                                  : ''
                               }`}
-                          >
-                            <img
-                              className="w-19 h-19 my-auto text-primary"
-                              src={
-                                subItem.link == location.pathname ||
-                                  location.pathname.includes(subItem?.link2) ||
-                                  location.pathname.includes(subItem?.link3) ||
-                                  location.pathname.includes(subItem?.link4)
-                                  ? subItem.redIcon
-                                  : subItem.icon
-                              }
-                            />
-                            <div
-                              className={`my-auto font-nunito-semibold capitalize text-base leading-5 ml-28 ${subItem.link == location.pathname ||
-                                location.pathname.includes(subItem?.link2) ||
-                                location.pathname.includes(subItem?.link3) ||
-                                location.pathname.includes(subItem?.link4)
-                                ? 'text-primary'
-                                : 'text-secondary'
-                                } `}
+                              onClick={handleLogout}
                             >
-                              {subItem.name}
-                            </div>
-                          </span>
-                        </Link>
-                      )}
+                              <img
+                                className="w-19 h-19 my-auto text-primary"
+                                src={
+                                  subItem.link == location.pathname
+                                    ? subItem.redIcon
+                                    : subItem.icon
+                                }
+                              />
+                              <div
+                                className={`my-auto font-nunito-semibold capitalize text-base leading-5 ml-28 ${
+                                  subItem.link == location.pathname
+                                    ? 'text-primary'
+                                    : 'text-secondary'
+                                } `}
+                              >
+                                {subItem.name}
+                              </div>
+                            </span>
+                          ) : (
+                            <Link to={`${subItem.link}`}>
+                              <span
+                                className={`flex w-100% h-55  sm:bg-gray-lighter rounded-r-lg pl-62 xl:pl-50 lg:pl-40 md:pl-35 link ${
+                                  subItem.link == location.pathname
+                                    ? 'bg-secondary-dim'
+                                    : ''
+                                }`}
+                              >
+                                <img
+                                  className="w-19 h-19 my-auto text-primary"
+                                  src={
+                                    subItem.link == location.pathname ||
+                                    location.pathname.includes(
+                                      subItem?.link2
+                                    ) ||
+                                    location.pathname.includes(
+                                      subItem?.link3
+                                    ) ||
+                                    location.pathname.includes(subItem?.link4)
+                                      ? subItem.redIcon
+                                      : subItem.icon
+                                  }
+                                />
+                                <div
+                                  className={`my-auto font-nunito-semibold capitalize text-base leading-5 ml-28 ${
+                                    subItem.link == location.pathname ||
+                                    location.pathname.includes(
+                                      subItem?.link2
+                                    ) ||
+                                    location.pathname.includes(
+                                      subItem?.link3
+                                    ) ||
+                                    location.pathname.includes(subItem?.link4)
+                                      ? 'text-primary'
+                                      : 'text-secondary'
+                                  } `}
+                                >
+                                  {subItem.name}
+                                </div>
+                              </span>
+                            </Link>
+                          )}
+                        </>
+                      ))}
                     </>
-                  ))}
-                </>
-              </div>
-            );
-          })}
+                  </div>
+                );
+              })
+            : customerArr.map((item, index) => {
+                return (
+                  <div>
+                    <div className="font-bold text-sm text-secondary tracking uppercase mt-15 mb-18 ml-37 xl:ml-35 lg:ml-30 md:ml-26">
+                      {item.key}
+                    </div>
+                    <>
+                      {item.item.map((subItem, subIndex) => (
+                        <>
+                          {subItem.name == 'Logout' ? (
+                            <span
+                              className={`flex w-100% h-55  sm:bg-gray-lighter rounded-r-lg pl-62 xl:pl-50 lg:pl-40 md:pl-35 link ${
+                                subItem.link == location.pathname
+                                  ? 'bg-secondary-dim'
+                                  : ''
+                              }`}
+                              onClick={handleLogout}
+                            >
+                              <img
+                                className="w-19 h-19 my-auto text-primary"
+                                src={
+                                  subItem.link == location.pathname
+                                    ? subItem.redIcon
+                                    : subItem.icon
+                                }
+                              />
+                              <div
+                                className={`my-auto font-nunito-semibold capitalize text-base leading-5 ml-28 ${
+                                  subItem.link == location.pathname
+                                    ? 'text-primary'
+                                    : 'text-secondary'
+                                } `}
+                              >
+                                {subItem.name}
+                              </div>
+                            </span>
+                          ) : (
+                            <Link to={`${subItem.link}`}>
+                              <span
+                                className={`flex w-100% h-55  sm:bg-gray-lighter rounded-r-lg pl-62 xl:pl-50 lg:pl-40 md:pl-35 link ${
+                                  subItem.link == location.pathname
+                                    ? 'bg-secondary-dim'
+                                    : ''
+                                }`}
+                              >
+                                <img
+                                  className="w-19 h-19 my-auto text-primary"
+                                  src={
+                                    subItem.link == location.pathname ||
+                                    location.pathname.includes(
+                                      subItem?.link2
+                                    ) ||
+                                    location.pathname.includes(
+                                      subItem?.link3
+                                    ) ||
+                                    location.pathname.includes(subItem?.link4)
+                                      ? subItem.redIcon
+                                      : subItem.icon
+                                  }
+                                />
+                                <div
+                                  className={`my-auto font-nunito-semibold capitalize text-base leading-5 ml-28 ${
+                                    subItem.link == location.pathname ||
+                                    location.pathname.includes(
+                                      subItem?.link2
+                                    ) ||
+                                    location.pathname.includes(
+                                      subItem?.link3
+                                    ) ||
+                                    location.pathname.includes(subItem?.link4)
+                                      ? 'text-primary'
+                                      : 'text-secondary'
+                                  } `}
+                                >
+                                  {subItem.name}
+                                </div>
+                              </span>
+                            </Link>
+                          )}
+                        </>
+                      ))}
+                    </>
+                  </div>
+                );
+              })}
         </>
       ) : (
         <div className="link" onClick={() => history.goBack()}>

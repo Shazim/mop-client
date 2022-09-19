@@ -1,13 +1,11 @@
-// ====================== IMPORTED LIBRARIES ========================
-import React, { useState } from 'react';
-// ====================== IMPORTED COMPONENTS ========================
+import React from 'react';
 import { AdminLayout } from 'Layout';
 import { Form } from 'components/app/forms';
 import { TextField } from 'components/atoms/form';
 import Button from 'components/atoms/buttons/Button';
 import Tables from 'components/molecules/tables/Tables';
-
-const customerOrderDetail = () => {
+import withCustomerRoute from 'hoc/withCustomerRoute';
+const customerOrderSumary = () => {
   const obj = [
     {
       order: '#123456',
@@ -95,7 +93,7 @@ const customerOrderDetail = () => {
     },
   ];
   return (
-    <AdminLayout title="Orders" subtitle="order detailed">
+    <AdminLayout title="My Orders" subtitle="Summary">
       <Form
         initialValues={{
           startdate: '',
@@ -104,34 +102,30 @@ const customerOrderDetail = () => {
       >
         {() => (
           <>
-            <div className="flex justify-between mb-45 items-center xl:flex-col lg:flex-col md:flex-col sm:flex-col sm:p-30">
-              <div className="w-55% flex justify-between xl:w-100% lg:w-100% md:w-100% sm:flex-col sm:w-100% ">
-                <div className="w-48% sm:w-100%">
-                  <TextField
-                    className="h-37 "
-                    label="start date"
-                    placeholder="select a start date"
-                  />
-                </div>
-                <div className="w-48% sm:w-100%">
-                  <TextField
-                    className="h-37 "
-                    label="end date"
-                    placeholder="select a end date"
-                  />
-                </div>
+            <div className="flex justify-between -mt-14 gap-26 mb-65  items-end xl:flex-col lg:flex-col md:flex-col sm:flex-col sm:p-30 sm:hidden">
+              <div className="w-1/4 md:w-1/4 sm:w-100%">
+                <TextField
+                  className="h-37"
+                  label="start date"
+                  placeholder="SELECT A START DATE"
+                  mb={2}
+                />
               </div>
-              <div className="w-40% flex justify-between xl:w-100% xl:justify-between lg:w-100% lg:justify-between md:w-100% md:justify-between sm:w-100%">
-                <Button
-                  className="w-45% h-37 mt-22 xl:w-48% lg:w-48% md:w-48% sm:w-45%"
-                  color="gray"
-                >
-                  UPDATE VIEW
+              <div className="w-1/4 md:w-1/4 sm:w-100%">
+                <TextField
+                  className="h-37"
+                  label="end date"
+                  placeholder="SELECT AN END DATE"
+                  mb={2}
+                />
+              </div>
+              <div className="w-1/4 md:w-1/4 sm:w-100%">
+                <Button className="w-100% h-37" color="primary">
+                  UPDATE DASHBOARD
                 </Button>
-                <Button
-                  className="w-45% h-37 mt-22 xl:w-48% lg:w-48% md:w-48% sm:w-45%"
-                  color="gray"
-                >
+              </div>
+              <div className="w-1/4 md:w-1/4 sm:w-100%">
+                <Button className="w-100% h-37" color="gray">
                   RESET FILTER
                 </Button>
               </div>
@@ -151,4 +145,4 @@ const customerOrderDetail = () => {
   );
 };
 
-export default customerOrderDetail;
+export default withCustomerRoute(customerOrderSumary);

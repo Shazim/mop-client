@@ -17,7 +17,7 @@ const customerAccountDetail = () => {
         }}
       >
         {() => (
-          <>
+          <div className="h-100vh">
             <div className="flex justify-between sm:grid grid-cols-1">
               <div className="grid grid-cols-3 gap-x-32 gap-y-20 mb-22 w-100% sm:grid-cols-1">
                 <TextField
@@ -101,7 +101,7 @@ const customerAccountDetail = () => {
                 Save
               </Button>
             </div>
-          </>
+          </div>
         )}
       </Form>
     </AdminLayout>
