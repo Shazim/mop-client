@@ -56,6 +56,7 @@ const SignupModal = () => {
           setError('');
           setIsLoading(false);
         } else if (response.status == 422) {
+          toast.error('Registration failed.');
           setError('email ' + response?.data?.error?.detail?.email);
           setIsLoading(false);
         }
