@@ -73,6 +73,7 @@ const StripeElements = () => {
           },
         });
       }
+      toast.success('Subscription successful.');
     });
   };
 
