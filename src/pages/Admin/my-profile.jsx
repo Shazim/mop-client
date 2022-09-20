@@ -167,13 +167,20 @@ const MyProfile = () => {
             <div className="admin-h2 mt-28 mb-19 sm:text-center sm:font-medium">
               profile setup
             </div>
+            {/* {values > 0
+                    ? values['imageFile']?.imageLink
+                    :} */}
             <div className="admin-des pb-24 sm:text-center">
               Click to edit your profile picture.
             </div>
-            <div className="bg-gray-lighter w-244 h-244 relative mb-31 sm:w-full sm:h-244 sm:bg-offwhite ">
+            <div className="test bg-gray-lighter w-244 h-244 relative mb-31 sm:w-full sm:h-244 sm:bg-offwhite ">
               <img
-                src={values['imageFile']?.imageLink}
-                alt=""
+                src={
+                  values['imageFile']?.imageLink
+                    ? values['imageFile']?.imageLink
+                    : `${window.location.origin}/images/profile-avatar.png`
+                }
+                alt={values['imageFile']?.imageLink}
                 className="w-200 object-cover h-200 absolute transform-xy top-50% left-50% sm:w-276 sm:h-244 "
               />
               <div>
