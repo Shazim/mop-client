@@ -22,16 +22,15 @@ import { subscription } from 'api';
 import { usePost } from 'hooks';
 import { routes } from 'routes';
 
-
 const StripeElements = () => {
-
-  const selectedPackage = getCookie('package') && JSON.parse(getCookie('package'));
+  const selectedPackage =
+    getCookie('package') && JSON.parse(getCookie('package'));
   const { id } = selectedPackage || {};
   const user = getCookie('user') && JSON.parse(getCookie('user'));
 
   const elements = useElements();
   const stripe = useStripe();
-  const history = useHistory()
+  const history = useHistory();
 
   const [subscribe, { data: dataSubscription }] = usePost(subscription);
 
@@ -52,12 +51,11 @@ const StripeElements = () => {
     },
   };
 
-
   useEffect(() => {
     if (dataSubscription) {
       user['user'] = dataSubscription?.user;
       setCookie('user', JSON.stringify(user));
-      history.push(routes.ROUTE_ARTIST_PROFILE)
+      history.push(routes.ROUTE_ARTIST_PROFILE);
     }
   }, [dataSubscription]);
 
@@ -75,6 +73,7 @@ const StripeElements = () => {
           },
         });
       }
+      toast.success('Subscription successful.');
     });
   };
 
@@ -84,11 +83,19 @@ const StripeElements = () => {
         <>
           <div className="w-100% flex mb-23 sm:flex-col">
             <div className="w-87 lg:w-100% md:w-100% sm:w-100% mr-18">
+              <RadioButton
+                name="card"
+                value="Stripe"
+                className="text-sm "
+                checked={true}
+              />
+            </div>
+            {/* <div className="w-87 lg:w-100% md:w-100% sm:w-100% mr-18">
               <RadioButton name="card" value="Paypal" className="text-sm " />
             </div>
             <div className="w-100% lg:w-100% md:w-100% sm:w-100%">
               <RadioButton name="card" value="Card" className="text-sm" />
-            </div>
+            </div> */}
           </div>
           <div className="flex sm:flex-col">
             <div className="mr-22 w-50% sm:w-full">
@@ -152,6 +159,6 @@ const StripeElements = () => {
       </Form>
     </div>
   );
-}
+};
 
 export default StripeElements;
