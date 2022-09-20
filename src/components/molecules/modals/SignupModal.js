@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Modal from 'react-modal';
 import { generateSchema } from 'validation';
 import { TailSpin } from 'react-loader-spinner';
+import { toast } from 'react-toastify';
 
 // ====================== IMPORTED COMPONENTS ========================
 import SubmitButton from 'components/atoms/buttons/SubmitButton';
@@ -50,6 +51,7 @@ const SignupModal = () => {
     signUp(data)
       .then((response) => {
         if (response.status == 200) {
+          toast.success('Registration successful. Login to continue!');
           handleLoginToggle();
           setError('');
           setIsLoading(false);
