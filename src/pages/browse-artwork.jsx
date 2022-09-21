@@ -122,7 +122,7 @@ const BrowseArtwork = () => {
             </div>
           ) : (
             <>
-              {dataArtworks?.artworks > 0 ? (
+              {dataArtworks?.artworks.length > 0 ? (
                 <div className="pt-30 pl-57 pb-43 pr-60">
                   <div className="flex flex-wrap gap-36">
                     <div className="gridView sm:hidden">
