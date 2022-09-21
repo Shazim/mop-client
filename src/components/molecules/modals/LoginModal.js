@@ -59,21 +59,25 @@ const LoginModal = () => {
   const handleLoginToggle = () => {
     dispatch({ type: LOGIN_MODAL, payload: !isLoginOpen });
   };
+  const checkRoute = (user_type, first_name) => {
+    if (pathname === routes.ROUTE_CHECKOUT) return routes.ROUTE_CHECKOUT;
+    else if (!first_name && user_type === 'artist') return routes.ROUTE_ARTIST_PROFILE;
+    else if (first_name && user_type === 'artist') return routes.ROUTE_STOCKROOM;
+    else if (user_type === 'customer') return routes.ROUTE_CUSTOMER_PROFILE;
+    return routes.ROUTE_ARTIST_PROFILE
+  }
 
   const login = (values) => {
-    let route = routes.ROUTE_ARTIST_PROFILE
     setIsLoading(true);
     signIn({ ...values, grant_type: 'password' })
       .then((response) => {
         setIsLoading(false);
         if (response?.status == 200) {
           const { user_type } = response?.data?.user
-          if (pathname === routes.ROUTE_CHECKOUT) route = routes.ROUTE_CHECKOUT;
-          if (pathname !== routes.ROUTE_CHECKOUT && user_type === 'artist') route = routes.ROUTE_ARTIST_PROFILE;
-          if (pathname !== routes.ROUTE_CHECKOUT && user_type === 'customer') route = routes.ROUTE_CUSTOMER_PROFILE;
+          const { first_name } = response?.data
           setCookie('user', JSON.stringify(response?.data));
           handleLoginToggle();
-          history.push(route);
+          history.push(checkRoute(user_type, first_name));
         } else toast.error(response?.data?.title);
       })
       .catch((error) => toast.error(error));
