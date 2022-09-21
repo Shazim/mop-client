@@ -25,7 +25,7 @@ const PricingSheetDetails = () => {
       button={true}
       handler={() => history.push(routes.ROUTE_CREATE_PRICE_SHEET)}
     >
-      <div className="flex justify-between ">
+      <div className="flex justify-between">
         <div className=" font-avenir-reg font-medium text-xl text-secondary uppercase tracking-wider leading-54">
           Print Price sheet
         </div>
@@ -74,7 +74,9 @@ const PricingSheetDetails = () => {
       <div className="mt-12 font-avenir-reg font-medium text-xl text-secondary uppercase tracking-wider leading-54">
         Pricing
       </div>
-      <MenuTable2 data={data} />
+      <div className="mb-60">
+        <MenuTable2 data={data} />
+      </div>
     </AdminLayout>
   );
 };

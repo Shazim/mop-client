@@ -37,6 +37,12 @@ const SideBar = () => {
           name: 'Payment Options',
           link: routes.ROUTE_CUSTOMER_PAYMENT,
         },
+        {
+          redIcon: '/images/sidebar/price_red.svg',
+          icon: '/images/sidebar/price.svg',
+          name: 'Logout',
+          link: '/',
+        },
       ],
     },
   ];
