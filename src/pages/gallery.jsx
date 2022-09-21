@@ -86,7 +86,7 @@ const Gallery = () => {
 
   const steps = {
     galleries:
-      data?.galleries > 0 ? (
+      data?.galleries.length > 0 ? (
         <>
           {data?.galleries.map(({ gallery_name, views, id, image }) => (
             <Link to={`${routes.ROUTE_GALLERY}/${id}`}>
@@ -114,7 +114,7 @@ const Gallery = () => {
         </div>
       ),
     exhibitions:
-      dataExhibitions?.exhibitions > 0 ? (
+      dataExhibitions?.exhibitions.length > 0 ? (
         <>
           {' '}
           {dataExhibitions?.exhibitions?.map(
@@ -143,7 +143,7 @@ const Gallery = () => {
         </div>
       ),
     artists:
-      dataArtists?.artists > 0 ? (
+      dataArtists?.artists.length > 0 ? (
         <>
           {' '}
           {dataArtists?.artists?.map(({ artist_name, id, image }) => (
@@ -221,9 +221,8 @@ const Gallery = () => {
             <div className="mr-25 sm:mr-0">
               <SearchBar
                 transform="uppercase"
-                placeholder={`search for ${
-                  tab == 'Galleries' ? 'Gallery' : tab
-                }`}
+                placeholder={`search for ${tab == 'Galleries' ? 'Gallery' : tab
+                  }`}
                 bgColor="bg-gray-lighter"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}

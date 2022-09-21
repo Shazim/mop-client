@@ -80,7 +80,7 @@ const ExhibitionsComp = () => {
             </div>
           ) : (
             <>
-              {ExhibitionsData?.exhibitions > 0 ? (
+              {ExhibitionsData?.exhibitions.length > 0 ? (
                 <>
                   <div className="  grid grid-cols-2 gap-11   sm:grid-cols-1">
                     {ExhibitionsData?.exhibitions?.map(
