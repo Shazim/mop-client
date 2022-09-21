@@ -21,7 +21,7 @@ const PricingSheet = () => {
 
   useEffect(() => {
     if (dataPost) {
-      history.push('/price-sheets');
+      history.push('/artist/pricing-and-products');
     }
   }, [dataPost]);
 

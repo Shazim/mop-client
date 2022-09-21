@@ -88,7 +88,7 @@ const PriceSheet = () => {
               </div>
 
               <div className="mt-17 grid grid-cols-4 sm:hidden md:grid-cols-3">
-                {price_sheets.map(({ name, id }) => (
+                {price_sheets?.map(({ name, id }) => (
                   <Link to={`/price-sheet/${id}`}>
                     <div className="w-186 h-186 bg-gray "></div>
                     <div className="mt-7 mb-30 font-nunito-reg font-bold  text-secondary text-sm uppercase leading-32 tracking">
