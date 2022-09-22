@@ -35,7 +35,7 @@ import editPriceSheet from 'pages/Admin/edit-price-sheet';
 import PageNotFound from 'pages/PageNotFound';
 import myOrders from 'pages/myOrders';
 import customerAccountDetail from 'pages/customerAccountDetail';
-
+import StockRoomDetails from 'pages/Admin/StockRoomDetails';
 import customerPayment from 'pages/customerPayment';
 import AdminAnalytics from 'pages/analytics';
 import customerOrderSumary from 'pages/customerOrderSumary';
@@ -72,6 +72,7 @@ export const routes = Object.freeze({
   ROUTE_ORDER_DETAIL: '/order-detail',
   ROUTE_STOCKS: '/stocks',
   ROUTE_SINGLE_ARTWORK: '/artwork',
+  ROUTE_SINGLE_STOCK: '/artist/artwork',
   ROUTE_LOGOUT: '/logout',
   ROUTE_PROFILE_SUBSCRIPTION: '/profile-subscription',
   ROUTE_SUBSCRIBE_LOGIN: '/subscribe-login',
@@ -241,6 +242,11 @@ export default Object.freeze([
   {
     path: `${routes.ROUTE_SINGLE_ARTWORK}/:id`,
     component: SinglePhoto,
+  },
+  {
+    path: `${routes.ROUTE_SINGLE_STOCK}/:id`,
+    component: StockRoomDetails,
+    privateRoute: true,
   },
   { path: routes.ROUTE_ABOUT, component: About },
   { path: routes.ROUTE_LOGIN, component: Login },
