@@ -3,12 +3,13 @@ import React, { useState, useEffect } from 'react';
 import { TailSpin } from 'react-loader-spinner';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { useFetch } from 'hooks';
-
+import { Link } from 'react-router-dom';
 // ====================== IMPORTED COMPONENTS ========================
 import SelectOptions from 'components/atoms/form/SelectOptions';
 import SearchBar from 'components/atoms/searchbar/SearchBar';
 import GalleryCard from 'components/atoms/cards/GalleryCard';
 import Pagination from 'components/Pagination/Pagination';
+import { routes } from 'routes';
 // ====================== IMPORTED api ========================
 import { getArtWorks } from 'api/api-services';
 
@@ -111,18 +112,20 @@ const StockItem = ({ addItem }) => {
                 </div>
               </div>
               <div className="gridView  sm:grid grid-cols-1 mt-40">
-                {artworkData?.map(({ name, images }) => (
+                {artworkData?.map(({ id, name, images }) => (
                   <>
                     {images?.map(({ image, featured_image }) => (
                       <>
                         {featured_image && (
-                          <div className="mb-25">
-                            <GalleryCard
-                              imageUrl={image}
-                              title={name}
-                              className="stockroom__images"
-                            />
-                          </div>
+                          <Link to={`${routes.ROUTE_SINGLE_STOCK}/${id}`}>
+                            <div className="mb-25">
+                              <GalleryCard
+                                imageUrl={image}
+                                title={name}
+                                className="stockroom__images"
+                              />
+                            </div>
+                          </Link>
                         )}
                       </>
                     ))}

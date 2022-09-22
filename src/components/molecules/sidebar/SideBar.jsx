@@ -60,6 +60,7 @@ const SideBar = () => {
           redIcon: '/images/sidebar/stockroom_red.svg',
           icon: '/images/sidebar/stockroom.svg',
           link: routes.ROUTE_STOCKROOM,
+          link2: routes.ROUTE_SINGLE_STOCK,
           name: 'Stockroom',
         },
         {

@@ -71,6 +71,9 @@ export const getExhibitionStyles = () => {
 export const getPublicArtWork = (data) => {
   return doGet(`${BASE_URL}${API_PATH}/items${ARTWORKS}/${data}`);
 };
+export const getStock = (data) => {
+  return doGet(`${BASE_URL}${API_PATH}/items${ARTWORKS}/${data}`);
+};
 
 export const getBrowseArtworks = (data) => {
   return doGet(`${BASE_URL}${API_PATH}/items${ARTWORKS}?${data}`);

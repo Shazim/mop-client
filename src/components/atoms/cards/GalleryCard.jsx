@@ -29,13 +29,8 @@ function GalleryCard({
             {title}
           </div>
           <div className="flex text-xsm sm:text-6">
-            <div>
-              <span className="font-bold">{views}</span> Views
-            </div>
-            <div className="flex-grow">
-              <span className="font-bold ml-10">{incImages}</span> Images
-              Included
-            </div>
+            <span>£100</span>
+
             <div>
               {edit && (
                 <Button
