@@ -21,7 +21,7 @@ const MyProfile = () => {
     firstName: '',
     surname: '',
     bio: '',
-    companyName: 'private_gallery',
+    companyName: '',
     phoneNumber: '',
     imageFile: {},
     styleIds: {},
