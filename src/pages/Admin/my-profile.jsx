@@ -207,21 +207,21 @@ const MyProfile = () => {
               <div className="grid grid-cols-3 gap-x-32 gap-y-28 mb-22 w-100% sm:grid-cols-1">
                 <TextField
                   name="firstName"
-                  placeholder="REBECCA"
+                  placeholder="FIRST NAME"
                   mb="6"
                   label="First Name"
                   className="h-38"
                 />
                 <TextField
                   name="surname"
-                  placeholder="WARBIS"
+                  placeholder="LAST NAME"
                   mb="6"
                   className="h-38"
                   label="Surname"
                 />
                 <TextField
                   name="companyName"
-                  placeholder="PHOTO NAME"
+                  placeholder="COMPANY NAME"
                   mb="6"
                   className="h-38"
                   label="company Name"
@@ -229,7 +229,7 @@ const MyProfile = () => {
 
                 <TextField
                   name="phoneNumber"
-                  placeholder="07929665622"
+                  placeholder="PHONE NUMBER"
                   mb="6"
                   className="h-38"
                   label="PHONE NUMBER"
@@ -238,7 +238,7 @@ const MyProfile = () => {
 
                 <TextField
                   name="email"
-                  placeholder="myemail@gmail.com"
+                  placeholder="EMAIL ADDRESS"
                   mb="6"
                   className="h-38"
                   label="email address"
