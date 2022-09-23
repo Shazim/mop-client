@@ -2,13 +2,14 @@ import React from 'react';
 
 function VideoCard({
   title = 'Prospect 4',
-  imageUrl = '/images/card/bg_image.png',
+  imageUrl = '/images/card/resource-database-hXh9yUI1rho-unsplash.jpg',
   views = 1302,
   incImages = 28,
   comments = 6,
   edit = false,
   onClick,
-  handleEdit
+  handleEdit,
+  play = false,
 }) {
   return (
     <div
@@ -16,10 +17,12 @@ function VideoCard({
       onClick={onClick}
     >
       <img className="w-100% sm:rounded-8" src={imageUrl} />
-      <img
-        className="absolute  link left-50% top-50% transform-xy sm:invisible sm:hover:visible"
-        src="/images/card/play-button.svg"
-      />
+      {play && (
+        <img
+          className="absolute  link left-50% top-50% transform-xy sm:invisible sm:hover:visible"
+          src="/images/card/play-button.svg"
+        />
+      )}
       <div className=" sm:block absolute sm:bottom-80% right-20 bottom-5%">
         <button className=" hidden bg-white link w-75 h-33 rounded-md font-bold text-sm tracking text-secondary-darkest">
           Edit
@@ -51,7 +54,10 @@ function VideoCard({
           </div>
         </div>
         {edit && (
-          <button onClick={handleEdit} className="bg-white w-75 h-33 rounded-md  font-bold text-sm tracking text-secondary-darkest">
+          <button
+            onClick={handleEdit}
+            className="bg-white w-75 h-33 rounded-md  font-bold text-sm tracking text-secondary-darkest"
+          >
             Edit
           </button>
         )}
