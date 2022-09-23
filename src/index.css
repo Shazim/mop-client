@@ -123,6 +123,10 @@
   content: '' !important;
   opacity: 0 !important;
 }
+.slick-prev::before {
+  content: '' !important;
+  opacity: 0 !important;
+}
 .transform-x {
   transform: translate(-50%, 0);
 }
@@ -445,7 +449,10 @@ svg.stroke-white {
       url('../src/fonts/Avenir-Roman.otf') format('truetype');
   }
 }
-
+.slick-image {
+  min-height: 300px;
+  max-height: 500px;
+}
 .stockroom__images {
   min-height: 200px;
   min-width: 200px;

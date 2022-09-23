@@ -17,11 +17,11 @@ const StockRoomDetails = () => {
   return (
     <>
       <AdminLayout title="stock detail">
-        <div className="max-screen ">
+        <div className="max-screen mb-25 ">
           <Sliders column={1} images={sliderImages || []} />
         </div>
 
-        <div className=" sm:w-100% sm:px-23 sm:pb-62 pt-25">
+        <div className=" w-50% md:w-45% sm:w-100% sm:px-23 sm:pb-62 pt-25 pb-90 ">
           <p className="font-avenir-reg text-2xl text-dark tracking-wider leading-60 uppercase">
             {name}
           </p>
