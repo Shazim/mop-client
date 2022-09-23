@@ -40,7 +40,11 @@ const SinglePhoto = (props) => {
   return (
     <Container>
       <div className="max-screen pt-50  sm:w-100% sm:px-23 sm:h-100% sm:bg-gray-dark">
-        <Sliders column={1} images={sliderImages || []} />
+        <Sliders
+          column={1}
+          images={sliderImages || []}
+          titleClass="slick-image object-cover"
+        />
       </div>
       <div className="max-screen flex w-100% pt-115 sm:bg-gray-dark sm:flex-col sm:px-0">
         <div className="w-50% md:w-45% sm:w-100% sm:px-23 sm:pb-62">
