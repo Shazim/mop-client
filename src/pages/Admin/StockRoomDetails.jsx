@@ -17,11 +17,15 @@ const StockRoomDetails = () => {
   return (
     <>
       <AdminLayout title="stock detail">
-        <div className="max-screen mb-25 ">
-          <Sliders column={1} images={sliderImages || []} />
+        <div className="max-screen mb-50 ">
+          <Sliders
+            column={1}
+            images={sliderImages || []}
+            titleClass="slick-image object-cover"
+          />
         </div>
 
-        <div className=" w-50% md:w-45% sm:w-100% sm:px-23 sm:pb-62 pt-25 pb-90 ">
+        <div className=" w-50% md:w-45% sm:w-100% sm:px-23 sm:pb-62 pt-50 pb-160 ">
           <p className="font-avenir-reg text-2xl text-dark tracking-wider leading-60 uppercase">
             {name}
           </p>
@@ -29,11 +33,11 @@ const StockRoomDetails = () => {
             <div className="w-6 h-6 bg-primary rounded-full mt-5 mr-8"></div>
             <div className="border-b-2 border-black w-100% pt-6"></div>
           </div>
-          <p className="font-avenir-reg text-2xl text-primary tracking-wider leading-60 uppercase">
+          <p className="font-avenir-reg text-2xl text-primary tracking-wider leading-60 uppercase ">
             {artist_name}
           </p>
 
-          <p className="mt-33 font-avenir-reg text-secondary leading-32 text-xl">
+          <p className="mt-33 font-avenir-reg text-secondary leading-32 text-xl text-justify">
             {notes}
           </p>
         </div>
