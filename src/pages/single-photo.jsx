@@ -59,7 +59,7 @@ const SinglePhoto = (props) => {
             {artist_name}
           </p>
 
-          <p className="mt-33 font-avenir-reg text-secondary leading-32 text-xl">
+          <p className="mt-33 font-avenir-reg text-secondary leading-32 text-xl text-justify">
             {notes}
           </p>
         </div>
