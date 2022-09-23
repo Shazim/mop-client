@@ -8,8 +8,11 @@ import TextArea from 'components/atoms/form/TextArea';
 import RadioButton from 'components/atoms/buttons/RadioButton';
 import Package from 'components/Packages/package';
 import withArtistRoute from 'hoc/withArtistRoute';
-
+import { useFetch } from 'hooks';
+import { artistSetting } from 'api/api-services';
 const Settings = () => {
+  const { data } = useFetch(artistSetting);
+
   return (
     <AdminLayout title="settings">
       <div className="admin-h2 sm:text-center">current subscription</div>
@@ -18,7 +21,12 @@ const Settings = () => {
         <span className="font-bold ">Plus Subscription</span> Package.
       </div>
       <div>
-        <Package subscribeBtn={false} />
+        <Package
+          subscribeBtn={false}
+          title={data?.package?.name}
+          price={data?.package?.price}
+          year={data?.package?.duration_type === 'monthly' ? false : true}
+        />
       </div>
       <div className="sm:text-center ">
         <Button className="w-312 h-33 mt-33 mb-19 " transform="uppercase">

@@ -2,7 +2,7 @@ import React from 'react';
 
 function VideoCard({
   title = 'Prospect 4',
-  imageUrl = '/images/card/resource-database-hXh9yUI1rho-unsplash.jpg',
+  imageUrl = '/images/card/kelly-sikkema-tk9RQCq5eQo-unsplash.jpg',
   views = 1302,
   incImages = 28,
   comments = 6,

@@ -89,6 +89,7 @@ const ExhibitionRoom = () => {
     artwork_ids: {},
     status: true,
     draft: false,
+    image: {},
     exhibition_style_id: '',
   });
 
@@ -100,6 +101,7 @@ const ExhibitionRoom = () => {
       );
       ExhibitionsData.artwork_ids = updatedArtworkIds;
       ExhibitionsData.exhibition_style_id = ExhibitionsData.exhibition_style.id;
+      ExhibitionsData.image = ExhibitionsData.image;
       const draftsInitialValues = {
         room_name: ExhibitionsData.room_name,
         artwork_ids: updatedArtworkIds,
@@ -107,16 +109,20 @@ const ExhibitionRoom = () => {
         draft: ExhibitionsData.draft,
         exhibition_style_id: ExhibitionsData.exhibition_style.id,
         artist_name: ExhibitionsData.artist_name,
+        image: ExhibitionsData.image,
       };
       setInitialValues(draftsInitialValues);
     }
   }, [ExhibitionsData]);
 
   const onSubmit = (data) => {
+    let copyImage = data?.image;
+    data = { ...data, image: copyImage?.image };
     const formData = new FormData();
     Object.entries(data).map(([key, value]) => {
       formDataHandler('exhibition', key, value, formData);
     });
+
     handleCreatePost({
       variables: formData,
     });
