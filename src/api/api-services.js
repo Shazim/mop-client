@@ -21,6 +21,7 @@ const {
   GET_PRICING_DATA,
   ORDERS,
   FAQS,
+  SETTINGS,
 } = END_POINTS;
 
 export const featureArtwork = (data) => {
@@ -35,6 +36,9 @@ export const createOrder = (data) => {
 };
 export const priceSheet = () => {
   return doGet(`${BASE_URL}${API_PATH}${PRICE_SHEETS}${GET_PRICING_DATA}`);
+};
+export const artistSetting = () => {
+  return doGet(`${BASE_URL}${API_PATH}${SETTINGS}`);
 };
 
 export const priceSheetDetail = (data) => {

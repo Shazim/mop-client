@@ -99,7 +99,7 @@ const GallerySetting = () => {
         name,
         artist_name,
       });
-      toast.success('Successfully Updated Gallery')
+      toast.success('Successfully Updated Gallery');
     }
   }, [dataPost]);
 
@@ -145,7 +145,9 @@ const GallerySetting = () => {
                 </div>
               </div>
               <div className="admin-h2 pt-25 sm:hidden">Private or public</div>
-              <div className="hidden admin-h2 pt-25 sm:block">Name Settings</div>
+              <div className="hidden admin-h2 pt-25 sm:block">
+                Name Settings
+              </div>
               <div className="flex flex-col sm:flex-col-reverse">
                 <div className="hr-b hidden sm:block"></div>
                 <div className="admin-label my-17 ">
@@ -231,8 +233,8 @@ const GallerySetting = () => {
                 <div>
                   <div className="admin-h2 sm:mt-32">watermark</div>
                   <div className="admin-label my-18 leading-32 w-80% sm:w-full">
-                    you can upload a watermark that will appear across your work.
-                    Please upload a png or svg that is less than 10MB.
+                    you can upload a watermark that will appear across your
+                    work. Please upload a png or svg that is less than 10MB.
                   </div>
                   <div className="sm:flex justify-center">
                     <UploadImageCard label="Add image" id="watermark" />

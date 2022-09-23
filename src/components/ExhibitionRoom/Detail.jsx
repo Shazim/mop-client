@@ -1,5 +1,6 @@
 import React from 'react';
 import TextField from 'components/atoms/form/TextField';
+import UploadExhibition from './UploadExhibition';
 
 function Detail() {
   return (
@@ -21,6 +22,9 @@ function Detail() {
           label="Artist name (optional)"
           className="border-border-light border border-solid w-100% h-40"
         />
+      </div>
+      <div className="border-gray-200  border-2 mt-30 ml-40 mr-40">
+        <UploadExhibition label="Add Exhibition" id="image" />
       </div>
     </>
   );
