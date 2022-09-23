@@ -25,6 +25,7 @@ function Sliders({
     prevArrow: <Arrow dir="left" type="prev" />,
     centerMode: true,
     centerPadding: '0%',
+    adaptiveHeight: true,
     responsive: [
       {
         breakpoint: 959,
@@ -44,7 +45,7 @@ function Sliders({
       <Slider {...settings}>
         {images.map((url) => (
           <img
-            className="w-80% max-h-500 min-h-300 sm:w-100% m-auto sm:h-100%"
+            className="w-80% slick-image sm:w-100% m-auto sm:h-100% object-contain"
             src={url.image}
           />
         ))}
