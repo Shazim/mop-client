@@ -35,7 +35,7 @@ const ExhibitionsComp = () => {
       handleExhibitions({ variables: `draft=${status}` });
     }
   }, [id]);
-  console.log('here is exhibtion', ExhibitionsData?.exhibitions);
+
   return (
     <div className="pb-106">
       <div className="flex mt-26 mb-18 sm:justify-center">
