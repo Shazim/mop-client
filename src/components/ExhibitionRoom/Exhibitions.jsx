@@ -84,16 +84,27 @@ const ExhibitionsComp = () => {
                 <>
                   <div className="  grid grid-cols-2 gap-11   sm:grid-cols-1">
                     {ExhibitionsData?.exhibitions?.map(
-                      ({ image, id: exhibitionId }) => (
-                        <VideoCard
-                          edit={id === 'drafts'}
-                          handleEdit={() =>
-                            history.push(
-                              `${routes.ROUTE_EXHIBITION_ROOM}/${exhibitionId}`
-                            )
-                          }
-                          imageUrl={image ? image : undefined}
-                        />
+                      ({
+                        exhibition_style,
+                        image,
+                        id: exhibitionId,
+                        room_name,
+                        views,
+                      }) => (
+                        <>
+                          <VideoCard
+                            edit={id === 'drafts'}
+                            handleEdit={() =>
+                              history.push(
+                                `${routes.ROUTE_EXHIBITION_ROOM}/${exhibitionId}`
+                              )
+                            }
+                            imageUrl={image ? image : undefined}
+                            title={room_name}
+                            views={views}
+                            play={image === undefined ? true : false}
+                          />
+                        </>
                       )
                     )}
                   </div>
