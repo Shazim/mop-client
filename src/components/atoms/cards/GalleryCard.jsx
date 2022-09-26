@@ -29,7 +29,7 @@ function GalleryCard({
             {title}
           </div>
           <div className="flex text-xsm sm:text-6">
-            <span>£100</span>
+            <span className="hidden">£100</span>
 
             <div>
               {edit && (
