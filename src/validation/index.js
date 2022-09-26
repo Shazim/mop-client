@@ -69,6 +69,7 @@ export const artworkSchema = Yup.object().shape({
 
 export const exhibitionSchema = Yup.object().shape({
   room_name: Yup.string().required('Room Name is required'),
+  image: Yup.string().required('Featured Image is required '),
   exhibition_style_id: Yup.string().required(
     'Please select at least one style'
   ),
