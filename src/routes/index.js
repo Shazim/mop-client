@@ -72,7 +72,7 @@ export const routes = Object.freeze({
   ROUTE_ORDER_DETAIL: '/order-detail',
   ROUTE_STOCKS: '/stocks',
   ROUTE_SINGLE_ARTWORK: '/artwork',
-  ROUTE_SINGLE_STOCK: '/artist/artwork',
+  ROUTE_SINGLE_STOCK: '/artist/stockroom',
   ROUTE_LOGOUT: '/logout',
   ROUTE_PROFILE_SUBSCRIPTION: '/profile-subscription',
   ROUTE_SUBSCRIBE_LOGIN: '/subscribe-login',
