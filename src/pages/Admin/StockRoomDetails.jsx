@@ -1,13 +1,15 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { useFetch } from 'hooks';
 import { getStock } from 'api/api-services';
 import withArtistRoute from 'hoc/withArtistRoute';
 import { AdminLayout } from 'Layout';
 import Sliders from 'components/atoms/slider/Slider';
+import { routes } from 'routes';
 
 const StockRoomDetails = () => {
   const { id } = useParams();
+  const history = useHistory()
 
   const { data: dataArtwork = [] } = useFetch(getStock, {
     variables: id,
@@ -17,7 +19,7 @@ const StockRoomDetails = () => {
 
   return (
     <>
-      <AdminLayout title="stock detail" button={true} buttonText="EDIT">
+      <AdminLayout title="stock detail" button={true} handler={() => history.push(`${routes.ROUTE_CREATE_STOCKROOM}/${id}`)} buttonText="EDIT">
         <div className="max-screen mb-50 ">
           <Sliders
             column={1}

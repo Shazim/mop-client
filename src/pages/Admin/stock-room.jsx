@@ -1,8 +1,8 @@
 // ====================== IMPORTED LIBRARIES ========================
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { routes } from 'routes';
-import { usePost } from 'hooks';
+import { useFetch, usePost } from 'hooks';
 import { useDispatch, useSelector } from 'react-redux';
 // ====================== IMPORTED COMPONENT ========================
 import { Form } from 'components/app/forms';
@@ -16,10 +16,17 @@ import { artworkSchema } from 'validation';
 import { formDataHandler } from 'utils';
 import * as types from 'store/actions/actionTypes';
 import { getColors, getStyles } from 'api';
-import { createWork } from 'api/api-services';
+import { createWork, getStock } from 'api/api-services';
 import withArtistRoute from 'hoc/withArtistRoute';
 
 const StockRoom = () => {
+
+  const { id = 62 } = useParams();
+  const dispatch = useDispatch();
+
+  const { data: dataStockroom = [] } = useFetch(getStock, {
+    variables: id,
+  });
   const [steps, setSteps] = useState([
     'item details',
     'categories',
@@ -29,7 +36,19 @@ const StockRoom = () => {
   const [step, setStep] = useState('item details');
   const [colors, setColors] = useState([]);
   const [styles, setStyles] = useState([]);
-  const dispatch = useDispatch();
+  const [initialValues, setInitialValues] = useState({
+    name: '',
+    notes: '',
+    artwork_images_attributes: [],
+    edition_type: 'open',
+    sell_via: 'with_us',
+    sellable: false,
+    exhibitionable: false,
+    colour_ids: {},
+    style_ids: {},
+    status: true,
+    price_sheet_id: {},
+  });
 
   const history = useHistory();
   useEffect(() => {
@@ -74,9 +93,37 @@ const StockRoom = () => {
     }
   }, [dataPost]);
 
+  useEffect(() => {
+    if (dataStockroom) {
+      const copyData = { ...dataStockroom }
+      const colour_ids = {};
+      const style_ids = {}
+      const artworkIds = copyData?.colours?.map(
+        (item) => (colour_ids[item.id] = item.id)
+      );
+      const styleIds = copyData?.styles?.map(
+        (item) => (style_ids[item.id] = item.id)
+      );
+
+      const draftsInitialValues = {
+        artwork_images_attributes: copyData.image,
+        colour_ids: colour_ids,
+        style_ids: style_ids,
+        edition_type: copyData.edition_type,
+        exhibitionable: copyData.exhibitionable,
+        name: copyData.name,
+        notes: copyData.notes,
+        price_sheet_id: copyData.price_sheet || {},
+        sell_via: copyData.sell_via,
+        sellable: copyData.sellable,
+        status: true,
+      };
+      setInitialValues(draftsInitialValues);
+    }
+  }, [dataStockroom]);
+
   const data = (data) => {
     let copyData = { ...data };
-
     let colour_ids = [];
     let style_ids = [];
     const colourIdsLength = Object.entries(data?.colour_ids).length;
@@ -114,21 +161,10 @@ const StockRoom = () => {
     <>
       <AdminLayout handler={addItem} title="Add new artwork" subtitle={step}>
         <Form
-          initialValues={{
-            name: '',
-            note: '',
-            artwork_images_attributes: [],
-            edition_type: 'open',
-            sell_via: 'with_us',
-            sellable: false,
-            exhibitionable: false,
-            colour_ids: {},
-            style_ids: {},
-            status: true,
-            price_sheet_id: {},
-          }}
+          initialValues={initialValues}
           onSubmit={data}
           validationSchema={artworkSchema}
+          enableReinitialize={true}
         >
           {() => (
             <>
