@@ -23,7 +23,11 @@ function Detail() {
           className="border-border-light border border-solid w-100% h-40"
         />
       </div>
-      <div className="border-gray-200  border-2 mt-30 ml-40 mr-40">
+      <div className=" mt-30 ml-40 mr-40">
+        <div className="text-secondary uppercase tracking font-bold text-secondary text-sm leading-22 mb-20">
+          {' '}
+          Exhibition featured Image
+        </div>
         <UploadExhibition label="Add Exhibition" id="image" />
       </div>
     </>
