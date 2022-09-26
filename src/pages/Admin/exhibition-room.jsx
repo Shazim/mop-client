@@ -163,7 +163,6 @@ const ExhibitionRoom = () => {
   return (
     <AdminLayout title="exhibition room">
       <div className="w-55% sm:h-100 m-auto sm:w-80%">
-        {console.log(store, 'STORE')}
         <StepBar steps={detail} step={store} />
       </div>
       {step == 0 ? null : (

@@ -42,34 +42,36 @@ const StockRoomDetails = () => {
               {notes}
             </p> */}
           </div>
-          <div className="w-30% md:w-25% sm:w-100% px-30 ml-50  mb-50 pb-40">
-            <div className="font-avenir-reg text-2xl text-dark tracking-wider leading-60 uppercase ">
-              Price Sheet
-            </div>
-            <div className="flex items-center">
-              <div className="border-b-2 border-black w-100% pt-6"></div>
-            </div>
-            <div className="border-gray-200  border-2 mt-40 pl-30 pr-30 pb-50">
-              <div className="mt-40 flex hr-b">
-                <div className="font-avenir-reg font-bold text-base text-secondary uppercase leading-54 tracking-wider flex-grow">
-                  size
-                </div>
-                <div className="font-avenir-reg font-bold text-base text-secondary uppercase leading-54 tracking-wider ">
-                  price
-                </div>
+          {price_sheet?.entries?.length > 0 && (
+            <div className="w-30% md:w-25% sm:w-100% px-30 ml-50  mb-50 pb-40">
+              <div className="font-avenir-reg text-2xl text-dark tracking-wider leading-60 uppercase ">
+                Price Sheet
               </div>
-              {price_sheet?.entries?.map((item) => (
-                <div className="mt-20 flex hr-b">
-                  <div className="pb-10 font-avenir-reg font-medium text-base text-secondary uppercase leading-54 tracking-wider flex-grow">
-                    {item.size}
+              <div className="flex items-center">
+                <div className="border-b-2 border-black w-100% pt-6"></div>
+              </div>
+              <div className="border-gray-200  border-2 mt-40 pl-30 pr-30 pb-50">
+                <div className="mt-40 flex hr-b">
+                  <div className="font-avenir-reg font-bold text-base text-secondary uppercase leading-54 tracking-wider flex-grow">
+                    size
                   </div>
-                  <div className="font-avenir-reg font-medium text-base text-secondary uppercase leading-54 tracking-wider ">
-                    £{item.price}.oo
+                  <div className="font-avenir-reg font-bold text-base text-secondary uppercase leading-54 tracking-wider ">
+                    price
                   </div>
                 </div>
-              ))}
+                {price_sheet?.entries?.map((item) => (
+                  <div className="mt-20 flex hr-b">
+                    <div className="pb-10 font-avenir-reg font-medium text-base text-secondary uppercase leading-54 tracking-wider flex-grow">
+                      {item.size}
+                    </div>
+                    <div className="font-avenir-reg font-medium text-base text-secondary uppercase leading-54 tracking-wider ">
+                      £{item.price}.oo
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </AdminLayout>
     </>
