@@ -25,7 +25,7 @@ const StockRoomDetails = () => {
             titleClass="slick-image object-cover"
           />
         </div>
-        <div className="max-screen flex w-100% pt-115  sm:flex-col sm:px-0">
+        <div className="max-screen flex w-100% pt-50  sm:flex-col sm:px-0">
           <div className=" w-50% md:w-45% sm:w-100% sm:px-23 sm:pb-62  pb-160 ">
             <p className="font-avenir-reg text-2xl text-dark tracking-wider leading-60 uppercase">
               {name}
@@ -43,7 +43,7 @@ const StockRoomDetails = () => {
             </p> */}
           </div>
           {price_sheet?.entries?.length > 0 && (
-            <div className="w-30% md:w-25% sm:w-100% px-30 ml-50  mb-50 pb-40">
+            <div className="w-40% md:w-25% sm:w-100% px-30 ml-50  mb-50 pb-40">
               <div className="font-avenir-reg text-2xl text-dark tracking-wider leading-60 uppercase ">
                 Price Sheet
               </div>
