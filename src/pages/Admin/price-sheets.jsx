@@ -70,11 +70,11 @@ const PriceSheet = () => {
         </div>
       ) : (
         <>
-          {price_sheets.length > 0 ? (
+          {price_sheets?.length > 0 ? (
             <>
               <div className="hidden sm:block">
                 <Slider {...settings}>
-                  {price_sheets.map(({ name, id }) => (
+                  {price_sheets?.map(({ name, id }) => (
                     <Link to={`/price-sheet/${id}`}>
                       <div className="mr-35">
                         <div className="w-186 h-186 bg-gray "></div>
