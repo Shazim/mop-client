@@ -53,19 +53,24 @@ const Settings = () => {
       </div>
       <div className="admin-label mb-20">payments going to</div>
       <div className="flex mb-15 sm:flex-col">
-        <div className="w-115 mr-12">
+        <div className="w-115 mr-12 hidden">
           <RadioButton value="Paypal" name="card" className="text-sm " />
         </div>
-        <div className="w-115 mr-12">
+        <div className="w-115 mr-12 hidden">
           <RadioButton value="Payoneer" name="card" className="text-sm " />
         </div>
         <div className="w-115 mr-51">
-          <RadioButton value="Stripe" name="card" className="text-sm " />
+          <RadioButton
+            value="Stripe"
+            name="card"
+            className="text-sm "
+            checked={true}
+          />
         </div>
         <RadioButton
           value="Card ending in 0876"
           name="card"
-          className="text-sm "
+          className="text-sm hidden"
         />
       </div>
       <div className="hr-b pb-23 flex justify-between sm:flex-col">

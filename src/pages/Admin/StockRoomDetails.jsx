@@ -13,7 +13,7 @@ const StockRoomDetails = () => {
     variables: id,
   });
 
-  const { images: sliderImages, name, price_sheet } = dataArtwork || [];
+  const { images: sliderImages, name, price_sheet, notes } = dataArtwork || [];
 
   return (
     <>
@@ -38,9 +38,9 @@ const StockRoomDetails = () => {
               
             </p> */}
 
-            {/* <p className="mt-33 font-avenir-reg text-secondary leading-32 text-xl text-justify">
+            <p className="mt-33 font-avenir-reg text-secondary leading-32 text-xl text-justify">
               {notes}
-            </p> */}
+            </p>
           </div>
           {price_sheet?.entries?.length > 0 && (
             <div className="w-40% md:w-25% sm:w-100% px-30 ml-50  mb-50 pb-40">
