@@ -35,6 +35,7 @@ const ExhibitionsComp = () => {
       handleExhibitions({ variables: `draft=${status}` });
     }
   }, [id]);
+  console.log('=============', ExhibitionsData?.exhibitions);
 
   return (
     <div className="pb-106">
@@ -92,18 +93,26 @@ const ExhibitionsComp = () => {
                         views,
                       }) => (
                         <>
-                          <VideoCard
-                            edit={id === 'drafts'}
-                            handleEdit={() =>
-                              history.push(
-                                `${routes.ROUTE_EXHIBITION_ROOM}/${exhibitionId}`
-                              )
+                          <Link
+                            to={
+                              id === 'drafts'
+                                ? `${routes.ROUTE_EXHIBITION_ROOM}/${exhibitionId}`
+                                : `${routes.ROUTE_EXHIBITION_ROOM}/live/${exhibitionId}`
                             }
-                            imageUrl={image ? image : undefined}
-                            title={room_name}
-                            views={views}
-                            play={image === undefined ? true : false}
-                          />
+                          >
+                            <VideoCard
+                              edit={id === 'drafts'}
+                              handleEdit={() =>
+                                history.push(
+                                  `${routes.ROUTE_EXHIBITION_ROOM}/${exhibitionId}`
+                                )
+                              }
+                              imageUrl={image ? image : undefined}
+                              title={room_name}
+                              views={views}
+                              play={image === undefined ? true : false}
+                            />
+                          </Link>
                         </>
                       )
                     )}

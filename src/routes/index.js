@@ -39,6 +39,7 @@ import StockRoomDetails from 'pages/Admin/StockRoomDetails';
 import customerPayment from 'pages/customerPayment';
 import AdminAnalytics from 'pages/analytics';
 import customerOrderSumary from 'pages/customerOrderSumary';
+import SingleExhibition from 'pages/Admin/SingleExhibition';
 // List of Routes name using for links and route
 export const routes = Object.freeze({
   ROUTE_FORGOT_PASSWORD: '/forgot-password',
@@ -121,6 +122,11 @@ export default Object.freeze([
   {
     path: `${routes.ROUTE_EXHIBITION_ROOM}/live`,
     component: Exhibitions,
+    privateRoute: true,
+  },
+  {
+    path: `${routes.ROUTE_EXHIBITION_ROOM}/live/:id`,
+    component: SingleExhibition,
     privateRoute: true,
   },
   {
