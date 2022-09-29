@@ -1,8 +1,6 @@
 // ====================== IMPORTED LIBRARIES ========================
-
 import React from 'react';
 // ====================== IMPORTED COMPONENT ========================
-
 import TextArea from 'components/atoms/form/TextArea';
 import TextField from 'components/atoms/form/TextField';
 import StepBar from 'components/stepbar/StepBar';
