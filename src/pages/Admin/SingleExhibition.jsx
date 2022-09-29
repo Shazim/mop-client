@@ -1,7 +1,7 @@
 import GalleryCard from 'components/atoms/cards/GalleryCard';
 import { AdminLayout } from 'Layout';
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { getSingleExhibition } from 'api/api-services';
 import { useFetch } from 'hooks';
 import { routes } from 'routes';
@@ -10,6 +10,7 @@ import { toast } from 'react-toastify';
 
 const SingleExhibition = () => {
   const { id } = useParams();
+  const history = useHistory();
   const { data: dataExhibition = [] } = useFetch(getSingleExhibition, {
     variables: id,
   });
@@ -23,7 +24,12 @@ const SingleExhibition = () => {
   };
   return (
     <>
-      <AdminLayout title="Exhibition Details">
+      <AdminLayout
+        title="Exhibition Details"
+        button={true}
+        buttonText=" EDIT"
+        handler={() => history.push(`${routes.ROUTE_EXHIBITION_ROOM}/${id}`)}
+      >
         <div className="  max-screen mb-50">
           <img
             src={image || '/images/card/kelly-sikkema-tk9RQCq5eQo-unsplash.jpg'}
