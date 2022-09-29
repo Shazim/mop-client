@@ -98,7 +98,7 @@ const StockItem = ({ addItem }) => {
         </div>
       ) : (
         <>
-          {artworkData.length > 0 ? (
+          {artworkData?.length > 0 ? (
             <>
               <div className="flex mt-21  mb-22 hidden">
                 <img

@@ -16,7 +16,7 @@ import { getExhibitions } from 'api';
 import { getValueInLink } from 'utils/helper';
 
 const ExhibitionsComp = () => {
-  const [handleExhibitions, { data: ExhibitionsData }] =
+  const [handleExhibitions, { data: exhibitionsData }] =
     useLazyFetch(getExhibitions);
 
   const { pathname } = useLocation();
@@ -26,8 +26,8 @@ const ExhibitionsComp = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if (ExhibitionsData) setIsLoading(false);
-  }, [ExhibitionsData]);
+    if (exhibitionsData) setIsLoading(false);
+  }, [exhibitionsData]);
 
   useEffect(() => {
     if (id) {
@@ -35,7 +35,6 @@ const ExhibitionsComp = () => {
       handleExhibitions({ variables: `draft=${status}` });
     }
   }, [id]);
-  console.log('=============', ExhibitionsData?.exhibitions);
 
   return (
     <div className="pb-106">
@@ -57,7 +56,7 @@ const ExhibitionsComp = () => {
           </Button>
         </Link>
       </div>
-      {id === 'drafts' && ExhibitionsData?.exhibitions.length === 0 ? (
+      {id === 'drafts' && exhibitionsData?.exhibitions.length === 0 ? (
         <div className="text-center justify-center pt-112">
           <p className="font-avenir-reg text-primary text-4xl uppercase leading-55 tracking-wider">
             You have no Drafts Found
@@ -81,10 +80,10 @@ const ExhibitionsComp = () => {
             </div>
           ) : (
             <>
-              {ExhibitionsData?.exhibitions.length > 0 ? (
+              {exhibitionsData?.exhibitions.length > 0 ? (
                 <>
                   <div className="  grid grid-cols-2 gap-11   sm:grid-cols-1">
-                    {ExhibitionsData?.exhibitions?.map(
+                    {exhibitionsData?.exhibitions?.map(
                       ({
                         exhibition_style,
                         image,
@@ -135,7 +134,7 @@ const ExhibitionsComp = () => {
         </>
       )}
       <Pagination
-        pageDetails={ExhibitionsData?.pagination}
+        pageDetails={exhibitionsData?.pagination}
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
         className="mt-25"

@@ -7,6 +7,7 @@ import { useFetch } from 'hooks';
 import { routes } from 'routes';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import withArtistRoute from 'hoc/withArtistRoute';
 
 const SingleExhibition = () => {
   const { id } = useParams();
@@ -15,7 +16,7 @@ const SingleExhibition = () => {
     variables: id,
   });
   const { artworks, image, room_name, key } = dataExhibition || [];
-  console.log({ dataExhibition });
+
   const handleCopy = (key) => {
     if (key) {
       navigator.clipboard.writeText(key);
@@ -93,4 +94,4 @@ const SingleExhibition = () => {
   );
 };
 
-export default SingleExhibition;
+export default withArtistRoute(SingleExhibition);

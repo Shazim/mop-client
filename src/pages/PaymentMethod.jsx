@@ -58,7 +58,7 @@ const PaymentMethod = forwardRef((props, ref) => {
   //     });
   //   };
   return (
-    <div>
+    <>
       <div className="flex sm:flex-col mb-20 mt-20">
         <TextField
           name="cardHolder Name"
@@ -123,7 +123,7 @@ const PaymentMethod = forwardRef((props, ref) => {
           />
         </div>
       </div>
-    </div>
+    </>
   );
 });
 

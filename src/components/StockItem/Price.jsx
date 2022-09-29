@@ -71,7 +71,7 @@ export default function Price({ addItem, steps, step, next, previous }) {
               SELL WITH US
             </ToggleButton>
             <ToggleButton
-              className="ml-32 w-211 h-32 t"
+              className="ml-32 w-211 h-32 "
               bg={sell_via == 'self_fulfil' ? 'bg-primary' : 'bg-white'}
               text={
                 sell_via == 'self_fulfil' ? 'text-white ' : 'text-secondary'
