@@ -15,6 +15,7 @@ import { FormField } from 'components/app/forms';
 import { getStyles, getProfile, updateProfile } from 'api/api-services';
 import { formDataHandler } from 'utils';
 import withArtistRoute from 'hoc/withArtistRoute';
+import { toast } from 'react-toastify';
 
 const MyProfile = () => {
   const [initial, setInitial] = useState({
@@ -141,6 +142,7 @@ const MyProfile = () => {
       };
       submitProfile({ variables: copySubmitData });
     }
+    toast.success('Your Profile Saved Successfully');
   };
 
   const customChange = (name, files, setFieldValue) => {
