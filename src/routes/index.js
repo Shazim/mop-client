@@ -73,7 +73,6 @@ export const routes = Object.freeze({
   ROUTE_ORDER_DETAIL: '/order-detail',
   ROUTE_STOCKS: '/stocks',
   ROUTE_SINGLE_ARTWORK: '/artwork',
-  ROUTE_SINGLE_STOCK: '/artist/stockroom',
   ROUTE_LOGOUT: '/logout',
   ROUTE_PROFILE_SUBSCRIPTION: '/profile-subscription',
   ROUTE_SUBSCRIBE_LOGIN: '/subscribe-login',
@@ -116,6 +115,11 @@ export default Object.freeze([
   },
   {
     path: routes.ROUTE_CREATE_STOCKROOM,
+    component: StockRoom,
+    privateRoute: true,
+  },
+  {
+    path: `${routes.ROUTE_CREATE_STOCKROOM}/:id`,
     component: StockRoom,
     privateRoute: true,
   },
@@ -250,7 +254,7 @@ export default Object.freeze([
     component: SinglePhoto,
   },
   {
-    path: `${routes.ROUTE_SINGLE_STOCK}/:id`,
+    path: `${routes.ROUTE_STOCKROOM}/:id`,
     component: StockRoomDetails,
     privateRoute: true,
   },
