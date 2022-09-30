@@ -114,5 +114,4 @@ export const gallerySchema = Yup.object().shape({
   name: Yup.string().required('Name is required'),
   artist_name: Yup.string().required('Note required please'),
   welcome_video: Yup.string().required('Welcome video is required'),
-  domain: Yup.string().required('Domain is required'),
 });
