@@ -9,7 +9,7 @@ function ImagePicker({ name, label }) {
     setFieldValue,
   } = useFormikContext();
 
-  const byte_To_MB = (size) => {
+  const byte_To_MB = (size = 1024) => {
     const mbs = parseInt(Math.log(size) / Math.log(1024));
     return mbs;
   };
@@ -68,7 +68,6 @@ function ImagePicker({ name, label }) {
       img.src = _URL.createObjectURL(value);
     });
   };
-
   return (
     <div>
       <div className="font-bold text-secondary text-sm leading-22 uppercase tracking mb-11">
@@ -78,7 +77,7 @@ function ImagePicker({ name, label }) {
         <label
           for="1"
           className="w-100% h-137 bg-white relative"
-          // htmlFor="dropzone"
+        // htmlFor="dropzone"
         >
           <span className="w-100% h-137 bg-white flex items-center justify-center">
             <div className="text-center">
@@ -107,7 +106,7 @@ function ImagePicker({ name, label }) {
       {artwork_images_attributes?.map((item, index) => (
         <ImageList
           name={item?.image?.name}
-          imageUrl={item?.imageLink}
+          imageUrl={item?.imageLink || item?.image}
           size={byte_To_MB(item?.image?.size) + 'mb'}
           iconClick={removeItem}
           handleCheckbox={handleFeature}

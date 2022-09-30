@@ -55,6 +55,9 @@ export const PriceSheetCollection = () => {
 export const createWork = (data) => {
   return doPost(`${BASE_URL}${API_PATH}${ARTWORKS}`, data);
 };
+export const updateWork = (id, data) => {
+  return doPost(`${BASE_URL}${API_PATH}${ARTWORKS}/${id}`, data);
+};
 
 export const createGallery = (data) => {
   return doPut(`${BASE_URL}${API_PATH}${GALLERY}`, data);

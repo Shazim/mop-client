@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { routes } from 'routes';
-import { useFetch, usePost } from 'hooks';
+import { useFetch, useLazyFetch, usePost } from 'hooks';
 import { useDispatch, useSelector } from 'react-redux';
 // ====================== IMPORTED COMPONENT ========================
 import { Form } from 'components/app/forms';
@@ -16,17 +16,16 @@ import { artworkSchema } from 'validation';
 import { formDataHandler } from 'utils';
 import * as types from 'store/actions/actionTypes';
 import { getColors, getStyles } from 'api';
-import { createWork, getStock } from 'api/api-services';
+import { createWork, getStock, updateWork } from 'api/api-services';
 import withArtistRoute from 'hoc/withArtistRoute';
 
 const StockRoom = () => {
 
-  const { id = 62 } = useParams();
+  const { id } = useParams();
   const dispatch = useDispatch();
+  const history = useHistory();
 
-  const { data: dataStockroom = [] } = useFetch(getStock, {
-    variables: id,
-  });
+  const [handleStock, { data: dataStockroom }] = useLazyFetch(getStock);
   const [steps, setSteps] = useState([
     'item details',
     'categories',
@@ -50,7 +49,6 @@ const StockRoom = () => {
     price_sheet_id: {},
   });
 
-  const history = useHistory();
   useEffect(() => {
     getStyles()
       .then((response) => {
@@ -69,6 +67,12 @@ const StockRoom = () => {
       .catch((error) => console.log('ERROR ', error));
   }, []);
 
+  useEffect(() => {
+    if (id) {
+      handleStock({ variables: id });
+    }
+  }, [id]);
+
   const next = (num) => {
     window.scrollTo(0, 0);
     setStep(steps[num]);
@@ -86,9 +90,11 @@ const StockRoom = () => {
   };
 
   const [post, { data: dataPost, status: statusPost }] = usePost(createWork);
+  const [update, { data: dataUpdate, status: statusUpdate }] = usePost(updateWork);
+
 
   useEffect(() => {
-    if (dataPost) {
+    if (dataPost || dataUpdate) {
       history.push(routes.ROUTE_STOCKROOM);
     }
   }, [dataPost]);
@@ -106,7 +112,7 @@ const StockRoom = () => {
       );
 
       const draftsInitialValues = {
-        artwork_images_attributes: copyData.image,
+        artwork_images_attributes: copyData.images,
         colour_ids: colour_ids,
         style_ids: style_ids,
         edition_type: copyData.edition_type,
@@ -152,11 +158,20 @@ const StockRoom = () => {
     Object.entries(data).map(([key, value]) => {
       formDataHandler('artwork', key, value, formData);
     });
-    post({
-      variables: formData,
-    });
+    if (id) {
+      update({
+        variables: formData,
+      }, id);
+    }
+    else {
+      post({
+        variables: formData,
+      });
+    }
+
   };
 
+  console.log("initialValues", initialValues.artwork_images_attributes);
   return (
     <>
       <AdminLayout handler={addItem} title="Add new artwork" subtitle={step}>
