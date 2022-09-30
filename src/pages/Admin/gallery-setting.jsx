@@ -22,14 +22,12 @@ const GallerySetting = () => {
 
   const [gallery, { data: dataPost, status: statusPost }] =
     usePost(createGallery);
-
   const onSubmit = (data) => {
     const copyData = { ...data };
 
     copyData.logo.image
       ? (copyData.logo = copyData.logo.image)
       : delete copyData.logo;
-
     copyData.watermark.image
       ? (copyData.watermark = copyData.watermark.image)
       : delete copyData.watermark;
@@ -42,6 +40,8 @@ const GallerySetting = () => {
     gallery({
       variables: formData,
     });
+
+    toast.success('Your Gallery created');
   };
 
   const [initial, setInitial] = useState({
@@ -65,15 +65,17 @@ const GallerySetting = () => {
         logo,
         watermark,
       } = getData || {};
-      setInitial({
-        ...initial,
-        watermark: { imageLink: watermark },
-        welcome_video,
-        domain,
-        gallery_type,
-        logo: { imageLink: logo },
-        name,
-        artist_name,
+      setInitial((prev) => {
+        return {
+          ...prev,
+          watermark: { imageLink: watermark },
+          welcome_video,
+          domain,
+          gallery_type,
+          logo: { imageLink: logo },
+          name,
+          artist_name,
+        };
       });
     }
   }, [getData]);
@@ -89,15 +91,17 @@ const GallerySetting = () => {
         logo,
         watermark,
       } = dataPost || {};
-      setInitial({
-        ...initial,
-        watermark: { imageLink: watermark },
-        welcome_video,
-        domain,
-        gallery_type,
-        logo: { imageLink: logo },
-        name,
-        artist_name,
+      setInitial((prev) => {
+        return {
+          ...prev,
+          watermark: { imageLink: watermark },
+          welcome_video,
+          domain,
+          gallery_type,
+          logo: { imageLink: logo },
+          name,
+          artist_name,
+        };
       });
       toast.success('Successfully Updated Gallery');
     }
@@ -122,7 +126,7 @@ const GallerySetting = () => {
           validationSchema={gallerySchema}
           enableReinitialize={true}
         >
-          {({ setFieldValue, values }) => (
+          {({ setFieldValue, values, handleSubmit }) => (
             <div className=" pb-295">
               <div className="flex hr-b pb-28 sm:flex-col ">
                 <div className="w-50% mr-50 sm:w-full">
@@ -252,7 +256,7 @@ const GallerySetting = () => {
                   className="w-55% h-38"
                 />
               </div>
-              <div className="sm:text-center">
+              <div className="sm:text-center" onClick={handleSubmit}>
                 <SubmitButton className={`h-42 w-251 mt-30`} color="primary">
                   SAVE CHANGES
                 </SubmitButton>
