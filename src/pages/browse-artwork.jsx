@@ -92,7 +92,7 @@ const BrowseArtwork = () => {
     <>
       <Header />
 
-      <div className="flex h-100vh">
+      <div className="flex ">
         <SideBarWithLogin className="sm:hidden" />
         <div className="w-91% sm:w-100% bg-gray-dark">
           <div className="flex justify-end pt-31 px-57 sm:hidden sm:bg-white">
