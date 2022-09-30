@@ -150,7 +150,7 @@ function SideBarWithLogin({ className: classes = '' }) {
         SEARCH
       </Button>
       <Button
-        className="flex w-220 h-33 text-secondary justify-center items-center mt-20 m-auto"
+        className="flex w-220 h-33 text-secondary justify-center items-center mt-20 m-auto mb-160"
         color="gray"
         onClick={clearFilter}
       >
