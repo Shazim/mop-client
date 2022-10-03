@@ -113,4 +113,9 @@ export const createOrderSchema = Yup.object().shape({
 export const gallerySchema = Yup.object().shape({
   name: Yup.string().required('Name is required'),
   artist_name: Yup.string().required('Note required please'),
+  gallery_type: Yup.string().required('gallery Type is required'),
+  domain: Yup.string().required('Domain is required'),
+  welcome_video: Yup.string().required('welcome video is required'),
+  logo: Yup.string().required('logo is required'),
+  watermark: Yup.string().required('Watermark is required'),
 });
