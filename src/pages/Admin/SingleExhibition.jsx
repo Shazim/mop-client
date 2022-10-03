@@ -72,7 +72,7 @@ const SingleExhibition = () => {
                   {images?.map(({ image, featured_image }) => (
                     <>
                       {featured_image && (
-                        <Link to={`${routes.ROUTE_SINGLE_STOCK}/${id}`}>
+                        <Link to={`${routes.ROUTE_STOCKROOM}/${id}`}>
                           <div className="mb-25">
                             <GalleryCard
                               imageUrl={image}
