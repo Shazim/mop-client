@@ -129,12 +129,12 @@ const CreateGallary = () => {
             </div>
             <div className="ml-50 sm:hidden">
               <Button className="w-275 h-44" transform="uppercase">
-                create a gallary
+                create a gallery
               </Button>
             </div>
             <div className="hidden sm:block">
               <Button className="w-275 h-44" transform="uppercase">
-                create a gallary
+                create a gallery
               </Button>
             </div>
           </div>

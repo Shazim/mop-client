@@ -20,7 +20,7 @@ const MenuTable2 = ({ data }) => {
           size
         </div>
         <div className="mb-5 mt-_5  flex-grow font-avenir-reg font-medium text-base text-secondary uppercase leading-54 tracking-wider ">
-          The Coast Price
+          The Cost Price
         </div>
         <div className="mb-5 mt-_5 flex-grow font-avenir-reg font-medium text-base text-secondary uppercase leading-54 tracking-wider ">
           The Mark-Up

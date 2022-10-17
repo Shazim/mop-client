@@ -1,15 +1,19 @@
 // ====================== IMPORTED LIBRARIES ========================
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation, useHistory } from 'react-router-dom';
 import { getCookie } from 'cookies/Cookies';
 
 // ====================== IMPORTED UTILS ========================
 import useUserLogout from 'hooks/useUserLogout';
 import { routes } from 'routes';
+import { CHECK_MODEL } from 'store/actions/actionTypes';
 
 const SideBar = () => {
-  const handleLogout = useUserLogout();
+  const { isCheck } = useSelector((state) => state.modals);
+  const handleLogout = () => {
+    dispatch({ type: CHECK_MODEL, payload: !isCheck });
+  };
   const user = getCookie('user') && JSON.parse(getCookie('user'));
   const { user_type, stripe_id } = user?.user || {};
   const dispatch = useDispatch();

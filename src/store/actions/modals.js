@@ -34,3 +34,11 @@ export const logoutUser = (payload) => {
     });
   };
 };
+export const CheckModel = (payload) => {
+  return (dispatch) => {
+    dispatch({
+      type: types.CHECK_MODEL,
+      payload,
+    });
+  };
+};

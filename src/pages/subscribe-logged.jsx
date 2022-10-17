@@ -1,5 +1,5 @@
 // ====================== IMPORTED LIBRARIES ========================
-import React from 'react';
+import React, { useEffect } from 'react';
 // ====================== IMPORTED COMPONENTS ========================
 import SelectedPackage from 'components/SelectedPackage/SelectedPackage';
 import SubHeaderLayout from 'Layout/SubHeaderLayout';
@@ -7,6 +7,9 @@ import Button from 'components/atoms/buttons/Button';
 import SubscribedCards from 'components/SubscribeAuth/SubscribedCards';
 
 const SubscribeLogged = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <SubHeaderLayout title="subscribe to this plan">
       <div className="sm:px-0 flex pt-48 pb-299 sm:flex-col ">

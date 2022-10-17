@@ -127,8 +127,9 @@ const ExhibitionRoom = () => {
       variables: formData,
     });
   };
-  const handleDraft = (val, handleSubmit) => {
-    handleSubmit();
+  const handleDraft = (val, handleSubmit, values) => {
+    // handleSubmit();
+    onSubmit(values);
   };
 
   useEffect(() => {
@@ -192,7 +193,8 @@ const ExhibitionRoom = () => {
                             : step == 4
                             ? handleDraft(
                                 (values['draft'] = false),
-                                handleSubmit
+                                handleSubmit,
+                                values
                               )
                             : setStep((prev) => prev + 1)
                         }
@@ -216,7 +218,11 @@ const ExhibitionRoom = () => {
                   {step == 4 && (
                     <Button
                       onClick={() => {
-                        handleDraft((values['draft'] = true), handleSubmit);
+                        handleDraft(
+                          (values['draft'] = true),
+                          handleSubmit,
+                          values
+                        );
                       }}
                       color="gray"
                       className="ml-22 w-203 h-33"

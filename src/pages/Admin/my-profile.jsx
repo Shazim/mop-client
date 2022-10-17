@@ -382,7 +382,7 @@ const MyProfile = () => {
                 name="linkedin"
                 placeholder="ENTER PROFILE URL"
                 mb="6"
-                label="twitter"
+                label="Linkedin"
                 className="h-38 w-45% sm:w-full"
               />
               <Button

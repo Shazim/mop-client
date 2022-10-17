@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Package from 'components/Packages/package';
 import { getCookie } from 'cookies/Cookies';
 import { useHistory } from 'react-router-dom';
 import { routes } from 'routes';
 
 function SelectedPackage() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const selectedPackage =
     getCookie('package') && JSON.parse(getCookie('package'));
   const { name, price, description, year } = selectedPackage || {};
