@@ -9,3 +9,4 @@ export const SIGNUP_MODAL = 'SIGNUP_MODAL';
 export const FORGOT_MODAL = 'FORGOT_MODAL';
 export const LOGOUT_USER = 'LOGOUT_USER';
 export const TOTAL_PRICE = 'TOTAL_PRICE';
+export const CHECK_MODEL = 'CHECK_MODEL';

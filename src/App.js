@@ -12,6 +12,7 @@ import PrivateRoute from 'routes/PrivateRoute';
 import { useStore } from '../src/store';
 import router from 'routes';
 import './index.css';
+import CheckModel from 'components/molecules/modals/CheckModel';
 
 function App() {
   const { store } = useStore();
@@ -47,6 +48,7 @@ function App() {
         <LoginModal />
         <SignupModal />
         <ForgotPassword />
+        <CheckModel />
       </Router>
     </Provider>
   );

@@ -61,8 +61,8 @@ const About = () => {
             tools to exhibit and sell their work. We also provide the tools to
             create NFT’s from your photographs to sell on most platforms.
             Whether you want to make money from your photography or simply share
-            your photos with friends and family, we offer you easy to use tools
-            to create your own unique gallery and exhibitions.{' '}
+            your photos with the world, we offer you easy to use tools to create
+            your own unique gallery and exhibitions.{' '}
           </div>
           <div className="pt-30 font-nunito-light text-lg text-dark leading-32 sm:text-center">
             The Red Dot Gallery is also a global marketplace where people buy

@@ -8,7 +8,8 @@ const initialState = {
   isLoginOpen: false,
   isSignupOpen: false,
   isForgotOpen: false,
-  isLogout: false
+  isLogout: false,
+  isCheck: false,
 };
 
 export default initialState;
