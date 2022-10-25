@@ -24,6 +24,7 @@ import {
   LOGIN_MODAL,
   SIGNUP_MODAL,
 } from 'store/actions/actionTypes';
+import { signInWithFacebook } from 'config/Firebase';
 
 const SignupModal = () => {
   const { isLoginOpen, isSignupOpen, isForgotOpen } = useSelector(
@@ -134,6 +135,7 @@ const SignupModal = () => {
                   <Button
                     color="facebook"
                     className="w-455 h-42 tracking font-bold text-white text-sm mt-20 sm:w-full"
+                    onClick={signInWithFacebook}
                   >
                     LOGIN WITH FACEBOOK
                   </Button>

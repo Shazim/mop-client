@@ -5,13 +5,20 @@ import { Link } from 'react-router-dom';
 // ====================== IMPORTED COMPONENTS ========================
 import SearchBar from 'components/atoms/searchbar/SearchBar';
 import { getCookie } from 'cookies/Cookies';
+import { useDispatch, useSelector } from 'react-redux';
 
-// ====================== IMPORTED UTILS ========================
+// ====================== IMPORTED UTILS ===========================
 import { routes } from 'routes';
 import useUserLogout from 'hooks/useUserLogout';
+import { CHECK_MODEL } from 'store/actions/actionTypes';
 
 const NavLinks = () => {
-  const handleLogout = useUserLogout();
+  const { isCheck } = useSelector((state) => state.modals);
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    dispatch({ type: CHECK_MODEL, payload: !isCheck });
+  };
 
   const user = getCookie('user') && JSON.parse(getCookie('user'));
   const { user_type, stripe_id } = user?.user || {};
@@ -77,7 +84,7 @@ const NavLinks = () => {
             {user.first_name ? `Howdy ${user.first_name}` : 'Profile'}
           </div>
         </Link>
-        {(!stripe_id && user_type === 'artist') && (
+        {!stripe_id && user_type === 'artist' && (
           <div
             className={`font-bold mt-6 text-primary text-sm uppercase  link tracking  sm:mt-30`}
             onClick={handleLogout}
