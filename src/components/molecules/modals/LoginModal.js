@@ -23,6 +23,7 @@ import {
   SIGNUP_MODAL,
 } from 'store/actions/actionTypes';
 import Pinterest from 'assets/images/svgs/Pinterest';
+import { signInWithFacebook } from 'config/Firebase';
 
 const LoginModal = () => {
   const { isLoginOpen, isSignupOpen, isForgotOpen } = useSelector(
@@ -61,11 +62,13 @@ const LoginModal = () => {
   };
   const checkRoute = (user_type, first_name) => {
     if (pathname === routes.ROUTE_CHECKOUT) return routes.ROUTE_CHECKOUT;
-    else if (!first_name && user_type === 'artist') return routes.ROUTE_ARTIST_PROFILE;
-    else if (first_name && user_type === 'artist') return routes.ROUTE_STOCKROOM;
+    else if (!first_name && user_type === 'artist')
+      return routes.ROUTE_ARTIST_PROFILE;
+    else if (first_name && user_type === 'artist')
+      return routes.ROUTE_STOCKROOM;
     else if (user_type === 'customer') return routes.ROUTE_CUSTOMER_PROFILE;
-    return routes.ROUTE_ARTIST_PROFILE
-  }
+    return routes.ROUTE_ARTIST_PROFILE;
+  };
 
   const login = (values) => {
     setIsLoading(true);
@@ -73,8 +76,8 @@ const LoginModal = () => {
       .then((response) => {
         setIsLoading(false);
         if (response?.status == 200) {
-          const { user_type } = response?.data?.user
-          const { first_name } = response?.data
+          const { user_type } = response?.data?.user;
+          const { first_name } = response?.data;
           setCookie('user', JSON.stringify(response?.data));
           handleLoginToggle();
           history.push(checkRoute(user_type, first_name));
@@ -113,6 +116,7 @@ const LoginModal = () => {
           <Button
             color="facebook"
             className="w-455 h-42 font-bold text-white tracking text-sm mt-20 sm:w-full"
+            onClick={signInWithFacebook}
           >
             LOGIN WITH FACEBOOK
           </Button>

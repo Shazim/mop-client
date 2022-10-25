@@ -1,8 +1,9 @@
 import React from 'react';
 
-function Facebook({ className: classes = 'stroke-white' }) {
+function Facebook({ className: classes = 'stroke-white', onClick }) {
   return (
     <svg
+      onClick={onClick}
       className={`${classes}`}
       viewBox="0 0 23 23"
       xmlns="http://www.w3.org/2000/svg"

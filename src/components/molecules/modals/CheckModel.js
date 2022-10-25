@@ -3,7 +3,6 @@ import React, { useEffect } from 'react';
 import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { CHECK_MODEL, LOGOUT_USER } from 'store/actions/actionTypes';
-import routes from 'routes';
 import { removeCookie } from 'cookies/Cookies';
 
 import { useHistory } from 'react-router-dom';
@@ -41,7 +40,7 @@ const CheckModel = () => {
       >
         <div className="bg-gray-lighter w-568 pl-56 pr-57 py-40">
           <div className="font-avenir-reg text-2xl mb-15 text-secondary tracking-wider leading-38 uppercase">
-            Are you Sure?
+            Are you want to logout?
           </div>
           <div className="flex justify-between">
             <Button

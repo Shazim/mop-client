@@ -1,8 +1,9 @@
 import React from 'react';
 
-function Twitter({ className: classes = '' }) {
+function Twitter({ className: classes = '', onClick }) {
   return (
     <svg
+      onClick={onClick}
       className={`${classes}`}
       viewBox="0 0 26 25"
       xmlns="http://www.w3.org/2000/svg"
