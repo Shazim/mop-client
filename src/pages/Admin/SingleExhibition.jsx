@@ -35,7 +35,7 @@ const SingleExhibition = () => {
           <img
             src={image || '/images/card/kelly-sikkema-tk9RQCq5eQo-unsplash.jpg'}
             alt=""
-            className="exhition-pic  sm:h-290"
+            className="exhition-pic  sm:h-290 object-cover"
           />
         </div>
         <div className="  w-100% pt-50   sm:px-0">

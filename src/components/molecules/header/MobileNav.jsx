@@ -7,12 +7,19 @@ import SearchBar from 'components/atoms/searchbar/SearchBar';
 import { slide as Menu } from 'react-burger-menu';
 import { getCookie } from 'cookies/Cookies';
 import useUserLogout from 'hooks/useUserLogout';
+import { useDispatch, useSelector } from 'react-redux';
+import { CHECK_MODEL } from 'store/actions/actionTypes';
 
 const MobileNav = () => {
   const [open, setOpen] = useState(false);
   const user = getCookie('user') && JSON.parse(getCookie('user'));
   const { user_type } = user?.user || {};
-  const handleLogout = useUserLogout();
+  const { isCheck } = useSelector((state) => state.modals);
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    dispatch({ type: CHECK_MODEL, payload: !isCheck });
+  };
   return (
     <>
       <div className="py-32 flex justify-between max-screen  sm:w-full sm:relative">

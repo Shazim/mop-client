@@ -131,7 +131,10 @@ const ExhibitionRoom = () => {
     // handleSubmit();
     onSubmit(values);
   };
-
+  const handleForm = (values) => {
+    onSubmit(values);
+    history.push(`${routes.ROUTE_EXHIBITION_ROOM}/live`);
+  };
   useEffect(() => {
     if (step == 0) {
       setStep((prev) => prev - 1) && setDetail('');
@@ -233,9 +236,7 @@ const ExhibitionRoom = () => {
                   {lengthOfSteps === step && (
                     <Button
                       className="ml-22 w-153 h-33"
-                      onClick={() =>
-                        history.push(`${routes.ROUTE_EXHIBITION_ROOM}/live`)
-                      }
+                      onClick={() => handleForm(values)}
                     >
                       FINISH
                     </Button>
