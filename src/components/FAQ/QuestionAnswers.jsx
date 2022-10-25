@@ -27,7 +27,7 @@ function QuestionAnswers({
       {data?.data?.faqs?.map((item, index) => (
         <>
           <div
-            className="flex text-black font-nunito-light pt-20 pb-18 px-19 justify-between border-t  border-border text-base leading-22 link"
+            className="flex text-black font-nunito-light pt-20 pb-18 px-19 justify-between border-t  border-border text-base leading-22 link "
             onClick={() => handleClick(index)}
           >
             <div>{item?.question}</div>
