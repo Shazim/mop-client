@@ -21,7 +21,8 @@ export const END_POINTS = {
   ARTWORKS_PRICE: 'get_paper_and_price',
   ORDERS: '/orders',
   FAQS: '/faqs',
-  SETTINGS: '/artist_setting',
+  SETTINGS: '/artist_settings',
+  CURRENCIES: '/store_currencies',
 };
 
 export const LINKS = {
