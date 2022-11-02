@@ -20,7 +20,6 @@ import { createWork, getStock, updateWork } from 'api/api-services';
 import withArtistRoute from 'hoc/withArtistRoute';
 
 const StockRoom = () => {
-
   const { id } = useParams();
   const dispatch = useDispatch();
   const history = useHistory();
@@ -90,8 +89,8 @@ const StockRoom = () => {
   };
 
   const [post, { data: dataPost, status: statusPost }] = usePost(createWork);
-  const [update, { data: dataUpdate, status: statusUpdate }] = usePost(updateWork);
-
+  const [update, { data: dataUpdate, status: statusUpdate }] =
+    usePost(updateWork);
 
   useEffect(() => {
     if (dataPost || dataUpdate) {
@@ -101,9 +100,9 @@ const StockRoom = () => {
 
   useEffect(() => {
     if (dataStockroom) {
-      const copyData = { ...dataStockroom }
+      const copyData = { ...dataStockroom };
       const colour_ids = {};
-      const style_ids = {}
+      const style_ids = {};
       const artworkIds = copyData?.colours?.map(
         (item) => (colour_ids[item.id] = item.id)
       );
@@ -159,19 +158,19 @@ const StockRoom = () => {
       formDataHandler('artwork', key, value, formData);
     });
     if (id) {
-      update({
-        variables: formData,
-      }, id);
-    }
-    else {
+      update(
+        {
+          variables: formData,
+        },
+        id
+      );
+    } else {
       post({
         variables: formData,
       });
     }
-
   };
 
-  console.log("initialValues", initialValues.artwork_images_attributes);
   return (
     <>
       <AdminLayout handler={addItem} title="Add new artwork" subtitle={step}>

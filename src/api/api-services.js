@@ -22,6 +22,7 @@ const {
   ORDERS,
   FAQS,
   SETTINGS,
+  CURRENCIES,
 } = END_POINTS;
 
 export const featureArtwork = (data) => {
@@ -39,6 +40,9 @@ export const priceSheet = () => {
 };
 export const artistSetting = () => {
   return doGet(`${BASE_URL}${API_PATH}${SETTINGS}`);
+};
+export const updateArtistSetting = (id, data) => {
+  return doPost(`${BASE_URL}${API_PATH}${SETTINGS}/:${id}`, data);
 };
 
 export const priceSheetDetail = (data) => {
@@ -74,7 +78,9 @@ export const getArtWorks = (data) => {
 export const getExhibitionStyles = () => {
   return doGet(`${BASE_URL}${API_PATH}${EXHIBITION_STYLES}`);
 };
-
+export const getCurrency = () => {
+  return doGet(`${BASE_URL}${API_PATH}${CURRENCIES}`);
+};
 export const getPublicArtWork = (data) => {
   return doGet(`${BASE_URL}${API_PATH}/items${ARTWORKS}/${data}`);
 };
