@@ -61,7 +61,7 @@ const StripeElements = () => {
 
   const handleSubmit = () => {
     const card = elements.getElement(CardNumberElement);
-    console.log({ card });
+
     stripe.createToken(card).then(function (result) {
       if (result.error) {
         toast.error(result.error.code);
