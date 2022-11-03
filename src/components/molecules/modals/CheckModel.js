@@ -4,7 +4,7 @@ import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { CHECK_MODEL, LOGOUT_USER } from 'store/actions/actionTypes';
 import { removeCookie } from 'cookies/Cookies';
-
+import routes from 'routes';
 import { useHistory } from 'react-router-dom';
 const CheckModel = () => {
   const history = useHistory();
@@ -23,9 +23,14 @@ const CheckModel = () => {
   }, [isCheck]);
   const handleLogout = () => {
     dispatch({ type: LOGOUT_USER, payload: true });
-    removeCookie('user');
-    dispatch({ type: LOGOUT_USER, payload: false });
     handleCheckToggle();
+    setTimeout(() => {
+      removeCookie('user');
+
+      dispatch({ type: LOGOUT_USER, payload: false });
+
+      history.push(routes.ROUTE_HOME);
+    }, 3000);
   };
   const handleCheckToggle = () => {
     dispatch({ type: CHECK_MODEL, payload: !isCheck });
