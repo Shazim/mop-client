@@ -8,6 +8,7 @@ import { routes } from 'routes';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import withArtistRoute from 'hoc/withArtistRoute';
+import Button from 'components/atoms/buttons/Button';
 
 const SingleExhibition = () => {
   const { id } = useParams();
@@ -57,7 +58,17 @@ const SingleExhibition = () => {
                 <span className="text-white">Copy</span>
               </button>
             </div>
+            <Button
+              type="outline"
+              className="w-112 h-33 ml-35 mr-20  sm:hidden"
+              onClick={() =>
+                history.push(`${routes.ROUTE_SLICK_SLIDER}/${key}`)
+              }
+            >
+              VIEW
+            </Button>
           </div>
+
           <div className="flex items-center">
             <div className="w-6 h-6 bg-primary rounded-full mt-5 mr-8"></div>
             <div className="border-b-2 border-black w-100% pt-6"></div>

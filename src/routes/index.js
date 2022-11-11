@@ -80,7 +80,7 @@ export const routes = Object.freeze({
   ROUTE_SUBSCRIBE_LOGGED: '/subscribe-logged',
   ROUTE_SUBSCRIBE_SIGNED: '/subscribe-signed',
   ROUTE_ORDER_SETTINGS: '/order-settings',
-  ROUTE_SLICK_SLIDER: '/exhibition-demo/:id',
+  ROUTE_SLICK_SLIDER: '/exhibition-demo',
   ROUTE_EDIT_PRICE_SHEET: '/edit-price-sheet/:id',
   ROUTE_PRICING_SHEET_DETAILS: '/price-sheet/:id',
   ROUTE_MY_OREDRS: '/myorders',
@@ -225,7 +225,7 @@ export default Object.freeze([
   { path: routes.ROUTE_SUBSCRIBE_LOGIN, component: SubscribeLogin },
   { path: routes.ROUTE_SUBSCRIBE_SIGNUP, component: SubscribeSignup },
   {
-    path: routes.ROUTE_SLICK_SLIDER,
+    path: `${routes.ROUTE_SLICK_SLIDER}/:id`,
     component: SlickSlider,
   },
 

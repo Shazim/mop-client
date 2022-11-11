@@ -46,7 +46,7 @@ function Sliders({
       <Slider {...settings}>
         {images.map((url) => (
           <img
-            className={`w-80% ${titleClass} sm:w-100% m-auto sm:h-100% `}
+            className={`w-80% ${titleClass} sm:w-100% m-auto sm:h-100% h-100%`}
             src={url.image}
           />
         ))}

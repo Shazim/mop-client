@@ -43,7 +43,7 @@ const SinglePhoto = (props) => {
         <Sliders
           column={1}
           images={sliderImages || []}
-          titleClass="slick-image object-cover"
+          titleClass="slick-image object-contain"
         />
       </div>
       <div className="max-screen flex w-100% pt-115 sm:bg-gray-dark sm:flex-col sm:px-0">
@@ -83,7 +83,7 @@ const SinglePhoto = (props) => {
             <>
               {images?.map(({ image, featured_image }) => {
                 return featured_image ? (
-                  <img className="w-100% h-100%" src={image} />
+                  <img className="w-100% h-100% object-contain" src={image} />
                 ) : (
                   false
                 );
@@ -91,8 +91,13 @@ const SinglePhoto = (props) => {
             </>
           ))}
         </div>
-        <div className="hidden sm:block">
-          <Sliders column={1.2} dots={true} images={sliderImages || []} />
+        <div className="hidden sm:block mb-30">
+          <Sliders
+            column={1.2}
+            dots={true}
+            images={sliderImages || []}
+            titleClass="slick-image object-contain"
+          />
         </div>
       </div>
     </Container>
