@@ -37,6 +37,10 @@ const SinglePhoto = (props) => {
     price_sheet,
   } = dataArtwork || [];
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <Container>
       <div className="max-screen pt-50  sm:w-100% sm:px-23 sm:h-100% sm:bg-gray-dark">

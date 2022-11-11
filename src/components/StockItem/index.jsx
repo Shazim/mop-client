@@ -111,7 +111,7 @@ const StockItem = ({ addItem }) => {
                   find them.
                 </div>
               </div>
-              <div className="gridView  sm:grid grid-cols-1 mt-40">
+              <div className="gridView-3  sm:grid grid-cols-1 mt-40">
                 {artworkData?.map(({ id, name, images }) => (
                   <>
                     {images?.map(({ image, featured_image }) => (

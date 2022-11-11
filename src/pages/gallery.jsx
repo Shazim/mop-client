@@ -1,8 +1,8 @@
 // ====================== IMPORTED LIBRARIES ========================
 import React, { useState, useEffect } from 'react';
 import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+// import 'slick-carousel/slick/slick.css';
+// import 'slick-carousel/slick/slick-theme.css';
 import { Link, useLocation } from 'react-router-dom';
 import { useLazyFetch } from 'hooks';
 import { TailSpin } from 'react-loader-spinner';
@@ -67,6 +67,9 @@ const Gallery = () => {
       setIsLoading(true);
     },
   };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   // useEffect(()=>{
   //   if(dataGalleries){
@@ -88,9 +91,9 @@ const Gallery = () => {
 
   const steps = {
     galleries:
-      data?.galleries.length > 0 ? (
+      data?.galleries?.length > 0 ? (
         <>
-          {data?.galleries.map(({ gallery_name, views, id, image }) => (
+          {data?.galleries?.map(({ gallery_name, views, id, image }) => (
             <Link to={`${routes.ROUTE_GALLERY}/${id}`}>
               <GalleryCard
                 className="w-100% h-100% mb-12 sm:pr-10"
@@ -146,7 +149,7 @@ const Gallery = () => {
         </div>
       ),
     artists:
-      dataArtists?.artists.length > 0 ? (
+      dataArtists?.artists?.length > 0 ? (
         <>
           {' '}
           {dataArtists?.artists?.map(({ artist_name, id, image }) => (
@@ -177,12 +180,8 @@ const Gallery = () => {
   };
   const settings = {
     dots: true,
-
-    infinite: true,
-    speed: 500,
+    infinite: false,
     slidesToShow: 1,
-    slidesToScroll: 1,
-
     responsive: [
       {
         breakpoint: 959,
@@ -190,8 +189,8 @@ const Gallery = () => {
           arrows: false,
           slidesToShow: 2,
           rows: 3,
-
           slidesToScroll: 2,
+
           dots: true,
         },
       },
@@ -200,8 +199,9 @@ const Gallery = () => {
         settings: {
           arrows: false,
           slidesToShow: 2,
-          rows: 2,
+          rows: 3,
           slidesToScroll: 2,
+
           dots: true,
         },
       },
@@ -257,7 +257,7 @@ const Gallery = () => {
               />
             </div>
           ) : (
-            <div className="gridView-4  sm:hidden">{steps[tab]}</div>
+            <div className="gridView-3  sm:hidden">{steps[tab]}</div>
           )}
 
           <div className="hidden sm:block">
@@ -272,9 +272,11 @@ const Gallery = () => {
               </div>
             ) : (
               <div className=" hidden sm:block">
-                <Slider {...settings}>
-                  <div>{steps[tab]}</div>{' '}
-                </Slider>
+                <div className="grid grid-cols-1 ">
+                  <Slider {...settings}>
+                    <div>{steps[tab]}</div>{' '}
+                  </Slider>
+                </div>
               </div>
             )}
           </div>
