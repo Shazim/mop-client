@@ -36,7 +36,7 @@ const SingleExhibition = () => {
           <img
             src={image || '/images/card/kelly-sikkema-tk9RQCq5eQo-unsplash.jpg'}
             alt=""
-            className="exhition-pic  sm:h-290 object-cover"
+            className="exhition-pic  sm:h-290 object-contain"
           />
         </div>
         <div className="  w-100% pt-50   sm:px-0">
@@ -62,7 +62,7 @@ const SingleExhibition = () => {
               type="outline"
               className="w-112 h-33 ml-35 mr-20  sm:hidden"
               onClick={() =>
-                history.push(`${routes.ROUTE_SLICK_SLIDER}/${key}`)
+                window.open(`${routes.ROUTE_SLICK_SLIDER}/${key}`, '_blank')
               }
             >
               VIEW
@@ -77,7 +77,7 @@ const SingleExhibition = () => {
             Artworks
           </p>
           {artworks?.length > 0 && (
-            <div className="gridView  sm:grid grid-cols-1 mt-40 mb-80">
+            <div className="gridView-3  sm:grid grid-cols-1 mt-40 mb-80">
               {artworks?.map(({ id, name, images }) => (
                 <>
                   {images?.map(({ image, featured_image }) => (
