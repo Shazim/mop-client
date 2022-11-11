@@ -36,7 +36,6 @@ const GallerySetting = () => {
     Object.entries(copyData).map(([key, value]) => {
       formDataHandler('gallery', key, value, formData);
     });
-
     gallery({
       variables: formData,
     });
@@ -103,7 +102,7 @@ const GallerySetting = () => {
           artist_name,
         };
       });
-      toast.success('Successfully Updated Gallery');
+      // toast.success('Successfully Updated Gallery');
     }
   }, [dataPost]);
 
@@ -123,7 +122,7 @@ const GallerySetting = () => {
         <Form
           initialValues={initial}
           onSubmit={onSubmit}
-          validationSchema={gallerySchema}
+          // validationSchema={gallerySchema}
           enableReinitialize={true}
         >
           {({ setFieldValue, values, handleSubmit }) => (

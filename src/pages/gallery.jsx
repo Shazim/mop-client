@@ -1,6 +1,8 @@
 // ====================== IMPORTED LIBRARIES ========================
 import React, { useState, useEffect } from 'react';
 import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import { Link, useLocation } from 'react-router-dom';
 import { useLazyFetch } from 'hooks';
 import { TailSpin } from 'react-loader-spinner';
@@ -116,17 +118,18 @@ const Gallery = () => {
     exhibitions:
       dataExhibitions?.exhibitions.length > 0 ? (
         <>
-          {' '}
           {dataExhibitions?.exhibitions?.map(
-            ({ room_name, views, id, image }) => (
-              <GalleryCard
-                className="w-100% h-100% mb-15 sm:pr-10"
-                imageClass="image"
-                info={false}
-                title={room_name}
-                views={views}
-                imageUrl={image ? image : '/images/card/bg_image2.svg'}
-              />
+            ({ room_name, views, id, image, key }) => (
+              <Link to={`${routes.ROUTE_SLICK_SLIDER}/${key}`} target="blank">
+                <GalleryCard
+                  className="w-100% h-100% mb-15 sm:pr-10"
+                  imageClass="image"
+                  info={false}
+                  title={room_name}
+                  views={views}
+                  imageUrl={image ? image : '/images/card/bg_image2.svg'}
+                />
+              </Link>
             )
           )}
         </>
@@ -175,7 +178,11 @@ const Gallery = () => {
   const settings = {
     dots: true,
 
+    infinite: true,
+    speed: 500,
     slidesToShow: 1,
+    slidesToScroll: 1,
+
     responsive: [
       {
         breakpoint: 959,
@@ -183,7 +190,7 @@ const Gallery = () => {
           arrows: false,
           slidesToShow: 2,
           rows: 3,
-          margin: 40,
+
           slidesToScroll: 2,
           dots: true,
         },
@@ -221,8 +228,9 @@ const Gallery = () => {
             <div className="mr-25 sm:mr-0">
               <SearchBar
                 transform="uppercase"
-                placeholder={`search for ${tab == 'Galleries' ? 'Gallery' : tab
-                  }`}
+                placeholder={`search for ${
+                  tab == 'Galleries' ? 'Gallery' : tab
+                }`}
                 bgColor="bg-gray-lighter"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
@@ -249,9 +257,7 @@ const Gallery = () => {
               />
             </div>
           ) : (
-            <div className="grid grid-cols-4 gap-12 sm:hidden">
-              {steps[tab]}
-            </div>
+            <div className="gridView-4  sm:hidden">{steps[tab]}</div>
           )}
 
           <div className="hidden sm:block">
@@ -265,8 +271,10 @@ const Gallery = () => {
                 />
               </div>
             ) : (
-              <div className="gridView-1 packages-slider-1 ">
-                <Slider {...settings}>{steps[tab]} </Slider>
+              <div className=" hidden sm:block">
+                <Slider {...settings}>
+                  <div>{steps[tab]}</div>{' '}
+                </Slider>
               </div>
             )}
           </div>
